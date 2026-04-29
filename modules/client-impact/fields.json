@@ -1,0 +1,50 @@
+{
+  "label": "Client impact",
+  "is_available_for_new_content": true,
+  "host_template_types": ["PAGE"],
+  "fields": [
+    { "name": "section_id", "label": "Section ID", "type": "text", "default": "impact" },
+    { "name": "badge", "label": "Badge", "type": "text", "default": "CLIENT IMPACT" },
+    { "name": "nav_aria_label", "label": "Navigation aria-label", "type": "text", "default": "Client impact slides" },
+    { "name": "more_text", "label": "More link text", "type": "text", "default": "Know more" },
+    { "name": "more_link", "label": "More link", "type": "link", "default": { "url": { "href": "#" } } },
+    { "name": "challenge_label", "label": "Challenge label", "type": "text", "default": "The Challenge" },
+    { "name": "outcomes_label", "label": "Outcomes label", "type": "text", "default": "Outcomes" },
+    {
+      "name": "items",
+      "label": "Impact items",
+      "type": "group",
+      "occurrence": { "min": 1, "max": 10, "default": 5 },
+      "children": [
+        { "name": "industry", "label": "Industry", "type": "text", "default": "Financial Services" },
+        { "name": "metric", "label": "Metric headline", "type": "text", "default": "Real-Time Fraud Intelligence at Scale" },
+        { "name": "company", "label": "Company line", "type": "text", "default": "FORTUNE 200 WEALTH MANAGEMENT LEADER" },
+        { "name": "description", "label": "Description", "type": "text", "default": "Architected a multi-cloud foundation across GCP, AWS, and Azure..." },
+        { "name": "challenge", "label": "Challenge", "type": "text", "default": "Saturated data centers and legacy infrastructure constrained scalability..." },
+        { "name": "solution", "label": "Solution/outcomes", "type": "text", "default": "Achieved faster provisioning, elasticity, and dramatically improved uptime..." },
+        { "name": "image", "label": "Background image", "type": "image" }
+      ],
+      "default": [
+        {
+          "industry": "Financial Services",
+          "metric": "Multi-Cloud Operations for Wealth Management",
+          "company": "FORTUNE 200 WEALTH MANAGEMENT LEADER",
+          "description": "Architected a multi-cloud foundation across GCP, AWS, and Azure, establishing SRE practices and IaC-driven infrastructure governance at enterprise scale.",
+          "challenge": "Saturated data centers and legacy infrastructure constrained scalability, speed-to-market, and operational resilience.",
+          "solution": "Achieved faster IT environment provisioning, enterprise-scale infrastructure elasticity, and dramatically improved system uptime — replacing legacy constraints with cloud-native resilience and business continuity.",
+          "image": { "src": "https://images.unsplash.com/photo-1667984390553-7f439e6ae401?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", "alt": "" }
+        },
+        {
+          "industry": "Banking & Payments",
+          "metric": "Real-Time Fraud Intelligence at Scale",
+          "company": "3RD LARGEST US CREDIT CARD BRAND",
+          "description": "Delivered an event-driven, ML-powered fraud detection platform processing 4,000+ transactions per second, reducing annual fraud losses by over $10M.",
+          "challenge": "Combat increasingly sophisticated fraud at scale while migrating 50TB of legacy data without disrupting live processing for 40M+ active cardholders.",
+          "solution": "Achieved >$10M annual fraud reduction, 42% faster case resolution, and >90% alert accuracy by deploying real-time streaming and ML scoring.",
+          "image": { "src": "https://images.unsplash.com/photo-1430276084627-789fe55a6da0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", "alt": "" }
+        }
+      ]
+    }
+  ]
+}
+

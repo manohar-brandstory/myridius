@@ -1,0 +1,89 @@
+{
+  "label": "Hero",
+  "is_available_for_new_content": true,
+  "host_template_types": ["PAGE"],
+  "fields": [
+    {
+      "name": "section_id",
+      "label": "Section ID",
+      "type": "text",
+      "default": "hero"
+    },
+    {
+      "name": "title",
+      "label": "Title (supports inline HTML)",
+      "type": "richtext",
+      "default": "Finance, Reengineered<br>for the <span class=\"hero__gradient\">Intelligence</span> Age"
+    },
+    {
+      "name": "description",
+      "label": "Description",
+      "type": "richtext",
+      "default": "Myridius helps financial institutions move beyond transformation to true reinvention to be intelligent, adaptive, and future-ready."
+    },
+    {
+      "name": "primary_button",
+      "label": "Primary button",
+      "type": "link",
+      "default": {
+        "url": { "href": "#capabilities" },
+        "open_in_new_tab": false
+      }
+    },
+    {
+      "name": "primary_button_text",
+      "label": "Primary button text",
+      "type": "text",
+      "default": "Explore Our Approach"
+    },
+    {
+      "name": "secondary_button",
+      "label": "Secondary button",
+      "type": "link",
+      "default": {
+        "url": { "href": "#cta" },
+        "open_in_new_tab": false
+      }
+    },
+    {
+      "name": "secondary_button_text",
+      "label": "Secondary button text",
+      "type": "text",
+      "default": "Talk to Our Team"
+    },
+    {
+      "name": "image",
+      "label": "Hero image",
+      "type": "image",
+      "default": {
+        "src": "https://images.unsplash.com/photo-1772112922924-aad44f80d5bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+        "alt": "Modern Financial Enterprise"
+      }
+    },
+    {
+      "name": "image_alt_fallback",
+      "label": "Image alt fallback",
+      "type": "text",
+      "default": "Hero image"
+    },
+    {
+      "name": "meta_kicker",
+      "label": "Media card kicker",
+      "type": "text",
+      "default": "Trusted by Financial Services Clients"
+    },
+    {
+      "name": "meta_title",
+      "label": "Media card title",
+      "type": "text",
+      "default": "From Strategy to Production, End to End."
+    },
+    {
+      "name": "meta_subtitle",
+      "label": "Media card subtitle",
+      "type": "text",
+      "default": "Advisory · Engineering · AI · Experience · Platform"
+    }
+  ]
+}
+

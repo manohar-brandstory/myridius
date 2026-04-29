@@ -1,0 +1,61 @@
+{
+  "label": "How we work (slider)",
+  "is_available_for_new_content": true,
+  "host_template_types": ["PAGE"],
+  "fields": [
+    { "name": "section_id", "label": "Section ID", "type": "text", "default": "method" },
+    { "name": "badge", "label": "Badge", "type": "text", "default": "HOW WE WORK" },
+    { "name": "tabs_aria_label", "label": "Tabs aria-label", "type": "text", "default": "How we work slides" },
+    { "name": "title", "label": "Title", "type": "text", "default": "Engineering Your\nStrategic Execution." },
+    {
+      "name": "slides",
+      "label": "Slides",
+      "type": "group",
+      "occurrence": { "min": 1, "max": 10, "default": 5 },
+      "children": [
+        { "name": "icon", "label": "Icon", "type": "choice", "choices": [["trending_up","Trending up"],["network","Network"],["cpu","CPU"],["star","Star"]], "default": "trending_up" },
+        { "name": "title", "label": "Title", "type": "text", "default": "Outcomes-First" },
+        { "name": "tag", "label": "Tag", "type": "text", "default": "P&L IMPACT OVER PROJECT COMPLETION" },
+        { "name": "description", "label": "Description", "type": "text", "default": "Turn AI ambition into balance sheet impact, with security, governance, and regulatory confidence built in from the start." },
+        { "name": "image", "label": "Background image", "type": "image" },
+        {
+          "name": "points",
+          "label": "Points",
+          "type": "group",
+          "occurrence": { "min": 0, "max": 6, "default": 3 },
+          "children": [
+            { "name": "strong", "label": "Strong label", "type": "text", "default": "Revenue" },
+            { "name": "text", "label": "Text", "type": "text", "default": "AI-powered decisioning at the heart of every client interaction, not bolted on as an afterthought" }
+          ]
+        }
+      ],
+      "default": [
+        {
+          "icon": "trending_up",
+          "title": "Outcomes-First",
+          "tag": "P&L IMPACT OVER PROJECT COMPLETION",
+          "description": "Turn AI ambition into balance sheet impact, with security, governance, and regulatory confidence built in from the start.",
+          "image": { "src": "https://images.unsplash.com/photo-1649182784901-48f5f2d40ecc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", "alt": "" },
+          "points": [
+            { "strong": "Revenue", "text": "AI-powered decisioning at the heart of every client interaction, not bolted on as an afterthought" },
+            { "strong": "Risk", "text": "Predictive risk intelligence that works for the CFO, not just the CRO" },
+            { "strong": "Operations", "text": "Eliminate process debt and free your people to do what only humans can" }
+          ]
+        },
+        {
+          "icon": "network",
+          "title": "Journey Orchestration",
+          "tag": "FROM THE CLIENT IN, NOT THE SYSTEM OUT",
+          "description": "Rebuild every financial services touchpoint from the moment your client experiences it, underpinned by trusted, governed data. Not constrained by legacy core.",
+          "image": { "src": "https://images.unsplash.com/photo-1762264644326-c1f8891ba644?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", "alt": "" },
+          "points": [
+            { "strong": "Onboarding", "text": "KYC and account origination in minutes, not days, controls intact" },
+            { "strong": "Servicing", "text": "Seamless, context-aware interactions that replace channel-hopping with continuity" },
+            { "strong": "Advice", "text": "Relationship managers armed with real-time client intelligence, so every conversation lands" }
+          ]
+        }
+      ]
+    }
+  ]
+}
+

@@ -1,0 +1,87 @@
+{# 
+  Template: BFS Industries (modules assembled)
+  Notes:
+  - Module CSS is scoped via BEM per-module.
+  - Global tokens + base styles live here to avoid cross-module duplication.
+#}
+<!doctype html>
+<html lang="{{ html_lang|default('en') }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page_title }}</title>
+    <meta name="description" content="{{ page_meta_description }}">
+    {{ standard_header_includes }}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+      :root{
+        /* Typography */
+        --font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+        --font-size: 16px;
+
+        /* Core palette (from export) */
+        --color-ink: #0C2226;
+        --color-ink-2: #071417;
+        --color-brand-1: #194247;
+        --color-brand-2: #337077;
+        --color-accent: #52E081;
+        --color-surface: #ffffff;
+        --color-surface-muted: #f9fafb;
+        --color-border: #e5e7eb;
+
+        /* Radii */
+        --radius-12: 12px;
+        --radius-16: 16px;
+        --radius-button: 9999px;
+
+        /* Layout */
+        --container-max: 80rem; /* ~ max-w-7xl */
+        --gutter: 64px;         /* export uses px-[64px] often */
+      }
+
+      html{ font-size: var(--font-size); scroll-behavior: smooth; }
+      body{
+        margin:0;
+        font-family: var(--font-family);
+        color: var(--color-brand-1);
+        background: var(--color-surface);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      *,*::before,*::after{ box-sizing:border-box; }
+      img{ max-width:100%; height:auto; display:block; }
+      a{ color: inherit; text-decoration: none; }
+      button{ font-family: inherit; }
+
+      /* Responsive gutters to match mobile-first requirement */
+      @media (max-width: 1024px){ :root{ --gutter: 32px; } }
+      @media (max-width: 768px){ :root{ --gutter: 20px; } }
+      @media (max-width: 480px){ :root{ --gutter: 16px; } }
+    </style>
+  </head>
+  <body>
+    {% module "navbar" path="/modules/navbar" label="Navbar" %}
+
+    <main>
+      {% module "breadcrumb" path="/modules/breadcrumb" label="Breadcrumb" %}
+      {% module "hero" path="/modules/hero" label="Hero" %}
+      {% module "industry_expertise" path="/modules/industry-expertise" label="Industry expertise" %}
+      {% module "what_we_do" path="/modules/what-we-do" label="What we do" %}
+      {% module "how_we_work" path="/modules/how-we-work" label="How we work (slider)" %}
+      {% module "evoq" path="/modules/evoq" label="EVOQ" %}
+      {% module "client_impact" path="/modules/client-impact" label="Client impact" %}
+      {% module "resources" path="/modules/resources" label="Resources" %}
+      {% module "partners" path="/modules/partners" label="Partners" %}
+      {% module "cta" path="/modules/cta" label="CTA" %}
+    </main>
+
+    {% module "footer" path="/modules/footer" label="Footer" %}
+
+    {{ standard_footer_includes }}
+  </body>
+</html>
+

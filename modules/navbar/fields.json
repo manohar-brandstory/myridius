@@ -1,0 +1,159 @@
+{
+  "label": "Navbar",
+  "is_available_for_new_content": true,
+  "host_template_types": ["PAGE"],
+  "fields": [
+    { "name": "logo", "label": "Logo", "type": "image" },
+    {
+      "name": "logo_link",
+      "label": "Logo link",
+      "type": "link",
+      "default": { "url": { "href": "/" }, "open_in_new_tab": false }
+    },
+    {
+      "name": "logo_aria_label",
+      "label": "Logo aria-label",
+      "type": "text",
+      "default": "Home"
+    },
+    {
+      "name": "fallback_logo_text",
+      "label": "Fallback logo text (if no image)",
+      "type": "text",
+      "default": "Myridius"
+    },
+    { "name": "search_placeholder", "label": "Search placeholder", "type": "text", "default": "Search..." },
+    { "name": "search_aria_label", "label": "Search input aria-label", "type": "text", "default": "Search" },
+    {
+      "name": "cta_text",
+      "label": "Desktop CTA text",
+      "type": "text",
+      "default": "Contact Us"
+    },
+    {
+      "name": "cta_link",
+      "label": "Desktop CTA link",
+      "type": "link",
+      "default": { "url": { "href": "#" }, "open_in_new_tab": false }
+    },
+    {
+      "name": "mobile_cta_text",
+      "label": "Mobile CTA text",
+      "type": "text",
+      "default": "Get in touch"
+    },
+    {
+      "name": "mobile_cta_link",
+      "label": "Mobile CTA link",
+      "type": "link",
+      "default": { "url": { "href": "#" }, "open_in_new_tab": false }
+    },
+    {
+      "name": "nav_links",
+      "label": "Navigation links",
+      "type": "group",
+      "occurrence": { "min": 1, "max": 10, "default": 6 },
+      "children": [
+        { "name": "label", "label": "Label", "type": "text", "default": "Industries" },
+        { "name": "link", "label": "Link", "type": "link", "default": { "url": { "href": "#" } } },
+        { "name": "mega_menu_enabled", "label": "Enable mega menu", "type": "boolean", "default": true },
+        {
+          "name": "mega_header_link",
+          "label": "Mega menu header link",
+          "type": "link",
+          "default": { "url": { "href": "#" }, "open_in_new_tab": false }
+        },
+        {
+          "name": "sections",
+          "label": "Mega menu sections",
+          "type": "group",
+          "occurrence": { "min": 0, "max": 6, "default": 1 },
+          "children": [
+            { "name": "title", "label": "Section title", "type": "text", "default": "Industries We Serve" },
+            {
+              "name": "items",
+              "label": "Items",
+              "type": "group",
+              "occurrence": { "min": 0, "max": 24, "default": 1 },
+              "children": [
+                { "name": "label", "label": "Item label", "type": "text", "default": "Banking & Financial Services" },
+                { "name": "link", "label": "Item link", "type": "link", "default": { "url": { "href": "#" } } },
+                {
+                  "name": "sub_items",
+                  "label": "Sub-items (optional)",
+                  "type": "group",
+                  "occurrence": { "min": 0, "max": 12, "default": 0 },
+                  "children": [
+                    { "name": "label", "label": "Sub-item label", "type": "text", "default": "Business Consulting" },
+                    { "name": "link", "label": "Sub-item link", "type": "link", "default": { "url": { "href": "#" } } }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "default": [
+        {
+          "label": "Industries",
+          "link": { "url": { "href": "#" } },
+          "mega_menu_enabled": true,
+          "mega_header_link": { "url": { "href": "#" } },
+          "sections": [
+            {
+              "title": "Industries We Serve",
+              "items": [
+                { "label": "Banking & Financial Services", "link": { "url": { "href": "#" } } },
+                { "label": "Insurance", "link": { "url": { "href": "#" } } },
+                { "label": "Healthcare & Life Sciences", "link": { "url": { "href": "#" } } },
+                { "label": "Hi-Tech & Startups", "link": { "url": { "href": "#" } } }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Services",
+          "link": { "url": { "href": "#" } },
+          "mega_menu_enabled": true,
+          "mega_header_link": { "url": { "href": "#" } },
+          "sections": [
+            {
+              "title": "Our Services",
+              "items": [
+                {
+                  "label": "Advisory & Strategy",
+                  "link": { "url": { "href": "#" } },
+                  "sub_items": [
+                    { "label": "Business Consulting", "link": { "url": { "href": "#" } } },
+                    { "label": "Technology Advisory", "link": { "url": { "href": "#" } } }
+                  ]
+                },
+                { "label": "Data & Analytics", "link": { "url": { "href": "#" } } },
+                { "label": "Experience", "link": { "url": { "href": "#" } } }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Innovation",
+          "link": { "url": { "href": "#" } },
+          "mega_menu_enabled": true,
+          "mega_header_link": { "url": { "href": "#" } },
+          "sections": [
+            {
+              "title": "",
+              "items": [
+                { "label": "EVOQ", "link": { "url": { "href": "#evoq" } } },
+                { "label": "Applied Insights", "link": { "url": { "href": "#" } } }
+              ]
+            }
+          ]
+        },
+        { "label": "Resources", "link": { "url": { "href": "#infocus" } }, "mega_menu_enabled": false, "sections": [] },
+        { "label": "Careers", "link": { "url": { "href": "#" } }, "mega_menu_enabled": false, "sections": [] },
+        { "label": "About", "link": { "url": { "href": "#" } }, "mega_menu_enabled": false, "sections": [] }
+      ]
+    }
+  ]
+}
+

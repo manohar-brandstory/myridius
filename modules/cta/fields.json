@@ -1,0 +1,16 @@
+{
+  "label": "CTA",
+  "is_available_for_new_content": true,
+  "host_template_types": ["PAGE"],
+  "fields": [
+    { "name": "section_id", "label": "Section ID", "type": "text", "default": "cta" },
+    { "name": "badge", "label": "Badge", "type": "text", "default": "LET'S TALK" },
+    { "name": "title", "label": "Title", "type": "text", "default": "Grow Revenue. Reduce Risk.\nOperate at Full Speed." },
+    { "name": "description", "label": "Description", "type": "text", "default": "Turn strategic priorities into measurable financial outcomes" },
+    { "name": "primary_text", "label": "Primary button text", "type": "text", "default": "Schedule a Conversation" },
+    { "name": "primary_link", "label": "Primary button link", "type": "link", "default": { "url": { "href": "#" } } },
+    { "name": "secondary_text", "label": "Secondary button text", "type": "text", "default": "Explore EVOQ" },
+    { "name": "secondary_link", "label": "Secondary button link", "type": "link", "default": { "url": { "href": "#evoq" } } }
+  ]
+}
+

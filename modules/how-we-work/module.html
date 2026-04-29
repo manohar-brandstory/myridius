@@ -1,0 +1,99 @@
+<section class="hww" id="{{ module.section_id }}">
+  <div class="hww__bg" aria-hidden="true">
+    <img class="hww__bgImg" src="{{ module.slides[0].image.src }}" alt="" loading="lazy" decoding="async" data-bg>
+    <div class="hww__bgOverlay"></div>
+  </div>
+
+  <div class="hww__wrap">
+    <header class="hww__header" data-sr>
+      <div class="hww__badge">
+        <span class="hww__badgeLine" aria-hidden="true"></span>
+        <span class="hww__badgeText">{{ module.badge }}</span>
+      </div>
+      <h2 class="hww__title">{{ module.title }}</h2>
+    </header>
+
+    <div class="hww__tabs" role="tablist" aria-label="{{ module.tabs_aria_label }}" data-tabs>
+      <button class="hww__play" type="button" aria-label="Pause slideshow" data-play>
+        <span class="hww__playIcon" aria-hidden="true" data-play-icon></span>
+      </button>
+
+      <div class="hww__tabRow">
+        {% for slide in module.slides %}
+          <button
+            class="hww__tab"
+            type="button"
+            role="tab"
+            aria-selected="{{ 'true' if loop.first else 'false' }}"
+            data-tab="{{ loop.index0 }}"
+          >
+            <span class="hww__tabIcon" aria-hidden="true">
+              {% if slide.icon == "trending_up" %}
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 17l6-6 4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 7h7v7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              {% elif slide.icon == "network" %}
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="6" cy="6" r="3" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="6" r="3" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="18" r="3" stroke="currentColor" stroke-width="2"/><path d="M8.5 7.5l3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M15.5 7.5l-3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              {% elif slide.icon == "cpu" %}
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="7" y="7" width="10" height="10" rx="2" stroke="currentColor" stroke-width="2"/><path d="M9 1v4M15 1v4M9 19v4M15 19v4M1 9h4M1 15h4M19 9h4M19 15h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              {% else %}
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2-6.3-4.6L5.7 21 8 13.8 2 9.4h7.6L12 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+              {% endif %}
+            </span>
+            <span class="hww__tabLabel">{{ slide.title }}</span>
+            <span class="hww__tabUnderline" aria-hidden="true"></span>
+          </button>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="hww__content" data-content>
+      {% for slide in module.slides %}
+        <div class="hww__slide" data-slide="{{ loop.index0 }}" {% if not loop.first %}hidden{% endif %}>
+          <div class="hww__grid">
+            <div class="hww__left">
+              <div class="hww__headRow">
+                <div class="hww__iconBox" aria-hidden="true">
+                  <span class="hww__iconBoxInner">
+                    {% if slide.icon == "trending_up" %}
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 17l6-6 4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 7h7v7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    {% elif slide.icon == "network" %}
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="6" cy="6" r="3" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="6" r="3" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="18" r="3" stroke="currentColor" stroke-width="2"/><path d="M8.5 7.5l3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M15.5 7.5l-3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    {% elif slide.icon == "cpu" %}
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="7" y="7" width="10" height="10" rx="2" stroke="currentColor" stroke-width="2"/><path d="M9 1v4M15 1v4M9 19v4M15 19v4M1 9h4M1 15h4M19 9h4M19 15h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    {% else %}
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2-6.3-4.6L5.7 21 8 13.8 2 9.4h7.6L12 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+                    {% endif %}
+                  </span>
+                </div>
+                <div class="hww__slideTitle">{{ slide.title }}</div>
+              </div>
+
+              <div class="hww__tag">{{ slide.tag }}</div>
+              <div class="hww__desc">{{ slide.description }}</div>
+            </div>
+
+            <div class="hww__right">
+              <ul class="hww__points" role="list">
+                {% for pt in slide.points %}
+                  <li class="hww__point">
+                    <span class="hww__arrow" aria-hidden="true">&rarr;</span>
+                    <div class="hww__pointBody">
+                      <div class="hww__pointStrong">{{ pt.strong }}</div>
+                      <div class="hww__pointText">{{ pt.text }}</div>
+                    </div>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="hww__bgSrc" hidden aria-hidden="true">
+    {% for slide in module.slides %}
+      <span data-bg-src-for="{{ loop.index0 }}" data-src="{{ slide.image.src }}"></span>
+    {% endfor %}
+  </div>
+</section>
+

@@ -1,0 +1,33 @@
+<section class="res" id="{{ module.section_id }}">
+  <div class="res__wrap">
+    <header class="res__header" data-sr>
+      <div class="res__badge">
+        <span class="res__badgeLine" aria-hidden="true"></span>
+        <span class="res__badgeText">{{ module.badge }}</span>
+      </div>
+      <h2 class="res__title">{{ module.title }}</h2>
+    </header>
+
+    <div class="res__grid">
+      {% for a in module.articles %}
+        <a class="res__card" href="{{ a.link.url.href }}" {% if a.link.open_in_new_tab %}target="_blank" rel="noopener"{% endif %} data-sr>
+          <img class="res__img" src="{{ a.image.src }}" alt="{{ a.image.alt|default(a.title) }}" loading="lazy" decoding="async">
+          <div class="res__grad" aria-hidden="true"></div>
+          <div class="res__cat">{{ a.category }}</div>
+          <div class="res__arrow" aria-hidden="true">
+            <div class="res__arrowBtn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="res__bottom">
+            <h3 class="res__h">{{ a.title }}</h3>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+

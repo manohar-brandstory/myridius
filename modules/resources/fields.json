@@ -1,0 +1,43 @@
+{
+  "label": "Resources",
+  "is_available_for_new_content": true,
+  "host_template_types": ["PAGE"],
+  "fields": [
+    { "name": "section_id", "label": "Section ID", "type": "text", "default": "infocus" },
+    { "name": "badge", "label": "Badge", "type": "text", "default": "RESOURCES" },
+    { "name": "title", "label": "Title", "type": "text", "default": "Latest Perspectives" },
+    {
+      "name": "articles",
+      "label": "Articles",
+      "type": "group",
+      "occurrence": { "min": 1, "max": 9, "default": 3 },
+      "children": [
+        { "name": "category", "label": "Category", "type": "text", "default": "WHITEPAPER" },
+        { "name": "title", "label": "Title", "type": "text", "default": "Accelerating Digitization in Credit Unions for a Gen Z Future" },
+        { "name": "image", "label": "Image", "type": "image" },
+        { "name": "link", "label": "Link", "type": "link" }
+      ],
+      "default": [
+        {
+          "category": "WHITEPAPER",
+          "title": "Accelerating Digitization in Credit Unions for a Gen Z Future",
+          "image": { "src": "https://images.unsplash.com/photo-1592698765727-387c9464cd7f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", "alt": "Whitepaper" },
+          "link": { "url": { "href": "#" }, "open_in_new_tab": true }
+        },
+        {
+          "category": "WHITEPAPER",
+          "title": "Building Customer-First Digital Lending with Salesforce",
+          "image": { "src": "https://images.unsplash.com/photo-1724482606633-fa74fe4f5de1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", "alt": "Whitepaper" },
+          "link": { "url": { "href": "#" }, "open_in_new_tab": true }
+        },
+        {
+          "category": "CASE STUDY",
+          "title": "One Global System for Compliance Automation",
+          "image": { "src": "https://images.unsplash.com/photo-1759752393975-7ca7b302fcc6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", "alt": "Case study" },
+          "link": { "url": { "href": "#" }, "open_in_new_tab": true }
+        }
+      ]
+    }
+  ]
+}
+

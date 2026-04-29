@@ -1,0 +1,36 @@
+{
+  "label": "Breadcrumb",
+  "is_available_for_new_content": true,
+  "host_template_types": ["PAGE"],
+  "fields": [
+    {
+      "name": "items",
+      "label": "Breadcrumb items",
+      "type": "group",
+      "occurrence": {
+        "min": 1,
+        "max": 6,
+        "default": 3
+      },
+      "children": [
+        {
+          "name": "label",
+          "label": "Label",
+          "type": "text",
+          "default": "Myridius"
+        },
+        {
+          "name": "link",
+          "label": "Link",
+          "type": "link"
+        }
+      ],
+      "default": [
+        { "label": "Myridius", "link": { "url": { "href": "#" } } },
+        { "label": "Industries", "link": { "url": { "href": "#" } } },
+        { "label": "Banking & Financial Services", "link": { "url": { "href": "" } } }
+      ]
+    }
+  ]
+}
+

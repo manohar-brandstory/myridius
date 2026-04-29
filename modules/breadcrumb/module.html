@@ -1,0 +1,21 @@
+<section class="breadcrumb" aria-label="Breadcrumb">
+  <div class="breadcrumb__wrap">
+    <nav class="breadcrumb__nav" aria-label="Breadcrumb">
+      <ol class="breadcrumb__list">
+        {% for item in module.items %}
+          <li class="breadcrumb__item">
+            {% if item.link.url.href %}
+              <a class="breadcrumb__link" href="{{ item.link.url.href }}">{{ item.label }}</a>
+            {% else %}
+              <span class="breadcrumb__label">{{ item.label }}</span>
+            {% endif %}
+          </li>
+          {% if not loop.last %}
+            <li class="breadcrumb__sep" aria-hidden="true">/</li>
+          {% endif %}
+        {% endfor %}
+      </ol>
+    </nav>
+  </div>
+</section>
+

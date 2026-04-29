@@ -1,0 +1,40 @@
+<section class="industry" id="{{ module.section_id }}">
+  <div class="industry__wrap">
+    <header class="industry__header" data-sr>
+      <div class="industry__badge">
+        <span class="industry__badgeLine" aria-hidden="true"></span>
+        <span class="industry__badgeText">{{ module.badge }}</span>
+      </div>
+      <h2 class="industry__title">{{ module.title }}</h2>
+    </header>
+
+    <div class="industry__grid">
+      {% for card in module.cards %}
+        <article class="industry__card" data-sr style="--industry-card-index: {{ loop.index0 }};">
+          <div class="industry__media" aria-hidden="true">
+            <img class="industry__img" src="{{ card.image.src }}" alt="{{ card.image.alt|default(card.title) }}" loading="lazy" decoding="async">
+            <div class="industry__grad"></div>
+          </div>
+
+          <div class="industry__base">
+            <div class="industry__cardTitle">{{ card.title }}</div>
+            <div class="industry__cardLine">{{ card.line }}</div>
+          </div>
+
+          <div class="industry__hover" aria-hidden="true">
+            <div class="industry__hoverTitle">{{ card.hover_title }}</div>
+            <ul class="industry__hoverList" role="list">
+              {% for item in card.hover_items %}
+                <li class="industry__hoverItem">
+                  <span class="industry__arrow" aria-hidden="true">&rarr;</span>
+                  <span class="industry__hoverText">{{ item }}</span>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
