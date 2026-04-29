@@ -10,7 +10,7 @@
     "occurrence": { "min": 1, "max": 12, "default": 8 },
     "children": [
       { "name": "title", "label": "Title", "type": "text", "default": "Autonomous Operations" },
-      { "name": "description", "label": "Description", "type": "text", "default": "AI-driven automation spanning core operations from underwriting to reconciliation..." },
+      { "name": "description", "label": "Description", "type": "text", "default": "AI-driven automation spanning core operations." },
       { "name": "accent", "label": "Accent color", "type": "text", "default": "#194247" },
       { "name": "image", "label": "Image", "type": "image" }
     ],
@@ -38,8 +38,31 @@
         "description": "End-to-end digital experiences that convert prospects, onboard clients, and deepen relationships, built for human delight within your operational constraints.",
         "accent": "#337077",
         "image": { "src": "https://images.unsplash.com/photo-1760877281368-56770f1d441a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", "alt": "Frictionless Journeys" }
+      },
+      {
+        "title": "Banking Cloud Transformation",
+        "description": "Risk-managed cloud migration with zero-compromise on compliance and resilience. Reduce infrastructure costs, eliminate technical debt, and build the scalable foundation for AI-first operations.",
+        "accent": "#194247",
+        "image": { "src": "https://images.unsplash.com/photo-1765046255500-ce203b84c307?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", "alt": "Banking Cloud Transformation" }
+      },
+      {
+        "title": "AI-Driven Experiences",
+        "description": "Personalization engines, conversational AI, and adaptive UX that make every client interaction feel considered, not generic. Built to lift NPS, conversion, and reduce cost-to-serve.",
+        "accent": "#337077",
+        "image": { "src": "https://images.unsplash.com/photo-1765046255478-55efc763637c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", "alt": "AI-Driven Experiences" }
+      },
+      {
+        "title": "Data Engineering",
+        "description": "Turn your fragmented enterprise data into a trusted, governed foundation - a unified data fabric powering real-time decisioning, seamless regulatory reporting, and AI at enterprise scale.",
+        "accent": "#52E081",
+        "image": { "src": "https://images.unsplash.com/photo-1612370432785-aeda121d730c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", "alt": "Data Engineering" }
+      },
+      {
+        "title": "Salesforce for Financial Services",
+        "description": "Financial Services Cloud implementation and AI augmentation, intelligent relationship management and compliant client engagement for advisors, bankers, and wealth managers.",
+        "accent": "#194247",
+        "image": { "src": "https://images.unsplash.com/photo-1705862063658-4a18c345b969?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", "alt": "Salesforce for Financial Services" }
       }
     ]
   }
 ]
-

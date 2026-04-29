@@ -1,35 +1,41 @@
-<section class="impact" id="{{ module.section_id }}">
-  <div class="impact__bg" aria-hidden="true">
-    <img class="impact__bgImg" src="{{ module.items[0].image.src }}" alt="" loading="lazy" decoding="async" data-impact-bg>
-    <div class="impact__bgOverlay"></div>
+<section class="impact" id="{{ module.section_id }}" data-impact>
+  <div class="impact__bgWrap" aria-hidden="true">
+    {% for item in module.items %}
+      <div class="impact__bg{% if loop.first %} is-active{% endif %}" data-impact-bg="{{ loop.index0 }}">
+        <img class="impact__bgImg" src="{{ item.image.src }}" alt="" loading="lazy" decoding="async">
+        <div class="impact__bgOverlay"></div>
+      </div>
+    {% endfor %}
   </div>
 
   <div class="impact__wrap">
-    <header class="impact__header" data-sr>
-      <div class="impact__badge">
-        <span class="impact__badgeLine" aria-hidden="true"></span>
-        <span class="impact__badgeText">{{ module.badge }}</span>
-      </div>
-    </header>
+    <div class="impact__badge" data-sr>
+      <span class="impact__badgeLine" aria-hidden="true"></span>
+      <span class="impact__badgeText">{{ module.badge }}</span>
+    </div>
 
-    <div class="impact__body" data-impact>
+    <div class="impact__body">
       {% for item in module.items %}
-        <article class="impact__item" data-impact-item="{{ loop.index0 }}" {% if not loop.first %}hidden{% endif %}>
-          <div class="impact__pill">{{ item.industry }}</div>
+        <article class="impact__item{% if loop.first %} is-active{% endif %}" data-impact-item="{{ loop.index0 }}">
+          <div class="impact__pill">
+            <span class="impact__pillText">{{ item.industry }}</span>
+          </div>
+
           <h3 class="impact__metric">{{ item.metric }}</h3>
+
           <div class="impact__company">{{ item.company }}</div>
 
-          <div class="impact__swap">
-            <div class="impact__desc">{{ item.description }}</div>
-            <div class="impact__details" aria-hidden="true">
-              <div class="impact__cols">
-                <div class="impact__col">
-                  <div class="impact__k">{{ module.challenge_label }}</div>
-                  <div class="impact__p">{{ item.challenge }}</div>
+          <div class="impact__content">
+            <p class="impact__desc">{{ item.description }}</p>
+            <div class="impact__details">
+              <div class="impact__detailsCols">
+                <div class="impact__detailCol">
+                  <div class="impact__detailLabel">{{ module.challenge_label }}</div>
+                  <p class="impact__detailText">{{ item.challenge }}</p>
                 </div>
-                <div class="impact__col">
-                  <div class="impact__k">{{ module.outcomes_label }}</div>
-                  <div class="impact__p">{{ item.solution }}</div>
+                <div class="impact__detailCol">
+                  <div class="impact__detailLabel">{{ module.outcomes_label }}</div>
+                  <p class="impact__detailText">{{ item.solution }}</p>
                 </div>
               </div>
             </div>
@@ -49,22 +55,19 @@
         </span>
       </a>
 
-      <div class="impact__right">
-        <button class="impact__pause" type="button" aria-label="Pause slideshow" data-impact-pause></button>
+      <div class="impact__navRight">
+        <button class="impact__pauseBtn" type="button" aria-label="Pause slideshow" data-impact-pause>
+          <svg class="impact__pauseIcon" width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="6" y="4" width="4" height="16" fill="currentColor"/><rect x="14" y="4" width="4" height="16" fill="currentColor"/></svg>
+          <svg class="impact__playIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" hidden><path d="M8 5v14l11-7L8 5z" fill="currentColor"/></svg>
+        </button>
         <div class="impact__nums" role="tablist" aria-label="{{ module.nav_aria_label }}">
           {% for item in module.items %}
-            <button class="impact__num" type="button" role="tab" aria-selected="{{ 'true' if loop.first else 'false' }}" data-impact-go="{{ loop.index0 }}">
+            <button class="impact__num{% if loop.first %} is-active{% endif %}" type="button" role="tab" aria-selected="{{ 'true' if loop.first else 'false' }}" data-impact-go="{{ loop.index0 }}">
               {{ "%02d"|format(loop.index) }}
             </button>
           {% endfor %}
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="impact__src" hidden aria-hidden="true">
-    {% for item in module.items %}
-      <span data-impact-src="{{ loop.index0 }}" data-src="{{ item.image.src }}"></span>
-    {% endfor %}
   </div>
 </section>

@@ -1,7 +1,6 @@
 [
   { "name": "section_id", "label": "Section ID", "type": "text", "default": "method" },
   { "name": "badge", "label": "Badge", "type": "text", "default": "HOW WE WORK" },
-  { "name": "tabs_aria_label", "label": "Tabs aria-label", "type": "text", "default": "How we work slides" },
   { "name": "title", "label": "Title", "type": "text", "default": "Engineering Your\nStrategic Execution." },
   {
     "name": "slides",
@@ -9,21 +8,10 @@
     "type": "group",
     "occurrence": { "min": 1, "max": 10, "default": 5 },
     "children": [
-      {
-        "name": "icon",
-        "label": "Icon",
-        "type": "choice",
-        "choices": [
-          ["trending_up", "Trending up"],
-          ["network", "Network"],
-          ["cpu", "CPU"],
-          ["star", "Star"]
-        ],
-        "default": "trending_up"
-      },
+      { "name": "icon", "label": "Icon key", "type": "text", "default": "trending_up" },
       { "name": "title", "label": "Title", "type": "text", "default": "Outcomes-First" },
       { "name": "tag", "label": "Tag", "type": "text", "default": "P&L IMPACT OVER PROJECT COMPLETION" },
-      { "name": "description", "label": "Description", "type": "text", "default": "Turn AI ambition into balance sheet impact, with security, governance, and regulatory confidence built in from the start." },
+      { "name": "description", "label": "Description", "type": "text", "default": "Turn AI ambition into balance sheet impact." },
       { "name": "image", "label": "Background image", "type": "image" },
       {
         "name": "points",
@@ -32,7 +20,7 @@
         "occurrence": { "min": 0, "max": 6, "default": 3 },
         "children": [
           { "name": "strong", "label": "Strong label", "type": "text", "default": "Revenue" },
-          { "name": "text", "label": "Text", "type": "text", "default": "AI-powered decisioning at the heart of every client interaction" }
+          { "name": "text", "label": "Text", "type": "text", "default": "Description text" }
         ]
       }
     ],
@@ -53,12 +41,49 @@
         "icon": "network",
         "title": "Journey Orchestration",
         "tag": "FROM THE CLIENT IN, NOT THE SYSTEM OUT",
-        "description": "Rebuild every financial services touchpoint from the moment your client experiences it, underpinned by trusted, governed data.",
+        "description": "Rebuild every financial services touchpoint from the moment your client experiences it, underpinned by trusted, governed data. Not constrained by legacy core.",
         "image": { "src": "https://images.unsplash.com/photo-1762264644326-c1f8891ba644?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", "alt": "" },
         "points": [
           { "strong": "Onboarding", "text": "KYC and account origination in minutes, not days, controls intact" },
           { "strong": "Servicing", "text": "Seamless, context-aware interactions that replace channel-hopping with continuity" },
           { "strong": "Advice", "text": "Relationship managers armed with real-time client intelligence, so every conversation lands" }
+        ]
+      },
+      {
+        "icon": "cpu",
+        "title": "Integrated Intelligence",
+        "tag": "ONE INSIGHT LAYER ACROSS YOUR ENTIRE VALUE CHAIN",
+        "description": "Connect your data, decisioning, and AI into a single governed, access-controlled layer, so intelligence flows to the point of action, not to a dashboard nobody checks.",
+        "image": { "src": "https://images.unsplash.com/photo-1763811939712-52c5b21920c0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", "alt": "" },
+        "points": [
+          { "strong": "Credit & Lending", "text": "Adaptive AI scoring that improves with every decision and explains every outcome" },
+          { "strong": "Fraud & AML", "text": "Real-time detection across transaction, behavioral, and network signals, unified, not siloed" },
+          { "strong": "Client Intelligence", "text": "Next best action surfaced from a single, always-current client view" }
+        ]
+      },
+      {
+        "icon": "user_check",
+        "title": "Human Ingenuity",
+        "tag": "DEEP BFS EXPERTISE IN EVERY ENGAGEMENT",
+        "description": "The questions that shape the best financial services solutions cannot be prompted, they come from practitioners who have lived inside these institutions.",
+        "image": { "src": "https://images.unsplash.com/photo-1771270759486-1f7703945072?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", "alt": "" },
+        "points": [
+          { "strong": "Domain depth", "text": "Practitioners who know how credit is priced, wealth is managed, and payment schemes work" },
+          { "strong": "Judgment", "text": "Teams that design for how institutions operate, not how textbooks say they should" },
+          { "strong": "Cross-discipline", "text": "Strategy, engineering, CX, and data in one room—upstream decisions aligned" },
+          { "strong": "Responsible AI & Governance", "text": "AI applied with genuine advantage, explainability, auditability, and human oversight" }
+        ]
+      },
+      {
+        "icon": "wrench",
+        "title": "AI-Native Engineering",
+        "tag": "AI EMBEDDED ACROSS THE ENTIRE FINANCIAL SERVICES DELIVERY STACK",
+        "description": "AI acceleration across every delivery mode—custom platforms, core banking configurations, data ecosystems, and managed services—with the same regulatory discipline whether building greenfield or running 24/7 operations.",
+        "image": { "src": "https://images.unsplash.com/photo-1589539574113-aa8d54506e9d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", "alt": "" },
+        "points": [
+          { "strong": "Discover, Configure & Build", "text": "AI-accelerated delivery across banking, lending, and wealth platforms without sacrificing regulatory rigor" },
+          { "strong": "Data Engineering & Integration", "text": "AI-assisted pipelines, migrations, and streaming to establish governed foundations for decisioning" },
+          { "strong": "Run & Continuously Improve", "text": "AI-driven monitoring and self-healing operations protecting uptime across platforms" }
         ]
       }
     ]
