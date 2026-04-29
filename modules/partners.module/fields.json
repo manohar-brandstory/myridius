@@ -1,0 +1,35 @@
+[
+  { "name": "section_id", "label": "Section ID", "type": "text", "default": "partners" },
+  { "name": "badge", "label": "Badge", "type": "text", "default": "PARTNERS" },
+  { "name": "title", "label": "Title", "type": "text", "default": "A partner ecosystem aligned\nto your results" },
+  { "name": "description", "label": "Description", "type": "text", "default": "The best financial services outcomes aren\u2019t built on single platforms. Our ecosystem ensures every partner works toward your business results." },
+  { "name": "link_text", "label": "Link text", "type": "text", "default": "Partner Approach" },
+  {
+    "name": "link_url",
+    "label": "Link",
+    "type": "url",
+    "supported_types": ["EXTERNAL", "CONTENT"],
+    "default": { "content_id": null, "href": "#", "type": "EXTERNAL" }
+  },
+  {
+    "name": "partners",
+    "label": "Partners",
+    "type": "group",
+    "occurrence": { "min": 1, "max": 24, "default": 9 },
+    "children": [
+      { "name": "partner_name", "label": "Name", "type": "text", "default": "AWS" },
+      { "name": "logo", "label": "Logo", "type": "image" }
+    ],
+    "default": [
+      { "partner_name": "Prove", "logo": { "src": "https://www.logggos.club/_next/image?url=%2Flogos%2Fprove.png&w=1080&q=75", "alt": "Prove" } },
+      { "partner_name": "Alloy", "logo": { "src": "https://cdn.brandfetch.io/idZhW64Twu/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B", "alt": "Alloy" } },
+      { "partner_name": "AWS", "logo": { "src": "https://cdn.brandfetch.io/idVoqFQ-78/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B", "alt": "AWS" } },
+      { "partner_name": "Salesforce", "logo": { "src": "https://cdn.brandfetch.io/idVE84WdIN/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B", "alt": "Salesforce" } },
+      { "partner_name": "Microsoft", "logo": { "src": "https://cdn.brandfetch.io/idchmboHEZ/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B", "alt": "Microsoft" } },
+      { "partner_name": "Adobe", "logo": { "src": "https://cdn.brandfetch.io/id_KsyK7J9/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B", "alt": "Adobe" } },
+      { "partner_name": "ServiceNow", "logo": { "src": "https://cdn.brandfetch.io/idgONjBNKe/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B", "alt": "ServiceNow" } },
+      { "partner_name": "Snowflake", "logo": { "src": "https://cdn.brandfetch.io/idJz-fGD_q/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B", "alt": "Snowflake" } },
+      { "partner_name": "Databricks", "logo": { "src": "https://cdn.brandfetch.io/idSUrLOWbH/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B", "alt": "Databricks" } }
+    ]
+  }
+]

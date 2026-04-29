@@ -1,0 +1,180 @@
+<nav class="navbar" aria-label="Primary">
+  <div class="navbar__bar">
+    <div class="navbar__wrap">
+      <div class="navbar__row">
+        <div class="navbar__brand">
+          <a class="navbar__logoLink" href="{{ module.logo_url.href }}" aria-label="{{ module.logo_aria_label }}">
+            {% if module.logo.src %}
+              <img class="navbar__logo" src="{{ module.logo.src }}" alt="{{ module.logo.alt|default('') }}" loading="eager" decoding="async">
+            {% else %}
+              <span class="navbar__logoText">{{ module.fallback_logo_text }}</span>
+            {% endif %}
+          </a>
+        </div>
+
+        <div class="navbar__desktop">
+          <ul class="navbar__links" role="list">
+            {% for link in module.nav_links %}
+              <li class="navbar__item">
+                {% if link.mega_menu_enabled %}
+                  <button class="navbar__trigger" type="button" data-nav-trigger="{{ loop.index0 }}" aria-expanded="false">
+                    <span class="navbar__triggerLabel">{{ link.text }}</span>
+                    <span class="navbar__chev" aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                  </button>
+                {% else %}
+                  <a class="navbar__link" href="{{ link.url.href }}">{{ link.text }}</a>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <div class="navbar__actions">
+          <div class="navbar__search">
+            <button class="navbar__iconBtn" type="button" aria-label="Search" data-search-toggle>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </button>
+            <div class="navbar__searchBox" hidden>
+              <input class="navbar__searchInput" type="text" placeholder="{{ module.search_placeholder }}" aria-label="{{ module.search_aria_label }}">
+              <span class="navbar__searchIcon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+
+          {% if module.cta_text %}
+            <a class="navbar__cta" href="{{ module.cta_url.href }}">
+              {{ module.cta_text }}
+            </a>
+          {% endif %}
+
+          <button class="navbar__mobileBtn" type="button" aria-label="Open menu" data-mobile-toggle>
+            <span class="navbar__hamburger" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {# Desktop mega menu panel #}
+  <div class="navbar__mega" hidden data-mega>
+    <div class="navbar__megaInner">
+      {% for link in module.nav_links %}
+        {% if link.mega_menu_enabled %}
+          <div class="navbar__panel" data-nav-panel="{{ loop.index0 }}" hidden>
+            {% if link.mega_header_url.href %}
+              <a class="navbar__panelHeader" href="{{ link.mega_header_url.href }}">
+                <span class="navbar__panelTitle">{{ link.text }}</span>
+                <span class="navbar__panelArrow" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </a>
+            {% endif %}
+
+            <div class="navbar__grid">
+              {% for section in link.sections %}
+                <div class="navbar__col">
+                  {% if section.title %}
+                    <div class="navbar__colTitle">{{ section.title }}</div>
+                  {% endif %}
+
+                  <ul class="navbar__colList" role="list">
+                    {% for item in section.items %}
+                      <li class="navbar__colItem">
+                        {% if item.sub_items|length %}
+                          <button class="navbar__expander" type="button" data-expander>
+                            <span class="navbar__expanderLabel">{{ item.text }}</span>
+                            <span class="navbar__expanderIcon" aria-hidden="true"></span>
+                          </button>
+                          <ul class="navbar__subList" role="list" hidden>
+                            {% for sub in item.sub_items %}
+                              <li class="navbar__subItem">
+                                <a class="navbar__subLink" href="{{ sub.sub_url.href }}">{{ sub.text }}</a>
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        {% else %}
+                          <a class="navbar__colLink" href="{{ item.url.href }}">
+                            <span class="navbar__colLinkLabel">{{ item.text }}</span>
+                            <span class="navbar__colLinkArrow" aria-hidden="true">
+                              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </span>
+                          </a>
+                        {% endif %}
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  {# Backdrop overlay (desktop) #}
+  <div class="navbar__backdrop" hidden data-backdrop></div>
+
+  {# Mobile tray #}
+  <div class="navbar__mobile" hidden data-mobile>
+    <div class="navbar__mobileBackdrop" data-mobile-close></div>
+    <div class="navbar__mobileTray" role="dialog" aria-modal="true" aria-label="Menu">
+      <div class="navbar__mobileInner">
+        <div class="navbar__mobileLinks">
+          {% for link in module.nav_links %}
+            <div class="navbar__mItem">
+              <div class="navbar__mRow">
+                <a class="navbar__mLink" href="{{ link.url.href }}">{{ link.text }}</a>
+                {% if link.mega_menu_enabled %}
+                  <button class="navbar__mToggle" type="button" aria-label="Toggle {{ link.text }}" data-mobile-panel-toggle="{{ loop.index0 }}">
+                    <span class="navbar__mChev" aria-hidden="true"></span>
+                  </button>
+                {% endif %}
+              </div>
+
+              {% if link.mega_menu_enabled %}
+                <div class="navbar__mPanel" hidden data-mobile-panel="{{ loop.index0 }}">
+                  {% for section in link.sections %}
+                    {% if section.title %}
+                      <div class="navbar__mSectionTitle">{{ section.title }}</div>
+                    {% endif %}
+                    <div class="navbar__mSectionLinks">
+                      {% for item in section.items %}
+                        <a class="navbar__mSubLink" href="{{ item.url.href }}">{{ item.text }}</a>
+                      {% endfor %}
+                    </div>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+
+        {% if module.mobile_cta_text %}
+          <div class="navbar__mobileCta">
+            <a class="navbar__mobileCtaBtn" href="{{ module.mobile_cta_url.href }}">
+              {{ module.mobile_cta_text }}
+            </a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</nav>

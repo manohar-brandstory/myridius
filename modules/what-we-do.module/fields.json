@@ -1,0 +1,45 @@
+[
+  { "name": "section_id", "label": "Section ID", "type": "text", "default": "capabilities" },
+  { "name": "badge", "label": "Badge", "type": "text", "default": "WHAT WE DO" },
+  { "name": "title", "label": "Title", "type": "text", "default": "Built Across\nEvery Layer." },
+  { "name": "card_height", "label": "Card height (px)", "type": "number", "default": 320 },
+  {
+    "name": "cards",
+    "label": "Cards",
+    "type": "group",
+    "occurrence": { "min": 1, "max": 12, "default": 8 },
+    "children": [
+      { "name": "title", "label": "Title", "type": "text", "default": "Autonomous Operations" },
+      { "name": "description", "label": "Description", "type": "text", "default": "AI-driven automation spanning core operations from underwriting to reconciliation..." },
+      { "name": "accent", "label": "Accent color", "type": "text", "default": "#194247" },
+      { "name": "image", "label": "Image", "type": "image" }
+    ],
+    "default": [
+      {
+        "title": "Autonomous Operations",
+        "description": "AI-driven automation spanning core operations from underwriting to reconciliation, bridging legacy to modern systems with AI that run continuously, decides in context and escalates when it matters.",
+        "accent": "#194247",
+        "image": { "src": "https://images.unsplash.com/photo-1755669933959-377ab117bb8a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", "alt": "Autonomous Operations" }
+      },
+      {
+        "title": "Client Intelligence",
+        "description": "A unified 360 client view, combining relationship data, behavioral signals, and product history, surfacing the right action at the right moment, into the tools your teams already use.",
+        "accent": "#337077",
+        "image": { "src": "https://images.unsplash.com/photo-1635425509832-0918f84c468c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", "alt": "Client Intelligence" }
+      },
+      {
+        "title": "Ecosystem Banking",
+        "description": "Open banking APIs, BaaS infrastructure, and embedded finance orchestration, monetize partnerships and launch new product lines without rewiring your core.",
+        "accent": "#194247",
+        "image": { "src": "https://images.unsplash.com/photo-1770555600539-39e98e58870e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", "alt": "Ecosystem Banking" }
+      },
+      {
+        "title": "Frictionless Journeys",
+        "description": "End-to-end digital experiences that convert prospects, onboard clients, and deepen relationships, built for human delight within your operational constraints.",
+        "accent": "#337077",
+        "image": { "src": "https://images.unsplash.com/photo-1760877281368-56770f1d441a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", "alt": "Frictionless Journeys" }
+      }
+    ]
+  }
+]
+

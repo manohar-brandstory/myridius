@@ -1,0 +1,27 @@
+<section class="cta" id="{{ module.section_id }}">
+  <div class="cta__orb" aria-hidden="true"></div>
+  <div class="cta__grid" aria-hidden="true"></div>
+
+  <div class="cta__wrap" data-sr>
+    <div class="cta__badge">
+      <span class="cta__badgeLine" aria-hidden="true"></span>
+      <span class="cta__badgeText">{{ module.badge }}</span>
+    </div>
+    <h2 class="cta__title">{{ module.title }}</h2>
+    <div class="cta__desc">{{ module.description }}</div>
+    <div class="cta__actions">
+      <a class="cta__btn cta__btn--primary" href="{{ module.primary_url.href }}">
+        {{ module.primary_text }}
+        <span class="cta__btnIcon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+      <a class="cta__btn cta__btn--ghost" href="{{ module.secondary_url.href }}" data-scroll>
+        {{ module.secondary_text }}
+      </a>
+    </div>
+  </div>
+</section>

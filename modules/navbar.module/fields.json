@@ -1,0 +1,175 @@
+[
+  { "name": "logo", "label": "Logo", "type": "image" },
+  {
+    "name": "logo_url",
+    "label": "Logo link",
+    "type": "url",
+    "supported_types": ["EXTERNAL", "CONTENT"],
+    "default": { "content_id": null, "href": "/", "type": "EXTERNAL" }
+  },
+  {
+    "name": "logo_aria_label",
+    "label": "Logo aria-label",
+    "type": "text",
+    "default": "Home"
+  },
+  {
+    "name": "fallback_logo_text",
+    "label": "Fallback logo text (if no image)",
+    "type": "text",
+    "default": "Myridius"
+  },
+  { "name": "search_placeholder", "label": "Search placeholder", "type": "text", "default": "Search..." },
+  { "name": "search_aria_label", "label": "Search input aria-label", "type": "text", "default": "Search" },
+  {
+    "name": "cta_text",
+    "label": "Desktop CTA text",
+    "type": "text",
+    "default": "Contact Us"
+  },
+  {
+    "name": "cta_url",
+    "label": "Desktop CTA link",
+    "type": "url",
+    "supported_types": ["EXTERNAL", "CONTENT"],
+    "default": { "content_id": null, "href": "#", "type": "EXTERNAL" }
+  },
+  {
+    "name": "mobile_cta_text",
+    "label": "Mobile CTA text",
+    "type": "text",
+    "default": "Get in touch"
+  },
+  {
+    "name": "mobile_cta_url",
+    "label": "Mobile CTA link",
+    "type": "url",
+    "supported_types": ["EXTERNAL", "CONTENT"],
+    "default": { "content_id": null, "href": "#", "type": "EXTERNAL" }
+  },
+  {
+    "name": "nav_links",
+    "label": "Navigation links",
+    "type": "group",
+    "occurrence": { "min": 1, "max": 10, "default": 6 },
+    "children": [
+      { "name": "text", "label": "Label", "type": "text", "default": "Industries" },
+      {
+        "name": "url",
+        "label": "Link",
+        "type": "url",
+        "supported_types": ["EXTERNAL", "CONTENT"],
+        "default": { "content_id": null, "href": "#", "type": "EXTERNAL" }
+      },
+      { "name": "mega_menu_enabled", "label": "Enable mega menu", "type": "boolean", "default": true },
+      {
+        "name": "mega_header_url",
+        "label": "Mega menu header link",
+        "type": "url",
+        "supported_types": ["EXTERNAL", "CONTENT"],
+        "default": { "content_id": null, "href": "#", "type": "EXTERNAL" }
+      },
+      {
+        "name": "sections",
+        "label": "Mega menu sections",
+        "type": "group",
+        "occurrence": { "min": 0, "max": 6, "default": 1 },
+        "children": [
+          { "name": "title", "label": "Section title", "type": "text", "default": "Industries We Serve" },
+          {
+            "name": "items",
+            "label": "Items",
+            "type": "group",
+            "occurrence": { "min": 0, "max": 24, "default": 1 },
+            "children": [
+              { "name": "text", "label": "Item label", "type": "text", "default": "Banking & Financial Services" },
+              {
+                "name": "url",
+                "label": "Item link",
+                "type": "url",
+                "supported_types": ["EXTERNAL", "CONTENT"],
+                "default": { "content_id": null, "href": "#", "type": "EXTERNAL" }
+              },
+              {
+                "name": "sub_items",
+                "label": "Sub-items (optional)",
+                "type": "group",
+                "occurrence": { "min": 0, "max": 12, "default": 0 },
+                "children": [
+                  { "name": "text", "label": "Sub-item label", "type": "text", "default": "Business Consulting" },
+                  {
+                    "name": "sub_url",
+                    "label": "Sub-item link",
+                    "type": "url",
+                    "supported_types": ["EXTERNAL", "CONTENT"],
+                    "default": { "content_id": null, "href": "#", "type": "EXTERNAL" }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "default": [
+      {
+        "text": "Industries",
+        "url": { "content_id": null, "href": "#", "type": "EXTERNAL" },
+        "mega_menu_enabled": true,
+        "mega_header_url": { "content_id": null, "href": "#", "type": "EXTERNAL" },
+        "sections": [
+          {
+            "title": "Industries We Serve",
+            "items": [
+              { "text": "Banking & Financial Services", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } },
+              { "text": "Insurance", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } },
+              { "text": "Healthcare & Life Sciences", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } },
+              { "text": "Hi-Tech & Startups", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Services",
+        "url": { "content_id": null, "href": "#", "type": "EXTERNAL" },
+        "mega_menu_enabled": true,
+        "mega_header_url": { "content_id": null, "href": "#", "type": "EXTERNAL" },
+        "sections": [
+          {
+            "title": "Our Services",
+            "items": [
+              {
+                "text": "Advisory & Strategy",
+                "url": { "content_id": null, "href": "#", "type": "EXTERNAL" },
+                "sub_items": [
+                  { "text": "Business Consulting", "sub_url": { "content_id": null, "href": "#", "type": "EXTERNAL" } },
+                  { "text": "Technology Advisory", "sub_url": { "content_id": null, "href": "#", "type": "EXTERNAL" } }
+                ]
+              },
+              { "text": "Data & Analytics", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } },
+              { "text": "Experience", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Innovation",
+        "url": { "content_id": null, "href": "#", "type": "EXTERNAL" },
+        "mega_menu_enabled": true,
+        "mega_header_url": { "content_id": null, "href": "#", "type": "EXTERNAL" },
+        "sections": [
+          {
+            "title": "",
+            "items": [
+              { "text": "EVOQ", "url": { "content_id": null, "href": "#evoq", "type": "EXTERNAL" } },
+              { "text": "Applied Insights", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } }
+            ]
+          }
+        ]
+      },
+      { "text": "Resources", "url": { "content_id": null, "href": "#infocus", "type": "EXTERNAL" }, "mega_menu_enabled": false, "sections": [] },
+      { "text": "Careers", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" }, "mega_menu_enabled": false, "sections": [] },
+      { "text": "About", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" }, "mega_menu_enabled": false, "sections": [] }
+    ]
+  }
+]

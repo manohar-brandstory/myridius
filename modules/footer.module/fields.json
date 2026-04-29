@@ -1,0 +1,99 @@
+[
+  {
+    "name": "logo",
+    "label": "Logo",
+    "type": "image",
+    "default": {
+      "src": "",
+      "alt": "Myridius logo",
+      "loading": "lazy"
+    }
+  },
+  {
+    "name": "logo_url",
+    "label": "Logo link",
+    "type": "url",
+    "supported_types": ["EXTERNAL", "CONTENT"],
+    "default": {
+      "content_id": null,
+      "href": "#",
+      "type": "EXTERNAL"
+    }
+  },
+  {
+    "name": "fallback_logo_text",
+    "label": "Fallback logo text",
+    "type": "text",
+    "default": "Myridius"
+  },
+  {
+    "name": "tagline",
+    "label": "Tagline",
+    "type": "text",
+    "default": "Building adaptive capacity for the enterprise."
+  },
+  {
+    "name": "social",
+    "label": "Social links",
+    "type": "group",
+    "occurrence": { "min": 0, "max": 8, "default": 4 },
+    "children": [
+      { "name": "platform", "label": "Platform name", "type": "text", "default": "LinkedIn" },
+      {
+        "name": "url",
+        "label": "Link",
+        "type": "url",
+        "supported_types": ["EXTERNAL"],
+        "default": { "content_id": null, "href": "#", "type": "EXTERNAL" }
+      },
+      {
+        "name": "svg_icon",
+        "label": "SVG icon (inline)",
+        "type": "text",
+        "allow_new_line": true,
+        "default": "<svg viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M6 9h3v10H6V9zm1.5-4.5A1.75 1.75 0 1 1 7.5 8a1.75 1.75 0 0 1 0-3.5zM11 9h3v1.4c.4-.8 1.4-1.6 3-1.6 3.2 0 3.8 2.1 3.8 4.8V19h-3v-4.7c0-1.1 0-2.6-1.6-2.6s-1.8 1.2-1.8 2.5V19h-3V9z\" fill=\"currentColor\"/></svg>"
+      }
+    ],
+    "default": [
+      { "platform": "LinkedIn", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } },
+      { "platform": "Facebook", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } },
+      { "platform": "Instagram", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } },
+      { "platform": "YouTube", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } }
+    ]
+  },
+  {
+    "name": "columns",
+    "label": "Link columns",
+    "type": "group",
+    "occurrence": { "min": 1, "max": 8, "default": 7 },
+    "children": [
+      { "name": "title", "label": "Column title", "type": "text", "default": "Industries" },
+      {
+        "name": "links",
+        "label": "Links",
+        "type": "group",
+        "occurrence": { "min": 0, "max": 20, "default": 5 },
+        "children": [
+          { "name": "text", "label": "Label", "type": "text", "default": "Banking & Finance" },
+          {
+            "name": "url",
+            "label": "Link",
+            "type": "url",
+            "supported_types": ["EXTERNAL", "CONTENT"],
+            "default": { "content_id": null, "href": "#", "type": "EXTERNAL" }
+          }
+        ]
+      }
+    ],
+    "default": [
+      { "title": "Industries", "links": [{ "text": "Banking & Finance", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } }, { "text": "Insurance", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } }] },
+      { "title": "Services", "links": [{ "text": "Advisory & Strategy", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } }, { "text": "Data & Analytics", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } }] },
+      { "title": "Innovation", "links": [{ "text": "EVOQ", "url": { "content_id": null, "href": "#evoq", "type": "EXTERNAL" } }, { "text": "Applied Insights", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } }] },
+      { "title": "Resources", "links": [{ "text": "Resource Hub", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } }, { "text": "Events", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } }] },
+      { "title": "Careers", "links": [{ "text": "Culture", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } }, { "text": "Job Openings", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } }] },
+      { "title": "About", "links": [{ "text": "Company", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } }, { "text": "Partners", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } }] }
+    ]
+  },
+  { "name": "copyright", "label": "Copyright", "type": "text", "default": "\u00a9 2026 myridius. All rights reserved." },
+  { "name": "bottom_right", "label": "Bottom right text", "type": "text", "default": "Execution at scale." }
+]

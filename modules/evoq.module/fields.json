@@ -1,0 +1,83 @@
+[
+  { "name": "section_id", "label": "Section ID", "type": "text", "default": "evoq" },
+  { "name": "badge", "label": "Badge", "type": "text", "default": "INNOVATION FABRIC" },
+  { "name": "title", "label": "Title", "type": "text", "default": "Ambition to Impact.\nExperience-Led. Intelligence-Driven." },
+  { "name": "background_image", "label": "Background image", "type": "image" },
+  { "name": "logo_image", "label": "Logo image (optional)", "type": "image" },
+  { "name": "powered_kicker", "label": "Powered by kicker", "type": "text", "default": "Powered by" },
+  { "name": "powered_name", "label": "Powered by name", "type": "text", "default": "Myridius EVOQ" },
+  {
+    "name": "powered_url",
+    "label": "Powered by link",
+    "type": "url",
+    "supported_types": ["EXTERNAL", "CONTENT"],
+    "default": { "content_id": null, "href": "#", "type": "EXTERNAL" }
+  },
+  {
+    "name": "cards",
+    "label": "Cards",
+    "type": "group",
+    "occurrence": { "min": 1, "max": 8, "default": 4 },
+    "children": [
+      { "name": "tag", "label": "Tag", "type": "text", "default": "Lending & Credit" },
+      { "name": "title", "label": "Title", "type": "text", "default": "Commercial Underwriting Workbench" },
+      { "name": "description", "label": "Description", "type": "text", "default": "AI-first workbench for faster, traceable commercial credit decisions." },
+      { "name": "image", "label": "Image", "type": "image" },
+      {
+        "name": "outcomes",
+        "label": "Outcomes",
+        "type": "group",
+        "occurrence": { "min": 0, "max": 6, "default": 3 },
+        "children": [
+          { "name": "text", "label": "Outcome text", "type": "text", "default": "Faster credit decision cycles" }
+        ]
+      }
+    ],
+    "default": [
+      {
+        "tag": "Lending & Credit",
+        "title": "Commercial Underwriting Workbench",
+        "description": "AI-first workbench for faster, traceable commercial credit decisions.",
+        "outcomes": [
+          { "text": "Faster credit decision cycles" },
+          { "text": "Consistent underwriting quality at scale" },
+          { "text": "Automated audit-ready documentation" }
+        ],
+        "image": { "src": "https://images.unsplash.com/photo-1601785486643-23fc429f18e0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", "alt": "Commercial Underwriting Workbench" }
+      },
+      {
+        "tag": "Simplify Modernization",
+        "title": "Code to Clarity",
+        "description": "AI that reads, documents, modernizes legacy code and auto syncs to Jira and Confluence.",
+        "outcomes": [
+          { "text": "Rapid legacy codebase comprehension" },
+          { "text": "System-logic driven modernization roadmap" },
+          { "text": "Accelerated rebuild with agentic forward-engineering" }
+        ],
+        "image": { "src": "https://images.unsplash.com/photo-1755254533551-032b6e83a309?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", "alt": "Code to Clarity" }
+      },
+      {
+        "tag": "Client Experience",
+        "title": "CXM Redefined",
+        "description": "A unified client intelligence layer that consolidates fragmented relationship data for real-time insights.",
+        "outcomes": [
+          { "text": "Unified client profile across all touchpoints" },
+          { "text": "Real-time next-best-action for every segment" },
+          { "text": "Measurable uplift in wallet share and retention" }
+        ],
+        "image": { "src": "https://images.unsplash.com/photo-1759661966728-4a02e3c6ed91?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", "alt": "CXM Redefined" }
+      },
+      {
+        "tag": "Decision Intelligence",
+        "title": "Interactive Insights",
+        "description": "A conversational analytics layer for financial services leaders for live, exploratory intelligence.",
+        "outcomes": [
+          { "text": "Natural language queries on live business data" },
+          { "text": "Cross-domain synthesis: finance, ops, client, risk" },
+          { "text": "Insights in minutes, not reporting cycles" }
+        ],
+        "image": { "src": "https://images.unsplash.com/photo-1772050138768-2107c6e62a03?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", "alt": "Interactive Insights" }
+      }
+    ]
+  }
+]

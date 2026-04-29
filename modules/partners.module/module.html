@@ -1,0 +1,35 @@
+<section class="partners" id="{{ module.section_id }}">
+  <div class="partners__wrap">
+    <div class="partners__grid">
+      <div class="partners__copy" data-sr>
+        <div class="partners__badge">
+          <span class="partners__badgeLine" aria-hidden="true"></span>
+          <span class="partners__badgeText">{{ module.badge }}</span>
+        </div>
+        <h2 class="partners__title">{{ module.title }}</h2>
+        <div class="partners__desc">{{ module.description }}</div>
+        <a class="partners__link" href="{{ module.link_url.href }}">
+          {{ module.link_text }}
+          <span class="partners__linkIcon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+      </div>
+
+      <div class="partners__logos" data-sr>
+        {% for p in module.partners %}
+          <div class="partners__logoCell" title="{{ p.partner_name }}">
+            {% if p.logo.src %}
+              <img class="partners__logo" src="{{ p.logo.src }}" alt="{{ p.logo.alt|default(p.partner_name) }}" loading="lazy" decoding="async">
+            {% else %}
+              <span class="partners__logoText">{{ p.partner_name }}</span>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
