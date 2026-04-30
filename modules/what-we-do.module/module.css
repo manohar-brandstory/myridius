@@ -31,7 +31,7 @@
   font-size: 48px;
   font-weight: 500;
   line-height: 1.12;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.05em;
   color: var(--color-brand-1);
   white-space: pre-line;
 }
@@ -130,8 +130,13 @@
 @media (min-width: 1024px){
   .wwd__grid{ grid-template-columns: repeat(4, minmax(0,1fr)); }
 }
+@media (max-width: 768px){
+  .wwd{ padding: 64px 0; }
+  .wwd__title{ font-size: 32px; }
+  .wwd__header{ margin-bottom: 40px; }
+}
 @media (max-width: 480px){
   .wwd__grid{ grid-template-columns: 1fr; }
-  .wwd__title{ font-size: 36px; }
+  .wwd__title{ font-size: 28px; }
 }
 

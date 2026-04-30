@@ -51,16 +51,10 @@
     pauseBtn.addEventListener('click', function() {
       isPaused = !isPaused;
       this.classList.toggle('is-paused', isPaused);
-      var pauseIcon = this.querySelector('.hww__pauseIcon');
-      var playIcon = this.querySelector('.hww__playIcon');
       if (isPaused) {
         stopAutoplay();
-        if (pauseIcon) pauseIcon.setAttribute('hidden', '');
-        if (playIcon) playIcon.removeAttribute('hidden');
       } else {
         startAutoplay();
-        if (pauseIcon) pauseIcon.removeAttribute('hidden');
-        if (playIcon) playIcon.setAttribute('hidden', '');
       }
     });
   }

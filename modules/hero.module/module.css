@@ -176,10 +176,21 @@
 @media (max-width: 1024px){
   .hero{ padding-bottom: 96px; }
   .hero__title{ font-size: clamp(44px, 7vw, 64px); }
+  .hero__grid{ gap: 48px; }
+}
+
+@media (max-width: 768px){
+  .hero{ padding: 0 var(--gutter) 64px; }
+  .hero__title{ font-size: clamp(36px, 8vw, 48px); }
+  .hero__desc{ font-size: 16px; margin-bottom: 32px; }
+  .hero__btn{ padding: 16px 28px; font-size: 14px; min-height: 52px; }
+  .hero__card{ max-height: 400px; }
 }
 
 @media (max-width: 480px){
-  .hero__meta{ left: 16px; right: 16px; bottom: 16px; }
+  .hero__meta{ left: 16px; right: 16px; bottom: 16px; padding: 16px; }
   .hero__btn{ width: 100%; }
+  .hero__title{ font-size: 32px; }
+  .hero__desc{ font-size: 15px; }
 }
 

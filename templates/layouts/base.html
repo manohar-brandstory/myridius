@@ -26,6 +26,7 @@
         --color-brand-1: #194247;
         --color-brand-2: #337077;
         --color-accent: #52E081;
+        --color-accent-80: #52e081cc;
         --color-surface: #ffffff;
         --color-surface-muted: #f9fafb;
         --color-border: #e5e7eb;
@@ -42,16 +43,21 @@
       html { font-size: var(--font-size); scroll-behavior: smooth; }
       body {
         margin: 0;
+        padding-top: 64px;
         font-family: var(--font-family);
         color: var(--color-brand-1);
         background: var(--color-surface);
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
       }
       *, *::before, *::after { box-sizing: border-box; }
       img { max-width: 100%; height: auto; display: block; }
       a { color: inherit; text-decoration: none; }
       button { font-family: inherit; }
+      :root { --wwd-row-height: 320px; --wwd-accent: #52E081; }
+      @media (max-width: 768px) { :root { --wwd-row-height: 260px; } }
+      @media (max-width: 480px) { :root { --wwd-row-height: 220px; } }
     </style>
 
     {{ standard_header_includes }}

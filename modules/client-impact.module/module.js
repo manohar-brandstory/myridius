@@ -2,6 +2,16 @@
   var root = document.querySelector('[data-impact]');
   if (!root) return;
 
+  var keywords = ['intelligence','real time','agile','rapid','accelerated','effectiveness','reduced','automation'];
+  root.querySelectorAll('.impact__metric').forEach(function(el) {
+    var html = el.innerHTML;
+    keywords.forEach(function(kw) {
+      var re = new RegExp('(' + kw + ')', 'gi');
+      html = html.replace(re, '<span style="color:#52E081">$1</span>');
+    });
+    el.innerHTML = html;
+  });
+
   var items = root.querySelectorAll('[data-impact-item]');
   var bgs = root.querySelectorAll('[data-impact-bg]');
   var nums = root.querySelectorAll('[data-impact-go]');
@@ -52,16 +62,10 @@
     pauseBtn.addEventListener('click', function() {
       isPaused = !isPaused;
       this.classList.toggle('is-paused', isPaused);
-      var pauseIcon = this.querySelector('.impact__pauseIcon');
-      var playIcon = this.querySelector('.impact__playIcon');
       if (isPaused) {
         stopAutoplay();
-        if (pauseIcon) pauseIcon.setAttribute('hidden', '');
-        if (playIcon) playIcon.removeAttribute('hidden');
       } else {
         startAutoplay();
-        if (pauseIcon) pauseIcon.removeAttribute('hidden');
-        if (playIcon) playIcon.setAttribute('hidden', '');
       }
     });
   }

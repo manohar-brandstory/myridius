@@ -22,7 +22,7 @@
     <div class="hww__tabs">
       <button class="hww__pause" type="button" aria-label="Pause slideshow" data-hww-pause>
         <svg class="hww__pauseIcon" width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="6" y="4" width="4" height="16" fill="currentColor"/><rect x="14" y="4" width="4" height="16" fill="currentColor"/></svg>
-        <svg class="hww__playIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" hidden><path d="M8 5v14l11-7L8 5z" fill="currentColor"/></svg>
+        <svg class="hww__playIcon" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7L8 5z" fill="currentColor"/></svg>
       </button>
       {% for slide in module.slides %}
         <button class="hww__tab{% if loop.first %} is-active{% endif %}" type="button" data-hww-tab="{{ loop.index0 }}">

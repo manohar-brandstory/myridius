@@ -1,6 +1,6 @@
 .breadcrumb{
   background: var(--color-surface);
-  padding: 90px var(--gutter) 0;
+  padding: 26px var(--gutter) 0;
 }
 
 .breadcrumb__wrap{
@@ -48,6 +48,6 @@
 }
 
 @media (max-width: 768px){
-  .breadcrumb{ padding-top: 72px; }
+  .breadcrumb{ padding-top: 16px; }
 }
 

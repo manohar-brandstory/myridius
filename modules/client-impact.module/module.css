@@ -74,7 +74,7 @@
 }
 
 .impact__metric{
-  font-size: clamp(2.4rem, 5vw, 3.5rem);
+  font-size: clamp(2.8rem, 5vw, 3.5rem);
   font-weight: 500;
   letter-spacing: -0.03em;
   line-height: 1.1;
@@ -157,8 +157,10 @@
   display: flex; align-items: center;
 }
 .impact__pauseBtn:hover{ color: #fff; }
+.impact__pauseIcon, .impact__playIcon{ display: flex; }
+.impact__playIcon{ display: none; }
 .impact__pauseBtn.is-paused .impact__pauseIcon{ display: none; }
-.impact__pauseBtn.is-paused .impact__playIcon{ display: block; }
+.impact__pauseBtn.is-paused .impact__playIcon{ display: flex; }
 
 .impact__nums{
   display: flex; gap: 64px;
@@ -176,11 +178,20 @@
 .impact__num.is-active{ color: #fff; }
 
 @media (max-width: 768px){
+  .impact{ padding: 64px 16px; }
   .impact__metric{ font-size: 2rem; }
-  .impact__desc{ font-size: 18px; }
+  .impact__desc{ font-size: 16px; }
   .impact__detailsCols{ grid-template-columns: 1fr; gap: 24px; }
-  .impact__nums{ gap: 32px; }
+  .impact__nums{ gap: 24px; }
+  .impact__body{ min-height: 320px; }
+  .impact__nav{ flex-direction: column; align-items: flex-start; gap: 24px; }
+  .impact__navRight{ width: 100%; justify-content: space-between; }
 }
 @media (max-width: 480px){
-  .impact__nums{ gap: 20px; }
+  .impact{ padding: 48px 16px; }
+  .impact__nums{ gap: 16px; }
+  .impact__body{ min-height: 280px; }
+  .impact__metric{ font-size: 1.6rem; }
+  .impact__company{ font-size: 13px; margin-bottom: 24px; }
+  .impact__desc{ font-size: 14px; }
 }

@@ -19,9 +19,9 @@
   font-size: 48px;
   font-weight: 500;
   line-height: 1.12;
-  letter-spacing: -0.02em;
-  white-space: pre-line;
+  letter-spacing: -0.05em;
 }
+.evoq__titleAccent{ color: var(--color-accent-80, #52e081cc); font-style: italic; }
 .evoq__powered{
   display:inline-flex;
   align-items:center;
@@ -83,12 +83,25 @@
 .evoq .is-sr-hidden{ opacity: 0; transform: translateY(12px); }
 .evoq .is-sr-shown{ opacity: 1; transform: none; transition: opacity 600ms ease, transform 600ms ease; }
 
+@media (min-width: 768px){
+  .evoq__grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
 @media (min-width: 1024px){
   .evoq__grid{ grid-template-columns: repeat(4, minmax(0,1fr)); }
   .evoq__card:first-child{ border-top-left-radius: var(--radius-12); border-bottom-left-radius: var(--radius-12); }
   .evoq__card:last-child{ border-top-right-radius: var(--radius-12); border-bottom-right-radius: var(--radius-12); }
 }
+@media (max-width: 768px){
+  .evoq{ padding: 64px 0; }
+  .evoq__headRow{ flex-direction: column; gap: 16px; }
+  .evoq__title{ font-size: 32px; }
+  .evoq__card{ height: 400px; }
+  .evoq__header{ margin-bottom: 40px; }
+}
 @media (max-width: 480px){
-  .evoq__title{ font-size: 36px; }
+  .evoq__title{ font-size: 28px; }
+  .evoq__card{ height: 340px; }
+  .evoq__powered{ padding: 6px 14px; gap: 8px; }
+  .evoq__poweredName{ font-size: 16px; }
 }
 

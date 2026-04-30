@@ -63,4 +63,15 @@
 .res .is-sr-shown{ opacity: 1; transform: none; transition: opacity 600ms ease, transform 600ms ease; }
 
 @media (min-width: 768px){ .res__grid{ grid-template-columns: repeat(3, minmax(0,1fr)); } }
+@media (max-width: 768px){
+  .res{ padding: 64px 0; }
+  .res__title{ font-size: 32px; }
+  .res__header{ margin-bottom: 40px; }
+  .res__card{ height: 300px; }
+  .res__grid{ gap: 16px; }
+}
+@media (max-width: 480px){
+  .res__card{ height: 260px; }
+  .res__h{ font-size: 16px; }
+}
 
