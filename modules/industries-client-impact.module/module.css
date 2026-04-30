@@ -1,0 +1,225 @@
+.impact{
+  position: relative;
+  overflow: hidden;
+  padding: 96px 24px;
+  background: #0C2226;
+  color: #fff;
+}
+
+.impact__bgWrap{
+  position: absolute; inset: 0; z-index: 0;
+}
+.impact__bg{
+  position: absolute; inset: 0;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+.impact__bg.is-active{ opacity: 0.3; }
+.impact__bgImg{
+  width: 100%; height: 100%; object-fit: cover;
+  filter: grayscale(1);
+  mix-blend-mode: overlay;
+}
+.impact__bgOverlay{
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom right, rgba(25,66,71,0.45), rgba(82,224,129,0.2), rgba(25,66,71,0.45));
+}
+
+.impact__wrap{
+  position: relative; z-index: 10;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.impact__badge{
+  display: inline-flex; align-items: center; gap: 10px; margin-bottom: 24px;
+}
+.impact__badgeLine{ width: 24px; height: 2px; background: #52E081; border-radius: 2px; }
+.impact__badgeText{
+  font-size: 14px; font-weight: 500; text-transform: uppercase;
+  letter-spacing: 0.2em; color: #52E081;
+}
+
+.impact__body{
+  position: relative;
+  min-height: 0;
+}
+
+@keyframes impactSlideIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.impact__item{
+  display: none;
+  opacity: 0;
+}
+.impact__item.is-active{
+  display: block;
+  animation: impactSlideIn 0.8s ease both;
+}
+
+.impact__pill{
+  margin-bottom: 24px;
+}
+.impact__pillText{
+  display: inline-block;
+  background: rgba(246,248,249,0.1);
+  border: 1px solid rgba(140,161,163,0.3);
+  border-radius: 8px;
+  padding: 1px 17px;
+  height: 34px; line-height: 34px;
+  font-size: 13px; font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  color: #52E081;
+}
+
+.impact__metric{
+  font-size: clamp(2.8rem, 5vw, 3.5rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0 0 16px;
+  color: #F5FFF0;
+}
+
+.impact__company{
+  font-size: 15px; font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 32px;
+}
+
+.impact__content{
+  position: relative;
+  min-height: 0;
+}
+.impact__desc{
+  font-size: 22px; font-weight: 400;
+  color: #e8eff0;
+  max-width: 48rem;
+  line-height: 1.625;
+  margin: 0;
+  transition: opacity 0.3s ease;
+}
+.impact__details{
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  max-width: 64rem;
+}
+
+/* Tap-to-reveal (mobile + accessible) */
+.impact__item.is-open .impact__desc{ display: none; }
+.impact__item.is-open .impact__details{ display: block; opacity: 1; }
+
+/* Desktop hover reveal keeps the original overlay behavior */
+@media (hover: hover) and (pointer: fine){
+  .impact__body{ cursor: pointer; }
+  .impact__details{
+    display: block;
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+  }
+  .impact__body:hover .impact__desc{ opacity: 0; }
+  .impact__body:hover .impact__details{ opacity: 1; }
+}
+
+.impact__detailsCols{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+.impact__detailLabel{
+  font-size: 12px; font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 8px;
+}
+.impact__detailText{
+  font-size: 16px; font-weight: 500;
+  color: rgba(236,250,229,0.9);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.impact__nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 32px;
+}
+.impact__more{
+  display: inline-flex; align-items: center; gap: 8px;
+  color: #52E081;
+  font-size: 16px; font-weight: 500;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+.impact__more:hover{ color: #ECFAE5; }
+.impact__moreIcon{ transition: transform 0.3s; display:inline-flex; align-items:center; }
+.impact__moreIcon svg{ display:block; }
+.impact__more:hover .impact__moreIcon{ transform: translateX(4px); }
+
+.impact__navRight{
+  display: flex; align-items: center; gap: 32px;
+}
+.impact__pauseBtn{
+  background: none; border: none; cursor: pointer;
+  color: rgba(255,255,255,0.7);
+  transition: color 0.3s;
+  display: flex; align-items: center;
+}
+.impact__pauseBtn:hover{ color: #fff; }
+.impact__pauseIcon, .impact__playIcon{ display: flex; }
+.impact__playIcon{ display: none; }
+.impact__pauseBtn.is-paused .impact__pauseIcon{ display: none; }
+.impact__pauseBtn.is-paused .impact__playIcon{ display: flex; }
+
+.impact__nums{
+  display: flex; gap: 64px;
+}
+.impact__num{
+  background: none; border: none; cursor: pointer;
+  font-size: 12px; font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #8CA1A3;
+  transition: color 0.3s;
+  padding: 0;
+}
+.impact__num:hover{ color: #fff; }
+.impact__num.is-active{ color: #fff; }
+
+@media (max-width: 768px){
+  .impact{ padding: 64px 16px; }
+  .impact__metric{ font-size: 2rem; }
+  .impact__desc{ font-size: 16px; }
+  .impact__detailsCols{ grid-template-columns: 1fr; gap: 24px; }
+  .impact__nums{ gap: 24px; }
+  .impact__nav{ flex-direction: column; align-items: flex-start; gap: 24px; }
+  .impact__navRight{ width: 100%; justify-content: space-between; }
+}
+@media (max-width: 480px){
+  .impact{ padding: 48px 16px; }
+  .impact__nums{ gap: 16px; }
+  .impact__metric{ font-size: 1.6rem; }
+  .impact__company{ font-size: 13px; margin-bottom: 24px; }
+  .impact__desc{ font-size: 14px; }
+}
+
+/* Touch devices can "stick" :hover on tap; disable hover-only effects */
+@media (hover: none) and (pointer: coarse){
+  .impact__more:hover{ color: #52E081; }
+  .impact__more:hover .impact__moreIcon{ transform: none; }
+  .impact__pauseBtn:hover{ color: rgba(255,255,255,0.7); }
+  .impact__num:hover{ color: #8CA1A3; }
+  /* Ensure active state still highlights even if :hover "sticks" on tap */
+  .impact__num.is-active,
+  .impact__num.is-active:hover{ color: #fff !important; }
+}

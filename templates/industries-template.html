@@ -1,0 +1,63 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Industries Template
+-->
+{% extends "./layouts/base.html" %}
+
+{% block body %}
+  <main class="myridius-page">
+    {% dnd_area "main_content", label="Main Content" %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/industries-breadcrumb.module", label="Industries - Breadcrumb" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/industries-hero.module", label="Industries - Hero" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/industries-industry-expertise.module", label="Industries - Industry Expertise" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/industries-what-we-do.module", label="Industries - What We Do" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/industries-how-we-work.module", label="Industries - How We Work" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/industries-evoq.module", label="Industries - EVOQ" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/industries-client-impact.module", label="Industries - Client Impact" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/industries-resources.module", label="Industries - Resources" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/industries-partners.module", label="Industries - Partners" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/industries-cta.module", label="Industries - CTA" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+    {% end_dnd_area %}
+  </main>
+{% endblock body %}

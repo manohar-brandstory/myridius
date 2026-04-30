@@ -59,17 +59,27 @@
       :root { --wwd-row-height: 320px; --wwd-accent: #194247; }
       @media (max-width: 768px) { :root { --wwd-row-height: 260px; } }
       @media (max-width: 480px) { :root { --wwd-row-height: 220px; } }
+
+      /* Mobile H2 typography consistency (match What We Do, with requested line-height) */
+      @media (max-width: 768px){
+        .myridius-page h2{
+          font-size: 36px;
+          line-height: 45px;
+          letter-spacing: -2.4px;
+          font-weight: 500;
+        }
+      }
     </style>
 
     {{ standard_header_includes }}
   </head>
   <body>
-    {% module "navbar" path="/Myridius Theme V1/modules/navbar.module" %}
+    {% module "navbar" path="/Myridius Theme V1/modules/industries-navbar.module" %}
 
     {% block body %}
     {% endblock body %}
 
-    {% module "footer" path="/Myridius Theme V1/modules/footer.module" %}
+    {% module "footer" path="/Myridius Theme V1/modules/industries-footer.module" %}
 
     {{ standard_footer_includes }}
   </body>

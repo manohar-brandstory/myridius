@@ -1,0 +1,84 @@
+<section class="evoq" id="{{ module.section_id }}">
+  <div class="evoq__bg" aria-hidden="true">
+    {% if module.background_image.src %}
+      <img class="evoq__bgImg" src="{{ module.background_image.src }}" alt="" loading="lazy" decoding="async">
+    {% endif %}
+    <div class="evoq__bgGrad"></div>
+  </div>
+
+  <div class="evoq__wrap">
+    <header class="evoq__header" data-sr>
+      <div class="evoq__badge">
+        <span class="evoq__badgeLine" aria-hidden="true"></span>
+        <span class="evoq__badgeText">{{ module.badge }}</span>
+      </div>
+      <div class="evoq__headRow">
+        <div class="evoq__headCopy">
+          <h2 class="evoq__title">Ambition to Impact.<br><span class="evoq__titleAccent">Experience-Led. Intelligence-Driven.</span></h2>
+          <a class="evoq__powered" href="{{ module.powered_url.href }}">
+            <span class="evoq__poweredKicker">{{ module.powered_kicker }}</span>
+            <span class="evoq__poweredName">{{ module.powered_name }}</span>
+            <span class="evoq__poweredArrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+        {% if module.logo_image.src %}
+          <img class="evoq__logo" src="{{ module.logo_image.src }}" alt="{{ module.logo_image.alt|default('EVOQ') }}" loading="lazy" decoding="async">
+        {% endif %}
+      </div>
+    </header>
+
+    <div class="evoq__slider" data-evoq-slider>
+      <div class="evoq__track" data-evoq-track>
+        {% for card in module.cards %}
+        <article class="evoq__card{% if loop.first %} is-active{% endif %}" data-evoq-card="{{ loop.index0 }}" data-sr tabindex="0" role="button" aria-label="{{ card.title }}" aria-expanded="{{ 'true' if loop.first else 'false' }}">
+          <div class="evoq__cardDefault" aria-hidden="true">
+            <img class="evoq__cardImg" src="{{ card.image.src }}" alt="{{ card.image.alt|default(card.title) }}" loading="lazy" decoding="async">
+            <div class="evoq__cardGrad"></div>
+            <div class="evoq__cardBottom">
+              <div class="evoq__tag">{{ card.tag }}</div>
+              <div class="evoq__cardTitle">{{ card.title }}</div>
+            </div>
+          </div>
+
+          <div class="evoq__cardHover" aria-hidden="true">
+            <div class="evoq__tag">{{ card.tag }}</div>
+            <div class="evoq__cardTitle evoq__cardTitle--hover">{{ card.title }}</div>
+            <div class="evoq__desc">{{ card.description }}</div>
+            <ul class="evoq__outcomes" role="list">
+              {% for o in card.outcomes %}
+                <li class="evoq__outcome">
+                  <span class="evoq__arrow" aria-hidden="true">&rarr;</span>
+                  <span class="evoq__outcomeText">{{ o.text }}</span>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+
+      <div class="evoq__nav" aria-label="EVOQ navigation">
+        <button class="evoq__navBtn" type="button" aria-label="Previous" data-evoq-prev>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="evoq__count" aria-live="polite">
+          <span class="evoq__countCur" data-evoq-cur>1</span>
+          <span class="evoq__countSep">/</span>
+          <span class="evoq__countTotal" data-evoq-total>{{ module.cards|length }}</span>
+        </div>
+        <button class="evoq__navBtn" type="button" aria-label="Next" data-evoq-next>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
