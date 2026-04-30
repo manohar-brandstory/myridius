@@ -94,15 +94,38 @@
 }
 .hww__tab.is-active .hww__tabLine{ transform: scaleX(1); }
 
+@keyframes hwwSlideLeft {
+  from { opacity: 0; transform: translateX(50%); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes hwwFadeRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
 .hww__slides{ position: relative; min-height: 280px; }
 .hww__slide{
   display: none;
   opacity: 0;
-  transition: opacity 0.6s ease;
 }
 .hww__slide.is-active{
   display: block;
   opacity: 1;
+}
+.hww__slide.is-active .hww__slideLeft{
+  animation: hwwSlideLeft 0.8s cubic-bezier(0.25,0.1,0.25,1) 0.5s both;
+}
+.hww__slide.is-active .hww__point:nth-child(1){
+  animation: hwwFadeRight 0.5s ease 1.2s both;
+}
+.hww__slide.is-active .hww__point:nth-child(2){
+  animation: hwwFadeRight 0.5s ease 1.35s both;
+}
+.hww__slide.is-active .hww__point:nth-child(3){
+  animation: hwwFadeRight 0.5s ease 1.5s both;
+}
+.hww__slide.is-active .hww__point:nth-child(4){
+  animation: hwwFadeRight 0.5s ease 1.65s both;
 }
 
 .hww__slideGrid{

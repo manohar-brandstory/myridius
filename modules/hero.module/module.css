@@ -91,7 +91,8 @@
 .hero__btn--primary:hover .hero__btnIcon{
   transform: translateX(4px);
 }
-.hero__btnIcon{ transition: transform 250ms ease; display:inline-flex; }
+.hero__btnIcon{ transition: transform 250ms ease; display:inline-flex; align-items:center; }
+.hero__btnIcon svg{ display:block; }
 
 .hero__btn--secondary{
   background: #fff;
@@ -123,11 +124,6 @@
 
 .hero__card:hover .hero__image{ transform: scale(1.04); }
 
-.hero__imageOverlay{
-  position:absolute;
-  inset:0;
-  background: linear-gradient(135deg, rgba(12,34,38,0.25), rgba(25,66,71,0.15));
-}
 
 .hero__meta{
   position:absolute;

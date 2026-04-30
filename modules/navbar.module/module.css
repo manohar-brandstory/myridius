@@ -86,6 +86,8 @@
 
 .navbar__cta{
   display:none;
+  align-items:center;
+  justify-content:center;
   background: linear-gradient(90deg, var(--color-brand-1), var(--color-brand-2));
   color: #fff;
   padding: 10px 24px;

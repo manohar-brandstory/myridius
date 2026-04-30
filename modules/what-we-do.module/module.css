@@ -73,8 +73,8 @@
   justify-content:center;
   background-color: #071417;
   background-image:
-    radial-gradient(ellipse 80% 80% at 20% 30%, color-mix(in srgb, var(--wwd-accent) 80%, transparent) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 70% at 80% 70%, rgba(10,42,47,1) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 80% at 20% 30%, color-mix(in srgb, var(--wwd-accent) 30%, #071417) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 70% at 80% 70%, #0a2a2f 0%, transparent 55%),
     radial-gradient(ellipse 70% 60% at 50% 50%, #0C2226 0%, transparent 50%);
   background-size: 200% 200%, 200% 200%, 150% 150%;
   animation: wwdDancingGradient 8s ease-in-out infinite;

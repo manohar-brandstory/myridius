@@ -14,27 +14,72 @@
       <div class="footer__tagline">{{ module.tagline }}</div>
 
       <div class="footer__social" aria-label="Social links">
-        {% for s in module.social %}
-          <a class="footer__socialBtn" href="{{ s.url.href }}" aria-label="{{ s.platform }}">
-            {{ s.svg_icon }}
-          </a>
-        {% endfor %}
+        <a class="footer__socialBtn" href="#" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a class="footer__socialBtn" href="#" aria-label="Twitter">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+        </a>
+        <a class="footer__socialBtn" href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a class="footer__socialBtn" href="#" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+        </a>
       </div>
     </div>
 
     <div class="footer__cols">
-      {% for col in module.columns %}
-        <div class="footer__col">
-          <h3 class="footer__h">{{ col.title }}</h3>
+      <div class="footer__col footer__col--wide">
+        <h3 class="footer__h">Services</h3>
+        <div class="footer__splitGrid">
           <ul class="footer__list" role="list">
-            {% for l in col.links %}
-              <li class="footer__li">
-                <a class="footer__a" href="{{ l.url.href }}">{{ l.text }}</a>
-              </li>
-            {% endfor %}
+            <li class="footer__li"><a class="footer__a" href="#">Salesforce</a></li>
+            <li class="footer__li"><a class="footer__a" href="#">Agentic Engineering</a></li>
+            <li class="footer__li"><a class="footer__a" href="#">ServiceNow</a></li>
+            <li class="footer__li"><a class="footer__a" href="#">Cloud Solutions</a></li>
+            <li class="footer__li"><a class="footer__a" href="#">AI & Machine Learning</a></li>
+            <li class="footer__li"><a class="footer__a" href="#">Digital Transformation</a></li>
+          </ul>
+          <ul class="footer__list" role="list">
+            <li class="footer__li"><a class="footer__a" href="#">Data & Analytics</a></li>
+            <li class="footer__li"><a class="footer__a" href="#">Quality Engineering</a></li>
+            <li class="footer__li"><a class="footer__a" href="#">Platform Engineering</a></li>
+            <li class="footer__li"><a class="footer__a" href="#">Managed Services</a></li>
+            <li class="footer__li"><a class="footer__a" href="#">DevOps & SRE</a></li>
+            <li class="footer__li"><a class="footer__a" href="#">Cybersecurity</a></li>
           </ul>
         </div>
-      {% endfor %}
+      </div>
+
+      <div class="footer__col">
+        <h3 class="footer__h">Industries</h3>
+        <ul class="footer__list" role="list">
+          <li class="footer__li"><a class="footer__a" href="#">Banking & Finance</a></li>
+          <li class="footer__li"><a class="footer__a" href="#">Insurance</a></li>
+          <li class="footer__li"><a class="footer__a" href="#">Travel</a></li>
+          <li class="footer__li"><a class="footer__a" href="#">Manufacturing</a></li>
+          <li class="footer__li"><a class="footer__a" href="#">Retail</a></li>
+          <li class="footer__li"><a class="footer__a" href="#">Healthcare</a></li>
+          <li class="footer__li"><a class="footer__a" href="#">Technology</a></li>
+          <li class="footer__li"><a class="footer__a" href="#">Education</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h3 class="footer__h">Innovation</h3>
+        <ul class="footer__list" role="list">
+          <li class="footer__li"><a class="footer__a" href="#">EVOQ</a></li>
+          <li class="footer__li"><a class="footer__a" href="#">Applied Insights</a></li>
+        </ul>
+
+        <h3 class="footer__h footer__h--extra">About</h3>
+        <ul class="footer__list" role="list">
+          <li class="footer__li"><a class="footer__a" href="#">Company</a></li>
+          <li class="footer__li"><a class="footer__a" href="#">Our Leaders</a></li>
+          <li class="footer__li"><a class="footer__a" href="#">Partners</a></li>
+        </ul>
+      </div>
     </div>
 
     <div class="footer__bottom">

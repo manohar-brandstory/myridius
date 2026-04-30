@@ -47,14 +47,31 @@
   cursor: pointer;
 }
 
+@keyframes impactSlideIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes impactFadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 .impact__item{
   display: none;
   opacity: 0;
-  transition: opacity 0.8s ease;
 }
 .impact__item.is-active{
   display: block;
-  opacity: 1;
+  animation: impactSlideIn 0.8s ease both;
+}
+.impact__item.is-active .impact__metric{
+  animation: impactFadeUp 0.6s ease 0.3s both;
+}
+.impact__item.is-active .impact__company{
+  animation: impactFadeUp 0.5s ease 0.5s both;
+}
+.impact__item.is-active .impact__content{
+  animation: impactFadeUp 0.5s ease 0.7s both;
 }
 
 .impact__pill{
@@ -144,7 +161,8 @@
   transition: color 0.3s;
 }
 .impact__more:hover{ color: #ECFAE5; }
-.impact__moreIcon{ transition: transform 0.3s; }
+.impact__moreIcon{ transition: transform 0.3s; display:inline-flex; align-items:center; }
+.impact__moreIcon svg{ display:block; }
 .impact__more:hover .impact__moreIcon{ transform: translateX(4px); }
 
 .impact__navRight{

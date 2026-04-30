@@ -24,7 +24,13 @@
   function goTo(idx) {
     current = idx;
     items.forEach(function(el, i) {
-      el.classList.toggle('is-active', i === idx);
+      if (i === idx) {
+        el.classList.remove('is-active');
+        void el.offsetWidth;
+        el.classList.add('is-active');
+      } else {
+        el.classList.remove('is-active');
+      }
     });
     bgs.forEach(function(el, i) {
       el.classList.toggle('is-active', i === idx);

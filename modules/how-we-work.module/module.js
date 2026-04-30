@@ -17,7 +17,13 @@
       t.classList.toggle('is-active', i === idx);
     });
     slides.forEach(function(s, i) {
-      s.classList.toggle('is-active', i === idx);
+      if (i === idx) {
+        s.classList.remove('is-active');
+        void s.offsetWidth;
+        s.classList.add('is-active');
+      } else {
+        s.classList.remove('is-active');
+      }
     });
     bgs.forEach(function(b, i) {
       b.classList.toggle('is-active', i === idx);

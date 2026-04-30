@@ -36,7 +36,8 @@
 .evoq__poweredKicker{ font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.60); font-weight: 500; }
 .evoq__poweredName{ font-size: 20px; letter-spacing: 0.05em; font-weight: 500; color: #fff; }
 .evoq__powered:hover .evoq__poweredName{ color: var(--color-accent); }
-.evoq__poweredArrow{ color: var(--color-accent); opacity: 0.60; }
+.evoq__poweredArrow{ color: var(--color-accent); opacity: 0.60; display:inline-flex; align-items:center; }
+.evoq__poweredArrow svg{ display:block; }
 .evoq__powered:hover .evoq__poweredArrow{ opacity: 1; }
 .evoq__logo{ width: 120px; height:auto; object-fit: contain; }
 .evoq__header{ margin-bottom: 64px; }

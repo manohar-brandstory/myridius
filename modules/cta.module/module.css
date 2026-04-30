@@ -42,6 +42,8 @@
   transition: all 180ms ease;
   border: 1px solid transparent;
 }
+.cta__btnIcon{ display:inline-flex; align-items:center; }
+.cta__btnIcon svg{ display:block; }
 .cta__btn--primary{ background: #fff; color: var(--color-brand-1); }
 .cta__btn--primary:hover{ background: var(--color-accent); box-shadow: 0 14px 30px rgba(82,224,129,0.30); }
 .cta__btn--ghost{
