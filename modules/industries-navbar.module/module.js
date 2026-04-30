@@ -98,12 +98,22 @@
       mobile.hidden = false;
       closeMega();
     }
-    if (mobileToggle && mobile) {
-      mobileToggle.addEventListener("click", function () {
+    function bindMobileToggle(btn) {
+      if (!btn || !mobile) return;
+      var lastFire = 0;
+      var handler = function (e) {
+        var now = Date.now();
+        if (now - lastFire < 350) return;
+        lastFire = now;
+        if (e) { e.preventDefault(); e.stopPropagation(); }
         if (mobile.hidden) openMobile();
         else closeMobile();
-      });
+      };
+      btn.addEventListener("pointerup", handler, true);
+      btn.addEventListener("touchend", handler, { passive: false, capture: true });
+      btn.addEventListener("click", handler, true);
     }
+    bindMobileToggle(mobileToggle);
     mobileCloseEls.forEach(function (el) { el.addEventListener("click", closeMobile); });
 
     // Mobile accordion panels

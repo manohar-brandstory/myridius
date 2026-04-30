@@ -58,12 +58,20 @@
   overflow:hidden;
   cursor:pointer;
   background: var(--color-surface-muted);
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  outline: 1px solid transparent;
 }
+.wwd__card:focus{ outline: none; }
 
 .wwd__state{
   position:absolute;
   inset:0;
   transition: opacity 500ms ease;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: opacity, transform;
 }
 .wwd__state--default{ opacity: 1; }
 .wwd__state--hover{

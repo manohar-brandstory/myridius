@@ -1,0 +1,51 @@
+[
+  {
+    "name": "section_id",
+    "label": "Section ID",
+    "type": "text",
+    "default": "recognitions"
+  },
+  {
+    "name": "items",
+    "label": "Recognitions",
+    "type": "group",
+    "occurrence": { "min": 1, "max": 12, "default": 3 },
+    "children": [
+      { "name": "kicker", "label": "Kicker", "type": "text", "default": "Houlihan Lokey" },
+      { "name": "title", "label": "Title", "type": "text", "default": "Houlihan Lokey" },
+      { "name": "description", "label": "Description", "type": "text", "default": "Myridius Featured in Houlihan Lokey's Digital Engineering Market Report" },
+      {
+        "name": "report_url",
+        "label": "Report URL",
+        "type": "url",
+        "supported_types": ["EXTERNAL", "CONTENT"],
+        "default": { "content_id": null, "href": "https://cdn.hl.com/pdf/2025/from-code-to-creation-how-ai-is-reshaping-digital-engineering-september-2025-houlihan-lokey.pdf", "type": "EXTERNAL" }
+      },
+      { "name": "report_text", "label": "Report link text", "type": "text", "default": "View Report" }
+    ],
+    "default": [
+      {
+        "kicker": "Houlihan Lokey",
+        "title": "Houlihan Lokey",
+        "description": "Myridius Featured in Houlihan Lokey's Digital Engineering Market Report",
+        "report_url": { "content_id": null, "href": "https://cdn.hl.com/pdf/2025/from-code-to-creation-how-ai-is-reshaping-digital-engineering-september-2025-houlihan-lokey.pdf", "type": "EXTERNAL" },
+        "report_text": "View Report"
+      },
+      {
+        "kicker": "Gartner",
+        "title": "Gartner",
+        "description": "Myridius recognized in the Gartner Market Guide for Software Engineering Services",
+        "report_url": { "content_id": null, "href": "#", "type": "EXTERNAL" },
+        "report_text": "View Report"
+      },
+      {
+        "kicker": "Forrester",
+        "title": "Forrester",
+        "description": "Myridius cited in Forrester research on modern digital engineering",
+        "report_url": { "content_id": null, "href": "#", "type": "EXTERNAL" },
+        "report_text": "View Report"
+      }
+    ]
+  }
+]
+

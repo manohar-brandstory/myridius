@@ -51,6 +51,8 @@
 }
 .hww__titleAccent{ color: #52E081; }
 
+.hww__nav{ display: none; }
+
 .hww__tabs{
   position: relative;
   display: flex; gap: 0;
@@ -138,6 +140,11 @@
   display: flex; flex-direction: column; justify-content: center;
   padding-left: 32px; min-height: 280px;
 }
+.hww__leadRow{
+  display:flex;
+  align-items:center;
+  gap: 16px;
+}
 .hww__slideIcon{
   width: 56px; height: 56px; border-radius: 14px;
   display: flex; align-items: center; justify-content: center;
@@ -185,18 +192,60 @@
   .hww__pause{ left: 0; z-index: 2; }
 }
 @media (max-width: 768px){
-  .hww{ padding: 64px var(--gutter); min-height: auto; }
-  .hww__title{ font-size: 32px; }
-  .hww__slideTitle{ font-size: 24px; }
+  .hww{ padding: 64px 24px; min-height: auto; }
+  .hww__wrap{ max-width: 332px; margin-left: 0; margin-right: 0; }
+
+  .hww__badgeText{ font-size: 12px; line-height: 21px; letter-spacing: 2.8px; }
+  .hww__title{
+    font-size: 36px;
+    line-height: 54px;
+    letter-spacing: -2.4px;
+  }
+
+  /* Hide tabs/pause on mobile per design */
+  .hww__tabs{ display:none; }
+
+  .hww__slides{ min-height: 0; }
+  .hww__slideGrid{ gap: 18px; }
   .hww__slideLeft{ padding-left: 0; min-height: auto; }
-  .hww__slideRight{ min-height: auto; }
-  .hww__slideDesc{ font-size: 14px; }
-  /* Give tabs breathing room on mobile */
-  .hww__tabs{ margin-bottom: 20px; justify-content: space-between; gap: 12px; width: 100%; }
-  .hww__tab{ padding: 12px 10px; flex: 1 1 0; justify-content: center; }
-  .hww__slideGrid{ gap: 24px; }
-  .hww__pointStrong{ font-size: 14px; }
-  .hww__pointText{ font-size: 13px; }
+
+  .hww__slideIcon{
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    margin-bottom: 0;
+  }
+  .hww__slideIcon svg{ width: 20px; height: 20px; }
+
+  .hww__leadRow{ margin-bottom: 16px; }
+
+  .hww__slideTitle{
+    font-size: 24px;
+    line-height: 40px;
+    letter-spacing: -0.9px;
+    margin: 0;
+  }
+  .hww__slideTag{
+    font-size: 12px;
+    line-height: 24px;
+    letter-spacing: 0.32px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .hww__slideDesc{
+    font-size: 16px;
+    line-height: 27px;
+    max-width: 332px;
+  }
+
+  .hww__slideRight{
+    min-height: auto;
+    border-top: 1px solid #8CA1A3;
+    padding-top: 24px;
+    margin-top: 8px;
+    gap: 20px;
+  }
+  .hww__pointStrong{ font-size: 14px; line-height: 21px; margin-bottom: 2px; }
+  .hww__pointText{ font-size: 12px; line-height: 22px; }
 
   /* Mobile nav (arrows + pagination) */
   .hww__nav{

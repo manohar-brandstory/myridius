@@ -138,14 +138,14 @@
   .industry__title{ font-size: 32px; }
   .industry__card{ height: 280px; }
   .industry__header{ margin-bottom: 40px; }
-  .industry__grid{ gap: 12px; }
+  .industry__grid{ gap: 20px; }
 }
 @media (max-width: 480px){
   .industry__title{ font-size: 28px; }
   .industry__card{ height: 240px; }
   .industry__base{ padding: 20px; }
   .industry__hover{ padding: 20px; }
-  .industry__grid{ gap: 10px; }
+  .industry__grid{ gap: 16px; }
 }
 
 /* Touch devices: disable hover-scale effects (prevents “sticky hover” overlaps/height weirdness) */

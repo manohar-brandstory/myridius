@@ -13,13 +13,12 @@
 
     // Mobile logo carousel autoplay
     var logos = section.querySelector(".partners__logos");
-    if (logos && typeof window.requestAnimationFrame === "function") {
-      var isRunning = false;
+    if (logos) {
       var isPaused = false;
+      var resumeTimer = 0;
       var rafId = 0;
       var lastTs = 0;
-      var resumeTimer = 0;
-      var SPEED_PX_PER_SEC = 10; // slow continuous scroll
+      var SPEED_PX_PER_SEC = 48; // slightly faster, still smooth
 
       function isMobileCarousel() {
         try { return getComputedStyle(logos).display === "flex"; }
@@ -28,16 +27,23 @@
 
       function pause(ms) {
         isPaused = true;
+        logos.classList.remove("is-autoplaying");
         if (resumeTimer) window.clearTimeout(resumeTimer);
-        resumeTimer = window.setTimeout(function () { isPaused = false; }, ms || 1200);
+        resumeTimer = window.setTimeout(function () {
+          isPaused = false;
+          if (isMobileCarousel()) logos.classList.add("is-autoplaying");
+        }, ms || 1200);
       }
 
       function tick(ts) {
-        if (!isRunning) return;
+        if (!rafId) return;
         if (!isMobileCarousel()) {
+          logos.classList.remove("is-autoplaying");
+          lastTs = ts;
           rafId = window.requestAnimationFrame(tick);
           return;
         }
+        logos.classList.add("is-autoplaying");
         if (!lastTs) lastTs = ts;
         var dt = Math.min(64, ts - lastTs);
         lastTs = ts;
@@ -54,24 +60,24 @@
       }
 
       function start() {
-        if (isRunning) return;
-        isRunning = true;
+        if (rafId || typeof window.requestAnimationFrame !== "function") return;
         lastTs = 0;
         rafId = window.requestAnimationFrame(tick);
       }
+
       function stop() {
-        isRunning = false;
         if (rafId) window.cancelAnimationFrame(rafId);
         rafId = 0;
+        lastTs = 0;
         if (resumeTimer) window.clearTimeout(resumeTimer);
         resumeTimer = 0;
+        logos.classList.remove("is-autoplaying");
       }
 
       // Pause on user interaction
       logos.addEventListener("pointerdown", function () { pause(2000); }, { passive: true });
       logos.addEventListener("touchstart", function () { pause(2000); }, { passive: true });
       logos.addEventListener("wheel", function () { pause(2000); }, { passive: true });
-      logos.addEventListener("scroll", function () { pause(800); }, { passive: true });
       window.addEventListener("resize", function () { pause(1200); }, { passive: true });
 
       start();

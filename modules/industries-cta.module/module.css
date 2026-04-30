@@ -62,14 +62,36 @@
 .cta .is-sr-shown{ opacity: 1; transform: none; transition: opacity 600ms ease, transform 600ms ease; }
 
 @media (max-width: 768px){
-  .cta{ padding: 80px 0; }
-  .cta__title{ font-size: 32px; }
-  .cta__desc{ font-size: 14px; margin-bottom: 32px; }
+  .cta{ padding: 64px 0; }
+  .cta__orb, .cta__grid{ display:none; }
+  .cta__wrap{
+    max-width: 266px;
+    padding: 0;
+  }
+  .cta__badgeText{ font-size: 12px; line-height: 21px; letter-spacing: 2.8px; }
+  .cta__title{
+    font-size: 32px;
+    line-height: 43px;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+  }
+  .cta__desc{
+    font-size: 16px;
+    line-height: 27px;
+    margin-bottom: 28px;
+    max-width: 266px;
+  }
   .cta__actions{ flex-direction: column; gap: 12px; }
-  .cta__btn{ width: 100%; justify-content: center; }
+  .cta__btn{
+    width: 270px;
+    height: 56px;
+    font-size: 14px;
+    line-height: 24px;
+    padding: 0 32px;
+    justify-content: center;
+  }
 }
 @media (max-width: 480px){
-  .cta{ padding: 60px 0; }
-  .cta__title{ font-size: 28px; }
+  .cta{ padding: 64px 0; }
 }
 

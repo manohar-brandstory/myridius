@@ -81,6 +81,7 @@
     padding: 0;
     border-radius: 0;
   }
+  .partners__logos.is-autoplaying{ scroll-snap-type: none; }
   .partners__logos::-webkit-scrollbar{ display:none; }
   .partners__logos{ scrollbar-width: none; }
   .partners__logos::before,

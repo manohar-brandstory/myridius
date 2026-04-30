@@ -162,15 +162,15 @@
 @media (max-width: 1024px){
   .hero{ padding-bottom: 96px; }
   .hero__title{ font-size: clamp(44px, 7vw, 64px); }
-  /* Force mobile/tablet stacking order to match React:
-     content first, image card second. */
+  /* Mobile/tablet stacking order to match updated design:
+     image card first, content second. */
   .hero__grid{
     display:flex;
     flex-direction: column;
     gap: 48px;
   }
-  .hero__content{ order: 1; }
-  .hero__media{ order: 2; }
+  .hero__media{ order: 1; }
+  .hero__content{ order: 2; }
 }
 
 @media (max-width: 768px){
@@ -179,7 +179,8 @@
   .hero__desc{ font-size: 16px; margin-bottom: 32px; }
   .hero__btn{ padding: 16px 28px; font-size: 14px; min-height: 52px; }
   .hero__card{ max-height: 400px; }
-  .hero__grid{ gap: 32px; }
+  .hero__grid{ gap: 40px; }
+  .hero__content{ padding-top: 6px; }
 }
 
 @media (max-width: 480px){

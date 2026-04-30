@@ -1,0 +1,53 @@
+<section class="recog" id="{{ module.section_id }}">
+  <div class="recog__outer">
+    <div class="recog__card" data-recog>
+      <div class="recog__content" aria-live="polite">
+        {% for item in module.items %}
+          <div
+            class="recog__slide{% if loop.first %} is-active{% endif %}"
+            data-recog-slide="{{ loop.index0 }}"
+            data-report-href="{{ item.report_url.href }}"
+            data-report-text="{{ item.report_text }}"
+          >
+            <h2 class="recog__title">{{ item.title }}</h2>
+            <p class="recog__desc">{{ item.description }}</p>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="recog__footer">
+        <div class="recog__linkWrap">
+          {% set first = module.items|first %}
+          <a class="recog__link" href="{{ first.report_url.href }}" target="_blank" rel="noopener noreferrer" data-recog-link>
+            <span data-recog-link-text>{{ first.report_text }}</span>
+            <svg class="recog__linkIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="m12 5 7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="recog__nav">
+          <button class="recog__navBtn" type="button" aria-label="Previous" data-recog-prev>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="m15 18-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="recog__nums" aria-label="Recognition pagination">
+            {% for item in module.items %}
+              <button class="recog__num{% if loop.first %} is-active{% endif %}" type="button" data-recog-go="{{ loop.index0 }}" aria-label="Go to {{ loop.index }}">
+                {{ "%02d"|format(loop.index) }}
+              </button>
+            {% endfor %}
+          </div>
+          <button class="recog__navBtn recog__navBtn--next" type="button" aria-label="Next" data-recog-next>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="m9 18 6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

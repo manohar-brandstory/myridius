@@ -46,6 +46,11 @@
   min-height: 0;
 }
 
+@keyframes impactFadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 @keyframes impactSlideIn {
   from { opacity: 0; transform: translateX(20px); }
   to   { opacity: 1; transform: translateX(0); }
@@ -59,6 +64,10 @@
   display: block;
   animation: impactSlideIn 0.8s ease both;
 }
+.impact__item.is-active .impact__pill{ animation: impactFadeUp 0.45s ease 0.05s both; }
+.impact__item.is-active .impact__metric{ animation: impactFadeUp 0.55s ease 0.12s both; }
+.impact__item.is-active .impact__company{ animation: impactFadeUp 0.45s ease 0.20s both; }
+.impact__item.is-active .impact__content{ animation: impactFadeUp 0.55s ease 0.28s both; }
 
 .impact__pill{
   margin-bottom: 24px;
@@ -153,6 +162,8 @@
   align-items: center;
   justify-content: space-between;
   margin-top: 32px;
+  gap: 24px;
+  flex-wrap: wrap;
 }
 .impact__more{
   display: inline-flex; align-items: center; gap: 8px;
@@ -168,6 +179,7 @@
 
 .impact__navRight{
   display: flex; align-items: center; gap: 32px;
+  flex-wrap: wrap;
 }
 .impact__pauseBtn{
   background: none; border: none; cursor: pointer;
@@ -183,6 +195,7 @@
 
 .impact__nums{
   display: flex; gap: 64px;
+  flex-wrap: wrap;
 }
 .impact__num{
   background: none; border: none; cursor: pointer;
@@ -201,6 +214,12 @@
   .impact__metric{ font-size: 2rem; }
   .impact__desc{ font-size: 16px; }
   .impact__detailsCols{ grid-template-columns: 1fr; gap: 24px; }
+  .impact__detailText{
+    font-size: 16px;
+    line-height: 1.625;
+    font-weight: 400;
+    color: #e8eff0;
+  }
   .impact__nums{ gap: 24px; }
   .impact__nav{ flex-direction: column; align-items: flex-start; gap: 24px; }
   .impact__navRight{ width: 100%; justify-content: space-between; }
@@ -211,6 +230,19 @@
   .impact__metric{ font-size: 1.6rem; }
   .impact__company{ font-size: 13px; margin-bottom: 24px; }
   .impact__desc{ font-size: 14px; }
+  .impact__detailText{
+    font-size: 14px;
+    line-height: 1.625;
+    font-weight: 400;
+    color: #e8eff0;
+  }
+}
+
+/* Desktop stability: prevent layout jumps/overlaps when switching slides */
+@media (min-width: 769px){
+  .impact__body{ min-height: 522px; }
+  .impact__content{ min-height: 296px; }
+  .impact__nav{ margin-top: 48px; }
 }
 
 /* Touch devices can "stick" :hover on tap; disable hover-only effects */
