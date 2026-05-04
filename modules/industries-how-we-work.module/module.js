@@ -10,18 +10,80 @@
   var btnNext = root.querySelector('[data-hww-next]');
   var curEl = root.querySelector('[data-hww-cur]');
   var totalEl = root.querySelector('[data-hww-total]');
+  var slidesWrap = root.querySelector('.hww__slides');
   var current = 0;
   var isPaused = false;
   var timer = null;
   var INTERVAL = 12000;
+  var mqMobile = (typeof window.matchMedia === 'function')
+    ? window.matchMedia('(max-width: 768px)')
+    : null;
 
   function setCounter() {
     if (curEl) curEl.textContent = String(current + 1);
     if (totalEl) totalEl.textContent = String(slides.length || 0);
   }
 
+  function setNavDisabled() {
+    if (!btnPrev || !btnNext) return;
+    // Mobile UX: clamp at ends (prevents wrap + accidental scroll jumps near section boundary).
+    var isMobile = mqMobile ? mqMobile.matches : (window.innerWidth <= 768);
+    btnPrev.disabled = isMobile && current <= 0;
+    btnNext.disabled = isMobile && current >= (slides.length - 1);
+  }
+
+  function syncSlidesHeight() {
+    if (!slidesWrap || !slides.length) return;
+    var isMobile = mqMobile ? mqMobile.matches : (window.innerWidth <= 768);
+    if (!isMobile) {
+      slidesWrap.style.minHeight = '';
+      return;
+    }
+
+    // Prevent layout shift (jerky scroll) when switching slides on mobile:
+    // normalize the container height to the tallest slide.
+    var maxH = 0;
+    slides.forEach(function (s) {
+      var prev = {
+        display: s.style.display,
+        position: s.style.position,
+        visibility: s.style.visibility,
+        pointerEvents: s.style.pointerEvents,
+        left: s.style.left,
+        top: s.style.top,
+        width: s.style.width
+      };
+      s.style.display = 'block';
+      s.style.position = 'absolute';
+      s.style.visibility = 'hidden';
+      s.style.pointerEvents = 'none';
+      s.style.left = '0';
+      s.style.top = '0';
+      s.style.width = '100%';
+
+      maxH = Math.max(maxH, s.scrollHeight || s.offsetHeight || 0);
+
+      s.style.display = prev.display;
+      s.style.position = prev.position;
+      s.style.visibility = prev.visibility;
+      s.style.pointerEvents = prev.pointerEvents;
+      s.style.left = prev.left;
+      s.style.top = prev.top;
+      s.style.width = prev.width;
+    });
+    if (maxH) slidesWrap.style.minHeight = maxH + 'px';
+  }
+
   function goTo(idx) {
-    current = (idx + slides.length) % slides.length;
+    var isMobile = mqMobile ? mqMobile.matches : (window.innerWidth <= 768);
+    if (isMobile) {
+      // Clamp on mobile (no wrap). Wrapping at the end can cause a perceived "jump"
+      // when the section height changes near the viewport boundary.
+      current = Math.max(0, Math.min(slides.length - 1, idx));
+    } else {
+      current = (idx + slides.length) % slides.length;
+    }
+
     tabs.forEach(function(t, i) {
       t.classList.toggle('is-active', i === current);
     });
@@ -38,6 +100,7 @@
       b.classList.toggle('is-active', i === current);
     });
     setCounter();
+    setNavDisabled();
   }
 
   function next() {
@@ -65,14 +128,19 @@
 
   function bindNav(btn, dir) {
     if (!btn) return;
+    var lastFire = 0;
     var handler = function(e) {
+      var now = Date.now();
+      if (now - lastFire < 350) return; // dedupe touchend/click double-fire
+      lastFire = now;
       if (e) { e.preventDefault(); e.stopPropagation(); }
+      if (btn.disabled) return;
       goTo(current + dir);
       startAutoplay();
     };
-    btn.addEventListener('pointerup', handler);
-    btn.addEventListener('click', handler);
-    btn.addEventListener('touchend', handler, { passive: false });
+    btn.addEventListener('pointerup', handler, true);
+    btn.addEventListener('touchend', handler, { passive: false, capture: true });
+    btn.addEventListener('click', handler, true);
   }
   bindNav(btnPrev, -1);
   bindNav(btnNext, 1);
@@ -90,7 +158,14 @@
   }
 
   setCounter();
+  syncSlidesHeight();
+  setNavDisabled();
   startAutoplay();
+
+  window.addEventListener('resize', function () {
+    syncSlidesHeight();
+    setNavDisabled();
+  }, { passive: true });
 
   var srEls = root.querySelectorAll('[data-sr]');
   if ('IntersectionObserver' in window) {

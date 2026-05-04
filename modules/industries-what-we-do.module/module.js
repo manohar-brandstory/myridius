@@ -20,6 +20,7 @@
     var totalEl = section.querySelector("[data-wwd-total]");
 
     var active = 0;
+    var isApplyingFromScroll = false;
 
     function setCounter() {
       if (curEl) curEl.textContent = String(active + 1);
@@ -41,26 +42,56 @@
       });
       setCounter();
 
-      if (!track || !isMobileSlider()) return;
+      if ((opts && opts.skipScroll) || !track || !isMobileSlider()) return;
 
       var doScroll = function () {
         var el = cards[active];
         if (!el) return;
-        if (typeof el.scrollIntoView === "function") {
+        var left = el.offsetLeft - track.offsetLeft;
+        if (typeof track.scrollTo === "function") {
           try {
-            el.scrollIntoView({
-              behavior: (opts && opts.instant) ? "auto" : "smooth",
-              block: "nearest",
-              inline: "start"
-            });
+            track.scrollTo({ left: left, behavior: (opts && opts.instant) ? "auto" : "smooth" });
             return;
           } catch (e) {}
         }
-        track.scrollLeft = el.offsetLeft - track.offsetLeft;
+        track.scrollLeft = left;
       };
 
       if (typeof requestAnimationFrame === "function") requestAnimationFrame(doScroll);
       else setTimeout(doScroll, 0);
+    }
+
+    function getClosestIndexFromScroll() {
+      if (!track || !cards.length) return 0;
+      // Pick the slide whose leading edge is closest to scrollLeft (snap start)
+      var x = track.scrollLeft;
+      var bestIdx = 0;
+      var bestDist = Infinity;
+      cards.forEach(function (el, i) {
+        var d = Math.abs((el.offsetLeft - track.offsetLeft) - x);
+        if (d < bestDist) { bestDist = d; bestIdx = i; }
+      });
+      return bestIdx;
+    }
+
+    function bindScrollSync() {
+      if (!track) return;
+      var raf = 0;
+      var lastIdx = -1;
+      function onScroll() {
+        if (!isMobileSlider()) return;
+        if (raf) return;
+        raf = requestAnimationFrame(function () {
+          raf = 0;
+          var idx = getClosestIndexFromScroll();
+          if (idx === lastIdx || idx === active) return;
+          lastIdx = idx;
+          isApplyingFromScroll = true;
+          setActive(idx, { instant: true, skipScroll: true });
+          isApplyingFromScroll = false;
+        });
+      }
+      track.addEventListener("scroll", onScroll, { passive: true });
     }
 
     function bindNav(btn, dir) {
@@ -83,6 +114,7 @@
       setActive(0, { instant: true });
       bindNav(btnPrev, -1);
       bindNav(btnNext, 1);
+      bindScrollSync();
 
       cards.forEach(function (card, idx) {
         function onActivate() {
@@ -111,7 +143,7 @@
       });
 
       window.addEventListener("resize", function () {
-        setActive(active, { instant: true });
+        setActive(active, { instant: true, skipScroll: true });
       });
     }
 

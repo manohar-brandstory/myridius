@@ -1,43 +1,141 @@
-[
-  { "name": "section_id", "label": "Section ID", "type": "text", "default": "infocus" },
-  { "name": "badge", "label": "Badge", "type": "text", "default": "RESOURCES" },
-  { "name": "title", "label": "Title", "type": "text", "default": "Latest Perspectives" },
-  {
-    "name": "articles",
-    "label": "Articles",
-    "type": "group",
-    "occurrence": { "min": 1, "max": 9, "default": 3 },
-    "children": [
-      { "name": "category", "label": "Category", "type": "text", "default": "WHITEPAPER" },
-      { "name": "title", "label": "Title", "type": "text", "default": "Accelerating Digitization in Credit Unions for a Gen Z Future" },
-      { "name": "image", "label": "Image", "type": "image" },
-      {
-        "name": "url",
-        "label": "Link",
-        "type": "url",
-        "supported_types": ["EXTERNAL", "CONTENT"],
-        "default": { "content_id": null, "href": "#", "type": "EXTERNAL" }
-      }
-    ],
-    "default": [
-      {
-        "category": "WHITEPAPER",
-        "title": "Accelerating Digitization in Credit Unions for a Gen Z Future",
-        "image": { "src": "https://images.unsplash.com/photo-1592698765727-387c9464cd7f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", "alt": "Whitepaper" },
-        "url": { "content_id": null, "href": "#", "type": "EXTERNAL" }
-      },
-      {
-        "category": "WHITEPAPER",
-        "title": "Building Customer-First Digital Lending with Salesforce",
-        "image": { "src": "https://images.unsplash.com/photo-1724482606633-fa74fe4f5de1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", "alt": "Whitepaper" },
-        "url": { "content_id": null, "href": "#", "type": "EXTERNAL" }
-      },
-      {
-        "category": "CASE STUDY",
-        "title": "One Global System for Compliance Automation",
-        "image": { "src": "https://images.unsplash.com/photo-1759752393975-7ca7b302fcc6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", "alt": "Case study" },
-        "url": { "content_id": null, "href": "#", "type": "EXTERNAL" }
-      }
-    ]
-  }
-]
+[ {
+  "id" : "section_id",
+  "name" : "section_id",
+  "label" : "Section ID",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "infocus"
+}, {
+  "id" : "badge",
+  "name" : "badge",
+  "label" : "Badge",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "RESOURCES"
+}, {
+  "id" : "title",
+  "name" : "title",
+  "label" : "Title",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "Latest Perspectives"
+}, {
+  "id" : "articles",
+  "name" : "articles",
+  "label" : "Articles",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 9,
+    "sorting_label_field" : null,
+    "default" : 3
+  },
+  "children" : [ {
+    "id" : "articles.category",
+    "name" : "category",
+    "label" : "Category",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text",
+    "default" : "WHITEPAPER"
+  }, {
+    "id" : "articles.title",
+    "name" : "title",
+    "label" : "Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text",
+    "default" : "Accelerating Digitization in Credit Unions for a Gen Z Future"
+  }, {
+    "id" : "articles.image",
+    "name" : "image",
+    "label" : "Image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : false,
+    "resizable" : true,
+    "show_loading" : false,
+    "display_width" : null,
+    "type" : "image",
+    "default" : {
+      "src" : "",
+      "alt" : null,
+      "size_type" : null,
+      "width" : null,
+      "height" : null,
+      "max_width" : null,
+      "max_height" : null,
+      "loading" : "disabled"
+    }
+  }, {
+    "id" : "articles.url",
+    "name" : "url",
+    "label" : "Link",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT" ],
+    "display_width" : null,
+    "type" : "url",
+    "default" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "display_width" : null,
+  "type" : "group",
+  "default" : [ {
+    "category" : "WHITEPAPER",
+    "title" : "Accelerating Digitization in Credit Unions for a Gen Z Future",
+    "image" : {
+      "src" : "https://images.unsplash.com/photo-1592698765727-387c9464cd7f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "alt" : "Whitepaper"
+    },
+    "url" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
+    }
+  }, {
+    "category" : "WHITEPAPER",
+    "title" : "Building Customer-First Digital Lending with Salesforce",
+    "image" : {
+      "src" : "https://images.unsplash.com/photo-1724482606633-fa74fe4f5de1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "alt" : "Whitepaper"
+    },
+    "url" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
+    }
+  }, {
+    "category" : "CASE STUDY",
+    "title" : "One Global System for Compliance Automation",
+    "image" : {
+      "src" : "https://images.unsplash.com/photo-1759752393975-7ca7b302fcc6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "alt" : "Case study"
+    },
+    "url" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
+    }
+  } ]
+} ]

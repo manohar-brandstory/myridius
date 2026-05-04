@@ -1,22 +1,89 @@
-[
-  { "name": "section_id", "label": "Section ID", "type": "text", "default": "cta" },
-  { "name": "badge", "label": "Badge", "type": "text", "default": "LET'S TALK" },
-  { "name": "title", "label": "Title", "type": "text", "default": "Grow Revenue. Reduce Risk.\nOperate at Full Speed." },
-  { "name": "description", "label": "Description", "type": "text", "default": "Turn strategic priorities into measurable financial outcomes" },
-  { "name": "primary_text", "label": "Primary button text", "type": "text", "default": "Schedule a Conversation" },
-  {
-    "name": "primary_url",
-    "label": "Primary button link",
-    "type": "url",
-    "supported_types": ["EXTERNAL", "CONTENT"],
-    "default": { "content_id": null, "href": "#", "type": "EXTERNAL" }
-  },
-  { "name": "secondary_text", "label": "Secondary button text", "type": "text", "default": "Explore EVOQ" },
-  {
-    "name": "secondary_url",
-    "label": "Secondary button link",
-    "type": "url",
-    "supported_types": ["EXTERNAL", "CONTENT"],
-    "default": { "content_id": null, "href": "#evoq", "type": "EXTERNAL" }
+[ {
+  "id" : "section_id",
+  "name" : "section_id",
+  "label" : "Section ID",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "cta"
+}, {
+  "id" : "badge",
+  "name" : "badge",
+  "label" : "Badge",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "LET'S TALK"
+}, {
+  "id" : "title",
+  "name" : "title",
+  "label" : "Title",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "Grow Revenue. Reduce Risk.\nOperate at Full Speed."
+}, {
+  "id" : "description",
+  "name" : "description",
+  "label" : "Description",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "Turn strategic priorities into measurable financial outcomes"
+}, {
+  "id" : "primary_text",
+  "name" : "primary_text",
+  "label" : "Primary button text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "Schedule a Conversation"
+}, {
+  "id" : "primary_url",
+  "name" : "primary_url",
+  "label" : "Primary button link",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT" ],
+  "display_width" : null,
+  "type" : "url",
+  "default" : {
+    "content_id" : null,
+    "href" : "#",
+    "type" : "EXTERNAL"
   }
-]
+}, {
+  "id" : "secondary_text",
+  "name" : "secondary_text",
+  "label" : "Secondary button text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "Explore EVOQ"
+}, {
+  "id" : "secondary_url",
+  "name" : "secondary_url",
+  "label" : "Secondary button link",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT" ],
+  "display_width" : null,
+  "type" : "url",
+  "default" : {
+    "content_id" : null,
+    "href" : "#evoq",
+    "type" : "EXTERNAL"
+  }
+} ]

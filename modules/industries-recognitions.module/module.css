@@ -33,15 +33,27 @@
 }
 
 .recog__slide{
-  display:none;
-  opacity: 0;
-  transform: translateY(6px);
+  display: none;
+  position: absolute;
+  inset: 0;
 }
 .recog__slide.is-active{
-  display:block;
-  opacity: 1;
-  transform: none;
-  transition: opacity 300ms ease, transform 300ms ease;
+  display: block;
+}
+
+@keyframes recogEnter {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes recogExit {
+  from { opacity: 1; transform: translateX(0); }
+  to   { opacity: 0; transform: translateX(-20px); }
+}
+.recog__slide.is-entering{
+  animation: recogEnter 400ms ease-in-out both;
+}
+.recog__slide.is-exiting{
+  animation: recogExit 400ms ease-in-out both;
 }
 
 .recog__title{
@@ -145,5 +157,12 @@
   .recog__footer{ flex-direction: column; align-items:flex-start; }
   .recog__nums{ max-width: 100%; }
   .recog{ padding-bottom: 64px; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .recog__slide.is-entering,
+  .recog__slide.is-exiting{
+    animation: none !important;
+  }
 }
 

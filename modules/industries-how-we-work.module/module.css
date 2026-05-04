@@ -96,9 +96,9 @@
 }
 .hww__tab.is-active .hww__tabLine{ transform: scaleX(1); }
 
-@keyframes hwwSlideLeft {
-  from { opacity: 0; transform: translateX(50%); }
-  to   { opacity: 1; transform: translateX(0); }
+@keyframes hwwFadeFirst {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 @keyframes hwwFadeRight {
   from { opacity: 0; transform: translateX(30px); }
@@ -115,19 +115,20 @@
   opacity: 1;
 }
 .hww__slide.is-active .hww__slideLeft{
-  animation: hwwSlideLeft 0.8s cubic-bezier(0.25,0.1,0.25,1) 0.5s both;
+  /* Figma Make: first block fades in, then points reveal */
+  animation: hwwFadeFirst 0.4s ease-in-out 0ms both;
 }
 .hww__slide.is-active .hww__point:nth-child(1){
-  animation: hwwFadeRight 0.5s ease 1.2s both;
+  animation: hwwFadeRight 0.5s ease 0.55s both;
 }
 .hww__slide.is-active .hww__point:nth-child(2){
-  animation: hwwFadeRight 0.5s ease 1.35s both;
+  animation: hwwFadeRight 0.5s ease 0.70s both;
 }
 .hww__slide.is-active .hww__point:nth-child(3){
-  animation: hwwFadeRight 0.5s ease 1.5s both;
+  animation: hwwFadeRight 0.5s ease 0.85s both;
 }
 .hww__slide.is-active .hww__point:nth-child(4){
-  animation: hwwFadeRight 0.5s ease 1.65s both;
+  animation: hwwFadeRight 0.5s ease 1.00s both;
 }
 
 .hww__slideGrid{

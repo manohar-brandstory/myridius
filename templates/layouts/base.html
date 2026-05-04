@@ -40,7 +40,12 @@
       @media (max-width: 768px)  { :root { --gutter: 20px; } }
       @media (max-width: 480px)  { :root { --gutter: 16px; } }
 
-      html { font-size: var(--font-size); scroll-behavior: smooth; }
+      html {
+        font-size: var(--font-size);
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        width: 100%;
+      }
       body {
         margin: 0;
         padding-top: 64px;
@@ -50,6 +55,10 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         overflow-x: hidden;
+        width: 100%;
+      }
+      @supports (overflow: clip) {
+        html, body { overflow-x: clip; }
       }
       *, *::before, *::after { box-sizing: border-box; }
       img { max-width: 100%; height: auto; display: block; }

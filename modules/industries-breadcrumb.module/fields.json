@@ -1,23 +1,65 @@
-[
-  {
-    "name": "items",
-    "label": "Breadcrumb items",
-    "type": "group",
-    "occurrence": { "min": 1, "max": 6, "default": 3 },
-    "children": [
-      { "name": "text", "label": "Label", "type": "text", "default": "Myridius" },
-      {
-        "name": "url",
-        "label": "Link",
-        "type": "url",
-        "supported_types": ["EXTERNAL", "CONTENT"],
-        "default": { "content_id": null, "href": "#", "type": "EXTERNAL" }
-      }
-    ],
-    "default": [
-      { "text": "Myridius", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } },
-      { "text": "Industries", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } },
-      { "text": "Banking & Financial Services", "url": { "content_id": null, "href": "", "type": "EXTERNAL" } }
-    ]
-  }
-]
+[ {
+  "id" : "items",
+  "name" : "items",
+  "label" : "Breadcrumb items",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 6,
+    "sorting_label_field" : null,
+    "default" : 3
+  },
+  "children" : [ {
+    "id" : "items.text",
+    "name" : "text",
+    "label" : "Label",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text",
+    "default" : "Myridius"
+  }, {
+    "id" : "items.url",
+    "name" : "url",
+    "label" : "Link",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT" ],
+    "display_width" : null,
+    "type" : "url",
+    "default" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "display_width" : null,
+  "type" : "group",
+  "default" : [ {
+    "text" : "Myridius",
+    "url" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
+    }
+  }, {
+    "text" : "Industries",
+    "url" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
+    }
+  }, {
+    "text" : "Banking & Financial Services",
+    "url" : {
+      "content_id" : null,
+      "href" : "",
+      "type" : "EXTERNAL"
+    }
+  } ]
+} ]

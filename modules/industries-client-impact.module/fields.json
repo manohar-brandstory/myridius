@@ -1,77 +1,230 @@
-[
-  { "name": "section_id", "label": "Section ID", "type": "text", "default": "impact" },
-  { "name": "badge", "label": "Badge", "type": "text", "default": "CLIENT IMPACT" },
-  { "name": "nav_aria_label", "label": "Navigation aria-label", "type": "text", "default": "Client impact slides" },
-  { "name": "more_text", "label": "More link text", "type": "text", "default": "Know more" },
-  {
-    "name": "more_url",
-    "label": "More link",
-    "type": "url",
-    "supported_types": ["EXTERNAL", "CONTENT"],
-    "default": { "content_id": null, "href": "#", "type": "EXTERNAL" }
-  },
-  { "name": "challenge_label", "label": "Challenge label", "type": "text", "default": "The Challenge" },
-  { "name": "outcomes_label", "label": "Outcomes label", "type": "text", "default": "Outcomes" },
-  {
-    "name": "items",
-    "label": "Impact items",
-    "type": "group",
-    "occurrence": { "min": 1, "max": 10, "default": 5 },
-    "children": [
-      { "name": "industry", "label": "Industry", "type": "text", "default": "Financial Services" },
-      { "name": "metric", "label": "Metric headline", "type": "text", "default": "Real-Time Fraud Intelligence at Scale" },
-      { "name": "company", "label": "Company line", "type": "text", "default": "FORTUNE 200 WEALTH MANAGEMENT LEADER" },
-      { "name": "description", "label": "Description", "type": "text", "default": "Description of the engagement." },
-      { "name": "challenge", "label": "Challenge", "type": "text", "default": "The challenge faced." },
-      { "name": "solution", "label": "Solution/outcomes", "type": "text", "default": "The outcomes achieved." },
-      { "name": "image", "label": "Background image", "type": "image" }
-    ],
-    "default": [
-      {
-        "industry": "Financial Services",
-        "metric": "Multi-Cloud Operations for Wealth Management",
-        "company": "FORTUNE 200 WEALTH MANAGEMENT LEADER",
-        "description": "Architected a multi-cloud foundation across GCP, AWS, and Azure, establishing SRE practices and IaC-driven infrastructure governance at enterprise scale.",
-        "challenge": "Saturated data centers and legacy infrastructure constrained scalability, speed-to-market, and operational resilience.",
-        "solution": "Achieved faster IT environment provisioning, enterprise-scale infrastructure elasticity, and dramatically improved system uptime — replacing legacy constraints with cloud-native resilience and business continuity.",
-        "image": { "src": "https://images.unsplash.com/photo-1667984390553-7f439e6ae401?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", "alt": "" }
-      },
-      {
-        "industry": "Banking & Payments",
-        "metric": "Real-Time Fraud Intelligence at Scale",
-        "company": "3RD LARGEST US CREDIT CARD BRAND",
-        "description": "Delivered an event-driven, ML-powered fraud detection platform processing 4,000+ transactions per second, reducing annual fraud losses by over $10M for one of America's largest credit card issuers.",
-        "challenge": "A top-3 US credit card brand needed to combat increasingly sophisticated fraud at scale while migrating 50TB of legacy data without disrupting live transaction processing for 40M+ active cardholders.",
-        "solution": "Achieved >$10M annual fraud reduction, 42% faster case resolution, and >90% alert accuracy by deploying real-time Kafka streaming, ML-based scoring, and cognitive case management on AWS cloud infrastructure.",
-        "image": { "src": "https://images.unsplash.com/photo-1430276084627-789fe55a6da0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", "alt": "" }
-      },
-      {
-        "industry": "Regional Banking",
-        "metric": "From Legacy Silos to Cloud-Powered Data Intelligence",
-        "company": "LEADING REGIONAL BANK",
-        "description": "Migrated a regional bank's legacy data infrastructure to Azure cloud, consolidating siloed data into a unified lake and warehouse architecture with a tailored governance framework.",
-        "challenge": "A leading regional bank was constrained by legacy systems, data silos, and manual processes that hindered agility, slowed decision-making, and challenged regulatory compliance.",
-        "solution": "Delivered a modern Azure-based data platform that streamlined operations, unified enterprise data assets, enabled advanced analytics and data science capabilities.",
-        "image": { "src": "https://images.unsplash.com/photo-1768938360622-d5214392ba09?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", "alt": "" }
-      },
-      {
-        "industry": "Credit Unions",
-        "metric": "GenAI Knowledge Assistant for Contact Centers",
-        "company": "LEADING MIDWEST CREDIT UNION",
-        "description": "Built a GenAI-powered Knowledge Assistant using Amazon Q and AWS S3, equipping contact center agents with instant, accurate, and compliant responses to member queries.",
-        "challenge": "A leading credit union's contact center agents struggled with manual knowledge searches across disparate sources, resulting in slow response times and diminished member satisfaction.",
-        "solution": "Delivered instant, contextually accurate responses for contact center agents, boosting productivity and member satisfaction while establishing a compliant, scalable GenAI foundation.",
-        "image": { "src": "https://images.unsplash.com/photo-1769839271832-cfd7a1f6854f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", "alt": "" }
-      },
-      {
-        "industry": "Financial Technology",
-        "metric": "Optimized digital lending experience with secure scale",
-        "company": "GLOBAL FINTECH LEADER",
-        "description": "Managed end-to-end production support and feature enhancements for a complex Temenos-based consumer lending platform.",
-        "challenge": "Balancing critical platform stability with rapid customization of state-specific digital lending forms and secure SSO integrations.",
-        "solution": "Achieved seamless integration of customized loan forms, implemented robust SSO-based security, and ensured 100% operational continuity through dedicated production support.",
-        "image": { "src": "https://images.unsplash.com/photo-1533234944761-2f5337579079?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080", "alt": "" }
-      }
-    ]
+[ {
+  "id" : "section_id",
+  "name" : "section_id",
+  "label" : "Section ID",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "impact"
+}, {
+  "id" : "badge",
+  "name" : "badge",
+  "label" : "Badge",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "CLIENT IMPACT"
+}, {
+  "id" : "nav_aria_label",
+  "name" : "nav_aria_label",
+  "label" : "Navigation aria-label",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "Client impact slides"
+}, {
+  "id" : "more_text",
+  "name" : "more_text",
+  "label" : "More link text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "Know more"
+}, {
+  "id" : "more_url",
+  "name" : "more_url",
+  "label" : "More link",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT" ],
+  "display_width" : null,
+  "type" : "url",
+  "default" : {
+    "content_id" : null,
+    "href" : "#",
+    "type" : "EXTERNAL"
   }
-]
+}, {
+  "id" : "challenge_label",
+  "name" : "challenge_label",
+  "label" : "Challenge label",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "The Challenge"
+}, {
+  "id" : "outcomes_label",
+  "name" : "outcomes_label",
+  "label" : "Outcomes label",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "Outcomes"
+}, {
+  "id" : "items",
+  "name" : "items",
+  "label" : "Impact items",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 10,
+    "sorting_label_field" : null,
+    "default" : 5
+  },
+  "children" : [ {
+    "id" : "items.industry",
+    "name" : "industry",
+    "label" : "Industry",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text",
+    "default" : "Financial Services"
+  }, {
+    "id" : "items.metric",
+    "name" : "metric",
+    "label" : "Metric headline",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text",
+    "default" : "Real-Time Fraud Intelligence at Scale"
+  }, {
+    "id" : "items.company",
+    "name" : "company",
+    "label" : "Company line",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text",
+    "default" : "FORTUNE 200 WEALTH MANAGEMENT LEADER"
+  }, {
+    "id" : "items.description",
+    "name" : "description",
+    "label" : "Description",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text",
+    "default" : "Description of the engagement."
+  }, {
+    "id" : "items.challenge",
+    "name" : "challenge",
+    "label" : "Challenge",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text",
+    "default" : "The challenge faced."
+  }, {
+    "id" : "items.solution",
+    "name" : "solution",
+    "label" : "Solution/outcomes",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text",
+    "default" : "The outcomes achieved."
+  }, {
+    "id" : "items.image",
+    "name" : "image",
+    "label" : "Background image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : false,
+    "resizable" : true,
+    "show_loading" : false,
+    "display_width" : null,
+    "type" : "image",
+    "default" : {
+      "src" : "",
+      "alt" : null,
+      "size_type" : null,
+      "width" : null,
+      "height" : null,
+      "max_width" : null,
+      "max_height" : null,
+      "loading" : "disabled"
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "display_width" : null,
+  "type" : "group",
+  "default" : [ {
+    "industry" : "Financial Services",
+    "metric" : "Multi-Cloud Operations for Wealth Management",
+    "company" : "FORTUNE 200 WEALTH MANAGEMENT LEADER",
+    "description" : "Architected a multi-cloud foundation across GCP, AWS, and Azure, establishing SRE practices and IaC-driven infrastructure governance at enterprise scale.",
+    "challenge" : "Saturated data centers and legacy infrastructure constrained scalability, speed-to-market, and operational resilience.",
+    "solution" : "Achieved faster IT environment provisioning, enterprise-scale infrastructure elasticity, and dramatically improved system uptime — replacing legacy constraints with cloud-native resilience and business continuity.",
+    "image" : {
+      "src" : "https://images.unsplash.com/photo-1667984390553-7f439e6ae401?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "alt" : ""
+    }
+  }, {
+    "industry" : "Banking & Payments",
+    "metric" : "Real-Time Fraud Intelligence at Scale",
+    "company" : "3RD LARGEST US CREDIT CARD BRAND",
+    "description" : "Delivered an event-driven, ML-powered fraud detection platform processing 4,000+ transactions per second, reducing annual fraud losses by over $10M for one of America's largest credit card issuers.",
+    "challenge" : "A top-3 US credit card brand needed to combat increasingly sophisticated fraud at scale while migrating 50TB of legacy data without disrupting live transaction processing for 40M+ active cardholders.",
+    "solution" : "Achieved >$10M annual fraud reduction, 42% faster case resolution, and >90% alert accuracy by deploying real-time Kafka streaming, ML-based scoring, and cognitive case management on AWS cloud infrastructure.",
+    "image" : {
+      "src" : "https://images.unsplash.com/photo-1430276084627-789fe55a6da0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "alt" : ""
+    }
+  }, {
+    "industry" : "Regional Banking",
+    "metric" : "From Legacy Silos to Cloud-Powered Data Intelligence",
+    "company" : "LEADING REGIONAL BANK",
+    "description" : "Migrated a regional bank's legacy data infrastructure to Azure cloud, consolidating siloed data into a unified lake and warehouse architecture with a tailored governance framework.",
+    "challenge" : "A leading regional bank was constrained by legacy systems, data silos, and manual processes that hindered agility, slowed decision-making, and challenged regulatory compliance.",
+    "solution" : "Delivered a modern Azure-based data platform that streamlined operations, unified enterprise data assets, enabled advanced analytics and data science capabilities.",
+    "image" : {
+      "src" : "https://images.unsplash.com/photo-1768938360622-d5214392ba09?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "alt" : ""
+    }
+  }, {
+    "industry" : "Credit Unions",
+    "metric" : "GenAI Knowledge Assistant for Contact Centers",
+    "company" : "LEADING MIDWEST CREDIT UNION",
+    "description" : "Built a GenAI-powered Knowledge Assistant using Amazon Q and AWS S3, equipping contact center agents with instant, accurate, and compliant responses to member queries.",
+    "challenge" : "A leading credit union's contact center agents struggled with manual knowledge searches across disparate sources, resulting in slow response times and diminished member satisfaction.",
+    "solution" : "Delivered instant, contextually accurate responses for contact center agents, boosting productivity and member satisfaction while establishing a compliant, scalable GenAI foundation.",
+    "image" : {
+      "src" : "https://images.unsplash.com/photo-1769839271832-cfd7a1f6854f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "alt" : ""
+    }
+  }, {
+    "industry" : "Financial Technology",
+    "metric" : "Optimized digital lending experience with secure scale",
+    "company" : "GLOBAL FINTECH LEADER",
+    "description" : "Managed end-to-end production support and feature enhancements for a complex Temenos-based consumer lending platform.",
+    "challenge" : "Balancing critical platform stability with rapid customization of state-specific digital lending forms and secure SSO integrations.",
+    "solution" : "Achieved seamless integration of customized loan forms, implemented robust SSO-based security, and ensured 100% operational continuity through dedicated production support.",
+    "image" : {
+      "src" : "https://images.unsplash.com/photo-1533234944761-2f5337579079?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "alt" : ""
+    }
+  } ]
+} ]

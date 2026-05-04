@@ -25,19 +25,69 @@
     }
 
     var active = 0;
-    function setActive(idx) {
-      active = (idx + slides.length) % slides.length;
-      slides.forEach(function (s, i) { s.classList.toggle("is-active", i === active); });
-      nums.forEach(function (n, i) { n.classList.toggle("is-active", i === active); });
+    var isAnimating = false;
+    var ANIM_MS = 400;
 
-      // Update link to current item (stored on slide as data attributes)
-      var slideEl = slides[active];
-      if (link && slideEl) {
-        var href = slideEl.getAttribute("data-report-href") || "#";
-        var txt = slideEl.getAttribute("data-report-text") || "View Report";
-        link.setAttribute("href", href);
-        if (linkText) linkText.textContent = txt;
+    function setActive(idx) {
+      var next = (idx + slides.length) % slides.length;
+      if (next === active) return;
+      if (isAnimating) return;
+      isAnimating = true;
+
+      var prev = active;
+      var prevEl = slides[prev];
+      var nextEl = slides[next];
+
+      // Exit previous
+      if (prevEl) {
+        prevEl.classList.remove("is-entering");
+        prevEl.classList.remove("is-exiting");
+        prevEl.classList.add("is-active");
+        void prevEl.offsetWidth; // ensure animation restarts
+        prevEl.classList.add("is-exiting");
       }
+
+      // After exit completes, swap to next (AnimatePresence mode="wait")
+      window.setTimeout(function () {
+        if (prevEl) {
+          prevEl.classList.remove("is-exiting");
+          prevEl.classList.remove("is-active");
+        }
+
+        active = next;
+
+        slides.forEach(function (s, i) {
+          if (i !== active) {
+            s.classList.remove("is-entering");
+            s.classList.remove("is-exiting");
+            s.classList.remove("is-active");
+          }
+        });
+
+        if (nextEl) {
+          nextEl.classList.remove("is-exiting");
+          nextEl.classList.add("is-active");
+          nextEl.classList.remove("is-entering");
+          void nextEl.offsetWidth;
+          nextEl.classList.add("is-entering");
+        }
+
+        nums.forEach(function (n, i) { n.classList.toggle("is-active", i === active); });
+
+        // Update link to current item (stored on slide as data attributes)
+        var slideEl = slides[active];
+        if (link && slideEl) {
+          var href = slideEl.getAttribute("data-report-href") || "#";
+          var txt = slideEl.getAttribute("data-report-text") || "View Report";
+          link.setAttribute("href", href);
+          if (linkText) linkText.textContent = txt;
+        }
+
+        window.setTimeout(function () {
+          if (nextEl) nextEl.classList.remove("is-entering");
+          isAnimating = false;
+        }, ANIM_MS);
+      }, ANIM_MS);
     }
 
     function bind(btn, dir) {

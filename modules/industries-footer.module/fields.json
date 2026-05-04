@@ -1,161 +1,482 @@
-[
-  {
-    "name": "logo",
-    "label": "Logo",
-    "type": "image",
-    "default": {
-      "src": "",
-      "alt": "Myridius logo",
-      "loading": "lazy"
+[ {
+  "id" : "logo",
+  "name" : "logo",
+  "label" : "Logo",
+  "required" : false,
+  "locked" : true,
+  "responsive" : false,
+  "resizable" : true,
+  "show_loading" : false,
+  "display_width" : null,
+  "type" : "image",
+  "default" : {
+    "src" : "",
+    "alt" : "Myridius logo",
+    "loading" : "lazy"
+  }
+}, {
+  "id" : "logo_url",
+  "name" : "logo_url",
+  "label" : "Logo link",
+  "required" : false,
+  "locked" : true,
+  "supported_types" : [ "EXTERNAL", "CONTENT" ],
+  "display_width" : null,
+  "type" : "url",
+  "default" : {
+    "content_id" : null,
+    "href" : "#",
+    "type" : "EXTERNAL"
+  }
+}, {
+  "id" : "fallback_logo_text",
+  "name" : "fallback_logo_text",
+  "label" : "Fallback logo text",
+  "required" : false,
+  "locked" : true,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "Myridius"
+}, {
+  "id" : "tagline",
+  "name" : "tagline",
+  "label" : "Tagline",
+  "required" : false,
+  "locked" : true,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "Building adaptive capacity for the enterprise."
+}, {
+  "id" : "social",
+  "name" : "social",
+  "label" : "Social links",
+  "required" : false,
+  "locked" : true,
+  "occurrence" : {
+    "min" : 0,
+    "max" : 8,
+    "sorting_label_field" : null,
+    "default" : 4
+  },
+  "children" : [ {
+    "id" : "social.platform",
+    "name" : "platform",
+    "label" : "Platform name",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text",
+    "default" : "LinkedIn"
+  }, {
+    "id" : "social.url",
+    "name" : "url",
+    "label" : "Link",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL" ],
+    "display_width" : null,
+    "type" : "url",
+    "default" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
     }
+  }, {
+    "id" : "social.svg_icon",
+    "name" : "svg_icon",
+    "label" : "SVG icon (inline)",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : true,
+    "display_width" : null,
+    "type" : "text",
+    "default" : "<svg viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M6 9h3v10H6V9zm1.5-4.5A1.75 1.75 0 1 1 7.5 8a1.75 1.75 0 0 1 0-3.5zM11 9h3v1.4c.4-.8 1.4-1.6 3-1.6 3.2 0 3.8 2.1 3.8 4.8V19h-3v-4.7c0-1.1 0-2.6-1.6-2.6s-1.8 1.2-1.8 2.5V19h-3V9z\" fill=\"currentColor\"/></svg>"
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "display_width" : null,
+  "type" : "group",
+  "default" : [ {
+    "platform" : "LinkedIn",
+    "url" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
+    },
+    "svg_icon" : "<svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z\"/><rect x=\"2\" y=\"9\" width=\"4\" height=\"12\"/><circle cx=\"4\" cy=\"4\" r=\"2\"/></svg>"
+  }, {
+    "platform" : "Twitter",
+    "url" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
+    },
+    "svg_icon" : "<svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z\"/></svg>"
+  }, {
+    "platform" : "Instagram",
+    "url" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
+    },
+    "svg_icon" : "<svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"2\" y=\"2\" width=\"20\" height=\"20\" rx=\"5\" ry=\"5\"/><path d=\"M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z\"/><line x1=\"17.5\" y1=\"6.5\" x2=\"17.51\" y2=\"6.5\"/></svg>"
+  }, {
+    "platform" : "YouTube",
+    "url" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
+    },
+    "svg_icon" : "<svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z\"/><polygon points=\"9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02\"/></svg>"
+  } ]
+}, {
+  "id" : "columns",
+  "name" : "columns",
+  "label" : "Link columns",
+  "required" : false,
+  "locked" : true,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 8,
+    "sorting_label_field" : null,
+    "default" : 4
   },
-  {
-    "name": "logo_url",
-    "label": "Logo link",
-    "type": "url",
-    "supported_types": ["EXTERNAL", "CONTENT"],
-    "default": {
-      "content_id": null,
-      "href": "#",
-      "type": "EXTERNAL"
-    }
-  },
-  {
-    "name": "fallback_logo_text",
-    "label": "Fallback logo text",
-    "type": "text",
-    "default": "Myridius"
-  },
-  {
-    "name": "tagline",
-    "label": "Tagline",
-    "type": "text",
-    "default": "Building adaptive capacity for the enterprise."
-  },
-  {
-    "name": "social",
-    "label": "Social links",
-    "type": "group",
-    "occurrence": { "min": 0, "max": 8, "default": 4 },
-    "children": [
-      { "name": "platform", "label": "Platform name", "type": "text", "default": "LinkedIn" },
-      {
-        "name": "url",
-        "label": "Link",
-        "type": "url",
-        "supported_types": ["EXTERNAL"],
-        "default": { "content_id": null, "href": "#", "type": "EXTERNAL" }
-      },
-      {
-        "name": "svg_icon",
-        "label": "SVG icon (inline)",
-        "type": "text",
-        "allow_new_line": true,
-        "default": "<svg viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M6 9h3v10H6V9zm1.5-4.5A1.75 1.75 0 1 1 7.5 8a1.75 1.75 0 0 1 0-3.5zM11 9h3v1.4c.4-.8 1.4-1.6 3-1.6 3.2 0 3.8 2.1 3.8 4.8V19h-3v-4.7c0-1.1 0-2.6-1.6-2.6s-1.8 1.2-1.8 2.5V19h-3V9z\" fill=\"currentColor\"/></svg>"
+  "children" : [ {
+    "id" : "columns.title",
+    "name" : "title",
+    "label" : "Column title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text",
+    "default" : "Services"
+  }, {
+    "id" : "columns.is_wide",
+    "name" : "is_wide",
+    "label" : "Span 2 columns (split links)",
+    "required" : false,
+    "locked" : false,
+    "display" : "checkbox",
+    "display_width" : null,
+    "type" : "boolean",
+    "default" : false
+  }, {
+    "id" : "columns.links",
+    "name" : "links",
+    "label" : "Links",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : 0,
+      "max" : 20,
+      "sorting_label_field" : null,
+      "default" : 5
+    },
+    "children" : [ {
+      "id" : "columns.links.text",
+      "name" : "text",
+      "label" : "Label",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "display_width" : null,
+      "type" : "text",
+      "default" : "Salesforce"
+    }, {
+      "id" : "columns.links.url",
+      "name" : "url",
+      "label" : "Link",
+      "required" : false,
+      "locked" : false,
+      "supported_types" : [ "EXTERNAL", "CONTENT" ],
+      "display_width" : null,
+      "type" : "url",
+      "default" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
       }
-    ],
-    "default": [
-      { "platform": "LinkedIn", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" }, "svg_icon": "<svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z\"/><rect x=\"2\" y=\"9\" width=\"4\" height=\"12\"/><circle cx=\"4\" cy=\"4\" r=\"2\"/></svg>" },
-      { "platform": "Twitter", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" }, "svg_icon": "<svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z\"/></svg>" },
-      { "platform": "Instagram", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" }, "svg_icon": "<svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"2\" y=\"2\" width=\"20\" height=\"20\" rx=\"5\" ry=\"5\"/><path d=\"M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z\"/><line x1=\"17.5\" y1=\"6.5\" x2=\"17.51\" y2=\"6.5\"/></svg>" },
-      { "platform": "YouTube", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" }, "svg_icon": "<svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z\"/><polygon points=\"9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02\"/></svg>" }
-    ]
-  },
-  {
-    "name": "columns",
-    "label": "Link columns",
-    "type": "group",
-    "occurrence": { "min": 1, "max": 8, "default": 4 },
-    "children": [
-      { "name": "title", "label": "Column title", "type": "text", "default": "Services" },
-      { "name": "is_wide", "label": "Span 2 columns (split links)", "type": "boolean", "default": false },
-      {
-        "name": "links",
-        "label": "Links",
-        "type": "group",
-        "occurrence": { "min": 0, "max": 20, "default": 5 },
-        "children": [
-          { "name": "text", "label": "Label", "type": "text", "default": "Salesforce" },
-          {
-            "name": "url",
-            "label": "Link",
-            "type": "url",
-            "supported_types": ["EXTERNAL", "CONTENT"],
-            "default": { "content_id": null, "href": "#", "type": "EXTERNAL" }
-          }
-        ]
-      },
-      { "name": "extra_title", "label": "Extra section title (optional)", "type": "text", "default": "" },
-      {
-        "name": "extra_links",
-        "label": "Extra section links (optional)",
-        "type": "group",
-        "occurrence": { "min": 0, "max": 10, "default": 0 },
-        "children": [
-          { "name": "text", "label": "Label", "type": "text", "default": "" },
-          {
-            "name": "url",
-            "label": "Link",
-            "type": "url",
-            "supported_types": ["EXTERNAL", "CONTENT"],
-            "default": { "content_id": null, "href": "#", "type": "EXTERNAL" }
-          }
-        ]
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "display_width" : null,
+    "type" : "group"
+  }, {
+    "id" : "columns.extra_title",
+    "name" : "extra_title",
+    "label" : "Extra section title (optional)",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text",
+    "default" : ""
+  }, {
+    "id" : "columns.extra_links",
+    "name" : "extra_links",
+    "label" : "Extra section links (optional)",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : 0,
+      "max" : 10,
+      "sorting_label_field" : null,
+      "default" : 0
+    },
+    "children" : [ {
+      "id" : "columns.extra_links.text",
+      "name" : "text",
+      "label" : "Label",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "display_width" : null,
+      "type" : "text",
+      "default" : ""
+    }, {
+      "id" : "columns.extra_links.url",
+      "name" : "url",
+      "label" : "Link",
+      "required" : false,
+      "locked" : false,
+      "supported_types" : [ "EXTERNAL", "CONTENT" ],
+      "display_width" : null,
+      "type" : "url",
+      "default" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
       }
-    ],
-    "default": [
-      {
-        "title": "Services",
-        "is_wide": true,
-        "links": [
-          { "text": "Salesforce", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } },
-          { "text": "Agentic Engineering", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } },
-          { "text": "ServiceNow", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } },
-          { "text": "Cloud Solutions", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } },
-          { "text": "AI & Machine Learning", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } },
-          { "text": "Digital Transformation", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } },
-          { "text": "Data & Analytics", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } },
-          { "text": "Quality Engineering", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } },
-          { "text": "Platform Engineering", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } },
-          { "text": "Managed Services", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } },
-          { "text": "DevOps & SRE", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } },
-          { "text": "Cybersecurity", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } }
-        ],
-        "extra_title": "",
-        "extra_links": []
-      },
-      {
-        "title": "Industries",
-        "is_wide": false,
-        "links": [
-          { "text": "Banking & Finance", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } },
-          { "text": "Insurance", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } },
-          { "text": "Travel", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } },
-          { "text": "Manufacturing", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } },
-          { "text": "Retail", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } },
-          { "text": "Healthcare", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } },
-          { "text": "Technology", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } },
-          { "text": "Education", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } }
-        ],
-        "extra_title": "",
-        "extra_links": []
-      },
-      {
-        "title": "Innovation",
-        "is_wide": false,
-        "links": [
-          { "text": "EVOQ", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } },
-          { "text": "Applied Insights", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } }
-        ],
-        "extra_title": "About",
-        "extra_links": [
-          { "text": "Company", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } },
-          { "text": "Our Leaders", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } },
-          { "text": "Partners", "url": { "content_id": null, "href": "#", "type": "EXTERNAL" } }
-        ]
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "display_width" : null,
+    "type" : "group"
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "display_width" : null,
+  "type" : "group",
+  "default" : [ {
+    "title" : "Services",
+    "is_wide" : true,
+    "links" : [ {
+      "text" : "Salesforce",
+      "url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
       }
-    ]
-  },
-  { "name": "copyright", "label": "Copyright", "type": "text", "default": "\u00a9 2026 myridius. All rights reserved." },
-  { "name": "bottom_right", "label": "Bottom right text", "type": "text", "default": "Execution at scale." }
-]
+    }, {
+      "text" : "Agentic Engineering",
+      "url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "text" : "ServiceNow",
+      "url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "text" : "Cloud Solutions",
+      "url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "text" : "AI & Machine Learning",
+      "url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "text" : "Digital Transformation",
+      "url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "text" : "Data & Analytics",
+      "url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "text" : "Quality Engineering",
+      "url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "text" : "Platform Engineering",
+      "url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "text" : "Managed Services",
+      "url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "text" : "DevOps & SRE",
+      "url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "text" : "Cybersecurity",
+      "url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    } ],
+    "extra_title" : "",
+    "extra_links" : [ ]
+  }, {
+    "title" : "Industries",
+    "is_wide" : false,
+    "links" : [ {
+      "text" : "Banking & Finance",
+      "url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "text" : "Insurance",
+      "url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "text" : "Travel",
+      "url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "text" : "Manufacturing",
+      "url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "text" : "Retail",
+      "url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "text" : "Healthcare",
+      "url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "text" : "Technology",
+      "url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "text" : "Education",
+      "url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    } ],
+    "extra_title" : "",
+    "extra_links" : [ ]
+  }, {
+    "title" : "Innovation",
+    "is_wide" : false,
+    "links" : [ {
+      "text" : "EVOQ",
+      "url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "text" : "Applied Insights",
+      "url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    } ],
+    "extra_title" : "About",
+    "extra_links" : [ {
+      "text" : "Company",
+      "url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "text" : "Our Leaders",
+      "url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "text" : "Partners",
+      "url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    } ]
+  } ]
+}, {
+  "id" : "copyright",
+  "name" : "copyright",
+  "label" : "Copyright",
+  "required" : false,
+  "locked" : true,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "© 2026 myridius. All rights reserved."
+}, {
+  "id" : "bottom_right",
+  "name" : "bottom_right",
+  "label" : "Bottom right text",
+  "required" : false,
+  "locked" : true,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "Execution at scale."
+} ]

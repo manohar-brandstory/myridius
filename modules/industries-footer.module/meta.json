@@ -5,14 +5,15 @@
     "SITE_PAGE",
     "WEB_INTERACTIVE"
   ],
+  "smart_type": "NOT_SMART",
+  "categories": [
+    "BODY_CONTENT"
+  ],
   "host_template_types": [
     "PAGE",
     "BLOG_LISTING",
     "BLOG_POST"
   ],
   "label": "Industries - Footer",
-  "categories": [
-    "BODY_CONTENT"
-  ],
   "is_available_for_new_content": true
 }

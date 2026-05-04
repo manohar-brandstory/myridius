@@ -19,6 +19,7 @@
       var rafId = 0;
       var lastTs = 0;
       var SPEED_PX_PER_SEC = 48; // slightly faster, still smooth
+      var inView = true;
 
       function isMobileCarousel() {
         try { return getComputedStyle(logos).display === "flex"; }
@@ -72,6 +73,18 @@
         if (resumeTimer) window.clearTimeout(resumeTimer);
         resumeTimer = 0;
         logos.classList.remove("is-autoplaying");
+      }
+
+      // Avoid continuous RAF work offscreen (can cause scroll jank on mobile).
+      if ("IntersectionObserver" in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            inView = !!entry.isIntersecting;
+            if (inView) start();
+            else stop();
+          });
+        }, { threshold: 0.01 });
+        io.observe(section);
       }
 
       // Pause on user interaction

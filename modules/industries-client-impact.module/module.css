@@ -240,9 +240,9 @@
 
 /* Desktop stability: prevent layout jumps/overlaps when switching slides */
 @media (min-width: 769px){
-  .impact__body{ min-height: 522px; }
-  .impact__content{ min-height: 296px; }
-  .impact__nav{ margin-top: 48px; }
+  .impact__body{ min-height: 480px; }
+  .impact__content{ min-height: 260px; }
+  .impact__nav{ margin-top: 36px; }
 }
 
 /* Touch devices can "stick" :hover on tap; disable hover-only effects */

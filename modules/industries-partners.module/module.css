@@ -97,12 +97,12 @@
   }
   .partners__logos::before{
     left: 0;
-    margin-left: -46px;
+    transform: translateX(-46px);
     background: linear-gradient(90deg, #F6F8F9 0%, rgba(246,248,249,0) 100%);
   }
   .partners__logos::after{
     right: 0;
-    margin-right: -46px;
+    transform: translateX(46px);
     background: linear-gradient(90deg, rgba(246,248,249,0) 0%, #F6F8F9 100%);
   }
 

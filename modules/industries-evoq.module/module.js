@@ -36,21 +36,20 @@
       });
       setCounter();
 
-      if (!track || !isMobileSlider()) return;
+      if ((opts && opts.skipScroll) || !track || !isMobileSlider()) return;
       var doScroll = function () {
         var el = cards[active];
         if (!el) return;
-        if (typeof el.scrollIntoView === "function") {
+        var left = el.offsetLeft - track.offsetLeft;
+        // Avoid scrollIntoView() on mobile; it can cause vertical "jump" during
+        // address-bar show/hide (resize events while scrolling).
+        if (typeof track.scrollTo === "function") {
           try {
-            el.scrollIntoView({
-              behavior: (opts && opts.instant) ? "auto" : "smooth",
-              block: "nearest",
-              inline: "start"
-            });
+            track.scrollTo({ left: left, behavior: (opts && opts.instant) ? "auto" : "smooth" });
             return;
           } catch (e) {}
         }
-        track.scrollLeft = el.offsetLeft - track.offsetLeft;
+        track.scrollLeft = left;
       };
       if (typeof requestAnimationFrame === "function") requestAnimationFrame(doScroll);
       else setTimeout(doScroll, 0);
@@ -104,7 +103,9 @@
       });
 
       window.addEventListener("resize", function () {
-        setActive(active, { instant: true });
+        // Mobile browsers frequently fire resize during scroll (URL bar collapse/expand).
+        // Re-applying active state is fine, but avoid any scrolling behavior here.
+        setActive(active, { instant: true, skipScroll: true });
       });
     }
 
