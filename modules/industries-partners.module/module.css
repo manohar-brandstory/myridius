@@ -6,8 +6,9 @@
 .partners__badgeText{ font-size:14px; font-weight:500; text-transform:uppercase; letter-spacing:0.2em; color: var(--color-brand-1); }
 .partners__title{ margin:0 0 16px; font-size: clamp(32px, 3.5vw, 52px); font-weight:500; line-height:1.1; letter-spacing:-0.025em; color: var(--color-brand-1); white-space: pre-line; }
 .partners__desc{ font-size: 18px; font-weight: 500; line-height: 1.6; color: var(--color-brand-2); margin-bottom: 48px; max-width: 520px; }
-.partners__link{ display:inline-flex; align-items:center; gap: 10px; font-size: 16px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.04em; color: var(--color-brand-1); }
+.partners__link{ display:inline-flex; align-items:center; gap: 10px; font-size: 16px; font-weight: 500; text-transform: uppercase; letter-spacing: 2px; color: var(--color-brand-1); }
 .partners__linkIcon{ transition: transform 180ms ease; }
+.partners__link:hover{ text-decoration: underline; text-underline-offset: 4px; }
 .partners__link:hover .partners__linkIcon{ transform: translateX(6px); }
 
 .partners__logos{ display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; border-radius: var(--radius-12); }

@@ -1,0 +1,66 @@
+<section
+  {% if module.section_id %}id="{{ module.section_id }}"{% endif %}
+  class="svc-approach"
+>
+  <div class="svc-approach__container">
+
+    {# ── Badge ──────────────────────────────────────────────────────── #}
+    {% if module.badge_text %}
+      <div class="svc-approach__badge">
+        <span class="svc-approach__badge-line" aria-hidden="true"></span>
+        <span class="svc-approach__badge-text">{{ module.badge_text }}</span>
+      </div>
+    {% endif %}
+
+    {# ── Heading ────────────────────────────────────────────────────── #}
+    {% if module.heading %}
+      <h2 class="svc-approach__heading">{{ module.heading }}</h2>
+    {% endif %}
+
+    {# ── Subtitle ───────────────────────────────────────────────────── #}
+    {% if module.subtitle %}
+      <div class="svc-approach__subtitle">{{ module.subtitle }}</div>
+    {% endif %}
+
+    {# ── Card grid ──────────────────────────────────────────────────── #}
+    {% if module.cards %}
+      <div class="svc-approach__grid">
+        {% for card in module.cards %}
+          <div class="svc-approach__card{% if loop.first %} svc-approach__card--first{% endif %}{% if loop.last %} svc-approach__card--last{% endif %}" data-reveal>
+
+            {# Default (idle) layer #}
+            <div class="svc-approach__card-idle">
+              {% if card.icon_svg %}
+                <span class="svc-approach__icon" aria-hidden="true">{{ card.icon_svg }}</span>
+              {% endif %}
+              {% if card.title %}
+                <span class="svc-approach__card-label">{{ card.title }}</span>
+              {% endif %}
+            </div>
+
+            {# Hover (expanded) layer #}
+            <div class="svc-approach__card-hover">
+              {% if card.description %}
+                <div class="svc-approach__card-desc">{{ card.description }}</div>
+              {% endif %}
+              {% if card.button_text and card.button_url.href %}
+                <a
+                  class="svc-approach__card-link"
+                  href="{{ card.button_url.href }}"
+                  {% if card.button_url.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}
+                >
+                  {{ card.button_text }}
+                  <svg class="svc-approach__arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M3.333 8h9.334M8.667 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              {% endif %}
+            </div>
+
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+  </div>
+</section>

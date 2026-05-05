@@ -1,0 +1,50 @@
+<section
+  {% if module.section_id %}id="{{ module.section_id }}"{% endif %}
+  class="svc-diff"
+>
+  <div class="svc-diff__container">
+
+    {% if module.heading %}
+      <h2 class="svc-diff__heading">{{ module.heading }}</h2>
+    {% endif %}
+
+    {% if module.cards %}
+      <div class="svc-diff__grid">
+        {% for card in module.cards %}
+          <div class="svc-diff__card" data-reveal>
+
+            <div class="svc-diff__corner" aria-hidden="true">
+              <span class="svc-diff__corner-h"></span>
+              <span class="svc-diff__corner-v"></span>
+            </div>
+
+            <div class="svc-diff__card-body">
+              {% if card.title %}
+                <h3 class="svc-diff__card-title">{{ card.title }}</h3>
+              {% endif %}
+
+              {% if card.description %}
+                <div class="svc-diff__card-desc">{{ card.description }}</div>
+              {% endif %}
+
+              {% if card.button_text and card.button_url.href %}
+                <a
+                  class="svc-diff__card-link"
+                  href="{{ card.button_url.href }}"
+                  {% if card.button_url.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}
+                >
+                  {{ card.button_text }}
+                  <svg class="svc-diff__arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M3.333 8h9.334M8.667 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              {% endif %}
+            </div>
+
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+  </div>
+</section>

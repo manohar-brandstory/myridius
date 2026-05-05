@@ -161,7 +161,8 @@
 
 @media (max-width: 1024px){
   .hero{ padding-bottom: 96px; }
-  .hero__title{ font-size: clamp(44px, 7vw, 64px); }
+  /* Keep BFS desktop/tablet hero title size consistent */
+  .hero__title{ font-size: 72px; }
   /* Mobile/tablet stacking order to match updated design:
      image card first, content second. */
   .hero__grid{

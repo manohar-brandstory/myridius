@@ -1,0 +1,106 @@
+<section
+  {% if module.section_id %}id="{{ module.section_id }}"{% endif %}
+  class="svc-shift"
+>
+  {# ── Sticky Header ── #}
+  <div class="svc-shift__header">
+    <div class="svc-shift__container">
+
+      {% if module.badge_text %}
+        <div class="svc-shift__badge">
+          <span class="svc-shift__badge-line" aria-hidden="true"></span>
+          <span class="svc-shift__badge-label">{{ module.badge_text }}</span>
+        </div>
+      {% endif %}
+
+      {% if module.heading %}
+        <h2 class="svc-shift__heading">{{ module.heading }}</h2>
+      {% endif %}
+
+      {% if module.subtitle %}
+        <div class="svc-shift__subtitle">{{ module.subtitle }}</div>
+      {% endif %}
+
+    </div>
+  </div>
+
+  {# ── Cards ── #}
+  {% if module.cards %}
+    <div class="svc-shift__cards-area">
+      <div class="svc-shift__container">
+        <div class="svc-shift__cards" data-shift-slider style="--shift-card-count: {{ module.cards|length }};">
+          {% for card in module.cards %}
+            <div class="svc-shift__cardWrap" data-shift-slide>
+              <div
+                class="svc-shift__card{% if card.is_highlighted %} svc-shift__card--highlight{% endif %}"
+              >
+              <div class="svc-shift__card-body">
+                {% if card.tag %}
+                  <span class="svc-shift__card-tag">{{ card.tag }}</span>
+                {% endif %}
+
+                {% if card.title %}
+                  <h3 class="svc-shift__card-title">{{ card.title }}</h3>
+                {% endif %}
+
+                {% if card.description_items %}
+                  <ul class="svc-shift__card-list">
+                    {% for item in card.description_items %}
+                      <li class="svc-shift__card-bullet">{{ item.text }}</li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </div>
+
+              {% set card_image_src = card.image.src %}
+              {% if not card_image_src and loop.index == 1 %}
+                {% set card_image_src = "https://images.unsplash.com/photo-1644088379091-d574269d422f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMHRlY2hub2xvZ3klMjBuZXR3b3JrfGVufDF8fHx8MTc2OTQ4NTI2MHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" %}
+              {% elif not card_image_src and loop.index == 2 %}
+                {% set card_image_src = "https://images.unsplash.com/photo-1765046255479-669cf07a0230?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGRhdGElMjB2aXN1YWxpemF0aW9ufGVufDF8fHx8MTc2OTQ5ODgwMnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" %}
+              {% endif %}
+
+              {% if card_image_src %}
+                <div class="svc-shift__card-visual">
+                  <div class="svc-shift__card-overlay" aria-hidden="true"></div>
+                  <img
+                    class="svc-shift__card-img"
+                    src="{{ card_image_src }}"
+                    alt="{{ card.image.alt|default(card.title|default('Market shift card')) }}"
+                    loading="lazy"
+                  >
+                </div>
+              {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
+        {% if module.cards|length > 1 %}
+          <div class="svc-shift__mobile-nav" data-shift-controls aria-label="Market Shift Slider Controls">
+            <button class="svc-shift__navBtn" type="button" data-shift-prev aria-label="Previous slide">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="svc-shift__dots" aria-label="Slides">
+              {% for card in module.cards %}
+                <button
+                  type="button"
+                  class="svc-shift__dot{% if loop.first %} is-active{% endif %}"
+                  data-shift-dot="{{ loop.index0 }}"
+                  aria-label="Slide {{ loop.index }}"
+                ></button>
+              {% endfor %}
+            </div>
+            <button class="svc-shift__navBtn" type="button" data-shift-next aria-label="Next slide">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+
+</section>

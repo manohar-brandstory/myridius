@@ -77,8 +77,8 @@
   background: rgba(246,248,249,0.1);
   border: 1px solid rgba(140,161,163,0.3);
   border-radius: 8px;
-  padding: 1px 17px;
-  height: 34px; line-height: 34px;
+  padding: 4px 16px;
+  line-height: 1.2;
   font-size: 13px; font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1.8px;
@@ -161,7 +161,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 32px;
+  margin-top: 24px;
   gap: 24px;
   flex-wrap: wrap;
 }
@@ -170,9 +170,14 @@
   color: #52E081;
   font-size: 16px; font-weight: 500;
   text-transform: uppercase;
+  letter-spacing: 2px;
   transition: color 0.3s;
 }
-.impact__more:hover{ color: #ECFAE5; }
+.impact__more:hover{
+  color: #ECFAE5;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
 .impact__moreIcon{ transition: transform 0.3s; display:inline-flex; align-items:center; }
 .impact__moreIcon svg{ display:block; }
 .impact__more:hover .impact__moreIcon{ transform: translateX(4px); }
@@ -242,7 +247,7 @@
 @media (min-width: 769px){
   .impact__body{ min-height: 480px; }
   .impact__content{ min-height: 260px; }
-  .impact__nav{ margin-top: 36px; }
+  .impact__nav{ margin-top: 28px; }
 }
 
 /* Touch devices can "stick" :hover on tap; disable hover-only effects */

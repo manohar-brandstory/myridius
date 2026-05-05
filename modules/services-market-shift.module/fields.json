@@ -1,0 +1,134 @@
+[
+  {
+    "id": "section_id",
+    "name": "section_id",
+    "label": "Section ID",
+    "type": "text",
+    "default": "market-shift",
+    "help_text": "Unique HTML ID for this section (used for anchor links)."
+  },
+  {
+    "id": "badge_text",
+    "name": "badge_text",
+    "label": "Badge Text",
+    "type": "text",
+    "default": "The Market Shift"
+  },
+  {
+    "id": "heading",
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "default": "From Data Platforms to Intelligence Systems"
+  },
+  {
+    "id": "subtitle",
+    "name": "subtitle",
+    "label": "Subtitle",
+    "type": "richtext",
+    "default": "<p>The most forward-looking enterprises are engineering intelligence systems that continuously sense, reason, and act, rather than treating data as back-office infrastructure.</p>"
+  },
+  {
+    "id": "cards",
+    "name": "cards",
+    "label": "Cards",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 4,
+      "default": 2
+    },
+    "children": [
+      {
+        "id": "tag",
+        "name": "tag",
+        "label": "Tag Label",
+        "type": "text",
+        "default": "Traditional Model"
+      },
+      {
+        "id": "title",
+        "name": "title",
+        "label": "Title",
+        "type": "text",
+        "default": "Data platforms as infrastructure"
+      },
+      {
+        "id": "description_items",
+        "name": "description_items",
+        "label": "Description Bullets",
+        "type": "group",
+        "occurrence": {
+          "min": 1,
+          "max": 8,
+          "default": 4
+        },
+        "children": [
+          {
+            "id": "text",
+            "name": "text",
+            "label": "Bullet Text",
+            "type": "text",
+            "default": "Bullet point text"
+          }
+        ],
+        "default": [
+          { "text": "Built for storage, reporting, and active insight" },
+          { "text": "Fragmented context slows down decision cycles" },
+          { "text": "Governance is added later, making AI harder to scale safely" },
+          { "text": "Value stays trapped in tools instead of flowing into workflows and actions" }
+        ]
+      },
+      {
+        "id": "image",
+        "name": "image",
+        "label": "Card Image",
+        "type": "image",
+        "default": {
+          "src": "",
+          "alt": "Card visual"
+        }
+      },
+      {
+        "id": "is_highlighted",
+        "name": "is_highlighted",
+        "label": "Highlighted (AI-Native Style)",
+        "type": "boolean",
+        "default": false,
+        "help_text": "Enable to use the accent-coloured AI-Native visual treatment."
+      }
+    ],
+    "default": [
+      {
+        "tag": "Traditional Model",
+        "title": "Data platforms as infrastructure",
+        "description_items": [
+          { "text": "Built for storage, reporting, and active insight" },
+          { "text": "Fragmented context slows down decision cycles" },
+          { "text": "Governance is added later, making AI harder to scale safely" },
+          { "text": "Value stays trapped in tools instead of flowing into workflows and actions" }
+        ],
+        "image": {
+          "src": "https://images.unsplash.com/photo-1644088379091-d574269d422f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMHRlY2hub2xvZ3klMjBuZXR3b3JrfGVufDF8fHx8MTc2OTQ4NTI2MHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+          "alt": "Traditional model"
+        },
+        "is_highlighted": false
+      },
+      {
+        "tag": "AI-Native Model",
+        "title": "Intelligence systems as the execution layer",
+        "description_items": [
+          { "text": "Built for real-time sensing, reasoning, orchestration, and action" },
+          { "text": "Semantic context connects data, business meaning, policy, and workflow" },
+          { "text": "Governance, lineage, quality, and observability are engineered into the system" },
+          { "text": "Value compounds through reusable services, agents, and operating patterns on Evoq" }
+        ],
+        "image": {
+          "src": "https://images.unsplash.com/photo-1765046255479-669cf07a0230?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGRhdGElMjB2aXN1YWxpemF0aW9ufGVufDF8fHx8MTc2OTQ5ODgwMnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+          "alt": "AI-native model"
+        },
+        "is_highlighted": true
+      }
+    ]
+  }
+]

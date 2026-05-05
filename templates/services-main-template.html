@@ -1,0 +1,83 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Services Main Template
+-->
+{% extends "./layouts/base.html" %}
+
+{% block body %}
+  <main class="myridius-page myridius-services">
+    {% dnd_area "main_content", label="Main Content" %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/services-hero.module", label="Services - Hero" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/services-myridius-diff.module", label="Services - Myridius Difference" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/services-market-shift.module", label="Services - Market Shift" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/services-our-approach.module", label="Services - Our Approach" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/services-the-shift.module", label="Services - The Shift" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/services-capabilities.module", label="Services - What We Do" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/services-how-we-work.module", label="Services - How We Work" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/services-evoq.module", label="Services - EVOQ Operating Layer" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/services-industry-expertise.module", label="Services - Industry Expertise" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/services-why-choose-us.module", label="Services - Why Choose Us" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/services-client-impact.module", label="Services - Client Impact" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/services-resources.module", label="Services - Resources" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/services-cta.module", label="Services - CTA" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/services-about-aws.module", label="Services - About AWS" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+    {% end_dnd_area %}
+  </main>
+{% endblock body %}

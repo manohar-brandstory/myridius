@@ -1,0 +1,33 @@
+<section class="svc-about" {% if module.section_id %}id="{{ module.section_id }}"{% endif %}>
+  <div class="svc-about__container">
+    <div class="svc-about__content">
+      {% if module.heading %}
+        <h3 class="svc-about__title">{{ module.heading }}</h3>
+      {% endif %}
+
+      {% if module.description %}
+        <div class="svc-about__description">{{ module.description }}</div>
+      {% endif %}
+
+      {% if module.cta_text and module.cta_url.href %}
+        <a href="{{ module.cta_url.href }}"
+           class="svc-about__cta"
+           {% if module.cta_url.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}>
+          <span>{{ module.cta_text }}</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      {% endif %}
+    </div>
+
+    {% if module.partner_logo.src %}
+      <div class="svc-about__logo">
+        <img src="{{ module.partner_logo.src }}"
+             alt="{{ module.partner_logo.alt }}"
+             {% if module.partner_logo.height %}height="{{ module.partner_logo.height }}"{% endif %}
+             loading="lazy">
+      </div>
+    {% endif %}
+  </div>
+</section>

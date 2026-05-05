@@ -1,0 +1,342 @@
+[
+  {
+    "id": "section_id",
+    "name": "section_id",
+    "label": "Section ID",
+    "required": false,
+    "locked": false,
+    "type": "text",
+    "default": "what-we-do"
+  },
+  {
+    "id": "badge_text",
+    "name": "badge_text",
+    "label": "Badge text",
+    "required": false,
+    "locked": false,
+    "type": "text",
+    "default": "WHAT WE DO"
+  },
+  {
+    "id": "heading",
+    "name": "heading",
+    "label": "Heading",
+    "required": false,
+    "locked": false,
+    "type": "text",
+    "default": "Delivery shaped by the standards we uphold"
+  },
+  {
+    "id": "subtitle",
+    "name": "subtitle",
+    "label": "Subtitle",
+    "required": false,
+    "locked": false,
+    "type": "richtext",
+    "default": "<p>End-to-end capability across AWS cloud, data, AI, and applications</p>"
+  },
+  {
+    "id": "capabilities",
+    "name": "capabilities",
+    "label": "Capabilities",
+    "required": false,
+    "locked": false,
+    "occurrence": {
+      "min": 1,
+      "max": 12,
+      "sorting_label_field": "capabilities.title",
+      "default": 7
+    },
+    "children": [
+      {
+        "id": "capabilities.number",
+        "name": "number",
+        "label": "Number",
+        "required": false,
+        "locked": false,
+        "type": "text",
+        "default": "01"
+      },
+      {
+        "id": "capabilities.title",
+        "name": "title",
+        "label": "Title",
+        "required": false,
+        "locked": false,
+        "type": "text",
+        "default": "Cloud Strategy & Infrastructure"
+      },
+      {
+        "id": "capabilities.brief",
+        "name": "brief",
+        "label": "Brief (collapsed description)",
+        "required": false,
+        "locked": false,
+        "type": "text",
+        "default": "Mapping every AWS decision to C-suite metrics, delivering up to 25–35% cost reduction with embedded FinOps discipline"
+      },
+      {
+        "id": "capabilities.description",
+        "name": "description",
+        "label": "Description (expanded)",
+        "required": false,
+        "locked": false,
+        "type": "richtext",
+        "default": "<p>Before a single resource is provisioned, we map every AWS decision to C-suite metrics, delivering up to 25–35% cost reduction via landing zones with embedded FinOps discipline.</p>"
+      },
+      {
+        "id": "capabilities.bg_image",
+        "name": "bg_image",
+        "label": "Background image (expanded)",
+        "required": false,
+        "locked": false,
+        "responsive": false,
+        "resizable": true,
+        "type": "image",
+        "default": {
+          "src": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "Cloud Strategy"
+        }
+      },
+      {
+        "id": "capabilities.cards",
+        "name": "cards",
+        "label": "Sub-cards",
+        "required": false,
+        "locked": false,
+        "occurrence": {
+          "min": 1,
+          "max": 6,
+          "sorting_label_field": "capabilities.cards.title",
+          "default": 4
+        },
+        "children": [
+          {
+            "id": "capabilities.cards.title",
+            "name": "title",
+            "label": "Card title",
+            "required": false,
+            "locked": false,
+            "type": "text",
+            "default": "Card title"
+          },
+          {
+            "id": "capabilities.cards.description",
+            "name": "description",
+            "label": "Card description",
+            "required": false,
+            "locked": false,
+            "type": "richtext",
+            "default": "<p>Card description goes here.</p>"
+          }
+        ],
+        "type": "group",
+        "default": [
+          {
+            "title": "Card title",
+            "description": "<p>Card description goes here.</p>"
+          }
+        ]
+      }
+    ],
+    "type": "group",
+    "default": [
+      {
+        "number": "01",
+        "title": "Cloud Strategy & Infrastructure",
+        "brief": "Mapping every AWS decision to C-suite metrics, delivering up to 25–35% cost reduction with embedded FinOps discipline",
+        "description": "<p>Before a single resource is provisioned, we map every AWS decision to C-suite metrics, delivering up to 25–35% cost reduction via landing zones with embedded FinOps discipline.</p>",
+        "bg_image": {
+          "src": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "Cloud Strategy & Infrastructure"
+        },
+        "cards": [
+          {
+            "title": "AWS CAF Assessments",
+            "description": "<p>Readiness mapped to business goals before investment is committed. No surprises, no rework once you start building.</p>"
+          },
+          {
+            "title": "Landing Zone Design & Build",
+            "description": "<p>Secure, multi-account foundations that eliminate compliance rework from day one, embedded with guardrails, logging, and IAM.</p>"
+          },
+          {
+            "title": "Well-Architected Reviews",
+            "description": "<p>Structural risk identified and remediated before it becomes an incident. Every phase gate cleared with zero compliance findings.</p>"
+          },
+          {
+            "title": "FinOps & Cost Optimization",
+            "description": "<p>Average 30% cloud spend reduction built into architecture and continuously governed. Designed out before go-live.</p>"
+          }
+        ]
+      },
+      {
+        "number": "02",
+        "title": "Migration & Modernization",
+        "brief": "Modernize without disruption. Using AI-assisted tools and EVOQ pattern libraries, we cut migration timelines up to 60% across every architectural layer",
+        "description": "<p>Modernize without disruption. Using AI-assisted tools and EVOQ pattern libraries, we cut migration timelines up to 60% across every architectural layer.</p>",
+        "bg_image": {
+          "src": "https://images.unsplash.com/photo-1605379399642-870262d3d051?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "Migration & Modernization"
+        },
+        "cards": [
+          {
+            "title": "Migration Portfolio Discovery",
+            "description": "<p>Full-estate assessment, wave planning, and dependency mapping so migrations proceed without surprises. AI-assisted tooling cuts scoping effort by up to 60%.</p>"
+          },
+          {
+            "title": "Server, Database & Mainframe Migration",
+            "description": "<p>Risk-managed, wave-based migrations that keep business-critical systems live throughout. Zero unplanned downtime across every engagement to date.</p>"
+          },
+          {
+            "title": "VMware & Large-Scale Estate Migration",
+            "description": "<p>Exit legacy infrastructure at scale without disrupting what runs the business. Proven patterns for petabyte-scale data and multi-thousand VM estates.</p>"
+          },
+          {
+            "title": "Legacy Modernization via AWS Transform",
+            "description": "<p>Technical debt converted to delivery velocity. Agentic AI-powered code conversion for COBOL, .NET, and Java: modernized applications, not just lifted ones.</p>"
+          }
+        ]
+      },
+      {
+        "number": "03",
+        "title": "Cloud-Native Engineering & DevSecOps",
+        "brief": "Cloud-native applications built to AWS standards: microservices, serverless, event-driven, API-first.",
+        "description": "<p>Cloud-native applications built to AWS standards: microservices, serverless, event-driven, API-first. DevSecOps gates embedded from first commit so security and compliance never become a release blocker.</p>",
+        "bg_image": {
+          "src": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "Cloud-Native Engineering"
+        },
+        "cards": [
+          {
+            "title": "Containers & Kubernetes Platforms",
+            "description": "<p>Workloads that scale reliably, deploy consistently, and cost less to operate. EKS, ECS, and Fargate managed as a product, not a project.</p>"
+          },
+          {
+            "title": "Serverless & Event-Driven Architectures",
+            "description": "<p>Applications that scale to zero and to millions without operational overhead. Event-driven design that decouples services and eliminates brittle integrations.</p>"
+          },
+          {
+            "title": "DevSecOps & CI/CD Pipelines",
+            "description": "<p>Security and quality gates embedded in every deployment pipeline. Faster releases with fewer incidents, not a trade-off between speed and control.</p>"
+          },
+          {
+            "title": "API Design, Management & Front-End",
+            "description": "<p>APIs that expose your platform's value without creating fragility. Governed, versioned, and secured from the first endpoint.</p>"
+          }
+        ]
+      },
+      {
+        "number": "04",
+        "title": "Data & Analytics",
+        "brief": "Governed, AI-ready data platforms built for scale and purpose — lakes, lakehouses, real-time streaming, and mesh architectures.",
+        "description": "<p>Governed, AI-ready data platforms built for scale and purpose: lakes, lakehouses, real-time streaming, and mesh architectures designed to feed the AI models and analytics workloads your business depends on.</p>",
+        "bg_image": {
+          "src": "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "Data & Analytics"
+        },
+        "cards": [
+          {
+            "title": "Data Lake, Lakehouse & Mesh Architecture",
+            "description": "<p>Data foundations built for AI-readiness, not just reporting. Governed, domain-oriented, and structured so every downstream model has what it needs.</p>"
+          },
+          {
+            "title": "Real-Time Analytics & Streaming",
+            "description": "<p>Business decisions made on what is happening now. Sub-second event processing at any volume, with the governance your compliance team requires.</p>"
+          },
+          {
+            "title": "Operational & NoSQL Databases",
+            "description": "<p>The right database for each workload, not one size forced to fit all. Consistent performance at scale, with cost and resilience engineered in from the start.</p>"
+          },
+          {
+            "title": "Data Governance, Quality & Clean Rooms",
+            "description": "<p>Data your teams can trust and your regulators can audit. Lineage, quality controls, and privacy-preserving collaboration built into the platform.</p>"
+          }
+        ]
+      },
+      {
+        "number": "05",
+        "title": "Agentic & Generative AI",
+        "brief": "Production-grade, governed AI that automates underwriting, claims triage, and supply-chain decisioning",
+        "description": "<p>Deploy production-grade, governed AI that automates underwriting, claims triage, and supply-chain decisioning — engineered for real business outcomes from day one.</p>",
+        "bg_image": {
+          "src": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "Agentic & Generative AI"
+        },
+        "cards": [
+          {
+            "title": "Enterprise Generative AI",
+            "description": "<p>Production-grade GenAI for real business outcomes. Governed document intelligence, AI-powered customer engagement, and automated knowledge work built to run in regulated environments from day one.</p>"
+          },
+          {
+            "title": "Autonomous Agentic Workflows",
+            "description": "<p>Multi-agent systems that execute complex, multi-step business processes end to end. Memory, guardrails, audit trails, and human-in-the-loop escalation built in from the start.</p>"
+          },
+          {
+            "title": "AI-Augmented Development",
+            "description": "<p>Developer productivity and operational intelligence amplified by AI. Faster delivery cycles, smarter code review, and self-healing infrastructure via EVOQ and Amazon Q.</p>"
+          },
+          {
+            "title": "ML Platforms & AI-Ready Data",
+            "description": "<p>End-to-end ML engineering: training, deployment, monitoring, and automated retraining on the vector data substrate that keeps retrieval and reasoning sharp at scale.</p>"
+          }
+        ]
+      },
+      {
+        "number": "06",
+        "title": "Security, Compliance & Governance",
+        "brief": "Zero-Trust architecture, continuous compliance automation mapped to SOC 2, ISO 27001, HIPAA, and PCI DSS.",
+        "description": "<p>Zero-Trust architecture with automated compliance mapped to SOC 2, ISO 27001, HIPAA, and PCI DSS, and audit-ready evidence, ensuring CISO sign-off at every phase without slowing delivery.</p>",
+        "bg_image": {
+          "src": "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "Security & Compliance"
+        },
+        "cards": [
+          {
+            "title": "Zero-Trust Architecture & Identity",
+            "description": "<p>Least-privilege access, service control policies, and network segmentation in every landing zone. No implicit trust, no open blast radius.</p>"
+          },
+          {
+            "title": "Threat Detection & Response",
+            "description": "<p>Continuous threat monitoring with automated response playbooks. Incidents detected and contained before they become breaches or headlines.</p>"
+          },
+          {
+            "title": "Compliance Automation & Audit Readiness",
+            "description": "<p>SOC 2, ISO 27001, HIPAA, and PCI DSS mapped and evidenced continuously. Audits become reviews, not fire drills. CRO and CISO sign-off at every phase gate.</p>"
+          },
+          {
+            "title": "Policy-as-Code Governance",
+            "description": "<p>Guardrails enforced automatically in every deployment pipeline. Governance that accelerates delivery rather than blocking it.</p>"
+          }
+        ]
+      },
+      {
+        "number": "07",
+        "title": "Managed Cloud Operations & SRE",
+        "brief": "Embedded SRE, full-stack observability, and continuous FinOps discipline keep your estate healthy, cost-efficient, and self-improving.",
+        "description": "<p>Embedded SRE, full-stack observability, and continuous FinOps discipline keep your estate healthy, cost-efficient, and self-improving. EVOQ agentic operations detect, diagnose, and remediate autonomously — reducing MTTR and eliminating operational drift.</p>",
+        "bg_image": {
+          "src": "https://images.unsplash.com/photo-1497366216548-37526070297c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "Managed Cloud Operations"
+        },
+        "cards": [
+          {
+            "title": "AWS Managed Operations",
+            "description": "<p>Your cloud estate managed as a product, not a cost center. Proactive operations that maintain reliability and keep your teams focused on building, not firefighting.</p>"
+          },
+          {
+            "title": "Full-Stack Observability & AIOps",
+            "description": "<p>Complete visibility across infrastructure, applications, and cost. AI-powered anomaly detection that finds problems before your customers do.</p>"
+          },
+          {
+            "title": "FinOps Continuous Optimization",
+            "description": "<p>Cloud spend continuously right-sized against actual usage. Waste eliminated at the source, not recovered quarterly in a spreadsheet.</p>"
+          },
+          {
+            "title": "Resilience Engineering & Disaster Recovery",
+            "description": "<p>Recovery objectives met and tested, not just documented. Chaos engineering and game-day exercises that prove resilience before you need it.</p>"
+          }
+        ]
+      }
+    ]
+  }
+]

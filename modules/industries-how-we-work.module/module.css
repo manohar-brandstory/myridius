@@ -86,7 +86,13 @@
 .hww__tab:hover{ color: rgba(255,255,255,0.7); }
 .hww__tab.is-active{ color: #fff; }
 .hww__tab.is-active .hww__tabIcon{ color: #52E081; }
-.hww__tabIcon{ transition: color 0.3s; display: flex; }
+.hww__tabIcon{
+  transition: color 0.3s;
+  display: flex;
+  /* Default state icon color in Figma Make */
+  color: #8CA1A3;
+  opacity: 1;
+}
 .hww__tabLabel{ display: none; }
 .hww__tabLine{
   position: absolute; bottom: 0; left: 0; right: 0;

@@ -1,0 +1,49 @@
+[
+  {
+    "name": "section_id",
+    "label": "Section ID",
+    "type": "text",
+    "required": false,
+    "default": "lets-talk"
+  },
+  {
+    "name": "badge_text",
+    "label": "Badge Text",
+    "type": "text",
+    "required": false,
+    "default": "LET'S TALK"
+  },
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "required": false,
+    "default": "Your Business Outcomes. Our Accountability."
+  },
+  {
+    "name": "subtitle",
+    "label": "Subtitle",
+    "type": "richtext",
+    "required": false,
+    "default": "<p>We align your AWS investment to the outcomes your leadership team owns, identify where the biggest levers are, and give you a clear path forward with accountability built in.</p>"
+  },
+  {
+    "name": "button_text",
+    "label": "Button Text",
+    "type": "text",
+    "required": false,
+    "default": "Start a Conversation"
+  },
+  {
+    "name": "button_url",
+    "label": "Button URL",
+    "type": "url",
+    "required": false,
+    "default": {
+      "content_id": null,
+      "href": "#contact",
+      "type": "EXTERNAL"
+    },
+    "supported_types": ["EXTERNAL", "CONTENT"]
+  }
+]

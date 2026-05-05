@@ -1,0 +1,88 @@
+<section class="svc-ind" id="{{ module.section_id }}">
+  {% if module.bg_image.src %}
+    <div class="svc-ind__parallax" style="background-image: url('{{ module.bg_image.src }}');" aria-hidden="true"></div>
+  {% endif %}
+
+  <div class="svc-ind__wrap">
+    <header class="svc-ind__header" data-sr>
+      <div class="svc-ind__header-inner">
+        {% if module.badge_text %}
+          <div class="svc-ind__badge">
+            <span class="svc-ind__badge-line" aria-hidden="true"></span>
+            <span class="svc-ind__badge-text">{{ module.badge_text }}</span>
+          </div>
+        {% endif %}
+
+        {% if module.heading %}
+          <h2 class="svc-ind__heading">{{ module.heading }}</h2>
+        {% endif %}
+
+        {% if module.subtitle %}
+          <div class="svc-ind__subtitle">{{ module.subtitle }}</div>
+        {% endif %}
+      </div>
+    </header>
+
+    <div class="svc-ind__grid" data-sr>
+      {% for item in module.industries %}
+        {% set row_index = loop.index0 // 3 %}
+        {% set hover_title = item.hover_title if item.hover_title else item.title %}
+
+        {% if item.gradient_from %}
+          {% set grad_from = item.gradient_from %}
+          {% set grad_via  = item.gradient_via %}
+          {% set grad_to   = item.gradient_to %}
+        {% elif loop.index0 % 2 == 0 %}
+          {% set grad_from = "rgba(51,112,119,0.85)" %}
+          {% set grad_via  = "rgba(51,112,119,0.65)" %}
+          {% set grad_to   = "rgba(51,112,119,0.45)" %}
+        {% else %}
+          {% set grad_from = "rgba(25,66,71,0.85)" %}
+          {% set grad_via  = "rgba(25,66,71,0.65)" %}
+          {% set grad_to   = "rgba(25,66,71,0.45)" %}
+        {% endif %}
+
+        {% set link_href = item.url.href|default("#") %}
+        {% set link_target = "target=\"_blank\" rel=\"noopener noreferrer\"" if item.url.open_in_new_tab else "" %}
+
+        <a href="{{ link_href }}" {{ link_target }}
+           class="svc-ind__card"
+           data-svc-ind-index="{{ loop.index0 }}"
+           data-svc-ind-row="{{ row_index }}"
+           style="--svc-ind-grad-from:{{ grad_from }};--svc-ind-grad-via:{{ grad_via }};--svc-ind-grad-to:{{ grad_to }};">
+
+          {% if item.bg_image.src %}
+            <div class="svc-ind__card-bg" aria-hidden="true">
+              <img class="svc-ind__card-img" src="{{ item.bg_image.src }}" alt="" loading="lazy" decoding="async">
+              <div class="svc-ind__card-overlay"></div>
+            </div>
+          {% endif %}
+
+          <div class="svc-ind__card-default">
+            <div class="svc-ind__card-title">{{ item.title }}</div>
+            <div class="svc-ind__card-tagline">{{ item.tagline }}</div>
+          </div>
+
+          <div class="svc-ind__card-hover">
+            <div class="svc-ind__card-hover-top">
+              <span class="svc-ind__card-hover-title">{{ hover_title }}</span>
+              <span class="svc-ind__card-arrow" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </span>
+            </div>
+            {% if item.description_items %}
+              <ul class="svc-ind__card-bullets" role="list">
+                {% for desc in item.description_items %}
+                  <li class="svc-ind__card-bullet">
+                    <span class="svc-ind__bullet-arrow" aria-hidden="true">&rarr;</span>
+                    <span>{{ desc.text }}</span>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>

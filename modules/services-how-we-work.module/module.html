@@ -1,0 +1,109 @@
+{% set sid = module.section_id || "how-we-work" %}
+
+<section class="svc-hww" id="{{ sid }}" data-svc-hww>
+  {# Background slides #}
+  <div class="svc-hww__bg">
+    {% for slide in module.slides %}
+      <div class="svc-hww__bg-slide{% if loop.first %} svc-hww__bg-slide--active{% endif %}"
+           data-slide-bg="{{ loop.index0 }}">
+        {% if slide.bg_image.src %}
+          <img class="svc-hww__bg-img"
+               src="{{ slide.bg_image.src }}"
+               alt="{{ slide.bg_image.alt }}"
+               loading="{% if loop.first %}eager{% else %}lazy{% endif %}">
+        {% endif %}
+        <div class="svc-hww__bg-overlay"></div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="svc-hww__container">
+    {# Badge #}
+    <div class="svc-hww__badge">
+      <span class="svc-hww__badge-line"></span>
+      <span class="svc-hww__badge-text">{{ module.badge_text }}</span>
+    </div>
+
+    {# Tab navigation #}
+    <div class="svc-hww__tabs" role="tablist">
+      {% for slide in module.slides %}
+        <button class="svc-hww__tab{% if loop.first %} svc-hww__tab--active{% endif %}"
+                role="tab"
+                aria-selected="{% if loop.first %}true{% else %}false{% endif %}"
+                aria-controls="svc-hww-panel-{{ loop.index0 }}"
+                data-tab="{{ loop.index0 }}">
+          <span class="svc-hww__tab-hdr">
+            <span class="svc-hww__tab-num">{{ slide.number }}</span>
+            <span class="svc-hww__tab-title">{{ slide.title }}</span>
+          </span>
+          <span class="svc-hww__tab-bar">
+            <span class="svc-hww__tab-bar-fill"></span>
+          </span>
+          <span class="svc-hww__tab-sub">{{ slide.tab_subtitle }}</span>
+        </button>
+      {% endfor %}
+    </div>
+
+    {# Slide panels #}
+    <div class="svc-hww__panels">
+      {% for slide in module.slides %}
+        <div class="svc-hww__panel{% if loop.first %} svc-hww__panel--active{% endif %}"
+             id="svc-hww-panel-{{ loop.index0 }}"
+             role="tabpanel"
+             data-panel="{{ loop.index0 }}">
+          <div class="svc-hww__card">
+            <div class="svc-hww__card-inner">
+              {# Left column #}
+              <div class="svc-hww__card-left">
+                <h3 class="svc-hww__card-title">{{ slide.title }}</h3>
+                <p class="svc-hww__card-subtitle">{{ slide.content_subtitle }}</p>
+                <div class="svc-hww__card-desc">{{ slide.description }}</div>
+
+                {% if slide.has_evoq_section %}
+                  <div class="svc-hww__evoq">
+                    {% if slide.evoq_heading %}
+                      <p class="svc-hww__evoq-heading">{{ slide.evoq_heading }}</p>
+                    {% endif %}
+                    <div class="svc-hww__evoq-pills">
+                      {% for pill in slide.evoq_pills %}
+                        <span class="svc-hww__evoq-pill">{{ pill.text }}</span>
+                      {% endfor %}
+                    </div>
+                    {% if slide.evoq_cta_text %}
+                      <a class="svc-hww__evoq-cta"
+                         href="{{ slide.evoq_cta_url.href }}"
+                         {% if slide.evoq_cta_url.type == "EXTERNAL" %}target="_blank" rel="noopener"{% endif %}>
+                        {{ slide.evoq_cta_text }}
+                      </a>
+                    {% endif %}
+                  </div>
+                {% endif %}
+              </div>
+
+              {# Right column #}
+              <div class="svc-hww__card-right">
+                {% for point in slide.proof_points %}
+                  <div class="svc-hww__proof{% if loop.last %} svc-hww__proof--last{% endif %}">
+                    <h4 class="svc-hww__proof-title">{{ point.title }}</h4>
+                    <p class="svc-hww__proof-desc">{{ point.description }}</p>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    {# Pause / play toggle #}
+    <button class="svc-hww__toggle" data-toggle-autoplay aria-label="Pause autoplay">
+      <svg class="svc-hww__toggle-pause" width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <rect x="3" y="2" width="3.5" height="12" rx="1" fill="currentColor"/>
+        <rect x="9.5" y="2" width="3.5" height="12" rx="1" fill="currentColor"/>
+      </svg>
+      <svg class="svc-hww__toggle-play" width="16" height="16" viewBox="0 0 16 16" fill="none" style="display:none;">
+        <path d="M4 2.5L13 8L4 13.5V2.5Z" fill="currentColor"/>
+      </svg>
+    </button>
+  </div>
+</section>

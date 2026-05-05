@@ -1,0 +1,125 @@
+.svc-about {
+  background: #ffffff;
+  padding: 100px 48px;
+}
+
+.svc-about__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding-right: 64px;
+}
+
+/* Left content */
+.svc-about__content {
+  flex: 1;
+  max-width: 42rem;
+}
+
+.svc-about__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  color: #194247;
+  letter-spacing: -0.025em;
+  margin: 0 0 16px 0;
+}
+
+.svc-about__description {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #337077;
+  line-height: 1.625;
+  margin-bottom: 24px;
+}
+
+.svc-about__description p {
+  margin: 0;
+}
+
+/* CTA Link */
+.svc-about__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #337077;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  text-decoration: none;
+  transition: gap 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.svc-about__cta:hover {
+  gap: 16px;
+  color: #194247;
+  transform: translateX(4px);
+}
+
+/* Right logo */
+.svc-about__logo {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.svc-about__logo img {
+  height: 64px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .svc-about {
+    padding: 80px 32px;
+  }
+
+  .svc-about__container {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .svc-about {
+    padding: 64px 24px;
+  }
+
+  .svc-about__container {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .svc-about__content {
+    max-width: 100%;
+  }
+
+  .svc-about__cta {
+    justify-content: center;
+  }
+
+  .svc-about__title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .svc-about {
+    padding: 48px 16px;
+  }
+
+  .svc-about__title {
+    font-size: 24px;
+  }
+
+  .svc-about__description {
+    font-size: 14px;
+  }
+}

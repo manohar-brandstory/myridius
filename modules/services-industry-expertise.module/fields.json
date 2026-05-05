@@ -1,0 +1,356 @@
+[ {
+  "id" : "section_id",
+  "name" : "section_id",
+  "label" : "Section ID",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "industry-expertise"
+}, {
+  "id" : "badge_text",
+  "name" : "badge_text",
+  "label" : "Badge Text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "INDUSTRY EXPERTISE"
+}, {
+  "id" : "heading",
+  "name" : "heading",
+  "label" : "Heading",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "Tuned to Your Industry."
+}, {
+  "id" : "subtitle",
+  "name" : "subtitle",
+  "label" : "Subtitle",
+  "required" : false,
+  "locked" : false,
+  "display_width" : null,
+  "type" : "richtext",
+  "default" : "<p>We don't just understand technology — we understand the regulations, workflows, and customer expectations unique to your sector.</p>"
+}, {
+  "id" : "bg_image",
+  "name" : "bg_image",
+  "label" : "Background Image",
+  "required" : false,
+  "locked" : false,
+  "responsive" : false,
+  "resizable" : true,
+  "show_loading" : false,
+  "display_width" : null,
+  "type" : "image",
+  "default" : {
+    "src" : "https://images.unsplash.com/photo-1451187580459-43490279c0fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920",
+    "alt" : "Industry expertise background",
+    "size_type" : null,
+    "width" : null,
+    "height" : null,
+    "max_width" : null,
+    "max_height" : null,
+    "loading" : "disabled"
+  }
+}, {
+  "id" : "industries",
+  "name" : "industries",
+  "label" : "Industries",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 12,
+    "sorting_label_field" : "title",
+    "default" : 9
+  },
+  "children" : [ {
+    "id" : "industries.title",
+    "name" : "title",
+    "label" : "Industry Name",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text",
+    "default" : "Industry"
+  }, {
+    "id" : "industries.tagline",
+    "name" : "tagline",
+    "label" : "Tagline",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text",
+    "default" : "Tagline text"
+  }, {
+    "id" : "industries.hover_title",
+    "name" : "hover_title",
+    "label" : "Hover Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text",
+    "default" : ""
+  }, {
+    "id" : "industries.bg_image",
+    "name" : "bg_image",
+    "label" : "Background Image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : false,
+    "resizable" : true,
+    "show_loading" : false,
+    "display_width" : null,
+    "type" : "image",
+    "default" : {
+      "src" : "",
+      "alt" : null,
+      "size_type" : null,
+      "width" : null,
+      "height" : null,
+      "max_width" : null,
+      "max_height" : null,
+      "loading" : "disabled"
+    }
+  }, {
+    "id" : "industries.url",
+    "name" : "url",
+    "label" : "URL",
+    "required" : false,
+    "locked" : false,
+    "display_width" : null,
+    "type" : "url",
+    "default" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
+    },
+    "supported_types" : [ "EXTERNAL", "CONTENT", "BLOG" ]
+  }, {
+    "id" : "industries.gradient_from",
+    "name" : "gradient_from",
+    "label" : "Gradient From (rgba)",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text",
+    "default" : ""
+  }, {
+    "id" : "industries.gradient_via",
+    "name" : "gradient_via",
+    "label" : "Gradient Via (rgba)",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text",
+    "default" : ""
+  }, {
+    "id" : "industries.gradient_to",
+    "name" : "gradient_to",
+    "label" : "Gradient To (rgba)",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text",
+    "default" : ""
+  }, {
+    "id" : "industries.description_items",
+    "name" : "description_items",
+    "label" : "Description Items",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : 0,
+      "max" : 6,
+      "sorting_label_field" : null,
+      "default" : 3
+    },
+    "children" : [ {
+      "id" : "industries.description_items.text",
+      "name" : "text",
+      "label" : "Bullet Text",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "display_width" : null,
+      "type" : "text",
+      "default" : "Key capability"
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "display_width" : null,
+    "type" : "group"
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "display_width" : null,
+  "type" : "group",
+  "default" : [ {
+    "title" : "Banking & Financial Services",
+    "tagline" : "Compliant Innovation at Global Scale",
+    "hover_title" : "Banking & Financial Services",
+    "bg_image" : {
+      "src" : "https://images.unsplash.com/photo-1696861273647-92dfe8bb697c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "alt" : "Banking & Financial Services"
+    },
+    "url" : { "content_id" : null, "href" : "#", "type" : "EXTERNAL" },
+    "gradient_from" : "rgba(51,112,119,0.85)",
+    "gradient_via" : "rgba(51,112,119,0.65)",
+    "gradient_to" : "rgba(51,112,119,0.45)",
+    "description_items" : [
+      { "text" : "Cut fraud losses through real-time AI detection." },
+      { "text" : "Modernize core systems into agile cloud architecture" },
+      { "text" : "Enable real-time payments at regulatory standards" }
+    ]
+  }, {
+    "title" : "Insurance",
+    "tagline" : "Transforming Risk into Digital Velocity",
+    "hover_title" : "Insurance",
+    "bg_image" : {
+      "src" : "https://images.unsplash.com/photo-1554224155-6726b3ff858f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "alt" : "Insurance"
+    },
+    "url" : { "content_id" : null, "href" : "#", "type" : "EXTERNAL" },
+    "gradient_from" : "rgba(25,66,71,0.85)",
+    "gradient_via" : "rgba(25,66,71,0.65)",
+    "gradient_to" : "rgba(25,66,71,0.45)",
+    "description_items" : [
+      { "text" : "Accelerate underwriting cycles from days to minutes." },
+      { "text" : "Deploy automated claims triage with straight-through processing." },
+      { "text" : "Transform policyholder experiences on compliant AI-ready AWS platform" }
+    ]
+  }, {
+    "title" : "Travel & Hospitality",
+    "tagline" : "Global Reach, Frictionless Guest Journeys",
+    "hover_title" : "Travel & Hospitality",
+    "bg_image" : {
+      "src" : "https://images.unsplash.com/photo-1488646953014-85cb44e25828?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "alt" : "Travel & Hospitality"
+    },
+    "url" : { "content_id" : null, "href" : "#", "type" : "EXTERNAL" },
+    "gradient_from" : "rgba(51,112,119,0.85)",
+    "gradient_via" : "rgba(51,112,119,0.65)",
+    "gradient_to" : "rgba(51,112,119,0.45)",
+    "description_items" : [
+      { "text" : "Achieve up to 58% TCO reduction on AWS migration" },
+      { "text" : "Deliver real-time guest personalization and dynamic pricing models" },
+      { "text" : "Power frictionless digital journeys across global hospitality operations" }
+    ]
+  }, {
+    "title" : "Manufacturing & Logistics",
+    "tagline" : "Smarter Operations Through Connected Insight",
+    "hover_title" : "Manufacturing & Logistics",
+    "bg_image" : {
+      "src" : "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "alt" : "Manufacturing & Logistics"
+    },
+    "url" : { "content_id" : null, "href" : "#", "type" : "EXTERNAL" },
+    "gradient_from" : "rgba(25,66,71,0.85)",
+    "gradient_via" : "rgba(25,66,71,0.65)",
+    "gradient_to" : "rgba(25,66,71,0.45)",
+    "description_items" : [
+      { "text" : "Eliminate operational blind spots with complete supply chain visibility" },
+      { "text" : "Minimize unplanned downtime via sensor-driven predictive maintenance models" },
+      { "text" : "Link digital twin platforms directly to live operational KPIs" }
+    ]
+  }, {
+    "title" : "Retail & Consumer",
+    "tagline" : "Unified Commerce Scaled by AI",
+    "hover_title" : "Retail & Consumer",
+    "bg_image" : {
+      "src" : "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "alt" : "Retail & Consumer"
+    },
+    "url" : { "content_id" : null, "href" : "#", "type" : "EXTERNAL" },
+    "gradient_from" : "rgba(51,112,119,0.85)",
+    "gradient_via" : "rgba(51,112,119,0.65)",
+    "gradient_to" : "rgba(51,112,119,0.45)",
+    "description_items" : [
+      { "text" : "Deliver hyper-personalized customer engagement" },
+      { "text" : "Optimize inventory levels in real time to minimize stock waste" },
+      { "text" : "Increase margins through AI-driven demand forecasting and accuracy" }
+    ]
+  }, {
+    "title" : "Healthcare & Life Sciences",
+    "tagline" : "Secure Care Governed by Design",
+    "hover_title" : "Healthcare & Life Sciences",
+    "bg_image" : {
+      "src" : "https://images.unsplash.com/photo-1576091160550-2173dba999ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "alt" : "Healthcare & Life Sciences"
+    },
+    "url" : { "content_id" : null, "href" : "#", "type" : "EXTERNAL" },
+    "gradient_from" : "rgba(25,66,71,0.85)",
+    "gradient_via" : "rgba(25,66,71,0.65)",
+    "gradient_to" : "rgba(25,66,71,0.45)",
+    "description_items" : [
+      { "text" : "Secure patient data on fully HIPAA-ready AWS architectures" },
+      { "text" : "Power clinical insights with governed and scalable data platforms" },
+      { "text" : "Enable AI-assisted diagnostics on architectures CISOs can sign off" }
+    ]
+  }, {
+    "title" : "Hi-Tech & Startups",
+    "tagline" : "Built to Scale with Ambition",
+    "hover_title" : "Hi-Tech & Startups",
+    "bg_image" : {
+      "src" : "https://images.unsplash.com/photo-1519389950473-47ba0277781c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "alt" : "Hi-Tech & Startups"
+    },
+    "url" : { "content_id" : null, "href" : "#", "type" : "EXTERNAL" },
+    "gradient_from" : "rgba(51,112,119,0.85)",
+    "gradient_via" : "rgba(51,112,119,0.65)",
+    "gradient_to" : "rgba(51,112,119,0.45)",
+    "description_items" : [
+      { "text" : "Scale from MVP to global platforms without future re-engineering" },
+      { "text" : "Transition seamlessly from campus environments to cloud-native EdTech solutions" },
+      { "text" : "Deliver resilient architecture that eliminate re-platforming at every growth milestone" }
+    ]
+  }, {
+    "title" : "Non-profit & Social",
+    "tagline" : "Mission-Critical Cloud, Maximized Impact",
+    "hover_title" : "Non-profit & Social",
+    "bg_image" : {
+      "src" : "https://images.unsplash.com/photo-1559027615-cd4628902d4a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "alt" : "Non-profit & Social"
+    },
+    "url" : { "content_id" : null, "href" : "#", "type" : "EXTERNAL" },
+    "gradient_from" : "rgba(25,66,71,0.85)",
+    "gradient_via" : "rgba(25,66,71,0.65)",
+    "gradient_to" : "rgba(25,66,71,0.45)",
+    "description_items" : [
+      { "text" : "Deploy high-availability infrastructure at cost structures your board can defend" },
+      { "text" : "Maximize program delivery per dollar through continuous AWS cost optimization" },
+      { "text" : "Satisfy strict audit requirements while protecting sensitive beneficiary data" }
+    ]
+  }, {
+    "title" : "Education & Edtech",
+    "tagline" : "Scalable Learning, Built for Future Growth",
+    "hover_title" : "Education & Edtech",
+    "bg_image" : {
+      "src" : "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "alt" : "Education & Edtech"
+    },
+    "url" : { "content_id" : null, "href" : "#", "type" : "EXTERNAL" },
+    "gradient_from" : "rgba(51,112,119,0.85)",
+    "gradient_via" : "rgba(51,112,119,0.65)",
+    "gradient_to" : "rgba(51,112,119,0.45)",
+    "description_items" : [
+      { "text" : "Scale campus environments to global AWS infrastructure" },
+      { "text" : "Modernize student experiences without costly re-platforming" },
+      { "text" : "Resilient architecture matching your digital ambition" }
+    ]
+  } ]
+} ]

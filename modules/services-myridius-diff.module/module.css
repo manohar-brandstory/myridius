@@ -1,0 +1,258 @@
+/* ========================================================================
+   Services – Myridius Difference
+   ======================================================================== */
+
+.svc-diff {
+  background: var(--color-surface, #ffffff);
+  padding: 96px var(--gutter, 64px);
+}
+
+.svc-diff__container {
+  max-width: var(--container-max, 80rem);
+  margin: 0 auto;
+}
+
+/* ── Heading ─────────────────────────────────────────────────────────── */
+
+.svc-diff__heading {
+  font-family: var(--font-family, inherit);
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--color-brand-1, #194247);
+}
+
+.svc-diff__heading p {
+  margin: 0;
+}
+
+.svc-diff__gradient {
+  background: linear-gradient(
+    90deg,
+    #337077 0%,
+    #377f7a 7.14%,
+    #3b8f7d 14.29%,
+    #3f9f7f 21.43%,
+    #44af80 28.57%,
+    #48bf81 35.71%,
+    #4dcf81 42.86%,
+    #52e081 50%,
+    #49c87a 57.14%,
+    #40b072 64.29%,
+    #38996a 71.43%,
+    #2f8262 78.57%,
+    #286c59 85.71%,
+    #205750 92.86%,
+    #194247 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ── Card grid ───────────────────────────────────────────────────────── */
+
+.svc-diff__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ── Card ─────────────────────────────────────────────────────────────── */
+
+.svc-diff__card {
+  position: relative;
+  background: var(--color-brand-1, #194247);
+  border: 1px solid #8CA1A3;
+  border-radius: 8px;
+  min-height: 340px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.svc-diff__card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* stagger reveals */
+.svc-diff__card:nth-child(2) { transition-delay: 0.12s; }
+.svc-diff__card:nth-child(3) { transition-delay: 0.24s; }
+
+/* ── Green L-corner accent ───────────────────────────────────────────── */
+
+.svc-diff__corner {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+}
+
+.svc-diff__corner-h,
+.svc-diff__corner-v {
+  position: absolute;
+  background: var(--color-accent, #52E081);
+  border-radius: 1px;
+}
+
+.svc-diff__corner-h {
+  width: 80px;
+  height: 2px;
+  top: 0;
+  left: 0;
+}
+
+/* Vertical stroke meets horizontal stroke without a doubled corner pixel */
+.svc-diff__corner-v {
+  width: 2px;
+  height: 78px;
+  top: 2px;
+  left: 0;
+}
+
+/* ── Card body ────────────────────────────────────────────────────────── */
+
+.svc-diff__card-body {
+  display: flex;
+  flex-direction: column;
+  padding: 72px 28px 28px 44px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.svc-diff__card-title {
+  font-family: var(--font-family, inherit);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.33;
+  color: #ffffff;
+  margin: 0 0 16px;
+}
+
+.svc-diff__card-desc {
+  font-family: var(--font-family, inherit);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.625;
+  color: #D1D5DC;
+  margin: 0 0 auto;
+}
+
+.svc-diff__card-desc p {
+  margin: 0;
+}
+
+/* ── Card link / button ──────────────────────────────────────────────── */
+
+.svc-diff__card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 24px;
+  font-family: var(--font-family, inherit);
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent, #52E081);
+  text-decoration: none;
+  transition: color 0.25s ease, text-decoration-color 0.25s ease;
+}
+
+.svc-diff__card-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.svc-diff__arrow {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.svc-diff__card-link:hover .svc-diff__arrow {
+  transform: translateX(3px);
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+  .svc-diff {
+    padding: 72px 40px;
+  }
+
+  .svc-diff__heading {
+    font-size: 40px;
+    margin-bottom: 40px;
+  }
+
+  .svc-diff__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .svc-diff__card-link:hover {
+    color: var(--color-accent, #52e081);
+  }
+}
+
+@media (max-width: 640px) {
+  .svc-diff {
+    padding: 16px 20px;
+  }
+
+  .svc-diff__heading {
+    font-size: 36px;
+    line-height: 38px;
+    margin: 0 0 16px;
+    padding: 32px 0;
+  }
+
+  .svc-diff__grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .svc-diff__card {
+    min-height: 275px;
+  }
+
+  .svc-diff__card-body {
+    padding: 32px 0 16px 32px;
+    gap: 24px;
+  }
+
+  .svc-diff__card-title {
+    font-size: 24px;
+    line-height: 32px;
+    margin-bottom: 12px;
+  }
+
+  .svc-diff__card-desc {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .svc-diff__card-link {
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 1.4px;
+    margin-top: 0;
+  }
+
+  .svc-diff__corner {
+    top: 15px;
+    left: 15px;
+  }
+
+  .svc-diff__corner-h {
+    width: 80px;
+  }
+
+  .svc-diff__corner-v {
+    height: 80px;
+    top: 0;
+  }
+}

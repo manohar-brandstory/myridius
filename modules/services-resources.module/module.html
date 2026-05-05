@@ -1,0 +1,50 @@
+{% set section_id = module.section_id || "services-resources" %}
+
+<section id="{{ section_id }}" class="svc-res" data-animate>
+  <div class="svc-res__container">
+
+    {# Header #}
+    <div class="svc-res__header">
+      <span class="svc-res__badge">{{ module.badge_text }}</span>
+      <h2 class="svc-res__heading">{{ module.heading }}</h2>
+    </div>
+
+    {# Cards Grid #}
+    <div class="svc-res__grid">
+      {% for resource in module.resources %}
+        <a href="{{ resource.url.href }}"
+           class="svc-res__card"
+           {% if resource.url.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}
+           data-animate-item>
+
+          {# Background Image #}
+          {% if resource.image.src %}
+            <img src="{{ resource.image.src }}"
+                 alt="{{ resource.image.alt }}"
+                 class="svc-res__card-img"
+                 loading="lazy" />
+          {% endif %}
+
+          {# Gradient Overlay #}
+          <div class="svc-res__card-overlay"></div>
+
+          {# Category Badge #}
+          <span class="svc-res__card-category">{{ resource.category }}</span>
+
+          {# Hover Arrow #}
+          <span class="svc-res__card-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 8H13M13 8L8.5 3.5M13 8L8.5 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+
+          {# Title #}
+          <div class="svc-res__card-content">
+            <h3 class="svc-res__card-title">{{ resource.title }}</h3>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>

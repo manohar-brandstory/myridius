@@ -1,0 +1,364 @@
+[ {
+  "id" : "section_id",
+  "name" : "section_id",
+  "label" : "Section ID",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "how-we-work"
+}, {
+  "id" : "badge_text",
+  "name" : "badge_text",
+  "label" : "Badge Text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "HOW WE WORK"
+}, {
+  "id" : "slides",
+  "name" : "slides",
+  "label" : "Slides",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 10,
+    "sorting_label_field" : null,
+    "default" : 5
+  },
+  "children" : [ {
+    "id" : "slides.number",
+    "name" : "number",
+    "label" : "Number",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text",
+    "default" : "01"
+  }, {
+    "id" : "slides.title",
+    "name" : "title",
+    "label" : "Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text",
+    "default" : "Outcomes First"
+  }, {
+    "id" : "slides.tab_subtitle",
+    "name" : "tab_subtitle",
+    "label" : "Tab Subtitle",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text",
+    "default" : "Driven by business KPIs"
+  }, {
+    "id" : "slides.content_subtitle",
+    "name" : "content_subtitle",
+    "label" : "Content Subtitle",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text",
+    "default" : "Business KPIs before technology choices"
+  }, {
+    "id" : "slides.description",
+    "name" : "description",
+    "label" : "Description",
+    "required" : false,
+    "locked" : false,
+    "display_width" : null,
+    "type" : "richtext",
+    "default" : "<p>Align every AWS decision to C-suite metrics from the start. We prioritize business outcomes first, then hold architecture accountable.</p>"
+  }, {
+    "id" : "slides.bg_image",
+    "name" : "bg_image",
+    "label" : "Background Image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : false,
+    "resizable" : true,
+    "show_loading" : false,
+    "display_width" : null,
+    "type" : "image",
+    "default" : {
+      "src" : "",
+      "alt" : "",
+      "size_type" : null,
+      "width" : null,
+      "height" : null,
+      "max_width" : null,
+      "max_height" : null,
+      "loading" : "disabled"
+    }
+  }, {
+    "id" : "slides.proof_points",
+    "name" : "proof_points",
+    "label" : "Proof Points",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : 0,
+      "max" : 6,
+      "sorting_label_field" : null,
+      "default" : 3
+    },
+    "children" : [ {
+      "id" : "slides.proof_points.title",
+      "name" : "title",
+      "label" : "Title",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "display_width" : null,
+      "type" : "text",
+      "default" : "Revenue"
+    }, {
+      "id" : "slides.proof_points.description",
+      "name" : "description",
+      "label" : "Description",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "display_width" : null,
+      "type" : "text",
+      "default" : "New capabilities go live and generate returns within the engagement timeline"
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "display_width" : null,
+    "type" : "group"
+  }, {
+    "id" : "slides.has_evoq_section",
+    "name" : "has_evoq_section",
+    "label" : "Has EVOQ Section",
+    "required" : false,
+    "locked" : false,
+    "display_width" : null,
+    "type" : "boolean",
+    "default" : false
+  }, {
+    "id" : "slides.evoq_heading",
+    "name" : "evoq_heading",
+    "label" : "EVOQ Heading",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text",
+    "default" : "",
+    "visibility" : {
+      "controlling_field_path" : "slides.has_evoq_section",
+      "controlling_value_regex" : "true",
+      "operator" : "EQUAL"
+    }
+  }, {
+    "id" : "slides.evoq_pills",
+    "name" : "evoq_pills",
+    "label" : "EVOQ Pills",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : 0,
+      "max" : 10,
+      "sorting_label_field" : null,
+      "default" : 0
+    },
+    "children" : [ {
+      "id" : "slides.evoq_pills.text",
+      "name" : "text",
+      "label" : "Text",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "display_width" : null,
+      "type" : "text",
+      "default" : ""
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "display_width" : null,
+    "type" : "group",
+    "visibility" : {
+      "controlling_field_path" : "slides.has_evoq_section",
+      "controlling_value_regex" : "true",
+      "operator" : "EQUAL"
+    }
+  }, {
+    "id" : "slides.evoq_cta_text",
+    "name" : "evoq_cta_text",
+    "label" : "EVOQ CTA Text",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text",
+    "default" : "",
+    "visibility" : {
+      "controlling_field_path" : "slides.has_evoq_section",
+      "controlling_value_regex" : "true",
+      "operator" : "EQUAL"
+    }
+  }, {
+    "id" : "slides.evoq_cta_url",
+    "name" : "evoq_cta_url",
+    "label" : "EVOQ CTA URL",
+    "required" : false,
+    "locked" : false,
+    "display_width" : null,
+    "type" : "url",
+    "default" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
+    },
+    "supported_types" : [ "EXTERNAL", "CONTENT" ],
+    "visibility" : {
+      "controlling_field_path" : "slides.has_evoq_section",
+      "controlling_value_regex" : "true",
+      "operator" : "EQUAL"
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "display_width" : null,
+  "type" : "group",
+  "default" : [ {
+    "number" : "01",
+    "title" : "Outcomes First",
+    "tab_subtitle" : "Driven by business KPIs",
+    "content_subtitle" : "Business KPIs before technology choices",
+    "description" : "<p>Align every AWS decision to C-suite metrics from the start. We prioritize business outcomes first, then hold architecture accountable.</p>",
+    "bg_image" : {
+      "src" : "https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "alt" : "Outcomes First"
+    },
+    "proof_points" : [ {
+      "title" : "Revenue",
+      "description" : "New capabilities go live and generate returns within the engagement timeline"
+    }, {
+      "title" : "Cost",
+      "description" : "Up to 25\u201335% AWS spend reduction is built into the architecture from day one, not recovered post-migration."
+    }, {
+      "title" : "Risk",
+      "description" : "Regulatory and security outcomes are defined before provisioning, so go-live carries no compliance surprises."
+    } ],
+    "has_evoq_section" : false,
+    "evoq_heading" : "",
+    "evoq_pills" : [],
+    "evoq_cta_text" : "",
+    "evoq_cta_url" : { "type" : "EXTERNAL", "href" : "" }
+  }, {
+    "number" : "02",
+    "title" : "Well-Architected Always",
+    "tab_subtitle" : "Compliance from day one",
+    "content_subtitle" : "Compliance built into every workload from day one",
+    "description" : "<p>As an AWS Well-Architected Program Partner, we design for consistent compliance outcomes. Every engagement is structured to meet audit expectations, with no surprises at go-live.</p>",
+    "bg_image" : {
+      "src" : "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "alt" : "Well-Architected Always"
+    },
+    "proof_points" : [ {
+      "title" : "Zero compliance findings",
+      "description" : "Zero audit findings achieved through embedded well-architected reviews, WARs at every phase"
+    }, {
+      "title" : "Risk prioritized by business impact",
+      "description" : "Prioritized by business impact, aligned to leadership priorities."
+    }, {
+      "title" : "Continuous governance",
+      "description" : "Continuous reviews built into operations, not a one-time act"
+    } ],
+    "has_evoq_section" : false,
+    "evoq_heading" : "",
+    "evoq_pills" : [],
+    "evoq_cta_text" : "",
+    "evoq_cta_url" : { "type" : "EXTERNAL", "href" : "" }
+  }, {
+    "number" : "03",
+    "title" : "Intelligent Integration",
+    "tab_subtitle" : "Unified ecosystem with EVOQ",
+    "content_subtitle" : "Bringing AWS, Evoq building blocks, data and processes into one connected flow",
+    "description" : "<p>We design AWS as the core that connects your systems. EVOQ building blocks enable insights, data intelligence, research, and automation, tailored to your industry: underwriting, CX, supply chain, and more.</p>",
+    "bg_image" : {
+      "src" : "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "alt" : "Intelligent Integration"
+    },
+    "proof_points" : [ {
+      "title" : "Event-driven architecture",
+      "description" : "Decoupled services that scale and integrate reliably at any volume"
+    }, {
+      "title" : "Hybrid connectivity",
+      "description" : "Proven patterns bridging on-premises estates with AWS, without disrupting what works"
+    }, {
+      "title" : "Data mesh and intelligence",
+      "description" : "Governed, domain-based data foundation with built-in intelligence for insights and analytics"
+    } ],
+    "has_evoq_section" : true,
+    "evoq_heading" : "",
+    "evoq_pills" : [ { "text" : "EVOQ Data Intelligence" }, { "text" : "EVOQ Research Automator" }, { "text" : "EVOQ Customer 360" }, { "text" : "EVOQ Supply Chain Visibility" } ],
+    "evoq_cta_text" : "",
+    "evoq_cta_url" : { "type" : "EXTERNAL", "href" : "" }
+  }, {
+    "number" : "04",
+    "title" : "Governed by Default",
+    "tab_subtitle" : "For regulated industries",
+    "content_subtitle" : "Security and compliance built in from the start, proven in regulated industries",
+    "description" : "<p>Security is part of the operating model. Designed for organizations with strict regulatory and governance standards. Proven across financial services, insurance, and healthcare, with governance active from day one.</p>",
+    "bg_image" : {
+      "src" : "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "alt" : "Governed by Default"
+    },
+    "proof_points" : [ {
+      "title" : "Zero-Trust foundations",
+      "description" : "Least-privilege access, service controls, and network segmentation built in."
+    }, {
+      "title" : "Compliance automation",
+      "description" : "Standards mapped and tracked continuously, with leadership approval at each phase."
+    }, {
+      "title" : "Audit-ready posture",
+      "description" : "Continuous evidence collection makes audits smooth and predictable."
+    } ],
+    "has_evoq_section" : false,
+    "evoq_heading" : "",
+    "evoq_pills" : [],
+    "evoq_cta_text" : "",
+    "evoq_cta_url" : { "type" : "EXTERNAL", "href" : "" }
+  }, {
+    "number" : "05",
+    "title" : "AI-Accelerated Delivery",
+    "tab_subtitle" : "Powered by EVOQ and AWS AI tools",
+    "content_subtitle" : "EVOQ orchestration, AWS AI tools, and proven accelerators",
+    "description" : "<p>EVOQ coordinates delivery across discovery, build, and run - drawing on continuous R&amp;D and real client patterns. With Bedrock AgentCore, Amazon Q, and AWS Transform, it turns accumulated delivery knowledge into a repeatable acceleration engine</p>",
+    "bg_image" : {
+      "src" : "https://images.unsplash.com/photo-1677442136019-21780ecad995?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "alt" : "AI-Accelerated Delivery"
+    },
+    "proof_points" : [ {
+      "title" : "Discovery to design",
+      "description" : "Migration patterns shaped by prior work reduce scoping effort by up to 60%"
+    }, {
+      "title" : "Build and test",
+      "description" : "Amazon Q and Bedrock-powered code review, with EVOQ accelerators refined continuously through R&D and client delivery"
+    }, {
+      "title" : "Run and optimize",
+      "description" : "EVOQ agentic operations on Bedrock AgentCore detects, diagnoses, and remediates autonomously, using guardrails proven across client engagements"
+    } ],
+    "has_evoq_section" : true,
+    "evoq_heading" : "",
+    "evoq_pills" : [ { "text" : "Agentic Workbench" }, { "text" : "AI Product Coach" }, { "text" : "Code-to-Clarity" }, { "text" : "AI Orchestrator" }, { "text" : "Agentic Modernization" } ],
+    "evoq_cta_text" : "",
+    "evoq_cta_url" : { "type" : "EXTERNAL", "href" : "" }
+  } ]
+} ]

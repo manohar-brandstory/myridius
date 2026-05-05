@@ -1,0 +1,82 @@
+{# Services – Capabilities Accordion #}
+{% set sid = module.section_id || "what-we-do" %}
+
+<section class="svc-cap" id="{{ sid }}">
+  <div class="svc-cap__wrap">
+
+    {# ── Header ── #}
+    <div class="svc-cap__header">
+      {% if module.badge_text %}
+        <span class="svc-cap__badge">{{ module.badge_text }}</span>
+      {% endif %}
+
+      {% if module.heading %}
+        <h2 class="svc-cap__heading">{{ module.heading }}</h2>
+      {% endif %}
+    </div>
+
+    {% if module.subtitle %}
+      <div class="svc-cap__subtitle">{{ module.subtitle }}</div>
+    {% endif %}
+
+    {# ── Accordion List ── #}
+    <div class="svc-cap__accordion">
+      {% for cap in module.capabilities %}
+        <div class="svc-cap__item"
+             data-svc-cap-item>
+
+          {# ── Collapsed Row ── #}
+          <div class="svc-cap__collapsed">
+            <div class="svc-cap__chevron">
+              <svg class="svc-cap__chevron-down" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <svg class="svc-cap__chevron-up" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span class="svc-cap__title">{{ cap.title }}</span>
+            <span class="svc-cap__brief">{{ cap.brief }}</span>
+          </div>
+
+          {# ── Expanded Panel ── #}
+          <div class="svc-cap__expanded"
+               {% if cap.bg_image.src %}
+                 style="background-image:url('{{ cap.bg_image.src }}')"
+               {% endif %}>
+            <div class="svc-cap__overlay"></div>
+            <div class="svc-cap__expanded-inner">
+
+              <div class="svc-cap__expanded-head">
+                <div class="svc-cap__chevron svc-cap__chevron--expanded">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div class="svc-cap__expanded-text">
+                  <h3 class="svc-cap__expanded-title">{{ cap.title }}</h3>
+                  <div class="svc-cap__expanded-desc">{{ cap.description }}</div>
+                </div>
+              </div>
+
+              {% if cap.cards %}
+                <div class="svc-cap__cards">
+                  {% for card in cap.cards %}
+                    <div class="svc-cap__card{% if not loop.last %} svc-cap__card--bordered{% endif %}">
+                      <span class="svc-cap__card-num">0{{ loop.index }}</span>
+                      <h4 class="svc-cap__card-title">{{ card.title }}</h4>
+                      <div class="svc-cap__card-desc">{{ card.description }}</div>
+                    </div>
+                  {% endfor %}
+                </div>
+              {% endif %}
+
+            </div>
+          </div>
+
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>

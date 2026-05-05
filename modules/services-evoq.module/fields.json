@@ -1,0 +1,219 @@
+[ {
+  "id" : "section_id",
+  "name" : "section_id",
+  "label" : "Section ID",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "svc-evoq"
+}, {
+  "id" : "badge_text",
+  "name" : "badge_text",
+  "label" : "Badge Text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "Evoq"
+}, {
+  "id" : "heading",
+  "name" : "heading",
+  "label" : "Heading",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "The AI-Native Operating Layer"
+}, {
+  "id" : "subtitle",
+  "name" : "subtitle",
+  "label" : "Subtitle",
+  "required" : false,
+  "locked" : false,
+  "display_width" : null,
+  "type" : "richtext",
+  "default" : "<p>An intelligence mesh that connects your context, coordinates execution, and scales what works &mdash; so your enterprise runs on insight, not inertia.</p>"
+}, {
+  "id" : "cta_text",
+  "name" : "cta_text",
+  "label" : "CTA Text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "See How EVOQ Works"
+}, {
+  "id" : "cta_url",
+  "name" : "cta_url",
+  "label" : "CTA Link",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT" ],
+  "display_width" : null,
+  "type" : "url",
+  "default" : {
+    "content_id" : null,
+    "href" : "#",
+    "type" : "EXTERNAL"
+  }
+}, {
+  "id" : "center_label",
+  "name" : "center_label",
+  "label" : "Center Card Label",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "Powered By"
+}, {
+  "id" : "center_title",
+  "name" : "center_title",
+  "label" : "Center Card Title",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "Myridius EVOQ"
+}, {
+  "id" : "center_subtitle",
+  "name" : "center_subtitle",
+  "label" : "Center Card Subtitle",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "Operating layer for autonomous execution"
+}, {
+  "id" : "center_bg_image",
+  "name" : "center_bg_image",
+  "label" : "Center Card Background Image",
+  "required" : false,
+  "locked" : false,
+  "responsive" : false,
+  "resizable" : true,
+  "show_loading" : false,
+  "display_width" : null,
+  "type" : "image",
+  "default" : {
+    "src" : "https://images.unsplash.com/photo-1695668548342-c0c1ad479aee?q=80&w=1080",
+    "alt" : "EVOQ background",
+    "size_type" : null,
+    "width" : null,
+    "height" : null,
+    "max_width" : null,
+    "max_height" : null,
+    "loading" : "disabled"
+  }
+}, {
+  "id" : "cards",
+  "name" : "cards",
+  "label" : "Surrounding Cards",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 4,
+    "sorting_label_field" : null,
+    "default" : 4
+  },
+  "children" : [ {
+    "id" : "cards.icon_svg",
+    "name" : "icon_svg",
+    "label" : "Icon SVG",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : true,
+    "display_width" : null,
+    "type" : "text",
+    "default" : "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"10\"/></svg>"
+  }, {
+    "id" : "cards.title",
+    "name" : "title",
+    "label" : "Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text",
+    "default" : "Card Title"
+  }, {
+    "id" : "cards.subtitle",
+    "name" : "subtitle",
+    "label" : "Subtitle",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text",
+    "default" : "Brief description of this capability"
+  }, {
+    "id" : "cards.hover_subtitle",
+    "name" : "hover_subtitle",
+    "label" : "Hover Subtitle",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text",
+    "default" : "Expanded detail shown on hover"
+  }, {
+    "id" : "cards.bg_image",
+    "name" : "bg_image",
+    "label" : "Background Image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : false,
+    "resizable" : true,
+    "show_loading" : false,
+    "display_width" : null,
+    "type" : "image",
+    "default" : {
+      "src" : "",
+      "alt" : null,
+      "size_type" : null,
+      "width" : null,
+      "height" : null,
+      "max_width" : null,
+      "max_height" : null,
+      "loading" : "disabled"
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "display_width" : null,
+  "type" : "group",
+  "default" : [ {
+    "icon_svg" : "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"/><circle cx=\"9\" cy=\"7\" r=\"4\"/><path d=\"M22 21v-2a4 4 0 0 0-3-3.87\"/><path d=\"M16 3.13a4 4 0 0 1 0 7.75\"/></svg>",
+    "title" : "Connected Context",
+    "subtitle" : "Business, customer, policy, and workflow context stay connected.",
+    "hover_subtitle" : "Goals, history, documents, data, and decisions stay connected across every interaction.",
+    "bg_image" : { "src" : "https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=1080", "alt" : "Connected Context" }
+  }, {
+    "icon_svg" : "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"4\" y=\"4\" width=\"16\" height=\"16\" rx=\"2\"/><rect x=\"9\" y=\"9\" width=\"6\" height=\"6\"/><path d=\"M15 2v2\"/><path d=\"M15 20v2\"/><path d=\"M2 15h2\"/><path d=\"M2 9h2\"/><path d=\"M20 15h2\"/><path d=\"M20 9h2\"/><path d=\"M9 2v2\"/><path d=\"M9 20v2\"/></svg>",
+    "title" : "Coordinated Execution",
+    "subtitle" : "AI and human work move in sync across complex workflows.",
+    "hover_subtitle" : "Orchestration keeps work moving across analysis, action, approval, and escalation.",
+    "bg_image" : { "src" : "https://images.unsplash.com/photo-1695668548342-c0c1ad479aee?q=80&w=1080", "alt" : "Coordinated Execution" }
+  }, {
+    "icon_svg" : "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20\"/><path d=\"M2 12h20\"/></svg>",
+    "title" : "Governed Scale",
+    "subtitle" : "Autonomy expands without losing oversight or control.",
+    "hover_subtitle" : "Policies, approvals, auditability, and escalation are built into execution from the start.",
+    "bg_image" : { "src" : "https://images.unsplash.com/photo-1648824572410-2e15e187084c?q=80&w=1080", "alt" : "Governed Scale" }
+  }, {
+    "icon_svg" : "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\"/><path d=\"m9 12 2 2 4-4\"/></svg>",
+    "title" : "Reusable Advantage",
+    "subtitle" : "What works once becomes repeatable business capability.",
+    "hover_subtitle" : "Proven patterns, components, and workbenches reused across teams and business units.",
+    "bg_image" : { "src" : "https://images.unsplash.com/photo-1537298786922-e88ba1552bfa?q=80&w=1080", "alt" : "Reusable Advantage" }
+  } ]
+} ]

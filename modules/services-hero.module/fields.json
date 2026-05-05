@@ -1,0 +1,250 @@
+[ {
+  "id" : "section_id",
+  "name" : "section_id",
+  "label" : "Section ID",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "services-hero"
+}, {
+  "id" : "breadcrumb_items",
+  "name" : "breadcrumb_items",
+  "label" : "Breadcrumb items",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 6,
+    "sorting_label_field" : null,
+    "default" : 3
+  },
+  "children" : [ {
+    "id" : "breadcrumb_items.text",
+    "name" : "text",
+    "label" : "Text",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text",
+    "default" : "Myridius"
+  }, {
+    "id" : "breadcrumb_items.url",
+    "name" : "url",
+    "label" : "Link",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT" ],
+    "display_width" : null,
+    "type" : "url",
+    "default" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
+    }
+  }, {
+    "id" : "breadcrumb_items.is_active",
+    "name" : "is_active",
+    "label" : "Active (last item)",
+    "required" : false,
+    "locked" : false,
+    "display_width" : null,
+    "type" : "boolean",
+    "default" : false
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "display_width" : null,
+  "type" : "group",
+  "default" : [ {
+    "text" : "Myridius",
+    "url" : {
+      "content_id" : null,
+      "href" : "/",
+      "type" : "EXTERNAL"
+    },
+    "is_active" : false
+  }, {
+    "text" : "Services",
+    "url" : {
+      "content_id" : null,
+      "href" : "/services",
+      "type" : "EXTERNAL"
+    },
+    "is_active" : false
+  }, {
+    "text" : "AWS Cloud Services",
+    "url" : {
+      "content_id" : null,
+      "href" : "",
+      "type" : "EXTERNAL"
+    },
+    "is_active" : true
+  } ]
+}, {
+  "id" : "title",
+  "name" : "title",
+  "label" : "Title (supports inline HTML for gradient spans)",
+  "required" : false,
+  "locked" : false,
+  "display_width" : null,
+  "type" : "richtext",
+  "default" : "AWS Cloud.<br>Wired for <span class=\"svc-hero__gradient\">Outcomes,</span><br><span class=\"svc-hero__title-line\">Not Just Deployment.</span>"
+}, {
+  "id" : "subtitle",
+  "name" : "subtitle",
+  "label" : "Subtitle",
+  "required" : false,
+  "locked" : false,
+  "display_width" : null,
+  "type" : "richtext",
+  "default" : "<p>Drive measurable cost reduction and TCO improvement across your entire enterprise. We modernize complex applications in regulated industries through a repeatable delivery model built entirely around your outcomes.</p>"
+}, {
+  "id" : "primary_button_text",
+  "name" : "primary_button_text",
+  "label" : "Primary button text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "Explore Our Work"
+}, {
+  "id" : "primary_button_url",
+  "name" : "primary_button_url",
+  "label" : "Primary button link",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT" ],
+  "display_width" : null,
+  "type" : "url",
+  "default" : {
+    "content_id" : null,
+    "href" : "#cta",
+    "type" : "EXTERNAL"
+  }
+}, {
+  "id" : "secondary_button_text",
+  "name" : "secondary_button_text",
+  "label" : "Secondary button text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "Get in Touch"
+}, {
+  "id" : "secondary_button_url",
+  "name" : "secondary_button_url",
+  "label" : "Secondary button link",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT" ],
+  "display_width" : null,
+  "type" : "url",
+  "default" : {
+    "content_id" : null,
+    "href" : "#contact",
+    "type" : "EXTERNAL"
+  }
+}, {
+  "id" : "hero_image",
+  "name" : "hero_image",
+  "label" : "Hero image",
+  "required" : false,
+  "locked" : false,
+  "responsive" : false,
+  "resizable" : true,
+  "show_loading" : false,
+  "display_width" : null,
+  "type" : "image",
+  "default" : {
+    "src" : "https://images.unsplash.com/photo-1451187580459-43490279c0fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    "alt" : "AWS Cloud Infrastructure"
+  }
+}, {
+  "id" : "show_trust_badges",
+  "name" : "show_trust_badges",
+  "label" : "Show partner trust badges row",
+  "required" : false,
+  "locked" : false,
+  "display_width" : null,
+  "type" : "boolean",
+  "default" : true
+}, {
+  "id" : "trust_aria_label",
+  "name" : "trust_aria_label",
+  "label" : "Trust row — accessible name",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "display_width" : null,
+  "type" : "text",
+  "default" : "Partner credentials"
+}, {
+  "id" : "trust_badges",
+  "name" : "trust_badges",
+  "label" : "Trust badges",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 0,
+    "max" : 6,
+    "sorting_label_field" : "trust_badges.badge_text",
+    "default" : 3
+  },
+  "children" : [ {
+    "id" : "trust_badges.icon",
+    "name" : "icon",
+    "label" : "Badge image",
+    "help_text" : "Upload official PNG from AWS Partner Central (APN Badge Manager). Theme SVGs are placeholders only.",
+    "required" : false,
+    "locked" : false,
+    "responsive" : false,
+    "resizable" : true,
+    "show_loading" : false,
+    "display_width" : null,
+    "type" : "image",
+    "default" : {
+      "src" : "",
+      "alt" : ""
+    }
+  }, {
+    "id" : "trust_badges.badge_text",
+    "name" : "badge_text",
+    "label" : "Caption",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "display_width" : null,
+    "type" : "text",
+    "default" : ""
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "display_width" : null,
+  "type" : "group",
+  "default" : [ {
+    "icon" : {
+      "src" : "{{ get_asset_url('/Myridius Theme V1/images/services-trust-advanced-tier.svg') }}",
+      "alt" : "Advanced Tier Services Partner badge"
+    },
+    "badge_text" : "Advanced Tier Services Partner"
+  }, {
+    "icon" : {
+      "src" : "{{ get_asset_url('/Myridius Theme V1/images/services-trust-well-architected.svg') }}",
+      "alt" : "Well-Architected Program Partner badge"
+    },
+    "badge_text" : "Well-Architected Program Partner"
+  }, {
+    "icon" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "badge_text" : "15+ Years Experience with AWS"
+  } ]
+} ]

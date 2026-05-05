@@ -1,0 +1,132 @@
+{# ── Services Hero: Breadcrumb + main + optional partner trust row (single unified section / background) ── #}
+
+<section class="svc-hero" id="{{ module.section_id }}">
+
+  {# ── Breadcrumb ── #}
+  <div class="svc-hero__breadcrumb" aria-label="Breadcrumb">
+    <div class="svc-hero__wrap">
+      <nav aria-label="Breadcrumb">
+        <ol class="svc-hero__crumbList">
+          {% for item in module.breadcrumb_items %}
+            <li class="svc-hero__crumbItem{% if item.is_active %} svc-hero__crumbItem--active{% endif %}">
+              {% if item.url.href and not item.is_active %}
+                <a class="svc-hero__crumbLink" href="{{ item.url.href }}">{{ item.text }}</a>
+              {% else %}
+                <span class="svc-hero__crumbLabel">{{ item.text }}</span>
+              {% endif %}
+            </li>
+            {% if not loop.last %}
+              <li class="svc-hero__crumbSep" aria-hidden="true">/</li>
+            {% endif %}
+          {% endfor %}
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  {# ── Hero content + image ── #}
+  <div class="svc-hero__main">
+    <div class="svc-hero__wrap">
+      <div class="svc-hero__grid">
+
+        <div class="svc-hero__content" data-sr>
+          <h1 class="svc-hero__title">{{ module.title }}</h1>
+
+          <div class="svc-hero__subtitle">{{ module.subtitle }}</div>
+
+          <div class="svc-hero__actions">
+            {% if module.primary_button_text %}
+              <a class="svc-hero__btn svc-hero__btn--primary" href="{{ module.primary_button_url.href }}" data-scroll>
+                <span class="svc-hero__btnText">{{ module.primary_button_text }}</span>
+                <span class="svc-hero__btnIcon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </a>
+            {% endif %}
+
+            {% if module.secondary_button_text %}
+              <a class="svc-hero__btn svc-hero__btn--secondary" href="{{ module.secondary_button_url.href }}" data-scroll>
+                {{ module.secondary_button_text }}
+              </a>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="svc-hero__media" data-sr>
+          <div class="svc-hero__card">
+            {% if module.hero_image.src %}
+              <img
+                class="svc-hero__image"
+                src="{{ module.hero_image.src }}"
+                alt="{{ module.hero_image.alt|default('Hero image') }}"
+                loading="eager"
+                decoding="async"
+              >
+            {% endif %}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  {% if module.show_trust_badges and module.trust_badges %}
+    <div class="svc-hero__trust" aria-label="{{ module.trust_aria_label|default('Partner credentials') }}">
+      <div class="svc-hero__wrap">
+        <div class="svc-hero__trust-grid" data-sr-trust>
+          {% for item in module.trust_badges %}
+            <div class="svc-hero__trust-cell{% if not loop.first %} svc-hero__trust-cell--divider-col{% endif %}">
+              <div class="svc-hero__trust-media">
+                {% if item.icon.src %}
+                  <img
+                    class="svc-hero__trust-img"
+                    src="{{ item.icon.src }}"
+                    alt="{{ item.icon.alt|default('') }}"
+                    loading="lazy"
+                    decoding="async"
+                    width="80"
+                    height="80"
+                  >
+                {% elif loop.index == 1 %}
+                  <img
+                    class="svc-hero__trust-img"
+                    src="{{ get_asset_url('/Myridius Theme V1/images/services-trust-advanced-tier.svg') }}"
+                    alt="{{ item.icon.alt|default('Advanced Tier Services Partner badge') }}"
+                    loading="lazy"
+                    decoding="async"
+                    width="80"
+                    height="80"
+                  >
+                {% elif loop.index == 2 %}
+                  <img
+                    class="svc-hero__trust-img"
+                    src="{{ get_asset_url('/Myridius Theme V1/images/services-trust-well-architected.svg') }}"
+                    alt="{{ item.icon.alt|default('Well-Architected Program Partner badge') }}"
+                    loading="lazy"
+                    decoding="async"
+                    width="80"
+                    height="80"
+                  >
+                {% else %}
+                  <div class="svc-hero__trust-iconFrame" aria-hidden="true">
+                    <svg class="svc-hero__trust-iconSvg" width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="12" cy="8" r="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                {% endif %}
+              </div>
+              {% if item.badge_text %}
+                <p class="svc-hero__trust-caption">{{ item.badge_text }}</p>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+</section>

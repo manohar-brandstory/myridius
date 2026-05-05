@@ -1,0 +1,31 @@
+<section class="svc-why" {% if module.section_id %}id="{{ module.section_id }}"{% endif %}>
+  <div class="svc-why__header">
+    {% if module.badge_text %}
+      <span class="svc-why__badge">{{ module.badge_text }}</span>
+    {% endif %}
+
+    {% if module.heading %}
+      <h2 class="svc-why__heading">{{ module.heading }}</h2>
+    {% endif %}
+
+    {% if module.subtitle %}
+      <div class="svc-why__subtitle">{{ module.subtitle }}</div>
+    {% endif %}
+  </div>
+
+  {% if module.reasons %}
+    <div class="svc-why__cards-container">
+      <div class="svc-why__grid">
+        {% for reason in module.reasons %}
+          <div class="svc-why__card" data-index="{{ loop.index0 }}">
+            <div class="svc-why__card-inner">
+              <span class="svc-why__number">{% if loop.index < 10 %}0{{ loop.index }}{% else %}{{ loop.index }}{% endif %}</span>
+              <h3 class="svc-why__title">{{ reason.title }}</h3>
+              <div class="svc-why__description">{{ reason.description }}</div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+</section>

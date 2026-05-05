@@ -1,0 +1,178 @@
+.svc-cta {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(to bottom right, #0C2226, #194247, #0C2226);
+  display: flex;
+  justify-content: center;
+  padding: 128px 48px;
+}
+
+/* Background blur effects */
+.svc-cta__blur {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.svc-cta__blur--top-right {
+  top: 80px;
+  right: -80px;
+  width: 600px;
+  height: 600px;
+  background: rgba(82, 224, 129, 0.2);
+  filter: blur(120px);
+}
+
+.svc-cta__blur--bottom-left {
+  bottom: 80px;
+  left: -80px;
+  width: 500px;
+  height: 500px;
+  background: rgba(51, 112, 119, 0.3);
+  filter: blur(100px);
+}
+
+.svc-cta__blur--center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+  background: rgba(25, 66, 71, 0.4);
+  filter: blur(80px);
+}
+
+/* Container */
+.svc-cta__container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 72rem;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Badge */
+.svc-cta__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #52E081;
+  background: rgba(82, 224, 129, 0.1);
+  border: 1px solid rgba(82, 224, 129, 0.2);
+  margin-bottom: 32px;
+}
+
+/* Heading */
+.svc-cta__heading {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  font-weight: 500;
+  color: #ffffff;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  max-width: 56rem;
+  margin: 0 auto 32px auto;
+}
+
+/* Subtitle */
+.svc-cta__subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: rgba(236, 250, 229, 0.9);
+  letter-spacing: -0.025em;
+  line-height: 1.625;
+  max-width: 56rem;
+  margin-bottom: 48px;
+}
+
+.svc-cta__subtitle p {
+  margin: 0;
+}
+
+/* CTA Button */
+.svc-cta__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px 40px;
+  background: #52E081;
+  color: #0C2226;
+  border-radius: 9999px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.svc-cta__button:hover {
+  background: #ffffff;
+  color: #194247;
+  transform: scale(1.02);
+}
+
+.svc-cta__button:active {
+  transform: scale(0.98);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .svc-cta {
+    padding: 96px 32px;
+  }
+
+  .svc-cta__heading {
+    font-size: 40px;
+  }
+
+  .svc-cta__subtitle {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .svc-cta {
+    padding: 72px 24px;
+  }
+
+  .svc-cta__heading {
+    font-size: 32px;
+  }
+
+  .svc-cta__subtitle {
+    font-size: 18px;
+    margin-bottom: 36px;
+  }
+
+  .svc-cta__button {
+    padding: 16px 32px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .svc-cta {
+    padding: 56px 16px;
+  }
+
+  .svc-cta__heading {
+    font-size: 28px;
+  }
+
+  .svc-cta__subtitle {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,106 @@
+<section class="svc-impact" id="{{ module.section_id }}" data-svc-impact>
+
+  {# ── Background images (one per slide, crossfade) ── #}
+  <div class="svc-impact__bg-wrap" aria-hidden="true">
+    <div class="svc-impact__bg-decor-circle"></div>
+    <div class="svc-impact__bg-decor-square"></div>
+    {% for story in module.stories %}
+      <div class="svc-impact__bg{% if loop.first %} is-active{% endif %}" data-svc-bg="{{ loop.index0 }}">
+        {% if story.image.src %}
+          <img class="svc-impact__bg-img" src="{{ story.image.src }}" alt="" loading="lazy" decoding="async">
+        {% endif %}
+        <div class="svc-impact__bg-overlay"></div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="svc-impact__container">
+
+    {# ── Badge ── #}
+    <div class="svc-impact__badge" data-sr>
+      <span class="svc-impact__badge-line" aria-hidden="true"></span>
+      <span class="svc-impact__badge-text">{{ module.badge_text }}</span>
+    </div>
+
+    {# ── Slides ── #}
+    <div class="svc-impact__body">
+      {% for story in module.stories %}
+        <article
+          class="svc-impact__slide{% if loop.first %} is-active{% endif %}"
+          data-svc-slide="{{ loop.index0 }}"
+        >
+          <div class="svc-impact__category">
+            <span class="svc-impact__category-pill">{{ story.category }}</span>
+          </div>
+
+          <h3 class="svc-impact__metric">{{ story.metric }}</h3>
+
+          <div class="svc-impact__company">
+            <span class="svc-impact__company-prefix">For</span> {{ story.company }}
+          </div>
+
+          <div class="svc-impact__content">
+            <div class="svc-impact__desc">{{ story.description }}</div>
+
+            <div class="svc-impact__details">
+              <div class="svc-impact__details-grid">
+                <div class="svc-impact__details-col">
+                  <div class="svc-impact__details-label">{{ module.challenge_label }}</div>
+                  <div class="svc-impact__details-text">{{ story.challenge }}</div>
+                </div>
+                <div class="svc-impact__details-col">
+                  <div class="svc-impact__details-label">{{ module.outcomes_label }}</div>
+                  <ul class="svc-impact__outcomes-list">
+                    {% for outcome in story.outcomes %}
+                      <li class="svc-impact__outcomes-item">{{ outcome.text }}</li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+
+    {# ── Navigation ── #}
+    <nav class="svc-impact__nav" aria-label="Client impact slides">
+      <a class="svc-impact__cta" href="{{ module.cta_url.href }}">
+        {{ module.cta_text }}
+        <span class="svc-impact__cta-arrow" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+
+      <div class="svc-impact__nav-right">
+        <button class="svc-impact__pause-btn" type="button" aria-label="Pause slideshow" data-svc-pause>
+          <svg class="svc-impact__icon-pause" width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <rect x="6" y="4" width="4" height="16" fill="currentColor"/>
+            <rect x="14" y="4" width="4" height="16" fill="currentColor"/>
+          </svg>
+          <svg class="svc-impact__icon-play" width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M8 5v14l11-7L8 5z" fill="currentColor"/>
+          </svg>
+        </button>
+
+        <div class="svc-impact__nums" role="tablist" aria-label="Select a story">
+          {% for story in module.stories %}
+            <button
+              class="svc-impact__num{% if loop.first %} is-active{% endif %}"
+              type="button"
+              role="tab"
+              aria-selected="{{ 'true' if loop.first else 'false' }}"
+              data-svc-go="{{ loop.index0 }}"
+            >
+              {{ "%02d"|format(loop.index) }}
+            </button>
+          {% endfor %}
+        </div>
+      </div>
+    </nav>
+
+  </div>
+</section>

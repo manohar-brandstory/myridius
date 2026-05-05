@@ -1,0 +1,214 @@
+.svc-res {
+  --font-family: 'Montserrat', sans-serif;
+  --color-brand-1: #194247;
+  --color-accent: #52E081;
+  --color-surface-muted: #f9fafb;
+
+  background-color: var(--color-surface-muted);
+  padding: 100px 48px;
+  font-family: var(--font-family);
+}
+
+/* Container */
+.svc-res__container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Header */
+.svc-res__header {
+  margin-bottom: 48px;
+}
+
+.svc-res__badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 6px;
+  background-color: rgba(25, 66, 71, 0.08);
+  color: var(--color-brand-1);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.svc-res__heading {
+  font-size: 48px;
+  font-weight: 500;
+  color: var(--color-brand-1);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0;
+}
+
+/* Grid */
+.svc-res__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+/* Card */
+.svc-res__card {
+  position: relative;
+  display: block;
+  border-radius: 16px;
+  overflow: hidden;
+  height: 400px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Card Image */
+.svc-res__card-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transform: scale(1);
+  transition: filter 700ms ease, transform 700ms ease;
+}
+
+.svc-res__card:hover .svc-res__card-img {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+/* Card Overlay */
+.svc-res__card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom right,
+    rgba(12, 34, 38, 0.6),
+    rgba(25, 66, 71, 0.75),
+    rgba(12, 34, 38, 0.7)
+  );
+  z-index: 1;
+}
+
+/* Category Badge */
+.svc-res__card-category {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 12px;
+  height: 28px;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+/* Hover Arrow */
+.svc-res__card-arrow {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 400ms ease, transform 400ms ease;
+}
+
+.svc-res__card:hover .svc-res__card-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Card Content */
+.svc-res__card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px;
+  z-index: 2;
+}
+
+.svc-res__card-title {
+  font-size: 20px;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.35;
+  margin: 0;
+}
+
+/* Animate States */
+.svc-res[data-animate] .svc-res__header,
+.svc-res[data-animate] [data-animate-item] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+
+.svc-res[data-animate].svc-res--visible .svc-res__header,
+.svc-res[data-animate].svc-res--visible [data-animate-item] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.svc-res[data-animate].svc-res--visible [data-animate-item]:nth-child(1) {
+  transition-delay: 100ms;
+}
+
+.svc-res[data-animate].svc-res--visible [data-animate-item]:nth-child(2) {
+  transition-delay: 200ms;
+}
+
+.svc-res[data-animate].svc-res--visible [data-animate-item]:nth-child(3) {
+  transition-delay: 300ms;
+}
+
+/* Responsive - Tablet */
+@media (max-width: 1024px) {
+  .svc-res {
+    padding: 80px 32px;
+  }
+
+  .svc-res__heading {
+    font-size: 36px;
+  }
+
+  .svc-res__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 767px) {
+  .svc-res {
+    padding: 64px 20px;
+  }
+
+  .svc-res__heading {
+    font-size: 28px;
+  }
+
+  .svc-res__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .svc-res__card {
+    height: 300px;
+  }
+}

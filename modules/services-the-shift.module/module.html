@@ -1,0 +1,179 @@
+{# Services - The Shift Module #}
+{% set angle_step = 360 / module.nodes|length %}
+
+<section class="svc-theshift"
+  {% if module.section_id %}id="{{ module.section_id }}"{% endif %}
+  aria-label="{{ module.badge_text }}">
+
+  {# ── Background Glow ── #}
+  <div class="svc-theshift__glow svc-theshift__glow--tr" aria-hidden="true"></div>
+  <div class="svc-theshift__glow svc-theshift__glow--bl" aria-hidden="true"></div>
+
+  <div class="svc-theshift__container">
+
+    {# ── Header (left-aligned like React) ── #}
+    <header class="svc-theshift__header">
+      <div class="svc-theshift__badge">
+        <span class="svc-theshift__badge-line"></span>
+        <span class="svc-theshift__badge-text">{{ module.badge_text }}</span>
+      </div>
+
+      <h2 class="svc-theshift__heading">{{ module.heading }}</h2>
+      <div class="svc-theshift__subtitle">{{ module.subtitle }}</div>
+    </header>
+
+    {# ── Central Diagram (desktop) ── #}
+    <div class="svc-theshift__diagram" aria-hidden="true">
+
+      {# Concentric circles #}
+      <div class="svc-theshift__orbit svc-theshift__orbit--sm"></div>
+      <div class="svc-theshift__orbit svc-theshift__orbit--md"></div>
+      <div class="svc-theshift__orbit svc-theshift__orbit--lg"></div>
+
+      {# Center core #}
+      <div class="svc-theshift__core">
+        <div class="svc-theshift__core-pulse svc-theshift__core-pulse--1"></div>
+        <div class="svc-theshift__core-pulse svc-theshift__core-pulse--2"></div>
+        <div class="svc-theshift__core-inner">
+          <span class="svc-theshift__core-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>
+          </span>
+          <span class="svc-theshift__core-title">{{ module.center_title }}</span>
+          <span class="svc-theshift__core-subtitle">{{ module.center_subtitle }}</span>
+          {% if module.center_hover_desc %}
+            <p class="svc-theshift__core-hover-desc">{{ module.center_hover_desc }}</p>
+          {% endif %}
+        </div>
+      </div>
+
+      {# Nodes #}
+      {% for node in module.nodes %}
+        {% set angle = loop.index0 * angle_step - 90 %}
+        <div class="svc-theshift__node"
+             style="--node-angle: {{ angle }}deg;">
+          <div class="svc-theshift__node-icon">
+            {{ node.node_icon_svg }}
+          </div>
+          <span class="svc-theshift__node-title">{{ node.node_title }}</span>
+          <span class="svc-theshift__node-desc">{{ node.node_description }}</span>
+        </div>
+      {% endfor %}
+
+      {# Left card — dual state #}
+      <div class="svc-theshift__card svc-theshift__card--left">
+        {# Default state #}
+        <div class="svc-theshift__card-default">
+          <span class="svc-theshift__card-tag svc-theshift__card-tag--muted">{{ module.left_card_tag }}</span>
+          <h3 class="svc-theshift__card-title">{{ module.left_card_title }}</h3>
+          <p class="svc-theshift__card-desc">{{ module.left_card_description }}</p>
+        </div>
+        {# Hover state #}
+        <div class="svc-theshift__card-expanded">
+          <span class="svc-theshift__card-tag svc-theshift__card-tag--muted">{{ module.left_card_tag }}</span>
+          <h3 class="svc-theshift__card-title svc-theshift__card-title--hover">{{ module.left_card_hover_title }}</h3>
+          {% if module.left_card_items %}
+            <ul class="svc-theshift__card-list">
+              {% for item in module.left_card_items %}
+                <li class="svc-theshift__card-item">
+                  <span class="svc-theshift__card-dot svc-theshift__card-dot--muted"></span>
+                  <p class="svc-theshift__card-item-text">
+                    <span class="svc-theshift__card-item-title">{{ item.item_title }}:</span>
+                    {{ item.item_description }}
+                  </p>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+      </div>
+
+      {# Right card — dual state #}
+      <div class="svc-theshift__card svc-theshift__card--right">
+        {# Default state #}
+        <div class="svc-theshift__card-default">
+          <span class="svc-theshift__card-tag svc-theshift__card-tag--accent">{{ module.right_card_tag }}</span>
+          <h3 class="svc-theshift__card-title">{{ module.right_card_title }}</h3>
+          <p class="svc-theshift__card-desc svc-theshift__card-desc--accent">{{ module.right_card_description }}</p>
+        </div>
+        {# Hover state #}
+        <div class="svc-theshift__card-expanded">
+          <span class="svc-theshift__card-tag svc-theshift__card-tag--accent">{{ module.right_card_tag }}</span>
+          <h3 class="svc-theshift__card-title svc-theshift__card-title--hover">{{ module.right_card_hover_title }}</h3>
+          {% if module.right_card_items %}
+            <ul class="svc-theshift__card-list">
+              {% for item in module.right_card_items %}
+                <li class="svc-theshift__card-item">
+                  <span class="svc-theshift__card-dot svc-theshift__card-dot--accent"></span>
+                  <p class="svc-theshift__card-item-text svc-theshift__card-item-text--accent">
+                    <span class="svc-theshift__card-item-title">{{ item.item_title }}:</span>
+                    {{ item.item_description }}
+                  </p>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    {# ── Mobile Nodes Grid ── #}
+    <div class="svc-theshift__nodes-mobile">
+      {% for node in module.nodes %}
+        <div class="svc-theshift__node-mobile">
+          <div class="svc-theshift__node-mobile-icon">
+            {{ node.node_icon_svg }}
+          </div>
+          <span class="svc-theshift__node-mobile-title">{{ node.node_title }}</span>
+          <span class="svc-theshift__node-mobile-desc">{{ node.node_description }}</span>
+        </div>
+      {% endfor %}
+    </div>
+
+    {# ── Mobile Cards ── #}
+    <div class="svc-theshift__cards-mobile">
+      <div class="svc-theshift__card-mobile">
+        <span class="svc-theshift__card-tag svc-theshift__card-tag--muted">{{ module.left_card_tag }}</span>
+        <h3 class="svc-theshift__card-title svc-theshift__card-title--hover">{{ module.left_card_hover_title }}</h3>
+        <ul class="svc-theshift__card-list">
+          {% for item in module.left_card_items %}
+            <li class="svc-theshift__card-item">
+              <span class="svc-theshift__card-dot svc-theshift__card-dot--muted"></span>
+              <p class="svc-theshift__card-item-text">
+                <span class="svc-theshift__card-item-title">{{ item.item_title }}:</span>
+                {{ item.item_description }}
+              </p>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="svc-theshift__card-mobile svc-theshift__card-mobile--right">
+        <span class="svc-theshift__card-tag svc-theshift__card-tag--accent">{{ module.right_card_tag }}</span>
+        <h3 class="svc-theshift__card-title svc-theshift__card-title--hover">{{ module.right_card_hover_title }}</h3>
+        <ul class="svc-theshift__card-list">
+          {% for item in module.right_card_items %}
+            <li class="svc-theshift__card-item">
+              <span class="svc-theshift__card-dot svc-theshift__card-dot--accent"></span>
+              <p class="svc-theshift__card-item-text svc-theshift__card-item-text--accent">
+                <span class="svc-theshift__card-item-title">{{ item.item_title }}:</span>
+                {{ item.item_description }}
+              </p>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    {# ── Bottom Strip ── #}
+    <div class="svc-theshift__bottom">
+      <div class="svc-theshift__bottom-grid">
+        {% for item in module.bottom_items %}
+          <div class="svc-theshift__bottom-item">
+            <h4 class="svc-theshift__bottom-title">{{ item.item_title }}</h4>
+            <p class="svc-theshift__bottom-desc">{{ item.item_description }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+  </div>
+</section>

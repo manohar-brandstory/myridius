@@ -1,0 +1,31 @@
+<section class="svc-cta" {% if module.section_id %}id="{{ module.section_id }}"{% endif %}>
+  <!-- Background blur effects -->
+  <div class="svc-cta__blur svc-cta__blur--top-right"></div>
+  <div class="svc-cta__blur svc-cta__blur--bottom-left"></div>
+  <div class="svc-cta__blur svc-cta__blur--center"></div>
+
+  <div class="svc-cta__container">
+    {% if module.badge_text %}
+      <div class="svc-cta__badge">{{ module.badge_text }}</div>
+    {% endif %}
+
+    {% if module.heading %}
+      <h2 class="svc-cta__heading">{{ module.heading }}</h2>
+    {% endif %}
+
+    {% if module.subtitle %}
+      <div class="svc-cta__subtitle">{{ module.subtitle }}</div>
+    {% endif %}
+
+  {% if module.button_text and module.button_url.href %}
+      <a href="{{ module.button_url.href }}"
+         class="svc-cta__button"
+         {% if module.button_url.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}>
+        <span>{{ module.button_text }}</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    {% endif %}
+  </div>
+</section>
