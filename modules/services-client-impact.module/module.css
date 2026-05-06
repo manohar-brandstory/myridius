@@ -13,7 +13,7 @@
   position: relative;
   overflow: hidden;
   padding: 96px 24px;
-  background: linear-gradient(to bottom right, var(--svc-ink), var(--svc-brand-1), var(--svc-ink));
+  background: #0C2226;
   color: #fff;
   font-family: var(--svc-font);
 }
@@ -25,26 +25,9 @@
   z-index: 0;
 }
 
-.svc-impact__bg-decor-circle {
-  position: absolute;
-  top: 80px;
-  right: 80px;
-  width: 384px;
-  height: 384px;
-  border: 1px solid rgba(82, 224, 129, 0.05);
-  border-radius: 50%;
-  pointer-events: none;
-}
-
+.svc-impact__bg-decor-circle,
 .svc-impact__bg-decor-square {
-  position: absolute;
-  bottom: 80px;
-  left: 80px;
-  width: 256px;
-  height: 256px;
-  border: 1px solid rgba(82, 224, 129, 0.05);
-  border-radius: 50%;
-  pointer-events: none;
+  display: none;
 }
 
 .svc-impact__bg {
@@ -54,7 +37,7 @@
   transition: opacity 1.5s ease;
 }
 .svc-impact__bg.is-active {
-  opacity: 0.15;
+  opacity: 0.3;
 }
 
 .svc-impact__bg-img {
@@ -90,7 +73,7 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 48px;
+  margin-bottom: 24px;
 }
 
 .svc-impact__badge-line {
@@ -153,32 +136,33 @@
 }
 
 .svc-impact__category-pill {
-  display: inline-flex;
+  display: inline-block;
   background: rgba(246, 248, 249, 0.1);
-  border: 1px solid #8CA1A3;
+  border: 1px solid rgba(140, 161, 163, 0.3);
   border-radius: 8px;
-  padding: 4px 8px;
-  font-size: 14px;
+  padding: 4px 16px;
+  line-height: 1.2;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 1.8px;
   color: var(--svc-accent);
 }
 
 /* ── Metric headline ── */
 .svc-impact__metric {
-  font-size: 64px;
+  font-size: clamp(2.8rem, 5vw, 3.5rem);
   font-weight: 500;
   letter-spacing: -0.03em;
   line-height: 1.1;
-  margin: 0 0 32px;
+  margin: 0 0 16px;
   color: #F5FFF0;
 }
 
 /* ── Company ── */
 .svc-impact__company {
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: rgba(255, 255, 255, 0.7);
@@ -236,7 +220,7 @@
 .svc-impact__details-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 32px;
+  gap: 40px;
 }
 
 .svc-impact__details-label {
@@ -290,7 +274,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 12px;
+  margin-top: 24px;
   gap: 24px;
   flex-wrap: wrap;
 }
@@ -303,11 +287,14 @@
   font-size: 16px;
   font-weight: 500;
   text-transform: uppercase;
+  letter-spacing: 2px;
   text-decoration: none;
   transition: color 0.3s;
 }
 .svc-impact__cta:hover {
   color: #ECFAE5;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .svc-impact__cta-arrow {
@@ -383,6 +370,7 @@
 @media (min-width: 769px) {
   .svc-impact__body    { min-height: 480px; }
   .svc-impact__content { min-height: 260px; }
+  .svc-impact__nav     { margin-top: 28px; }
 }
 
 @media (max-width: 768px) {
@@ -459,7 +447,7 @@
 
 /* Disable sticky :hover on touch devices */
 @media (hover: none) and (pointer: coarse) {
-  .svc-impact__cta:hover { color: var(--svc-accent); }
+  .svc-impact__cta:hover { color: var(--svc-accent); text-decoration: none; }
   .svc-impact__cta:hover .svc-impact__cta-arrow { transform: none; }
   .svc-impact__pause-btn:hover { color: rgba(255, 255, 255, 0.7); }
   .svc-impact__num:hover { color: #8CA1A3; }

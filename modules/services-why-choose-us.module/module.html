@@ -1,7 +1,10 @@
 <section class="svc-why" {% if module.section_id %}id="{{ module.section_id }}"{% endif %}>
   <div class="svc-why__header">
     {% if module.badge_text %}
-      <span class="svc-why__badge">{{ module.badge_text }}</span>
+      <div class="svc-why__badge">
+        <span class="svc-why__badge-line" aria-hidden="true"></span>
+        <span class="svc-why__badge-text">{{ module.badge_text }}</span>
+      </div>
     {% endif %}
 
     {% if module.heading %}

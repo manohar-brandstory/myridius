@@ -73,21 +73,22 @@
 .svc-hww__badge {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
   margin-bottom: 32px;
 }
 
 .svc-hww__badge-line {
   display: block;
-  width: 32px;
+  width: 48px;
   height: 2px;
   background: var(--color-accent);
 }
 
 .svc-hww__badge-text {
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--color-accent);
 }
@@ -141,6 +142,7 @@
 }
 
 .svc-hww__tab-title {
+  font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   font-weight: 600;
   color: #fff;

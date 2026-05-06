@@ -55,7 +55,7 @@
   z-index: 10;
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 100px var(--gutter);
+  padding: 100px 0;
 }
 
 /* ── Header (left-aligned per React) ── */
@@ -63,6 +63,7 @@
 .svc-theshift__header {
   text-align: left;
   margin-bottom: 80px;
+  padding: 0 var(--gutter);
 }
 
 .svc-theshift__badge {
@@ -581,7 +582,7 @@
 
 .svc-theshift__bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 48px;
+  padding: 48px var(--gutter) 0;
   margin-top: 32px;
 }
 
@@ -615,7 +616,15 @@
 
 @media (max-width: 1024px) {
   .svc-theshift__container {
-    padding: 80px 40px;
+    padding: 80px 0;
+  }
+
+  .svc-theshift__header,
+  .svc-theshift__nodes-mobile,
+  .svc-theshift__cards-mobile,
+  .svc-theshift__bottom {
+    padding-left: 40px;
+    padding-right: 40px;
   }
 
   .svc-theshift__heading {
@@ -632,8 +641,8 @@
 
   .svc-theshift__nodes-mobile {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    grid-template-columns: 1fr;
+    gap: 16px;
     margin-bottom: 48px;
   }
 
@@ -702,7 +711,15 @@
 
 @media (max-width: 767px) {
   .svc-theshift__container {
-    padding: 64px 20px;
+    padding: 64px 0;
+  }
+
+  .svc-theshift__header,
+  .svc-theshift__nodes-mobile,
+  .svc-theshift__cards-mobile,
+  .svc-theshift__bottom {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .svc-theshift__heading {
@@ -720,8 +737,8 @@
   }
 
   .svc-theshift__nodes-mobile {
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 
   .svc-theshift__bottom-grid {
@@ -744,14 +761,8 @@
    ═══════════════════════════════════════════════ */
 
 .svc-theshift__node-mobile {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.svc-theshift__node-mobile.svc-theshift--item-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
 .svc-theshift__bottom-item {
@@ -763,4 +774,37 @@
 .svc-theshift__bottom-item.svc-theshift--item-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ═══════════════════════════════════════════════
+   Large Desktop – Fix card overlap on wide screens
+   ═══════════════════════════════════════════════ */
+
+@media (min-width: 2240px),
+       (width: 2240px),
+       (device-width: 1920px) and (device-height: 1080px) {
+  .svc-theshift__container {
+    max-width: 100rem;
+  }
+
+  .svc-theshift__card {
+    width: 300px;
+  }
+
+  .svc-theshift__card--left {
+    left: -60px;
+  }
+
+  .svc-theshift__card--right {
+    right: -60px;
+  }
+
+  .svc-theshift__node {
+    --_radius: 310px;
+  }
+
+  .svc-theshift__orbit--lg {
+    width: 720px;
+    height: 720px;
+  }
 }

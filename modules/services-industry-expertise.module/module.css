@@ -5,7 +5,6 @@
 
 .svc-ind {
   position: relative;
-  min-height: 100vh;
   overflow: hidden;
   background: #f8fafa;
 }
@@ -20,7 +19,8 @@
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  filter: brightness(0.35);
+  opacity: 0.6;
+  filter: blur(2px);
   z-index: 0;
 }
 
@@ -36,7 +36,7 @@
   z-index: 1;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 64px 48px 120px;
+  padding: 64px 48px 80px;
 }
 
 /* ── Header (glass card) ── */
@@ -56,14 +56,14 @@
 .svc-ind__badge {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 16px;
+  margin-bottom: 32px;
 }
 
 .svc-ind__badge-line {
-  width: 24px;
+  width: 48px;
   height: 2px;
-  background: var(--color-accent, #52E081);
+  background: #194247;
   border-radius: 2px;
   flex: 0 0 auto;
 }
@@ -74,7 +74,7 @@
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: var(--color-brand-2, #337077);
+  color: #194247;
 }
 
 /* Heading */
@@ -344,10 +344,6 @@
 
 /* Mobile: 1-column, always expanded */
 @media (max-width: 768px) {
-  .svc-ind {
-    min-height: auto;
-  }
-
   .svc-ind__wrap {
     padding: 64px 24px;
   }

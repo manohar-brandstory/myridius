@@ -18,17 +18,26 @@
 }
 
 .svc-why__badge {
-  display: inline-block;
-  padding: 6px 14px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.svc-why__badge-line {
+  display: block;
+  width: 48px;
+  height: 2px;
+  background: #194247;
+}
+
+.svc-why__badge-text {
   font-family: var(--font-family);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.05em;
+  font-size: 14px;
+  font-weight: 500;
   text-transform: uppercase;
-  color: var(--color-brand-1);
-  background: #f0fdf4;
-  border: 1px solid #bbf7d0;
-  border-radius: 9999px;
+  letter-spacing: 0.2em;
+  color: #194247;
 }
 
 .svc-why__heading {

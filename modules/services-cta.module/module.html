@@ -6,7 +6,12 @@
 
   <div class="svc-cta__container">
     {% if module.badge_text %}
-      <div class="svc-cta__badge">{{ module.badge_text }}</div>
+      <div class="svc-cta__badge-wrap">
+        <div class="svc-cta__badge">
+          <span class="svc-cta__badge-line" aria-hidden="true"></span>
+          <span class="svc-cta__badge-text">{{ module.badge_text }}</span>
+        </div>
+      </div>
     {% endif %}
 
     {% if module.heading %}
