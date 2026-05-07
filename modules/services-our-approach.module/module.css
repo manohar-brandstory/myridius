@@ -23,9 +23,10 @@
 
 .svc-approach__badge-line {
   display: block;
-  width: 48px;
+  width: 24px;
   height: 2px;
   background: var(--color-brand-1, #194247);
+  border-radius: 2px;
   flex-shrink: 0;
 }
 

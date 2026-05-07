@@ -1,0 +1,28 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Applied Insights - Listing
+-->
+{% extends "./layouts/base.html" %}
+
+{% block body %}
+  <main class="applied-ins-page">
+    {% dnd_area "applied_insights_listing_area", label="Applied Insights Listing" %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/applied-ins-hero.module", label="Applied Insights - Hero" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/applied-ins-listing-grid.module", label="Applied Insights - Listing Grid" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/applied-ins-cta.module", label="Applied Insights - CTA" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+    {% end_dnd_area %}
+  </main>
+{% endblock body %}

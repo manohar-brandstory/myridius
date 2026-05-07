@@ -1,0 +1,55 @@
+<section class="applied-ins-related">
+  <div class="applied-ins-related__wrap">
+    <h2 class="applied-ins-related__heading">{{ module.section_heading }}</h2>
+
+    {% if module.related_cards|length %}
+      {% set cards_count = module.related_cards|length %}
+      <div
+        class="applied-ins-related__carousel{% if cards_count > 3 %} is-slider{% endif %}"
+        data-applied-ins-carousel
+        data-total="{{ cards_count }}"
+      >
+        <div class="applied-ins-related__viewport">
+          <div class="applied-ins-related__track" data-applied-ins-track>
+            {% for card in module.related_cards %}
+              <div class="applied-ins-related__slide">
+                <a class="applied-ins-related__card" href="{{ card.card_link.href }}">
+                  {% if card.card_image.src %}
+                    <img class="applied-ins-related__img" src="{{ card.card_image.src }}" alt="{{ card.card_image.alt|default(card.card_title, true) }}" loading="lazy">
+                  {% endif %}
+                  <div class="applied-ins-related__shade"></div>
+                  <div class="applied-ins-related__cardDefault">
+                    <h3 class="applied-ins-related__cardTitle">{{ card.card_title }}</h3>
+                  </div>
+                  <div class="applied-ins-related__cardHover">
+                    <h3 class="applied-ins-related__cardHoverTitle">{{ card.card_title }}</h3>
+                    <p class="applied-ins-related__cardDesc">{{ card.card_subtitle }}</p>
+                  </div>
+                </a>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        {% if cards_count > 3 %}
+          <button
+            class="applied-ins-related__arrow applied-ins-related__arrow--prev"
+            type="button"
+            aria-label="Previous"
+            data-applied-ins-prev
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button
+            class="applied-ins-related__arrow applied-ins-related__arrow--next"
+            type="button"
+            aria-label="Next"
+            data-applied-ins-next
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</section>

@@ -1,0 +1,178 @@
+/* ═══════════════════════════════════════════════════
+   Applied Insights – CTA Module
+   Dark gradient card with decorative circle + button
+   ═══════════════════════════════════════════════════ */
+
+.applied-ins-cta {
+  padding: 48px 0;
+  background: #f9fafb;
+  border-top: 1px solid #e5e7eb;
+  font-family: var(--font-family);
+}
+
+.applied-ins-cta__wrap {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 var(--gutter, 24px);
+}
+
+.applied-ins-cta__authors {
+  margin-bottom: 32px;
+}
+
+.applied-ins-cta__authorsHeading {
+  margin: 0 0 24px;
+  font-size: 24px;
+  font-weight: 400;
+  color: #0c2226;
+  line-height: 1.3;
+}
+
+.applied-ins-cta__authorsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.applied-ins-cta__authorCard {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.applied-ins-cta__authorAvatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #194247;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.applied-ins-cta__authorName {
+  font-weight: 500;
+  color: #0c2226;
+  margin-bottom: 2px;
+  line-height: 1.4;
+}
+
+.applied-ins-cta__authorRole {
+  font-size: 14px;
+  color: #6a7282;
+  line-height: 1.4;
+}
+
+.applied-ins-cta__card {
+  margin-top: 96px;
+  background: linear-gradient(135deg, #0C2226 0%, #194247 50%, #337077 100%);
+  border: 1px solid rgba(25, 66, 71, 0.2);
+  border-radius: 12px;
+  padding: 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.applied-ins-cta__circle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 256px;
+  background: rgba(25, 66, 71, 0.1);
+  border-radius: 50%;
+  transform: translate(50%, -50%);
+  transition: transform 0.7s ease;
+  pointer-events: none;
+}
+
+.applied-ins-cta__card:hover .applied-ins-cta__circle {
+  transform: translate(50%, -50%) scale(1.1);
+}
+
+.applied-ins-cta__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+@media (min-width: 1024px) {
+  .applied-ins-cta__inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.applied-ins-cta__text {
+  max-width: 640px;
+}
+
+.applied-ins-cta__heading {
+  margin: 0 0 16px;
+  font-size: 24px;
+  font-weight: 300;
+  color: #ECFAE5;
+  line-height: 1.4;
+}
+
+.applied-ins-cta__subtitle {
+  margin: 0;
+  color: rgba(82, 224, 129, 0.8);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.applied-ins-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+  padding: 20px 40px;
+  background: #194247;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  font-size: 16px;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.applied-ins-cta__btn:hover {
+  background: #52E081;
+  color: #194247;
+}
+
+.applied-ins-cta__btn svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.applied-ins-cta__btn:hover svg {
+  transform: translateX(4px);
+}
+
+@media (max-width: 639px) {
+  .applied-ins-cta__authorsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .applied-ins-cta__card {
+    padding: 32px;
+  }
+  .applied-ins-cta__heading {
+    font-size: 20px;
+  }
+  .applied-ins-cta__btn {
+    padding: 16px 28px;
+    font-size: 14px;
+  }
+}

@@ -8,6 +8,10 @@
   var sections = scope.querySelectorAll(".svc-ind");
   if (!sections.length) return;
 
+  function pad(n) {
+    return n < 10 ? "0" + n : "" + n;
+  }
+
   function init(section) {
     if (section.getAttribute("data-svc-ind-inited") === "true") return;
     section.setAttribute("data-svc-ind-inited", "true");
@@ -15,11 +19,14 @@
     var cards = section.querySelectorAll(".svc-ind__card");
     if (!cards.length) return;
 
+    var grid = section.querySelector(".svc-ind__grid");
+    var mobNav = section.querySelector(".svc-ind__mob-nav");
     var isTouchDevice =
       window.matchMedia("(hover: none) and (pointer: coarse)").matches;
-    var isMobile = window.matchMedia("(max-width: 768px)").matches;
+    var mobileQuery = window.matchMedia("(max-width: 768px)");
 
-    if (!isTouchDevice && !isMobile) {
+    /* ── Desktop: row-hover logic ── */
+    if (!isTouchDevice && !mobileQuery.matches) {
       cards.forEach(function (card) {
         card.addEventListener("mouseenter", function () {
           var hoveredRow = card.getAttribute("data-svc-ind-row");
@@ -38,7 +45,6 @@
         });
       });
 
-      var grid = section.querySelector(".svc-ind__grid");
       if (grid) {
         grid.addEventListener("mouseleave", function () {
           cards.forEach(function (c) {
@@ -49,9 +55,68 @@
       }
     }
 
+    /* ── Mobile: carousel navigation ── */
+    if (mobNav && grid) {
+      var prevBtn = mobNav.querySelector(".svc-ind__mob-prev");
+      var nextBtn = mobNav.querySelector(".svc-ind__mob-next");
+      var currentEl = mobNav.querySelector(".svc-ind__mob-current");
+      var totalEl = mobNav.querySelector(".svc-ind__mob-total");
+      var cardCount = cards.length;
+      var currentIndex = 0;
+
+      if (totalEl) totalEl.textContent = pad(cardCount);
+
+      function scrollToCard(index) {
+        if (index < 0) index = 0;
+        if (index >= cardCount) index = cardCount - 1;
+        currentIndex = index;
+        var card = cards[index];
+        if (card && grid) {
+          grid.scrollTo({
+            left: card.offsetLeft - grid.offsetLeft,
+            behavior: "smooth"
+          });
+        }
+        if (currentEl) currentEl.textContent = pad(currentIndex + 1);
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          scrollToCard(currentIndex - 1);
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          scrollToCard(currentIndex + 1);
+        });
+      }
+
+      var scrollTimer;
+      grid.addEventListener("scroll", function () {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(function () {
+          var scrollLeft = grid.scrollLeft;
+          var closestIdx = 0;
+          var closestDist = Infinity;
+          cards.forEach(function (card, i) {
+            var dist = Math.abs(card.offsetLeft - grid.offsetLeft - scrollLeft);
+            if (dist < closestDist) {
+              closestDist = dist;
+              closestIdx = i;
+            }
+          });
+          currentIndex = closestIdx;
+          if (currentEl) currentEl.textContent = pad(currentIndex + 1);
+        }, 80);
+      });
+    }
+
     /* Recalculate row indices when the grid column count changes */
     function updateRowIndices() {
-      var newIsMobile = window.matchMedia("(max-width: 768px)").matches;
+      var newIsMobile = mobileQuery.matches;
       var isTablet = window.matchMedia("(max-width: 1024px)").matches;
       var cols = newIsMobile ? 1 : isTablet ? 2 : 3;
 

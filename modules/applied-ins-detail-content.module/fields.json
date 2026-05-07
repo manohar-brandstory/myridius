@@ -1,0 +1,525 @@
+[
+  {
+    "id": "brief_heading",
+    "name": "brief_heading",
+    "label": "Brief Heading",
+    "type": "text",
+    "required": false,
+    "locked": false,
+    "default": "In Brief"
+  },
+  {
+    "id": "brief_context_label",
+    "name": "brief_context_label",
+    "label": "Context Label",
+    "type": "text",
+    "required": false,
+    "locked": false,
+    "default": "Context"
+  },
+  {
+    "id": "brief_context",
+    "name": "brief_context",
+    "label": "Brief Context",
+    "type": "richtext",
+    "required": false,
+    "locked": false,
+    "default": "<p>Manual search friction and static inventory imbalances are resolved through digital proxy agents that autonomously orchestrate circular point swaps across legacy stacks.</p>"
+  },
+  {
+    "id": "brief_core_label",
+    "name": "brief_core_label",
+    "label": "Core Idea Label",
+    "type": "text",
+    "required": false,
+    "locked": false,
+    "default": "Core Idea"
+  },
+  {
+    "id": "brief_core_idea",
+    "name": "brief_core_idea",
+    "label": "Brief Core Idea",
+    "type": "richtext",
+    "required": false,
+    "locked": false,
+    "default": "<p>Digital proxy agents leverage Agentic AI and Model Context Protocol (MCP) to autonomously manage timeshare point exchanges, transforming static inventory into a dynamic, member-centric marketplace that revolutionizes liquidity and eliminates manual intervention.</p>"
+  },
+  {
+    "id": "brief_takeaway_label",
+    "name": "brief_takeaway_label",
+    "label": "Key Takeaway Label",
+    "type": "text",
+    "required": false,
+    "locked": false,
+    "default": "Key Takeaway"
+  },
+  {
+    "id": "brief_takeaway",
+    "name": "brief_takeaway",
+    "label": "Brief Key Takeaway",
+    "type": "richtext",
+    "required": false,
+    "locked": false,
+    "default": "<p>+25% inventory utilization, -40% call center burden, and continuous 24/7 optimization that transforms member satisfaction and operational efficiency.</p>"
+  },
+  {
+    "id": "detail_sections",
+    "name": "detail_sections",
+    "label": "Detail Sections",
+    "type": "group",
+    "required": false,
+    "locked": false,
+    "occurrence": {
+      "min": 1,
+      "max": 20,
+      "default": 3
+    },
+    "children": [
+      {
+        "id": "section_heading",
+        "name": "section_heading",
+        "label": "Section Heading",
+        "type": "text",
+        "required": false,
+        "locked": false,
+        "default": "The Business Problem"
+      },
+      {
+        "id": "section_desc",
+        "name": "section_desc",
+        "label": "Section Description",
+        "type": "text",
+        "required": false,
+        "locked": false,
+        "default": "Traditional timeshare systems face critical inefficiencies."
+      },
+      {
+        "id": "section_content",
+        "name": "section_content",
+        "label": "Legacy Rich Text Content (Fallback)",
+        "type": "richtext",
+        "required": false,
+        "locked": false,
+        "default": "<p>Section content goes here.</p>"
+      },
+      {
+        "id": "content_blocks",
+        "name": "content_blocks",
+        "label": "Content Blocks",
+        "type": "group",
+        "required": false,
+        "locked": false,
+        "occurrence": {
+          "min": 0,
+          "max": 40,
+          "default": 0
+        },
+        "children": [
+          {
+            "id": "block_type",
+            "name": "block_type",
+            "label": "Block Type",
+            "type": "choice",
+            "required": false,
+            "locked": false,
+            "choices": [
+              ["richtext", "Rich Text"],
+              ["heading", "Heading"],
+              ["paragraph", "Paragraph"],
+              ["list", "Bullet List"],
+              ["table", "Table"],
+              ["impact_cards", "Impact Cards"],
+              ["code_box", "Code Box"],
+              ["three_column", "Three Column"],
+              ["diagram", "Diagram / Image Block"]
+            ],
+            "display": "select",
+            "default": "richtext"
+          },
+          {
+            "id": "block_heading_text",
+            "name": "block_heading_text",
+            "label": "Heading Text",
+            "type": "text",
+            "required": false,
+            "locked": false,
+            "default": "",
+            "visibility": {
+              "controlling_field_path": "detail_sections.content_blocks.block_type",
+              "controlling_value_regex": "heading",
+              "operator": "EQUAL"
+            }
+          },
+          {
+            "id": "block_paragraph_text",
+            "name": "block_paragraph_text",
+            "label": "Paragraph Text",
+            "type": "text",
+            "required": false,
+            "locked": false,
+            "default": "",
+            "visibility": {
+              "controlling_field_path": "detail_sections.content_blocks.block_type",
+              "controlling_value_regex": "paragraph",
+              "operator": "EQUAL"
+            }
+          },
+          {
+            "id": "block_richtext",
+            "name": "block_richtext",
+            "label": "Rich Text",
+            "type": "richtext",
+            "required": false,
+            "locked": false,
+            "default": "<p></p>",
+            "visibility": {
+              "controlling_field_path": "detail_sections.content_blocks.block_type",
+              "controlling_value_regex": "richtext",
+              "operator": "EQUAL"
+            }
+          },
+          {
+            "id": "list_items",
+            "name": "list_items",
+            "label": "List Items",
+            "type": "group",
+            "required": false,
+            "locked": false,
+            "occurrence": {
+              "min": 0,
+              "max": 30,
+              "default": 0
+            },
+            "children": [
+              {
+                "id": "list_item_text",
+                "name": "list_item_text",
+                "label": "List Item",
+                "type": "text",
+                "required": false,
+                "locked": false,
+                "default": ""
+              }
+            ],
+            "visibility": {
+              "controlling_field_path": "detail_sections.content_blocks.block_type",
+              "controlling_value_regex": "list",
+              "operator": "EQUAL"
+            }
+          },
+          {
+            "id": "table_columns",
+            "name": "table_columns",
+            "label": "Table Columns (Headers)",
+            "type": "group",
+            "required": false,
+            "locked": false,
+            "occurrence": {
+              "min": 0,
+              "max": 10,
+              "default": 0
+            },
+            "children": [
+              {
+                "id": "table_col_title",
+                "name": "table_col_title",
+                "label": "Column Header",
+                "type": "text",
+                "required": false,
+                "locked": false,
+                "default": ""
+              }
+            ],
+            "visibility": {
+              "controlling_field_path": "detail_sections.content_blocks.block_type",
+              "controlling_value_regex": "table",
+              "operator": "EQUAL"
+            }
+          },
+          {
+            "id": "table_rows",
+            "name": "table_rows",
+            "label": "Table Rows (use | between cells)",
+            "type": "group",
+            "required": false,
+            "locked": false,
+            "occurrence": {
+              "min": 0,
+              "max": 50,
+              "default": 0
+            },
+            "children": [
+              {
+                "id": "table_row_text",
+                "name": "table_row_text",
+                "label": "Row",
+                "type": "text",
+                "required": false,
+                "locked": false,
+                "default": ""
+              }
+            ],
+            "visibility": {
+              "controlling_field_path": "detail_sections.content_blocks.block_type",
+              "controlling_value_regex": "table",
+              "operator": "EQUAL"
+            }
+          },
+          {
+            "id": "impact_title",
+            "name": "impact_title",
+            "label": "Impact Section Title",
+            "type": "text",
+            "required": false,
+            "locked": false,
+            "default": "",
+            "visibility": {
+              "controlling_field_path": "detail_sections.content_blocks.block_type",
+              "controlling_value_regex": "impact_cards",
+              "operator": "EQUAL"
+            }
+          },
+          {
+            "id": "impact_items",
+            "name": "impact_items",
+            "label": "Impact Items",
+            "type": "group",
+            "required": false,
+            "locked": false,
+            "occurrence": {
+              "min": 0,
+              "max": 10,
+              "default": 0
+            },
+            "children": [
+              {
+                "id": "impact_metric",
+                "name": "impact_metric",
+                "label": "Metric",
+                "type": "text",
+                "required": false,
+                "locked": false,
+                "default": ""
+              },
+              {
+                "id": "impact_label_text",
+                "name": "impact_label_text",
+                "label": "Label",
+                "type": "text",
+                "required": false,
+                "locked": false,
+                "default": ""
+              },
+              {
+                "id": "impact_desc_text",
+                "name": "impact_desc_text",
+                "label": "Description",
+                "type": "text",
+                "required": false,
+                "locked": false,
+                "default": ""
+              }
+            ],
+            "visibility": {
+              "controlling_field_path": "detail_sections.content_blocks.block_type",
+              "controlling_value_regex": "impact_cards",
+              "operator": "EQUAL"
+            }
+          },
+          {
+            "id": "code_line_items",
+            "name": "code_line_items",
+            "label": "Code Lines",
+            "type": "group",
+            "required": false,
+            "locked": false,
+            "occurrence": {
+              "min": 0,
+              "max": 80,
+              "default": 0
+            },
+            "children": [
+              {
+                "id": "code_line_text",
+                "name": "code_line_text",
+                "label": "Line",
+                "type": "text",
+                "required": false,
+                "locked": false,
+                "default": ""
+              }
+            ],
+            "visibility": {
+              "controlling_field_path": "detail_sections.content_blocks.block_type",
+              "controlling_value_regex": "code_box",
+              "operator": "EQUAL"
+            }
+          },
+          {
+            "id": "code_caption",
+            "name": "code_caption",
+            "label": "Code/Diagram Caption",
+            "type": "text",
+            "required": false,
+            "locked": false,
+            "default": "",
+            "visibility": {
+              "controlling_field_path": "detail_sections.content_blocks.block_type",
+              "controlling_value_regex": "code_box|diagram",
+              "operator": "EQUAL"
+            }
+          },
+          {
+            "id": "columns",
+            "name": "columns",
+            "label": "Columns",
+            "type": "group",
+            "required": false,
+            "locked": false,
+            "occurrence": {
+              "min": 0,
+              "max": 12,
+              "default": 0
+            },
+            "children": [
+              {
+                "id": "col_title",
+                "name": "col_title",
+                "label": "Column Title",
+                "type": "text",
+                "required": false,
+                "locked": false,
+                "default": ""
+              },
+              {
+                "id": "col_desc",
+                "name": "col_desc",
+                "label": "Column Description",
+                "type": "text",
+                "required": false,
+                "locked": false,
+                "default": ""
+              },
+              {
+                "id": "col_bullets_text",
+                "name": "col_bullets_text",
+                "label": "Column Bullets (separate with ; )",
+                "type": "text",
+                "required": false,
+                "locked": false,
+                "default": ""
+              }
+            ],
+            "visibility": {
+              "controlling_field_path": "detail_sections.content_blocks.block_type",
+              "controlling_value_regex": "three_column",
+              "operator": "EQUAL"
+            }
+          },
+          {
+            "id": "diagram_variant",
+            "name": "diagram_variant",
+            "label": "Diagram Variant",
+            "type": "choice",
+            "required": false,
+            "locked": false,
+            "choices": [
+              ["timeshare-flow", "Timeshare Flow"],
+              ["mcp-architecture", "MCP Architecture"],
+              ["true-forecast-architecture", "True Forecast Architecture"],
+              ["dynamic-agent-factory", "Dynamic Agent Factory"],
+              ["custom-image", "Custom Image Diagram"]
+            ],
+            "display": "select",
+            "default": "custom-image",
+            "visibility": {
+              "controlling_field_path": "detail_sections.content_blocks.block_type",
+              "controlling_value_regex": "diagram",
+              "operator": "EQUAL"
+            }
+          },
+          {
+            "id": "diagram_image",
+            "name": "diagram_image",
+            "label": "Diagram Image",
+            "type": "image",
+            "required": false,
+            "locked": false,
+            "responsive": false,
+            "resizable": true,
+            "show_loading": false,
+            "default": {
+              "src": "",
+              "alt": ""
+            },
+            "visibility": {
+              "controlling_field_path": "detail_sections.content_blocks.block_type",
+              "controlling_value_regex": "diagram",
+              "operator": "EQUAL"
+            }
+          },
+          {
+            "id": "diagram_caption",
+            "name": "diagram_caption",
+            "label": "Diagram Caption",
+            "type": "text",
+            "required": false,
+            "locked": false,
+            "default": "",
+            "visibility": {
+              "controlling_field_path": "detail_sections.content_blocks.block_type",
+              "controlling_value_regex": "diagram",
+              "operator": "EQUAL"
+            }
+          },
+          {
+            "id": "diagram_bulk_text",
+            "name": "diagram_bulk_text",
+            "label": "Diagram Text (paste all at once)",
+            "type": "text",
+            "required": false,
+            "locked": false,
+            "allow_new_line": true,
+            "default": "",
+            "visibility": {
+              "controlling_field_path": "detail_sections.content_blocks.block_type",
+              "controlling_value_regex": "diagram",
+              "operator": "EQUAL"
+            }
+          },
+          {
+            "id": "diagram_notes",
+            "name": "diagram_notes",
+            "label": "Diagram Notes",
+            "type": "richtext",
+            "required": false,
+            "locked": false,
+            "default": "<p></p>",
+            "visibility": {
+              "controlling_field_path": "detail_sections.content_blocks.block_type",
+              "controlling_value_regex": "diagram",
+              "operator": "EQUAL"
+            }
+          }
+        ]
+      }
+    ],
+    "default": [
+      {
+        "section_heading": "The Business Problem",
+        "section_desc": "Traditional timeshare systems face critical inefficiencies that erode member value and operational performance.",
+        "section_content": "<p>Traditional timeshare systems face three critical inefficiencies.</p>"
+      },
+      {
+        "section_heading": "Solution Architecture",
+        "section_desc": "An autonomous agent ecosystem powered by MCP integration transforms timeshare management from manual to intelligent.",
+        "section_content": "<p>Use typed content blocks below for tables, cards, or diagrams.</p>"
+      },
+      {
+        "section_heading": "Productization & Revenue Growth",
+        "section_desc": "Multiple monetization pathways transform the autonomous swap system into new revenue streams.",
+        "section_content": "<p>Premium AI tiers, yield-as-a-service, and secondary market facilitation create diverse revenue opportunities.</p>"
+      }
+    ]
+  }
+]

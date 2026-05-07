@@ -1,0 +1,36 @@
+<section class="applied-ins-cta">
+  <div class="applied-ins-cta__wrap">
+    <div class="applied-ins-cta__authors">
+      <h2 class="applied-ins-cta__authorsHeading">{{ module.authors_heading }}</h2>
+      <div class="applied-ins-cta__authorsGrid">
+        {% for person in module.author_list %}
+          <div class="applied-ins-cta__authorCard">
+            <div class="applied-ins-cta__authorAvatar">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <div>
+              <div class="applied-ins-cta__authorName">{{ person.author_full_name }}</div>
+              <div class="applied-ins-cta__authorRole">{{ person.author_role }}</div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="applied-ins-cta__card">
+      <div class="applied-ins-cta__circle" aria-hidden="true"></div>
+      <div class="applied-ins-cta__inner">
+        <div class="applied-ins-cta__text">
+          <h2 class="applied-ins-cta__heading">{{ module.cta_heading }}</h2>
+          <p class="applied-ins-cta__subtitle">{{ module.cta_subtitle }}</p>
+        </div>
+        {% if module.cta_button_text %}
+          <a class="applied-ins-cta__btn" href="{{ module.cta_button_url.href }}">
+            {{ module.cta_button_text }}
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>

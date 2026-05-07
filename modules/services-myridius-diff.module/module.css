@@ -93,7 +93,6 @@
 .svc-diff__corner-v {
   position: absolute;
   background: var(--color-accent, #52E081);
-  border-radius: 1px;
 }
 
 .svc-diff__corner-h {
@@ -103,11 +102,10 @@
   left: 0;
 }
 
-/* Vertical stroke meets horizontal stroke without a doubled corner pixel */
 .svc-diff__corner-v {
   width: 2px;
-  height: 78px;
-  top: 2px;
+  height: 80px;
+  top: 0;
   left: 0;
 }
 
@@ -183,7 +181,7 @@
   }
 
   .svc-diff__heading {
-    font-size: 40px;
+    font-size: 48px;
     margin-bottom: 40px;
   }
 
@@ -253,6 +251,5 @@
 
   .svc-diff__corner-v {
     height: 80px;
-    top: 0;
   }
 }

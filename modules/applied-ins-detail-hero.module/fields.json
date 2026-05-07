@@ -1,0 +1,43 @@
+[
+  {
+    "id": "back_text",
+    "name": "back_text",
+    "label": "Back Link Text",
+    "type": "text",
+    "required": false,
+    "locked": false,
+    "default": "Back to all insights"
+  },
+  {
+    "id": "back_url",
+    "name": "back_url",
+    "label": "Back Link URL",
+    "type": "url",
+    "required": false,
+    "locked": false,
+    "supported_types": ["EXTERNAL", "CONTENT"],
+    "default": {
+      "content_id": null,
+      "href": "#",
+      "type": "EXTERNAL"
+    }
+  },
+  {
+    "id": "heading_text",
+    "name": "heading_text",
+    "label": "Heading",
+    "type": "text",
+    "required": false,
+    "locked": false,
+    "default": "Unlock Timeshare Points Value with Agentic AI"
+  },
+  {
+    "id": "subtitle_text",
+    "name": "subtitle_text",
+    "label": "Subtitle",
+    "type": "richtext",
+    "required": false,
+    "locked": false,
+    "default": "<p>AI-powered autonomous agents transform timeshare exchanges into dynamic, frictionless marketplaces.</p>"
+  }
+]

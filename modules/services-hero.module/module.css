@@ -108,8 +108,8 @@
   background: linear-gradient(
     135deg,
     #ffffff 0%,
-    #52e081 50%,
-    #337077 100%
+    #a8f0c0 40%,
+    #52e081 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -122,7 +122,7 @@
   margin: 0 0 48px;
   max-width: 36rem;
   color: rgba(255,255,255,0.92);
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 400;
   line-height: 1.5;
 }

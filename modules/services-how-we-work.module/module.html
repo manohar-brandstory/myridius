@@ -74,6 +74,7 @@
                          href="{{ slide.evoq_cta_url.href }}"
                          {% if slide.evoq_cta_url.type == "EXTERNAL" %}target="_blank" rel="noopener"{% endif %}>
                         {{ slide.evoq_cta_text }}
+                        <svg class="svc-hww__evoq-cta-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                       </a>
                     {% endif %}
                   </div>
@@ -95,7 +96,7 @@
       {% endfor %}
     </div>
 
-    {# Pause / play toggle #}
+    {# Pause / play toggle (desktop) #}
     <button class="svc-hww__toggle" data-toggle-autoplay aria-label="Pause autoplay">
       <svg class="svc-hww__toggle-pause" width="16" height="16" viewBox="0 0 16 16" fill="none">
         <rect x="3" y="2" width="3.5" height="12" rx="1" fill="currentColor"/>
@@ -105,5 +106,35 @@
         <path d="M4 2.5L13 8L4 13.5V2.5Z" fill="currentColor"/>
       </svg>
     </button>
+
+    {# Mobile navigation #}
+    <div class="svc-hww__mob-nav">
+      <button class="svc-hww__mob-toggle" data-mob-toggle aria-label="Pause autoplay">
+        <svg class="svc-hww__mob-pause" width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <rect x="5" y="3" width="3.3" height="13.3" rx="1" fill="currentColor"/>
+          <rect x="11.7" y="3" width="3.3" height="13.3" rx="1" fill="currentColor"/>
+        </svg>
+        <svg class="svc-hww__mob-play" width="20" height="20" viewBox="0 0 20 20" fill="none" style="display:none;">
+          <path d="M5 3L16 10L5 17V3Z" fill="currentColor"/>
+        </svg>
+      </button>
+      <div class="svc-hww__mob-controls">
+        <button class="svc-hww__mob-prev" data-mob-prev aria-label="Previous slide">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M15 6L9 12L15 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="svc-hww__mob-page">
+          <span class="svc-hww__mob-current" data-mob-current>1</span>
+          <span class="svc-hww__mob-sep">/</span>
+          <span class="svc-hww__mob-total" data-mob-total>{{ module.slides|length }}</span>
+        </div>
+        <button class="svc-hww__mob-next" data-mob-next aria-label="Next slide">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
   </div>
 </section>

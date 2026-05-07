@@ -1,0 +1,17 @@
+{
+  "global": false,
+  "content_types": [
+    "LANDING_PAGE",
+    "SITE_PAGE"
+  ],
+  "categories": [
+    "BODY_CONTENT"
+  ],
+  "host_template_types": [
+    "PAGE",
+    "BLOG_LISTING",
+    "BLOG_POST"
+  ],
+  "label": "Applied Insights - Listing Grid",
+  "is_available_for_new_content": true
+}

@@ -306,10 +306,10 @@
       "description" : "Governed, domain-based data foundation with built-in intelligence for insights and analytics"
     } ],
     "has_evoq_section" : true,
-    "evoq_heading" : "",
+    "evoq_heading" : "EVOQ Integration Toolkit: From connected intelligence to business impact.",
     "evoq_pills" : [ { "text" : "EVOQ Data Intelligence" }, { "text" : "EVOQ Research Automator" }, { "text" : "EVOQ Customer 360" }, { "text" : "EVOQ Supply Chain Visibility" } ],
-    "evoq_cta_text" : "",
-    "evoq_cta_url" : { "type" : "EXTERNAL", "href" : "" }
+    "evoq_cta_text" : "EXPLORE EVOQ",
+    "evoq_cta_url" : { "type" : "EXTERNAL", "href" : "#evoq" }
   }, {
     "number" : "04",
     "title" : "Governed by Default",
@@ -356,9 +356,9 @@
       "description" : "EVOQ agentic operations on Bedrock AgentCore detects, diagnoses, and remediates autonomously, using guardrails proven across client engagements"
     } ],
     "has_evoq_section" : true,
-    "evoq_heading" : "",
+    "evoq_heading" : "Evoq in Action: Turning delivery knowledge into a repeatable acceleration engine.",
     "evoq_pills" : [ { "text" : "Agentic Workbench" }, { "text" : "AI Product Coach" }, { "text" : "Code-to-Clarity" }, { "text" : "AI Orchestrator" }, { "text" : "Agentic Modernization" } ],
-    "evoq_cta_text" : "",
-    "evoq_cta_url" : { "type" : "EXTERNAL", "href" : "" }
+    "evoq_cta_text" : "EXPLORE EVOQ",
+    "evoq_cta_url" : { "type" : "EXTERNAL", "href" : "#evoq" }
   } ]
 } ]

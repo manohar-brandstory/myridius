@@ -75,9 +75,10 @@
 
 .svc-theshift__badge-line {
   display: block;
-  width: 48px;
+  width: 24px;
   height: 2px;
   background: var(--color-accent);
+  border-radius: 2px;
 }
 
 .svc-theshift__badge-text {
@@ -641,8 +642,8 @@
 
   .svc-theshift__nodes-mobile {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
     margin-bottom: 48px;
   }
 
@@ -737,13 +738,25 @@
   }
 
   .svc-theshift__nodes-mobile {
-    grid-template-columns: 1fr;
-    gap: 12px;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
   }
 
   .svc-theshift__bottom-grid {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 0;
+  }
+
+  .svc-theshift__bottom-item {
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .svc-theshift__bottom-item:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: none;
   }
 
   .svc-theshift__card-mobile {
@@ -761,8 +774,14 @@
    ═══════════════════════════════════════════════ */
 
 .svc-theshift__node-mobile {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.svc-theshift__node-mobile.svc-theshift--item-visible {
   opacity: 1;
-  transform: none;
+  transform: translateY(0);
 }
 
 .svc-theshift__bottom-item {

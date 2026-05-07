@@ -5,8 +5,9 @@
 
 .svc-ind {
   position: relative;
+  min-height: 100vh;
   overflow: hidden;
-  background: #f8fafa;
+  background: #fff;
 }
 
 /* ── Parallax background ── */
@@ -16,6 +17,7 @@
   left: 0;
   right: 0;
   bottom: 0;
+  height: calc(100% + 200px);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -34,14 +36,14 @@
 .svc-ind__wrap {
   position: relative;
   z-index: 1;
-  max-width: 1400px;
+  max-width: calc(1400px + 96px);
   margin: 0 auto;
-  padding: 64px 48px 80px;
+  padding: 64px 48px 48px;
 }
 
 /* ── Header (glass card) ── */
 .svc-ind__header {
-  margin-bottom: 56px;
+  margin-bottom: 168px;
 }
 
 .svc-ind__header-inner {
@@ -61,7 +63,7 @@
 }
 
 .svc-ind__badge-line {
-  width: 48px;
+  width: 24px;
   height: 2px;
   background: #194247;
   border-radius: 2px;
@@ -84,15 +86,18 @@
   font-size: 48px;
   font-weight: 500;
   line-height: 1.12;
-  letter-spacing: -0.04em;
-  color: var(--color-brand-1, #194247);
+  letter-spacing: -0.05em;
+  color: #194247;
+  max-width: 768px;
 }
 
 /* Subtitle */
 .svc-ind__subtitle {
+  font-family: var(--font-family, 'Montserrat', sans-serif);
   font-size: 24px;
-  line-height: 1.4;
-  color: var(--color-brand-2, #337077);
+  font-weight: 400;
+  line-height: 1.625;
+  color: #337077;
   max-width: 600px;
 }
 
@@ -116,7 +121,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   min-height: 140px;
   padding: 16px;
   background: #fff;
@@ -124,19 +129,19 @@
   color: inherit;
   overflow: hidden;
   transition:
-    min-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-    padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    min-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    padding 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
 }
 
-/* Subtle default tint – alternating */
+/* Subtle default tint – alternating gradient (from-10% via-5% to-0%) */
 .svc-ind__card:nth-child(odd) {
-  background: rgba(51, 112, 119, 0.10);
+  background: linear-gradient(to bottom right, rgba(51, 112, 119, 0.10), rgba(51, 112, 119, 0.05), rgba(51, 112, 119, 0));
 }
 
 .svc-ind__card:nth-child(even) {
-  background: rgba(25, 66, 71, 0.10);
+  background: linear-gradient(to bottom right, rgba(25, 66, 71, 0.10), rgba(25, 66, 71, 0.05), rgba(25, 66, 71, 0));
 }
 
 /* Corner radii for the 3×3 grid */
@@ -151,14 +156,14 @@
   inset: 0;
   z-index: 0;
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.5s ease;
 }
 
 .svc-ind__card-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: blur(2px) grayscale(0.6);
+  filter: blur(4px) grayscale(1);
   transform: scale(1.08);
 }
 
@@ -166,10 +171,10 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    135deg,
-    var(--svc-ind-grad-from, rgba(51, 112, 119, 0.85)),
-    var(--svc-ind-grad-via, rgba(51, 112, 119, 0.65)),
-    var(--svc-ind-grad-to, rgba(51, 112, 119, 0.45))
+    to bottom,
+    var(--svc-ind-grad-from, rgba(51, 112, 119, 0.5)),
+    var(--svc-ind-grad-via, rgba(51, 112, 119, 0.8)),
+    var(--svc-ind-grad-to, rgba(51, 112, 119, 1))
   );
 }
 
@@ -177,7 +182,7 @@
 .svc-ind__card-default {
   position: relative;
   z-index: 1;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
 .svc-ind__card-title {
@@ -185,13 +190,15 @@
   font-size: 18px;
   font-weight: 500;
   color: #0C2226;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
   line-height: 1.3;
+  letter-spacing: -0.025em;
 }
 
 .svc-ind__card-tagline {
+  font-family: var(--font-family, 'Montserrat', sans-serif);
   font-size: 14px;
-  color: var(--color-brand-2, #337077);
+  color: #337077;
   line-height: 1.5;
 }
 
@@ -204,13 +211,13 @@
   gap: 12px;
   opacity: 0;
   transform: translateY(8px);
-  transition: opacity 0.35s ease 0.05s, transform 0.35s ease 0.05s;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
 .svc-ind__card-hover-top {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 8px;
 }
 
@@ -220,6 +227,7 @@
   font-weight: 400;
   color: #fff;
   line-height: 1.3;
+  letter-spacing: -0.025em;
 }
 
 .svc-ind__card-arrow {
@@ -236,23 +244,24 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 .svc-ind__card-bullet {
   display: flex;
   align-items: flex-start;
   gap: 8px;
+  font-family: var(--font-family, 'Montserrat', sans-serif);
   font-size: 16px;
-  line-height: 1.45;
+  line-height: 1.6;
   color: #fff;
 }
 
 .svc-ind__bullet-arrow {
-  color: var(--color-accent, #52E081);
+  color: #52E081;
   font-size: 16px;
   flex-shrink: 0;
-  line-height: 1.45;
+  line-height: 1.6;
 }
 
 /* ===================================================================
@@ -262,7 +271,7 @@
 /* When a row is hovered, expand all cards in that row */
 .svc-ind__card[data-svc-ind-row-active="true"] {
   min-height: 220px;
-  padding: 8px;
+  padding: 16px;
 }
 
 .svc-ind__card[data-svc-ind-row-active="true"] .svc-ind__card-bg {
@@ -286,7 +295,7 @@
 /* The specific hovered card gets scale, extra padding, underline + arrow */
 .svc-ind__card[data-svc-ind-active="true"] {
   transform: scale(1.02);
-  padding: 12px;
+  padding: 20px;
   z-index: 2;
 }
 
@@ -325,8 +334,16 @@
 
 /* Tablet: 2-column */
 @media (max-width: 1024px) {
+  .svc-ind {
+    min-height: auto;
+  }
+
   .svc-ind__wrap {
     padding: 48px 32px 80px;
+  }
+
+  .svc-ind__header {
+    margin-bottom: 56px;
   }
 
   .svc-ind__grid {
@@ -342,32 +359,278 @@
   }
 }
 
-/* Mobile: 1-column, always expanded */
+/* ===================================================================
+   Mobile: Horizontal carousel slider
+   =================================================================== */
+
+/* Hide mobile nav on desktop */
+.svc-ind__mob-nav {
+  display: none;
+}
+
 @media (max-width: 768px) {
+  .svc-ind {
+    min-height: auto;
+    background: rgba(255, 255, 255, 0.4);
+  }
+
+  .svc-ind__parallax {
+    display: none;
+  }
+
   .svc-ind__wrap {
-    padding: 64px 24px;
+    padding: 64px 20px;
+    max-width: none;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .svc-ind__header {
+    margin-bottom: 0;
   }
 
   .svc-ind__header-inner {
-    padding: 32px 24px;
+    padding: 0;
+    background: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-radius: 0;
+  }
+
+  .svc-ind__badge {
+    margin-bottom: 16px;
+  }
+
+  .svc-ind__badge-line {
+    width: 24px;
+  }
+
+  .svc-ind__badge-text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 2.8px;
   }
 
   .svc-ind__heading {
-    font-size: 32px;
+    margin: 0 0 12px;
+    font-size: 36px;
+    line-height: 42px;
+    letter-spacing: -2.4px;
+    max-width: none;
   }
 
   .svc-ind__subtitle {
     font-size: 18px;
+    line-height: 24px;
+    max-width: none;
   }
 
-  .svc-ind__header {
-    margin-bottom: 40px;
+  .svc-ind__subtitle p {
+    margin: 0;
   }
 
+  /* ── Carousel grid → horizontal scroll ── */
   .svc-ind__grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    grid-template-columns: none;
+    gap: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    height: 271px;
   }
 
+  .svc-ind__grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* ── Mobile card ── */
+  .svc-ind__card {
+    flex: 0 0 293px;
+    width: 293px;
+    height: 271px;
+    min-height: 271px;
+    padding: 0;
+    background: var(--svc-ind-mob-grad) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 0;
+    scroll-snap-align: start;
+    justify-content: center;
+    transform: none;
+    transition: none;
+  }
+
+  .svc-ind__card:first-child {
+    border-radius: 12px 0 0 12px;
+  }
+
+  .svc-ind__card:last-child {
+    border-radius: 0 12px 12px 0;
+  }
+
+  /* Reset desktop corner radii */
+  .svc-ind__card:nth-child(1),
+  .svc-ind__card:nth-child(3),
+  .svc-ind__card:nth-child(7),
+  .svc-ind__card:nth-child(9) {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .svc-ind__card:first-child {
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+  }
+
+  .svc-ind__card:last-child {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }
+
+  /* Hide bg image on mobile */
+  .svc-ind__card .svc-ind__card-bg {
+    display: none;
+  }
+
+  /* Hide default state */
+  .svc-ind__card .svc-ind__card-default {
+    display: none;
+  }
+
+  /* Show hover content as card body */
+  .svc-ind__card .svc-ind__card-hover {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  /* Hide arrow icon on mobile */
+  .svc-ind__card .svc-ind__card-arrow {
+    display: none;
+  }
+
+  /* Mobile card title */
+  .svc-ind__card .svc-ind__card-hover-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 20px;
+    color: #fff;
+    letter-spacing: normal;
+    text-decoration: none;
+  }
+
+  .svc-ind__card .svc-ind__card-hover-top {
+    justify-content: flex-start;
+  }
+
+  /* Mobile bullet list */
+  .svc-ind__card .svc-ind__card-bullets {
+    gap: 7px;
+  }
+
+  .svc-ind__card .svc-ind__card-bullet {
+    gap: 5px;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 22px;
+  }
+
+  .svc-ind__card .svc-ind__bullet-arrow {
+    font-size: 15px;
+    line-height: 19px;
+  }
+
+  /* ── Mobile navigation ── */
+  .svc-ind__mob-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+    padding: 0;
+    margin-top: -24px;
+  }
+
+  .svc-ind__mob-prev,
+  .svc-ind__mob-next {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #337077;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .svc-ind__mob-pager {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 24px;
+  }
+
+  .svc-ind__mob-current {
+    color: #337077;
+  }
+
+  .svc-ind__mob-sep {
+    color: #0C2226;
+  }
+
+  .svc-ind__mob-total {
+    color: #0C2226;
+  }
+
+  /* Override row-hover states on mobile (prevent JS interference) */
+  .svc-ind__card[data-svc-ind-row-active="true"] {
+    min-height: 271px;
+    padding: 0;
+  }
+
+  .svc-ind__card[data-svc-ind-row-active="true"] .svc-ind__card-bg {
+    display: none;
+  }
+
+  .svc-ind__card[data-svc-ind-row-active="true"] .svc-ind__card-default {
+    display: none;
+  }
+
+  .svc-ind__card[data-svc-ind-active="true"] {
+    transform: none;
+    padding: 0;
+    z-index: auto;
+  }
+}
+
+/* Touch devices on larger screens: keep carousel behavior from 768px,
+   but for >768px touch, fallback to desktop expanded */
+@media (hover: none) and (pointer: coarse) and (min-width: 769px) {
   .svc-ind__card {
     min-height: auto;
     padding: 24px;
@@ -396,52 +659,5 @@
 
   .svc-ind__card .svc-ind__card-arrow {
     display: block;
-  }
-}
-
-/* Touch devices: disable hover behaviour */
-@media (hover: none) and (pointer: coarse) {
-  .svc-ind__card {
-    min-height: auto;
-    padding: 24px;
-    transform: none;
-  }
-
-  .svc-ind__card .svc-ind__card-bg {
-    opacity: 1;
-  }
-
-  .svc-ind__card .svc-ind__card-default {
-    display: none;
-  }
-
-  .svc-ind__card .svc-ind__card-hover {
-    display: flex;
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .svc-ind__card .svc-ind__card-hover-title {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    text-decoration-thickness: 1px;
-  }
-
-  .svc-ind__card .svc-ind__card-arrow {
-    display: block;
-  }
-}
-
-@media (max-width: 480px) {
-  .svc-ind__heading {
-    font-size: 28px;
-  }
-
-  .svc-ind__subtitle {
-    font-size: 16px;
-  }
-
-  .svc-ind__header-inner {
-    padding: 24px 20px;
   }
 }

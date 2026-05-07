@@ -65,14 +65,15 @@
 .svc-cta__badge {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 10px;
 }
 
 .svc-cta__badge-line {
   display: block;
-  width: 48px;
+  width: 24px;
   height: 2px;
   background: #52E081;
+  border-radius: 2px;
 }
 
 .svc-cta__badge-text {
@@ -144,14 +145,6 @@
 @media (max-width: 1024px) {
   .svc-cta {
     padding: 96px 32px;
-  }
-
-  .svc-cta__heading {
-    font-size: 40px;
-  }
-
-  .svc-cta__subtitle {
-    font-size: 20px;
   }
 }
 

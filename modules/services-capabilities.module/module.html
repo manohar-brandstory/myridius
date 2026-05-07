@@ -48,15 +48,15 @@
             <div class="svc-cap__expanded-inner">
 
               <div class="svc-cap__expanded-head">
-                <div class="svc-cap__chevron svc-cap__chevron--expanded">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </div>
-                <div class="svc-cap__expanded-text">
+                <div class="svc-cap__expanded-row">
+                  <div class="svc-cap__chevron svc-cap__chevron--expanded">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
                   <h3 class="svc-cap__expanded-title">{{ cap.title }}</h3>
-                  <div class="svc-cap__expanded-desc">{{ cap.description }}</div>
                 </div>
+                <div class="svc-cap__expanded-desc">{{ cap.description }}</div>
               </div>
 
               {% if cap.cards %}

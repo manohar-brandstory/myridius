@@ -1,0 +1,96 @@
+[
+  {
+    "id": "insight_cards",
+    "name": "insight_cards",
+    "label": "Insight Cards",
+    "type": "group",
+    "required": false,
+    "locked": false,
+    "occurrence": {
+      "min": 1,
+      "max": 30,
+      "default": 5
+    },
+    "children": [
+      {
+        "id": "card_image",
+        "name": "card_image",
+        "label": "Card Image",
+        "type": "image",
+        "required": false,
+        "locked": false,
+        "responsive": false,
+        "resizable": true,
+        "show_loading": false,
+        "default": {
+          "src": "",
+          "alt": ""
+        }
+      },
+      {
+        "id": "card_title",
+        "name": "card_title",
+        "label": "Card Title",
+        "type": "text",
+        "required": false,
+        "locked": false,
+        "default": "Insight title"
+      },
+      {
+        "id": "card_subtitle",
+        "name": "card_subtitle",
+        "label": "Card Subtitle",
+        "type": "text",
+        "required": false,
+        "locked": false,
+        "default": "Short insight description for hover state."
+      },
+      {
+        "id": "card_link",
+        "name": "card_link",
+        "label": "Card Link",
+        "type": "url",
+        "required": false,
+        "locked": false,
+        "supported_types": ["EXTERNAL", "CONTENT"],
+        "default": {
+          "content_id": null,
+          "href": "#",
+          "type": "EXTERNAL"
+        }
+      }
+    ],
+    "default": [
+      {
+        "card_image": { "src": "", "alt": "" },
+        "card_title": "Unlock Timeshare Points Value with Agentic AI",
+        "card_subtitle": "AI-powered autonomous agents transform timeshare exchanges into dynamic, frictionless marketplaces.",
+        "card_link": { "content_id": null, "href": "#", "type": "EXTERNAL" }
+      },
+      {
+        "card_image": { "src": "", "alt": "" },
+        "card_title": "Proactive Customer Churn Detection via Agentforce",
+        "card_subtitle": "Salesforce-native AI agent detects churn risk and delivers explainable mitigation strategies.",
+        "card_link": { "content_id": null, "href": "#", "type": "EXTERNAL" }
+      },
+      {
+        "card_image": { "src": "", "alt": "" },
+        "card_title": "Dynamic Agent Factory For Evolving Requirements",
+        "card_subtitle": "Dynamic Agent Factory creates specialized AI agents on demand from configuration, removing hardcoded systems and enabling rapid adaptation as requirements evolve.",
+        "card_link": { "content_id": null, "href": "#", "type": "EXTERNAL" }
+      },
+      {
+        "card_image": { "src": "", "alt": "" },
+        "card_title": "MCP: One Protocol for All AI Connections",
+        "card_subtitle": "MCP is a standard client\u2013server architecture that lets AI applications connect to external systems to perform actions, access data, and reuse prompt templates.",
+        "card_link": { "content_id": null, "href": "#", "type": "EXTERNAL" }
+      },
+      {
+        "card_image": { "src": "", "alt": "" },
+        "card_title": "True Forecast: AI-Driven Scoring for Sales Pipeline",
+        "card_subtitle": "Salesforce add-on combining deterministic math and AI to eliminate forecast bias.",
+        "card_link": { "content_id": null, "href": "#", "type": "EXTERNAL" }
+      }
+    ]
+  }
+]

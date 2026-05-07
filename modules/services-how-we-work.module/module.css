@@ -79,9 +79,10 @@
 
 .svc-hww__badge-line {
   display: block;
-  width: 48px;
+  width: 24px;
   height: 2px;
   background: var(--color-accent);
+  border-radius: 2px;
 }
 
 .svc-hww__badge-text {
@@ -271,19 +272,19 @@
 }
 
 .svc-hww__evoq-heading {
+  font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   font-weight: 300;
   color: #F5FFF0;
+  line-height: 1.2;
   margin: 0 0 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
 }
 
 .svc-hww__evoq-pills {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 16px;
+  gap: 6px;
+  margin-bottom: 12px;
 }
 
 .svc-hww__evoq-pill {
@@ -295,24 +296,40 @@
   border-radius: 8px;
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
+  font-family: 'Montserrat', sans-serif;
   font-size: 12px;
-  font-weight: 400;
+  font-weight: 500;
   color: #8CA1A3;
-  line-height: 1.6;
+  line-height: 1;
 }
 
 .svc-hww__evoq-cta {
   display: inline-flex;
   align-items: center;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   font-weight: 500;
   color: var(--color-accent);
   text-decoration: none;
-  transition: opacity 0.25s ease;
+  text-transform: uppercase;
+  transition: color 0.25s ease;
 }
 
 .svc-hww__evoq-cta:hover {
-  opacity: 0.8;
+  color: #ECFAE5;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.svc-hww__evoq-cta-arrow {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.25s ease;
+}
+
+.svc-hww__evoq-cta:hover .svc-hww__evoq-cta-arrow {
+  transform: translateX(4px);
 }
 
 /* ---- proof points (right col) ---- */
@@ -433,115 +450,214 @@
   }
 }
 
+/* ---- Mobile nav (hidden on desktop) ---- */
+
+.svc-hww__mob-nav {
+  display: none;
+}
+
 /* ============================================================
-   Responsive – Mobile (< 768px  →  maps to Tailwind < md)
+   Responsive – Mobile (< 768px)
    ============================================================ */
 
 @media (max-width: 767px) {
   .svc-hww {
-    height: auto;
-    min-height: 550px;
+    height: 860px;
   }
 
   .svc-hww__container {
     --gutter: 20px;
-    padding: 32px var(--gutter);
+    padding: 64px var(--gutter);
+    display: flex;
+    flex-direction: column;
   }
 
+  /* Hide desktop tabs and desktop toggle on mobile */
   .svc-hww__tabs {
-    gap: 12px;
-    margin-bottom: 24px;
+    display: none;
   }
 
-  .svc-hww__tab {
-    padding: 8px 10px;
+  .svc-hww__toggle {
+    display: none;
   }
 
-  .svc-hww__tab-num {
-    font-size: 12px;
+  .svc-hww__badge {
+    margin-bottom: 23px;
   }
 
-  .svc-hww__tab-sub {
-    font-size: 16px;
+  .svc-hww__badge-text {
+    font-weight: 400;
+    line-height: 21px;
   }
 
+  /* Panels */
   .svc-hww__panels {
     position: relative;
-    flex: none;
+    flex: 1 1 auto;
+    min-height: 0;
   }
 
   .svc-hww__panel {
-    position: relative;
-    display: none;
+    position: absolute;
+    inset: 0;
+    display: block;
+    opacity: 0;
+    visibility: hidden;
     transform: none;
+    transition: opacity 0.5s ease;
   }
 
   .svc-hww__panel--active {
-    display: block;
     opacity: 1;
     visibility: visible;
     transform: none;
   }
 
+  /* Card */
   .svc-hww__card {
-    padding: 24px 20px 12px;
+    padding: 12px;
+    height: 100%;
+    border-width: 0.7px;
+    overflow-y: auto;
+  }
+
+  .svc-hww__card-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
 
   .svc-hww__card-title {
-    font-size: 30px;
+    font-size: 36px;
+    line-height: 38px;
+    letter-spacing: -0.75px;
+    margin: 0 0 24px;
   }
 
   .svc-hww__card-subtitle {
     font-size: 18px;
+    line-height: 22px;
+    margin: 0 0 24px;
   }
 
   .svc-hww__card-desc {
     font-size: 16px;
+    line-height: 24px;
+  }
+
+  /* Proof points */
+  .svc-hww__proof {
+    padding: 0 0 0.7px;
+    border-bottom: 0.7px solid rgba(82, 224, 129, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+  }
+
+  .svc-hww__proof--last {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
   }
 
   .svc-hww__proof-title {
     font-size: 15px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #F6F8F9;
+    margin: 0;
   }
 
   .svc-hww__proof-desc {
     font-size: 14px;
+    font-weight: 300;
+    line-height: 24px;
+    color: #8CA1A3;
+    margin: 0;
   }
 
-  .svc-hww__toggle {
-    top: auto;
-    bottom: 24px;
-    left: auto;
-    right: var(--gutter);
-  }
-}
-
-/* ============================================================
-   Responsive – Small mobile (< 480px)
-   ============================================================ */
-
-@media (max-width: 480px) {
-  .svc-hww__badge {
-    margin-bottom: 20px;
+  /* EVOQ section mobile */
+  .svc-hww__evoq {
+    margin-top: 16px;
+    padding-top: 12px;
   }
 
-  .svc-hww__tab {
-    padding: 6px 8px;
-  }
-
-  .svc-hww__tab-num {
+  .svc-hww__evoq-pill {
     font-size: 11px;
-    margin-right: 8px;
+    padding: 4px 10px;
   }
 
-  .svc-hww__tab-title {
-    font-size: 13px;
+  /* ---- Mobile Navigation Bar ---- */
+  .svc-hww__mob-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    margin-top: auto;
+    padding-top: 32px;
   }
 
-  .svc-hww__card-title {
-    font-size: 24px;
+  .svc-hww__mob-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    transition: color 0.25s ease;
   }
 
-  .svc-hww__card-subtitle {
-    font-size: 14px;
+  .svc-hww__mob-toggle:hover {
+    color: #fff;
+  }
+
+  .svc-hww__mob-controls {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+  }
+
+  .svc-hww__mob-prev,
+  .svc-hww__mob-next {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #99A1AF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    transition: color 0.25s ease;
+  }
+
+  .svc-hww__mob-prev:hover,
+  .svc-hww__mob-next:hover {
+    color: #fff;
+  }
+
+  .svc-hww__mob-page {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 24px;
+  }
+
+  .svc-hww__mob-current {
+    color: #fff;
+  }
+
+  .svc-hww__mob-sep,
+  .svc-hww__mob-total {
+    color: #52E081;
   }
 }

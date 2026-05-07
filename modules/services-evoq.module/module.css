@@ -40,7 +40,7 @@
   margin-bottom: 32px;
 }
 .svc-evoq__badge-line {
-  width: 48px;
+  width: 24px;
   height: 2px;
   background: var(--color-accent);
   border-radius: 2px;
@@ -59,7 +59,7 @@
   font-size: 48px;
   font-weight: 500;
   line-height: 1.12;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.05em;
   color: #fff;
 }
 
@@ -162,27 +162,27 @@
   text-transform: uppercase;
   letter-spacing: 0.4em;
   color: var(--color-accent);
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 .svc-evoq__center-icon {
-  margin-bottom: 16px;
-  filter: drop-shadow(0 0 12px rgba(82, 224, 129, 0.4));
+  margin-bottom: 24px;
+  filter: drop-shadow(0 0 15px rgba(82, 224, 129, 0.4));
 }
 .svc-evoq__center-title {
-  margin: 0 0 8px;
+  margin: 0 0 24px;
   font-size: 24px;
   font-weight: 700;
   text-transform: uppercase;
   color: #fff;
-  letter-spacing: 0.04em;
+  letter-spacing: -0.025em;
 }
 .svc-evoq__center-sub {
   margin: 0;
   font-size: 16px;
   font-weight: 300;
   color: rgba(255, 255, 255, 0.7);
-  max-width: 280px;
-  line-height: 1.5;
+  max-width: 320px;
+  line-height: 1.625;
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -238,8 +238,7 @@
   justify-content: center;
   text-align: center;
   height: 100%;
-  padding: 24px 20px;
-  gap: 10px;
+  padding: 32px;
 }
 
 /* Icon */
@@ -275,7 +274,11 @@
 /* Subtitle swap */
 .svc-evoq__item-sub {
   position: relative;
-  min-height: 2.5em;
+  width: 100%;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .svc-evoq__item-sub-default,
 .svc-evoq__item-sub-hover {
@@ -296,10 +299,12 @@
   color: #fff;
   line-height: 1.5;
   opacity: 0;
-  transform: translateY(8px);
+  transform: translateY(16px);
+  padding: 0 8px;
 }
 .svc-evoq__card--item:hover .svc-evoq__item-sub-default {
   opacity: 0;
+  transform: translateY(-16px);
 }
 .svc-evoq__card--item:hover .svc-evoq__item-sub-hover {
   opacity: 1;
@@ -391,6 +396,7 @@
   .svc-evoq__card--center {
     grid-column: auto;
     min-height: 300px;
+    order: -1;
   }
   .svc-evoq__card--item {
     min-height: 200px;

@@ -1,0 +1,28 @@
+<section class="applied-ins-listing-grid">
+  <div class="applied-ins-listing-grid__wrap">
+    {% if module.insight_cards|length %}
+      <div class="applied-ins-listing-grid__grid">
+        {% for card in module.insight_cards %}
+          <a class="applied-ins-listing-grid__card" href="{{ card.card_link.href }}">
+            {% if card.card_image.src %}
+              <img class="applied-ins-listing-grid__img" src="{{ card.card_image.src }}" alt="{{ card.card_image.alt|default(card.card_title) }}" loading="lazy">
+            {% endif %}
+            <div class="applied-ins-listing-grid__shade"></div>
+            <div class="applied-ins-listing-grid__default">
+              <h3 class="applied-ins-listing-grid__cardTitle">{{ card.card_title }}</h3>
+            </div>
+            <div class="applied-ins-listing-grid__hover">
+              <h3 class="applied-ins-listing-grid__cardTitle">{{ card.card_title }}</h3>
+              <p class="applied-ins-listing-grid__cardDesc">{{ card.card_subtitle }}</p>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="applied-ins-listing-grid__empty">
+        <p>No insights available at the moment.</p>
+        <p>Check back soon for new updates.</p>
+      </div>
+    {% endif %}
+  </div>
+</section>

@@ -33,23 +33,29 @@
           {% set grad_via  = item.gradient_via %}
           {% set grad_to   = item.gradient_to %}
         {% elif loop.index0 % 2 == 0 %}
-          {% set grad_from = "rgba(51,112,119,0.85)" %}
-          {% set grad_via  = "rgba(51,112,119,0.65)" %}
-          {% set grad_to   = "rgba(51,112,119,0.45)" %}
+          {% set grad_from = "rgba(51,112,119,0.5)" %}
+          {% set grad_via  = "rgba(51,112,119,0.8)" %}
+          {% set grad_to   = "rgba(51,112,119,1)" %}
         {% else %}
-          {% set grad_from = "rgba(25,66,71,0.85)" %}
-          {% set grad_via  = "rgba(25,66,71,0.65)" %}
-          {% set grad_to   = "rgba(25,66,71,0.45)" %}
+          {% set grad_from = "rgba(25,66,71,0.5)" %}
+          {% set grad_via  = "rgba(25,66,71,0.8)" %}
+          {% set grad_to   = "rgba(25,66,71,1)" %}
         {% endif %}
 
         {% set link_href = item.url.href|default("#") %}
         {% set link_target = "target=\"_blank\" rel=\"noopener noreferrer\"" if item.url.open_in_new_tab else "" %}
 
+        {% if loop.index0 % 2 == 0 %}
+          {% set mob_grad = "linear-gradient(180deg, rgba(51,112,119,0.5) 0%, rgba(51,112,119,0.9) 42.93%, #337077 85.85%)" %}
+        {% else %}
+          {% set mob_grad = "linear-gradient(180deg, rgba(25,66,71,0.5) 0%, rgba(25,66,71,0.9) 42.93%, #194247 85.85%)" %}
+        {% endif %}
+
         <a href="{{ link_href }}" {{ link_target }}
            class="svc-ind__card"
            data-svc-ind-index="{{ loop.index0 }}"
            data-svc-ind-row="{{ row_index }}"
-           style="--svc-ind-grad-from:{{ grad_from }};--svc-ind-grad-via:{{ grad_via }};--svc-ind-grad-to:{{ grad_to }};">
+           style="--svc-ind-grad-from:{{ grad_from }};--svc-ind-grad-via:{{ grad_via }};--svc-ind-grad-to:{{ grad_to }};--svc-ind-mob-grad:{{ mob_grad }};">
 
           {% if item.bg_image.src %}
             <div class="svc-ind__card-bg" aria-hidden="true">
@@ -83,6 +89,20 @@
           </div>
         </a>
       {% endfor %}
+    </div>
+
+    <div class="svc-ind__mob-nav">
+      <button class="svc-ind__mob-prev" aria-label="Previous industry">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="#337077" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="svc-ind__mob-pager">
+        <span class="svc-ind__mob-current">01</span>
+        <span class="svc-ind__mob-sep">/</span>
+        <span class="svc-ind__mob-total">{{ module.industries|length if module.industries|length > 9 else "0" ~ module.industries|length }}</span>
+      </div>
+      <button class="svc-ind__mob-next" aria-label="Next industry">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="#337077" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
     </div>
   </div>
 </section>
