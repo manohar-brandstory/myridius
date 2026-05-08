@@ -40,21 +40,21 @@
     },
     "children": [
       {
-        "id": "tag",
+        "id": "cards.tag",
         "name": "tag",
         "label": "Tag Label",
         "type": "text",
         "default": "Traditional Model"
       },
       {
-        "id": "title",
+        "id": "cards.title",
         "name": "title",
         "label": "Title",
         "type": "text",
         "default": "Data platforms as infrastructure"
       },
       {
-        "id": "description_items",
+        "id": "cards.description_items",
         "name": "description_items",
         "label": "Description Bullets",
         "type": "group",
@@ -65,7 +65,7 @@
         },
         "children": [
           {
-            "id": "text",
+            "id": "description_items.text",
             "name": "text",
             "label": "Bullet Text",
             "type": "text",
@@ -73,14 +73,22 @@
           }
         ],
         "default": [
-          { "text": "Built for storage, reporting, and active insight" },
-          { "text": "Fragmented context slows down decision cycles" },
-          { "text": "Governance is added later, making AI harder to scale safely" },
-          { "text": "Value stays trapped in tools instead of flowing into workflows and actions" }
+          {
+            "text": "Built for storage, reporting, and active insight"
+          },
+          {
+            "text": "Fragmented context slows down decision cycles"
+          },
+          {
+            "text": "Governance is added later, making AI harder to scale safely"
+          },
+          {
+            "text": "Value stays trapped in tools instead of flowing into workflows and actions"
+          }
         ]
       },
       {
-        "id": "image",
+        "id": "cards.image",
         "name": "image",
         "label": "Card Image",
         "type": "image",
@@ -90,7 +98,7 @@
         }
       },
       {
-        "id": "is_highlighted",
+        "id": "cards.is_highlighted",
         "name": "is_highlighted",
         "label": "Highlighted (AI-Native Style)",
         "type": "boolean",
@@ -103,10 +111,18 @@
         "tag": "Traditional Model",
         "title": "Data platforms as infrastructure",
         "description_items": [
-          { "text": "Built for storage, reporting, and active insight" },
-          { "text": "Fragmented context slows down decision cycles" },
-          { "text": "Governance is added later, making AI harder to scale safely" },
-          { "text": "Value stays trapped in tools instead of flowing into workflows and actions" }
+          {
+            "text": "Built for storage, reporting, and active insight"
+          },
+          {
+            "text": "Fragmented context slows down decision cycles"
+          },
+          {
+            "text": "Governance is added later, making AI harder to scale safely"
+          },
+          {
+            "text": "Value stays trapped in tools instead of flowing into workflows and actions"
+          }
         ],
         "image": {
           "src": "https://images.unsplash.com/photo-1644088379091-d574269d422f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMHRlY2hub2xvZ3klMjBuZXR3b3JrfGVufDF8fHx8MTc2OTQ4NTI2MHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
@@ -118,10 +134,18 @@
         "tag": "AI-Native Model",
         "title": "Intelligence systems as the execution layer",
         "description_items": [
-          { "text": "Built for real-time sensing, reasoning, orchestration, and action" },
-          { "text": "Semantic context connects data, business meaning, policy, and workflow" },
-          { "text": "Governance, lineage, quality, and observability are engineered into the system" },
-          { "text": "Value compounds through reusable services, agents, and operating patterns on Evoq" }
+          {
+            "text": "Built for real-time sensing, reasoning, orchestration, and action"
+          },
+          {
+            "text": "Semantic context connects data, business meaning, policy, and workflow"
+          },
+          {
+            "text": "Governance, lineage, quality, and observability are engineered into the system"
+          },
+          {
+            "text": "Value compounds through reusable services, agents, and operating patterns on Evoq"
+          }
         ],
         "image": {
           "src": "https://images.unsplash.com/photo-1765046255479-669cf07a0230?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGRhdGElMjB2aXN1YWxpemF0aW9ufGVufDF8fHx8MTc2OTQ5ODgwMnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",

@@ -76,7 +76,7 @@
     },
     "children": [
       {
-        "id": "node_icon_svg",
+        "id": "nodes.node_icon_svg",
         "name": "node_icon_svg",
         "label": "Icon SVG",
         "type": "text",
@@ -85,7 +85,7 @@
         "locked": false
       },
       {
-        "id": "node_title",
+        "id": "nodes.node_title",
         "name": "node_title",
         "label": "Title",
         "type": "text",
@@ -94,7 +94,7 @@
         "locked": false
       },
       {
-        "id": "node_description",
+        "id": "nodes.node_description",
         "name": "node_description",
         "label": "Description",
         "type": "text",

@@ -31,6 +31,10 @@
   position: relative;
 }
 
+.applied-ins-related__mobNav {
+  display: none;
+}
+
 .applied-ins-related__viewport {
   overflow: visible;
 }
@@ -49,6 +53,11 @@
   overflow: hidden;
 }
 
+.applied-ins-related__carousel.is-slider {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
 .applied-ins-related__carousel.is-slider .applied-ins-related__track {
   display: flex;
   gap: 0;
@@ -58,7 +67,8 @@
 
 .applied-ins-related__carousel.is-slider .applied-ins-related__slide {
   flex: 0 0 33.3333%;
-  padding: 0 12px;
+  padding: 0 16px;
+  box-sizing: border-box;
 }
 
 /* ── Card ── */
@@ -152,7 +162,7 @@
   margin: 0;
 }
 
-/* Arrows (match figma make style) */
+/* Arrows — desktop/tablet carousel */
 .applied-ins-related__arrow {
   position: absolute;
   top: 50%;
@@ -178,17 +188,57 @@
   box-shadow: 0 8px 16px rgba(12, 34, 38, 0.2);
 }
 
-.applied-ins-related__arrow:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
-}
-
 .applied-ins-related__arrow--prev {
-  left: -20px;
+  left: 0;
 }
 
 .applied-ins-related__arrow--next {
-  right: -20px;
+  right: 0;
+}
+
+.applied-ins-related__mobPrev,
+.applied-ins-related__mobNext {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--color-brand-2);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.applied-ins-related__mobPrev:disabled,
+.applied-ins-related__mobNext:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.applied-ins-related__mobPager {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 24px;
+}
+
+.applied-ins-related__mobCurrent {
+  color: var(--color-brand-2);
+}
+
+.applied-ins-related__mobSep {
+  color: #0c2226;
+}
+
+.applied-ins-related__mobTotal {
+  color: #0c2226;
 }
 
 /* ── Responsive ── */
@@ -202,6 +252,52 @@
   }
 }
 
+@media (max-width: 768px) {
+  .applied-ins-related__carousel.is-slider .applied-ins-related__viewport {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin: 0 -4px;
+  }
+
+  .applied-ins-related__carousel.is-slider .applied-ins-related__viewport::-webkit-scrollbar {
+    display: none;
+  }
+
+  .applied-ins-related__carousel.is-slider {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .applied-ins-related__carousel.is-slider .applied-ins-related__track {
+    display: flex;
+    transform: none !important;
+    transition: none;
+  }
+
+  .applied-ins-related__carousel.is-slider .applied-ins-related__slide {
+    flex: 0 0 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+    scroll-snap-align: start;
+  }
+
+  .applied-ins-related__arrow {
+    display: none;
+  }
+
+  .applied-ins-related__mobNav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+    margin-top: 24px;
+  }
+}
+
 @media (max-width: 639px) {
   .applied-ins-related {
     padding: 48px 0;
@@ -211,7 +307,6 @@
   }
   .applied-ins-related__carousel.is-slider .applied-ins-related__slide {
     flex-basis: 100%;
-    padding: 0;
   }
   .applied-ins-related__card {
     height: 320px;
@@ -219,8 +314,5 @@
   .applied-ins-related__cardTitle,
   .applied-ins-related__cardHoverTitle {
     font-size: 20px;
-  }
-  .applied-ins-related__arrow {
-    display: none;
   }
 }

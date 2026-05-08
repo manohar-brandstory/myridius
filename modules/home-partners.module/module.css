@@ -1,0 +1,242 @@
+/* Home Partners — white section, Montserrat, CSS marquee */
+
+.home-partners {
+  position: relative;
+  background: #ffffff;
+  overflow: hidden;
+  padding: 64px 40px;
+  font-family: 'Montserrat', system-ui, sans-serif;
+}
+
+.home-partners__container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Masthead */
+.home-partners__header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  margin-bottom: 64px;
+}
+
+.home-partners__badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 32px;
+}
+
+.home-partners__badge-line {
+  display: block;
+  width: 16px;
+  height: 2px;
+  flex-shrink: 0;
+  background: #194247;
+}
+
+.home-partners__badge-text {
+  margin: 0;
+  font-family: 'Montserrat', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #194247;
+  line-height: 1.2;
+}
+
+.home-partners__title {
+  margin: 0 0 20px;
+  font-family: 'Montserrat', system-ui, sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.96px;
+  color: #194247;
+}
+
+@media (min-width: 768px) {
+  .home-partners__title {
+    font-size: 40px;
+    margin-bottom: 25px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-partners__title {
+    font-size: 48px;
+  }
+}
+
+.home-partners__subtitle {
+  margin: 0;
+  font-family: 'Montserrat', system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #556467;
+  max-width: 1200px;
+}
+
+.home-partners__subtitle p {
+  margin: 0;
+}
+
+.home-partners__subtitle p + p {
+  margin-top: 0.75em;
+}
+
+@media (min-width: 768px) {
+  .home-partners__subtitle {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-partners__subtitle {
+    font-size: 20px;
+  }
+}
+
+/* Marquee — padding-top avoids margin-collapse with header mb-16 + export mt-12 */
+.home-partners__marquee {
+  position: relative;
+  padding-top: 48px;
+}
+
+.home-partners__viewport {
+  overflow: hidden;
+}
+
+.home-partners__track {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  width: max-content;
+  padding: 32px 0;
+  animation: home-partners-scroll 45s linear infinite;
+}
+
+@media (min-width: 768px) {
+  .home-partners__track {
+    gap: 80px;
+  }
+}
+
+@keyframes home-partners-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-25%);
+  }
+}
+
+.home-partners__marquee:hover .home-partners__track {
+  animation-play-state: paused;
+}
+
+.home-partners__logo-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  transition: opacity 500ms ease, filter 500ms ease;
+}
+
+.home-partners__logo-img {
+  display: block;
+  height: 48px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.4;
+  transition: filter 500ms ease, opacity 500ms ease;
+}
+
+.home-partners__logo-item:hover .home-partners__logo-img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+.home-partners__logo-placeholder {
+  font-family: 'Montserrat', system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #194247;
+  opacity: 0.4;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+  transition: opacity 500ms ease;
+}
+
+.home-partners__logo-item:hover .home-partners__logo-placeholder {
+  opacity: 1;
+}
+
+/* Horizontal fades — extend into section gutter like export */
+.home-partners__fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 110px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.home-partners__fade--left {
+  left: -40px;
+  background: linear-gradient(
+    to right,
+    #ffffff 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    transparent 100%
+  );
+}
+
+.home-partners__fade--right {
+  right: -40px;
+  background: linear-gradient(
+    to left,
+    #ffffff 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    transparent 100%
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-partners__track {
+    animation-play-state: paused;
+  }
+
+  .home-partners__logo-img {
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 479px) {
+  .home-partners {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .home-partners__fade {
+    width: 72px;
+  }
+
+  .home-partners__fade--left {
+    left: -24px;
+  }
+
+  .home-partners__fade--right {
+    right: -24px;
+  }
+}

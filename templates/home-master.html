@@ -1,0 +1,73 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Home - Master Template
+-->
+{% extends "./layouts/base.html" %}
+
+{% block body %}
+  <main class="home-page">
+    {% dnd_area "home_content", label="Home Content" %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/home-hero.module", label="Home - Hero" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/home-news-banner.module", label="Home - News Banner" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/home-why-myridius.module", label="Home - Why Myridius" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/home-the-shift.module", label="Home - The Shift" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/home-what-we-do.module", label="Home - What We Do" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/home-industries.module", label="Home - Industries" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/home-evoq-in-action.module", label="Home - Evoq In Action" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/home-insights.module", label="Home - Insights" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/home-partners.module", label="Home - Partners" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/home-success-stories.module", label="Home - Success Stories" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/home-testimonials.module", label="Home - Testimonials" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section %}
+        {% dnd_column %}
+          {% dnd_module path="/Myridius Theme V1/modules/home-cta.module", label="Home - CTA" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+    {% end_dnd_area %}
+  </main>
+{% endblock body %}

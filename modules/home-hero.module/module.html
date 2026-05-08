@@ -1,0 +1,121 @@
+{# Featured overlay = to-bottom-right teal ramp (HeroCarousel export) #}
+{% set card_gradients = [
+  "linear-gradient(to bottom right, #0C2226 0%, #337077 50%, #194247 100%)",
+  "linear-gradient(to bottom right, #337077 0%, #194247 50%, #071417 100%)",
+  "linear-gradient(to bottom right, #071417 0%, #194247 50%, #0C2226 100%)",
+  "linear-gradient(to bottom right, #0C2226 0%, #337077 50%, #071417 100%)"
+] %}
+
+{% require_css %}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+{% end_require_css %}
+
+<section class="home-hero" data-home-hero data-interval="{{ module.autoplay_interval }}">
+  <script type="application/json" data-hero-cards>
+    [{% for card in module.cards %}{% set grad = card_gradients[loop.index0 % card_gradients|length] %}{
+      "id":{{ loop.index0 }},
+      "tag":{{ card.tag|tojson }},
+      "title":{{ card.title|tojson }},
+      "description":{{ card.description|tojson }},
+      "image":{{ card.image.src|tojson }},
+      "imageAlt":{{ card.image.alt|tojson }},
+      "gradient":{{ grad|tojson }}
+    }{% if not loop.last %},{% endif %}{% endfor %}]
+  </script>
+
+  <div class="home-hero__state-bg home-hero__state-bg--default" aria-hidden="true"></div>
+  <div class="home-hero__state-bg home-hero__state-bg--expanded" aria-hidden="true">
+    {% for card in module.cards %}
+      {% set grad = card_gradients[loop.index0 % card_gradients|length] %}
+      <div class="home-hero__bg-image{% if loop.first %} is-active{% endif %}" data-bg-index="{{ loop.index0 }}">
+        <img src="{{ card.image.src }}" alt="" loading="{% if loop.first %}eager{% else %}lazy{% endif %}">
+        <div class="home-hero__bg-grad" style="background: {{ grad }};"></div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="home-hero__container">
+    <div class="home-hero__heading-wrap" data-animate>
+      <h1 class="home-hero__heading">{{ module.heading }}</h1>
+    </div>
+
+    <div class="home-hero__stage">
+      <div class="home-hero__default" data-default-view>
+        <div class="home-hero__blur home-hero__blur--green" aria-hidden="true"></div>
+        <div class="home-hero__blur home-hero__blur--teal" aria-hidden="true"></div>
+
+        <div class="home-hero__row">
+          <div class="home-hero__track" data-hero-track>
+            {% for card in module.cards %}
+              {% set grad = card_gradients[loop.index0 % card_gradients|length] %}
+              <button
+                class="home-hero__card{% if loop.first %} is-active{% endif %}"
+                data-card-index="{{ loop.index0 }}"
+                type="button"
+                aria-label="View {{ card.title }}"
+              >
+                <div class="home-hero__card-active">
+                  <img
+                    class="home-hero__card-active-img"
+                    src="{{ card.image.src }}"
+                    alt=""
+                    loading="{% if loop.first %}eager{% else %}lazy{% endif %}"
+                  >
+                  <div class="home-hero__card-active-grad" style="background: {{ grad }};"></div>
+                  <div class="home-hero__card-active-fade"></div>
+                  <div class="home-hero__card-active-body">
+                    <div class="home-hero__card-active-copy">
+                      <p class="home-hero__card-active-tag">{{ card.tag }}</p>
+                      <h3 class="home-hero__card-active-title">{{ card.title }}</h3>
+                      <p class="home-hero__card-active-desc">{{ card.description }}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="home-hero__card-small">
+                  <div class="home-hero__card-small-media">
+                    <img src="{{ card.image.src }}" alt="" loading="lazy">
+                    <div class="home-hero__card-small-media-overlay"></div>
+                  </div>
+                  <div class="home-hero__card-small-body">
+                    <div class="home-hero__card-small-body-inner">
+                      <p class="home-hero__card-small-tag">{{ card.tag }}</p>
+                      <strong class="home-hero__card-small-title">{{ card.title }}</strong>
+                    </div>
+                  </div>
+                </div>
+              </button>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <div class="home-hero__expanded" data-expanded-view aria-hidden="true">
+        <div class="home-hero__expanded-shell">
+          <div class="home-hero__expanded-left" data-expanded-left>
+            <p class="home-hero__expanded-tag" data-expanded-tag></p>
+            <h2 class="home-hero__expanded-title" data-expanded-title></h2>
+            <p class="home-hero__expanded-desc" data-expanded-desc></p>
+          </div>
+          <div class="home-hero__expanded-right" data-expanded-right></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="home-hero__bottom" data-animate>
+      <p class="home-hero__description">{{ module.description }}</p>
+      <div class="home-hero__actions">
+        {% if module.cta_text %}
+          <a class="home-hero__btn home-hero__btn--primary" href="{{ module.cta_url.href }}">
+            {{ module.cta_text }}
+          </a>
+        {% endif %}
+        {% if module.secondary_cta_text %}
+          <a class="home-hero__btn home-hero__btn--secondary" href="{{ module.secondary_cta_url.href }}">
+            {{ module.secondary_cta_text }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>

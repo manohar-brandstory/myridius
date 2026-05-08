@@ -1,0 +1,115 @@
+{# Home News Banner — Marquee Section #}
+
+<section class="home-news" aria-label="News Marquee">
+  <div class="home-news__badge-container">
+    <div class="home-news__badge">
+      <span class="home-news__badge-line"></span>
+      <span class="home-news__badge-text">{{ module.badge_text }}</span>
+    </div>
+  </div>
+
+  <div class="home-news__marquee-wrapper">
+    <div class="home-news__marquee-track" data-news-track>
+      {# Original set #}
+      {% for item in module.news_items %}
+        <div class="home-news__item news-card">
+          <a class="home-news__card"
+             {% if item.link_url.href %}
+               href="{{ item.link_url.href }}"
+               {% if item.link_url.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}
+             {% endif %}>
+            <div class="home-news__card-content">
+              <div class="home-news__card-title-row">
+                <h3 class="home-news__card-title">{{ item.title }}</h3>
+                <div class="home-news__card-arrow">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#52E081" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <p class="home-news__card-desc">{{ item.description }}</p>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+
+      {# Second copy for seamless loop #}
+      {% for item in module.news_items %}
+        <div class="home-news__item news-card" aria-hidden="true">
+          <a class="home-news__card"
+             {% if item.link_url.href %}
+               href="{{ item.link_url.href }}"
+               {% if item.link_url.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}
+             {% endif %}
+             tabindex="-1">
+            <div class="home-news__card-content">
+              <div class="home-news__card-title-row">
+                <h3 class="home-news__card-title">{{ item.title }}</h3>
+                <div class="home-news__card-arrow">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#52E081" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <p class="home-news__card-desc">{{ item.description }}</p>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+
+      {# Third copy for seamless loop #}
+      {% for item in module.news_items %}
+        <div class="home-news__item news-card" aria-hidden="true">
+          <a class="home-news__card"
+             {% if item.link_url.href %}
+               href="{{ item.link_url.href }}"
+               {% if item.link_url.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}
+             {% endif %}
+             tabindex="-1">
+            <div class="home-news__card-content">
+              <div class="home-news__card-title-row">
+                <h3 class="home-news__card-title">{{ item.title }}</h3>
+                <div class="home-news__card-arrow">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#52E081" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <p class="home-news__card-desc">{{ item.description }}</p>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="home-news__controls-container">
+    <div class="home-news__controls">
+      <button class="home-news__btn home-news__btn--playpause" aria-label="Pause" type="button">
+        <svg class="home-news__icon-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <rect x="6" y="4" width="4" height="16" rx="1"></rect>
+          <rect x="14" y="4" width="4" height="16" rx="1"></rect>
+        </svg>
+        <svg class="home-news__icon-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+          <polygon points="6,4 20,12 6,20"></polygon>
+        </svg>
+      </button>
+
+      <div class="home-news__controls-nav">
+        <button class="home-news__btn home-news__btn--prev" aria-label="Previous article" type="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button class="home-news__btn home-news__btn--next" aria-label="Next article" type="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 6 15 12 9 18"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

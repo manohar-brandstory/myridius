@@ -1,0 +1,237 @@
+/* Home CTA */
+
+.home-cta {
+  position: relative;
+  background: #0c2226;
+  padding: 120px 0;
+  overflow: hidden;
+  text-align: center;
+  font-family: 'Montserrat', system-ui, sans-serif;
+}
+
+.home-cta__glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    circle,
+    rgba(82, 224, 129, 0.12) 0%,
+    transparent 45%
+  );
+}
+
+.home-cta__grid {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.15;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(82, 224, 129, 0.15) 1px, transparent 1px),
+    linear-gradient(rgba(82, 224, 129, 0.15) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+.home-cta__content {
+  position: relative;
+  z-index: 10;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 64px;
+}
+
+.home-cta__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-cta__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.home-cta__badge-line {
+  display: block;
+  width: 16px;
+  height: 1.5px;
+  flex-shrink: 0;
+  background: #52e081;
+}
+
+.home-cta__badge-text {
+  font-family: 'Montserrat', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #52e081;
+}
+
+.home-cta__title {
+  margin: 0 0 20px;
+  font-family: 'Montserrat', system-ui, sans-serif;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .home-cta__title {
+    font-size: 40px;
+  }
+}
+
+.home-cta__subtitle {
+  font-family: 'Montserrat', system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 480px;
+  margin: 0 auto 44px;
+}
+
+.home-cta__subtitle p {
+  margin: 0;
+}
+
+.home-cta__actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.home-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: 'Montserrat', system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 14px 32px;
+  border-radius: 999px;
+  border: none;
+  box-sizing: border-box;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.home-cta__btn:focus-visible {
+  outline: 2px solid #52e081;
+  outline-offset: 3px;
+}
+
+.home-cta__btn-icon {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.home-cta__btn--primary {
+  background: #ffffff;
+  color: #194247;
+  border: 1px solid transparent;
+}
+
+.home-cta__btn--primary:hover {
+  background: #52e081;
+  box-shadow:
+    0 10px 15px -3px rgba(82, 224, 129, 0.25),
+    0 4px 6px -4px rgba(82, 224, 129, 0.3);
+}
+
+.home-cta__btn--primary:hover .home-cta__btn-icon {
+  transform: translateX(4px);
+}
+
+.home-cta__btn--secondary {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.home-cta__btn--secondary:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 1024px) {
+  .home-cta {
+    padding: 100px 0;
+  }
+
+  .home-cta__glow {
+    width: 620px;
+    height: 620px;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-cta {
+    padding: 80px 0;
+  }
+
+  .home-cta__content {
+    padding: 0 24px;
+  }
+
+  .home-cta__glow {
+    width: 500px;
+    height: 500px;
+  }
+
+  .home-cta__grid {
+    background-size: 60px 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-cta {
+    padding: 64px 0;
+  }
+
+  .home-cta__content {
+    padding: 0 20px;
+  }
+
+  .home-cta__title {
+    font-size: 2rem;
+  }
+
+  .home-cta__glow {
+    width: min(380px, 100vw);
+    height: min(380px, 100vw);
+  }
+
+  .home-cta__grid {
+    background-size: 48px 48px;
+  }
+
+  .home-cta__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .home-cta__btn {
+    width: 100%;
+  }
+}

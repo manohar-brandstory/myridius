@@ -1,0 +1,44 @@
+{# Home Partners — marquee aligned with Homepage partners strip #}
+{% require_css %}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+{% end_require_css %}
+
+<section class="home-partners">
+  <div class="home-partners__container">
+
+    <header class="home-partners__header">
+      <div class="home-partners__badge">
+        <span class="home-partners__badge-line" aria-hidden="true"></span>
+        <p class="home-partners__badge-text">{{ module.badge_text }}</p>
+      </div>
+      <h2 class="home-partners__title">{{ module.heading }}</h2>
+      <div class="home-partners__subtitle">{{ module.subheading }}</div>
+    </header>
+
+    <div class="home-partners__marquee" aria-label="Partner logos">
+      <div class="home-partners__viewport">
+        <div class="home-partners__track">
+          {% for repeat in range(0, 4) %}
+            {% for partner in module.partners %}
+              <div class="home-partners__logo-item" aria-hidden="{{ 'false' if repeat == 0 else 'true' }}">
+                {% if partner.logo.src %}
+                  <img
+                    class="home-partners__logo-img"
+                    src="{{ partner.logo.src }}"
+                    alt="{{ partner.logo.alt or partner.item_name }}"
+                    loading="lazy"
+                  >
+                {% else %}
+                  <span class="home-partners__logo-placeholder">{{ partner.item_name }}</span>
+                {% endif %}
+              </div>
+            {% endfor %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="home-partners__fade home-partners__fade--left" aria-hidden="true"></div>
+      <div class="home-partners__fade home-partners__fade--right" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>

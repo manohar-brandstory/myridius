@@ -1,0 +1,400 @@
+[
+  {
+    "id": "badge_text",
+    "name": "badge_text",
+    "label": "Badge Text",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "display_width": null,
+    "type": "text",
+    "default": "INDUSTRY FOCUS"
+  },
+  {
+    "id": "heading",
+    "name": "heading",
+    "label": "Heading",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "display_width": null,
+    "type": "text",
+    "default": "Deep expertise for real-world agentic change."
+  },
+  {
+    "id": "subheading",
+    "name": "subheading",
+    "label": "Subheading",
+    "required": false,
+    "locked": false,
+    "display_width": null,
+    "type": "richtext",
+    "default": "Agentic engineering only creates advantage when it reflects industry realities—regulatory pressures, legacy ecosystems, operational complexity, and customer expectations unique to each vertical."
+  },
+  {
+    "id": "industries",
+    "name": "industries",
+    "label": "Industries",
+    "required": false,
+    "locked": false,
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 12,
+      "default": 9,
+      "sorting_label_field": "item_name"
+    },
+    "children": [
+      {
+        "id": "industries.item_name",
+        "name": "item_name",
+        "label": "Industry Name",
+        "required": true,
+        "locked": false,
+        "allow_new_line": false,
+        "display_width": null,
+        "type": "text",
+        "default": "Industry"
+      },
+      {
+        "id": "industries.description",
+        "name": "description",
+        "label": "Description",
+        "required": false,
+        "locked": false,
+        "display_width": null,
+        "type": "text",
+        "default": "Industry description text goes here."
+      },
+      {
+        "id": "industries.punchline",
+        "name": "punchline",
+        "label": "Punchline (shown on image overlay)",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "display_width": null,
+        "type": "text",
+        "default": "Industry punchline"
+      },
+      {
+        "id": "industries.right_description",
+        "name": "right_description",
+        "label": "Image Overlay Description",
+        "required": false,
+        "locked": false,
+        "display_width": null,
+        "type": "text",
+        "default": "Short description shown on the image panel."
+      },
+      {
+        "id": "industries.image",
+        "name": "image",
+        "label": "Industry Image",
+        "required": false,
+        "locked": false,
+        "responsive": true,
+        "resizable": true,
+        "show_loading": false,
+        "display_width": null,
+        "type": "image",
+        "default": {
+          "src": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "Industry image"
+        }
+      },
+      {
+        "id": "industries.pills",
+        "name": "pills",
+        "label": "Capability Pills",
+        "required": false,
+        "locked": false,
+        "type": "group",
+        "occurrence": {
+          "min": 1,
+          "max": 5,
+          "default": 3,
+          "sorting_label_field": "label"
+        },
+        "children": [
+          {
+            "id": "pills.item_label",
+            "name": "item_label",
+            "label": "Pill Label",
+            "required": false,
+            "locked": false,
+            "allow_new_line": false,
+            "display_width": null,
+            "type": "text",
+            "default": "Capability"
+          }
+        ],
+        "default": [
+          {
+            "item_label": "AI Agents"
+          },
+          {
+            "item_label": "Process Automation"
+          },
+          {
+            "item_label": "Data Intelligence"
+          }
+        ]
+      },
+      {
+        "id": "industries.link_url",
+        "name": "link_url",
+        "label": "Learn More Link",
+        "required": false,
+        "locked": false,
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT"
+        ],
+        "display_width": null,
+        "type": "url",
+        "default": {
+          "content_id": null,
+          "href": "#",
+          "type": "EXTERNAL"
+        }
+      }
+    ],
+    "default": [
+      {
+        "item_name": "Banking & Financial Services",
+        "description": "From risk modeling to real-time fraud detection, we engineer agentic systems that navigate regulatory complexity while accelerating digital transformation across lending, payments, and wealth management.",
+        "punchline": "Banking, Lending & Risk",
+        "right_description": "Agentic systems for regulatory-grade financial operations.",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "Banking & Financial Services"
+        },
+        "pills": [
+          {
+            "item_label": "Fraud Detection"
+          },
+          {
+            "item_label": "Risk Modeling"
+          },
+          {
+            "item_label": "RegTech"
+          }
+        ],
+        "link_url": {
+          "content_id": null,
+          "href": "#",
+          "type": "EXTERNAL"
+        }
+      },
+      {
+        "item_name": "Insurance",
+        "description": "We build intelligent underwriting, claims automation, and policy management systems that reduce cycle times and improve loss ratios through agentic decision-making.",
+        "punchline": "Underwriting & Claims",
+        "right_description": "Intelligent automation for the full insurance value chain.",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "Insurance"
+        },
+        "pills": [
+          {
+            "item_label": "Claims Automation"
+          },
+          {
+            "item_label": "Underwriting AI"
+          },
+          {
+            "item_label": "Policy Analytics"
+          }
+        ],
+        "link_url": {
+          "content_id": null,
+          "href": "#",
+          "type": "EXTERNAL"
+        }
+      },
+      {
+        "item_name": "Travel & Hospitality",
+        "description": "From dynamic pricing to personalized guest experiences, our agentic platforms optimize revenue, streamline operations, and deliver hyper-personalized journeys at scale.",
+        "punchline": "Booking, Revenue & Experience",
+        "right_description": "AI-powered guest experiences and revenue optimization.",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1488085061387-422e29b40080?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "Travel & Hospitality"
+        },
+        "pills": [
+          {
+            "item_label": "Dynamic Pricing"
+          },
+          {
+            "item_label": "Guest AI"
+          },
+          {
+            "item_label": "Revenue Mgmt"
+          }
+        ],
+        "link_url": {
+          "content_id": null,
+          "href": "#",
+          "type": "EXTERNAL"
+        }
+      },
+      {
+        "item_name": "Manufacturing & Logistics",
+        "description": "We deploy agentic systems across supply chains, factory floors, and distribution networks—enabling predictive maintenance, autonomous planning, and real-time optimization.",
+        "punchline": "Supply Chain & Smart Ops",
+        "right_description": "Autonomous planning for complex supply networks.",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1565043666747-69f6646db940?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "Manufacturing & Logistics"
+        },
+        "pills": [
+          {
+            "item_label": "Predictive Maintenance"
+          },
+          {
+            "item_label": "Supply Chain AI"
+          },
+          {
+            "item_label": "Smart Factory"
+          }
+        ],
+        "link_url": {
+          "content_id": null,
+          "href": "#",
+          "type": "EXTERNAL"
+        }
+      },
+      {
+        "item_name": "Retail & Consumer",
+        "description": "Our AI-native commerce systems power demand sensing, inventory intelligence, and personalized engagement—turning every touchpoint into an autonomous growth engine.",
+        "punchline": "Commerce & Consumer AI",
+        "right_description": "Intelligent retail from demand to delivery.",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "Retail & Consumer"
+        },
+        "pills": [
+          {
+            "item_label": "Demand Sensing"
+          },
+          {
+            "item_label": "Personalization"
+          },
+          {
+            "item_label": "Inventory AI"
+          }
+        ],
+        "link_url": {
+          "content_id": null,
+          "href": "#",
+          "type": "EXTERNAL"
+        }
+      },
+      {
+        "item_name": "Healthcare & Life Sciences",
+        "description": "We engineer compliant, agentic systems for clinical workflows, drug discovery pipelines, and patient engagement—bridging the gap between innovation and regulation.",
+        "punchline": "Clinical & Pharma AI",
+        "right_description": "Compliant AI for clinical and pharma workflows.",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "Healthcare & Life Sciences"
+        },
+        "pills": [
+          {
+            "item_label": "Clinical AI"
+          },
+          {
+            "item_label": "Drug Discovery"
+          },
+          {
+            "item_label": "Patient Engagement"
+          }
+        ],
+        "link_url": {
+          "content_id": null,
+          "href": "#",
+          "type": "EXTERNAL"
+        }
+      },
+      {
+        "item_name": "Hi-Tech & Startups",
+        "description": "From AI-native product development to scalable platform engineering, we help tech companies build, ship, and iterate faster with agentic infrastructure at the core.",
+        "punchline": "Product & Platform AI",
+        "right_description": "Agentic infrastructure for fast-moving tech teams.",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "Hi-Tech & Startups"
+        },
+        "pills": [
+          {
+            "item_label": "Platform Engineering"
+          },
+          {
+            "item_label": "AI Products"
+          },
+          {
+            "item_label": "DevOps AI"
+          }
+        ],
+        "link_url": {
+          "content_id": null,
+          "href": "#",
+          "type": "EXTERNAL"
+        }
+      },
+      {
+        "item_name": "Education & EdTech",
+        "description": "We build adaptive learning engines, institutional automation, and AI tutoring systems that personalize education at scale while preserving pedagogical integrity.",
+        "punchline": "Adaptive Learning & EdAI",
+        "right_description": "Personalized education powered by agentic systems.",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "Education & EdTech"
+        },
+        "pills": [
+          {
+            "item_label": "Adaptive Learning"
+          },
+          {
+            "item_label": "AI Tutoring"
+          },
+          {
+            "item_label": "Institutional AI"
+          }
+        ],
+        "link_url": {
+          "content_id": null,
+          "href": "#",
+          "type": "EXTERNAL"
+        }
+      },
+      {
+        "item_name": "Non-Profit & Social",
+        "description": "We design agentic solutions for impact organizations—automating donor management, program delivery, and outcome measurement to maximize social return on every dollar.",
+        "punchline": "Impact, Grants & Outreach",
+        "right_description": "Mission-driven AI for maximum social impact.",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1559027615-cd4628902d4a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "Non-Profit & Social"
+        },
+        "pills": [
+          {
+            "item_label": "Donor Intelligence"
+          },
+          {
+            "item_label": "Program AI"
+          },
+          {
+            "item_label": "Impact Analytics"
+          }
+        ],
+        "link_url": {
+          "content_id": null,
+          "href": "#",
+          "type": "EXTERNAL"
+        }
+      }
+    ]
+  }
+]

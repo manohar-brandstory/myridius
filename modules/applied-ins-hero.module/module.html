@@ -1,21 +1,34 @@
 <section class="applied-ins-hero">
-  {% if module.bg_image.src %}
-    <img class="applied-ins-hero__bg" src="{{ module.bg_image.src }}" alt="{{ module.bg_image.alt|default('') }}" loading="eager">
-  {% endif %}
-  <div class="applied-ins-hero__overlay"></div>
-  <div class="applied-ins-hero__wrap">
-    <nav class="applied-ins-hero__crumb" aria-label="Breadcrumb">
-      {% for item in module.breadcrumbs %}
-        {% if not loop.last %}
-          <a class="applied-ins-hero__crumbLink" href="{{ item.crumb_url.href }}">{{ item.crumb_text }}</a>
-          <span class="applied-ins-hero__crumbSep">/</span>
-        {% else %}
-          <span class="applied-ins-hero__crumbActive">{{ item.crumb_text }}</span>
-        {% endif %}
-      {% endfor %}
-    </nav>
-    <h1 class="applied-ins-hero__gradient">{{ module.gradient_heading }}</h1>
-    <h2 class="applied-ins-hero__title">{{ module.heading_text }}</h2>
-    <div class="applied-ins-hero__desc">{{ module.description_text }}</div>
+  <div class="applied-ins-hero__breadcrumbStrip" aria-label="Breadcrumb">
+    <div class="applied-ins-hero__breadcrumbInner">
+      <nav class="applied-ins-hero__breadcrumbNav" aria-label="Breadcrumb">
+        <ol class="applied-ins-hero__crumbList">
+          {% for item in module.breadcrumbs %}
+            <li class="applied-ins-hero__crumbItem{% if loop.last %} applied-ins-hero__crumbItem--active{% endif %}">
+              {% if not loop.last %}
+                <a class="applied-ins-hero__crumbLink" href="{{ item.crumb_url.href }}">{{ item.crumb_text }}</a>
+              {% else %}
+                <span class="applied-ins-hero__crumbLabel">{{ item.crumb_text }}</span>
+              {% endif %}
+            </li>
+            {% if not loop.last %}
+              <li class="applied-ins-hero__crumbSep" aria-hidden="true">/</li>
+            {% endif %}
+          {% endfor %}
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <div class="applied-ins-hero__stage">
+    {% if module.bg_image.src %}
+      <img class="applied-ins-hero__bg" src="{{ module.bg_image.src }}" alt="{{ module.bg_image.alt|default('') }}" loading="eager">
+    {% endif %}
+    <div class="applied-ins-hero__overlay"></div>
+    <div class="applied-ins-hero__wrap">
+      <h1 class="applied-ins-hero__gradient">{{ module.gradient_heading }}</h1>
+      <h2 class="applied-ins-hero__title">{{ module.heading_text }}</h2>
+      <div class="applied-ins-hero__desc">{{ module.description_text }}</div>
+    </div>
   </div>
 </section>

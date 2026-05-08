@@ -1,0 +1,62 @@
+{# Home Insights — aligns with ResourcesInsightsSection + SectionBadge (light) #}
+<section class="home-ins" aria-label="{{ module.badge_text }}">
+  <div class="home-ins__container">
+
+    <div class="home-ins__header">
+      <div class="home-ins__badge">
+        <span class="home-ins__badge-line" aria-hidden="true"></span>
+        <p class="home-ins__badge-text">{{ module.badge_text }}</p>
+      </div>
+      <h2 class="home-ins__heading">{{ module.heading }}</h2>
+    </div>
+
+    <div class="home-ins__track" data-ins-track>
+      {% for item in module.insights %}
+        {% set link_href = item.link_url.href|default('#') %}
+        <a class="home-ins__card"
+           href="{{ link_href }}"
+           {% if item.link_url.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}
+           data-ins-card="{{ loop.index0 }}">
+
+          {% if item.image.src %}
+            <img class="home-ins__card-img"
+                 src="{{ item.image.src }}"
+                 alt="{{ item.image.alt }}"
+                 loading="lazy">
+          {% else %}
+            <div class="home-ins__card-img home-ins__card-img--placeholder"></div>
+          {% endif %}
+
+          <div class="home-ins__card-overlay" aria-hidden="true"></div>
+
+          <span class="home-ins__card-category">{{ item.category }}</span>
+
+          <span class="home-ins__card-arrow" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M10 6 16 12 10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+
+          <h3 class="home-ins__card-title">{{ item.title }}</h3>
+        </a>
+      {% endfor %}
+    </div>
+
+    <div class="home-ins__controls">
+      <button type="button" class="home-ins__nav home-ins__nav--prev" data-ins-prev aria-label="Previous insight">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="m15 18-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <div class="home-ins__pages" data-ins-pages aria-label="Insight pages"></div>
+
+      <button type="button" class="home-ins__nav home-ins__nav--next" data-ins-next aria-label="Next insight">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="m9 18 6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</section>

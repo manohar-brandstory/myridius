@@ -1,0 +1,306 @@
+[
+  {
+    "id": "badge_text",
+    "name": "badge_text",
+    "label": "Badge Text",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "display_width": null,
+    "type": "text",
+    "default": "SUCCESS STORIES"
+  },
+  {
+    "id": "heading",
+    "name": "heading",
+    "label": "Heading",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "display_width": null,
+    "type": "text",
+    "default": "Business outcomes that prove the model."
+  },
+  {
+    "id": "subheading",
+    "name": "subheading",
+    "label": "Subheading",
+    "required": false,
+    "locked": false,
+    "display_width": null,
+    "type": "richtext",
+    "default": "<p>Outcome-led examples across financial services, insurance, healthcare, manufacturing, and retail.</p>"
+  },
+  {
+    "id": "stories",
+    "name": "stories",
+    "label": "Stories",
+    "required": false,
+    "locked": false,
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 10,
+      "default": 5
+    },
+    "sorting_label_field": "tag",
+    "children": [
+      {
+        "id": "stories.tag",
+        "name": "tag",
+        "label": "Tag / Industry",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "display_width": null,
+        "type": "text",
+        "default": "Banking"
+      },
+      {
+        "id": "stories.metric",
+        "name": "metric",
+        "label": "Metric Value",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "display_width": null,
+        "type": "text",
+        "default": "$10M+"
+      },
+      {
+        "id": "stories.metric_label",
+        "name": "metric_label",
+        "label": "Metric Label",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "display_width": null,
+        "type": "text",
+        "default": "Annual Fraud Prevented"
+      },
+      {
+        "id": "stories.title",
+        "name": "title",
+        "label": "Card Title",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "display_width": null,
+        "type": "text",
+        "default": "Fraud intelligence at enterprise scale"
+      },
+      {
+        "id": "stories.description",
+        "name": "description",
+        "label": "Description (hover)",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "display_width": null,
+        "type": "text",
+        "default": "Myridius deployed a real-time fraud detection system that analyzes transactions across multiple channels."
+      },
+      {
+        "id": "stories.bullets",
+        "name": "bullets",
+        "label": "Bullet Points (hover)",
+        "required": false,
+        "locked": false,
+        "type": "group",
+        "occurrence": {
+          "min": 0,
+          "max": 5,
+          "default": 2
+        },
+        "sorting_label_field": "text",
+        "children": [
+          {
+            "id": "bullets.text",
+            "name": "text",
+            "label": "Bullet Text",
+            "required": false,
+            "locked": false,
+            "allow_new_line": false,
+            "display_width": null,
+            "type": "text",
+            "default": "Real-time anomaly scoring across channels"
+          }
+        ],
+        "default": [
+          {
+            "text": "Real-time anomaly scoring across channels"
+          },
+          {
+            "text": "Integrated compliance and audit trail"
+          }
+        ]
+      },
+      {
+        "id": "stories.image",
+        "name": "image",
+        "label": "Background Image",
+        "required": false,
+        "locked": false,
+        "responsive": true,
+        "display_width": null,
+        "type": "image",
+        "default": {
+          "src": "",
+          "alt": "",
+          "width": 603,
+          "height": 400
+        }
+      },
+      {
+        "id": "stories.link_url",
+        "name": "link_url",
+        "label": "Learn More Link",
+        "required": false,
+        "locked": false,
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT"
+        ],
+        "display_width": null,
+        "type": "url",
+        "default": {
+          "content_id": null,
+          "href": "#",
+          "type": "EXTERNAL"
+        }
+      }
+    ],
+    "default": [
+      {
+        "tag": "Banking & Financial Services",
+        "metric": "$10M+",
+        "metric_label": "Annual Fraud Prevented",
+        "title": "Fraud intelligence at enterprise scale",
+        "description": "Myridius deployed a real-time fraud detection system that analyzes transactions across multiple channels, reducing false positives by 40%.",
+        "bullets": [
+          {
+            "text": "Real-time anomaly scoring across channels"
+          },
+          {
+            "text": "Integrated compliance and audit trail"
+          }
+        ],
+        "image": {
+          "src": "",
+          "alt": "Banking success story",
+          "width": 603,
+          "height": 400
+        },
+        "link_url": {
+          "content_id": null,
+          "href": "#",
+          "type": "EXTERNAL"
+        }
+      },
+      {
+        "tag": "Insurance",
+        "metric": "60%+",
+        "metric_label": "Faster Claims Processing",
+        "title": "Claims and service redesigned",
+        "description": "An end-to-end claims automation platform that reduced processing time and improved customer satisfaction scores.",
+        "bullets": [
+          {
+            "text": "Automated document intake and validation"
+          },
+          {
+            "text": "Intelligent routing and prioritization"
+          }
+        ],
+        "image": {
+          "src": "",
+          "alt": "Insurance success story",
+          "width": 603,
+          "height": 400
+        },
+        "link_url": {
+          "content_id": null,
+          "href": "#",
+          "type": "EXTERNAL"
+        }
+      },
+      {
+        "tag": "Healthcare & Life Sciences",
+        "metric": "70%+",
+        "metric_label": "Prior Auth Automated",
+        "title": "Clinical and admin workflows streamlined",
+        "description": "Automated prior authorization workflows that cut approval times from days to minutes while maintaining compliance.",
+        "bullets": [
+          {
+            "text": "EHR-integrated authorization engine"
+          },
+          {
+            "text": "Real-time eligibility verification"
+          }
+        ],
+        "image": {
+          "src": "",
+          "alt": "Healthcare success story",
+          "width": 603,
+          "height": 400
+        },
+        "link_url": {
+          "content_id": null,
+          "href": "#",
+          "type": "EXTERNAL"
+        }
+      },
+      {
+        "tag": "Manufacturing & Logistics",
+        "metric": "30%",
+        "metric_label": "Less Unplanned Downtime",
+        "title": "Predictive operations that lift throughput",
+        "description": "IoT-driven predictive maintenance system that monitors equipment health and schedules maintenance before failures occur.",
+        "bullets": [
+          {
+            "text": "Sensor-driven predictive maintenance"
+          },
+          {
+            "text": "Digital twin for production simulation"
+          }
+        ],
+        "image": {
+          "src": "",
+          "alt": "Manufacturing success story",
+          "width": 603,
+          "height": 400
+        },
+        "link_url": {
+          "content_id": null,
+          "href": "#",
+          "type": "EXTERNAL"
+        }
+      },
+      {
+        "tag": "Retail & Consumer",
+        "metric": "25%",
+        "metric_label": "Inventory cost reduction",
+        "title": "Smarter personalization and inventory",
+        "description": "AI-powered demand forecasting and personalization engine that optimizes inventory allocation across channels.",
+        "bullets": [
+          {
+            "text": "AI-driven demand forecasting"
+          },
+          {
+            "text": "Omnichannel personalization engine"
+          }
+        ],
+        "image": {
+          "src": "",
+          "alt": "Retail success story",
+          "width": 603,
+          "height": 400
+        },
+        "link_url": {
+          "content_id": null,
+          "href": "#",
+          "type": "EXTERNAL"
+        }
+      }
+    ]
+  }
+]

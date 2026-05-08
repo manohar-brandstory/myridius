@@ -55,6 +55,25 @@
   margin: 0;
 }
 
+/* In Brief — body copy #556467 (overrides pasted inline colours in richtext) */
+.applied-ins-detail-content__briefText {
+  color: #556467 !important;
+}
+
+.applied-ins-detail-content__briefText *:not(a) {
+  color: inherit !important;
+}
+
+.applied-ins-detail-content__briefText a,
+.applied-ins-detail-content__briefText a * {
+  color: var(--color-brand-1) !important;
+}
+
+.applied-ins-detail-content__briefText a:hover,
+.applied-ins-detail-content__briefText a:hover * {
+  color: var(--color-accent) !important;
+}
+
 /* ─────────────────────────────────────────────────
    Band 2: Accordion Sections
    bg white · py-12 (48px)
@@ -102,7 +121,7 @@
 .applied-ins-detail-content__sectionTitle {
   display: block;
   font-size: 24px;
-  font-weight: 400;
+  font-weight: 500;
   color: #0c2226;
   padding: 12px 0;
   margin-bottom: 2px;
@@ -232,6 +251,7 @@
 .applied-ins-detail-content__tableWrap,
 .applied-ins-detail-content__codeWrap,
 .applied-ins-detail-content__diagramWrap,
+.applied-ins-detail-content__imageWrap,
 .applied-ins-detail-content__impact,
 .applied-ins-detail-content__columns {
   margin: 32px 0;
@@ -391,8 +411,14 @@
   padding: 0;
 }
 
-.applied-ins-detail-content__diagramCard img {
+.applied-ins-detail-content__diagramCard img,
+.applied-ins-detail-content__imageCard img {
   width: 100%;
+  border-radius: 12px;
+}
+
+.applied-ins-detail-content__imageCard {
+  overflow: hidden;
   border-radius: 12px;
 }
 
@@ -476,6 +502,34 @@
   .applied-ins-detail-content__panel {
     padding: 0 24px 24px;
   }
+
+  .applied-ins-detail-content__panelInner {
+    font-size: 15px;
+  }
+
+  .applied-ins-detail-content__panelInner h2,
+  .applied-ins-detail-content__panelInner h3,
+  .applied-ins-detail-content__panelInner h4 {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .applied-ins-detail-content__blockHeading {
+    font-size: 16px;
+  }
+
+  .applied-ins-detail-content__impactMetric {
+    font-size: 24px;
+  }
+
+  .applied-ins-detail-content__briefHeading {
+    font-size: 20px;
+  }
+
+  .applied-ins-detail-content__briefText {
+    font-size: 15px;
+  }
+
   .applied-ins-detail-content__impactGrid,
   .applied-ins-detail-content__impactGrid--2,
   .applied-ins-detail-content__impactGrid--4 {

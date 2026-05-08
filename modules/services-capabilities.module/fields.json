@@ -112,7 +112,7 @@
         },
         "children": [
           {
-            "id": "capabilities.cards.title",
+            "id": "cards.title",
             "name": "title",
             "label": "Card title",
             "required": false,
@@ -121,7 +121,7 @@
             "default": "Card title"
           },
           {
-            "id": "capabilities.cards.description",
+            "id": "cards.description",
             "name": "description",
             "label": "Card description",
             "required": false,

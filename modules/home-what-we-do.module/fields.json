@@ -1,0 +1,236 @@
+[
+  {
+    "id": "badge_text",
+    "name": "badge_text",
+    "label": "Badge text",
+    "type": "text",
+    "default": "WHAT WE DO"
+  },
+  {
+    "id": "heading",
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "default": "Engineering AI-native systems: Ambition to production & beyond"
+  },
+  {
+    "id": "subheading",
+    "name": "subheading",
+    "label": "Subheading",
+    "type": "richtext",
+    "default": "<p>Myridius moves enterprises from operating-model redesign to agentic execution through software-driven systems, AI-native foundations, and continuous optimization.</p>"
+  },
+  {
+    "id": "categories",
+    "name": "categories",
+    "label": "Categories",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 6,
+      "default": 4,
+      "sorting_label_field": "title"
+    },
+    "children": [
+      {
+        "id": "categories.title",
+        "name": "title",
+        "label": "Accordion title",
+        "type": "text",
+        "default": "Category title"
+      },
+      {
+        "id": "categories.badge",
+        "name": "badge",
+        "label": "Tagline (expanded panel)",
+        "type": "text",
+        "default": "TAGLINE"
+      },
+      {
+        "id": "categories.description",
+        "name": "description",
+        "label": "Description (expanded panel)",
+        "type": "text",
+        "default": "Category description."
+      },
+      {
+        "id": "categories.left_paragraph",
+        "name": "left_paragraph",
+        "label": "Left column paragraph",
+        "type": "text",
+        "default": "Supporting copy for the sticky column."
+      },
+      {
+        "id": "categories.services",
+        "name": "services",
+        "label": "Services (grid cards)",
+        "type": "group",
+        "occurrence": {
+          "min": 1,
+          "max": 8,
+          "default": 3,
+          "sorting_label_field": "item_name"
+        },
+        "children": [
+          {
+            "id": "services.item_name",
+            "name": "item_name",
+            "label": "Service name",
+            "type": "text",
+            "default": "Service name"
+          },
+          {
+            "id": "services.description",
+            "name": "description",
+            "label": "Service description",
+            "type": "text",
+            "default": "Short description."
+          },
+          {
+            "id": "services.catchphrase",
+            "name": "catchphrase",
+            "label": "Catchphrase (editor reference)",
+            "type": "text",
+            "default": ""
+          }
+        ],
+        "default": []
+      }
+    ],
+    "default": [
+      {
+        "title": "Identify where AI changes the business",
+        "badge": "REINVENT THE OPERATING MODEL",
+        "description": "Redesign business, operating, and technology models around software-driven, agentic execution.",
+        "left_paragraph": "We identify where AI shifts the economics, redesign the model, and define the move before build begins.",
+        "services": [
+          {
+            "item_name": "Advisory",
+            "description": "AI-native execution. Engineered into how you run.",
+            "catchphrase": "STRATEGIC ADVISORY"
+          },
+          {
+            "item_name": "Agentic Process Transformation",
+            "description": "Automation that evolves into autonomous operations",
+            "catchphrase": "PROCESS TRANSFORMATION"
+          },
+          {
+            "item_name": "Design Studio",
+            "description": "Engineering agentic UX for human+AI interaction.",
+            "catchphrase": "EXPERIENCE DESIGN"
+          }
+        ]
+      },
+      {
+        "title": "Products, workflows, and decisioning systems",
+        "badge": "BUILD AGENTIC SYSTEMS",
+        "description": "Design and engineer systems that can sense, decide, act, and improve in the flow of work.",
+        "left_paragraph": "We build agentic products, workflows, and decisioning systems that turn intelligence into execution.",
+        "services": [
+          {
+            "item_name": "Adobe Experience Cloud",
+            "description": "Modernize Adobe. Activate data. Deliver real growth.",
+            "catchphrase": "EXPERIENCE CLOUD"
+          },
+          {
+            "item_name": "Agentic AI",
+            "description": "From enterprise hierarchy to agent-driven harmony.",
+            "catchphrase": "AGENTIC AI"
+          },
+          {
+            "item_name": "Digital Experience",
+            "description": "Built for humans. Engineered for AI agents.",
+            "catchphrase": "DIGITAL EXPERIENCE"
+          },
+          {
+            "item_name": "Salesforce",
+            "description": "Turn Salesforce into your growth engine",
+            "catchphrase": "CRM EVOLUTION"
+          },
+          {
+            "item_name": "ServiceNow",
+            "description": "Build autonomous enterprise operations with ServiceNow.",
+            "catchphrase": "WORKFLOW AUTOMATION"
+          }
+        ]
+      },
+      {
+        "title": "Cloud, data, and engineering built for autonomy",
+        "badge": "ENGINEER THE AI-NATIVE FOUNDATION",
+        "description": "Create the technical foundation that connects platforms, models, tools, and data into production-ready systems.",
+        "left_paragraph": "We engineer the AI-native foundation that lets agentic systems operate securely, reliably, and at scale.",
+        "services": [
+          {
+            "item_name": "Agentic Engineering",
+            "description": "Discovery to operations. One agentic execution system.",
+            "catchphrase": "AUTONOMY ENGINEERING"
+          },
+          {
+            "item_name": "AWS Cloud Services",
+            "description": "Faster AWS delivery. Zero compliance surprises.",
+            "catchphrase": "SCALABLE INFRA"
+          },
+          {
+            "item_name": "Data, AI & Analytics",
+            "description": "Trusted data. Governed AI. Enterprise execution.",
+            "catchphrase": "INTELLIGENCE LAYER"
+          },
+          {
+            "item_name": "Cloud Transformation",
+            "description": "AWS. Azure. GCP. Built around your workload.",
+            "catchphrase": "MODERN STACK"
+          },
+          {
+            "item_name": "Microsoft Cloud Services",
+            "description": "Your entire Microsoft stack, unified and governed",
+            "catchphrase": "ENTERPRISE CLOUD"
+          }
+        ]
+      },
+      {
+        "title": "Autonomous execution with compounding value",
+        "badge": "OPERATE & OPTIMIZE CONTINUOUSLY",
+        "description": "Run, govern, and improve live systems so performance rises while effort falls over time.",
+        "left_paragraph": "We operate, optimise, and govern continuously so value compounds with every deployment.",
+        "services": [
+          {
+            "item_name": "AI-Native Application Support",
+            "description": "Autonomous application execution governed by design.",
+            "catchphrase": "CONTINUOUS OPS"
+          },
+          {
+            "item_name": "Quality Engineering & Assurance",
+            "description": "From quality assurance to autonomous quality system.",
+            "catchphrase": "TRUST & RELIABILITY"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "footer_text",
+    "name": "footer_text",
+    "label": "Footer ribbon",
+    "type": "richtext",
+    "default": "<p>Designed as execution systems. Engineered as system layers. Run continuously on Evoq</p>"
+  },
+  {
+    "id": "explore_link_text",
+    "name": "explore_link_text",
+    "label": "Explore link label",
+    "type": "text",
+    "default": "Explore All Services"
+  },
+  {
+    "id": "explore_link_url",
+    "name": "explore_link_url",
+    "label": "Explore link URL",
+    "type": "url",
+    "supported_types": ["EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG"],
+    "default": {
+      "href": "#",
+      "type": "EXTERNAL",
+      "content_id": null
+    }
+  }
+]

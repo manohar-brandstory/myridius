@@ -1,0 +1,38 @@
+{# Home Testimonials — horizontal marquee aligned with export #}
+{% require_css %}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+{% end_require_css %}
+
+<section class="home-test">
+  <div class="home-test__masthead">
+    <div class="home-test__badge">
+      <span class="home-test__badge-line" aria-hidden="true"></span>
+      <p class="home-test__badge-text">{{ module.badge_text }}</p>
+    </div>
+  </div>
+
+  <div class="home-test__marquee" aria-label="Client testimonials">
+    <div class="home-test__track">
+      {% for repeat in range(0, 3) %}
+        {% for item in module.testimonials %}
+          <div class="home-test__card" aria-hidden="{{ 'false' if repeat == 0 else 'true' }}">
+            <div class="home-test__card-inner">
+              <div class="home-test__quote-icon-wrap" aria-hidden="true">
+                <svg class="home-test__quote-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width="20" height="20">
+                  <path d="M14.017 24V14.1453C14.017 6.54 17.748 1.38533 23 0L23.995 2.868C21.563 4.09067 20 7.71867 20 10.6667H24V24H14.017ZM0 24V14.1453C0 6.54 3.748 1.38533 9 0L9.996 2.868C7.563 4.09067 6 7.71867 6 10.6667H9.983V24H0Z" fill="#071417"></path>
+                </svg>
+              </div>
+
+              <p class="home-test__quote">"{{ item.quote }}"</p>
+
+              <div class="home-test__attribution">
+                <p class="home-test__role">{{ item.role }}</p>
+                <p class="home-test__company">{{ item.company }}</p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+</section>

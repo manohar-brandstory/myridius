@@ -43,7 +43,7 @@
 
 /* ── Header (glass card) ── */
 .svc-ind__header {
-  margin-bottom: 168px;
+  margin-bottom: 120px;
 }
 
 .svc-ind__header-inner {
@@ -58,7 +58,7 @@
 .svc-ind__badge {
   display: inline-flex;
   align-items: center;
-  gap: 16px;
+  gap: 10px;
   margin-bottom: 32px;
 }
 
@@ -94,7 +94,7 @@
 /* Subtitle */
 .svc-ind__subtitle {
   font-family: var(--font-family, 'Montserrat', sans-serif);
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 400;
   line-height: 1.625;
   color: #337077;
@@ -165,6 +165,10 @@
   object-fit: cover;
   filter: blur(4px) grayscale(1);
   transform: scale(1.08);
+}
+
+.svc-ind__card[data-svc-ind-active="true"] .svc-ind__card-img {
+  transform: scale(1.1);
 }
 
 .svc-ind__card-overlay {
@@ -294,7 +298,7 @@
 
 /* The specific hovered card gets scale, extra padding, underline + arrow */
 .svc-ind__card[data-svc-ind-active="true"] {
-  transform: scale(1.02);
+  transform: none;
   padding: 20px;
   z-index: 2;
 }
@@ -351,7 +355,7 @@
   }
 
   .svc-ind__heading {
-    font-size: 40px;
+    font-size: 48px;
   }
 
   .svc-ind__subtitle {

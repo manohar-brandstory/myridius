@@ -21,16 +21,26 @@
 }
 
 .svc-res__badge {
-  display: inline-block;
-  padding: 6px 14px;
-  border-radius: 6px;
-  background-color: rgba(25, 66, 71, 0.08);
-  color: var(--color-brand-1);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   margin-bottom: 24px;
+}
+
+.svc-res__badge-line {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-brand-1);
+  border-radius: 2px;
+}
+
+.svc-res__badge-text {
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-brand-1);
 }
 
 .svc-res__heading {
@@ -186,7 +196,7 @@
   }
 
   .svc-res__heading {
-    font-size: 36px;
+    font-size: 48px;
   }
 
   .svc-res__grid {
@@ -201,7 +211,7 @@
   }
 
   .svc-res__heading {
-    font-size: 28px;
+    font-size: 36px;
   }
 
   .svc-res__grid {

@@ -1,0 +1,190 @@
+[
+  {
+    "id": "heading",
+    "name": "heading",
+    "label": "Main Headline",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "display_width": null,
+    "type": "text",
+    "default": "Enterprises will run on execution systems, not human-led delivery"
+  },
+  {
+    "id": "description",
+    "name": "description",
+    "label": "Description",
+    "required": false,
+    "locked": false,
+    "display_width": null,
+    "type": "text",
+    "default": "Myridius engineers the systems that run execution-where decisions, workflows, data, and agents operate as one."
+  },
+  {
+    "id": "cta_text",
+    "name": "cta_text",
+    "label": "Primary CTA Text",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "display_width": null,
+    "type": "text",
+    "default": "Explore what we do"
+  },
+  {
+    "id": "cta_url",
+    "name": "cta_url",
+    "label": "Primary CTA Link",
+    "required": false,
+    "locked": false,
+    "supported_types": ["EXTERNAL", "CONTENT"],
+    "display_width": null,
+    "type": "url",
+    "default": {
+      "content_id": null,
+      "href": "#what-we-do",
+      "type": "EXTERNAL"
+    }
+  },
+  {
+    "id": "secondary_cta_text",
+    "name": "secondary_cta_text",
+    "label": "Secondary CTA Text",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "display_width": null,
+    "type": "text",
+    "default": "Talk to us"
+  },
+  {
+    "id": "secondary_cta_url",
+    "name": "secondary_cta_url",
+    "label": "Secondary CTA Link",
+    "required": false,
+    "locked": false,
+    "supported_types": ["EXTERNAL", "CONTENT"],
+    "display_width": null,
+    "type": "url",
+    "default": {
+      "content_id": null,
+      "href": "#contact",
+      "type": "EXTERNAL"
+    }
+  },
+  {
+    "id": "autoplay_interval",
+    "name": "autoplay_interval",
+    "label": "Auto-rotate interval (ms)",
+    "required": false,
+    "locked": false,
+    "display_width": null,
+    "type": "number",
+    "default": 6000,
+    "min": 2000,
+    "max": 20000,
+    "step": 500
+  },
+  {
+    "id": "cards",
+    "name": "cards",
+    "label": "Hero Cards",
+    "required": false,
+    "locked": false,
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 8,
+      "default": 4
+    },
+    "sorting_label_field": "tag",
+    "children": [
+      {
+        "id": "cards.tag",
+        "name": "tag",
+        "label": "Tag / Label",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "display_width": null,
+        "type": "text",
+        "default": "Tag"
+      },
+      {
+        "id": "cards.title",
+        "name": "title",
+        "label": "Card Title",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "display_width": null,
+        "type": "text",
+        "default": "Card Title"
+      },
+      {
+        "id": "cards.description",
+        "name": "description",
+        "label": "Card Description",
+        "required": false,
+        "locked": false,
+        "display_width": null,
+        "type": "text",
+        "default": "Card description text goes here."
+      },
+      {
+        "id": "cards.image",
+        "name": "image",
+        "label": "Card Image",
+        "required": false,
+        "locked": false,
+        "responsive": true,
+        "resizable": true,
+        "show_loading": false,
+        "display_width": null,
+        "type": "image",
+        "default": {
+          "src": "https://images.unsplash.com/photo-1639322537228-f710d846310a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "Card image"
+        }
+      }
+    ],
+    "default": [
+      {
+        "tag": "EVOQ",
+        "title": "The execution system runtime",
+        "description": "It runs agents, workflows, data, and decisions as one continuous system",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1639322537228-f710d846310a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "EVOQ execution system"
+        }
+      },
+      {
+        "tag": "Reinvention",
+        "title": "Redesign the model",
+        "description": "Shape the opportunity, define the operating shift, and identify where AI can create non-linear advantage",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "Redesign the model"
+        }
+      },
+      {
+        "tag": "Agentic execution",
+        "title": "Run autonomously",
+        "description": "Operationalize what works with reusable intelligence, adoption, governance, and continuous optimization",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1677442136019-21780ecad995?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "Agentic execution"
+        }
+      },
+      {
+        "tag": "AI-native systems",
+        "title": "Build the engine",
+        "description": "Build intelligent products, workflows, and platforms that are ready for governed execution in the real world.",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "AI-native systems"
+        }
+      }
+    ]
+  }
+]

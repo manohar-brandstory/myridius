@@ -40,7 +40,7 @@
     },
     "children": [
       {
-        "id": "icon_svg",
+        "id": "cards.icon_svg",
         "name": "icon_svg",
         "label": "Icon SVG",
         "type": "text",
@@ -48,28 +48,28 @@
         "default": ""
       },
       {
-        "id": "title",
+        "id": "cards.title",
         "name": "title",
         "label": "Title",
         "type": "text",
         "default": "Card Title"
       },
       {
-        "id": "description",
+        "id": "cards.description",
         "name": "description",
         "label": "Description",
         "type": "richtext",
         "default": "<p>Card description goes here.</p>"
       },
       {
-        "id": "button_text",
+        "id": "cards.button_text",
         "name": "button_text",
         "label": "Button Text",
         "type": "text",
         "default": "Learn More"
       },
       {
-        "id": "button_url",
+        "id": "cards.button_url",
         "name": "button_url",
         "label": "Button URL",
         "type": "url",
@@ -78,7 +78,10 @@
           "href": "#",
           "type": "EXTERNAL"
         },
-        "supported_types": ["EXTERNAL", "CONTENT"]
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT"
+        ]
       }
     ],
     "default": [

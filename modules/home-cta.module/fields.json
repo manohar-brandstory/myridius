@@ -1,0 +1,86 @@
+[
+  {
+    "id": "badge_text",
+    "name": "badge_text",
+    "label": "Badge text",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "display_width": null,
+    "type": "text",
+    "default": "Let's Talk"
+  },
+  {
+    "id": "heading",
+    "name": "heading",
+    "label": "Heading",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "display_width": null,
+    "type": "text",
+    "default": "Build systems that stick, scale, and stay compliant"
+  },
+  {
+    "id": "subheading",
+    "name": "subheading",
+    "label": "Subheading",
+    "required": false,
+    "locked": false,
+    "display_width": null,
+    "type": "richtext",
+    "default": "<p>We don't deliver services. We engineer the systems that run the enterprise.</p>"
+  },
+  {
+    "id": "primary_button_text",
+    "name": "primary_button_text",
+    "label": "Primary button text",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "display_width": null,
+    "type": "text",
+    "default": "Start a Conversation"
+  },
+  {
+    "id": "primary_button_url",
+    "name": "primary_button_url",
+    "label": "Primary button link",
+    "required": false,
+    "locked": false,
+    "supported_types": ["EXTERNAL", "CONTENT"],
+    "display_width": null,
+    "type": "url",
+    "default": {
+      "content_id": null,
+      "href": "#contact",
+      "type": "EXTERNAL"
+    }
+  },
+  {
+    "id": "secondary_button_text",
+    "name": "secondary_button_text",
+    "label": "Secondary button text",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "display_width": null,
+    "type": "text",
+    "default": "See What We Do"
+  },
+  {
+    "id": "secondary_button_url",
+    "name": "secondary_button_url",
+    "label": "Secondary button link",
+    "required": false,
+    "locked": false,
+    "supported_types": ["EXTERNAL", "CONTENT"],
+    "display_width": null,
+    "type": "url",
+    "default": {
+      "content_id": null,
+      "href": "#services",
+      "type": "EXTERNAL"
+    }
+  }
+]

@@ -73,7 +73,7 @@
 .svc-hww__badge {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 10px;
   margin-bottom: 32px;
 }
 
@@ -115,6 +115,7 @@
   text-align: left;
   opacity: 0.4;
   transition: opacity 0.35s ease;
+  min-height: 80px;
 }
 
 .svc-hww__tab--active {
@@ -132,6 +133,7 @@
 .svc-hww__tab-hdr {
   display: flex;
   align-items: baseline;
+  flex-shrink: 0;
 }
 
 .svc-hww__tab-num {
@@ -157,6 +159,7 @@
   background: rgba(255, 255, 255, 0.2);
   border-radius: 1px;
   overflow: hidden;
+  margin-top: auto;
 }
 
 .svc-hww__tab-bar-fill {

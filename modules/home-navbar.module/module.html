@@ -1,0 +1,203 @@
+<nav class="home-navbar" aria-label="Primary">
+  <div class="home-navbar__bar">
+    <div class="home-navbar__wrap">
+      <div class="home-navbar__row">
+        <!-- Brand/Logo -->
+        <div class="home-navbar__brand">
+          <a class="home-navbar__logoLink" href="{{ module.logo_url.href }}" aria-label="{{ module.logo_aria_label }}">
+            {% if module.logo.src %}
+              <img class="home-navbar__logo" src="{{ module.logo.src }}" alt="{{ module.logo.alt|default('') }}" loading="eager" decoding="async">
+            {% else %}
+              <span class="home-navbar__logoSvg" aria-label="Myridius">
+                <svg class="home-navbar__logoIcon" viewBox="0 0 34.88 26.2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M34.0211 12.7297C34.1968 12.6043 34.4053 12.5774 34.582 12.6535C34.8234 12.7577 34.9356 13.0187 34.8495 13.2741V13.2764C32.7079 19.5404 29.2169 26.1976 26.9655 26.1976C26.5904 26.1976 26.2641 26.0274 26.024 25.7036C24.9906 24.3146 25.5084 19.6703 27.3428 13.8734C27.4539 13.5206 27.4086 13.2069 27.2204 13.0322C26.8794 12.7163 26.3072 12.3399 25.2659 12.3399C24.2245 12.3399 23.2955 12.7443 22.6994 13.0848C22.2893 13.32 21.955 13.7065 21.8067 14.121C19.6561 20.1229 16.3589 26.1976 14.2173 26.1976C13.8423 26.1976 13.5159 26.0274 13.2757 25.7036C12.2435 24.3146 12.7613 19.6703 14.5957 13.8734C14.7067 13.5206 14.6615 13.2069 14.4733 13.0322C14.1323 12.7163 13.559 12.3399 12.5188 12.3399C11.4787 12.3399 10.5495 12.7454 9.95243 13.0859C9.54112 13.32 9.20687 13.7076 9.05843 14.1221C6.90899 20.1229 3.61175 26.1976 1.47024 26.1976C1.09066 26.1976 0.763206 26.024 0.521862 25.6946C-0.719986 23.9987 0.431215 18.1089 2.12289 13.0254C2.18862 12.8417 2.33364 12.7017 2.5138 12.6412C2.74495 12.5639 2.98742 12.6379 3.1166 12.8272C3.33187 13.1352 3.98339 13.8577 5.36801 13.8577C6.40931 13.8577 7.33842 13.4534 7.93442 13.1128C8.34573 12.8776 8.67998 12.4911 8.82842 12.0767C10.9779 6.07473 14.2751 0 16.4166 0C16.7917 0 17.118 0.170267 17.3581 0.493998C18.3916 1.88301 17.8738 6.52729 16.0394 12.3242C15.9282 12.6771 15.9736 12.9907 16.1616 13.1655C16.5027 13.4814 17.0749 13.8577 18.1162 13.8577C19.1574 13.8577 20.0866 13.4534 20.6826 13.1128C21.0928 12.8776 21.427 12.4911 21.5754 12.0767C23.7249 6.07473 27.0221 0 29.1637 0C29.5387 0 29.865 0.170267 30.1052 0.493998C31.1386 1.88301 30.6208 6.52729 28.7864 12.3242C28.6752 12.6771 28.7206 12.9907 28.9086 13.1655C29.2498 13.4814 29.865 13.8577 30.8633 13.8577C32.3226 13.8577 33.5578 13.0691 34.0211 12.7297Z" fill="#52E081"/></svg>
+                <svg class="home-navbar__logoWordmark" viewBox="0 0 78.76 19.43" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M31.7226 6.15426V4.76188H29.5834V14.9656H31.7226V9.40618C31.7226 7.09968 33.2057 6.50482 34.3457 6.50482C35.0233 6.50482 35.4855 6.69648 35.6034 6.73904L35.8288 4.80445C35.8288 4.80445 35.2158 4.54905 34.409 4.54905C33.2806 4.54905 32.3028 5.03745 31.7226 6.15426ZM23.0342 12.797L19.8196 4.76076H17.4754L21.926 15.1134L21.7006 15.6982C21.2382 16.8889 20.6797 17.5801 19.2916 17.5801C18.7546 17.5801 18.1949 17.4423 17.9047 17.3146L17.6792 19.0576C17.8617 19.1528 18.4746 19.4295 19.3891 19.4295C21.9045 19.4295 22.7973 18.1537 23.6257 16.2617L28.5716 4.76076H26.2271L23.0342 12.797ZM37.4106 14.9656H39.5396V4.76188H37.4106V14.9656ZM12.6326 4.54905C10.8582 4.54905 9.56878 5.45303 8.94445 6.45106C8.28843 5.27156 7.04091 4.54905 5.26755 4.54905C3.49432 4.54905 2.47229 5.52696 2.13924 6.04786V4.76188H0V14.9656H2.13924V9.21466C2.13924 7.5243 3.39684 6.54626 4.9345 6.54626C6.47201 6.54626 7.36373 7.5243 7.36373 9.21466V14.9656H9.50298V9.08796C9.55625 7.48286 10.7936 6.54738 12.2984 6.54738C13.8031 6.54738 14.7276 7.52542 14.7276 9.21578V14.9667H16.8669V8.76988C16.8669 6.29314 15.3836 4.55017 12.6303 4.55017L12.6326 4.54905ZM50.0443 6.15426C49.2806 5.18755 48.1192 4.54905 46.3676 4.54905C43.4328 4.54905 41.1849 6.6752 41.1849 9.8105C41.1849 12.9459 43.4318 15.1784 46.3676 15.1784C48.1204 15.1784 49.2806 14.5411 50.0443 13.5731V14.9656H52.1734V0H50.0443V6.15426ZM46.6259 13.2864C44.6373 13.2864 43.3139 11.6924 43.3139 9.8105C43.3139 7.92862 44.6363 6.44098 46.6259 6.44098C48.6155 6.44098 50.0341 7.92862 50.0341 9.8105C50.0341 11.6924 48.6144 13.2864 46.6259 13.2864ZM55.6259 0.0425737C54.852 0.0425737 54.3138 0.573538 54.3138 1.33973C54.3138 2.10594 54.8508 2.6369 55.6259 2.6369C56.4009 2.6369 56.9482 2.10594 56.9482 1.33973C56.9482 0.573538 56.3997 0.0425737 55.6259 0.0425737ZM54.5618 14.9656H56.691V4.76188H54.5618V14.9656ZM75.0444 8.90652C73.5283 8.54476 72.7648 8.33308 72.7648 7.55678C72.7648 6.89808 73.4525 6.47234 74.4745 6.47234C75.6892 6.47234 76.5707 7.0784 77.1304 7.86478L78.5603 6.6528C77.8726 5.53704 76.3996 4.54793 74.4745 4.54793C72.3669 4.54793 70.6572 5.73874 70.6572 7.58814C70.6572 9.60778 72.2378 10.299 74.453 10.7873C75.9691 11.1279 76.6035 11.3609 76.6035 12.1159C76.6035 12.8071 75.7753 13.2427 74.6683 13.2427C73.3561 13.2427 72.3669 12.5516 71.7868 11.5524L70.2062 12.8171C71.0016 14.2621 72.6571 15.1773 74.6683 15.1773C76.8618 15.1773 78.7541 13.9765 78.7541 12.1159C78.7541 10.2553 77.2925 9.44874 75.0444 8.90652ZM38.4745 0.0425737C37.7006 0.0425737 37.1624 0.573538 37.1624 1.33973C37.1624 2.10594 37.6995 2.6369 38.4745 2.6369C39.2496 2.6369 39.7968 2.10594 39.7968 1.33973C39.7968 0.573538 39.2485 0.0425737 38.4745 0.0425737ZM66.4853 10.5118C66.4853 12.2021 65.2059 13.18 63.5823 13.18C61.9586 13.18 61.0668 12.2021 61.0668 10.5118V4.76188H58.9378V10.9588C58.9378 13.4354 60.4324 15.1784 63.2491 15.1784C65.1527 15.1784 66.1306 14.2005 66.4751 13.6797V14.9656H68.6143V4.76188H66.4853V10.5118Z" fill="#071417"/></svg>
+              </span>
+            {% endif %}
+          </a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="home-navbar__desktop">
+          <ul class="home-navbar__links" role="list">
+            {% for link in module.nav_links %}
+              <li class="home-navbar__item">
+                {% if link.mega_menu_enabled %}
+                  <button class="home-navbar__trigger" type="button" data-home-nav-trigger="{{ loop.index0 }}" aria-expanded="false">
+                    <span class="home-navbar__triggerLabel">{{ link.text }}</span>
+                    <span class="home-navbar__chev" aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                  </button>
+                {% else %}
+                  <a class="home-navbar__link" href="{{ link.url.href }}">{{ link.text }}</a>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <!-- Actions: Search + CTA + Mobile toggle -->
+        <div class="home-navbar__actions">
+          <div class="home-navbar__search">
+            <button class="home-navbar__iconBtn" type="button" aria-label="Search" data-home-search-toggle>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </button>
+            <div class="home-navbar__searchBox" hidden>
+              <input class="home-navbar__searchInput" type="text" placeholder="{{ module.search_placeholder }}" aria-label="{{ module.search_aria_label }}">
+              <span class="home-navbar__searchIcon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+
+          {% if module.cta_text %}
+            <a class="home-navbar__cta" href="{{ module.cta_url.href }}">
+              {{ module.cta_text }}
+            </a>
+          {% endif %}
+
+          <div class="home-navbar__mobileActions">
+            <button class="home-navbar__mobileSearch" type="button" aria-label="Search" data-home-mobile-search>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </button>
+            <button class="home-navbar__mobileBtn" type="button" aria-label="Open menu" data-home-mobile-toggle>
+              <span class="home-navbar__hamburger" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Search Bar (below nav row) -->
+      <div class="home-navbar__mobileSearchBox" hidden data-home-mobile-search-box>
+        <input class="home-navbar__mobileSearchInput" type="text" placeholder="{{ module.search_placeholder }}" aria-label="{{ module.search_aria_label }}">
+      </div>
+    </div>
+  </div>
+
+  <!-- Desktop mega menu panel -->
+  <div class="home-navbar__mega" hidden data-home-mega>
+    <div class="home-navbar__megaInner">
+      {% for link in module.nav_links %}
+        {% if link.mega_menu_enabled %}
+          <div class="home-navbar__panel" data-home-nav-panel="{{ loop.index0 }}" hidden>
+            {% if link.mega_header_url.href %}
+              <a class="home-navbar__panelHeader" href="{{ link.mega_header_url.href }}">
+                <span class="home-navbar__panelTitle">{{ link.text }}</span>
+                <span class="home-navbar__panelArrow" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </a>
+            {% endif %}
+
+            <div class="home-navbar__grid">
+              {% for section in link.sections %}
+                <div class="home-navbar__col">
+                  {% if section.title %}
+                    <div class="home-navbar__colTitle">{{ section.title }}</div>
+                  {% endif %}
+
+                  <ul class="home-navbar__colList" role="list">
+                    {% for item in section.items %}
+                      <li class="home-navbar__colItem">
+                        {% if item.sub_items|length %}
+                          <button class="home-navbar__expander" type="button" data-home-expander>
+                            <span class="home-navbar__expanderLabel">{{ item.text }}</span>
+                            <span class="home-navbar__expanderIcon" aria-hidden="true"></span>
+                          </button>
+                          <ul class="home-navbar__subList" role="list" hidden>
+                            {% for sub in item.sub_items %}
+                              <li class="home-navbar__subItem">
+                                <a class="home-navbar__subLink" href="{{ sub.sub_url.href }}">{{ sub.text }}</a>
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        {% else %}
+                          <a class="home-navbar__colLink" href="{{ item.url.href }}">
+                            <span class="home-navbar__colLinkLabel">{{ item.text }}</span>
+                            <span class="home-navbar__colLinkArrow" aria-hidden="true">
+                              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </span>
+                          </a>
+                        {% endif %}
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Backdrop overlay (desktop) -->
+  <div class="home-navbar__backdrop" hidden data-home-backdrop></div>
+
+  <!-- Mobile tray -->
+  <div class="home-navbar__mobile" hidden data-home-mobile>
+    <div class="home-navbar__mobileBackdrop" data-home-mobile-close></div>
+    <div class="home-navbar__mobileTray" role="dialog" aria-modal="true" aria-label="Menu">
+      <div class="home-navbar__mobileInner">
+        <div class="home-navbar__mobileLinks">
+          {% for link in module.nav_links %}
+            <div class="home-navbar__mItem">
+              <div class="home-navbar__mRow">
+                <a class="home-navbar__mLink" href="{{ link.url.href }}">{{ link.text }}</a>
+                {% if link.mega_menu_enabled %}
+                  <button class="home-navbar__mToggle" type="button" aria-label="Toggle {{ link.text }}" data-home-mobile-panel-toggle="{{ loop.index0 }}">
+                    <span class="home-navbar__mChev" aria-hidden="true">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                        <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                  </button>
+                {% endif %}
+              </div>
+
+              {% if link.mega_menu_enabled %}
+                <div class="home-navbar__mPanel" hidden data-home-mobile-panel="{{ loop.index0 }}">
+                  {% for section in link.sections %}
+                    {% if section.title %}
+                      <div class="home-navbar__mSectionTitle">{{ section.title }}</div>
+                    {% endif %}
+                    <div class="home-navbar__mSectionLinks">
+                      {% for item in section.items %}
+                        <a class="home-navbar__mSubLink" href="{{ item.url.href }}">{{ item.text }}</a>
+                      {% endfor %}
+                    </div>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+
+        {% if module.mobile_cta_text %}
+          <div class="home-navbar__mobileCta">
+            <a class="home-navbar__mobileCtaBtn" href="{{ module.mobile_cta_url.href }}">
+              {{ module.mobile_cta_text }}
+            </a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</nav>

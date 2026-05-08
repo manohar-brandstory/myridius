@@ -1,0 +1,168 @@
+{# Home Industries Module #}
+{% set industry_count = module.industries|length %}
+
+<section id="industries" class="home-ind" data-home-ind>
+  <div class="home-ind__container">
+
+    {# Header #}
+    <div class="home-ind__header">
+      {% if module.badge_text %}
+        <div class="home-ind__badge">
+          <span class="home-ind__badge-line" aria-hidden="true"></span>
+          <p class="home-ind__badge-text">{{ module.badge_text }}</p>
+        </div>
+      {% endif %}
+      {% if module.heading %}
+        <h2 class="home-ind__title">{{ module.heading }}</h2>
+      {% endif %}
+      {% if module.subheading %}
+        <div class="home-ind__subtitle">{{ module.subheading }}</div>
+      {% endif %}
+    </div>
+
+    {# Two-Column Grid #}
+    <div class="home-ind__grid">
+
+      {# Left Column — Industry List #}
+      <div class="home-ind__list" data-ind-list>
+        {% for industry in module.industries %}
+          <div class="home-ind__row{% if loop.first %} is-active{% endif %}" data-ind-row data-index="{{ loop.index0 }}">
+
+            {# Row Header #}
+            <div class="home-ind__row-header" data-ind-header>
+              <div class="home-ind__row-icon">
+                {% set ic = loop.index0 % 9 %}
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  {% if ic == 0 %}
+                    {# Landmark #}
+                    <line x1="3" x2="21" y1="22" y2="22"/>
+                    <line x1="6" x2="6" y1="18" y2="11"/>
+                    <line x1="10" x2="10" y1="18" y2="11"/>
+                    <line x1="14" x2="14" y1="18" y2="11"/>
+                    <line x1="18" x2="18" y1="18" y2="11"/>
+                    <polygon points="12 2 20 7 4 7"/>
+                  {% elif ic == 1 %}
+                    {# Shield #}
+                    <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+                  {% elif ic == 2 %}
+                    {# Plane #}
+                    <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
+                  {% elif ic == 3 %}
+                    {# Package #}
+                    <path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/>
+                    <path d="M12 22V12"/>
+                    <polyline points="3.29 7 12 12 20.71 7"/>
+                    <path d="m7.5 4.27 9 5.15"/>
+                  {% elif ic == 4 %}
+                    {# ShoppingBag #}
+                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
+                    <path d="M3 6h18"/>
+                    <path d="M16 10a4 4 0 0 1-8 0"/>
+                  {% elif ic == 5 %}
+                    {# Heart #}
+                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                  {% elif ic == 6 %}
+                    {# Cpu #}
+                    <rect width="16" height="16" x="4" y="4" rx="2"/>
+                    <rect width="6" height="6" x="9" y="9" rx="1"/>
+                    <path d="M15 2v2"/>
+                    <path d="M15 20v2"/>
+                    <path d="M2 15h2"/>
+                    <path d="M2 9h2"/>
+                    <path d="M20 15h2"/>
+                    <path d="M20 9h2"/>
+                    <path d="M9 2v2"/>
+                    <path d="M9 20v2"/>
+                  {% elif ic == 7 %}
+                    {# GraduationCap #}
+                    <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/>
+                    <path d="M22 10v6"/>
+                    <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>
+                  {% else %}
+                    {# Users #}
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  {% endif %}
+                </svg>
+              </div>
+              <span class="home-ind__row-name">{{ industry.item_name }}</span>
+            </div>
+
+            {# Expanded Content #}
+            <div class="home-ind__row-body" data-ind-body>
+              <div class="home-ind__row-body-inner">
+                <div class="home-ind__row-body-copy">
+                  {% if industry.description %}
+                    <p class="home-ind__row-desc">{{ industry.description }}</p>
+                  {% endif %}
+
+                  {% if industry.pills %}
+                    <div class="home-ind__pills">
+                      {% for pill in industry.pills %}
+                        <span class="home-ind__pill">{{ pill.item_label }}</span>
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+                </div>
+
+                {% if industry.link_url.href %}
+                  <a class="home-ind__link" href="{{ industry.link_url.href }}">
+                    <span>LEARN MORE</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+
+          </div>
+        {% endfor %}
+      </div>
+
+      {# Right Column — Image Panel #}
+      <div class="home-ind__panel" data-ind-panel>
+        <div class="home-ind__panel-images">
+          {% for industry in module.industries %}
+            {% if industry.image.src %}
+              <img
+                class="home-ind__panel-img{% if loop.first %} is-active{% endif %}"
+                src="{{ industry.image.src }}"
+                alt="{{ industry.image.alt }}"
+                loading="{% if loop.first %}eager{% else %}lazy{% endif %}"
+                data-panel-index="{{ loop.index0 }}"
+              >
+            {% endif %}
+          {% endfor %}
+        </div>
+        <div class="home-ind__panel-overlay"></div>
+        <div class="home-ind__panel-content" data-panel-content>
+          {% for industry in module.industries %}
+            <div class="home-ind__panel-info{% if loop.first %} is-active{% endif %}" data-info-index="{{ loop.index0 }}">
+              <span class="home-ind__panel-tag">{{ industry.item_name }}</span>
+              <h3 class="home-ind__panel-punchline">{{ industry.punchline }}</h3>
+              <p class="home-ind__panel-desc">{{ industry.right_description }}</p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+    </div>
+
+    {# Pagination Dots #}
+    <div class="home-ind__dots" data-ind-dots>
+      {% for industry in module.industries %}
+        <button
+          class="home-ind__dot{% if loop.first %} is-active{% endif %}"
+          data-dot-index="{{ loop.index0 }}"
+          type="button"
+          aria-label="Go to {{ industry.item_name }}"
+        ></button>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>

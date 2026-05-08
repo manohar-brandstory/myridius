@@ -76,7 +76,7 @@
     },
     "children": [
       {
-        "id": "section_heading",
+        "id": "detail_sections.section_heading",
         "name": "section_heading",
         "label": "Section Heading",
         "type": "text",
@@ -85,7 +85,7 @@
         "default": "The Business Problem"
       },
       {
-        "id": "section_desc",
+        "id": "detail_sections.section_desc",
         "name": "section_desc",
         "label": "Section Description",
         "type": "text",
@@ -94,7 +94,7 @@
         "default": "Traditional timeshare systems face critical inefficiencies."
       },
       {
-        "id": "section_content",
+        "id": "detail_sections.section_content",
         "name": "section_content",
         "label": "Legacy Rich Text Content (Fallback)",
         "type": "richtext",
@@ -103,7 +103,7 @@
         "default": "<p>Section content goes here.</p>"
       },
       {
-        "id": "content_blocks",
+        "id": "detail_sections.content_blocks",
         "name": "content_blocks",
         "label": "Content Blocks",
         "type": "group",
@@ -116,28 +116,59 @@
         },
         "children": [
           {
-            "id": "block_type",
+            "id": "content_blocks.block_type",
             "name": "block_type",
             "label": "Block Type",
             "type": "choice",
             "required": false,
             "locked": false,
             "choices": [
-              ["richtext", "Rich Text"],
-              ["heading", "Heading"],
-              ["paragraph", "Paragraph"],
-              ["list", "Bullet List"],
-              ["table", "Table"],
-              ["impact_cards", "Impact Cards"],
-              ["code_box", "Code Box"],
-              ["three_column", "Three Column"],
-              ["diagram", "Diagram / Image Block"]
+              [
+                "richtext",
+                "Rich Text"
+              ],
+              [
+                "heading",
+                "Heading"
+              ],
+              [
+                "paragraph",
+                "Paragraph"
+              ],
+              [
+                "list",
+                "Bullet List"
+              ],
+              [
+                "table",
+                "Table"
+              ],
+              [
+                "impact_cards",
+                "Impact Cards"
+              ],
+              [
+                "code_box",
+                "Code Box"
+              ],
+              [
+                "three_column",
+                "Three Column"
+              ],
+              [
+                "diagram",
+                "Diagram / Flow Block"
+              ],
+              [
+                "image",
+                "Image + Caption"
+              ]
             ],
             "display": "select",
             "default": "richtext"
           },
           {
-            "id": "block_heading_text",
+            "id": "content_blocks.block_heading_text",
             "name": "block_heading_text",
             "label": "Heading Text",
             "type": "text",
@@ -151,7 +182,7 @@
             }
           },
           {
-            "id": "block_paragraph_text",
+            "id": "content_blocks.block_paragraph_text",
             "name": "block_paragraph_text",
             "label": "Paragraph Text",
             "type": "text",
@@ -165,7 +196,7 @@
             }
           },
           {
-            "id": "block_richtext",
+            "id": "content_blocks.block_richtext",
             "name": "block_richtext",
             "label": "Rich Text",
             "type": "richtext",
@@ -179,7 +210,7 @@
             }
           },
           {
-            "id": "list_items",
+            "id": "content_blocks.list_items",
             "name": "list_items",
             "label": "List Items",
             "type": "group",
@@ -192,7 +223,7 @@
             },
             "children": [
               {
-                "id": "list_item_text",
+                "id": "list_items.list_item_text",
                 "name": "list_item_text",
                 "label": "List Item",
                 "type": "text",
@@ -208,7 +239,7 @@
             }
           },
           {
-            "id": "table_columns",
+            "id": "content_blocks.table_columns",
             "name": "table_columns",
             "label": "Table Columns (Headers)",
             "type": "group",
@@ -221,7 +252,7 @@
             },
             "children": [
               {
-                "id": "table_col_title",
+                "id": "table_columns.table_col_title",
                 "name": "table_col_title",
                 "label": "Column Header",
                 "type": "text",
@@ -237,7 +268,7 @@
             }
           },
           {
-            "id": "table_rows",
+            "id": "content_blocks.table_rows",
             "name": "table_rows",
             "label": "Table Rows (use | between cells)",
             "type": "group",
@@ -250,7 +281,7 @@
             },
             "children": [
               {
-                "id": "table_row_text",
+                "id": "table_rows.table_row_text",
                 "name": "table_row_text",
                 "label": "Row",
                 "type": "text",
@@ -266,7 +297,7 @@
             }
           },
           {
-            "id": "impact_title",
+            "id": "content_blocks.impact_title",
             "name": "impact_title",
             "label": "Impact Section Title",
             "type": "text",
@@ -280,7 +311,7 @@
             }
           },
           {
-            "id": "impact_items",
+            "id": "content_blocks.impact_items",
             "name": "impact_items",
             "label": "Impact Items",
             "type": "group",
@@ -293,7 +324,7 @@
             },
             "children": [
               {
-                "id": "impact_metric",
+                "id": "impact_items.impact_metric",
                 "name": "impact_metric",
                 "label": "Metric",
                 "type": "text",
@@ -302,7 +333,7 @@
                 "default": ""
               },
               {
-                "id": "impact_label_text",
+                "id": "impact_items.impact_label_text",
                 "name": "impact_label_text",
                 "label": "Label",
                 "type": "text",
@@ -311,7 +342,7 @@
                 "default": ""
               },
               {
-                "id": "impact_desc_text",
+                "id": "impact_items.impact_desc_text",
                 "name": "impact_desc_text",
                 "label": "Description",
                 "type": "text",
@@ -327,7 +358,7 @@
             }
           },
           {
-            "id": "code_line_items",
+            "id": "content_blocks.code_line_items",
             "name": "code_line_items",
             "label": "Code Lines",
             "type": "group",
@@ -340,7 +371,7 @@
             },
             "children": [
               {
-                "id": "code_line_text",
+                "id": "code_line_items.code_line_text",
                 "name": "code_line_text",
                 "label": "Line",
                 "type": "text",
@@ -356,7 +387,7 @@
             }
           },
           {
-            "id": "code_caption",
+            "id": "content_blocks.code_caption",
             "name": "code_caption",
             "label": "Code/Diagram Caption",
             "type": "text",
@@ -370,7 +401,7 @@
             }
           },
           {
-            "id": "columns",
+            "id": "content_blocks.columns",
             "name": "columns",
             "label": "Columns",
             "type": "group",
@@ -383,7 +414,7 @@
             },
             "children": [
               {
-                "id": "col_title",
+                "id": "columns.col_title",
                 "name": "col_title",
                 "label": "Column Title",
                 "type": "text",
@@ -392,7 +423,7 @@
                 "default": ""
               },
               {
-                "id": "col_desc",
+                "id": "columns.col_desc",
                 "name": "col_desc",
                 "label": "Column Description",
                 "type": "text",
@@ -401,7 +432,7 @@
                 "default": ""
               },
               {
-                "id": "col_bullets_text",
+                "id": "columns.col_bullets_text",
                 "name": "col_bullets_text",
                 "label": "Column Bullets (separate with ; )",
                 "type": "text",
@@ -417,18 +448,33 @@
             }
           },
           {
-            "id": "diagram_variant",
+            "id": "content_blocks.diagram_variant",
             "name": "diagram_variant",
             "label": "Diagram Variant",
             "type": "choice",
             "required": false,
             "locked": false,
             "choices": [
-              ["timeshare-flow", "Timeshare Flow"],
-              ["mcp-architecture", "MCP Architecture"],
-              ["true-forecast-architecture", "True Forecast Architecture"],
-              ["dynamic-agent-factory", "Dynamic Agent Factory"],
-              ["custom-image", "Custom Image Diagram"]
+              [
+                "timeshare-flow",
+                "Timeshare Flow"
+              ],
+              [
+                "mcp-architecture",
+                "MCP Architecture"
+              ],
+              [
+                "true-forecast-architecture",
+                "True Forecast Architecture"
+              ],
+              [
+                "dynamic-agent-factory",
+                "Dynamic Agent Factory"
+              ],
+              [
+                "custom-image",
+                "Custom Image Diagram"
+              ]
             ],
             "display": "select",
             "default": "custom-image",
@@ -439,7 +485,7 @@
             }
           },
           {
-            "id": "diagram_image",
+            "id": "content_blocks.diagram_image",
             "name": "diagram_image",
             "label": "Diagram Image",
             "type": "image",
@@ -459,7 +505,7 @@
             }
           },
           {
-            "id": "diagram_caption",
+            "id": "content_blocks.diagram_caption",
             "name": "diagram_caption",
             "label": "Diagram Caption",
             "type": "text",
@@ -473,7 +519,7 @@
             }
           },
           {
-            "id": "diagram_bulk_text",
+            "id": "content_blocks.diagram_bulk_text",
             "name": "diagram_bulk_text",
             "label": "Diagram Text (paste all at once)",
             "type": "text",
@@ -488,9 +534,9 @@
             }
           },
           {
-            "id": "diagram_notes",
+            "id": "content_blocks.diagram_notes",
             "name": "diagram_notes",
-            "label": "Diagram Notes",
+            "label": "Diagram Notes (fallback caption if Caption empty)",
             "type": "richtext",
             "required": false,
             "locked": false,
@@ -498,6 +544,40 @@
             "visibility": {
               "controlling_field_path": "detail_sections.content_blocks.block_type",
               "controlling_value_regex": "diagram",
+              "operator": "EQUAL"
+            }
+          },
+          {
+            "id": "content_blocks.content_image",
+            "name": "content_image",
+            "label": "Image",
+            "type": "image",
+            "required": false,
+            "locked": false,
+            "responsive": false,
+            "resizable": true,
+            "show_loading": false,
+            "default": {
+              "src": "",
+              "alt": ""
+            },
+            "visibility": {
+              "controlling_field_path": "detail_sections.content_blocks.block_type",
+              "controlling_value_regex": "image",
+              "operator": "EQUAL"
+            }
+          },
+          {
+            "id": "content_blocks.image_caption",
+            "name": "image_caption",
+            "label": "Image Caption",
+            "type": "text",
+            "required": false,
+            "locked": false,
+            "default": "",
+            "visibility": {
+              "controlling_field_path": "detail_sections.content_blocks.block_type",
+              "controlling_value_regex": "image",
               "operator": "EQUAL"
             }
           }

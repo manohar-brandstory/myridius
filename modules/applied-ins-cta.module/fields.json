@@ -22,7 +22,7 @@
     },
     "children": [
       {
-        "id": "author_full_name",
+        "id": "author_list.author_full_name",
         "name": "author_full_name",
         "label": "Author Full Name",
         "type": "text",
@@ -31,7 +31,7 @@
         "default": "Balaji Ramarajan"
       },
       {
-        "id": "author_role",
+        "id": "author_list.author_role",
         "name": "author_role",
         "label": "Author Role",
         "type": "text",
@@ -81,7 +81,10 @@
     "type": "url",
     "required": false,
     "locked": false,
-    "supported_types": ["EXTERNAL", "CONTENT"],
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT"
+    ],
     "default": {
       "content_id": null,
       "href": "#",

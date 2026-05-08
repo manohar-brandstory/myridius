@@ -5,7 +5,8 @@
     "required": false,
     "locked": false,
     "type": "text",
-    "default": "why-choose-us"
+    "default": "why-choose-us",
+    "id": "section_id"
   },
   {
     "name": "badge_text",
@@ -13,7 +14,8 @@
     "required": false,
     "locked": false,
     "type": "text",
-    "default": "WHY CHOOSE US"
+    "default": "WHY CHOOSE US",
+    "id": "badge_text"
   },
   {
     "name": "heading",
@@ -21,7 +23,8 @@
     "required": false,
     "locked": false,
     "type": "text",
-    "default": "Why Leading Enterprises Choose Us for Cloud Transformation"
+    "default": "Why Leading Enterprises Choose Us for Cloud Transformation",
+    "id": "heading"
   },
   {
     "name": "subtitle",
@@ -29,7 +32,8 @@
     "required": false,
     "locked": false,
     "type": "richtext",
-    "default": "<p>We combine deep AWS expertise with enterprise-grade delivery to accelerate your cloud journey.</p>"
+    "default": "<p>We combine deep AWS expertise with enterprise-grade delivery to accelerate your cloud journey.</p>",
+    "id": "subtitle"
   },
   {
     "name": "reasons",
@@ -50,7 +54,8 @@
         "required": false,
         "locked": false,
         "type": "text",
-        "default": "Card Title"
+        "default": "Card Title",
+        "id": "reasons.title"
       },
       {
         "name": "description",
@@ -58,13 +63,14 @@
         "required": false,
         "locked": false,
         "type": "richtext",
-        "default": "<p>Card description text goes here.</p>"
+        "default": "<p>Card description text goes here.</p>",
+        "id": "reasons.description"
       }
     ],
     "default": [
       {
         "title": "Speed Without Trade-offs",
-        "description": "<p>Up to 30\u201350% shorter delivery timelines. Fewer rework cycles. Measurable velocity from day one \u2014 a pattern repeated across migration, modernization, and AI programs</p>"
+        "description": "<p>Up to 30–50% shorter delivery timelines. Fewer rework cycles. Measurable velocity from day one — a pattern repeated across migration, modernization, and AI programs</p>"
       },
       {
         "title": "Well-Architected First",
@@ -72,11 +78,11 @@
       },
       {
         "title": "Full AWS Ecosystem Mastery",
-        "description": "<p>900+ cloud-enabled associates. Seven industries. Certified architects across every AWS layer \u2014 one team, no coordination gaps, full outcome accountability from first engagement</p>"
+        "description": "<p>900+ cloud-enabled associates. Seven industries. Certified architects across every AWS layer — one team, no coordination gaps, full outcome accountability from first engagement</p>"
       },
       {
         "title": "FinOps from Day One",
-        "description": "<p>An average of 25\u201335% of cloud spend is avoidable. We eliminate it by treating cost governance as an architecture principle, not a retrospective exercise.</p>"
+        "description": "<p>An average of 25–35% of cloud spend is avoidable. We eliminate it by treating cost governance as an architecture principle, not a retrospective exercise.</p>"
       },
       {
         "title": "Zero-Trust Security Posture",
@@ -86,6 +92,7 @@
         "title": "Transformation, Not Just Migration",
         "description": "<p>Launch new revenue-generating capability live within 90 days of final migration. Faster releases, lower cost base, new capability deliver outcomes in months with long-term accountability.</p>"
       }
-    ]
+    ],
+    "id": "reasons"
   }
 ]

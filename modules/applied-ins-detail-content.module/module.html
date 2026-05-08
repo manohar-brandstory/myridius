@@ -142,12 +142,20 @@
                         {% else %}
                           <p class="applied-ins-detail-content__diagramPlaceholder">Set a diagram image for variant: {{ block.diagram_variant }}</p>
                         {% endif %}
-                        {% if block.diagram_notes %}
-                          <p class="applied-ins-detail-content__diagramNotes">{{ block.diagram_notes|striptags }}</p>
-                        {% endif %}
                       </div>
                       {% if block.diagram_caption %}
                         <p class="applied-ins-detail-content__codeCaption">{{ block.diagram_caption }}</p>
+                      {% elif block.diagram_notes %}
+                        <p class="applied-ins-detail-content__codeCaption">{{ block.diagram_notes|striptags }}</p>
+                      {% endif %}
+                    </div>
+                  {% elif block.block_type == "image" and block.content_image.src %}
+                    <div class="applied-ins-detail-content__imageWrap">
+                      <div class="applied-ins-detail-content__imageCard">
+                        <img src="{{ block.content_image.src }}" alt="{{ block.content_image.alt|default('') }}" loading="lazy">
+                      </div>
+                      {% if block.image_caption %}
+                        <p class="applied-ins-detail-content__codeCaption">{{ block.image_caption }}</p>
                       {% endif %}
                     </div>
                   {% else %}

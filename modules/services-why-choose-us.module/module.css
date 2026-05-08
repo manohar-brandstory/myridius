@@ -20,7 +20,7 @@
 .svc-why__badge {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 10px;
   margin-bottom: 32px;
 }
 
@@ -54,7 +54,7 @@
 
 .svc-why__subtitle {
   font-family: var(--font-family);
-  font-size: 24px;
+  font-size: 20px;
   color: #337077;
   max-width: 700px;
   margin: 16px 0 24px;
@@ -204,7 +204,7 @@
   }
 
   .svc-why__heading {
-    font-size: 36px;
+    font-size: 48px;
   }
 
   .svc-why__subtitle {

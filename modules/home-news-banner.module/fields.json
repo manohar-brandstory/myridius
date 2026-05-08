@@ -1,0 +1,77 @@
+[
+  {
+    "name": "badge_text",
+    "label": "Badge Text",
+    "type": "text",
+    "default": "News",
+    "required": true,
+    "id": "badge_text"
+  },
+  {
+    "name": "news_items",
+    "label": "News Items",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 10,
+      "default": 3
+    },
+    "children": [
+      {
+        "name": "title",
+        "label": "Title",
+        "type": "text",
+        "default": "News Title Goes Here",
+        "id": "news_items.title"
+      },
+      {
+        "name": "description",
+        "label": "Description",
+        "type": "text",
+        "default": "Brief description of the news item that provides context and details about the announcement.",
+        "id": "news_items.description"
+      },
+      {
+        "name": "link_url",
+        "label": "Link URL",
+        "type": "url",
+        "default": {
+          "href": "#",
+          "type": "EXTERNAL",
+          "content_id": null
+        },
+        "id": "news_items.link_url"
+      }
+    ],
+    "default": [
+      {
+        "title": "Myridius Recognized as a Top Cloud Consulting Partner for 2026",
+        "description": "We're proud to announce our recognition among the leading cloud consulting firms, delivering transformative solutions across industries.",
+        "link_url": {
+          "href": "#",
+          "type": "EXTERNAL",
+          "content_id": null
+        }
+      },
+      {
+        "title": "Launching Our New AI-Powered Data Analytics Platform",
+        "description": "Our latest platform leverages artificial intelligence to deliver real-time insights and predictive analytics for enterprise clients.",
+        "link_url": {
+          "href": "#",
+          "type": "EXTERNAL",
+          "content_id": null
+        }
+      },
+      {
+        "title": "Expanding Operations Across APAC and European Markets",
+        "description": "Myridius is accelerating global growth with new offices and strategic partnerships to serve clients in emerging markets.",
+        "link_url": {
+          "href": "#",
+          "type": "EXTERNAL",
+          "content_id": null
+        }
+      }
+    ],
+    "id": "news_items"
+  }
+]

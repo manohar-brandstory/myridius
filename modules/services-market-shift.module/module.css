@@ -60,7 +60,7 @@
 /* ── Subtitle ── */
 .svc-shift__subtitle{
   font-family: var(--font-family);
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 400;
   line-height: 1.4;
   color: var(--color-brand-2);
@@ -82,13 +82,13 @@
 
 .svc-shift__cards{
   position: relative;
-  min-height: calc(var(--shift-card-count, 2) * 100vh);
+  min-height: calc(var(--shift-card-count, 2) * 85vh);
 }
 
 /* Sticky scroll stack: each card pins until the next scrolls over it */
 @media (min-width: 769px){
   .svc-shift__cards{
-    min-height: calc(var(--shift-card-count, 2) * 100vh);
+    min-height: calc(var(--shift-card-count, 2) * 85vh);
   }
   .svc-shift__header{
     position: sticky;

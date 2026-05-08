@@ -22,7 +22,7 @@
     },
     "children": [
       {
-        "id": "card_image",
+        "id": "related_cards.card_image",
         "name": "card_image",
         "label": "Card Image",
         "type": "image",
@@ -37,7 +37,7 @@
         }
       },
       {
-        "id": "card_title",
+        "id": "related_cards.card_title",
         "name": "card_title",
         "label": "Card Title",
         "type": "text",
@@ -46,7 +46,7 @@
         "default": "Related insight title"
       },
       {
-        "id": "card_subtitle",
+        "id": "related_cards.card_subtitle",
         "name": "card_subtitle",
         "label": "Card Subtitle",
         "type": "text",
@@ -55,38 +55,62 @@
         "default": "Short description for hover."
       },
       {
-        "id": "card_link",
+        "id": "related_cards.card_link",
         "name": "card_link",
         "label": "Card Link",
         "type": "url",
         "required": false,
         "locked": false,
-        "supported_types": ["EXTERNAL", "CONTENT"],
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT"
+        ],
         "default": {
           "content_id": null,
-          "href": "#",
+          "href": "",
           "type": "EXTERNAL"
         }
       }
     ],
     "default": [
       {
-        "card_image": { "src": "", "alt": "Proactive Customer Churn Detection" },
+        "card_image": {
+          "src": "",
+          "alt": "Proactive Customer Churn Detection"
+        },
         "card_title": "Proactive Customer Churn Detection via Agentforce",
         "card_subtitle": "Salesforce-native AI agent detects churn risk and delivers explainable mitigation strategies.",
-        "card_link": { "content_id": null, "href": "#", "type": "EXTERNAL" }
+        "card_link": {
+          "content_id": null,
+          "href": "/applied-insights/proactive-customer-churn-detection-via-agentforce",
+          "type": "EXTERNAL"
+        }
       },
       {
-        "card_image": { "src": "", "alt": "Dynamic Agent Factory" },
+        "card_image": {
+          "src": "",
+          "alt": "Dynamic Agent Factory"
+        },
         "card_title": "Dynamic Agent Factory For Evolving Requirements",
-        "card_subtitle": "Dynamic Agent Factory creates specialized AI agents on demand from configuration, removing hardcoded systems.",
-        "card_link": { "content_id": null, "href": "#", "type": "EXTERNAL" }
+        "card_subtitle": "Dynamic Agent Factory creates specialized AI agents on demand from configuration, removing hardcoded systems and enabling rapid adaptation as requirements evolve.",
+        "card_link": {
+          "content_id": null,
+          "href": "/applied-insights/dynamic-agent-factory-for-evolving-requirements",
+          "type": "EXTERNAL"
+        }
       },
       {
-        "card_image": { "src": "", "alt": "MCP Protocol" },
+        "card_image": {
+          "src": "",
+          "alt": "MCP Protocol"
+        },
         "card_title": "MCP: One Protocol for All AI Connections",
-        "card_subtitle": "A standard client-server architecture for AI applications to connect to external systems.",
-        "card_link": { "content_id": null, "href": "#", "type": "EXTERNAL" }
+        "card_subtitle": "MCP is a standard client–server architecture that lets AI applications connect to external systems to perform actions, access data, and reuse prompt templates.",
+        "card_link": {
+          "content_id": null,
+          "href": "/applied-insights/mcp-one-protocol-for-all-ai-connections",
+          "type": "EXTERNAL"
+        }
       }
     ]
   }

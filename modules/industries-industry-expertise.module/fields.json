@@ -1,219 +1,263 @@
-[ {
-  "id" : "section_id",
-  "name" : "section_id",
-  "label" : "Section ID",
-  "required" : false,
-  "locked" : false,
-  "allow_new_line" : false,
-  "display_width" : null,
-  "type" : "text",
-  "default" : "segments"
-}, {
-  "id" : "badge",
-  "name" : "badge",
-  "label" : "Badge",
-  "required" : false,
-  "locked" : false,
-  "allow_new_line" : false,
-  "display_width" : null,
-  "type" : "text",
-  "default" : "INDUSTRY EXPERTISE"
-}, {
-  "id" : "title",
-  "name" : "title",
-  "label" : "Title",
-  "required" : false,
-  "locked" : false,
-  "allow_new_line" : false,
-  "display_width" : null,
-  "type" : "text",
-  "default" : "Tuned for Your\nBusiness Needs"
-}, {
-  "id" : "cards",
-  "name" : "cards",
-  "label" : "Cards",
-  "required" : false,
-  "locked" : false,
-  "occurrence" : {
-    "min" : 1,
-    "max" : 12,
-    "sorting_label_field" : null,
-    "default" : 6
+[
+  {
+    "id": "section_id",
+    "name": "section_id",
+    "label": "Section ID",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "display_width": null,
+    "type": "text",
+    "default": "segments"
   },
-  "children" : [ {
-    "id" : "cards.title",
-    "name" : "title",
-    "label" : "Title",
-    "required" : false,
-    "locked" : false,
-    "allow_new_line" : false,
-    "display_width" : null,
-    "type" : "text",
-    "default" : "Retail & Commercial Banking"
-  }, {
-    "id" : "cards.line",
-    "name" : "line",
-    "label" : "Supporting line",
-    "required" : false,
-    "locked" : false,
-    "allow_new_line" : false,
-    "display_width" : null,
-    "type" : "text",
-    "default" : "Deliver seamless omnichannel customer journeys powered by real-time intelligence"
-  }, {
-    "id" : "cards.hover_title",
-    "name" : "hover_title",
-    "label" : "Hover title",
-    "required" : false,
-    "locked" : false,
-    "allow_new_line" : false,
-    "display_width" : null,
-    "type" : "text",
-    "default" : "Retail & Commercial Banking"
-  }, {
-    "id" : "cards.hover_items",
-    "name" : "hover_items",
-    "label" : "Hover bullet points",
-    "required" : false,
-    "locked" : false,
-    "occurrence" : {
-      "min" : 0,
-      "max" : 6,
-      "sorting_label_field" : null,
-      "default" : 3
+  {
+    "id": "badge",
+    "name": "badge",
+    "label": "Badge",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "display_width": null,
+    "type": "text",
+    "default": "INDUSTRY EXPERTISE"
+  },
+  {
+    "id": "title",
+    "name": "title",
+    "label": "Title",
+    "required": false,
+    "locked": false,
+    "allow_new_line": false,
+    "display_width": null,
+    "type": "text",
+    "default": "Tuned for Your\nBusiness Needs"
+  },
+  {
+    "id": "cards",
+    "name": "cards",
+    "label": "Cards",
+    "required": false,
+    "locked": false,
+    "occurrence": {
+      "min": 1,
+      "max": 12,
+      "sorting_label_field": null,
+      "default": 6
     },
-    "children" : [ {
-      "id" : "cards.hover_items.text",
-      "name" : "text",
-      "label" : "Bullet text",
-      "required" : false,
-      "locked" : false,
-      "allow_new_line" : false,
-      "display_width" : null,
-      "type" : "text",
-      "default" : "Key capability"
-    } ],
-    "tab" : "CONTENT",
-    "expanded" : false,
-    "group_occurrence_meta" : null,
-    "display_width" : null,
-    "type" : "group"
-  }, {
-    "id" : "cards.image",
-    "name" : "image",
-    "label" : "Image",
-    "required" : false,
-    "locked" : false,
-    "responsive" : false,
-    "resizable" : true,
-    "show_loading" : false,
-    "display_width" : null,
-    "type" : "image",
-    "default" : {
-      "src" : "",
-      "alt" : null,
-      "size_type" : null,
-      "width" : null,
-      "height" : null,
-      "max_width" : null,
-      "max_height" : null,
-      "loading" : "disabled"
-    }
-  } ],
-  "tab" : "CONTENT",
-  "expanded" : false,
-  "group_occurrence_meta" : null,
-  "display_width" : null,
-  "type" : "group",
-  "default" : [ {
-    "title" : "Retail & Commercial Banking",
-    "line" : "Deliver seamless omnichannel customer journeys powered by real-time intelligence",
-    "hover_title" : "Retail & Commercial Banking",
-    "hover_items" : [ {
-      "text" : "Relationship intelligence turning transactions and cash flow data into meaningful conversations"
-    }, {
-      "text" : "Intelligent self-service resolving queries without escalation"
-    }, {
-      "text" : "Credit decisions from days to hours via EVOQ Underwriting Workbench for all borrowers"
-    } ],
-    "image" : {
-      "src" : "https://images.unsplash.com/photo-1696861273647-92dfe8bb697c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-      "alt" : "Retail & Commercial Banking"
-    }
-  }, {
-    "title" : "Credit Unions",
-    "line" : "Deepen member loyalty and amplify community impact via intelligent scale",
-    "hover_title" : "Credit Unions",
-    "hover_items" : [ {
-      "text" : "Member intelligence turning life events into proactive, community-focused financial support"
-    }, {
-      "text" : "Automated member-service resolving common inquiries instantly to focus staff on high-value advice"
-    }, {
-      "text" : "Shared infrastructure orchestration enabling credit unions to compete with national banks through intelligent scale"
-    } ],
-    "image" : {
-      "src" : "https://images.unsplash.com/photo-1533234944761-2f5337579079?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-      "alt" : "Credit Unions"
-    }
-  }, {
-    "title" : "Lending",
-    "line" : "Smarter credit decisioning and automated lifecycle management",
-    "hover_title" : "Lending",
-    "hover_items" : [ {
-      "text" : "Explainable credit decisioning with full Fair Lending compliance"
-    }, {
-      "text" : "Early warning signals on credits before they become NPLs"
-    }, {
-      "text" : "End-to-end digital origination with embedded document intelligence"
-    } ],
-    "image" : {
-      "src" : "https://images.unsplash.com/photo-1666018215790-867b14fe4822?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-      "alt" : "Lending"
-    }
-  }, {
-    "title" : "Cards & Payments",
-    "line" : "Secure, real-time payment ecosystems with personalized transaction experiences",
-    "hover_title" : "Cards & Payments",
-    "hover_items" : [ {
-      "text" : "Multi-layered fraud intelligence protecting revenue without degrading UX"
-    }, {
-      "text" : "Smart routing, FX intelligence & compliance checks in milliseconds"
-    }, {
-      "text" : "API-first infrastructure powering embedded finance partnerships"
-    } ],
-    "image" : {
-      "src" : "https://images.unsplash.com/photo-1633526544365-a98d534c9201?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-      "alt" : "Cards & Payments"
-    }
-  }, {
-    "title" : "Asset & Wealth Management",
-    "line" : "AI-powered platforms for enhanced client engagement with personalized advisory",
-    "hover_title" : "Asset & Wealth Management",
-    "hover_items" : [ {
-      "text" : "Portfolio intelligence & real-time next-best-action for advisors"
-    }, {
-      "text" : "Segment-of-one client journeys across every life stage"
-    }, {
-      "text" : "Automated regulatory filings, MiFID II, FATCA, and beyond"
-    } ],
-    "image" : {
-      "src" : "https://images.unsplash.com/photo-1761735486587-bcac08b15c79?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-      "alt" : "Asset & Wealth Management"
-    }
-  }, {
-    "title" : "Capital Markets",
-    "line" : "Optimize trade lifecycles and data integrity for real-time efficiency",
-    "hover_title" : "Capital Markets",
-    "hover_items" : [ {
-      "text" : "Live exposure monitoring and counterparty risk signals"
-    }, {
-      "text" : "Automated reconciliation and T+1 settlement readiness"
-    }, {
-      "text" : "EMIR, SFTR & MiFIR filings generated autonomously"
-    } ],
-    "image" : {
-      "src" : "https://images.unsplash.com/photo-1761233138997-44d9b002a08f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-      "alt" : "Capital Markets"
-    }
-  } ]
-} ]
+    "children": [
+      {
+        "id": "cards.title",
+        "name": "title",
+        "label": "Title",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "display_width": null,
+        "type": "text",
+        "default": "Retail & Commercial Banking"
+      },
+      {
+        "id": "cards.line",
+        "name": "line",
+        "label": "Supporting line",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "display_width": null,
+        "type": "text",
+        "default": "Deliver seamless omnichannel customer journeys powered by real-time intelligence"
+      },
+      {
+        "id": "cards.hover_title",
+        "name": "hover_title",
+        "label": "Hover title",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "display_width": null,
+        "type": "text",
+        "default": "Retail & Commercial Banking"
+      },
+      {
+        "id": "cards.hover_items",
+        "name": "hover_items",
+        "label": "Hover bullet points",
+        "required": false,
+        "locked": false,
+        "occurrence": {
+          "min": 0,
+          "max": 6,
+          "sorting_label_field": null,
+          "default": 3
+        },
+        "children": [
+          {
+            "id": "hover_items.text",
+            "name": "text",
+            "label": "Bullet text",
+            "required": false,
+            "locked": false,
+            "allow_new_line": false,
+            "display_width": null,
+            "type": "text",
+            "default": "Key capability"
+          }
+        ],
+        "tab": "CONTENT",
+        "expanded": false,
+        "group_occurrence_meta": null,
+        "display_width": null,
+        "type": "group"
+      },
+      {
+        "id": "cards.image",
+        "name": "image",
+        "label": "Image",
+        "required": false,
+        "locked": false,
+        "responsive": false,
+        "resizable": true,
+        "show_loading": false,
+        "display_width": null,
+        "type": "image",
+        "default": {
+          "src": "",
+          "alt": null,
+          "size_type": null,
+          "width": null,
+          "height": null,
+          "max_width": null,
+          "max_height": null,
+          "loading": "disabled"
+        }
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "display_width": null,
+    "type": "group",
+    "default": [
+      {
+        "title": "Retail & Commercial Banking",
+        "line": "Deliver seamless omnichannel customer journeys powered by real-time intelligence",
+        "hover_title": "Retail & Commercial Banking",
+        "hover_items": [
+          {
+            "text": "Relationship intelligence turning transactions and cash flow data into meaningful conversations"
+          },
+          {
+            "text": "Intelligent self-service resolving queries without escalation"
+          },
+          {
+            "text": "Credit decisions from days to hours via EVOQ Underwriting Workbench for all borrowers"
+          }
+        ],
+        "image": {
+          "src": "https://images.unsplash.com/photo-1696861273647-92dfe8bb697c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "Retail & Commercial Banking"
+        }
+      },
+      {
+        "title": "Credit Unions",
+        "line": "Deepen member loyalty and amplify community impact via intelligent scale",
+        "hover_title": "Credit Unions",
+        "hover_items": [
+          {
+            "text": "Member intelligence turning life events into proactive, community-focused financial support"
+          },
+          {
+            "text": "Automated member-service resolving common inquiries instantly to focus staff on high-value advice"
+          },
+          {
+            "text": "Shared infrastructure orchestration enabling credit unions to compete with national banks through intelligent scale"
+          }
+        ],
+        "image": {
+          "src": "https://images.unsplash.com/photo-1533234944761-2f5337579079?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "Credit Unions"
+        }
+      },
+      {
+        "title": "Lending",
+        "line": "Smarter credit decisioning and automated lifecycle management",
+        "hover_title": "Lending",
+        "hover_items": [
+          {
+            "text": "Explainable credit decisioning with full Fair Lending compliance"
+          },
+          {
+            "text": "Early warning signals on credits before they become NPLs"
+          },
+          {
+            "text": "End-to-end digital origination with embedded document intelligence"
+          }
+        ],
+        "image": {
+          "src": "https://images.unsplash.com/photo-1666018215790-867b14fe4822?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "Lending"
+        }
+      },
+      {
+        "title": "Cards & Payments",
+        "line": "Secure, real-time payment ecosystems with personalized transaction experiences",
+        "hover_title": "Cards & Payments",
+        "hover_items": [
+          {
+            "text": "Multi-layered fraud intelligence protecting revenue without degrading UX"
+          },
+          {
+            "text": "Smart routing, FX intelligence & compliance checks in milliseconds"
+          },
+          {
+            "text": "API-first infrastructure powering embedded finance partnerships"
+          }
+        ],
+        "image": {
+          "src": "https://images.unsplash.com/photo-1633526544365-a98d534c9201?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "Cards & Payments"
+        }
+      },
+      {
+        "title": "Asset & Wealth Management",
+        "line": "AI-powered platforms for enhanced client engagement with personalized advisory",
+        "hover_title": "Asset & Wealth Management",
+        "hover_items": [
+          {
+            "text": "Portfolio intelligence & real-time next-best-action for advisors"
+          },
+          {
+            "text": "Segment-of-one client journeys across every life stage"
+          },
+          {
+            "text": "Automated regulatory filings, MiFID II, FATCA, and beyond"
+          }
+        ],
+        "image": {
+          "src": "https://images.unsplash.com/photo-1761735486587-bcac08b15c79?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "Asset & Wealth Management"
+        }
+      },
+      {
+        "title": "Capital Markets",
+        "line": "Optimize trade lifecycles and data integrity for real-time efficiency",
+        "hover_title": "Capital Markets",
+        "hover_items": [
+          {
+            "text": "Live exposure monitoring and counterparty risk signals"
+          },
+          {
+            "text": "Automated reconciliation and T+1 settlement readiness"
+          },
+          {
+            "text": "EMIR, SFTR & MiFIR filings generated autonomously"
+          }
+        ],
+        "image": {
+          "src": "https://images.unsplash.com/photo-1761233138997-44d9b002a08f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "Capital Markets"
+        }
+      }
+    ]
+  }
+]

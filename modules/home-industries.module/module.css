@@ -1,0 +1,489 @@
+/* =====================================================
+   Home Industries Module
+   Prefix: home-ind  |  BEM: home-ind__element
+   ===================================================== */
+
+/* Section */
+.home-ind {
+  padding: 100px 0;
+  background: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.home-ind__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (min-width: 1024px) {
+  .home-ind__container {
+    padding: 0 40px;
+  }
+}
+
+/* ── Header ────────────────────────────────────────── */
+.home-ind__header {
+  margin-bottom: 64px;
+  max-width: 56rem;
+}
+
+/* SectionBadge (light) — IndustriesSection.tsx */
+.home-ind__badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.home-ind__badge-line {
+  display: block;
+  width: 16px;
+  height: 2px;
+  flex-shrink: 0;
+  background-color: #194247;
+}
+
+.home-ind__badge-text {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #194247;
+  line-height: 1.2;
+}
+
+.home-ind__title {
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 1.15;
+  color: #194247;
+  margin: 0 0 24px;
+  letter-spacing: -0.02em;
+}
+
+.home-ind__subtitle {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #556467;
+  margin: 0;
+  max-width: 56rem;
+}
+
+.home-ind__subtitle p {
+  margin: 0;
+}
+
+/* ── Grid ──────────────────────────────────────────── */
+.home-ind__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* ── Left Column — Industry List ───────────────────── */
+.home-ind__list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Row (each industry) */
+.home-ind__row {
+  border-bottom: 1px solid rgba(140, 161, 163, 0.3);
+}
+
+.home-ind__row:last-child {
+  border-bottom: none;
+}
+
+/* Row Header */
+.home-ind__row-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 12px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: background 300ms ease, color 300ms ease, box-shadow 300ms ease;
+  user-select: none;
+}
+
+.home-ind__row-header:hover {
+  background: #f9fafb;
+}
+
+.home-ind__row-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  border-radius: 8px;
+  background: #f3f4f6;
+  color: #556467;
+  transition: background 300ms ease, color 300ms ease;
+}
+
+.home-ind__row-name {
+  flex: 1;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 400;
+  color: #556467;
+  transition: color 300ms ease;
+}
+
+/* Active Row Header — figma uses to-right gradient */
+.home-ind__row.is-active .home-ind__row-header {
+  background: linear-gradient(90deg, #194247 0%, #337077 100%);
+  box-shadow: 0 10px 25px -5px rgba(25, 66, 71, 0.3);
+}
+
+.home-ind__row.is-active .home-ind__row-header:hover {
+  background: linear-gradient(90deg, #194247 0%, #337077 100%);
+}
+
+.home-ind__row.is-active .home-ind__row-icon {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.home-ind__row.is-active .home-ind__row-name {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* Row Body (expanded content) */
+.home-ind__row-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 400ms ease;
+}
+
+.home-ind__row.is-active .home-ind__row-body {
+  max-height: 400px;
+}
+
+.home-ind__row-body-inner {
+  padding: 24px;
+  background: #f6f8f9;
+  border-radius: 0 0 12px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.home-ind__row-body-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.home-ind__row-desc {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #194247;
+  margin: 0;
+}
+
+/* Pills */
+.home-ind__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.home-ind__pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 20px;
+  background: #f6f8f9;
+  border: 1px solid rgba(140, 161, 163, 0.3);
+  font-size: 14px;
+  font-weight: 500;
+  color: #556467;
+  white-space: nowrap;
+  transition: border-color 300ms ease, color 300ms ease, background 300ms ease;
+}
+
+.home-ind__pill:hover {
+  border-color: #337077;
+  color: #337077;
+  background: #ffffff;
+}
+
+/* Learn More Link */
+.home-ind__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #337077;
+  text-decoration: none;
+  transition: color 250ms ease;
+  width: fit-content;
+}
+
+.home-ind__link:hover,
+.home-ind__link:focus-visible {
+  color: #194247;
+}
+
+.home-ind__link span {
+  transition: text-decoration-color 250ms ease;
+}
+
+.home-ind__link:hover span,
+.home-ind__link:focus-visible span {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.home-ind__link svg {
+  transition: transform 300ms ease;
+}
+
+.home-ind__link:hover svg,
+.home-ind__link:focus-visible svg {
+  transform: translateX(4px);
+}
+
+/* ── Right Column — Image Panel ────────────────────── */
+.home-ind__panel {
+  position: sticky;
+  top: 128px;
+  height: 700px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.home-ind__panel-images {
+  position: absolute;
+  inset: 0;
+}
+
+.home-ind__panel-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 600ms ease;
+}
+
+.home-ind__panel-img.is-active {
+  opacity: 1;
+}
+
+.home-ind__panel-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    #0c2226 0%,
+    rgba(12, 34, 38, 0.4) 50%,
+    #ffffff 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.home-ind__panel-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px;
+  z-index: 2;
+}
+
+.home-ind__panel-info {
+  display: none;
+}
+
+.home-ind__panel-info.is-active {
+  display: block;
+  animation: homeIndFadeIn 400ms ease forwards;
+}
+
+@keyframes homeIndFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.home-ind__panel-tag {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #52E081;
+  margin-bottom: 12px;
+}
+
+.home-ind__panel-punchline {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #ffffff;
+  margin: 0 0 12px;
+}
+
+.home-ind__panel-desc {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+/* ── Pagination Dots ───────────────────────────────── */
+.home-ind__dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 48px;
+}
+
+.home-ind__dot {
+  height: 4px;
+  width: 12px;
+  border-radius: 9999px;
+  background: #d1d5db;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+
+.home-ind__dot.is-active {
+  width: 40px;
+  background: #194247;
+}
+
+.home-ind__dot:hover:not(.is-active) {
+  background: #8CA1A3;
+}
+
+/* =====================================================
+   Responsive
+   ===================================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .home-ind {
+    padding: 80px 0;
+  }
+
+  .home-ind__container {
+    padding: 0 32px;
+  }
+
+  .home-ind__title {
+    font-size: 40px;
+  }
+
+  .home-ind__subtitle {
+    font-size: 18px;
+  }
+
+  .home-ind__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .home-ind__panel {
+    position: relative;
+    top: auto;
+    height: 400px;
+    order: -1;
+  }
+
+  .home-ind__panel-punchline {
+    font-size: 26px;
+  }
+
+  .home-ind__panel-content {
+    padding: 32px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .home-ind {
+    padding: 60px 0;
+  }
+
+  .home-ind__container {
+    padding: 0 24px;
+  }
+
+  .home-ind__header {
+    margin-bottom: 40px;
+  }
+
+  .home-ind__title {
+    font-size: 32px;
+  }
+
+  .home-ind__subtitle {
+    font-size: 16px;
+  }
+
+  .home-ind__panel {
+    height: 300px;
+    border-radius: 16px;
+  }
+
+  .home-ind__panel-punchline {
+    font-size: 22px;
+  }
+
+  .home-ind__panel-content {
+    padding: 24px;
+  }
+
+  .home-ind__panel-desc {
+    font-size: 14px;
+  }
+
+  .home-ind__row-header {
+    padding: 14px 16px;
+    gap: 12px;
+  }
+
+  .home-ind__row-body-inner {
+    padding: 20px;
+  }
+
+  .home-ind__row-desc {
+    font-size: 15px;
+  }
+
+  .home-ind__pills {
+    gap: 8px;
+  }
+
+  .home-ind__pill {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+
+  .home-ind__dots {
+    margin-top: 32px;
+    gap: 8px;
+  }
+}

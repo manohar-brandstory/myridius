@@ -1,8 +1,69 @@
 .applied-ins-hero {
   position: relative;
-  background: #0c2226;
   overflow: hidden;
   font-family: var(--font-family), 'Montserrat', sans-serif;
+}
+
+/* Light strip — matches industries-breadcrumb typography & colors */
+.applied-ins-hero__breadcrumbStrip {
+  background: var(--color-surface);
+  padding: 26px var(--gutter, 24px) 0;
+}
+
+.applied-ins-hero__breadcrumbInner {
+  max-width: var(--container-max, 1280px);
+  margin: 0 auto;
+}
+
+.applied-ins-hero__crumbList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.applied-ins-hero__crumbItem {
+  display: inline-flex;
+  align-items: center;
+}
+
+.applied-ins-hero__crumbLink,
+.applied-ins-hero__crumbLabel {
+  font-family: var(--font-family);
+  font-weight: 500 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #556467;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.applied-ins-hero__crumbLink:hover {
+  color: var(--color-brand-1);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.applied-ins-hero__crumbItem--active .applied-ins-hero__crumbLabel {
+  color: var(--color-brand-2);
+  font-weight: 500 !important;
+  font-size: 15px;
+}
+
+.applied-ins-hero__crumbSep {
+  color: rgba(85, 100, 103, 0.4);
+  font-size: 12px;
+  font-weight: 300;
+}
+
+/* Dark hero stage */
+.applied-ins-hero__stage {
+  position: relative;
+  background: #0c2226;
+  overflow: hidden;
 }
 
 .applied-ins-hero__bg {
@@ -31,41 +92,6 @@
   margin: 0 auto;
   padding: 80px var(--gutter, 24px) 64px;
   color: #fff;
-}
-
-.applied-ins-hero__crumb {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 48px;
-  font-size: 14px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  font-weight: 500;
-  animation: applied-ins-hero-crumbIn 0.6s ease both;
-}
-
-.applied-ins-hero__crumbLink {
-  color: rgba(255, 255, 255, 0.6);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.applied-ins-hero__crumbLink:hover {
-  color: #52e081;
-  text-decoration: underline;
-}
-
-.applied-ins-hero__crumbSep {
-  color: rgba(255, 255, 255, 0.2);
-  font-size: 12px;
-  font-weight: 300;
-}
-
-.applied-ins-hero__crumbActive {
-  color: #52e081;
-  font-weight: 500;
-  font-size: 15px;
 }
 
 .applied-ins-hero__gradient {
@@ -100,12 +126,12 @@
   margin: 0;
 }
 
-@keyframes applied-ins-hero-crumbIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
 @media (max-width: 768px) {
+  /* Match industries: hide breadcrumb on mobile */
+  .applied-ins-hero__breadcrumbStrip {
+    display: none !important;
+  }
+
   .applied-ins-hero__gradient {
     font-size: 38px;
   }

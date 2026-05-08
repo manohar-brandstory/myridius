@@ -1,0 +1,41 @@
+{# Home - The Shift — matches NewHomePage TheShift #}
+{% require_css %}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap">
+{% end_require_css %}
+
+<section class="home-shift" data-home-shift aria-label="{{ module.badge_text }}">
+  <div class="home-shift__container">
+
+    <header class="home-shift__header" data-shift-intro>
+      <div class="home-shift__badge">
+        <span class="home-shift__badge-line" aria-hidden="true"></span>
+        <span class="home-shift__badge-text">{{ module.badge_text }}</span>
+      </div>
+      <h2 class="home-shift__heading">{{ module.heading }}</h2>
+      <div class="home-shift__subheading">{{ module.subheading }}</div>
+    </header>
+
+    <div class="home-shift__cards" data-shift-cards>
+      {% for stage in module.stages %}
+        <div class="home-shift__card home-shift__card--preset-{{ loop.index0 % 4 }}"
+             role="article"
+             data-shift-card
+             tabindex="0">
+          <div class="home-shift__card-inner">
+            <div class="home-shift__card-content">
+              <span class="home-shift__card-index">{{ stage.index }}</span>
+              <span class="home-shift__card-stage">{{ stage.stage_label }}</span>
+              <h3 class="home-shift__card-title">{{ stage.title }}</h3>
+              <p class="home-shift__card-desc">{{ stage.description }}</p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    {% if module.footer_text %}
+      <div class="home-shift__footer">{{ module.footer_text }}</div>
+    {% endif %}
+
+  </div>
+</section>

@@ -1,0 +1,119 @@
+{# Home — Success Stories — matches export strip + horizontal snap #}
+{% require_css %}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+{% end_require_css %}
+
+<section class="home-stories" aria-label="{{ module.badge_text }}">
+  <div class="home-stories__container">
+
+    <div class="home-stories__masthead">
+      <div class="home-stories__badge">
+        <span class="home-stories__badge-line" aria-hidden="true"></span>
+        <p class="home-stories__badge-text">{{ module.badge_text }}</p>
+      </div>
+      <div class="home-stories__intro">
+        <h2 class="home-stories__title">{{ module.heading }}</h2>
+        <div class="home-stories__subtitle">{{ module.subheading }}</div>
+      </div>
+    </div>
+
+    <div class="home-stories__viewport">
+      <div class="home-stories__track" id="homeStoriesTrack">
+        {% for story in module.stories %}
+          <article class="home-stories__card" data-story-index="{{ loop.index0 }}" tabindex="0">
+            <div class="home-stories__card-media">
+              {% if story.image.src %}
+                <img
+                  class="home-stories__card-bg"
+                  src="{{ story.image.src }}"
+                  alt="{{ story.image.alt }}"
+                  loading="lazy"
+                >
+              {% endif %}
+              <div class="home-stories__card-overlay" aria-hidden="true"></div>
+            </div>
+
+            <div class="home-stories__card-frame">
+              <div class="home-stories__panel">
+                <div class="home-stories__tag-row">
+                  <span class="home-stories__tag">{{ story.tag }}</span>
+                </div>
+
+                <div class="home-stories__panel-stack">
+                  <div class="home-stories__panel-swap">
+                    {# Default content — metric forward #}
+                    <div class="home-stories__panel-default">
+                      <div class="home-stories__stat">
+                        <h3 class="home-stories__metric">{{ story.metric }}</h3>
+                        <p class="home-stories__metric-label">{{ story.metric_label }}</p>
+                      </div>
+                      <h4 class="home-stories__card-title">{{ story.title }}</h4>
+                    </div>
+
+                    {# Hover content — description + bullets #}
+                    <div class="home-stories__panel-hover">
+                      <h4 class="home-stories__card-title home-stories__card-title--hover">{{ story.title }}</h4>
+                      <div class="home-stories__hover-body">
+                        {% if story.description %}
+                          <p class="home-stories__desc">{{ story.description }}</p>
+                        {% endif %}
+                        {% if story.bullets %}
+                          <ul class="home-stories__bullets">
+                            {% for bullet in story.bullets %}
+                              <li class="home-stories__bullet">
+                                <span class="home-stories__bullet-arrow" aria-hidden="true">&rarr;</span>
+                                <span class="home-stories__bullet-text">{{ bullet.text }}</span>
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+
+                  {% if story.link_url.href %}
+                    <a
+                      class="home-stories__cta"
+                      href="{{ story.link_url.href }}"
+                      {% if story.link_url.type == "EXTERNAL" %}target="_blank" rel="noopener noreferrer"{% endif %}
+                    >
+                      <span class="home-stories__cta-text">LEARN MORE</span>
+                      <svg class="home-stories__cta-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="m12 5 7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </a>
+                  {% else %}
+                    <div class="home-stories__cta home-stories__cta--static">
+                      <span class="home-stories__cta-text">LEARN MORE</span>
+                      <svg class="home-stories__cta-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="m12 5 7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="home-stories__controls">
+      <button type="button" class="home-stories__arrow home-stories__arrow--prev" aria-label="Previous story" id="homeStoriesPrev">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="m15 18-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <div class="home-stories__pages" id="homeStoriesPages" aria-label="Story index"></div>
+
+      <button type="button" class="home-stories__arrow home-stories__arrow--next" aria-label="Next story" id="homeStoriesNext">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="m9 18 6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>

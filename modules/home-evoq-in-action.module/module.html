@@ -1,0 +1,113 @@
+{# Home — Evoq In Action — matches Homepage [EXPORT]/EvoqInAction.tsx #}
+{% require_css %}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+{% end_require_css %}
+
+<section class="home-evoq" aria-label="{{ module.badge_text }}">
+  <div class="home-evoq__container">
+
+    <header class="home-evoq__masthead" data-evoq-intro>
+      <div class="home-evoq__badge-row">
+        <span class="home-evoq__badge-line" aria-hidden="true"></span>
+        <span class="home-evoq__badge-text">{{ module.badge_text }}</span>
+      </div>
+      <h2 class="home-evoq__heading">
+        {{ module.heading_lead }}<br>
+        <span class="home-evoq__heading-accent">{{ module.heading_accent }}</span>
+      </h2>
+    </header>
+
+    <div class="home-evoq__track">
+      {% for card in module.cards %}
+        {% set gx = loop.index %}
+        {# Lucide stroke paths — EvoqAction svg-g1d3xg7ox3 — card index maps to presets #}
+        {% if loop.index0 % 4 == 0 %}
+          {% set svg_path %}M5.40181 5.50884C5.16014 5.08933 5.02358 4.61757 5.00381 4.13384C4.98596 3.73427 5.0482 3.33516 5.18686 2.95999C5.32552 2.58482 5.53779 2.24117 5.81121 1.94924C6.08462 1.65732 6.41365 1.42301 6.77895 1.26011C7.14424 1.0972 7.53842 1.00899 7.9383 1.00065C8.33819 0.992316 8.7357 1.06403 9.10746 1.21157C9.47923 1.35911 9.81773 1.5795 10.1031 1.85979C10.3884 2.14007 10.6148 2.47457 10.769 2.84364C10.9232 3.2127 11.002 3.60887 11.0008 4.00884V17.0088M5.00381 4.13384C4.41601 4.28498 3.87031 4.56789 3.40804 4.96115C2.94577 5.35441 2.57905 5.84771 2.33565 6.40369C2.09225 6.95966 1.97857 7.56373 2.0032 8.17015C2.02783 8.77657 2.19013 9.36943 2.47781 9.90384M3.06281 9.50884C2.85651 9.62333 2.66075 9.75485 2.47781 9.90384C1.97199 10.3148 1.57423 10.8431 1.31915 11.4428C1.06406 12.0425 0.959365 12.6954 1.01417 13.3448C1.06898 13.9942 1.28162 14.6204 1.63361 15.1689C1.9856 15.7173 2.46627 16.1715 3.03381 16.4918M3.03381 16.4918C2.96372 17.0341 3.00555 17.5849 3.15669 18.1104C3.30784 18.6358 3.5651 19.1247 3.91259 19.5468C4.26008 19.9689 4.69042 20.3153 5.17703 20.5646C5.66364 20.8139 6.19618 20.9608 6.74178 20.9962C7.28738 21.0316 7.83445 20.9548 8.34919 20.7705C8.86394 20.5861 9.33544 20.2983 9.73457 19.9246C10.1337 19.5509 10.452 19.0994 10.6698 18.5979C10.8876 18.0964 11.0002 17.5556 11.0008 17.0088M3.03381 16.4918C3.63407 16.8304 4.31164 17.0092 5.00081 17.0088M11.0008 17.0088H17.0008C17.5312 17.0088 18.0399 17.2196 18.415 17.5946C18.7901 17.9697 19.0008 18.4784 19.0008 19.0088V20.0088M8.00081 12.0088C8.84036 11.7135 9.57349 11.1758 10.1075 10.4638C10.6415 9.75185 10.9524 8.89751 11.0008 8.00884M11.0008 12.0088H15.0008M11.0008 7.00884H19.0008M15.0008 7.00884V4.00884C15.0008 3.47841 15.2115 2.9697 15.5866 2.59463C15.9617 2.21955 16.4704 2.00884 17.0008 2.00884M15.5008 12.0088C15.5008 12.285 15.2769 12.5088 15.0008 12.5088C14.7247 12.5088 14.5008 12.285 14.5008 12.0088C14.5008 11.7327 14.7247 11.5088 15.0008 11.5088C15.2769 11.5088 15.5008 11.7327 15.5008 12.0088ZM17.5008 2.00884C17.5008 2.28498 17.2769 2.50884 17.0008 2.50884C16.7247 2.50884 16.5008 2.28498 16.5008 2.00884C16.5008 1.7327 16.7247 1.50884 17.0008 1.50884C17.2769 1.50884 17.5008 1.7327 17.5008 2.00884ZM19.5008 20.0088C19.5008 20.285 19.2769 20.5088 19.0008 20.5088C18.7247 20.5088 18.5008 20.285 18.5008 20.0088C18.5008 19.7327 18.7247 19.5088 19.0008 19.5088C19.2769 19.5088 19.5008 19.7327 19.5008 20.0088ZM19.5008 7.00884C19.5008 7.28498 19.2769 7.50884 19.0008 7.50884C18.7247 7.50884 18.5008 7.28498 18.5008 7.00884C18.5008 6.7327 18.7247 6.50884 19.0008 6.50884C19.2769 6.50884 19.5008 6.7327 19.5008 7.00884Z{% endset %}
+        {% elif loop.index0 % 4 == 1 %}
+          {% set svg_path %}M5 9V13C5 13.5304 5.21071 14.0391 5.58579 14.4142C5.96086 14.7893 6.46957 15 7 15H11M3 1H7C8.10457 1 9 1.89543 9 3V7C9 8.10457 8.10457 9 7 9H3C1.89543 9 1 8.10457 1 7V3C1 1.89543 1.89543 1 3 1ZM13 11H17C18.1046 11 19 11.8954 19 13V17C19 18.1046 18.1046 19 17 19H13C11.8954 19 11 18.1046 11 17V13C11 11.8954 11.8954 11 13 11Z{% endset %}
+        {% elif loop.index0 % 4 == 2 %}
+          {% set svg_path %}M11 19V21M11 1V3M16 19V21M16 1V3M1 11H3M1 16H3M1 6H3M19 11H21M19 16H21M19 6H21M6 19V21M6 1V3M5 3H17C18.1046 3 19 3.89543 19 5V17C19 18.1046 18.1046 19 17 19H5C3.89543 19 3 18.1046 3 17V5C3 3.89543 3.89543 3 5 3ZM8 7H14C14.5523 7 15 7.44772 15 8V14C15 14.5523 14.5523 15 14 15H8C7.44772 15 7 14.5523 7 14V8C7 7.44772 7.44772 7 8 7Z{% endset %}
+        {% else %}
+          {% set svg_path %}M19.5 26.0556V35.5M26.7 22.2778V35.5M33.9 14.7222V35.5M37.5 1.5L21.9372 17.8313C21.8536 17.9193 21.7543 17.9891 21.6449 18.0367C21.5356 18.0843 21.4184 18.1088 21.3 18.1088C21.1816 18.1088 21.0644 18.0843 20.9551 18.0367C20.8457 17.9891 20.7464 17.9193 20.6628 17.8313L14.7372 11.6131C14.5684 11.4361 14.3395 11.3366 14.1009 11.3366C13.8623 11.3366 13.6334 11.4361 13.4646 11.6131L1.5 24.1667M5.1 29.8333V35.5M12.3 22.2778V35.5{% endset %}
+          {% set svg_vb %}0 0 40 40{% endset %}
+        {% endif %}
+        {% if svg_vb is not defined %}
+          {% set svg_vb %}0 0 24 24{% endset %}
+        {% endif %}
+        {% if loop.index0 % 4 == 0 %}
+          {% set patt = 0.06 %}
+          {% set grad %}linear-gradient(135deg, #071417 0%, #0c2226 40%, #194247 100%){% endset %}
+        {% elif loop.index0 % 4 == 1 %}
+          {% set patt = 0.05 %}
+          {% set grad %}linear-gradient(135deg, #0c2226 0%, #071417 50%, #194247 100%){% endset %}
+        {% elif loop.index0 % 4 == 2 %}
+          {% set patt = 0.07 %}
+          {% set grad %}linear-gradient(135deg, #071417 0%, #0c2226 40%, #337077 100%){% endset %}
+        {% else %}
+          {% set patt = 0.06 %}
+          {% set grad %}linear-gradient(135deg, #071417 0%, #194247 60%, #0c2226 100%){% endset %}
+        {% endif %}
+
+        <div class="home-evoq__shell{% if loop.first %} is-expanded{% endif %}"
+             role="button"
+             data-evoq-card="{{ loop.index0 }}"
+             tabindex="0"
+             aria-expanded="{% if loop.first %}true{% else %}false{% endif %}">
+          <div class="home-evoq__face" style="background: {{ grad }};">
+            <svg class="home-evoq__grid-svg" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="opacity: {{ patt }};">
+              <defs>
+                <pattern id="evoq-grid-{{ gx }}" width="32" height="32" patternUnits="userSpaceOnUse">
+                  <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#52E081" stroke-width="0.5"/>
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#evoq-grid-{{ gx }})"/>
+            </svg>
+
+            <div class="home-evoq__blob" aria-hidden="true"></div>
+            <div class="home-evoq__corner" aria-hidden="true"></div>
+            <div class="home-evoq__ring" aria-hidden="true"></div>
+
+            <div class="home-evoq__inner">
+              <div class="home-evoq__num-row">
+                <span class="home-evoq__num">{{ card.number }}</span>
+              </div>
+              <div class="home-evoq__body-col">
+                <div class="home-evoq__collapsed">
+                  <div class="home-evoq__c-stack">
+                    <div class="home-evoq__c-icon">
+                      <svg viewBox="{{ svg_vb }}" fill="none" class="home-evoq__icon-svg" aria-hidden="true">
+                        <path d="{{ svg_path }}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </div>
+                    <div class="home-evoq__c-label">{{ card.title }}</div>
+                  </div>
+                </div>
+                <div class="home-evoq__expanded">
+                  <div class="home-evoq__e-stack">
+                    <div class="home-evoq__e-icon-wrap">
+                      <div class="home-evoq__e-icon-inner">
+                        <svg viewBox="{{ svg_vb }}" fill="none" class="home-evoq__icon-svg home-evoq__icon-svg--accent" aria-hidden="true">
+                          <path d="{{ svg_path }}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="home-evoq__e-titles">
+                      <h3 class="home-evoq__e-title">{{ card.title }}</h3>
+                      {% if card.subtitle %}
+                        <p class="home-evoq__e-sub">{{ card.subtitle }}</p>
+                      {% endif %}
+                    </div>
+                    <div class="home-evoq__e-rule" aria-hidden="true"></div>
+                    <p class="home-evoq__e-desc">{{ card.description }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {% endfor %}
+      </div>
+
+  </div>
+</section>

@@ -3,19 +3,22 @@
     "name": "section_id",
     "label": "Section ID",
     "type": "text",
-    "default": "services-resources"
+    "default": "services-resources",
+    "id": "section_id"
   },
   {
     "name": "badge_text",
     "label": "Badge Text",
     "type": "text",
-    "default": "RESOURCES"
+    "default": "RESOURCES",
+    "id": "badge_text"
   },
   {
     "name": "heading",
     "label": "Heading",
     "type": "text",
-    "default": "Featured: Ambition in Action"
+    "default": "Featured: Ambition in Action",
+    "id": "heading"
   },
   {
     "name": "resources",
@@ -31,13 +34,15 @@
         "name": "category",
         "label": "Category",
         "type": "text",
-        "default": "EBOOK"
+        "default": "EBOOK",
+        "id": "resources.category"
       },
       {
         "name": "title",
         "label": "Title",
         "type": "text",
-        "default": ""
+        "default": "",
+        "id": "resources.title"
       },
       {
         "name": "image",
@@ -46,7 +51,8 @@
         "default": {
           "src": "",
           "alt": ""
-        }
+        },
+        "id": "resources.image"
       },
       {
         "name": "url",
@@ -57,7 +63,11 @@
           "href": "#",
           "type": "EXTERNAL"
         },
-        "supported_types": ["EXTERNAL", "CONTENT"]
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT"
+        ],
+        "id": "resources.url"
       }
     ],
     "default": [
@@ -100,6 +110,7 @@
           "type": "EXTERNAL"
         }
       }
-    ]
+    ],
+    "id": "resources"
   }
 ]

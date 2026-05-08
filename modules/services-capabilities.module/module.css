@@ -53,7 +53,7 @@
 
 .svc-cap__subtitle {
   font-family: var(--font-family, "Montserrat", sans-serif);
-  font-size: 24px;
+  font-size: 20px;
   color: var(--color-brand-2, #337077);
   max-width: 48rem;
   line-height: 1.6;
@@ -276,7 +276,7 @@
 @media (max-width: 1024px) {
   .svc-cap { padding: 80px 40px; }
 
-  .svc-cap__heading { font-size: 40px; }
+  .svc-cap__heading { font-size: 48px; }
   .svc-cap__subtitle { font-size: 20px; }
 
   .svc-cap__collapsed { padding: 24px 28px; gap: 20px; }

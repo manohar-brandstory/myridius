@@ -13,7 +13,7 @@
     },
     "children": [
       {
-        "id": "crumb_text",
+        "id": "breadcrumbs.crumb_text",
         "name": "crumb_text",
         "label": "Breadcrumb Text",
         "type": "text",
@@ -22,13 +22,16 @@
         "default": ""
       },
       {
-        "id": "crumb_url",
+        "id": "breadcrumbs.crumb_url",
         "name": "crumb_url",
         "label": "Breadcrumb URL",
         "type": "url",
         "required": false,
         "locked": false,
-        "supported_types": ["EXTERNAL", "CONTENT"],
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT"
+        ],
         "default": {
           "content_id": null,
           "href": "",
@@ -39,15 +42,27 @@
     "default": [
       {
         "crumb_text": "Myridius",
-        "crumb_url": { "content_id": null, "href": "/", "type": "EXTERNAL" }
+        "crumb_url": {
+          "content_id": null,
+          "href": "/",
+          "type": "EXTERNAL"
+        }
       },
       {
         "crumb_text": "Innovation",
-        "crumb_url": { "content_id": null, "href": "/innovation", "type": "EXTERNAL" }
+        "crumb_url": {
+          "content_id": null,
+          "href": "/innovation",
+          "type": "EXTERNAL"
+        }
       },
       {
         "crumb_text": "Applied Insights",
-        "crumb_url": { "content_id": null, "href": "/applied-insights", "type": "EXTERNAL" }
+        "crumb_url": {
+          "content_id": null,
+          "href": "/applied-insights",
+          "type": "EXTERNAL"
+        }
       }
     ]
   },
@@ -67,7 +82,7 @@
     "type": "text",
     "required": false,
     "locked": false,
-    "default": "Stay ahead of what\u2019s next, grounded in what works"
+    "default": "Stay ahead of what’s next, grounded in what works"
   },
   {
     "id": "description_text",

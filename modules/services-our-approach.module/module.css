@@ -17,7 +17,7 @@
 .svc-approach__badge {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 10px;
   margin-bottom: 32px;
 }
 
@@ -55,7 +55,7 @@
 
 .svc-approach__subtitle {
   font-family: var(--font-family, 'Montserrat', sans-serif);
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 400;
   line-height: 1.5;
   color: var(--color-brand-2, #337077);
@@ -163,7 +163,7 @@
 }
 
 .svc-approach__card:hover .svc-approach__card-idle {
-  transform: translateY(-80px);
+  transform: translateY(-56px);
 }
 
 .svc-approach__card:hover .svc-approach__card-label {
@@ -200,7 +200,7 @@
   font-weight: 400;
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.9);
-  margin: 0 0 24px;
+  margin: 0 0 16px;
   text-align: left;
 }
 
@@ -250,7 +250,7 @@
   }
 
   .svc-approach__heading {
-    font-size: 40px;
+    font-size: 48px;
     margin-bottom: 20px;
   }
 

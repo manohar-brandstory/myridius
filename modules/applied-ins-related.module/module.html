@@ -9,10 +9,10 @@
         data-applied-ins-carousel
         data-total="{{ cards_count }}"
       >
-        <div class="applied-ins-related__viewport">
+        <div class="applied-ins-related__viewport" data-applied-ins-viewport>
           <div class="applied-ins-related__track" data-applied-ins-track>
             {% for card in module.related_cards %}
-              <div class="applied-ins-related__slide">
+              <div class="applied-ins-related__slide" data-applied-ins-slide>
                 <a class="applied-ins-related__card" href="{{ card.card_link.href }}">
                   {% if card.card_image.src %}
                     <img class="applied-ins-related__img" src="{{ card.card_image.src }}" alt="{{ card.card_image.alt|default(card.card_title, true) }}" loading="lazy">
@@ -48,6 +48,20 @@
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
           </button>
+
+          <div class="applied-ins-related__mobNav" data-applied-ins-mob-nav>
+            <button class="applied-ins-related__mobPrev" type="button" aria-label="Previous insight" data-applied-ins-mob-prev>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="#337077" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="applied-ins-related__mobPager">
+              <span class="applied-ins-related__mobCurrent" data-applied-ins-mob-cur>01</span>
+              <span class="applied-ins-related__mobSep">/</span>
+              <span class="applied-ins-related__mobTotal" data-applied-ins-mob-total>01</span>
+            </div>
+            <button class="applied-ins-related__mobNext" type="button" aria-label="Next insight" data-applied-ins-mob-next>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="#337077" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
         {% endif %}
       </div>
     {% endif %}

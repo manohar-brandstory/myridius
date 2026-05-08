@@ -1,0 +1,437 @@
+/* Home — Evoq In Action (EvoqInAction.tsx) */
+
+.home-evoq {
+  background-color: #071417;
+  padding: 100px 24px;
+  overflow: hidden;
+  font-family: 'Montserrat', system-ui, sans-serif;
+}
+
+@media (min-width: 768px) {
+  .home-evoq {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
+
+.home-evoq__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-evoq__masthead {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .home-evoq__shell {
+    transition: none !important;
+  }
+
+  .home-evoq__blob {
+    transition: none !important;
+  }
+
+  .home-evoq__ring {
+    transition: none !important;
+  }
+}
+
+/* Masthead */
+.home-evoq__masthead {
+  margin-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.home-evoq__masthead.is-in-view {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+@media (min-width: 768px) {
+  .home-evoq__masthead {
+    margin-bottom: 64px;
+  }
+}
+
+.home-evoq__badge-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.home-evoq__badge-line {
+  width: 16px;
+  height: 1.33px;
+  border-radius: 9999px;
+  background-color: #52e081;
+  flex-shrink: 0;
+}
+
+.home-evoq__badge-text {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #52e081;
+  line-height: 1.2;
+}
+
+.home-evoq__heading {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  .home-evoq__heading {
+    font-size: 48px;
+  }
+}
+
+.home-evoq__heading-accent {
+  color: #52e081;
+}
+
+/* Track */
+.home-evoq__track {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .home-evoq__track {
+    flex-direction: row;
+    height: 480px;
+    align-items: stretch;
+  }
+}
+
+/* Width shell */
+.home-evoq__shell {
+  flex-shrink: 0;
+  width: 100%;
+  transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  outline: none;
+}
+
+@media (min-width: 768px) {
+  .home-evoq__shell {
+    width: 140px;
+  }
+
+  .home-evoq__shell.is-expanded {
+    width: 600px;
+  }
+}
+
+.home-evoq__shell:focus-visible {
+  box-shadow: 0 0 0 2px rgba(82, 224, 129, 0.5);
+}
+
+/* Card face */
+.home-evoq__face {
+  position: relative;
+  height: auto;
+  min-height: 100px;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .home-evoq__face {
+    height: 480px;
+    min-height: unset;
+  }
+}
+
+.home-evoq__grid-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.home-evoq__blob {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  bottom: -60px;
+  left: -40px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(82, 224, 129, 0.133) 0%, transparent 70%);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.home-evoq__shell.is-expanded .home-evoq__blob {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.home-evoq__corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 120px;
+  height: 120px;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(circle at right top, rgba(82, 224, 129, 0.08) 0%, transparent 70%);
+}
+
+.home-evoq__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  pointer-events: none;
+  z-index: 2;
+  box-shadow: rgba(82, 224, 129, 0.25) 0 0 0 1px inset;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.home-evoq__shell.is-expanded .home-evoq__ring {
+  opacity: 1;
+}
+
+/* Inner layout — justify-between: number top, content bottom */
+.home-evoq__inner {
+  position: relative;
+  z-index: 10;
+  box-sizing: border-box;
+  min-height: 280px;
+  height: 100%;
+  padding: 28px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+  .home-evoq__inner {
+    padding: 36px 36px;
+    min-height: 0;
+  }
+}
+
+.home-evoq__num-row {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.home-evoq__num {
+  font-family: 'Montserrat', system-ui, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: rgba(255, 255, 255, 0.25);
+  transition: color 0.3s ease;
+}
+
+.home-evoq__shell.is-expanded .home-evoq__num {
+  color: rgb(82, 224, 129);
+}
+
+.home-evoq__body-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Collapsed (narrow ribbon) — horizontal title, not rotated */
+.home-evoq__c-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.home-evoq__c-icon {
+  width: 20px;
+  height: 20px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.home-evoq__icon-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.home-evoq__icon-svg--accent {
+  color: rgb(82, 224, 129);
+}
+
+.home-evoq__c-label {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.35;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: rgba(255, 255, 255, 0.4);
+  padding: 0 4px;
+  max-width: 100%;
+}
+
+.home-evoq__shell:not(.is-expanded) .home-evoq__expanded {
+  display: none;
+}
+
+.home-evoq__shell.is-expanded .home-evoq__collapsed {
+  display: none;
+}
+
+/* Expanded */
+.home-evoq__e-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 460px;
+}
+
+@media (min-width: 768px) {
+  .home-evoq__e-stack {
+    gap: 20px;
+  }
+}
+
+.home-evoq__e-icon-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(82, 224, 129, 0.094);
+  border: 1px solid rgba(82, 224, 129, 0.19);
+}
+
+.home-evoq__e-icon-inner {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-evoq__e-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  .home-evoq__e-title {
+    font-size: 24px;
+  }
+}
+
+.home-evoq__e-sub {
+  margin: 4px 0 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: #52e081;
+}
+
+@media (min-width: 768px) {
+  .home-evoq__e-sub {
+    font-size: 16px;
+  }
+}
+
+.home-evoq__e-rule {
+  width: 32px;
+  height: 1.5px;
+  border-radius: 9999px;
+  background: rgba(82, 224, 129, 0.376);
+}
+
+.home-evoq__e-desc {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.625;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+@media (min-width: 768px) {
+  .home-evoq__e-desc {
+    font-size: 16px;
+  }
+}
+
+/* Mobile accordion behavior */
+@media (max-width: 767px) {
+  .home-evoq__face {
+    transition: min-height 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .home-evoq__shell:not(.is-expanded) .home-evoq__face {
+    min-height: 100px;
+  }
+
+  .home-evoq__shell.is-expanded .home-evoq__face {
+    min-height: 280px;
+  }
+
+  .home-evoq__shell:not(.is-expanded) .home-evoq__inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    min-height: 100px;
+    padding: 20px 24px;
+  }
+
+  .home-evoq__shell:not(.is-expanded) .home-evoq__num-row {
+    flex-shrink: 0;
+  }
+
+  .home-evoq__shell:not(.is-expanded) .home-evoq__body-col {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .home-evoq__shell:not(.is-expanded) .home-evoq__c-stack {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    text-align: left;
+  }
+
+  .home-evoq__shell:not(.is-expanded) .home-evoq__c-label {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.35;
+    font-size: 11px;
+  }
+
+  .home-evoq__shell.is-expanded .home-evoq__inner {
+    min-height: 280px;
+  }
+}

@@ -1,0 +1,174 @@
+{# Home - Why Myridius — matches Homepage [EXPORT] WhyMyridius #}
+{% require_css %}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+{% end_require_css %}
+
+<section class="home-why" id="{{ module.section_id }}" data-home-why>
+  <script type="application/json" data-why-tooltips>
+  [
+  {% for node in module.diagram_nodes %}
+    {
+      "title": {{ node.tooltip_title|tojson }},
+      "body": {{ node.tooltip_description|tojson }},
+      "bullets": [
+      {% if node.tooltip_bullets %}
+        {% for b in node.tooltip_bullets %}
+          {{ b.item_text|tojson }}{% if not loop.last %},{% endif %}
+        {% endfor %}
+      {% endif %}
+      ]
+    }{% if not loop.last %},{% endif %}
+  {% endfor %}
+  ]
+  </script>
+
+  <div class="home-why__container">
+    {# Intro — max-w-4xl, left-aligned (matches max-w-4xl + flow) #}
+    <div class="home-why__intro" data-home-why-intro>
+      <div class="home-why__badge">
+        <span class="home-why__badge-line" aria-hidden="true"></span>
+        <span class="home-why__badge-text">{{ module.badge_text }}</span>
+      </div>
+      <h2 class="home-why__title">{{ module.heading }}</h2>
+      <div class="home-why__subtitle">{{ module.subheading }}</div>
+    </div>
+
+    <div class="home-why__grid">
+
+      {# Card stack — h-[500px], max-w-[400px] #}
+      <div class="home-why__col-left">
+        <div class="home-why__stack-wrap">
+          <div class="home-why__stack" data-why-stack>
+            {% for card in module.cards %}
+              <div class="home-why__card" data-why-card data-index="{{ loop.index0 }}">
+                <div class="home-why__card-face">
+                  <div class="home-why__card-top">
+                    <div class="home-why__icon-box">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        {% if loop.index0 == 0 %}
+                          {# BarChart3 #}
+                          <path d="M3 3v18h18" />
+                          <path d="M18 17V9" />
+                          <path d="M13 17V5" />
+                          <path d="M8 17v-3" />
+                        {% elif loop.index0 == 1 %}
+                          {# GitBranch #}
+                          <line x1="6" x2="6" y1="3" y2="15" />
+                          <circle cx="18" cy="6" r="3" />
+                          <circle cx="6" cy="18" r="3" />
+                          <path d="M18 9a9 9 0 0 1-9 9" />
+                        {% else %}
+                          {# TrendingUp #}
+                          <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+                          <polyline points="16 7 22 7 22 13" />
+                        {% endif %}
+                      </svg>
+                    </div>
+                    <div class="home-why__card-number">{{ card.number }}</div>
+                    <h3 class="home-why__card-title">{{ card.title }}</h3>
+                    <p class="home-why__card-desc">{{ card.description }}</p>
+                  </div>
+                  {% if card.pills %}
+                    <div class="home-why__pills">
+                      {% for pill in card.pills %}
+                        <span class="home-why__pill">{{ pill.item_label }}</span>
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      {# Orbital diagram — h-[680px] #}
+      <div class="home-why__col-right">
+        <div class="home-why__diagram-panel" data-why-diagram>
+          <div class="home-why__diagram-stage">
+          <div class="home-why__diagram-rings" aria-hidden="true">
+            <div class="home-why__circle home-why__circle--outer"></div>
+            <div class="home-why__circle home-why__circle--mid"></div>
+            <div class="home-why__circle home-why__circle--inner"></div>
+          </div>
+
+          {# Center orbit #}
+          <div class="home-why__center-node" tabindex="0" data-why-center>
+            <span class="home-why__center-ring" aria-hidden="true"></span>
+            <div class="home-why__center-default" data-why-center-default>
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="home-why__center-cpu-icon" aria-hidden="true">
+                <rect width="16" height="16" x="4" y="4" rx="2"></rect>
+                <rect width="6" height="6" x="9" y="9" rx="1"></rect>
+                <path d="M15 2v2"></path>
+                <path d="M15 20v2"></path>
+                <path d="M2 15h2"></path>
+                <path d="M2 9h2"></path>
+                <path d="M20 15h2"></path>
+                <path d="M20 9h2"></path>
+                <path d="M9 2v2"></path>
+                <path d="M9 20v2"></path>
+              </svg>
+              <span class="home-why__center-line home-why__center-line--accent">{{ module.diagram_center_title }}</span>
+              <span class="home-why__center-line">{{ module.diagram_center_subtitle }}</span>
+            </div>
+            <div class="home-why__center-hover" data-why-center-hover aria-hidden="true">
+              <p class="home-why__center-hover-text">{{ module.diagram_center_hover_text }}</p>
+            </div>
+          </div>
+
+          {% for node in module.diagram_nodes %}
+            <div class="home-why__orbit-item"
+                 data-why-node="{{ loop.index0 }}"
+                 style="top:{{ node.position_top }};left:{{ node.position_left }};">
+              <div class="home-why__orbit-inner">
+                <button type="button" class="home-why__node-btn" aria-label="{{ node.item_label }}" data-orbit-hit="{{ loop.index0 }}">
+                  <span class="home-why__node-icon" aria-hidden="true">
+                    {% set orb_kind = loop.index0 % 5 %}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      {% if orb_kind == 0 %}
+                        <rect width="16" height="16" x="4" y="4" rx="2"></rect>
+                        <rect width="6" height="6" x="9" y="9" rx="1"></rect>
+                        <path d="M15 2v2"></path>
+                        <path d="M15 20v2"></path>
+                        <path d="M2 15h2"></path>
+                        <path d="M2 9h2"></path>
+                        <path d="M20 15h2"></path>
+                        <path d="M20 9h2"></path>
+                        <path d="M9 2v2"></path>
+                        <path d="M9 20v2"></path>
+                      {% elif orb_kind == 1 %}
+                        <path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"></path>
+                        <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"></path>
+                        <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"></path>
+                      {% elif orb_kind == 2 %}
+                        <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path>
+                      {% elif orb_kind == 3 %}
+                        <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
+                      {% else %}
+                        <line x1="3" x2="21" y1="22" y2="22"></line>
+                        <line x1="6" x2="6" y1="18" y2="11"></line>
+                        <line x1="10" x2="10" y1="18" y2="11"></line>
+                        <line x1="14" x2="14" y1="18" y2="11"></line>
+                        <line x1="18" x2="18" y1="18" y2="11"></line>
+                        <polygon points="12 2 20 7 4 7"></polygon>
+                      {% endif %}
+                    </svg>
+                  </span>
+                  <span class="home-why__node-ping" aria-hidden="true"></span>
+                </button>
+                <div class="home-why__orbit-labels">
+                  <span class="home-why__node-title">{{ node.item_label }}</span>
+                  <span class="home-why__node-tag">{{ node.tagline }}</span>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+          </div>
+
+          <div class="home-why__tooltip" data-why-tooltip hidden aria-hidden="true"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
