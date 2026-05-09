@@ -1,0 +1,28 @@
+<section class="evoq-action">
+  <div class="evoq-action__container">
+    <div class="evoq-action__header">
+      <div class="evoq-action__badge">
+        <span class="evoq-action__badge-dash"></span>
+        <span class="evoq-action__badge-text">{{ module.badge_text }}</span>
+      </div>
+      <h2 class="evoq-action__title">{{ module.title_line_1 }} <span>{{ module.title_line_2 }}</span></h2>
+    </div>
+
+    <div class="evoq-action__cards" data-action-cards>
+      {% for card in module.cards %}
+        <article class="evoq-action__card{% if loop.first %} evoq-action__card--active{% endif %}" data-action-card>
+          {% if card.image.src %}
+            <img class="evoq-action__bg" src="{{ card.image.src }}" alt="{{ card.image.alt }}" loading="lazy" />
+          {% endif %}
+          <div class="evoq-action__overlay"></div>
+          <div class="evoq-action__content">
+            <span class="evoq-action__number">{{ card.number }}</span>
+            <h3 class="evoq-action__card-title">{{ card.title }}</h3>
+            <p class="evoq-action__subtitle">{{ card.subtitle }}</p>
+            <p class="evoq-action__desc">{{ card.description }}</p>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,76 @@
+<section class="evoq-journey" aria-label="The Evoq Journey">
+  <div class="evoq-journey__container">
+
+    {# Header #}
+    <div class="evoq-journey__header">
+      <div class="evoq-journey__badge">
+        <span class="evoq-journey__badge-dash"></span>
+        <span class="evoq-journey__badge-text">{{ module.badge_text }}</span>
+      </div>
+      <h2 class="evoq-journey__title">
+        {{ module.title_prefix }} <span class="evoq-journey__title-highlight">{{ module.title_highlight }}</span>
+      </h2>
+      <div class="evoq-journey__description">
+        {{ module.description }}
+      </div>
+    </div>
+
+    {# Journey Stages Bar #}
+    <div class="evoq-journey__stages-bar">
+      {% for stage in module.stages %}
+        <div class="evoq-journey__stage" data-stage-index="{{ loop.index0 }}">
+          <h3 class="evoq-journey__stage-title">{{ stage.title }}</h3>
+          <p class="evoq-journey__stage-desc">{{ stage.description }}</p>
+          <div class="evoq-journey__stage-progress">
+            <div class="evoq-journey__stage-progress-fill"></div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    {# Sub-header #}
+    <div class="evoq-journey__subheader">
+      <h3 class="evoq-journey__sub-title">{{ module.sub_title }}</h3>
+      <div class="evoq-journey__sub-description">
+        {{ module.sub_description }}
+      </div>
+    </div>
+
+    {# Accordion Cards #}
+    <div class="evoq-journey__cards-slider{% if module.accordion_cards|length > 1 %} evoq-journey__cards-slider--enabled{% endif %}">
+      <button class="evoq-journey__cards-nav evoq-journey__cards-nav--prev" type="button" aria-label="Previous cards">
+        <span>‹</span>
+      </button>
+      <div class="evoq-journey__cards-viewport">
+        <div class="evoq-journey__cards" data-card-count="{{ module.accordion_cards|length }}">
+      {% for card in module.accordion_cards %}
+        <div class="evoq-journey__card {% if loop.last %}evoq-journey__card--active{% endif %}"
+             data-card-index="{{ loop.index0 }}"
+             style="background: {{ card.bg_gradient }};">
+          {% if loop.last %}
+            <div class="evoq-journey__card-orbit" aria-hidden="true">
+              <svg viewBox="0 0 630 563" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M315.136 562.743C272.592 562.743 231.322 555.303 192.47 540.631C154.944 526.46 121.242 506.171 92.3008 480.331C63.36 454.491 40.6368 424.4 24.7648 390.894C8.3328 356.206 0 319.357 0 281.371H3.2C3.2 318.971 11.4464 355.446 27.712 389.78C43.424 422.946 65.9136 452.731 94.5632 478.309C123.213 503.889 156.573 523.969 193.715 537.997C232.17 552.52 273.021 559.883 315.133 559.883C357.245 559.883 398.096 552.52 436.554 537.997C473.699 523.969 507.059 503.889 535.706 478.309C564.355 452.729 586.845 422.943 602.557 389.78C618.822 355.446 627.069 318.971 627.069 281.371C627.069 243.771 618.822 207.297 602.557 172.96C586.845 139.794 564.355 110.009 535.706 84.4314C507.056 58.8514 473.696 38.7714 436.554 24.7429C398.096 10.22 357.245 2.85714 315.133 2.85714V0C357.677 0 398.947 7.44 437.798 22.1114C475.325 36.2829 509.027 56.5714 537.968 82.4114C566.909 108.251 589.632 138.343 605.504 171.849C621.936 206.537 630.269 243.389 630.269 281.371C630.269 319.354 621.936 356.206 605.504 390.894C589.632 424.4 566.909 454.491 537.968 480.331C509.027 506.171 475.325 526.46 437.798 540.631C398.947 555.303 357.674 562.743 315.133 562.743H315.136Z" fill="#337077" fill-opacity="0.2"></path>
+                <path d="M313.859 517.594C277.948 517.594 243.136 511.323 210.39 498.957C178.739 487.003 150.3 469.883 125.872 448.069C101.44 426.254 82.2651 400.866 68.8763 372.606C55.0267 343.369 48.0027 312.286 48.0027 280.223C48.0027 248.16 55.0267 217.077 68.8763 187.84C82.2651 159.58 101.44 134.189 125.872 112.377C150.304 90.563 178.739 73.443 210.39 61.4887C243.136 49.123 277.948 42.8516 313.859 42.8516C349.769 42.8516 384.582 49.123 417.328 61.4887C448.979 73.443 477.417 90.563 501.846 112.377C526.278 134.192 545.452 159.58 558.841 187.84C572.691 217.077 579.715 248.16 579.715 280.223C579.715 312.286 572.691 343.369 558.841 372.606C545.452 400.866 526.278 426.257 501.846 448.072C477.414 469.886 448.979 487.006 417.328 498.96C384.582 511.326 349.769 517.597 313.859 517.597V517.594Z" fill="#337077" fill-opacity="0.1"></path>
+                <path d="M313.858 431.885C290.863 431.885 268.636 427.893 247.785 420.019C227.577 412.387 209.397 401.436 193.749 387.465C178.105 373.496 165.836 357.262 157.289 339.219C148.473 320.605 143.999 300.759 143.999 280.227C143.999 259.696 148.469 239.85 157.289 221.233C165.836 203.19 178.105 186.959 193.749 172.99C209.394 159.019 227.577 148.067 247.785 140.436C268.633 132.562 290.863 128.57 313.855 128.57C336.847 128.57 359.077 132.562 379.925 140.436C400.133 148.067 418.313 159.019 433.961 172.99C449.605 186.959 461.874 203.19 470.421 221.236C479.241 239.85 483.711 259.699 483.711 280.227C483.711 300.756 479.241 320.605 470.421 339.222C461.874 357.265 449.605 373.496 433.961 387.467C418.316 401.436 400.137 412.39 379.925 420.022C359.077 427.893 336.85 431.887 313.855 431.887L313.858 431.885Z" fill="#337077" fill-opacity="0.1"></path>
+              </svg>
+            </div>
+          {% endif %}
+          <div class="evoq-journey__card-content">
+            <span class="evoq-journey__card-subtitle">{{ card.subtitle }}</span>
+            <h4 class="evoq-journey__card-title">{{ card.title }}</h4>
+            <div class="evoq-journey__card-description">
+              {{ card.description }}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+        </div>
+      </div>
+      <button class="evoq-journey__cards-nav evoq-journey__cards-nav--next" type="button" aria-label="Next cards">
+        <span>›</span>
+      </button>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,450 @@
+[ {
+  "id" : "logo_image",
+  "name" : "logo_image",
+  "label" : "Logo image",
+  "required" : false,
+  "locked" : false,
+  "responsive" : false,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "display_width" : null,
+  "default" : {
+    "src" : "",
+    "alt" : "Myridius",
+    "size_type" : null,
+    "width" : null,
+    "height" : null,
+    "max_width" : null,
+    "max_height" : null,
+    "loading" : "disabled"
+  }
+}, {
+  "id" : "logo_url",
+  "name" : "logo_url",
+  "label" : "Logo link",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT" ],
+  "type" : "url",
+  "display_width" : null,
+  "default" : {
+    "content_id" : null,
+    "href" : "/",
+    "type" : "EXTERNAL"
+  }
+}, {
+  "id" : "contact_button_text",
+  "name" : "contact_button_text",
+  "label" : "Contact button text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Contact Us"
+}, {
+  "id" : "contact_button_url",
+  "name" : "contact_button_url",
+  "label" : "Contact button link",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT" ],
+  "type" : "url",
+  "display_width" : null,
+  "default" : {
+    "content_id" : null,
+    "href" : "/contact",
+    "type" : "EXTERNAL"
+  }
+}, {
+  "id" : "search_placeholder",
+  "name" : "search_placeholder",
+  "label" : "Search placeholder text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Search..."
+}, {
+  "id" : "nav_links",
+  "name" : "nav_links",
+  "label" : "Navigation links",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 10,
+    "sorting_label_field" : null,
+    "default" : 6
+  },
+  "children" : [ {
+    "id" : "nav_links.link_text",
+    "name" : "link_text",
+    "label" : "Link text",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Industries"
+  }, {
+    "id" : "nav_links.link_url",
+    "name" : "link_url",
+    "label" : "Link URL",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT" ],
+    "type" : "url",
+    "display_width" : null,
+    "default" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
+    }
+  }, {
+    "id" : "nav_links.has_dropdown",
+    "name" : "has_dropdown",
+    "label" : "Has dropdown",
+    "required" : false,
+    "locked" : false,
+    "display" : "checkbox",
+    "type" : "boolean",
+    "display_width" : null,
+    "default" : true
+  }, {
+    "id" : "nav_links.dropdown_items",
+    "name" : "dropdown_items",
+    "label" : "Dropdown items",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : 0,
+      "max" : 24,
+      "sorting_label_field" : null,
+      "default" : 1
+    },
+    "children" : [ {
+      "id" : "nav_links.dropdown_items.item_text",
+      "name" : "item_text",
+      "label" : "Item text",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : "Item"
+    }, {
+      "id" : "nav_links.dropdown_items.item_url",
+      "name" : "item_url",
+      "label" : "Item URL",
+      "required" : false,
+      "locked" : false,
+      "supported_types" : [ "EXTERNAL", "CONTENT" ],
+      "type" : "url",
+      "display_width" : null,
+      "default" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "link_text" : "Industries",
+    "link_url" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
+    },
+    "has_dropdown" : true,
+    "dropdown_items" : [ {
+      "item_text" : "Banking & Financial Services",
+      "item_url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "item_text" : "Healthcare & Life Sciences",
+      "item_url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "item_text" : "Hi-Tech & Startups",
+      "item_url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "item_text" : "Insurance",
+      "item_url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "item_text" : "Manufacturing & Logistics",
+      "item_url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "item_text" : "Retail & Consumer",
+      "item_url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "item_text" : "Travel & Hospitality",
+      "item_url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    } ]
+  }, {
+    "link_text" : "Services",
+    "link_url" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
+    },
+    "has_dropdown" : true,
+    "dropdown_items" : [ {
+      "item_text" : "Advisory",
+      "item_url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "item_text" : "Adobe Experience Cloud",
+      "item_url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "item_text" : "Agentic AI",
+      "item_url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "item_text" : "Agentic Engineering",
+      "item_url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "item_text" : "Agentic Process Transformation",
+      "item_url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "item_text" : "AI-Native Application Support",
+      "item_url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "item_text" : "AWS Cloud Services",
+      "item_url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "item_text" : "Cloud Transformation",
+      "item_url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "item_text" : "Data AI & Analytics",
+      "item_url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "item_text" : "Design Studio",
+      "item_url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "item_text" : "Digital Experience",
+      "item_url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "item_text" : "Microsoft Cloud Services",
+      "item_url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "item_text" : "Salesforce",
+      "item_url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "item_text" : "ServiceNow",
+      "item_url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "item_text" : "Quality Engineering & Assurance",
+      "item_url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    } ]
+  }, {
+    "link_text" : "Evoq",
+    "link_url" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
+    },
+    "has_dropdown" : true,
+    "dropdown_items" : [ {
+      "item_text" : "Evoq - AI Native Execution",
+      "item_url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "item_text" : "Applied Insights",
+      "item_url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    } ]
+  }, {
+    "link_text" : "Resources",
+    "link_url" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
+    },
+    "has_dropdown" : true,
+    "dropdown_items" : [ {
+      "item_text" : "Events",
+      "item_url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "item_text" : "News",
+      "item_url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "item_text" : "Press Releases",
+      "item_url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "item_text" : "Resource Hub",
+      "item_url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    } ]
+  }, {
+    "link_text" : "Careers",
+    "link_url" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
+    },
+    "has_dropdown" : false,
+    "dropdown_items" : [ ]
+  }, {
+    "link_text" : "About",
+    "link_url" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
+    },
+    "has_dropdown" : true,
+    "dropdown_items" : [ {
+      "item_text" : "Partners",
+      "item_url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "item_text" : "Company",
+      "item_url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "item_text" : "Our Leaders",
+      "item_url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "item_text" : "Culture",
+      "item_url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    }, {
+      "item_text" : "Contact Us",
+      "item_url" : {
+        "content_id" : null,
+        "href" : "#",
+        "type" : "EXTERNAL"
+      }
+    } ]
+  } ]
+} ]

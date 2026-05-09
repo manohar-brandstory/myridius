@@ -1,0 +1,193 @@
+[ {
+  "id" : "badge_text",
+  "name" : "badge_text",
+  "label" : "Badge Text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "The Evoq Journey"
+}, {
+  "id" : "title_prefix",
+  "name" : "title_prefix",
+  "label" : "Title Prefix",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "From Design to"
+}, {
+  "id" : "title_highlight",
+  "name" : "title_highlight",
+  "label" : "Title Highlight",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Compounding Execution"
+}, {
+  "id" : "description",
+  "name" : "description",
+  "label" : "Description",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "display_width" : null,
+  "default" : "<p>Every enterprise starts somewhere. Evoq meets you at your maturity level and accelerates your journey to compounding AI value.</p>"
+}, {
+  "id" : "stages",
+  "name" : "stages",
+  "label" : "Journey Stages",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 10,
+    "sorting_label_field" : null,
+    "default" : 4
+  },
+  "children" : [ {
+    "id" : "stages.title",
+    "name" : "title",
+    "label" : "Stage Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Stage Title"
+  }, {
+    "id" : "stages.description",
+    "name" : "description",
+    "label" : "Stage Description",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Stage description text"
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "title" : "Aware",
+    "description" : "Exploring AI potential and identifying first opportunities"
+  }, {
+    "title" : "Experimenting",
+    "description" : "Running pilots, building internal conviction"
+  }, {
+    "title" : "Scaling",
+    "description" : "Expanding proven solutions across the enterprise"
+  }, {
+    "title" : "Transforming",
+    "description" : "AI-native operations with compounding value"
+  } ]
+}, {
+  "id" : "sub_title",
+  "name" : "sub_title",
+  "label" : "Sub Title",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Evoq accelerates every transition"
+}, {
+  "id" : "sub_description",
+  "name" : "sub_description",
+  "label" : "Sub Description",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "display_width" : null,
+  "default" : "<p>No matter where you are in your AI journey, Evoq provides the frameworks, agents, and expertise to move you forward with confidence.</p>"
+}, {
+  "id" : "accordion_cards",
+  "name" : "accordion_cards",
+  "label" : "Accordion Cards",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 10,
+    "sorting_label_field" : null,
+    "default" : 5
+  },
+  "children" : [ {
+    "id" : "accordion_cards.title",
+    "name" : "title",
+    "label" : "Card Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Card Title"
+  }, {
+    "id" : "accordion_cards.subtitle",
+    "name" : "subtitle",
+    "label" : "Card Subtitle",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Card Subtitle"
+  }, {
+    "id" : "accordion_cards.description",
+    "name" : "description",
+    "label" : "Card Description",
+    "required" : false,
+    "locked" : false,
+    "type" : "richtext",
+    "display_width" : null,
+    "default" : "<p>Card description text</p>"
+  }, {
+    "id" : "accordion_cards.bg_gradient",
+    "name" : "bg_gradient",
+    "label" : "Background Gradient (CSS)",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "linear-gradient(180deg, #194247 0%, #0C2226 76%, #0C2226 100%)"
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "title" : "Understand",
+    "subtitle" : "Discovery & Baseline",
+    "description" : "<p>Map systems, data flows, and operational patterns to build a complete picture of where AI can create immediate and compounding value.</p>",
+    "bg_gradient" : "linear-gradient(180deg, #194247 0%, #0C2226 76%, #0C2226 100%)"
+  }, {
+    "title" : "Re-Architect",
+    "subtitle" : "AI-Native Design",
+    "description" : "<p>Reimagine core workflows, data architectures, and decision frameworks for an AI-native operating model.</p>",
+    "bg_gradient" : "linear-gradient(1.67deg, #0C2226 25%, #194247 124%)"
+  }, {
+    "title" : "Activate",
+    "subtitle" : "Agentic Go-Live",
+    "description" : "<p>Deploying production-ready agents that execute autonomously within governed frameworks, delivering measurable value from day one.</p>",
+    "bg_gradient" : "linear-gradient(180deg, #0C2226 0%, #194247 100%)"
+  }, {
+    "title" : "Operate",
+    "subtitle" : "Agentic Ways of Working",
+    "description" : "<p>Continuous optimization of human-AI collaboration patterns, expanding agent capabilities as trust and performance compound.</p>",
+    "bg_gradient" : "linear-gradient(258deg, #194247 32%, #071417 30%, #0C2226 96%)"
+  }, {
+    "title" : "Compound",
+    "subtitle" : "Business Reinvention",
+    "description" : "<p>Where AI doesn't just improve the business—it redefines it. New revenue models, market positions, and competitive moats emerge.</p>",
+    "bg_gradient" : "#0C2226"
+  } ]
+} ]

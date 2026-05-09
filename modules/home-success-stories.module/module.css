@@ -28,16 +28,18 @@
 }
 
 .home-stories__badge {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   margin: 0 0 32px;
 }
 
 .home-stories__badge-line {
   display: block;
-  width: 16px;
+  width: 24px;
   height: 2px;
+  border-radius: 2px;
+  flex: 0 0 auto;
   flex-shrink: 0;
   background-color: #52e081;
 }
@@ -49,11 +51,14 @@
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: #52e081;
-  line-height: 1.2;
+  line-height: 21px;
 }
 
 .home-stories__intro {
   max-width: 705px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .home-stories__title {
@@ -62,12 +67,36 @@
   line-height: 1.15;
   letter-spacing: -0.02em;
   color: #ffffff;
-  margin: 0 0 24px;
+  margin: 0;
 }
 
 @media (min-width: 768px) {
   .home-stories__title {
     font-size: 48px;
+  }
+}
+
+@media (max-width: 767px) {
+  .home-stories {
+    padding: 64px 0;
+  }
+
+  .home-stories__container {
+    padding: 0 24px;
+  }
+
+  .home-stories__masthead {
+    margin-bottom: 48px;
+  }
+
+  .home-stories__title {
+    font-size: 36px;
+    line-height: 42px;
+    letter-spacing: -0.64px;
+  }
+
+  .home-stories__subtitle {
+    line-height: 25px;
   }
 }
 
@@ -101,11 +130,19 @@
   display: flex;
   gap: 16px;
   overflow-x: auto;
+  overflow-y: visible;
   scroll-snap-type: x mandatory;
+  scroll-padding-inline: 24px;
   -webkit-overflow-scrolling: touch;
   padding-bottom: 48px;
   scrollbar-width: none;
   -ms-overflow-style: none;
+}
+
+@media (min-width: 1024px) {
+  .home-stories__track {
+    scroll-padding-inline: max(40px, calc((100vw - 1280px) / 2));
+  }
 }
 
 @media (min-width: 768px) {
@@ -121,11 +158,13 @@
 .home-stories__card {
   position: relative;
   flex-shrink: 0;
-  width: 85vw;
+  width: min(85vw, 345px);
+  max-width: 100%;
   height: 450px;
   border-radius: 12px;
   overflow: hidden;
   scroll-snap-align: center;
+  scroll-snap-stop: normal;
   cursor: pointer;
 }
 
@@ -142,8 +181,10 @@
   transition: transform 700ms ease;
 }
 
-.home-stories__card:hover .home-stories__card-media {
-  transform: scale(1.1);
+@media (hover: hover) and (pointer: fine) {
+  .home-stories__card:hover .home-stories__card-media {
+    transform: scale(1.1);
+  }
 }
 
 .home-stories__card-bg {
@@ -186,11 +227,11 @@
 
 .home-stories__panel {
   position: relative;
-  width: 326px;
-  max-width: 100%;
-  height: 100%;
-  max-height: 100%;
+  width: calc(100% - 24px);
+  height: calc(100% - 24px);
   box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -202,23 +243,40 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   pointer-events: auto;
   transition:
-    background 0.45s ease,
-    border-color 0.45s ease,
-    box-shadow 0.45s ease;
+    border-color 0.5s ease,
+    box-shadow 0.5s ease,
+    background 0.5s ease;
 }
 
-.home-stories__card:hover .home-stories__panel,
-.home-stories__card:focus-within .home-stories__panel,
+@media (min-width: 768px) {
+  .home-stories__panel {
+    width: 326px;
+    max-width: calc(100% - 24px);
+    height: 100%;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .home-stories__card:hover .home-stories__panel {
+    background: rgba(82, 224, 129, 0.05);
+    border-color: rgba(82, 224, 129, 0.4);
+    box-shadow: 0 4px 12px rgba(82, 224, 129, 0.2);
+  }
+}
+
 .home-stories__card.is-hovered .home-stories__panel {
   background: rgba(82, 224, 129, 0.05);
   border-color: rgba(82, 224, 129, 0.4);
-  box-shadow: 0 4px 12px 0 rgba(82, 224, 129, 0.2);
+  box-shadow: 0 4px 12px rgba(82, 224, 129, 0.2);
 }
 
 .home-stories__tag-row {
   display: flex;
   justify-content: flex-start;
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .home-stories__tag {
@@ -229,6 +287,9 @@
   color: #52e081;
   margin: 8px 0;
   white-space: nowrap;
+  line-height: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media (min-width: 768px) {
@@ -241,56 +302,69 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  position: relative;
+  flex: 1;
+  justify-content: flex-end;
 }
 
-/* Stack default and hover in the same grid cell so the swap container
-   takes the larger of both heights and we can fade between them. */
 .home-stories__panel-swap {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
+  align-items: end;
 }
 
 .home-stories__panel-default,
 .home-stories__panel-hover {
   grid-row: 1;
   grid-column: 1;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.home-stories__panel-default {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.home-stories__panel-hover {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
 }
 
 @media (min-width: 768px) {
   .home-stories__panel-default {
     gap: 24px;
   }
-}
 
-.home-stories__panel-hover {
-  gap: 12px;
-  opacity: 0;
-  transform: translateY(8px);
-  pointer-events: none;
-}
-
-@media (min-width: 768px) {
   .home-stories__panel-hover {
     gap: 16px;
   }
 }
 
-.home-stories__card:hover .home-stories__panel-default,
-.home-stories__card:focus-within .home-stories__panel-default,
+@media (hover: hover) and (pointer: fine) {
+  .home-stories__card:hover .home-stories__panel-default {
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+  }
+
+  .home-stories__card:hover .home-stories__panel-hover {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+
 .home-stories__card.is-hovered .home-stories__panel-default {
   opacity: 0;
-  transform: translateY(-8px);
+  transform: translateY(-10px);
   pointer-events: none;
 }
 
-.home-stories__card:hover .home-stories__panel-hover,
-.home-stories__card:focus-within .home-stories__panel-hover,
 .home-stories__card.is-hovered .home-stories__panel-hover {
   opacity: 1;
   transform: translateY(0);
@@ -307,43 +381,33 @@
   margin: 0;
   font-size: 14px;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.625;
   color: #ffffff;
 }
 
 @media (min-width: 768px) {
   .home-stories__desc {
     font-size: 16px;
-    line-height: 1.6;
   }
 }
 
-.home-stories__bullets {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.home-stories__bullet {
+.home-stories__bullet-row {
   display: flex;
   align-items: flex-start;
   gap: 8px;
   font-size: 14px;
-  line-height: 1.45;
+  line-height: 1.5;
 }
 
 @media (min-width: 768px) {
-  .home-stories__bullet {
+  .home-stories__bullet-row {
     font-size: 16px;
   }
 }
 
 .home-stories__bullet-arrow {
   color: #52e081;
-  margin-top: 1px;
+  margin-top: 2px;
   flex-shrink: 0;
 }
 
@@ -353,7 +417,11 @@
 }
 
 .home-stories__card-title--hover {
+  margin: 0;
   font-size: 18px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: #ffffff;
 }
 
 @media (min-width: 768px) {
@@ -381,7 +449,7 @@
   margin: 8px 0 0;
   font-size: 14px;
   font-weight: 400;
-  line-height: 1.4;
+  line-height: 21px;
   color: #8ca1a3;
 }
 
@@ -395,7 +463,7 @@
   margin: 0;
   font-size: 20px;
   font-weight: 500;
-  line-height: 1.25;
+  line-height: 25px;
   color: #ffffff;
 }
 
@@ -484,6 +552,29 @@
   }
 }
 
+.home-stories__mobile-pages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 58px;
+  font-family: 'Montserrat', system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0.2em;
+  color: #8ca1a3;
+}
+
+.home-stories__mobile-pages .is-current {
+  color: #52e081;
+}
+
+@media (min-width: 768px) {
+  .home-stories__mobile-pages {
+    display: none;
+  }
+}
+
 .home-stories__page {
   font-family: 'Montserrat', system-ui, sans-serif;
   font-size: 12px;
@@ -506,12 +597,134 @@
   color: #ffffff;
 }
 
+/* Mobile: Figma StoryCard — full-bleed image + 270° gradient; glass inset ~12px; slider gutter 15px */
+@media (max-width: 767px) {
+  .home-stories__controls {
+    gap: 32px;
+    margin-top: 0;
+  }
+
+  /* Extra “frame” so slides sit inset from the track / viewport (section bg shows as outline) */
+  .home-stories__track {
+    padding-inline: 15px;
+    scroll-padding-inline: 15px;
+    box-sizing: border-box;
+  }
+
+  .home-stories__card {
+    background-color: #071417;
+    overflow: hidden;
+  }
+
+  .home-stories__card-media {
+    inset: 0;
+    border-radius: 0;
+    overflow: hidden;
+    transition: transform 700ms ease;
+  }
+
+  .home-stories__card-bg {
+    border-radius: 0;
+    opacity: 0.2;
+  }
+
+  .home-stories__card-overlay {
+    inset: 0;
+    border-radius: 0;
+    background-image: linear-gradient(
+      270deg,
+      #0c2226 0%,
+      rgba(12, 34, 38, 0.8) 40%,
+      rgba(12, 34, 38, 0.5) 65%,
+      rgba(12, 34, 38, 0.3) 100%
+    );
+  }
+
+  .home-stories__card-frame {
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 12px;
+    box-sizing: border-box;
+  }
+
+  .home-stories__panel {
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 0;
+    align-self: stretch;
+    margin: 0;
+    text-align: left;
+    padding: 16px;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .home-stories__tag-row {
+    justify-content: flex-start;
+    padding-top: 8px;
+  }
+
+  .home-stories__panel-stack {
+    flex: 1;
+    justify-content: flex-end;
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .home-stories__panel-swap {
+    align-items: end;
+    width: 100%;
+  }
+
+  .home-stories__panel-default,
+  .home-stories__panel-hover {
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .home-stories__hover-body {
+    align-items: flex-start;
+  }
+
+  .home-stories__cta,
+  .home-stories__cta--static {
+    align-self: flex-start;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .home-stories__card:hover .home-stories__card-media {
+      transform: none;
+    }
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .home-stories__card-media {
     transition: none;
   }
 
-  .home-stories__card:hover .home-stories__card-media {
+  @media (hover: hover) and (pointer: fine) {
+    .home-stories__card:hover .home-stories__card-media {
+      transform: none;
+    }
+  }
+
+  .home-stories__panel-default,
+  .home-stories__panel-hover {
+    transition: none;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .home-stories__card:hover .home-stories__panel-default,
+    .home-stories__card:hover .home-stories__panel-hover {
+      transform: none;
+    }
+  }
+
+  .home-stories__card.is-hovered .home-stories__panel-default,
+  .home-stories__card.is-hovered .home-stories__panel-hover {
     transform: none;
   }
 

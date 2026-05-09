@@ -1,0 +1,105 @@
+<section class="evoq-stats" aria-label="EVOQ Stats Section">
+  <div class="evoq-stats__container">
+    <div class="evoq-stats__logo-block" data-animate data-stage="logo">
+      <div class="evoq-stats__logo-stack">
+        {% if module.logo_image.src %}
+          <div class="evoq-stats__logo-mark">
+            <img src="{{ module.logo_image.src }}" alt="{{ module.logo_image.alt }}" loading="lazy">
+          </div>
+        {% endif %}
+        {% if module.logo_text_image.src %}
+          <div class="evoq-stats__logo-text">
+            <img src="{{ module.logo_text_image.src }}" alt="{{ module.logo_text_image.alt }}" loading="lazy">
+          </div>
+        {% endif %}
+      </div>
+      <h2 class="evoq-stats__heading">
+        <span class="evoq-stats__heading-line1">{{ module.section_title_line_1 }}</span><br>
+        <span class="evoq-stats__heading-line2">{{ module.section_title_line_2 }}</span>
+      </h2>
+    </div>
+
+    <div class="evoq-stats__cards-row" data-animate data-stage="cards">
+      {% for card in module.cards %}
+        {% if not loop.first %}
+          {% set arrow_index = loop.index0 - 1 %}
+          {% if arrow_index < module.arrow_labels|length %}
+            <div class="evoq-stats__arrow">
+              <span class="evoq-stats__arrow-label">{{ module.arrow_labels[arrow_index].label_text }}</span>
+              <div class="evoq-stats__arrow-line">
+                <svg width="104" height="11" viewBox="0 0 104 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0.666667 5.20659H102.07M97.7013 0.666672L102.701 5.16667L97.7013 9.66667" stroke="#52E081" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </div>
+            </div>
+          {% endif %}
+        {% endif %}
+
+        <article class="evoq-stats__card" data-card tabindex="0">
+          <div class="evoq-stats__card-hover-glow" aria-hidden="true"></div>
+          <div class="evoq-stats__card-front">
+            <div class="evoq-stats__card-icon">
+              {% if card.icon.src %}
+                <img src="{{ card.icon.src }}" alt="{{ card.icon.alt }}" loading="lazy">
+              {% elif loop.index == 1 %}
+                <svg width="24" height="29" viewBox="0 0 24 29" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 27.6667V1M22.3333 27.6667V1M10.3333 7.66667H13C14.4728 7.66667 15.6667 8.86057 15.6667 10.3333V18.3333C15.6667 19.8061 14.4728 21 13 21H10.3333C8.86057 21 7.66667 19.8061 7.66667 18.3333V10.3333C7.66667 8.86057 8.86057 7.66667 10.3333 7.66667Z" stroke="#D2F0C6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              {% elif loop.index == 2 %}
+                <svg width="24" height="29" viewBox="0 0 24 29" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.33333 6.33333L11.6667 1M11.6667 1L17 6.33333M11.6667 1V14.7333C11.6743 15.4435 11.54 16.1481 11.2716 16.8056C11.0033 17.4632 10.6063 18.0606 10.104 18.5627L1 27.6667M22.3333 27.6667L15.6667 21" stroke="#D2F0C6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              {% else %}
+                <svg width="26" height="29" viewBox="0 0 26 29" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.9996 15.6667V1L23.6662 6.33333L12.9996 11.6667M24.4142 11.9627C25.1238 14.1495 25.1902 16.4942 24.6055 18.7177C24.0208 20.9412 22.8098 22.9499 21.1163 24.5049C19.4229 26.0599 17.3184 27.0957 15.0532 27.4891C12.788 27.8825 10.4575 27.6169 8.33899 26.7239C6.22042 25.8309 4.40298 24.3481 3.10289 22.4519C1.8028 20.5557 1.07478 18.3259 1.00546 16.0279C0.936134 13.7299 1.52842 11.4603 2.71185 9.48918C3.89527 7.51808 5.62003 5.92842 7.68091 4.90933M7.66891 11.6627C7.00078 12.552 6.56581 13.5944 6.40363 14.6949C6.24145 15.7954 6.35722 16.919 6.74038 17.9633C7.12354 19.0076 7.76191 19.9394 8.59734 20.6738C9.43278 21.4083 10.4387 21.922 11.5235 22.1682C12.6083 22.4144 13.7374 22.3853 14.808 22.0834C15.8787 21.7816 16.8568 21.2167 17.6532 20.4401C18.4496 19.6635 19.0391 18.7 19.3679 17.6374C19.6967 16.5747 19.7543 15.4467 19.5356 14.356" stroke="#D2F0C6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              {% endif %}
+            </div>
+            <h3 class="evoq-stats__card-title">{{ card.title }}</h3>
+            <p class="evoq-stats__card-subtitle">{{ card.subtitle }}</p>
+          </div>
+          <div class="evoq-stats__card-back">
+            <h3 class="evoq-stats__card-title">{{ card.title }}</h3>
+            <div class="evoq-stats__card-description">{{ card.hover_description }}</div>
+          </div>
+          <div class="evoq-stats__card-bg" aria-hidden="true"></div>
+        </article>
+      {% endfor %}
+    </div>
+
+    <div class="evoq-stats__stats-row" data-animate data-stage="stats">
+      {% for stat in module.stats %}
+        <article class="evoq-stats__stat-item" data-stat tabindex="0">
+          <div class="evoq-stats__stat-front">
+            <div class="evoq-stats__stat-icon">
+              {% if stat.icon.src %}
+                <img src="{{ stat.icon.src }}" alt="{{ stat.icon.alt }}" loading="lazy">
+              {% elif loop.index == 1 %}
+                <svg width="35" height="36" viewBox="0 0 35 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.5003 34.5001H23.5003M21.5003 26.5001C22.0307 26.5001 22.5394 26.2894 22.9145 25.9143C23.2896 25.5392 23.5003 25.0305 23.5003 24.5001V20.5001C23.5003 19.9697 23.711 19.4609 24.0861 19.0859C24.4612 18.7108 24.9699 18.5001 25.5003 18.5001H32.0863C32.366 18.5001 32.6395 18.4173 32.872 18.2619C33.1046 18.1065 33.2859 17.8857 33.393 17.6272C33.5 17.3688 33.528 17.0845 33.4734 16.8101C33.4188 16.5358 33.2841 16.2838 33.0863 16.0861L19.2083 2.20809C18.9841 1.98362 18.7179 1.80554 18.4248 1.68404C18.1317 1.56254 17.8176 1.5 17.5003 1.5C17.183 1.5 16.8689 1.56254 16.5758 1.68404C16.2828 1.80554 16.0165 1.98362 15.7923 2.20809L1.91231 16.0881C1.71518 16.2859 1.58106 16.5378 1.52687 16.8117C1.47268 17.0857 1.50085 17.3696 1.60781 17.6276C1.71478 17.8856 1.89575 18.1062 2.12791 18.2614C2.36007 18.4167 2.63301 18.4998 2.91231 18.5001H9.50031C10.0307 18.5001 10.5394 18.7108 10.9145 19.0859C11.2896 19.4609 11.5003 19.9697 11.5003 20.5001V24.5001C11.5003 25.0305 11.711 25.5392 12.0861 25.9143C12.4612 26.2894 12.9699 26.5001 13.5003 26.5001H21.5003Z" stroke="#D2F0C6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              {% elif loop.index == 2 %}
+                <svg width="43" height="42" viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 27H23C24.0609 27 25.0783 26.5786 25.8284 25.8284C26.5786 25.0783 27 24.0609 27 23C27 21.9391 26.5786 20.9217 25.8284 20.1716C25.0783 19.4214 24.0609 19 23 19H17C15.8 19 14.8 19.4 14.2 20.2L3 31M11 39L14.2 36.2C14.8 35.4 15.8 35 17 35H25C27.2 35 29.2 34.2 30.6 32.6L39.8 23.8C40.5718 23.0707 41.0222 22.0646 41.0522 21.0031C41.0822 19.9417 40.6893 18.9118 39.96 18.14C39.2307 17.3682 38.2246 16.9178 37.1631 16.8878C36.1017 16.8578 35.0718 17.2507 34.3 17.98L25.9 25.78M1 29L13 41M34.8 15C34.8 18.2033 32.2033 20.8 29 20.8C25.7967 20.8 23.2 18.2033 23.2 15C23.2 11.7967 25.7967 9.2 29 9.2C32.2033 9.2 34.8 11.7967 34.8 15ZM15 7C15 10.3137 12.3137 13 9 13C5.68629 13 3 10.3137 3 7C3 3.68629 5.68629 1 9 1C12.3137 1 15 3.68629 15 7Z" stroke="#D2F0C6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              {% elif loop.index == 3 %}
+                <svg width="43" height="39" viewBox="0 0 43 39" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M29.5 37.5V33.5C29.5 31.3783 28.6571 29.3434 27.1569 27.8431C25.6566 26.3429 23.6217 25.5 21.5 25.5H9.5C7.37827 25.5 5.34344 26.3429 3.84315 27.8431C2.34285 29.3434 1.5 31.3783 1.5 33.5V37.5M29.5 1.756C31.2155 2.20074 32.7348 3.20253 33.8194 4.60413C34.9039 6.00572 35.4924 7.72778 35.4924 9.5C35.4924 11.2722 34.9039 12.9943 33.8194 14.3959C32.7348 15.7975 31.2155 16.7993 29.5 17.244M41.5 37.5V33.5C41.4987 31.7275 40.9087 30.0055 39.8227 28.6046C38.7368 27.2037 37.2163 26.2031 35.5 25.76M23.5 9.5C23.5 13.9183 19.9183 17.5 15.5 17.5C11.0817 17.5 7.5 13.9183 7.5 9.5C7.5 5.08172 11.0817 1.5 15.5 1.5C19.9183 1.5 23.5 5.08172 23.5 9.5Z" stroke="#D2F0C6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              {% else %}
+                <svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M41.5 9.5H1.5M41.5 33.5H1.5M9.5 1.5V41.5M33.5 1.5V41.5" stroke="#D2F0C6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              {% endif %}
+            </div>
+            <span class="evoq-stats__stat-value">{{ stat.stat_value }}</span>
+            <span class="evoq-stats__stat-label">{{ stat.stat_label }}</span>
+          </div>
+          <div class="evoq-stats__stat-back">
+            <div class="evoq-stats__stat-icon evoq-stats__stat-icon--back">
+              {% if stat.icon.src %}
+                <img src="{{ stat.icon.src }}" alt="{{ stat.icon.alt }}" loading="lazy">
+              {% elif loop.index == 1 %}
+                <svg width="35" height="36" viewBox="0 0 35 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.5003 34.5001H23.5003M21.5003 26.5001C22.0307 26.5001 22.5394 26.2894 22.9145 25.9143C23.2896 25.5392 23.5003 25.0305 23.5003 24.5001V20.5001C23.5003 19.9697 23.711 19.4609 24.0861 19.0859C24.4612 18.7108 24.9699 18.5001 25.5003 18.5001H32.0863C32.366 18.5001 32.6395 18.4173 32.872 18.2619C33.1046 18.1065 33.2859 17.8857 33.393 17.6272C33.5 17.3688 33.528 17.0845 33.4734 16.8101C33.4188 16.5358 33.2841 16.2838 33.0863 16.0861L19.2083 2.20809C18.9841 1.98362 18.7179 1.80554 18.4248 1.68404C18.1317 1.56254 17.8176 1.5 17.5003 1.5C17.183 1.5 16.8689 1.56254 16.5758 1.68404C16.2828 1.80554 16.0165 1.98362 15.7923 2.20809L1.91231 16.0881C1.71518 16.2859 1.58106 16.5378 1.52687 16.8117C1.47268 17.0857 1.50085 17.3696 1.60781 17.6276C1.71478 17.8856 1.89575 18.1062 2.12791 18.2614C2.36007 18.4167 2.63301 18.4998 2.91231 18.5001H9.50031C10.0307 18.5001 10.5394 18.7108 10.9145 19.0859C11.2896 19.4609 11.5003 19.9697 11.5003 20.5001V24.5001C11.5003 25.0305 11.711 25.5392 12.0861 25.9143C12.4612 26.2894 12.9699 26.5001 13.5003 26.5001H21.5003Z" stroke="#D2F0C6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              {% elif loop.index == 2 %}
+                <svg width="43" height="42" viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 27H23C24.0609 27 25.0783 26.5786 25.8284 25.8284C26.5786 25.0783 27 24.0609 27 23C27 21.9391 26.5786 20.9217 25.8284 20.1716C25.0783 19.4214 24.0609 19 23 19H17C15.8 19 14.8 19.4 14.2 20.2L3 31M11 39L14.2 36.2C14.8 35.4 15.8 35 17 35H25C27.2 35 29.2 34.2 30.6 32.6L39.8 23.8C40.5718 23.0707 41.0222 22.0646 41.0522 21.0031C41.0822 19.9417 40.6893 18.9118 39.96 18.14C39.2307 17.3682 38.2246 16.9178 37.1631 16.8878C36.1017 16.8578 35.0718 17.2507 34.3 17.98L25.9 25.78M1 29L13 41M34.8 15C34.8 18.2033 32.2033 20.8 29 20.8C25.7967 20.8 23.2 18.2033 23.2 15C23.2 11.7967 25.7967 9.2 29 9.2C32.2033 9.2 34.8 11.7967 34.8 15ZM15 7C15 10.3137 12.3137 13 9 13C5.68629 13 3 10.3137 3 7C3 3.68629 5.68629 1 9 1C12.3137 1 15 3.68629 15 7Z" stroke="#D2F0C6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              {% elif loop.index == 3 %}
+                <svg width="43" height="39" viewBox="0 0 43 39" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M29.5 37.5V33.5C29.5 31.3783 28.6571 29.3434 27.1569 27.8431C25.6566 26.3429 23.6217 25.5 21.5 25.5H9.5C7.37827 25.5 5.34344 26.3429 3.84315 27.8431C2.34285 29.3434 1.5 31.3783 1.5 33.5V37.5M29.5 1.756C31.2155 2.20074 32.7348 3.20253 33.8194 4.60413C34.9039 6.00572 35.4924 7.72778 35.4924 9.5C35.4924 11.2722 34.9039 12.9943 33.8194 14.3959C32.7348 15.7975 31.2155 16.7993 29.5 17.244M41.5 37.5V33.5C41.4987 31.7275 40.9087 30.0055 39.8227 28.6046C38.7368 27.2037 37.2163 26.2031 35.5 25.76M23.5 9.5C23.5 13.9183 19.9183 17.5 15.5 17.5C11.0817 17.5 7.5 13.9183 7.5 9.5C7.5 5.08172 11.0817 1.5 15.5 1.5C19.9183 1.5 23.5 5.08172 23.5 9.5Z" stroke="#D2F0C6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              {% else %}
+                <svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M41.5 9.5H1.5M41.5 33.5H1.5M9.5 1.5V41.5M33.5 1.5V41.5" stroke="#D2F0C6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              {% endif %}
+            </div>
+            <span class="evoq-stats__stat-label">{{ stat.stat_label }}</span>
+            <div class="evoq-stats__stat-description">{{ stat.hover_description }}</div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

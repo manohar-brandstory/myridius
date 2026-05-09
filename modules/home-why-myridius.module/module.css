@@ -43,23 +43,25 @@
 }
 
 .home-why__badge {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   margin-bottom: 16px;
 }
 
 .home-why__badge-line {
+  flex: 0 0 auto;
   flex-shrink: 0;
-  width: 32px;
-  height: 1px;
+  width: 24px;
+  height: 2px;
+  border-radius: 2px;
   background-color: var(--why-accent);
 }
 
 .home-why__badge-text {
   font-size: 14px;
   font-weight: 500;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--why-accent);
   line-height: 1.2;
@@ -86,25 +88,28 @@
   max-width: 672px;
 }
 
-/* Grid lg:cols-2 gap-16 items-end */
+/* Grid lg:cols-2 gap-16 items-center */
 .home-why__grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 64px;
-  align-items: end;
+  align-items: center;
 }
 
 @media (min-width: 1024px) {
   .home-why__grid {
     grid-template-columns: 1fr 1fr;
-    align-items: end;
+    align-items: center;
   }
 }
 
-/* ── Stack column ── */
+/* ── Stack column — matches Figma's h-[500px] flex items-center justify-center ── */
 .home-why__col-left {
+  position: relative;
   display: flex;
+  align-items: center;
   justify-content: center;
+  height: 500px;
   min-height: 0;
 }
 
@@ -112,7 +117,7 @@
   position: relative;
   width: 100%;
   max-width: 400px;
-  height: 500px;
+  height: 100%;
   flex-shrink: 0;
 }
 
@@ -130,7 +135,8 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.55);
   transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1);
-  transform-origin: 50% 100%;
+  transform-origin: 50% 50%;
+  will-change: transform, opacity;
 }
 
 .home-why__card-face {
@@ -348,15 +354,6 @@
   50% {
     opacity: 0.9;
     transform: translate(-50%, -50%) scale(1.03);
-  }
-}
-
-/* Responsive ring scale on narrow viewports */
-@media (max-width: 380px) {
-  .home-why__diagram-panel {
-    transform: scale(0.92);
-    transform-origin: center top;
-    margin-bottom: 24px;
   }
 }
 
@@ -671,60 +668,355 @@
   flex-shrink: 0;
 }
 
-/* Mobile typography */
-@media (max-width: 767px) {
+/* Mobile — Figma WhyMyridius (393): intro 24px gutters, centered headline block, 48px rhythm, scaled stack + orbit */
+@media (max-width: 768px) {
   .home-why {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     padding: 64px 0;
   }
 
+  .home-why__container {
+    width: 100%;
+    max-width: none;
+    padding: 0 24px;
+    box-sizing: border-box;
+  }
+
   .home-why__intro {
-    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    max-width: none;
+    width: 100%;
+    margin: 0 0 48px;
+    text-align: left;
+  }
+
+  .home-why__badge {
+    margin-bottom: 0;
+    gap: 10px;
+  }
+
+  .home-why__badge-line {
+    width: 24px;
+    height: 2px;
+    border-radius: 2px;
+  }
+
+  .home-why__badge-text {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.2;
+    letter-spacing: 0.2em;
   }
 
   .home-why__title {
-    font-size: clamp(1.875rem, 8vw, 2.75rem);
-    margin-bottom: 24px;
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 42px;
+    letter-spacing: 0;
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    text-align: left;
+    align-self: stretch;
+  }
+
+  .home-why__subtitle {
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    text-align: left;
+    align-self: stretch;
   }
 
   .home-why__subtitle,
   .home-why__subtitle p {
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #99a1af;
   }
 
   .home-why__grid {
-    gap: 56px;
+    gap: 48px;
+    width: 100%;
+  }
+
+  .home-why__col-left {
+    height: 520px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
   }
 
   .home-why__stack-wrap {
-    height: 460px;
+    max-width: 345px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .home-why__card {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(
+      135deg,
+      #194247 0%,
+      #183f44 8.33%,
+      #173c41 16.67%,
+      #163a3e 25%,
+      #15373c 33.33%,
+      #143439 41.67%,
+      #123236 50%,
+      #112f33 58.33%,
+      #102c31 66.67%,
+      #0f2a2e 75%,
+      #0e272b 83.33%,
+      #0d2529 91.67%,
+      #0c2226 100%
+    );
+  }
+
+  .home-why__card[data-position='0'] {
+    transform: scale(1) translateY(0) rotate(0deg);
+  }
+
+  .home-why__card[data-position='1'] {
+    transform: scale(0.952) translateY(12px) rotate(-3deg);
+    opacity: 0.8;
+  }
+
+  .home-why__card[data-position='2'] {
+    transform: scale(0.902) translateY(24px) rotate(-6deg);
+    opacity: 0.6;
+  }
+
+  .home-why__card[data-position='3'] {
+    transform: scale(0.855) translateY(36px) rotate(-8deg);
+    opacity: 0.45;
+  }
+
+  .home-why__card[data-position='4'] {
+    transform: scale(0.81) translateY(48px) rotate(-10deg);
+    opacity: 0.28;
+  }
+
+  .home-why__card[data-position='5'] {
+    transform: scale(0.765) translateY(58px) rotate(-12deg);
+    opacity: 0.14;
   }
 
   .home-why__card-face {
-    padding: 26px;
+    padding: 32px;
+  }
+
+  .home-why__icon-box {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    margin-bottom: 24px;
+  }
+
+  .home-why__card-number {
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
   }
 
   .home-why__card-title {
-    font-size: 26px;
+    font-size: 30px;
+    line-height: 36px;
+    margin: 0 0 12px;
   }
 
   .home-why__card-desc {
-    font-size: 16px;
+    font-size: 18px;
+    line-height: 29px;
+    color: #d1d5db;
   }
 
-  /* Smaller orbital layout */
+  .home-why__pills {
+    margin-top: 24px;
+    gap: 8px;
+  }
+
+  .home-why__pill {
+    font-size: 12px;
+    line-height: 16px;
+    padding: 8px 16px;
+  }
+
+  .home-why__col-right {
+    width: 100%;
+  }
+
+  .home-why__diagram-panel {
+    max-width: min(345px, 100%);
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 8px 48px;
+    box-sizing: border-box;
+    overflow: visible;
+  }
+
+  .home-why__diagram-stage {
+    height: 533px;
+    max-width: 100%;
+    margin: 0 auto;
+    transform: scale(0.9);
+    transform-origin: 50% 42%;
+  }
+
   .home-why__circle--outer {
-    width: 420px;
-    height: 420px;
+    width: min(280px, 78vw);
+    height: min(280px, 78vw);
   }
 
   .home-why__circle--mid {
-    width: 336px;
-    height: 336px;
+    width: min(216px, 60vw);
+    height: min(216px, 60vw);
   }
 
   .home-why__circle--inner {
-    width: 252px;
-    height: 252px;
+    width: min(162px, 45vw);
+    height: min(162px, 45vw);
+  }
+
+  .home-why__center-node {
+    width: min(192px, 50vw);
+    height: min(192px, 50vw);
+    padding: 20px;
+  }
+
+  .home-why__center-line {
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.1em;
+  }
+
+  .home-why__node-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  /* Orbit labels: room for text; detail copy opens in tooltip (module.js) */
+  .home-why__orbit-labels {
+    max-width: min(120px, 28vw);
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 0 2px;
+  }
+
+  .home-why__orbit-inner {
+    gap: 8px;
+    max-width: 100%;
+    align-items: center;
+  }
+
+  .home-why__node-title {
+    font-size: 11.5px;
+    line-height: 1.25;
+    letter-spacing: 0.02em;
+    white-space: normal;
+    text-align: center;
+    max-width: 100%;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  .home-why__node-tag {
+    display: none;
+  }
+
+  .home-why__node-btn {
+    flex-shrink: 0;
+  }
+
+  .home-why__card[data-position='0']:active {
+    transform: scale(1.02) translateY(-10px) rotate(8deg);
+    transition-duration: 0.18s;
+  }
+
+  /* Mobile: same tooltip content as desktop, centered overlay within viewport */
+  .home-why__tooltip {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    right: auto;
+    transform: translate(-50%, -50%) scale(0.98);
+    width: min(400px, calc(100vw - 32px));
+    max-height: min(72vh, 560px);
+    margin: 0;
+    padding: 16px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    pointer-events: auto;
+    z-index: 300;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.55);
+  }
+
+  .home-why__tooltip.is-visible {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .home-why__tooltip-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 299;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: rgba(0, 0, 0, 0.55);
+    cursor: pointer;
+    appearance: none;
+  }
+
+  .home-why__tooltip-backdrop[hidden] {
+    display: none !important;
+  }
+
+  /*
+   * Orbit anchors — mobile only (default 5-node order in fields.json):
+   * [0] Break Linearity, [1] Reimagine, [2] Re-Engineer, [3] Governance, [4] Differentiate
+   * Align Reimagine + Differentiate on one horizontal band; inset from viewport edges.
+   */
+  .home-why__orbit-item[data-why-node='1'] {
+    top: 47% !important;
+    left: 94% !important;
+  }
+
+  .home-why__orbit-item[data-why-node='4'] {
+    top: 47% !important;
+    left: 3% !important;
+  }
+
+  .home-why__orbit-item[data-why-node='2'] {
+    left: 68% !important;
+  }
+
+  .home-why__orbit-item[data-why-node='3'] {
+    left: 32% !important;
+  }
+
+  /* "Reimagine" on one line (no wrapping) */
+  .home-why__orbit-item[data-why-node='1'] .home-why__node-title {
+    white-space: nowrap;
+    letter-spacing: 0.04em;
+    font-size: 10.5px;
+    max-width: none;
+    overflow: visible;
+  }
+
+  .home-why__orbit-item[data-why-node='1'] .home-why__orbit-labels {
+    max-width: none;
+    width: max-content;
   }
 }

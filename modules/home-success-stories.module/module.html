@@ -3,33 +3,59 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
 {% end_require_css %}
 
-<section class="home-stories" aria-label="{{ module.badge_text }}">
+<section class="home-stories"{% if module.badge_text %} aria-label="{{ module.badge_text }}"{% endif %}>
   <div class="home-stories__container">
 
     <div class="home-stories__masthead">
-      <div class="home-stories__badge">
-        <span class="home-stories__badge-line" aria-hidden="true"></span>
-        <p class="home-stories__badge-text">{{ module.badge_text }}</p>
-      </div>
+      {% if module.badge_text %}
+        <div class="home-stories__badge">
+          <span class="home-stories__badge-line" aria-hidden="true"></span>
+          <p class="home-stories__badge-text">{{ module.badge_text }}</p>
+        </div>
+      {% endif %}
       <div class="home-stories__intro">
-        <h2 class="home-stories__title">{{ module.heading }}</h2>
-        <div class="home-stories__subtitle">{{ module.subheading }}</div>
+        {% if module.heading %}
+          <h2 class="home-stories__title">{{ module.heading }}</h2>
+        {% endif %}
+        {% if module.subheading %}
+          <div class="home-stories__subtitle">{{ module.subheading }}</div>
+        {% endif %}
       </div>
     </div>
 
     <div class="home-stories__viewport">
       <div class="home-stories__track" id="homeStoriesTrack">
         {% for story in module.stories %}
+          {# Image field defaults do not evaluate HubL; resolve bundled fallbacks in template. #}
+          {% set raw_img = story.image.src|default('')|trim %}
+          {% if raw_img and '{{' not in raw_img %}
+            {% set story_img_src = raw_img %}
+          {% else %}
+            {% set slot = loop.index0 % 5 %}
+            {# Theme images folder only — HubSpot rejects binary assets inside .module folders #}
+            {% if slot == 0 %}
+              {% set story_img_src = get_asset_url('/Myridius Theme V1/images/success-stories/01-banking.png') %}
+            {% elif slot == 1 %}
+              {% set story_img_src = get_asset_url('/Myridius Theme V1/images/success-stories/02-insurance.png') %}
+            {% elif slot == 2 %}
+              {% set story_img_src = get_asset_url('/Myridius Theme V1/images/success-stories/03-healthcare.png') %}
+            {% elif slot == 3 %}
+              {% set story_img_src = get_asset_url('/Myridius Theme V1/images/success-stories/04-manufacturing.png') %}
+            {% else %}
+              {% set story_img_src = get_asset_url('/Myridius Theme V1/images/success-stories/05-retail.png') %}
+            {% endif %}
+          {% endif %}
           <article class="home-stories__card" data-story-index="{{ loop.index0 }}" tabindex="0">
             <div class="home-stories__card-media">
-              {% if story.image.src %}
-                <img
-                  class="home-stories__card-bg"
-                  src="{{ story.image.src }}"
-                  alt="{{ story.image.alt }}"
-                  loading="lazy"
-                >
-              {% endif %}
+              <img
+                class="home-stories__card-bg"
+                src="{{ story_img_src }}"
+                alt="{{ story.image.alt }}"
+                {% if story.image.width %}width="{{ story.image.width }}"{% endif %}
+                {% if story.image.height %}height="{{ story.image.height }}"{% endif %}
+                loading="lazy"
+                decoding="async"
+              >
               <div class="home-stories__card-overlay" aria-hidden="true"></div>
             </div>
 
@@ -41,7 +67,6 @@
 
                 <div class="home-stories__panel-stack">
                   <div class="home-stories__panel-swap">
-                    {# Default content — metric forward #}
                     <div class="home-stories__panel-default">
                       <div class="home-stories__stat">
                         <h3 class="home-stories__metric">{{ story.metric }}</h3>
@@ -50,7 +75,6 @@
                       <h4 class="home-stories__card-title">{{ story.title }}</h4>
                     </div>
 
-                    {# Hover content — description + bullets #}
                     <div class="home-stories__panel-hover">
                       <h4 class="home-stories__card-title home-stories__card-title--hover">{{ story.title }}</h4>
                       <div class="home-stories__hover-body">
@@ -58,39 +82,40 @@
                           <p class="home-stories__desc">{{ story.description }}</p>
                         {% endif %}
                         {% if story.bullets %}
-                          <ul class="home-stories__bullets">
-                            {% for bullet in story.bullets %}
-                              <li class="home-stories__bullet">
-                                <span class="home-stories__bullet-arrow" aria-hidden="true">&rarr;</span>
-                                <span class="home-stories__bullet-text">{{ bullet.text }}</span>
-                              </li>
-                            {% endfor %}
-                          </ul>
+                          {% for bullet in story.bullets %}
+                            <div class="home-stories__bullet-row">
+                              <span class="home-stories__bullet-arrow" aria-hidden="true">&rarr;</span>
+                              <span class="home-stories__bullet-text">{{ bullet.text }}</span>
+                            </div>
+                          {% endfor %}
                         {% endif %}
                       </div>
                     </div>
                   </div>
 
-                  {% if story.link_url.href %}
-                    <a
-                      class="home-stories__cta"
-                      href="{{ story.link_url.href }}"
-                      {% if story.link_url.type == "EXTERNAL" %}target="_blank" rel="noopener noreferrer"{% endif %}
-                    >
-                      <span class="home-stories__cta-text">LEARN MORE</span>
-                      <svg class="home-stories__cta-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="m12 5 7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-                    </a>
-                  {% else %}
-                    <div class="home-stories__cta home-stories__cta--static">
-                      <span class="home-stories__cta-text">LEARN MORE</span>
-                      <svg class="home-stories__cta-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="m12 5 7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-                    </div>
+                  {% set dest = story.link_url.href|default('')|trim %}
+                  {% if story.cta_label|default('')|trim %}
+                    {% if dest != '' and dest != '#' %}
+                      <a
+                        class="home-stories__cta"
+                        href="{{ story.link_url.href }}"
+                        {% if story.link_url.type == "EXTERNAL" %}target="_blank" rel="noopener noreferrer"{% endif %}
+                      >
+                        <span class="home-stories__cta-text">{{ story.cta_label|trim }}</span>
+                        <svg class="home-stories__cta-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="m12 5 7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </a>
+                    {% else %}
+                      <div class="home-stories__cta home-stories__cta--static">
+                        <span class="home-stories__cta-text">{{ story.cta_label|trim }}</span>
+                        <svg class="home-stories__cta-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="m12 5 7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </div>
+                    {% endif %}
                   {% endif %}
                 </div>
               </div>
@@ -108,6 +133,7 @@
       </button>
 
       <div class="home-stories__pages" id="homeStoriesPages" aria-label="Story index"></div>
+      <div class="home-stories__mobile-pages" id="homeStoriesMobilePages" aria-label="Story position"></div>
 
       <button type="button" class="home-stories__arrow home-stories__arrow--next" aria-label="Next story" id="homeStoriesNext">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">

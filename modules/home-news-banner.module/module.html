@@ -12,7 +12,7 @@
     <div class="home-news__marquee-track" data-news-track>
       {# Original set #}
       {% for item in module.news_items %}
-        <div class="home-news__item news-card">
+        <div class="home-news__item news-card" data-news-copy="0" data-news-slide="{{ loop.index0 }}">
           <a class="home-news__card"
              {% if item.link_url.href %}
                href="{{ item.link_url.href }}"
@@ -36,7 +36,7 @@
 
       {# Second copy for seamless loop #}
       {% for item in module.news_items %}
-        <div class="home-news__item news-card" aria-hidden="true">
+        <div class="home-news__item news-card" data-news-copy="1" data-news-slide="{{ loop.index0 }}" aria-hidden="true">
           <a class="home-news__card"
              {% if item.link_url.href %}
                href="{{ item.link_url.href }}"
@@ -61,7 +61,7 @@
 
       {# Third copy for seamless loop #}
       {% for item in module.news_items %}
-        <div class="home-news__item news-card" aria-hidden="true">
+        <div class="home-news__item news-card" data-news-copy="2" data-news-slide="{{ loop.index0 }}" aria-hidden="true">
           <a class="home-news__card"
              {% if item.link_url.href %}
                href="{{ item.link_url.href }}"

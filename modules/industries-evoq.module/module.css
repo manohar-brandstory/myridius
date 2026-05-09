@@ -11,7 +11,7 @@
 
 .evoq__wrap{ position: relative; z-index:1; max-width: var(--container-max); margin:0 auto; padding: 0 var(--gutter); }
 .evoq__badge{ display:inline-flex; align-items:center; gap: 10px; margin-bottom: 24px; }
-.evoq__badgeLine{ width:24px; height:2px; background: var(--color-accent); border-radius:2px; }
+.evoq__badgeLine{ width:24px; height:2px; background: var(--color-accent); border-radius:2px; flex:0 0 auto; flex-shrink:0; }
 .evoq__badgeText{ font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.2em; color: var(--color-accent); }
 .evoq__headRow{ display:flex; align-items:flex-start; justify-content:space-between; gap: 24px; }
 .evoq__title{
@@ -112,7 +112,7 @@
   .evoq{ padding: 64px 0; }
   .evoq__headRow{ flex-direction: column; gap: 16px; }
   .evoq__wrap{ padding: 0 24px; }
-  .evoq__badgeText{ font-size: 12px; letter-spacing: 2.8px; }
+  .evoq__badgeText{ font-size: 14px; font-weight: 500; letter-spacing: 0.2em; }
   .evoq__title{ font-size: 36px; line-height: 54px; letter-spacing: -2.4px; }
   .evoq__powered{ padding: 9px 21px; height: 48px; }
   .evoq__poweredKicker{ font-size: 10px; letter-spacing: 1.1px; }

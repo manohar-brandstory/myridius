@@ -101,6 +101,19 @@
         </div>
       </div>
     </div>
+    <div class="home-hero__pager" data-hero-pager>
+      <button class="home-hero__pager-btn" type="button" aria-label="Previous slide" data-hero-prev>
+        <span class="home-hero__pager-chevron home-hero__pager-chevron--left" aria-hidden="true"></span>
+      </button>
+      <div class="home-hero__pager-count" aria-live="polite">
+        <span class="home-hero__pager-current" data-hero-current>01</span>
+        <span class="home-hero__pager-divider">/</span>
+        <span class="home-hero__pager-total" data-hero-total>{{ module.cards|length < 10 ? "0" ~ module.cards|length : module.cards|length }}</span>
+      </div>
+      <button class="home-hero__pager-btn" type="button" aria-label="Next slide" data-hero-next>
+        <span class="home-hero__pager-chevron home-hero__pager-chevron--right" aria-hidden="true"></span>
+      </button>
+    </div>
 
     <div class="home-hero__bottom" data-animate>
       <p class="home-hero__description">{{ module.description }}</p>

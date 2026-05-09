@@ -15,7 +15,7 @@
 /* ── Badge ───────────────────────────────────────────────────────────── */
 
 .svc-approach__badge {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 10px;
   margin-bottom: 32px;
@@ -27,6 +27,7 @@
   height: 2px;
   background: var(--color-brand-1, #194247);
   border-radius: 2px;
+  flex: 0 0 auto;
   flex-shrink: 0;
 }
 

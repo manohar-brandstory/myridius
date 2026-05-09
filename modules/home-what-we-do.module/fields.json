@@ -40,6 +40,20 @@
         "default": "Category title"
       },
       {
+        "id": "categories.accordion_icon",
+        "name": "accordion_icon",
+        "label": "Accordion header icon",
+        "type": "choice",
+        "choices": [
+          ["auto", "Auto (by row: Layers, Zap, CPU, Trending)"],
+          ["layers", "Layers"],
+          ["zap", "Zap"],
+          ["cpu", "CPU"],
+          ["trending_up", "Trending up"]
+        ],
+        "default": "auto"
+      },
+      {
         "id": "categories.badge",
         "name": "badge",
         "label": "Tagline (expanded panel)",
@@ -87,6 +101,28 @@
             "default": "Short description."
           },
           {
+            "id": "services.icon_slug",
+            "name": "icon_slug",
+            "label": "Card icon",
+            "type": "choice",
+            "choices": [
+              ["message_square", "Message"],
+              ["git_branch", "Git branch"],
+              ["palette", "Palette"],
+              ["cloud", "Cloud"],
+              ["cpu", "CPU"],
+              ["panels_top_left", "Panels / layout"],
+              ["briefcase", "Briefcase"],
+              ["activity", "Activity"],
+              ["code", "Code"],
+              ["database", "Database"],
+              ["rocket", "Rocket"],
+              ["life_buoy", "Life buoy"],
+              ["shield_check", "Shield check"]
+            ],
+            "default": "cloud"
+          },
+          {
             "id": "services.catchphrase",
             "name": "catchphrase",
             "label": "Catchphrase (editor reference)",
@@ -100,6 +136,7 @@
     "default": [
       {
         "title": "Identify where AI changes the business",
+        "accordion_icon": "layers",
         "badge": "REINVENT THE OPERATING MODEL",
         "description": "Redesign business, operating, and technology models around software-driven, agentic execution.",
         "left_paragraph": "We identify where AI shifts the economics, redesign the model, and define the move before build begins.",
@@ -107,22 +144,26 @@
           {
             "item_name": "Advisory",
             "description": "AI-native execution. Engineered into how you run.",
+            "icon_slug": "message_square",
             "catchphrase": "STRATEGIC ADVISORY"
           },
           {
             "item_name": "Agentic Process Transformation",
             "description": "Automation that evolves into autonomous operations",
+            "icon_slug": "git_branch",
             "catchphrase": "PROCESS TRANSFORMATION"
           },
           {
             "item_name": "Design Studio",
             "description": "Engineering agentic UX for human+AI interaction.",
+            "icon_slug": "palette",
             "catchphrase": "EXPERIENCE DESIGN"
           }
         ]
       },
       {
         "title": "Products, workflows, and decisioning systems",
+        "accordion_icon": "zap",
         "badge": "BUILD AGENTIC SYSTEMS",
         "description": "Design and engineer systems that can sense, decide, act, and improve in the flow of work.",
         "left_paragraph": "We build agentic products, workflows, and decisioning systems that turn intelligence into execution.",
@@ -130,32 +171,38 @@
           {
             "item_name": "Adobe Experience Cloud",
             "description": "Modernize Adobe. Activate data. Deliver real growth.",
+            "icon_slug": "cloud",
             "catchphrase": "EXPERIENCE CLOUD"
           },
           {
             "item_name": "Agentic AI",
             "description": "From enterprise hierarchy to agent-driven harmony.",
+            "icon_slug": "cpu",
             "catchphrase": "AGENTIC AI"
           },
           {
             "item_name": "Digital Experience",
             "description": "Built for humans. Engineered for AI agents.",
+            "icon_slug": "panels_top_left",
             "catchphrase": "DIGITAL EXPERIENCE"
           },
           {
             "item_name": "Salesforce",
             "description": "Turn Salesforce into your growth engine",
+            "icon_slug": "briefcase",
             "catchphrase": "CRM EVOLUTION"
           },
           {
             "item_name": "ServiceNow",
             "description": "Build autonomous enterprise operations with ServiceNow.",
+            "icon_slug": "activity",
             "catchphrase": "WORKFLOW AUTOMATION"
           }
         ]
       },
       {
         "title": "Cloud, data, and engineering built for autonomy",
+        "accordion_icon": "cpu",
         "badge": "ENGINEER THE AI-NATIVE FOUNDATION",
         "description": "Create the technical foundation that connects platforms, models, tools, and data into production-ready systems.",
         "left_paragraph": "We engineer the AI-native foundation that lets agentic systems operate securely, reliably, and at scale.",
@@ -163,32 +210,38 @@
           {
             "item_name": "Agentic Engineering",
             "description": "Discovery to operations. One agentic execution system.",
+            "icon_slug": "code",
             "catchphrase": "AUTONOMY ENGINEERING"
           },
           {
             "item_name": "AWS Cloud Services",
             "description": "Faster AWS delivery. Zero compliance surprises.",
+            "icon_slug": "cloud",
             "catchphrase": "SCALABLE INFRA"
           },
           {
             "item_name": "Data, AI & Analytics",
             "description": "Trusted data. Governed AI. Enterprise execution.",
+            "icon_slug": "database",
             "catchphrase": "INTELLIGENCE LAYER"
           },
           {
             "item_name": "Cloud Transformation",
             "description": "AWS. Azure. GCP. Built around your workload.",
+            "icon_slug": "rocket",
             "catchphrase": "MODERN STACK"
           },
           {
             "item_name": "Microsoft Cloud Services",
             "description": "Your entire Microsoft stack, unified and governed",
+            "icon_slug": "cloud",
             "catchphrase": "ENTERPRISE CLOUD"
           }
         ]
       },
       {
         "title": "Autonomous execution with compounding value",
+        "accordion_icon": "trending_up",
         "badge": "OPERATE & OPTIMIZE CONTINUOUSLY",
         "description": "Run, govern, and improve live systems so performance rises while effort falls over time.",
         "left_paragraph": "We operate, optimise, and govern continuously so value compounds with every deployment.",
@@ -196,11 +249,13 @@
           {
             "item_name": "AI-Native Application Support",
             "description": "Autonomous application execution governed by design.",
+            "icon_slug": "life_buoy",
             "catchphrase": "CONTINUOUS OPS"
           },
           {
             "item_name": "Quality Engineering & Assurance",
             "description": "From quality assurance to autonomous quality system.",
+            "icon_slug": "shield_check",
             "catchphrase": "TRUST & RELIABILITY"
           }
         ]

@@ -1,0 +1,161 @@
+<section class="evoq-model">
+  <div class="evoq-model__glow" aria-hidden="true"></div>
+  <div class="evoq-model__container">
+    <header class="evoq-model__header">
+      <div class="evoq-model__eyebrow-wrap">
+        <span class="evoq-model__eyebrow-dash"></span>
+        <span class="evoq-model__eyebrow">{{ module.eyebrow_text }}</span>
+      </div>
+      <h2 class="evoq-model__heading">
+        {{ module.heading_line_1 }}<br>
+        <span class="evoq-model__heading-highlight">{{ module.heading_highlight }}</span>
+      </h2>
+    </header>
+
+    <div class="evoq-model__desktop">
+      <div class="evoq-model__diagram-wrap">
+        <svg viewBox="0 0 1200 700" class="evoq-model__diagram" role="img" aria-label="Evoq execution model diagram">
+          <defs>
+            <path id="evoq-model-path-iq-0" d="M 504.37334319738227 375.6230854651496 A 99 99 0 0 1 574.3769145348505 254.37334319738224"></path>
+            <path id="evoq-model-path-iq-1" d="M 625.6230854651496 254.37334319738227 A 99 99 0 0 1 695.6266568026177 375.62308546514953"></path>
+            <path id="evoq-model-path-iq-2" d="M 504.3733431973822 324.37691453485047 A 99 99 0 0 0 574.3769145348505 445.62665680261773"></path>
+            <path id="evoq-model-path-iq-3" d="M 625.6230854651495 445.62665680261773 A 99 99 0 0 0 695.6266568026177 324.37691453485047"></path>
+            <path id="evoq-model-path-mr-0" d="M 571.7821711291239 189.96874013551619 A 162.5 162.5 0 0 1 760.0312598644838 321.78217112912364"></path>
+            <path id="evoq-model-path-mr-1" d="M 628.2178288708762 510.0312598644838 A 162.5 162.5 0 0 0 760.0312598644838 321.7821711291238"></path>
+            <path id="evoq-model-path-mr-2" d="M 439.9687401355162 378.2178288708762 A 162.5 162.5 0 0 1 571.7821711291239 189.96874013551619"></path>
+            <path id="evoq-model-path-mr-3" d="M 439.9687401355162 378.2178288708762 A 162.5 162.5 0 0 0 628.2178288708762 510.0312598644838"></path>
+          </defs>
+
+          {% for item in module.intent_nodes %}
+            <path class="evoq-model__connector evoq-model__connector--intent" data-intent-connector="{{ loop.index0 }}" d="M 248 {{ 150 + (loop.index0 * 95) }} C 300 {{ 150 + (loop.index0 * 95) }}, 300 350, 360 350"></path>
+          {% endfor %}
+
+          {% for item in module.outcome_nodes %}
+            <path class="evoq-model__connector evoq-model__connector--outcome" data-outcome-connector="{{ loop.index0 }}" d="M 840 350 C 900 350, 900 {{ 140 + (loop.index0 * 91) }}, 952 {{ 140 + (loop.index0 * 91) }}"></path>
+          {% endfor %}
+
+          <circle cx="600" cy="350" r="240" class="evoq-model__circle evoq-model__circle--outer"></circle>
+          <circle cx="600" cy="350" r="195" class="evoq-model__circle evoq-model__circle--mid"></circle>
+          <circle cx="600" cy="350" r="130" class="evoq-model__circle evoq-model__circle--inner"></circle>
+          <circle cx="600" cy="350" r="68" class="evoq-model__circle evoq-model__circle--core"></circle>
+          <circle cx="600" cy="350" r="68" class="evoq-model__circle evoq-model__circle--core-pulse"></circle>
+          <line x1="470" y1="350" x2="730" y2="350" class="evoq-model__axis"></line>
+          <line x1="600" y1="220" x2="600" y2="480" class="evoq-model__axis"></line>
+
+          <text class="evoq-model__q-label"><textPath href="#evoq-model-path-iq-0" startOffset="50%" text-anchor="middle">{{ module.quadrant_context }}</textPath></text>
+          <text class="evoq-model__q-label"><textPath href="#evoq-model-path-iq-1" startOffset="50%" text-anchor="middle">{{ module.quadrant_agents }}</textPath></text>
+          <text class="evoq-model__q-label"><textPath href="#evoq-model-path-iq-2" startOffset="50%" text-anchor="middle">{{ module.quadrant_flows }}</textPath></text>
+          <text class="evoq-model__q-label"><textPath href="#evoq-model-path-iq-3" startOffset="50%" text-anchor="middle">{{ module.quadrant_intelligence }}</textPath></text>
+
+          <text class="evoq-model__annotation"><textPath href="#evoq-model-path-mr-0" startOffset="50%" text-anchor="middle">{{ module.annotation_top_right }}</textPath></text>
+          <text class="evoq-model__annotation"><textPath href="#evoq-model-path-mr-1" startOffset="50%" text-anchor="middle">{{ module.annotation_bottom_right }}</textPath></text>
+          <text class="evoq-model__annotation"><textPath href="#evoq-model-path-mr-2" startOffset="50%" text-anchor="middle">{{ module.annotation_top_left }}</textPath></text>
+          <text class="evoq-model__annotation"><textPath href="#evoq-model-path-mr-3" startOffset="50%" text-anchor="middle">{{ module.annotation_bottom_left }}</textPath></text>
+
+          <text x="600" y="131" class="evoq-model__ring-label">{{ module.top_label }}</text>
+          <text x="600" y="573" class="evoq-model__ring-label">{{ module.bottom_label }}</text>
+          <text x="600" y="342" class="evoq-model__core-title">{{ module.core_title }}</text>
+          <text x="600" y="362" class="evoq-model__core-subtitle">{{ module.core_subtitle }}</text>
+        </svg>
+
+        <div class="evoq-model__intent-list">
+          {% for item in module.intent_nodes %}
+            <article class="evoq-model__node evoq-model__node--intent" data-intent-node="{{ loop.index0 }}" tabindex="0">
+              <div class="evoq-model__node-icon">
+                {% if item.icon.src %}
+                  <img src="{{ item.icon.src }}" alt="{{ item.icon.alt|default(item.title) }}" loading="lazy">
+                {% else %}
+                  <span aria-hidden="true">•</span>
+                {% endif %}
+              </div>
+              <div class="evoq-model__node-copy">
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.description }}</p>
+              </div>
+            </article>
+          {% endfor %}
+          <div class="evoq-model__intent-axis-label">{{ module.intent_axis_label|replace(" ", "<br>") }}</div>
+        </div>
+
+        <div class="evoq-model__outcome-list">
+          {% for item in module.outcome_nodes %}
+            <article class="evoq-model__node evoq-model__node--outcome" data-outcome-node="{{ loop.index0 }}" tabindex="0">
+              <div class="evoq-model__node-icon">
+                {% if item.icon.src %}
+                  <img src="{{ item.icon.src }}" alt="{{ item.icon.alt|default(item.title) }}" loading="lazy">
+                {% else %}
+                  <span aria-hidden="true">•</span>
+                {% endif %}
+              </div>
+              <div class="evoq-model__node-copy">
+                <h3>{{ item.title }}</h3>
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="evoq-model__mobile">
+      <div class="evoq-model__mobile-diagram">
+        <div class="evoq-model__mobile-ring evoq-model__mobile-ring--outer"></div>
+        <div class="evoq-model__mobile-ring evoq-model__mobile-ring--mid"></div>
+        <div class="evoq-model__mobile-ring evoq-model__mobile-ring--inner"></div>
+        <div class="evoq-model__mobile-core">
+          <p>{{ module.core_title }}</p>
+          <span>{{ module.core_subtitle }}</span>
+        </div>
+        <p class="evoq-model__mobile-top">{{ module.top_label }}</p>
+        <p class="evoq-model__mobile-bottom">{{ module.bottom_label }}</p>
+      </div>
+
+      <div class="evoq-model__mobile-columns">
+        <div>
+          <p class="evoq-model__mobile-label">{{ module.intent_axis_label }}</p>
+          {% for item in module.intent_nodes %}
+            <article class="evoq-model__node evoq-model__node--intent">
+              <div class="evoq-model__node-icon">
+                {% if item.icon.src %}
+                  <img src="{{ item.icon.src }}" alt="{{ item.icon.alt|default(item.title) }}" loading="lazy">
+                {% else %}
+                  <span aria-hidden="true">•</span>
+                {% endif %}
+              </div>
+              <div class="evoq-model__node-copy">
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.description }}</p>
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+
+        <div>
+          <p class="evoq-model__mobile-label evoq-model__mobile-label--outcome">{{ module.outcomes_axis_label }}</p>
+          {% for item in module.outcome_nodes %}
+            <article class="evoq-model__node evoq-model__node--outcome">
+              <div class="evoq-model__node-icon">
+                {% if item.icon.src %}
+                  <img src="{{ item.icon.src }}" alt="{{ item.icon.alt|default(item.title) }}" loading="lazy">
+                {% else %}
+                  <span aria-hidden="true">•</span>
+                {% endif %}
+              </div>
+              <div class="evoq-model__node-copy">
+                <h3>{{ item.title }}</h3>
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="evoq-model__insights">
+      {% for card in module.insight_cards %}
+        <article class="evoq-model__insight-card">
+          <h4>{{ card.title }}</h4>
+          <p>{{ card.description }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,21 @@
+<section class="evoq-news">
+  <div class="evoq-news__container">
+    <div class="evoq-news__badge">
+      <span class="evoq-news__badge-dash"></span>
+      <span class="evoq-news__badge-text">{{ module.badge_text }}</span>
+    </div>
+  </div>
+
+  <div class="evoq-news__marquee-wrap">
+    <div class="evoq-news__track" data-news-track>
+      {% for _ in [1,2,3] %}
+        {% for item in module.items %}
+          <article class="evoq-news__card">
+            <h3 class="evoq-news__title">{{ item.title }}</h3>
+            <p class="evoq-news__desc">{{ item.description }}</p>
+          </article>
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,165 @@
+<nav class="evoq-nav" aria-label="Primary navigation">
+  <div class="evoq-nav__bar">
+    <div class="evoq-nav__container">
+      <div class="evoq-nav__row">
+
+        {# Logo #}
+        <div class="evoq-nav__brand">
+          <a class="evoq-nav__logo-link" href="{{ module.logo_url.href }}" aria-label="Home">
+            {% if module.logo_image.src %}
+              <img class="evoq-nav__logo-img" src="{{ module.logo_image.src }}" alt="{{ module.logo_image.alt|default('Myridius') }}" loading="eager" decoding="async">
+            {% else %}
+              <span class="evoq-nav__logo-fallback">Myridius</span>
+            {% endif %}
+          </a>
+        </div>
+
+        {# Desktop navigation links #}
+        <div class="evoq-nav__desktop">
+          <ul class="evoq-nav__links" role="list">
+            {% for link in module.nav_links %}
+              <li class="evoq-nav__item">
+                {% if link.has_dropdown %}
+                  <button class="evoq-nav__trigger" type="button" data-evoq-trigger="{{ loop.index0 }}" aria-expanded="false">
+                    <span class="evoq-nav__trigger-label">{{ link.link_text }}</span>
+                    <svg class="evoq-nav__chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                {% else %}
+                  <a class="evoq-nav__link" href="{{ link.link_url.href }}">{{ link.link_text }}</a>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        {# Right actions: search + contact button + hamburger #}
+        <div class="evoq-nav__actions">
+          <button class="evoq-nav__search-btn" type="button" aria-label="Toggle search" data-evoq-search-toggle>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+              <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+
+          {% if module.contact_button_text %}
+            <a class="evoq-nav__cta" href="{{ module.contact_button_url.href }}">
+              {{ module.contact_button_text }}
+            </a>
+          {% endif %}
+
+          <button class="evoq-nav__hamburger-btn" type="button" aria-label="Open menu" data-evoq-mobile-toggle>
+            <span class="evoq-nav__hamburger" aria-hidden="true"></span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  {# Search overlay #}
+  <div class="evoq-nav__search-box" hidden data-evoq-search>
+    <div class="evoq-nav__container">
+      <div class="evoq-nav__search-inner">
+        <svg class="evoq-nav__search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+          <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <input class="evoq-nav__search-input" type="text" placeholder="{{ module.search_placeholder }}" aria-label="Search">
+        <button class="evoq-nav__search-close" type="button" aria-label="Close search" data-evoq-search-close>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  {# Desktop mega menu panels #}
+  {% for link in module.nav_links %}
+    {% if link.has_dropdown %}
+      <div class="evoq-nav__mega" data-evoq-panel="{{ loop.index0 }}" hidden>
+        <div class="evoq-nav__container">
+          {% if link.link_text == "Industries" %}
+            <a class="evoq-nav__mega-heading" href="/industries">
+              <span>Industries</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <div class="evoq-nav__mega-section-title">Industries We Serve</div>
+          {% elif link.link_text == "Services" %}
+            <a class="evoq-nav__mega-heading" href="{{ link.link_url.href|default('#') }}">
+              <span>Services</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <div class="evoq-nav__mega-section-title">Our Services</div>
+          {% endif %}
+
+          <div class="evoq-nav__mega-grid{% if link.link_text == 'Evoq' or link.link_text == 'Resources' or link.link_text == 'About' %} evoq-nav__mega-grid--compact{% endif %}">
+            {% for item in link.dropdown_items %}
+              <a class="evoq-nav__mega-item" href="{{ item.item_url.href }}">
+                <span class="evoq-nav__mega-item-text">{{ item.item_text }}</span>
+                <svg class="evoq-nav__mega-item-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+
+  {# Desktop backdrop #}
+  <div class="evoq-nav__backdrop" hidden data-evoq-backdrop></div>
+
+  {# Mobile slide-down panel #}
+  <div class="evoq-nav__mobile" hidden data-evoq-mobile>
+    <div class="evoq-nav__mobile-inner">
+      <div class="evoq-nav__mobile-links">
+        {% for link in module.nav_links %}
+          <div class="evoq-nav__mobile-item">
+            <div class="evoq-nav__mobile-row">
+              <a class="evoq-nav__mobile-link" href="{{ link.link_url.href }}">{{ link.link_text }}</a>
+              {% if link.has_dropdown %}
+                <button class="evoq-nav__mobile-toggle" type="button" aria-label="Toggle {{ link.link_text }}" data-evoq-accordion="{{ loop.index0 }}">
+                  <svg class="evoq-nav__mobile-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              {% endif %}
+            </div>
+
+            {% if link.has_dropdown %}
+              <div class="evoq-nav__mobile-dropdown" hidden data-evoq-accordion-panel="{{ loop.index0 }}">
+                {% if link.link_text == "Industries" %}
+                  <div class="evoq-nav__mobile-section-title">Industries We Serve</div>
+                {% elif link.link_text == "Services" %}
+                  <div class="evoq-nav__mobile-section-title">Our Services</div>
+                {% endif %}
+                {% for item in link.dropdown_items %}
+                  <a class="evoq-nav__mobile-sub-link" href="{{ item.item_url.href }}">{{ item.item_text }}</a>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+
+      {% if module.contact_button_text %}
+        <div class="evoq-nav__mobile-cta-wrap">
+          <a class="evoq-nav__mobile-cta" href="{{ module.contact_button_url.href }}">
+            {{ module.contact_button_text }}
+          </a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</nav>

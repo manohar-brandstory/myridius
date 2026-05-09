@@ -1,0 +1,391 @@
+[ {
+  "id" : "eyebrow_text",
+  "name" : "eyebrow_text",
+  "label" : "Eyebrow Text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "The Evoq Model"
+}, {
+  "id" : "heading_line_1",
+  "name" : "heading_line_1",
+  "label" : "Heading Line 1",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Evoq is the execution system runtime where Myridius engineers and runs"
+}, {
+  "id" : "heading_highlight",
+  "name" : "heading_highlight",
+  "label" : "Heading Highlight",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "agentic, software-driven systems"
+}, {
+  "id" : "top_label",
+  "name" : "top_label",
+  "label" : "Top Label",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Business Reinvention"
+}, {
+  "id" : "bottom_label",
+  "name" : "bottom_label",
+  "label" : "Bottom Label",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Agentic Velocity"
+}, {
+  "id" : "quadrant_context",
+  "name" : "quadrant_context",
+  "label" : "Quadrant Label - Context",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Context"
+}, {
+  "id" : "quadrant_agents",
+  "name" : "quadrant_agents",
+  "label" : "Quadrant Label - Agents",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Agents"
+}, {
+  "id" : "quadrant_flows",
+  "name" : "quadrant_flows",
+  "label" : "Quadrant Label - Flows",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Flows"
+}, {
+  "id" : "quadrant_intelligence",
+  "name" : "quadrant_intelligence",
+  "label" : "Quadrant Label - Intelligence",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Intelligence"
+}, {
+  "id" : "annotation_top_right",
+  "name" : "annotation_top_right",
+  "label" : "Inner Annotation - Top Right",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Human + Agents"
+}, {
+  "id" : "annotation_top_left",
+  "name" : "annotation_top_left",
+  "label" : "Inner Annotation - Top Left",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Enterprise ready"
+}, {
+  "id" : "annotation_bottom_left",
+  "name" : "annotation_bottom_left",
+  "label" : "Inner Annotation - Bottom Left",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Modular & Adaptive"
+}, {
+  "id" : "annotation_bottom_right",
+  "name" : "annotation_bottom_right",
+  "label" : "Inner Annotation - Bottom Right",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Dynamic Orchestration"
+}, {
+  "id" : "core_title",
+  "name" : "core_title",
+  "label" : "Core Title",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "EVOQ"
+}, {
+  "id" : "core_subtitle",
+  "name" : "core_subtitle",
+  "label" : "Core Subtitle",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "CORE"
+}, {
+  "id" : "intent_axis_label",
+  "name" : "intent_axis_label",
+  "label" : "Intent Axis Label",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Business intent"
+}, {
+  "id" : "outcomes_axis_label",
+  "name" : "outcomes_axis_label",
+  "label" : "Outcomes Axis Label",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Outcomes"
+}, {
+  "id" : "intent_nodes",
+  "name" : "intent_nodes",
+  "label" : "Left Intent Nodes",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 8,
+    "sorting_label_field" : null,
+    "default" : 5
+  },
+  "children" : [ {
+    "id" : "intent_nodes.icon",
+    "name" : "icon",
+    "label" : "Icon",
+    "required" : false,
+    "locked" : false,
+    "responsive" : false,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "",
+      "alt" : "Intent icon"
+    }
+  }, {
+    "id" : "intent_nodes.title",
+    "name" : "title",
+    "label" : "Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Build New"
+  }, {
+    "id" : "intent_nodes.description",
+    "name" : "description",
+    "label" : "Description",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Market signals"
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "title" : "Build New",
+    "description" : "Market signals",
+    "icon" : {
+      "src" : "",
+      "alt" : "Build New icon"
+    }
+  }, {
+    "title" : "Modernize Existing",
+    "description" : "Tech landscape",
+    "icon" : {
+      "src" : "",
+      "alt" : "Modernize icon"
+    }
+  }, {
+    "title" : "Biz-tech transformation",
+    "description" : "Benchmarking",
+    "icon" : {
+      "src" : "",
+      "alt" : "Transformation icon"
+    }
+  }, {
+    "title" : "Transform Processes",
+    "description" : "Workflows",
+    "icon" : {
+      "src" : "",
+      "alt" : "Process icon"
+    }
+  }, {
+    "title" : "Redesign Experiences",
+    "description" : "CX insights",
+    "icon" : {
+      "src" : "",
+      "alt" : "Experience icon"
+    }
+  } ]
+}, {
+  "id" : "outcome_nodes",
+  "name" : "outcome_nodes",
+  "label" : "Right Outcome Nodes",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 8,
+    "sorting_label_field" : null,
+    "default" : 6
+  },
+  "children" : [ {
+    "id" : "outcome_nodes.icon",
+    "name" : "icon",
+    "label" : "Icon",
+    "required" : false,
+    "locked" : false,
+    "responsive" : false,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "",
+      "alt" : "Outcome icon"
+    }
+  }, {
+    "id" : "outcome_nodes.title",
+    "name" : "title",
+    "label" : "Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Differentiation"
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "title" : "Differentiation",
+    "icon" : {
+      "src" : "",
+      "alt" : "Differentiation icon"
+    }
+  }, {
+    "title" : "Profits",
+    "icon" : {
+      "src" : "",
+      "alt" : "Profits icon"
+    }
+  }, {
+    "title" : "Growth",
+    "icon" : {
+      "src" : "",
+      "alt" : "Growth icon"
+    }
+  }, {
+    "title" : "Experience",
+    "icon" : {
+      "src" : "",
+      "alt" : "Experience icon"
+    }
+  }, {
+    "title" : "Biz-tech agility",
+    "icon" : {
+      "src" : "",
+      "alt" : "Agility icon"
+    }
+  }, {
+    "title" : "Agentic processes",
+    "icon" : {
+      "src" : "",
+      "alt" : "Agentic icon"
+    }
+  } ]
+}, {
+  "id" : "insight_cards",
+  "name" : "insight_cards",
+  "label" : "Bottom Insight Cards",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 6,
+    "sorting_label_field" : null,
+    "default" : 4
+  },
+  "children" : [ {
+    "id" : "insight_cards.title",
+    "name" : "title",
+    "label" : "Card Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Strategy + Reinvention Roadmap"
+  }, {
+    "id" : "insight_cards.description",
+    "name" : "description",
+    "label" : "Card Description",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Sets value priorities and reinvention sequence."
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "title" : "Strategy + Reinvention Roadmap",
+    "description" : "Sets value priorities and reinvention sequence."
+  }, {
+    "title" : "AI Solutions + Workbenches",
+    "description" : "Places where agents and people act together."
+  }, {
+    "title" : "Process Reinvention + Autonomous Operations",
+    "description" : "Moves execution, escalation, and follow-through in-flow."
+  }, {
+    "title" : "Data, Knowledge, Integration + Context",
+    "description" : "Connects grounding, systems, and business memory."
+  } ]
+} ]

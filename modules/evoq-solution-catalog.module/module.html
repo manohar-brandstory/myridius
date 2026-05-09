@@ -1,0 +1,333 @@
+{# EVOQ Solution Catalog Module #}
+
+{% require_css %}
+<link rel="stylesheet" href="{{ get_asset_url('../modules/evoq-solution-catalog.module/module.css') }}" />
+{% end_require_css %}
+
+{% set default_tabs = [
+  {
+    "tab_label": "Built for Business",
+    "tab_description": "<p>Don’t see solutions listed for your industry? Wherever you operate, Evoq adapts.</p>",
+    "cta_text": "Explore All Industries",
+    "cta_url": { "href": "#", "type": "EXTERNAL" },
+    "cards": [
+      {
+        "image": { "src": "/_assets/v11/818cd24a3140ff7bb15397f89eba5911bc291894.png", "alt": "Intelligent Trip Companion" },
+        "title": "Intelligent Trip Companion",
+        "description": "AI-powered guest app for real-time guest journey optimization",
+        "bullets": [
+          { "text": "Real-time contextual notifications" },
+          { "text": "One-tap service fulfillment" },
+          { "text": "AI concierge with warm transfer" }
+        ],
+        "category": "TRAVEL & HOSPITALITY"
+      },
+      {
+        "image": { "src": "/_assets/v11/e6e1f606f7997e862add4b14fdc5b035e76ed76c.png", "alt": "Smart Claims Management" },
+        "title": "Smart Claims Management",
+        "description": "AI-powered dashboard for faster, transparent claims processing",
+        "bullets": [
+          { "text": "AI-driven claims processing" },
+          { "text": "Live social media monitoring" },
+          { "text": "Legal case mapping with AI" }
+        ],
+        "category": "INSURANCE"
+      },
+      {
+        "image": { "src": "/_assets/v11/8a2ebd13a3834bca79cf8d1f79f64630617997df.png", "alt": "Clinical Accreditation Manager" },
+        "title": "Clinical Accreditation Manager",
+        "description": "AI-personalized pathways for streamlined medical accreditation",
+        "bullets": [
+          { "text": "Automated ACGME/ACCME compliance" },
+          { "text": "Persona-based tailored learning paths" },
+          { "text": "Intelligent, self-service tracking" }
+        ],
+        "category": "HEALTHCARE & LIFESCIENCES"
+      },
+      {
+        "image": { "src": "/_assets/v11/691f12d18dea267cb8df888d4976c713c63be693.png", "alt": "Credit Underwriting Suite" },
+        "title": "Credit Underwriting Suite",
+        "description": "AI-assisted risk profiling and automated credit evaluation",
+        "bullets": [
+          { "text": "Automated financial ratio analysis" },
+          { "text": "Predictive credit projections" },
+          { "text": "Traceability with regulatory guardrails" }
+        ],
+        "category": "BANKING & FINANCIAL SERVICES"
+      },
+      {
+        "image": { "src": "/_assets/v11/ccf1c7d0778c4af753115a44132429d0edf3985a.png", "alt": "Customer Retention Intelligence" },
+        "title": "Customer Retention Intelligence",
+        "description": "AI-driven sentiment analysis for proactive customer retention",
+        "bullets": [
+          { "text": "Churn propensity modeling" },
+          { "text": "Automated win-back workflows" },
+          { "text": "Lifetime value optimization" }
+        ],
+        "category": "AGNOSTIC"
+      },
+      {
+        "image": { "src": "/_assets/v11/b914534003dbda52bc2456aa22477211d97d1b9d.png", "alt": "Fund Analyst Workbench" },
+        "title": "Fund Analyst Workbench",
+        "description": "AI-native automation for fund administration lifecycle",
+        "bullets": [
+          { "text": "Automated document data extraction" },
+          { "text": "Multi-agent data reconciliation" },
+          { "text": "Instant audited reporting" }
+        ],
+        "category": "BANKING & FINANCIAL SERVICES"
+      }
+    ]
+  },
+  {
+    "tab_label": "Built for Operations",
+    "tab_description": "<p>Scale intelligence across every function. Our horizontal agents integrate seamlessly with your core workflows.</p>",
+    "cta_text": "Explore Horizontal Solutions",
+    "cta_url": { "href": "#", "type": "EXTERNAL" },
+    "cards": [
+      {
+        "image": { "src": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80", "alt": "Supply Chain Orchestrator" },
+        "title": "Supply Chain Orchestrator",
+        "description": "End-to-end supply chain visibility and optimization powered by predictive analytics and intelligent automation.",
+        "bullets": [
+          { "text": "Demand forecasting with ML" },
+          { "text": "Automated inventory rebalancing" },
+          { "text": "Supplier risk monitoring" }
+        ],
+        "category": "Supply Chain"
+      },
+      {
+        "image": { "src": "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80", "alt": "Workforce Intelligence Hub" },
+        "title": "Workforce Intelligence Hub",
+        "description": "Optimize workforce planning, scheduling, and performance with AI-driven people analytics and automation.",
+        "bullets": [
+          { "text": "Predictive scheduling optimization" },
+          { "text": "Skills gap identification" },
+          { "text": "Attrition risk modeling" }
+        ],
+        "category": "HR Operations"
+      },
+      {
+        "image": { "src": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80", "alt": "Incident Response Automator" },
+        "title": "Incident Response Automator",
+        "description": "Accelerate incident detection, triage, and resolution with intelligent runbooks and automated remediation.",
+        "bullets": [
+          { "text": "Automated root cause analysis" },
+          { "text": "Intelligent escalation routing" },
+          { "text": "Self-healing infrastructure actions" }
+        ],
+        "category": "IT Operations"
+      },
+      {
+        "image": { "src": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80", "alt": "Contract Lifecycle Engine" },
+        "title": "Contract Lifecycle Engine",
+        "description": "Automate contract creation, negotiation, and compliance monitoring with AI-powered legal intelligence.",
+        "bullets": [
+          { "text": "Clause risk assessment" },
+          { "text": "Automated obligation tracking" },
+          { "text": "Renewal prediction engine" }
+        ],
+        "category": "Legal Ops"
+      },
+      {
+        "image": { "src": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80", "alt": "Procurement Optimizer" },
+        "title": "Procurement Optimizer",
+        "description": "Intelligent procurement workflows that maximize savings, ensure compliance, and strengthen supplier relationships.",
+        "bullets": [
+          { "text": "Spend pattern analysis" },
+          { "text": "Automated vendor evaluation" },
+          { "text": "Dynamic pricing negotiation" }
+        ],
+        "category": "Procurement"
+      },
+      {
+        "image": { "src": "https://images.unsplash.com/photo-1565688534245-05d6b5be184a?w=800&q=80", "alt": "Quality Assurance Platform" },
+        "title": "Quality Assurance Platform",
+        "description": "Proactive quality management with AI-powered inspection, anomaly detection, and continuous improvement insights.",
+        "bullets": [
+          { "text": "Visual defect detection" },
+          { "text": "Statistical process control" },
+          { "text": "Predictive maintenance alerts" }
+        ],
+        "category": "Manufacturing"
+      }
+    ]
+  },
+  {
+    "tab_label": "Built for Technology",
+    "tab_description": "<p>Built by engineers, for engineers. Accelerate your development lifecycle with autonomous engineering agents.</p>",
+    "cta_text": "Explore Engineering Agents",
+    "cta_url": { "href": "#", "type": "EXTERNAL" },
+    "cards": [
+      {
+        "image": { "src": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&q=80", "alt": "API Gateway Intelligence" },
+        "title": "API Gateway Intelligence",
+        "description": "Smart API management with AI-powered rate limiting, anomaly detection, and automated documentation generation.",
+        "bullets": [
+          { "text": "Traffic pattern optimization" },
+          { "text": "Automated API versioning" },
+          { "text": "Security threat detection" }
+        ],
+        "category": "Platform Engineering"
+      },
+      {
+        "image": { "src": "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=800&q=80", "alt": "Data Pipeline Architect" },
+        "title": "Data Pipeline Architect",
+        "description": "Self-optimizing data pipelines that adapt to schema changes, handle failures gracefully, and scale automatically.",
+        "bullets": [
+          { "text": "Schema drift detection" },
+          { "text": "Auto-scaling compute allocation" },
+          { "text": "Data quality validation" }
+        ],
+        "category": "Data Engineering"
+      },
+      {
+        "image": { "src": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=80", "alt": "Security Posture Manager" },
+        "title": "Security Posture Manager",
+        "description": "Continuous security assessment and automated remediation across cloud infrastructure and application layers.",
+        "bullets": [
+          { "text": "Vulnerability prioritization" },
+          { "text": "Compliance drift monitoring" },
+          { "text": "Automated patch orchestration" }
+        ],
+        "category": "Cybersecurity"
+      },
+      {
+        "image": { "src": "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80", "alt": "ML Model Observatory" },
+        "title": "ML Model Observatory",
+        "description": "End-to-end model monitoring with drift detection, performance tracking, and automated retraining triggers.",
+        "bullets": [
+          { "text": "Feature drift monitoring" },
+          { "text": "A/B test orchestration" },
+          { "text": "Model lineage tracking" }
+        ],
+        "category": "MLOps"
+      },
+      {
+        "image": { "src": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80", "alt": "Code Migration Accelerator" },
+        "title": "Code Migration Accelerator",
+        "description": "AI-assisted codebase modernization that automates refactoring, dependency updates, and framework migrations.",
+        "bullets": [
+          { "text": "Automated code transformation" },
+          { "text": "Dependency conflict resolution" },
+          { "text": "Test coverage preservation" }
+        ],
+        "category": "DevOps"
+      },
+      {
+        "image": { "src": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80", "alt": "Cloud Cost Optimizer" },
+        "title": "Cloud Cost Optimizer",
+        "description": "Intelligent cloud resource management with automated rightsizing, reservation planning, and waste elimination.",
+        "bullets": [
+          { "text": "Resource utilization analysis" },
+          { "text": "Reserved instance planning" },
+          { "text": "Idle resource detection" }
+        ],
+        "category": "FinOps"
+      }
+    ]
+  }
+] %}
+
+{% set tabs_data = module.tabs|default(default_tabs) %}
+
+<section class="evoq-catalog">
+  <div class="evoq-catalog__container">
+
+    {# Header #}
+    <div class="evoq-catalog__header">
+      <div class="evoq-catalog__badge">
+        <span class="evoq-catalog__badge-dash"></span>
+        <span class="evoq-catalog__badge-text">{{ module.badge_text|default("Solution Catalog") }}</span>
+      </div>
+      <h2 class="evoq-catalog__title">{{ module.title|default("Built for AI-native execution") }}</h2>
+    </div>
+
+    {# Tab Navigation #}
+    <div class="evoq-catalog__tabs-wrapper">
+      <nav class="evoq-catalog__tabs" role="tablist">
+        {% for tab in tabs_data %}
+          <button
+            class="evoq-catalog__tab{% if loop.first %} evoq-catalog__tab--active{% endif %}"
+            role="tab"
+            aria-selected="{{ loop.first|lower }}"
+            aria-controls="evoq-catalog-panel-{{ loop.index0 }}"
+            data-tab-index="{{ loop.index0 }}"
+            type="button"
+          >
+            {{ tab.tab_label }}
+          </button>
+        {% endfor %}
+        <span class="evoq-catalog__tab-indicator"></span>
+      </nav>
+    </div>
+
+    {# Tab Panels #}
+    {% for tab in tabs_data %}
+      <div
+        class="evoq-catalog__panel{% if loop.first %} evoq-catalog__panel--active{% endif %}"
+        id="evoq-catalog-panel-{{ loop.index0 }}"
+        role="tabpanel"
+        data-panel-index="{{ loop.index0 }}"
+      >
+        {# Sub-header #}
+        <div class="evoq-catalog__subheader">
+          <div class="evoq-catalog__description">
+            {{ tab.tab_description }}
+          </div>
+          {% if tab.cta_text %}
+            <a
+              class="evoq-catalog__cta"
+              href="{{ tab.cta_url.href|default('#') }}"
+              {% if tab.cta_url.open_in_new_tab|default(false) %}target="_blank" rel="noopener noreferrer"{% endif %}
+            >
+              <span>{{ tab.cta_text }}</span>
+              <svg class="evoq-catalog__cta-arrow" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.74512 3.64347L13.8462 8.74453L8.74512 13.8456" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M3.64453 8.74414H13.8466" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </a>
+          {% endif %}
+        </div>
+
+        {# Card Grid #}
+        <div class="evoq-catalog__grid">
+          {% set cards = tab.cards|default([]) %}
+          {% for card in cards %}
+            <div class="evoq-catalog__card" tabindex="0">
+              <img
+                class="evoq-catalog__card-bg"
+                src="{{ card.image.src }}"
+                alt="{{ card.image.alt|default(card.title) }}"
+                loading="lazy"
+              />
+              <div class="evoq-catalog__card-overlay"></div>
+              <div class="evoq-catalog__card-content">
+                <div class="evoq-catalog__card-lift">
+                  <h3 class="evoq-catalog__card-title">{{ card.title }}</h3>
+                  <p class="evoq-catalog__card-desc">{{ card.description }}</p>
+                  <ul class="evoq-catalog__card-bullets">
+                    {% for bullet in card.bullets|default([]) %}
+                      <li class="evoq-catalog__card-bullet">
+                        <span class="evoq-catalog__card-bullet-arrow">→</span>
+                        <span>{{ bullet.text }}</span>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+                {% if card.category %}
+                  <span class="evoq-catalog__card-category">{{ card.category }}</span>
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+
+  </div>
+</section>
+
+{% require_js %}
+<script src="{{ get_asset_url('../modules/evoq-solution-catalog.module/module.js') }}"></script>
+{% end_require_js %}

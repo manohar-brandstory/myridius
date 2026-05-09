@@ -1,0 +1,184 @@
+[ {
+  "id" : "breadcrumb_items",
+  "name" : "breadcrumb_items",
+  "label" : "Breadcrumb items",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 8,
+    "sorting_label_field" : null,
+    "default" : 3
+  },
+  "children" : [ {
+    "id" : "breadcrumb_items.link_text",
+    "name" : "link_text",
+    "label" : "Label",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Myridius"
+  }, {
+    "id" : "breadcrumb_items.url",
+    "name" : "url",
+    "label" : "Link",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT" ],
+    "type" : "url",
+    "display_width" : null,
+    "default" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
+    }
+  }, {
+    "id" : "breadcrumb_items.is_active",
+    "name" : "is_active",
+    "label" : "Active (last item, highlighted green)",
+    "required" : false,
+    "locked" : false,
+    "display" : "checkbox",
+    "type" : "boolean",
+    "display_width" : null,
+    "default" : false
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "link_text" : "Myridius",
+    "url" : {
+      "content_id" : null,
+      "href" : "/",
+      "type" : "EXTERNAL"
+    },
+    "is_active" : false
+  }, {
+    "link_text" : "Innovation",
+    "url" : {
+      "content_id" : null,
+      "href" : "/innovation",
+      "type" : "EXTERNAL"
+    },
+    "is_active" : false
+  }, {
+    "link_text" : "Evoq",
+    "url" : {
+      "content_id" : null,
+      "href" : "",
+      "type" : "EXTERNAL"
+    },
+    "is_active" : true
+  } ]
+}, {
+  "id" : "title_line_1",
+  "name" : "title_line_1",
+  "label" : "Title — line 1 (white)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Execution Systems are the"
+}, {
+  "id" : "title_line_2",
+  "name" : "title_line_2",
+  "label" : "Title — line 2 (green accent)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "New Enterprise Advantage"
+}, {
+  "id" : "description",
+  "name" : "description",
+  "label" : "Description",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "display_width" : null,
+  "default" : "<p>Evoq is an AI-native operating layer that transforms enterprise services into agentic, software driven systems - enabling organisations to reinvent how they operate and deliver non-linear, compounding business value.</p>"
+}, {
+  "id" : "primary_button_text",
+  "name" : "primary_button_text",
+  "label" : "Primary button text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "See Real Outcomes"
+}, {
+  "id" : "primary_button_url",
+  "name" : "primary_button_url",
+  "label" : "Primary button link",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT" ],
+  "type" : "url",
+  "display_width" : null,
+  "default" : {
+    "content_id" : null,
+    "href" : "#outcomes",
+    "type" : "EXTERNAL"
+  }
+}, {
+  "id" : "secondary_button_text",
+  "name" : "secondary_button_text",
+  "label" : "Secondary button text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Explore Evoq"
+}, {
+  "id" : "secondary_button_url",
+  "name" : "secondary_button_url",
+  "label" : "Secondary button link",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT" ],
+  "type" : "url",
+  "display_width" : null,
+  "default" : {
+    "content_id" : null,
+    "href" : "#explore",
+    "type" : "EXTERNAL"
+  }
+}, {
+  "id" : "show_ide_illustration",
+  "name" : "show_ide_illustration",
+  "label" : "Show IDE illustration",
+  "required" : false,
+  "locked" : false,
+  "display" : "checkbox",
+  "type" : "boolean",
+  "display_width" : null,
+  "default" : true
+}, {
+  "id" : "ide_header_text",
+  "name" : "ide_header_text",
+  "label" : "IDE header text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "evoq · intelligence-layer"
+}, {
+  "id" : "code_lines",
+  "name" : "code_lines",
+  "label" : "Code display (HTML for syntax highlighting)",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "display_width" : null,
+  "default" : "<pre><span class=\"evoq-hero-code-comment\">// intelligence-layer.ts</span>\n<span class=\"evoq-hero-code-keyword\">import</span> evoq <span class=\"evoq-hero-code-keyword\">from</span> <span class=\"evoq-hero-code-string\">\"@myridius/evoq-sdk\"</span>\n<span class=\"evoq-hero-code-keyword\">import</span> { Agent, Pipeline } <span class=\"evoq-hero-code-keyword\">from</span> <span class=\"evoq-hero-code-string\">\"evoq/core\"</span>\n\n<span class=\"evoq-hero-code-keyword\">const</span> layer = evoq.<span class=\"evoq-hero-code-fn\">createLayer</span>({\n  <span class=\"evoq-hero-code-prop\">name</span>: <span class=\"evoq-hero-code-string\">\"enterprise-ops\"</span>,\n  <span class=\"evoq-hero-code-prop\">agents</span>: [Agent.<span class=\"evoq-hero-code-fn\">from</span>(<span class=\"evoq-hero-code-string\">\"cost-optimizer\"</span>)],\n  <span class=\"evoq-hero-code-prop\">pipeline</span>: Pipeline.<span class=\"evoq-hero-code-fn\">auto</span>(),\n})\n\n<span class=\"evoq-hero-code-keyword\">await</span> layer.<span class=\"evoq-hero-code-fn\">deploy</span>()\n<span class=\"evoq-hero-code-comment\">// → agents active, pipelines running</span></pre>"
+} ]

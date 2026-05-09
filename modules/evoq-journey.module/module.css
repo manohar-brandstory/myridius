@@ -1,0 +1,383 @@
+.evoq-journey {
+  background-color: var(--evoq-deepest, #071417);
+  padding: var(--evoq-section-pad-y, 100px) var(--evoq-section-pad-x, 24px);
+  font-family: var(--evoq-font, system-ui, -apple-system, sans-serif);
+}
+
+.evoq-journey__container {
+  max-width: var(--evoq-content-max, 1200px);
+  margin: 0 auto;
+}
+
+/* Header */
+.evoq-journey__header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.evoq-journey__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.evoq-journey__badge-dash {
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  border-radius: 2px;
+  background-color: var(--evoq-green, #52e081);
+  flex: 0 0 auto;
+  flex-shrink: 0;
+}
+
+.evoq-journey__badge-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--evoq-green, #52e081);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.evoq-journey__title {
+  font-size: clamp(40px, 5vw, 48px);
+  font-weight: 500;
+  color: var(--evoq-white, #ffffff);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 0 24px;
+}
+
+.evoq-journey__title-highlight {
+  color: var(--evoq-green, #52E081);
+}
+
+.evoq-journey__description {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--evoq-mint-pale, #ECFAE5);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.55;
+}
+
+/* Journey Stages Bar */
+.evoq-journey__stages-bar {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  background: linear-gradient(99deg, #0C2226 24%, #194247 96%);
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 60px;
+}
+
+.evoq-journey__stage {
+  flex: 1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.evoq-journey__stage-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--evoq-white, #ffffff);
+  margin: 0 0 6px;
+  transition: color 0.3s ease;
+}
+
+.evoq-journey__stage-desc {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 12px;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+.evoq-journey__stage-progress {
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.evoq-journey__stage-progress-fill {
+  height: 100%;
+  width: 40%;
+  background-color: var(--evoq-green, #52E081);
+  border-radius: 2px;
+  transition: width 0.5s ease;
+}
+
+.evoq-journey__stage:hover .evoq-journey__stage-title,
+.evoq-journey__stage--active .evoq-journey__stage-title {
+  color: var(--evoq-green, #52E081);
+}
+
+.evoq-journey__stage:hover .evoq-journey__stage-desc,
+.evoq-journey__stage--active .evoq-journey__stage-desc {
+  color: var(--evoq-mint-pale, #ECFAE5);
+}
+
+.evoq-journey__stage:hover .evoq-journey__stage-progress-fill,
+.evoq-journey__stage--active .evoq-journey__stage-progress-fill {
+  width: 100%;
+}
+
+/* Sub-header */
+.evoq-journey__subheader {
+  margin-bottom: 48px;
+}
+
+.evoq-journey__sub-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--evoq-green, #52E081);
+  margin: 0 0 12px;
+}
+
+.evoq-journey__sub-description {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--evoq-white, #ffffff);
+  max-width: 700px;
+  line-height: 1.55;
+}
+
+.evoq-journey__cards-slider {
+  position: relative;
+  width: 100%;
+}
+
+.evoq-journey__cards-viewport {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.evoq-journey__cards-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+/* Accordion Cards */
+.evoq-journey__cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 24px;
+  align-items: flex-end;
+  justify-content: flex-start;
+  min-height: 500px;
+}
+
+.evoq-journey__card {
+  position: relative;
+  border-radius: var(--evoq-radius-card, 12px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px 24px 24px;
+  cursor: pointer;
+  width: 180px;
+  min-height: 340px;
+  height: 340px;
+  flex-shrink: 0;
+  opacity: 0.9;
+  transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+              height 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.35s ease;
+}
+
+.evoq-journey__card--active {
+  width: 384px;
+  min-height: 480px;
+  height: 480px;
+  opacity: 1;
+}
+
+.evoq-journey__card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.evoq-journey__card-subtitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--evoq-white, #ffffff);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.85;
+  line-height: 1.25;
+}
+
+.evoq-journey__card-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--evoq-mint-pale, #ECFAE5);
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.evoq-journey__card--active .evoq-journey__card-title {
+  color: var(--evoq-green, #52E081);
+}
+
+.evoq-journey__card-description {
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.55;
+  min-height: 0;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.4s ease 0.1s,
+              min-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.evoq-journey__card--active .evoq-journey__card-description {
+  min-height: 120px;
+  max-height: 300px;
+  opacity: 1;
+}
+
+.evoq-journey__card:not(.evoq-journey__card--active) .evoq-journey__card-description {
+  display: none;
+}
+
+.evoq-journey__cards-nav {
+  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid rgba(82, 224, 129, 0.45);
+  background: rgba(7, 20, 23, 0.9);
+  color: #52E081;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.evoq-journey__cards-nav--prev { left: -18px; }
+.evoq-journey__cards-nav--next { right: -18px; }
+
+/* Responsive - Tablet */
+@media (max-width: 1024px) {
+  .evoq-journey__stages-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .evoq-journey__cards {
+    scroll-snap-type: x mandatory;
+    min-height: 430px;
+    padding-bottom: 16px;
+  }
+
+  .evoq-journey__card {
+    scroll-snap-align: start;
+    min-width: 170px;
+    width: 170px;
+    min-height: 320px;
+    height: 320px;
+  }
+
+  .evoq-journey__card--active {
+    width: 300px;
+    min-height: 420px;
+    height: 420px;
+  }
+
+  .evoq-journey__cards-slider--enabled .evoq-journey__cards-nav {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 640px) {
+  .evoq-journey {
+    padding: 60px 16px;
+  }
+
+  .evoq-journey__header {
+    margin-bottom: 48px;
+  }
+
+  .evoq-journey__title {
+    font-size: 32px;
+  }
+
+  .evoq-journey__description {
+    font-size: 16px;
+  }
+
+  .evoq-journey__stages-bar {
+    flex-direction: column;
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .evoq-journey__cards {
+    flex-direction: row;
+    min-height: 300px;
+    gap: 12px;
+    align-items: flex-end;
+    scroll-snap-type: x mandatory;
+  }
+
+  .evoq-journey__card,
+  .evoq-journey__card--active {
+    width: 280px;
+    min-width: 280px;
+    min-height: 260px;
+    height: 260px;
+    padding: 20px;
+    transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                min-height 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    scroll-snap-align: start;
+  }
+
+  .evoq-journey__card--active {
+    width: 320px;
+    min-width: 320px;
+    min-height: 300px;
+    height: 300px;
+  }
+
+  .evoq-journey__card-description {
+    min-height: 0;
+    max-height: 0;
+    opacity: 0;
+  }
+
+  .evoq-journey__card--active .evoq-journey__card-description {
+    min-height: 120px;
+    max-height: 300px;
+    opacity: 1;
+  }
+
+  .evoq-journey__card--active .evoq-journey__card-title {
+    color: var(--evoq-green, #52E081);
+  }
+
+  .evoq-journey__cards-slider--enabled .evoq-journey__cards-nav {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .evoq-journey__cards-nav--prev { left: -10px; }
+  .evoq-journey__cards-nav--next { right: -10px; }
+}

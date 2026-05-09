@@ -1,0 +1,169 @@
+.evoq-cta {
+  background-color: #0C2226;
+  padding: 120px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.evoq-cta__glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 800px;
+  height: 800px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(82, 224, 129, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.evoq-cta__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(82, 224, 129, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(82, 224, 129, 0.15) 1px, transparent 1px);
+  background-size: 80px 80px;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.evoq-cta__container {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 64px;
+}
+
+.evoq-cta__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.evoq-cta__badge-dash {
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  border-radius: 2px;
+  background-color: #52e081;
+  flex: 0 0 auto;
+  flex-shrink: 0;
+}
+
+.evoq-cta__badge-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #52e081;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.evoq-cta__title {
+  font-size: 48px;
+  font-weight: 500;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  margin: 0 0 24px;
+}
+
+.evoq-cta__description {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  max-width: 768px;
+  margin: 0 auto 48px;
+  line-height: 1.7;
+}
+
+.evoq-cta__description p {
+  margin: 0;
+}
+
+.evoq-cta__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.evoq-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 9999px;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.evoq-cta__btn--primary {
+  background-color: #ffffff;
+  color: #194247;
+  padding: 14px 32px;
+  border: none;
+}
+
+.evoq-cta__btn--primary:hover {
+  background-color: #52E081;
+  box-shadow: 0 0 24px rgba(82, 224, 129, 0.35);
+  transform: scale(1.02);
+}
+
+.evoq-cta__btn--primary .evoq-cta__btn-arrow {
+  transition: transform 0.25s ease;
+}
+
+.evoq-cta__btn--primary:hover .evoq-cta__btn-arrow {
+  transform: translateX(3px);
+}
+
+.evoq-cta__btn--secondary {
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.75);
+  padding: 14px 32px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.evoq-cta__btn--secondary:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.08);
+  transform: scale(1.02);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .evoq-cta {
+    padding: 80px 0;
+  }
+
+  .evoq-cta__container {
+    padding: 0 20px;
+  }
+
+  .evoq-cta__title {
+    font-size: 32px;
+  }
+
+  .evoq-cta__description {
+    font-size: 16px;
+  }
+
+  .evoq-cta__buttons {
+    flex-direction: column;
+  }
+
+  .evoq-cta__btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

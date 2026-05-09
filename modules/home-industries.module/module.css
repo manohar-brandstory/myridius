@@ -30,16 +30,18 @@
 
 /* SectionBadge (light) — IndustriesSection.tsx */
 .home-ind__badge {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   margin-bottom: 32px;
 }
 
 .home-ind__badge-line {
   display: block;
-  width: 16px;
+  width: 24px;
   height: 2px;
+  border-radius: 2px;
+  flex: 0 0 auto;
   flex-shrink: 0;
   background-color: #194247;
 }
@@ -51,7 +53,7 @@
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: #194247;
-  line-height: 1.2;
+  line-height: 21px;
 }
 
 .home-ind__title {
@@ -107,7 +109,7 @@
   padding: 16px 12px;
   cursor: pointer;
   border-radius: 12px;
-  transition: background 300ms ease, color 300ms ease, box-shadow 300ms ease;
+  transition: background 300ms ease, color 300ms ease, box-shadow 300ms ease, border-radius 300ms ease;
   user-select: none;
 }
 
@@ -137,10 +139,30 @@
   transition: color 300ms ease;
 }
 
-/* Active Row Header — figma uses to-right gradient */
+/* Active Row Header — Figma multi-stop gradient */
 .home-ind__row.is-active .home-ind__row-header {
-  background: linear-gradient(90deg, #194247 0%, #337077 100%);
-  box-shadow: 0 10px 25px -5px rgba(25, 66, 71, 0.3);
+  background: linear-gradient(
+    90deg,
+    #194247 0%,
+    #1b454a 7.14%,
+    #1d484e 14.29%,
+    #1e4b51 21.43%,
+    #204f54 28.57%,
+    #225258 35.71%,
+    #24555b 42.86%,
+    #26585e 50%,
+    #285c62 57.14%,
+    #295f65 64.29%,
+    #2b6269 71.43%,
+    #2d666c 78.57%,
+    #2f6970 85.71%,
+    #316d73 92.86%,
+    #337077 100%
+  );
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  border-radius: 12px 12px 0 0;
 }
 
 .home-ind__row.is-active .home-ind__row-header:hover {
@@ -165,7 +187,7 @@
 }
 
 .home-ind__row.is-active .home-ind__row-body {
-  max-height: 400px;
+  max-height: 520px;
 }
 
 .home-ind__row-body-inner {
@@ -327,16 +349,17 @@
   display: inline-block;
   font-size: 14px;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: 2.8px;
+  line-height: 21px;
   text-transform: uppercase;
-  color: #52E081;
+  color: #52e081;
   margin-bottom: 12px;
 }
 
 .home-ind__panel-punchline {
   font-size: 32px;
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 40px;
   color: #ffffff;
   margin: 0 0 12px;
 }
@@ -344,7 +367,7 @@
 .home-ind__panel-desc {
   font-size: 16px;
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 26px;
   color: rgba(255, 255, 255, 0.8);
   margin: 0;
 }
@@ -382,7 +405,7 @@
    Responsive
    ===================================================== */
 
-/* Tablet */
+/* Tablet — stacked; image panel above list for mid widths */
 @media (max-width: 1024px) {
   .home-ind {
     padding: 80px 0;
@@ -414,6 +437,7 @@
 
   .home-ind__panel-punchline {
     font-size: 26px;
+    line-height: 1.25;
   }
 
   .home-ind__panel-content {
@@ -421,10 +445,10 @@
   }
 }
 
-/* Mobile */
-@media (max-width: 640px) {
+/* Mobile — Figma IndustriesSection (393) */
+@media (max-width: 768px) {
   .home-ind {
-    padding: 60px 0;
+    padding: 64px 0;
   }
 
   .home-ind__container {
@@ -432,58 +456,120 @@
   }
 
   .home-ind__header {
-    margin-bottom: 40px;
+    margin-bottom: 48px;
+    max-width: 345px;
+  }
+
+  .home-ind__badge {
+    gap: 10px;
+    margin-bottom: 16px;
   }
 
   .home-ind__title {
-    font-size: 32px;
+    font-size: 36px;
+    line-height: 42px;
+    letter-spacing: -0.96px;
+    margin-bottom: 16px;
   }
 
   .home-ind__subtitle {
-    font-size: 16px;
+    font-size: 18px;
+    line-height: 24px;
+    max-width: 345px;
   }
 
+  .home-ind__grid {
+    gap: 48px;
+  }
+
+  /* List first, feature card below (DOM order) */
   .home-ind__panel {
-    height: 300px;
-    border-radius: 16px;
+    order: 0;
+    height: 700px;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   }
 
   .home-ind__panel-punchline {
-    font-size: 22px;
+    font-size: 32px;
+    line-height: 40px;
   }
 
   .home-ind__panel-content {
-    padding: 24px;
+    padding: 40px;
   }
 
   .home-ind__panel-desc {
-    font-size: 14px;
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .home-ind__row {
+    border-bottom: 1px solid rgba(140, 161, 163, 0.3);
+  }
+
+  .home-ind__row:last-child {
+    border-bottom: 1px solid rgba(140, 161, 163, 0.3);
+  }
+
+  .home-ind__row:not(.is-active) .home-ind__row-header {
+    border-radius: 0;
+  }
+
+  .home-ind__row:not(.is-active) .home-ind__row-header:hover {
+    background: transparent;
   }
 
   .home-ind__row-header {
-    padding: 14px 16px;
+    padding: 16px 12px;
     gap: 12px;
   }
 
+  .home-ind__row.is-active .home-ind__row-body {
+    max-height: 640px;
+  }
+
   .home-ind__row-body-inner {
-    padding: 20px;
+    padding: 24px;
+    gap: 32px;
+  }
+
+  .home-ind__row-body-copy {
+    gap: 16px;
   }
 
   .home-ind__row-desc {
-    font-size: 15px;
+    font-size: 16px;
+    line-height: 24px;
   }
 
   .home-ind__pills {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
     gap: 8px;
+    margin-top: 0;
   }
 
   .home-ind__pill {
-    font-size: 13px;
-    padding: 6px 10px;
+    font-size: 14px;
+    line-height: 21px;
+    padding: 8px 12px;
   }
 
   .home-ind__dots {
-    margin-top: 32px;
-    gap: 8px;
+    margin-top: 40px;
+    gap: 12px;
+    padding: 0 8px;
+  }
+
+  .home-ind__dot {
+    width: 12px;
+    height: 4px;
+    flex-shrink: 0;
+  }
+
+  .home-ind__dot.is-active {
+    width: 40px;
   }
 }

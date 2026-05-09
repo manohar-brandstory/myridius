@@ -1,0 +1,290 @@
+[ {
+  "id" : "badge_text",
+  "name" : "badge_text",
+  "label" : "Badge Text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Solution Catalog"
+}, {
+  "id" : "title",
+  "name" : "title",
+  "label" : "Section Title",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Built for AI-native execution"
+}, {
+  "id" : "tabs",
+  "name" : "tabs",
+  "label" : "Tabs",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 10,
+    "sorting_label_field" : null,
+    "default" : 3
+  },
+  "children" : [ {
+    "id" : "tabs.tab_label",
+    "name" : "tab_label",
+    "label" : "Tab Label",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Built for Business"
+  }, {
+    "id" : "tabs.tab_description",
+    "name" : "tab_description",
+    "label" : "Tab Description",
+    "required" : false,
+    "locked" : false,
+    "type" : "richtext",
+    "display_width" : null,
+    "default" : "<p>Don’t see solutions listed for your industry? Wherever you operate, Evoq adapts.</p>"
+  }, {
+    "id" : "tabs.cta_text",
+    "name" : "cta_text",
+    "label" : "CTA Button Text",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Explore All Industries"
+  }, {
+    "id" : "tabs.cta_url",
+    "name" : "cta_url",
+    "label" : "CTA Button URL",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+    "type" : "url",
+    "display_width" : null,
+    "default" : {
+      "href" : "#",
+      "type" : "EXTERNAL"
+    }
+  }, {
+    "id" : "tabs.cards",
+    "name" : "cards",
+    "label" : "Cards",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : 1,
+      "max" : 20,
+      "sorting_label_field" : null,
+      "default" : 6
+    },
+    "children" : [ {
+      "id" : "tabs.cards.image",
+      "name" : "image",
+      "label" : "Card Image",
+      "required" : false,
+      "locked" : false,
+      "responsive" : false,
+      "resizable" : true,
+      "show_loading" : false,
+      "type" : "image",
+      "display_width" : null,
+      "default" : {
+        "src" : "/_assets/v11/818cd24a3140ff7bb15397f89eba5911bc291894.png",
+        "alt" : "Card image"
+      }
+    }, {
+      "id" : "tabs.cards.title",
+      "name" : "title",
+      "label" : "Card Title",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : "Intelligent Trip Companion"
+    }, {
+      "id" : "tabs.cards.description",
+      "name" : "description",
+      "label" : "Card Description",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : "AI-powered guest app for real-time guest journey optimization"
+    }, {
+      "id" : "tabs.cards.bullets",
+      "name" : "bullets",
+      "label" : "Bullet Points",
+      "required" : false,
+      "locked" : false,
+      "occurrence" : {
+        "min" : 0,
+        "max" : 10,
+        "sorting_label_field" : null,
+        "default" : 3
+      },
+      "children" : [ {
+        "id" : "tabs.cards.bullets.text",
+        "name" : "text",
+        "label" : "Bullet Text",
+        "required" : false,
+        "locked" : false,
+        "allow_new_line" : false,
+        "type" : "text",
+        "display_width" : null,
+        "default" : "Real-time contextual notifications"
+      } ],
+      "tab" : "CONTENT",
+      "expanded" : false,
+      "group_occurrence_meta" : null,
+      "type" : "group",
+      "display_width" : null
+    }, {
+      "id" : "tabs.cards.category",
+      "name" : "category",
+      "label" : "Category Tag",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : "TRAVEL & HOSPITALITY"
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "tab_label" : "Built for Business",
+    "tab_description" : "<p>Don’t see solutions listed for your industry? Wherever you operate, Evoq adapts.</p>",
+    "cta_text" : "Explore All Industries",
+    "cta_url" : {
+      "href" : "#",
+      "type" : "EXTERNAL"
+    },
+    "cards" : [ {
+      "image" : {
+        "src" : "/_assets/v11/818cd24a3140ff7bb15397f89eba5911bc291894.png",
+        "alt" : "Intelligent Trip Companion"
+      },
+      "title" : "Intelligent Trip Companion",
+      "description" : "AI-powered guest app for real-time guest journey optimization",
+      "category" : "TRAVEL & HOSPITALITY",
+      "bullets" : [ {
+        "text" : "Real-time contextual notifications"
+      }, {
+        "text" : "One-tap service fulfillment"
+      }, {
+        "text" : "AI concierge with warm transfer"
+      } ]
+    }, {
+      "image" : {
+        "src" : "/_assets/v11/e6e1f606f7997e862add4b14fdc5b035e76ed76c.png",
+        "alt" : "Smart Claims Management"
+      },
+      "title" : "Smart Claims Management",
+      "description" : "AI-powered dashboard for faster, transparent claims processing",
+      "category" : "INSURANCE",
+      "bullets" : [ {
+        "text" : "AI-driven claims processing"
+      }, {
+        "text" : "Live social media monitoring"
+      }, {
+        "text" : "Legal case mapping with AI"
+      } ]
+    }, {
+      "image" : {
+        "src" : "/_assets/v11/8a2ebd13a3834bca79cf8d1f79f64630617997df.png",
+        "alt" : "Clinical Accreditation Manager"
+      },
+      "title" : "Clinical Accreditation Manager",
+      "description" : "AI-personalized pathways for streamlined medical accreditation",
+      "category" : "HEALTHCARE & LIFESCIENCES",
+      "bullets" : [ {
+        "text" : "Automated ACGME/ACCME compliance"
+      }, {
+        "text" : "Persona-based tailored learning paths"
+      }, {
+        "text" : "Intelligent, self-service tracking"
+      } ]
+    }, {
+      "image" : {
+        "src" : "/_assets/v11/691f12d18dea267cb8df888d4976c713c63be693.png",
+        "alt" : "Credit Underwriting Suite"
+      },
+      "title" : "Credit Underwriting Suite",
+      "description" : "AI-assisted risk profiling and automated credit evaluation",
+      "category" : "BANKING & FINANCIAL SERVICES",
+      "bullets" : [ {
+        "text" : "Automated financial ratio analysis"
+      }, {
+        "text" : "Predictive credit projections"
+      }, {
+        "text" : "Traceability with regulatory guardrails"
+      } ]
+    }, {
+      "image" : {
+        "src" : "/_assets/v11/ccf1c7d0778c4af753115a44132429d0edf3985a.png",
+        "alt" : "Customer Retention Intelligence"
+      },
+      "title" : "Customer Retention Intelligence",
+      "description" : "AI-driven sentiment analysis for proactive customer retention",
+      "category" : "AGNOSTIC",
+      "bullets" : [ {
+        "text" : "Predictive churn behavior modeling"
+      }, {
+        "text" : "Automated retention action triggers"
+      }, {
+        "text" : "Holistic customer sentiment analysis"
+      } ]
+    }, {
+      "image" : {
+        "src" : "/_assets/v11/b914534003dbda52bc2456aa22477211d97d1b9d.png",
+        "alt" : "Fund Analyst Workbench"
+      },
+      "title" : "Fund Analyst Workbench",
+      "description" : "AI-native automation for fund administration lifecycle",
+      "category" : "BANKING & FINANCIAL SERVICES",
+      "bullets" : [ {
+        "text" : "Automated document data extraction"
+      }, {
+        "text" : "Multi-agent data reconciliation"
+      }, {
+        "text" : "Instant audited reporting"
+      } ]
+    } ]
+  }, {
+    "tab_label" : "Built for Operations",
+    "tab_description" : "<p>Scale intelligence across every function. Our horizontal agents integrate seamlessly with your core workflows.</p>",
+    "cta_text" : "Explore Horizontal Solutions",
+    "cta_url" : {
+      "href" : "#",
+      "type" : "EXTERNAL"
+    },
+    "cards" : [ ]
+  }, {
+    "tab_label" : "Built for Technology",
+    "tab_description" : "<p>Built by engineers, for engineers. Accelerate your development lifecycle with autonomous engineering agents.</p>",
+    "cta_text" : "Explore Engineering Agents",
+    "cta_url" : {
+      "href" : "#",
+      "type" : "EXTERNAL"
+    },
+    "cards" : [ ]
+  } ]
+} ]

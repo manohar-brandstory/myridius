@@ -24,16 +24,18 @@
 }
 
 .home-partners__badge {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   margin: 0 0 32px;
 }
 
 .home-partners__badge-line {
   display: block;
-  width: 16px;
+  width: 24px;
   height: 2px;
+  border-radius: 2px;
+  flex: 0 0 auto;
   flex-shrink: 0;
   background: #194247;
 }
@@ -103,10 +105,9 @@
   }
 }
 
-/* Marquee — padding-top avoids margin-collapse with header mb-16 + export mt-12 */
 .home-partners__marquee {
+  padding-top: 0;
   position: relative;
-  padding-top: 48px;
 }
 
 .home-partners__viewport {
@@ -219,6 +220,64 @@
   .home-partners__logo-img {
     filter: grayscale(0%);
     opacity: 1;
+  }
+}
+
+/* Mobile — same infinite marquee + original logo colors; typography/spacing only */
+@media (max-width: 768px) {
+  .home-partners {
+    padding: 64px 24px;
+  }
+
+  .home-partners__header {
+    margin-bottom: 40px;
+  }
+
+  .home-partners__badge {
+    margin-bottom: 24px;
+  }
+
+  .home-partners__title {
+    color: #0c2226;
+    font-size: clamp(28px, 7.5vw, 36px);
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+  }
+
+  .home-partners__subtitle,
+  .home-partners__subtitle p {
+    font-size: 16px;
+    line-height: 24px;
+    color: #556467;
+    max-width: 100%;
+  }
+
+  .home-partners__marquee {
+    padding-top: 8px;
+  }
+
+  .home-partners__track {
+    gap: 48px;
+    padding: 20px 0 12px;
+  }
+
+  /* Mobile only: full-color logos (desktop/tablet keep grayscale strip) */
+  .home-partners__logo-img {
+    height: 40px;
+    max-width: 200px;
+    filter: none;
+    opacity: 1;
+  }
+
+  .home-partners__logo-item:hover .home-partners__logo-img {
+    filter: none;
+    opacity: 0.9;
+  }
+
+  .home-partners__logo-placeholder {
+    font-size: 16px;
+    opacity: 0.9;
   }
 }
 

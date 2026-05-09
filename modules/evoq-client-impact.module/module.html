@@ -1,0 +1,72 @@
+<section class="evoq-impact">
+  <div class="evoq-impact__container">
+
+    {# Header #}
+    <div class="evoq-impact__header">
+      <div class="evoq-impact__badge">
+        <span class="evoq-impact__badge-dash"></span>
+        <span class="evoq-impact__badge-text">{{ module.badge_text }}</span>
+      </div>
+      <h2 class="evoq-impact__title">
+        <span class="evoq-impact__title-line1">{{ module.title_line_1 }}</span>
+        <br>
+        <span class="evoq-impact__title-line2">{{ module.title_line_2 }}</span>
+      </h2>
+    </div>
+
+    {# Bento Grid #}
+    <div class="evoq-impact__grid">
+      {% for row in module.rows %}
+        <div class="evoq-impact__row {% if row.layout_reversed %}evoq-impact__row--reversed{% endif %}">
+
+          {# Outcome Card #}
+          <div class="evoq-impact__outcome-card">
+            {% if row.outcome_image.src %}
+              <div class="evoq-impact__outcome-img-wrap">
+                <img class="evoq-impact__outcome-img" src="{{ row.outcome_image.src }}" alt="{{ row.outcome_image.alt }}" loading="lazy">
+              </div>
+            {% endif %}
+            <div class="evoq-impact__outcome-overlay"></div>
+            <div class="evoq-impact__outcome-content">
+              <div class="evoq-impact__outcome-top">
+                <span class="evoq-impact__outcome-tag">{{ row.outcome_tag }}</span>
+              </div>
+              <div class="evoq-impact__outcome-bottom">
+                <span class="evoq-impact__outcome-subtitle">{{ row.outcome_subtitle }}</span>
+                <h3 class="evoq-impact__outcome-title">{{ row.outcome_title }}</h3>
+                <div class="evoq-impact__outcome-desc">{{ row.outcome_description }}</div>
+                {% if row.outcome_points %}
+                  <ul class="evoq-impact__outcome-points">
+                    {% for point in row.outcome_points %}
+                      {% if point.text %}
+                        <li class="evoq-impact__outcome-point">{{ point.text }}</li>
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+
+          {# Ambient Card #}
+          <div class="evoq-impact__ambient-card">
+            {% if row.ambient_image.src %}
+              <div class="evoq-impact__ambient-img-wrap">
+                <img class="evoq-impact__ambient-img" src="{{ row.ambient_image.src }}" alt="{{ row.ambient_image.alt }}" loading="lazy">
+              </div>
+            {% endif %}
+            <div class="evoq-impact__ambient-text">
+              {% for line in row.ambient_text_lines %}
+                {% if line.text %}
+                  <p class="evoq-impact__ambient-line">{{ line.text }}</p>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>

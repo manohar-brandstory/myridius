@@ -1,0 +1,428 @@
+/* ============================================
+   EVOQ Applied Insights Section
+   ============================================ */
+
+.evoq-insights {
+  background: #ffffff;
+  padding: var(--evoq-section-pad-y, 100px) var(--evoq-section-pad-x, 24px);
+}
+
+.evoq-insights__container {
+  max-width: var(--evoq-content-max, 1200px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+}
+
+/* ── Left Column ── */
+
+.evoq-insights__left {
+  width: 505px;
+  min-width: 505px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.evoq-insights__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.evoq-insights__badge-dash {
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--evoq-primary, #194247);
+  flex: 0 0 auto;
+  flex-shrink: 0;
+}
+
+.evoq-insights__badge-text {
+  font-family: var(--evoq-font, inherit);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--evoq-primary, #194247);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.evoq-insights__title {
+  font-family: var(--evoq-font, inherit);
+  font-size: clamp(36px, 4vw, 48px);
+  font-weight: 500;
+  color: var(--evoq-primary, #194247);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 0 24px;
+}
+
+.evoq-insights__description,
+.evoq-insights__description p {
+  font-family: var(--evoq-font, inherit);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--evoq-mid, #337077);
+  line-height: 1.55;
+  margin: 0 0 40px;
+}
+
+.evoq-insights__description p:last-child {
+  margin-bottom: 0;
+}
+
+/* CTA Button */
+
+.evoq-insights__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--evoq-primary, #194247);
+  color: #ffffff;
+  font-family: var(--evoq-font, inherit);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-decoration: none;
+  padding: 20px 40px;
+  border-radius: 9999px;
+  transition: background 0.3s ease, color 0.3s ease;
+  width: fit-content;
+}
+
+.evoq-insights__cta:hover {
+  background: var(--evoq-green, #52E081);
+  color: var(--evoq-primary, #194247);
+}
+
+.evoq-insights__cta-arrow {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.evoq-insights__cta:hover .evoq-insights__cta-arrow {
+  transform: translateX(3px);
+}
+
+/* ── Right Column ── */
+
+.evoq-insights__right {
+  width: 695px;
+  flex-grow: 1;
+  padding-left: 48px;
+  position: relative;
+}
+
+.evoq-insights__divider {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(51, 112, 119, 0.3);
+}
+
+/* Featured Article */
+
+.evoq-insights__featured {
+  margin-bottom: 24px;
+}
+
+.evoq-insights__featured-img-wrap {
+  width: 100%;
+  height: 220px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.evoq-insights__featured-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  animation: evoq-insights-float 6s ease-in-out infinite;
+}
+
+@keyframes evoq-insights-float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-4px) scale(1.01);
+  }
+}
+
+.evoq-insights__featured-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.evoq-insights__featured-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.evoq-insights__featured-title {
+  font-family: var(--evoq-font, inherit);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--evoq-deepest, #071417);
+  line-height: 1.4;
+  margin: 0 0 8px;
+}
+
+.evoq-insights__featured-desc,
+.evoq-insights__featured-desc p {
+  font-family: var(--evoq-font, inherit);
+  font-size: 16px;
+  font-weight: 500;
+  color: #556467;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Read More Button */
+
+.evoq-insights__read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--evoq-font, inherit);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--evoq-primary, #194247);
+  text-decoration: none;
+  padding: 12px 28px;
+  border: 1px solid var(--evoq-primary, #194247);
+  border-radius: 9999px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.evoq-insights__read-more-arrow {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.evoq-insights__read-more:hover {
+  background: var(--evoq-primary, #194247);
+  color: #ffffff;
+}
+
+.evoq-insights__read-more:hover .evoq-insights__read-more-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Author Info */
+
+.evoq-insights__featured-author {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.evoq-insights__author-label {
+  font-family: var(--evoq-font, inherit);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--evoq-mid, #337077);
+}
+
+.evoq-insights__author-name {
+  font-family: var(--evoq-font, inherit);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--evoq-dark, #0C2226);
+}
+
+/* ── Bottom Grid ── */
+
+.evoq-insights__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.evoq-insights__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 8.6px;
+  border: 1px solid rgba(140, 161, 163, 0.5);
+  text-decoration: none;
+  position: relative;
+  transition: border-color 0.3s ease;
+}
+
+.evoq-insights__card:hover {
+  border-color: var(--evoq-primary, #194247);
+}
+
+.evoq-insights__card-inner {
+  flex: 1;
+}
+
+.evoq-insights__card-title {
+  font-family: var(--evoq-font, inherit);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--evoq-dark, #0C2226);
+  line-height: 1.4;
+  margin: 0 0 8px;
+  padding-right: 24px;
+}
+
+.evoq-insights__card-desc,
+.evoq-insights__card-desc p {
+  font-family: var(--evoq-font, inherit);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--evoq-mid, #337077);
+  line-height: 1.5;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.evoq-insights__card:hover .evoq-insights__card-desc,
+.evoq-insights__card:hover .evoq-insights__card-desc p {
+  color: var(--evoq-dark, #0C2226);
+}
+
+.evoq-insights__card-arrow {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 14px;
+  height: 14px;
+  color: var(--evoq-primary, #194247);
+  opacity: 0;
+  transform: translate(-4px, 4px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.evoq-insights__card:hover .evoq-insights__card-arrow {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* ============================================
+   Responsive – Tablet
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .evoq-insights {
+    padding: 72px var(--evoq-section-pad-x, 20px);
+  }
+
+  .evoq-insights__left {
+    width: 380px;
+    min-width: 380px;
+  }
+
+  .evoq-insights__right {
+    padding-left: 32px;
+  }
+
+  .evoq-insights__title {
+    font-size: 36px;
+  }
+
+  .evoq-insights__featured-body {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+/* ============================================
+   Responsive – Mobile
+   ============================================ */
+
+@media (max-width: 767px) {
+  .evoq-insights {
+    padding: 56px var(--evoq-section-pad-x, 16px);
+  }
+
+  .evoq-insights__container {
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .evoq-insights__left {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .evoq-insights__right {
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .evoq-insights__divider {
+    display: none;
+  }
+
+  .evoq-insights__title {
+    font-size: 32px;
+  }
+
+  .evoq-insights__description,
+  .evoq-insights__description p {
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+
+  .evoq-insights__cta {
+    padding: 16px 32px;
+    font-size: 14px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .evoq-insights__featured-img-wrap {
+    height: 180px;
+  }
+
+  .evoq-insights__featured-body {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .evoq-insights__read-more {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .evoq-insights__read-more-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .evoq-insights__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .evoq-insights__card-arrow {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}

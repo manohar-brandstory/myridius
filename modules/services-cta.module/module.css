@@ -63,7 +63,7 @@
 }
 
 .svc-cta__badge {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 10px;
 }
@@ -72,8 +72,10 @@
   display: block;
   width: 24px;
   height: 2px;
-  background: #52E081;
+  background: #52e081;
   border-radius: 2px;
+  flex: 0 0 auto;
+  flex-shrink: 0;
 }
 
 .svc-cta__badge-text {

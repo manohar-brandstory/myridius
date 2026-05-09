@@ -1,17 +1,26 @@
 (function () {
+  'use strict';
+
   var sections = document.querySelectorAll('[data-home-ind]');
   if (!sections.length) return;
 
+  var mobileMedia = window.matchMedia('(max-width: 768px)');
+
+  function isMobileLayout() {
+    return mobileMedia.matches;
+  }
+
   sections.forEach(function (section) {
     var rows = section.querySelectorAll('[data-ind-row]');
+    var panel = section.querySelector('[data-ind-panel]');
     var panelImages = section.querySelectorAll('[data-panel-index]');
     var panelInfos = section.querySelectorAll('[data-info-index]');
     var dots = section.querySelectorAll('[data-dot-index]');
     var activeIndex = 0;
     var hoverTimer = null;
-    var isMobile = window.innerWidth <= 1024;
 
     function setActive(index) {
+      if (index < 0 || index >= rows.length) return;
       if (index === activeIndex && rows[index].classList.contains('is-active')) return;
       activeIndex = index;
 
@@ -45,23 +54,25 @@
     rows.forEach(function (row) {
       var index = parseInt(row.getAttribute('data-index'), 10);
       var header = row.querySelector('[data-ind-header]');
+      if (!header) return;
 
-      if (!isMobile) {
-        row.addEventListener('mouseenter', function () {
-          clearTimeout(hoverTimer);
-          hoverTimer = setTimeout(function () {
-            setActive(index);
-          }, 250);
-        });
-        row.addEventListener('mouseleave', function () {
-          clearTimeout(hoverTimer);
-        });
-      }
+      row.addEventListener('mouseenter', function () {
+        if (isMobileLayout()) return;
+        clearTimeout(hoverTimer);
+        hoverTimer = setTimeout(function () {
+          setActive(index);
+        }, 250);
+      });
+
+      row.addEventListener('mouseleave', function () {
+        if (isMobileLayout()) return;
+        clearTimeout(hoverTimer);
+      });
 
       header.addEventListener('click', function () {
         clearTimeout(hoverTimer);
         setActive(index);
-        if (isMobile) {
+        if (isMobileLayout()) {
           row.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
       });
@@ -70,12 +81,12 @@
     dots.forEach(function (dot) {
       dot.addEventListener('click', function () {
         var index = parseInt(dot.getAttribute('data-dot-index'), 10);
+        clearTimeout(hoverTimer);
         setActive(index);
+        if (isMobileLayout() && panel) {
+          panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
       });
-    });
-
-    window.addEventListener('resize', function () {
-      isMobile = window.innerWidth <= 1024;
     });
   });
 })();

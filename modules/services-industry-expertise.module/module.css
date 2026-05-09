@@ -411,10 +411,10 @@
   }
 
   .svc-ind__badge-text {
-    font-weight: 400;
+    font-weight: 500;
     font-size: 14px;
-    line-height: 21px;
-    letter-spacing: 2.8px;
+    line-height: 1.2;
+    letter-spacing: 0.2em;
   }
 
   .svc-ind__heading {

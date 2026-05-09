@@ -25,16 +25,18 @@
 }
 
 .home-ins__badge {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   margin-bottom: 32px;
 }
 
 .home-ins__badge-line {
   display: block;
-  width: 16px;
+  width: 24px;
   height: 2px;
+  border-radius: 2px;
+  flex: 0 0 auto;
   flex-shrink: 0;
   background-color: #194247;
 }
@@ -213,15 +215,44 @@
 }
 
 .home-ins__pages {
-  display: none;
+  display: flex;
   align-items: center;
-  gap: 64px;
+  justify-content: center;
+  gap: 32px;
+  min-height: 40px;
+  flex-shrink: 0;
 }
 
 @media (min-width: 768px) {
   .home-ins__pages {
-    display: flex;
+    gap: 64px;
   }
+}
+
+.home-ins__pager-count {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0;
+  font-family: 'Montserrat', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.home-ins__count-cur {
+  color: #337077;
+}
+
+.home-ins__count-sep,
+.home-ins__count-tot {
+  color: #0c2226;
+  font-weight: 700;
+}
+
+.home-ins__count-sep {
+  padding: 0 4px;
 }
 
 .home-ins__page-num {
@@ -259,7 +290,7 @@
 
 @media (max-width: 768px) {
   .home-ins {
-    padding: 48px 0;
+    padding: 64px 0;
   }
 
   /* Outrank `.home-page h2` global mobile scale when needed */
@@ -289,7 +320,22 @@
   }
 
   .home-ins__controls {
-    gap: 24px;
+    gap: 32px;
     margin-top: 24px;
+  }
+
+  /* Bare chevrons — no bordered box (matches ResourcesInsightsSection) */
+  .home-ins__nav {
+    flex-shrink: 0;
+    padding: 8px;
+    border: none;
+    border-radius: 0;
+    color: #0c2226;
+    background: transparent;
+  }
+
+  .home-ins__nav svg {
+    width: 24px;
+    height: 24px;
   }
 }

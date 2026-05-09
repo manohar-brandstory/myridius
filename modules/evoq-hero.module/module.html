@@ -1,0 +1,82 @@
+<section class="evoq-hero">
+  <div class="evoq-hero__ambient" aria-hidden="true">
+    <div class="evoq-hero__glow evoq-hero__glow--1"></div>
+    <div class="evoq-hero__glow evoq-hero__glow--2"></div>
+  </div>
+
+  <div class="evoq-hero__container">
+    <div class="evoq-hero__grid">
+      <div class="evoq-hero__content">
+        {% if module.breadcrumb_items %}
+          <nav class="evoq-hero__breadcrumb" aria-label="Breadcrumb">
+            <ol class="evoq-hero__crumb-list">
+              {% for item in module.breadcrumb_items %}
+                <li class="evoq-hero__crumb-item{% if item.is_active %} evoq-hero__crumb-item--active{% endif %}">
+                  {% if item.url.href and not item.is_active %}
+                    <a class="evoq-hero__crumb-link" href="{{ item.url.href }}">{{ item.link_text }}</a>
+                  {% else %}
+                    <span class="evoq-hero__crumb-text">{{ item.link_text }}</span>
+                  {% endif %}
+                </li>
+                {% if not loop.last %}
+                  <li class="evoq-hero__crumb-sep" aria-hidden="true">/</li>
+                {% endif %}
+              {% endfor %}
+            </ol>
+          </nav>
+        {% endif %}
+
+        <h1 class="evoq-hero__title">
+          {{ module.title_line_1 }}<br>
+          <span class="evoq-hero__title-line2">{{ module.title_line_2 }}</span><br>
+        </h1>
+
+        <div class="evoq-hero__description">{{ module.description }}</div>
+
+        <div class="evoq-hero__actions">
+          {% if module.primary_button_text %}
+            <a class="evoq-hero__btn evoq-hero__btn--primary" href="{{ module.primary_button_url.href }}">
+              <span>{{ module.primary_button_text }}</span>
+              <svg class="evoq-hero__btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          {% endif %}
+
+          {% if module.secondary_button_text %}
+            <a class="evoq-hero__btn evoq-hero__btn--secondary" href="{{ module.secondary_button_url.href }}">
+              <span>{{ module.secondary_button_text }}</span>
+              <svg class="evoq-hero__btn-arrow evoq-hero__btn-arrow--muted" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          {% endif %}
+        </div>
+      </div>
+
+      {% if module.show_ide_illustration %}
+        <div class="evoq-hero__visual">
+          <div class="evoq-hero__ide-wrap">
+            <div class="evoq-hero__ide-glow" aria-hidden="true"></div>
+            <div class="evoq-hero__ide">
+            <div class="evoq-hero__ide-header">
+              <div class="evoq-hero__ide-dots">
+                <span class="evoq-hero__ide-dot evoq-hero__ide-dot--red"></span>
+                <span class="evoq-hero__ide-dot evoq-hero__ide-dot--amber"></span>
+                <span class="evoq-hero__ide-dot evoq-hero__ide-dot--green"></span>
+              </div>
+              <span class="evoq-hero__ide-title">{{ module.ide_header_text }}</span>
+            </div>
+            <div class="evoq-hero__ide-body">
+              {{ module.code_lines }}
+            </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+
+    </div>
+  </div>
+</section>

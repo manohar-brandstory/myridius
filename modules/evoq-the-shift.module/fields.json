@@ -1,0 +1,213 @@
+[ {
+  "id" : "badge_text",
+  "name" : "badge_text",
+  "label" : "Badge Text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "The Shift"
+}, {
+  "id" : "title_line_1",
+  "name" : "title_line_1",
+  "label" : "Title Line 1",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "How Evoq enables"
+}, {
+  "id" : "title_line_2",
+  "name" : "title_line_2",
+  "label" : "Title Line 2",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "the AI-native enterprise."
+}, {
+  "id" : "timeline_items",
+  "name" : "timeline_items",
+  "label" : "Timeline Items",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 10,
+    "sorting_label_field" : null,
+    "default" : 5
+  },
+  "children" : [ {
+    "id" : "timeline_items.left_type",
+    "name" : "left_type",
+    "label" : "Left Content Type",
+    "required" : false,
+    "locked" : false,
+    "display" : "select",
+    "choices" : [ [ "text", "Timeline Text" ], [ "card", "Service Card" ] ],
+    "multiple" : false,
+    "reordering_enabled" : true,
+    "preset" : null,
+    "type" : "choice",
+    "display_width" : null,
+    "default" : "text"
+  }, {
+    "id" : "timeline_items.left_struck_text",
+    "name" : "left_struck_text",
+    "label" : "Left Struck Text",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "timeline_items.left_active_text",
+    "name" : "left_active_text",
+    "label" : "Left Active Text",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "timeline_items.left_card_value",
+    "name" : "left_card_value",
+    "label" : "Left Card Value",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "timeline_items.left_card_label",
+    "name" : "left_card_label",
+    "label" : "Left Card Label",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "timeline_items.right_type",
+    "name" : "right_type",
+    "label" : "Right Content Type",
+    "required" : false,
+    "locked" : false,
+    "display" : "select",
+    "choices" : [ [ "text", "Timeline Text" ], [ "card", "Service Card" ] ],
+    "multiple" : false,
+    "reordering_enabled" : true,
+    "preset" : null,
+    "type" : "choice",
+    "display_width" : null,
+    "default" : "card"
+  }, {
+    "id" : "timeline_items.right_struck_text",
+    "name" : "right_struck_text",
+    "label" : "Right Struck Text",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "timeline_items.right_active_text",
+    "name" : "right_active_text",
+    "label" : "Right Active Text",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "timeline_items.right_card_value",
+    "name" : "right_card_value",
+    "label" : "Right Card Value",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "timeline_items.right_card_label",
+    "name" : "right_card_label",
+    "label" : "Right Card Label",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "left_type" : "text",
+    "left_struck_text" : "Linear, effort-based delivery",
+    "left_active_text" : "Non-linear, software-driven returns",
+    "left_card_value" : "",
+    "left_card_label" : "",
+    "right_type" : "card",
+    "right_struck_text" : "",
+    "right_active_text" : "",
+    "right_card_value" : "3–5×",
+    "right_card_label" : "ROI vs effort invested"
+  }, {
+    "left_type" : "card",
+    "left_struck_text" : "",
+    "left_active_text" : "",
+    "left_card_value" : "40%+",
+    "left_card_label" : "less operational overhead",
+    "right_type" : "text",
+    "right_struck_text" : "Workflow automation & bots",
+    "right_active_text" : "Autonomous agentic operations",
+    "right_card_value" : "",
+    "right_card_label" : ""
+  }, {
+    "left_type" : "text",
+    "left_struck_text" : "Periodic data reporting",
+    "left_active_text" : "Real-time decisioning & action",
+    "left_card_value" : "",
+    "left_card_label" : "",
+    "right_type" : "card",
+    "right_struck_text" : "",
+    "right_active_text" : "",
+    "right_card_value" : "70%+",
+    "right_card_label" : "faster decision cycles"
+  }, {
+    "left_type" : "card",
+    "left_struck_text" : "",
+    "left_active_text" : "",
+    "left_card_value" : "70%",
+    "left_card_label" : "faster response & resolution",
+    "right_type" : "text",
+    "right_struck_text" : "Reactive, channel-bound CX",
+    "right_active_text" : "Always-on agentic CX",
+    "right_card_value" : "",
+    "right_card_label" : ""
+  }, {
+    "left_type" : "text",
+    "left_struck_text" : "Platform-led IT deployments",
+    "left_active_text" : "Business-model reinvention",
+    "left_card_value" : "",
+    "left_card_label" : "",
+    "right_type" : "card",
+    "right_struck_text" : "",
+    "right_active_text" : "",
+    "right_card_value" : "Weeks",
+    "right_card_label" : "not months to production"
+  } ]
+} ]

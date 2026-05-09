@@ -2,7 +2,7 @@
 .partners__wrap{ max-width: var(--container-max); margin:0 auto; padding: 0 var(--gutter); }
 .partners__grid{ display:grid; gap: 80px; align-items:center; }
 .partners__badge{ display:inline-flex; align-items:center; gap: 10px; margin-bottom: 24px; }
-.partners__badgeLine{ width:24px; height:2px; background: var(--color-brand-1); border-radius:2px; }
+.partners__badgeLine{ width:24px; height:2px; background: var(--color-brand-1); border-radius:2px; flex:0 0 auto; flex-shrink:0; }
 .partners__badgeText{ font-size:14px; font-weight:500; text-transform:uppercase; letter-spacing:0.2em; color: var(--color-brand-1); }
 .partners__title{ margin:0 0 16px; font-size: clamp(32px, 3.5vw, 52px); font-weight:500; line-height:1.1; letter-spacing:-0.025em; color: var(--color-brand-1); white-space: pre-line; }
 .partners__desc{ font-size: 18px; font-weight: 500; line-height: 1.6; color: var(--color-brand-2); margin-bottom: 48px; max-width: 520px; }
@@ -48,8 +48,9 @@
   }
   .partners__badgeText{
     font-size: 14px;
-    line-height: 21px;
-    letter-spacing: 2.8px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.2em;
     color: var(--color-brand-1);
   }
   .partners__title{

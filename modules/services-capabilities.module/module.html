@@ -60,7 +60,7 @@
               </div>
 
               {% if cap.cards %}
-                <div class="svc-cap__cards">
+                <div class="svc-cap__cards" style="--cap-card-count: {{ cap.cards|length }}">
                   {% for card in cap.cards %}
                     <div class="svc-cap__card{% if not loop.last %} svc-cap__card--bordered{% endif %}">
                       <span class="svc-cap__card-num">0{{ loop.index }}</span>

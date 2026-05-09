@@ -54,7 +54,7 @@
         "allow_new_line": false,
         "display_width": null,
         "type": "text",
-        "default": "Banking"
+        "default": ""
       },
       {
         "id": "stories.metric",
@@ -65,7 +65,7 @@
         "allow_new_line": false,
         "display_width": null,
         "type": "text",
-        "default": "$10M+"
+        "default": ""
       },
       {
         "id": "stories.metric_label",
@@ -76,7 +76,7 @@
         "allow_new_line": false,
         "display_width": null,
         "type": "text",
-        "default": "Annual Fraud Prevented"
+        "default": ""
       },
       {
         "id": "stories.title",
@@ -87,7 +87,7 @@
         "allow_new_line": false,
         "display_width": null,
         "type": "text",
-        "default": "Fraud intelligence at enterprise scale"
+        "default": ""
       },
       {
         "id": "stories.description",
@@ -98,7 +98,7 @@
         "allow_new_line": false,
         "display_width": null,
         "type": "text",
-        "default": "Myridius deployed a real-time fraud detection system that analyzes transactions across multiple channels."
+        "default": ""
       },
       {
         "id": "stories.bullets",
@@ -123,17 +123,10 @@
             "allow_new_line": false,
             "display_width": null,
             "type": "text",
-            "default": "Real-time anomaly scoring across channels"
+            "default": ""
           }
         ],
-        "default": [
-          {
-            "text": "Real-time anomaly scoring across channels"
-          },
-          {
-            "text": "Integrated compliance and audit trail"
-          }
-        ]
+        "default": []
       },
       {
         "id": "stories.image",
@@ -152,20 +145,29 @@
         }
       },
       {
+        "id": "stories.cta_label",
+        "name": "cta_label",
+        "label": "CTA label",
+        "help_text": "Shown next to arrow. Leave blank to hide this row.",
+        "required": false,
+        "locked": false,
+        "allow_new_line": false,
+        "display_width": null,
+        "type": "text",
+        "default": "LEARN MORE"
+      },
+      {
         "id": "stories.link_url",
         "name": "link_url",
         "label": "Learn More Link",
         "required": false,
         "locked": false,
-        "supported_types": [
-          "EXTERNAL",
-          "CONTENT"
-        ],
+        "supported_types": ["EXTERNAL", "CONTENT"],
         "display_width": null,
         "type": "url",
         "default": {
           "content_id": null,
-          "href": "#",
+          "href": "",
           "type": "EXTERNAL"
         }
       }
@@ -176,15 +178,12 @@
         "metric": "$10M+",
         "metric_label": "Annual Fraud Prevented",
         "title": "Fraud intelligence at enterprise scale",
-        "description": "Myridius deployed a real-time fraud detection system that analyzes transactions across multiple channels, reducing false positives by 40%.",
+        "description": "Intelligent commerce workflows improved customer relevance and operational efficiency.",
         "bullets": [
-          {
-            "text": "Real-time anomaly scoring across channels"
-          },
-          {
-            "text": "Integrated compliance and audit trail"
-          }
+          { "text": "40% reduction in false positives" },
+          { "text": "Real-time agentic decisioning" }
         ],
+        "cta_label": "LEARN MORE",
         "image": {
           "src": "",
           "alt": "Banking success story",
@@ -193,7 +192,7 @@
         },
         "link_url": {
           "content_id": null,
-          "href": "#",
+          "href": "",
           "type": "EXTERNAL"
         }
       },
@@ -202,15 +201,12 @@
         "metric": "60%+",
         "metric_label": "Faster Claims Processing",
         "title": "Claims and service redesigned",
-        "description": "An end-to-end claims automation platform that reduced processing time and improved customer satisfaction scores.",
+        "description": "Moving from manual review to agentic underwriting and claim handling at scale.",
         "bullets": [
-          {
-            "text": "Automated document intake and validation"
-          },
-          {
-            "text": "Intelligent routing and prioritization"
-          }
+          { "text": "Reduced settlement time by 5 days" },
+          { "text": "Automated document extraction" }
         ],
+        "cta_label": "LEARN MORE",
         "image": {
           "src": "",
           "alt": "Insurance success story",
@@ -219,7 +215,7 @@
         },
         "link_url": {
           "content_id": null,
-          "href": "#",
+          "href": "",
           "type": "EXTERNAL"
         }
       },
@@ -228,15 +224,12 @@
         "metric": "70%+",
         "metric_label": "Prior Auth Automated",
         "title": "Clinical and admin workflows streamlined",
-        "description": "Automated prior authorization workflows that cut approval times from days to minutes while maintaining compliance.",
+        "description": "Eliminating administrative bottlenecks with secure, compliant agentic execution layers.",
         "bullets": [
-          {
-            "text": "EHR-integrated authorization engine"
-          },
-          {
-            "text": "Real-time eligibility verification"
-          }
+          { "text": "HIPAA compliant data processing" },
+          { "text": "15% lower operational overhead" }
         ],
+        "cta_label": "LEARN MORE",
         "image": {
           "src": "",
           "alt": "Healthcare success story",
@@ -245,7 +238,7 @@
         },
         "link_url": {
           "content_id": null,
-          "href": "#",
+          "href": "",
           "type": "EXTERNAL"
         }
       },
@@ -254,15 +247,12 @@
         "metric": "30%",
         "metric_label": "Less Unplanned Downtime",
         "title": "Predictive operations that lift throughput",
-        "description": "IoT-driven predictive maintenance system that monitors equipment health and schedules maintenance before failures occur.",
+        "description": "Autonomous supply chain agents predicting disruptions before they impact production.",
         "bullets": [
-          {
-            "text": "Sensor-driven predictive maintenance"
-          },
-          {
-            "text": "Digital twin for production simulation"
-          }
+          { "text": "12% increase in OEE" },
+          { "text": "Zero manual inventory logs" }
         ],
+        "cta_label": "LEARN MORE",
         "image": {
           "src": "",
           "alt": "Manufacturing success story",
@@ -271,7 +261,7 @@
         },
         "link_url": {
           "content_id": null,
-          "href": "#",
+          "href": "",
           "type": "EXTERNAL"
         }
       },
@@ -280,15 +270,12 @@
         "metric": "25%",
         "metric_label": "Inventory cost reduction",
         "title": "Smarter personalization and inventory",
-        "description": "AI-powered demand forecasting and personalization engine that optimizes inventory allocation across channels.",
+        "description": "Intelligent commerce workflows improved customer relevance and operational efficiency.",
         "bullets": [
-          {
-            "text": "AI-driven demand forecasting"
-          },
-          {
-            "text": "Omnichannel personalization engine"
-          }
+          { "text": "Supply-chain intelligence" },
+          { "text": "Enhanced customer relevance" }
         ],
+        "cta_label": "LEARN MORE",
         "image": {
           "src": "",
           "alt": "Retail success story",
@@ -297,7 +284,7 @@
         },
         "link_url": {
           "content_id": null,
-          "href": "#",
+          "href": "",
           "type": "EXTERNAL"
         }
       }

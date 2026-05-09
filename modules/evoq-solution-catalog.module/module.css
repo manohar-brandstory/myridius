@@ -1,0 +1,399 @@
+/* ===================================================
+   EVOQ Solution Catalog
+   =================================================== */
+
+.evoq-catalog {
+  --evoq-font: var(--evoq-font, 'Montserrat', sans-serif);
+  --evoq-primary: #194247;
+  --evoq-dark: #0C2226;
+  --evoq-mid: #337077;
+  --evoq-green: #52E081;
+  --evoq-neutral: #8CA1A3;
+  --evoq-title-size: clamp(40px, 5vw, 48px);
+  --evoq-content-max: 1200px;
+  --evoq-section-pad-x: clamp(24px, 4vw, 40px);
+  --evoq-section-pad-y: 100px;
+  --evoq-radius-card: 12px;
+
+  background: #ffffff;
+  padding: var(--evoq-section-pad-y) var(--evoq-section-pad-x);
+  font-family: var(--evoq-font);
+  box-sizing: border-box;
+}
+
+.evoq-catalog *,
+.evoq-catalog *::before,
+.evoq-catalog *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container */
+.evoq-catalog__container {
+  max-width: var(--evoq-content-max);
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ---- Header ---- */
+.evoq-catalog__header {
+  margin-bottom: 40px;
+}
+
+.evoq-catalog__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.evoq-catalog__badge-dash {
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--evoq-primary);
+  flex: 0 0 auto;
+  flex-shrink: 0;
+}
+
+.evoq-catalog__badge-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--evoq-primary);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.evoq-catalog__title {
+  font-size: var(--evoq-title-size);
+  font-weight: 500;
+  color: var(--evoq-primary);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  max-width: 700px;
+}
+
+/* ---- Tab Navigation ---- */
+.evoq-catalog__tabs-wrapper {
+  position: relative;
+  margin-bottom: 40px;
+  border-bottom: 1px solid rgba(12, 34, 38, 0.1);
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.evoq-catalog__tabs-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.evoq-catalog__tabs {
+  display: flex;
+  position: relative;
+  gap: 16px;
+  min-width: max-content;
+}
+
+.evoq-catalog__tab {
+  position: relative;
+  padding: 16px 4px;
+  font-family: var(--evoq-font);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--evoq-neutral);
+  background: none;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+  z-index: 1;
+}
+
+.evoq-catalog__tab:hover {
+  color: var(--evoq-dark);
+}
+
+.evoq-catalog__tab--active {
+  color: var(--evoq-dark);
+  font-weight: 500;
+}
+
+.evoq-catalog__tab-indicator {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  height: 4px;
+  background: var(--evoq-mid);
+  border-radius: 4px;
+  transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ---- Tab Panels ---- */
+.evoq-catalog__panel {
+  display: none;
+}
+
+.evoq-catalog__panel--active {
+  display: block;
+  animation: evoqCatalogFadeIn 0.4s ease;
+}
+
+@keyframes evoqCatalogFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Sub-header ---- */
+.evoq-catalog__subheader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+.evoq-catalog__description {
+  max-width: 700px;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--evoq-dark);
+  line-height: 1.6;
+}
+
+.evoq-catalog__description p {
+  margin: 0;
+}
+
+.evoq-catalog__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 32px;
+  background: var(--evoq-primary);
+  color: #ffffff;
+  font-family: var(--evoq-font);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-decoration: none;
+  border-radius: 999px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.evoq-catalog__cta:hover {
+  background: var(--evoq-dark);
+}
+
+.evoq-catalog__cta-arrow {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.evoq-catalog__cta:hover .evoq-catalog__cta-arrow {
+  transform: translateX(3px);
+}
+
+/* ---- Card Grid ---- */
+.evoq-catalog__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ---- Card ---- */
+.evoq-catalog__card {
+  position: relative;
+  height: 400px;
+  border-radius: var(--evoq-radius-card);
+  overflow: hidden;
+  cursor: pointer;
+  outline: none;
+}
+
+.evoq-catalog__card-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease-out;
+}
+
+.evoq-catalog__card:hover .evoq-catalog__card-bg,
+.evoq-catalog__card:focus-visible .evoq-catalog__card-bg {
+  transform: scale(1.1);
+}
+
+.evoq-catalog__card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(12,34,38,0.4) 0%, rgba(12,34,38,0.8) 40%, #0C2226 100%);
+  transition: background 0.3s ease;
+}
+
+.evoq-catalog__card:hover .evoq-catalog__card-overlay,
+.evoq-catalog__card:focus-visible .evoq-catalog__card-overlay {
+  background: linear-gradient(180deg, rgba(12,34,38,0.8) 0%, rgba(12,34,38,0.95) 50%, #0C2226 100%);
+}
+
+.evoq-catalog__card-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px 32px 32px;
+}
+
+.evoq-catalog__card-lift {
+  margin: auto;
+  transform: translateY(160px);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.evoq-catalog__card:hover .evoq-catalog__card-lift,
+.evoq-catalog__card:focus-visible .evoq-catalog__card-lift {
+  transform: translateY(-40px);
+}
+
+.evoq-catalog__card-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.evoq-catalog__card-desc {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+  max-height: 140px;
+  overflow: hidden;
+  transition: opacity 0.28s ease, transform 0.28s ease, max-height 0.28s ease;
+}
+
+.evoq-catalog__card:hover .evoq-catalog__card-desc,
+.evoq-catalog__card:focus-visible .evoq-catalog__card-desc {
+  opacity: 0;
+  transform: translateY(-8px);
+  max-height: 0;
+}
+
+.evoq-catalog__card-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(8px);
+  max-height: 0;
+  overflow: hidden;
+  margin-top: 0;
+  transition: opacity 0.28s ease, transform 0.28s ease, max-height 0.28s ease, margin-top 0.28s ease;
+}
+
+.evoq-catalog__card:hover .evoq-catalog__card-bullets,
+.evoq-catalog__card:focus-visible .evoq-catalog__card-bullets {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 220px;
+  margin-top: 4px;
+}
+
+.evoq-catalog__card-bullet {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 16px;
+  color: #ECFAE5;
+  line-height: 1.4;
+}
+
+.evoq-catalog__card-bullet-arrow {
+  color: var(--evoq-green);
+  font-weight: 600;
+  flex-shrink: 0;
+  line-height: 1.4;
+}
+
+/* Category Tag */
+.evoq-catalog__card-category {
+  margin-top: auto;
+  padding-top: 24px;
+  width: 100%;
+  text-align: right;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--evoq-green);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.evoq-catalog__card:hover .evoq-catalog__card-category,
+.evoq-catalog__card:focus-visible .evoq-catalog__card-category {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===================================================
+   Responsive
+   =================================================== */
+
+@media (max-width: 1024px) {
+  .evoq-catalog__tabs {
+    gap: 24px;
+  }
+
+  .evoq-catalog__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .evoq-catalog {
+    --evoq-section-pad-y: 64px;
+  }
+
+  .evoq-catalog__header {
+    margin-bottom: 32px;
+  }
+
+  .evoq-catalog__subheader {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .evoq-catalog__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .evoq-catalog__card-content {
+    padding: 24px;
+  }
+
+  .evoq-catalog__tab {
+    padding: 12px 4px;
+    font-size: 15px;
+  }
+
+  .evoq-catalog__card-content {
+    padding: 24px;
+  }
+
+  .evoq-catalog__card-lift {
+    transform: translateY(150px);
+  }
+}

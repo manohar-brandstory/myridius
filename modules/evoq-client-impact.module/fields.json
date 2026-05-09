@@ -1,0 +1,184 @@
+[ {
+  "id" : "badge_text",
+  "name" : "badge_text",
+  "label" : "Badge Text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Evoq Enabled Client Impact"
+}, {
+  "id" : "title_line_1",
+  "name" : "title_line_1",
+  "label" : "Title Line 1",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Intelligent systems."
+}, {
+  "id" : "title_line_2",
+  "name" : "title_line_2",
+  "label" : "Title Line 2 (Green)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Proven in the field."
+}, {
+  "id" : "rows",
+  "name" : "rows",
+  "label" : "Impact Rows",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 6,
+    "sorting_label_field" : null,
+    "default" : 3
+  },
+  "children" : [ {
+    "id" : "rows.layout_reversed",
+    "name" : "layout_reversed",
+    "label" : "Reverse Layout (Ambient Left, Outcome Right)",
+    "required" : false,
+    "locked" : false,
+    "display" : "checkbox",
+    "type" : "boolean",
+    "display_width" : null,
+    "default" : false
+  }, {
+    "id" : "rows.outcome_tag",
+    "name" : "outcome_tag",
+    "label" : "Outcome Tag",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "50% Faster"
+  }, {
+    "id" : "rows.outcome_subtitle",
+    "name" : "outcome_subtitle",
+    "label" : "Outcome Subtitle",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "FinTech · Agentic Discovery"
+  }, {
+    "id" : "rows.outcome_title",
+    "name" : "outcome_title",
+    "label" : "Outcome Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Business discovery, accelerated..."
+  }, {
+    "id" : "rows.outcome_description",
+    "name" : "outcome_description",
+    "label" : "Outcome Description",
+    "required" : false,
+    "locked" : false,
+    "type" : "richtext",
+    "display_width" : null,
+    "default" : "<p>Multi-country legacy modernization powered by intelligent discovery agents.</p>"
+  }, {
+    "id" : "rows.outcome_image",
+    "name" : "outcome_image",
+    "label" : "Outcome Background Image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : false,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "",
+      "alt" : ""
+    }
+  }, {
+    "id" : "rows.outcome_points",
+    "name" : "outcome_points",
+    "label" : "Outcome Bullet Points (shown on hover)",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : 0,
+      "max" : 6,
+      "sorting_label_field" : null,
+      "default" : 0
+    },
+    "children" : [ {
+      "id" : "rows.outcome_points.text",
+      "name" : "text",
+      "label" : "Point Text",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : ""
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null
+  }, {
+    "id" : "rows.ambient_image",
+    "name" : "ambient_image",
+    "label" : "Ambient Card Image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : false,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "",
+      "alt" : ""
+    }
+  }, {
+    "id" : "rows.ambient_text_lines",
+    "name" : "ambient_text_lines",
+    "label" : "Ambient Card Text Lines",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : 1,
+      "max" : 3,
+      "sorting_label_field" : null,
+      "default" : 1
+    },
+    "children" : [ {
+      "id" : "rows.ambient_text_lines.text",
+      "name" : "text",
+      "label" : "Text Line",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : ""
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null
+} ]

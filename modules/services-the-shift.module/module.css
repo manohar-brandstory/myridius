@@ -79,6 +79,8 @@
   height: 2px;
   background: var(--color-accent);
   border-radius: 2px;
+  flex: 0 0 auto;
+  flex-shrink: 0;
 }
 
 .svc-theshift__badge-text {

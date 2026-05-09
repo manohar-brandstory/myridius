@@ -11,6 +11,11 @@
     var expandedLeft = root.querySelector('[data-expanded-left]');
     var expandedRight = root.querySelector('[data-expanded-right]');
     var bgImages = root.querySelectorAll('[data-bg-index]');
+    var pager = root.querySelector('[data-hero-pager]');
+    var prevBtn = root.querySelector('[data-hero-prev]');
+    var nextBtn = root.querySelector('[data-hero-next]');
+    var currentEl = root.querySelector('[data-hero-current]');
+    var totalEl = root.querySelector('[data-hero-total]');
     if (!track || !defaultView || !expandedView) return;
 
     var cards = [];
@@ -26,6 +31,39 @@
     var isAnimating = false;
     var layoutEase = 'cubic-bezier(0.22, 1, 0.36, 1)';
     var layoutDuration = 1400;
+    var total = cards.length;
+
+    function pad2(n) {
+      return n < 10 ? '0' + n : String(n);
+    }
+
+    function getCollapsedActiveIndex() {
+      var first = track.children[0];
+      if (!first) return 0;
+      var index = parseInt(first.getAttribute('data-card-index'), 10);
+      return Number.isFinite(index) ? index : 0;
+    }
+
+    function syncPager() {
+      if (!pager || !currentEl || !totalEl) return;
+      var current = expandedCard !== null ? expandedCard : getCollapsedActiveIndex();
+      currentEl.textContent = pad2(current + 1);
+      totalEl.textContent = pad2(total);
+    }
+
+    function alignTrackToIndex(index) {
+      if (!track.children.length) return;
+      var guard = 0;
+      while (guard < cards.length) {
+        var first = track.children[0];
+        if (!first) break;
+        var firstIndex = parseInt(first.getAttribute('data-card-index'), 10);
+        if (firstIndex === index) break;
+        track.appendChild(first);
+        guard += 1;
+      }
+      setActiveByPosition();
+    }
 
     function setActiveByPosition() {
       Array.prototype.forEach.call(track.children, function (el, i) {
@@ -97,6 +135,7 @@
       animateReorder(function () {
         track.appendChild(track.children[0]);
       });
+      syncPager();
     }
 
     function rotateBackward() {
@@ -104,6 +143,7 @@
       animateReorder(function () {
         track.insertBefore(track.children[track.children.length - 1], track.children[0]);
       });
+      syncPager();
     }
 
     function stopAuto() {
@@ -119,8 +159,9 @@
 
     function renderExpandedCards(activeIndex) {
       expandedRight.innerHTML = '';
-      cards.forEach(function (card, idx) {
-        if (idx === activeIndex) return;
+      for (var step = 1; step < cards.length; step += 1) {
+        var idx = (activeIndex + step) % cards.length;
+        var card = cards[idx];
         var el = document.createElement('button');
         el.type = 'button';
         el.className = 'home-hero__expanded-card';
@@ -132,12 +173,14 @@
           '</div>' +
           '<span class="home-hero__expanded-card-tag">' + esc(card.tag) + '</span>' +
           '<strong class="home-hero__expanded-card-title">' + esc(card.title) + '</strong>';
-        el.addEventListener('click', function (e) {
-          e.stopPropagation();
-          expand(idx);
-        });
+        (function (targetIndex) {
+          el.addEventListener('click', function (e) {
+            e.stopPropagation();
+            expand(targetIndex);
+          });
+        })(idx);
         expandedRight.appendChild(el);
-      });
+      }
     }
 
     function setExpandedBackground(index) {
@@ -154,11 +197,13 @@
       root.classList.add('is-expanded');
       expandedView.setAttribute('aria-hidden', 'false');
       setExpandedBackground(index);
+      alignTrackToIndex(index);
       var data = cards[index];
       root.querySelector('[data-expanded-tag]').textContent = data.tag || '';
       root.querySelector('[data-expanded-title]').textContent = data.title || '';
       root.querySelector('[data-expanded-desc]').textContent = data.description || '';
       renderExpandedCards(index);
+      syncPager();
 
       expandedLeft.offsetHeight;
     }
@@ -169,6 +214,7 @@
       isAnimating = false;
       root.classList.remove('is-expanded');
       expandedView.setAttribute('aria-hidden', 'true');
+      syncPager();
       if (!reduced) startAuto();
     }
 
@@ -186,11 +232,9 @@
       expand(parseInt(card.getAttribute('data-card-index'), 10));
     });
 
-    root.addEventListener('click', function (e) {
+    expandedView.addEventListener('click', function (e) {
       if (expandedCard === null) return;
       if (e.target.closest('.home-hero__expanded-card')) return;
-      if (e.target.closest('.home-hero__btn')) return;
-      if (e.target.closest('[data-expanded-left]')) return;
       collapse();
     });
 
@@ -215,12 +259,27 @@
       else rotateBackward();
     }, { passive: true });
 
-    root.addEventListener('mouseenter', function () {
-      if (expandedCard === null) stopAuto();
-    });
-    root.addEventListener('mouseleave', function () {
-      if (expandedCard === null && !reduced) startAuto();
-    });
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function () {
+        if (expandedCard !== null) {
+          var target = (expandedCard - 1 + total) % total;
+          expand(target);
+          return;
+        }
+        rotateBackward();
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function () {
+        if (expandedCard !== null) {
+          var target = (expandedCard + 1) % total;
+          expand(target);
+          return;
+        }
+        rotateForward();
+      });
+    }
 
     var animateEls = root.querySelectorAll('[data-animate]');
     if ('IntersectionObserver' in window && !reduced) {
@@ -249,6 +308,7 @@
     }
 
     setActiveByPosition();
+    syncPager();
     if (!reduced) startAuto();
   });
 

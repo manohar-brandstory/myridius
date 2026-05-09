@@ -33,6 +33,8 @@
   height: 2px;
   background: var(--color-brand-1);
   border-radius: 2px;
+  flex: 0 0 auto;
+  flex-shrink: 0;
 }
 
 .svc-res__badge-text {

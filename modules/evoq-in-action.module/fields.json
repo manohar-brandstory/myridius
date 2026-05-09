@@ -1,0 +1,141 @@
+[ {
+  "id" : "badge_text",
+  "name" : "badge_text",
+  "label" : "Badge Text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Evoq in action"
+}, {
+  "id" : "title_line_1",
+  "name" : "title_line_1",
+  "label" : "Title Line 1",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Build your operating"
+}, {
+  "id" : "title_line_2",
+  "name" : "title_line_2",
+  "label" : "Title Line 2",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "advantage"
+}, {
+  "id" : "cards",
+  "name" : "cards",
+  "label" : "Cards",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 3,
+    "max" : 8,
+    "sorting_label_field" : null,
+    "default" : 4
+  },
+  "children" : [ {
+    "id" : "cards.number",
+    "name" : "number",
+    "label" : "Number",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "01"
+  }, {
+    "id" : "cards.title",
+    "name" : "title",
+    "label" : "Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Agentic experiences"
+  }, {
+    "id" : "cards.subtitle",
+    "name" : "subtitle",
+    "label" : "Subtitle",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Autonomous interaction."
+  }, {
+    "id" : "cards.description",
+    "name" : "description",
+    "label" : "Description",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Direct AI-to-user interfaces that learn, adapt, and execute without manual step-throughs."
+  }, {
+    "id" : "cards.image",
+    "name" : "image",
+    "label" : "Background Image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : false,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "",
+      "alt" : "Card background"
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "number" : "01",
+    "title" : "Agentic experiences",
+    "subtitle" : "Autonomous interaction.",
+    "description" : "Direct AI-to-user interfaces that learn, adapt, and execute without manual step-throughs.",
+    "image" : {
+      "src" : "",
+      "alt" : "Card image"
+    }
+  }, {
+    "number" : "02",
+    "title" : "Reimagined workflows",
+    "subtitle" : "Frictionless delivery.",
+    "description" : "Eliminating legacy bottlenecks with autonomous agents that handle coordination and complex logic.",
+    "image" : {
+      "src" : "",
+      "alt" : "Card image"
+    }
+  }, {
+    "number" : "03",
+    "title" : "Dynamic orchestration",
+    "subtitle" : "Real-time adaptability.",
+    "description" : "Systems that reconfigure themselves based on live data and changing business objectives.",
+    "image" : {
+      "src" : "",
+      "alt" : "Card image"
+    }
+  }, {
+    "number" : "04",
+    "title" : "Compounding value",
+    "subtitle" : "Scale what works.",
+    "description" : "Outcome-first delivery with reuse, governance, and leverage across the AI lifecycle.",
+    "image" : {
+      "src" : "",
+      "alt" : "Card image"
+    }
+  } ]
+} ]

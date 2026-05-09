@@ -1,0 +1,195 @@
+[ {
+  "id" : "badge_text",
+  "name" : "badge_text",
+  "label" : "Badge Text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Applied Insights"
+}, {
+  "id" : "title",
+  "name" : "title",
+  "label" : "Title",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "The Intent behind the Innovation."
+}, {
+  "id" : "description",
+  "name" : "description",
+  "label" : "Description",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "display_width" : null,
+  "default" : "<p>Behind Evoq lies a legacy of experimentation. We've invested heavily in research, prototyping, and real-world deployment to ensure every solution we offer is grounded in measurable impact.</p>"
+}, {
+  "id" : "cta_text",
+  "name" : "cta_text",
+  "label" : "CTA Button Text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Explore All Insights"
+}, {
+  "id" : "cta_url",
+  "name" : "cta_url",
+  "label" : "CTA Button URL",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+  "type" : "url",
+  "display_width" : null,
+  "default" : {
+    "href" : "#",
+    "type" : "EXTERNAL"
+  }
+}, {
+  "id" : "featured_image",
+  "name" : "featured_image",
+  "label" : "Featured Article Image",
+  "required" : false,
+  "locked" : false,
+  "responsive" : false,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "display_width" : null,
+  "default" : {
+    "src" : "",
+    "alt" : "Featured article image"
+  }
+}, {
+  "id" : "featured_title",
+  "name" : "featured_title",
+  "label" : "Featured Article Title",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Unlock Timeshare Points Value with Agentic AI"
+}, {
+  "id" : "featured_description",
+  "name" : "featured_description",
+  "label" : "Featured Article Description",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "display_width" : null,
+  "default" : "<p>AI-powered autonomous agents transform timeshare exchanges by dynamically optimizing point valuations and matching owners with ideal swap opportunities in real time.</p>"
+}, {
+  "id" : "featured_button_text",
+  "name" : "featured_button_text",
+  "label" : "Featured Read More Text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Read More"
+}, {
+  "id" : "featured_button_url",
+  "name" : "featured_button_url",
+  "label" : "Featured Read More URL",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+  "type" : "url",
+  "display_width" : null,
+  "default" : {
+    "href" : "#",
+    "type" : "EXTERNAL"
+  }
+}, {
+  "id" : "featured_author_label",
+  "name" : "featured_author_label",
+  "label" : "Author Label",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Author"
+}, {
+  "id" : "featured_author_name",
+  "name" : "featured_author_name",
+  "label" : "Author Name",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Balaji Ramarajan"
+}, {
+  "id" : "bottom_cards",
+  "name" : "bottom_cards",
+  "label" : "Bottom Article Cards",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 4,
+    "sorting_label_field" : null,
+    "default" : 2
+  },
+  "children" : [ {
+    "id" : "bottom_cards.title",
+    "name" : "title",
+    "label" : "Card Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Article Title"
+  }, {
+    "id" : "bottom_cards.description",
+    "name" : "description",
+    "label" : "Card Description",
+    "required" : false,
+    "locked" : false,
+    "type" : "richtext",
+    "display_width" : null,
+    "default" : "<p>Article description text goes here.</p>"
+  }, {
+    "id" : "bottom_cards.url",
+    "name" : "url",
+    "label" : "Card URL",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+    "type" : "url",
+    "display_width" : null,
+    "default" : {
+      "href" : "#",
+      "type" : "EXTERNAL"
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "title" : "Proactive Customer Churn Detection via Agentforce",
+    "description" : "<p>Salesforce-native AI agent detects churn risk signals across CRM data and autonomously triggers retention workflows before customers disengage.</p>",
+    "url" : {
+      "href" : "#",
+      "type" : "EXTERNAL"
+    }
+  }, {
+    "title" : "True Forecast: AI-Driven Scoring for Sales Pipeline",
+    "description" : "<p>Salesforce add-on combining deterministic math and AI to score pipeline deals with unprecedented accuracy and actionable confidence levels.</p>",
+    "url" : {
+      "href" : "#",
+      "type" : "EXTERNAL"
+    }
+  } ]
+} ]

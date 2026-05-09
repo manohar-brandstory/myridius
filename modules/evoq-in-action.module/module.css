@@ -1,0 +1,152 @@
+.evoq-action {
+  background: #071417;
+  padding: 100px 40px;
+}
+
+.evoq-action__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.evoq-action__header {
+  margin-bottom: 48px;
+}
+
+.evoq-action__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.evoq-action__badge-dash {
+  width: 24px;
+  height: 2px;
+  border-radius: 2px;
+  background: #52e081;
+  flex: 0 0 auto;
+  flex-shrink: 0;
+}
+
+.evoq-action__badge-text {
+  color: #52e081;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.evoq-action__title {
+  color: #fff;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.evoq-action__title span {
+  color: #52e081;
+}
+
+.evoq-action__cards {
+  display: flex;
+  gap: 12px;
+  min-height: 500px;
+}
+
+.evoq-action__card {
+  position: relative;
+  width: 180px;
+  min-height: 340px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: width 0.9s cubic-bezier(0.22, 1, 0.36, 1), min-height 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  background: linear-gradient(180deg, #194247 0%, #0c2226 100%);
+}
+
+.evoq-action__card--active {
+  width: 384px;
+  min-height: 480px;
+}
+
+.evoq-action__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.2;
+}
+
+.evoq-action__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 20, 23, 0.65);
+}
+
+.evoq-action__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 8px;
+  height: 100%;
+  padding: 24px;
+}
+
+.evoq-action__number {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.evoq-action__card-title {
+  color: #ecfae5;
+  font-size: 20px;
+  margin: 0;
+}
+
+.evoq-action__subtitle {
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+  margin: 0;
+}
+
+.evoq-action__desc {
+  color: rgba(255,255,255,0.9);
+  font-size: 16px;
+  line-height: 1.55;
+  margin: 0;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.35s ease, max-height 0.35s ease;
+}
+
+.evoq-action__card--active .evoq-action__desc {
+  opacity: 1;
+  max-height: 240px;
+}
+
+@media (max-width: 768px) {
+  .evoq-action {
+    padding: 72px 20px;
+  }
+  .evoq-action__cards {
+    flex-direction: column;
+    min-height: auto;
+  }
+  .evoq-action__card,
+  .evoq-action__card--active {
+    width: 100%;
+    min-height: 140px;
+  }
+  .evoq-action__card--active {
+    min-height: 320px;
+  }
+}

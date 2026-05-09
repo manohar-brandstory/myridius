@@ -5,8 +5,9 @@
   var prevBtn = document.getElementById('homeStoriesPrev');
   var nextBtn = document.getElementById('homeStoriesNext');
   var pagesWrap = document.getElementById('homeStoriesPages');
+  var mobilePagesWrap = document.getElementById('homeStoriesMobilePages');
 
-  if (!track || !prevBtn || !nextBtn || !pagesWrap) return;
+  if (!track || !prevBtn || !nextBtn || !pagesWrap || !mobilePagesWrap) return;
 
   var cards = track.querySelectorAll('.home-stories__card');
   var n = cards.length;
@@ -27,24 +28,30 @@
     });
   }
 
+  function updateMobilePager() {
+    var current = String(currentIndex + 1).padStart(2, '0');
+    var total = String(n).padStart(2, '0');
+    mobilePagesWrap.innerHTML = '<span class="is-current">' + current + '</span>&nbsp;/&nbsp;<span>' + total + '</span>';
+  }
+
   function scrollToIndex(i, smooth) {
     i = Math.max(0, Math.min(i, n - 1));
     currentIndex = i;
     var target = cards[i];
-    track.scrollTo({
-      left: target.offsetLeft,
-      behavior: smooth === false ? 'auto' : 'smooth'
-    });
+    var left = target.offsetLeft - (track.clientWidth - target.clientWidth) / 2;
+    track.scrollTo({ left: Math.max(0, left), behavior: smooth === false ? 'auto' : 'smooth' });
     updateArrowState();
     updatePageDots();
+    updateMobilePager();
   }
 
   function nearestIndexFromScroll() {
-    var sl = track.scrollLeft;
+    var center = track.scrollLeft + track.clientWidth / 2;
     var best = 0;
     var bestDelta = Infinity;
     for (var i = 0; i < n; i++) {
-      var d = Math.abs(cards[i].offsetLeft - sl);
+      var cardCenter = cards[i].offsetLeft + cards[i].clientWidth / 2;
+      var d = Math.abs(cardCenter - center);
       if (d < bestDelta) {
         bestDelta = d;
         best = i;
@@ -59,6 +66,7 @@
       currentIndex = idx;
       updateArrowState();
       updatePageDots();
+      updateMobilePager();
     }
   }
 
@@ -104,18 +112,14 @@
     }, 120);
   });
 
-  // Tap-to-toggle hover state on touch devices (matches export onClick).
-  var coarsePointer = window.matchMedia && window.matchMedia('(hover: none)').matches;
+  updateMobilePager();
+
+  var coarsePointer =
+    window.matchMedia && window.matchMedia('(hover: none)').matches;
   Array.prototype.forEach.call(cards, function (card) {
     card.addEventListener('click', function (e) {
       if (e.target.closest('.home-stories__cta')) return;
       if (!coarsePointer) return;
-      card.classList.toggle('is-hovered');
-    });
-    card.addEventListener('keydown', function (e) {
-      if (e.key !== 'Enter' && e.key !== ' ') return;
-      if (e.target.closest('.home-stories__cta')) return;
-      e.preventDefault();
       card.classList.toggle('is-hovered');
     });
   });

@@ -39,6 +39,8 @@
   height: 2px;
   background: var(--color-brand-1, #194247);
   border-radius: 2px;
+  flex: 0 0 auto;
+  flex-shrink: 0;
 }
 
 .svc-cap__heading {
@@ -200,7 +202,7 @@
 /* ── Sub-Card Grid ── */
 .svc-cap__cards {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(var(--cap-card-count, 4), 1fr);
   background: var(--color-surface, #fff);
   border-radius: var(--radius-12, 12px);
   overflow: hidden;

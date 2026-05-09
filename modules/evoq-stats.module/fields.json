@@ -1,0 +1,266 @@
+[ {
+  "id" : "section_title_line_1",
+  "name" : "section_title_line_1",
+  "label" : "Section Title - Line 1",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Break the linearity"
+}, {
+  "id" : "section_title_line_2",
+  "name" : "section_title_line_2",
+  "label" : "Section Title - Line 2 (green)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "of outcomes with Evoq."
+}, {
+  "id" : "logo_image",
+  "name" : "logo_image",
+  "label" : "Logo Mark (SVG)",
+  "required" : false,
+  "locked" : false,
+  "responsive" : false,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "display_width" : null,
+  "default" : {
+    "src" : "",
+    "alt" : "EVOQ Logo Mark"
+  }
+}, {
+  "id" : "logo_text_image",
+  "name" : "logo_text_image",
+  "label" : "Logo Text (SVG)",
+  "required" : false,
+  "locked" : false,
+  "responsive" : false,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "display_width" : null,
+  "default" : {
+    "src" : "",
+    "alt" : "EVOQ Logo Text"
+  }
+}, {
+  "id" : "cards",
+  "name" : "cards",
+  "label" : "Cards",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 5,
+    "sorting_label_field" : null,
+    "default" : 3
+  },
+  "children" : [ {
+    "id" : "cards.icon",
+    "name" : "icon",
+    "label" : "Card Icon",
+    "required" : false,
+    "locked" : false,
+    "responsive" : false,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "",
+      "alt" : "Card Icon"
+    }
+  }, {
+    "id" : "cards.title",
+    "name" : "title",
+    "label" : "Card Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "THE GAP"
+  }, {
+    "id" : "cards.subtitle",
+    "name" : "subtitle",
+    "label" : "Card Subtitle",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Manual coordination and fragmented decisions stall system performance"
+  }, {
+    "id" : "cards.hover_description",
+    "name" : "hover_description",
+    "label" : "Hover Description",
+    "required" : false,
+    "locked" : false,
+    "type" : "richtext",
+    "display_width" : null,
+    "default" : "<p>Platforms deployed. Operating model unchanged. Technology stays inert, costs compound, competitive edge erodes</p>"
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "icon" : {
+      "src" : "",
+      "alt" : "The Gap Icon"
+    },
+    "title" : "THE GAP",
+    "subtitle" : "Manual coordination and fragmented decisions stall system performance",
+    "hover_description" : "<p>Platforms deployed. Operating model unchanged. Technology stays inert, costs compound, competitive edge erodes</p>"
+  }, {
+    "icon" : {
+      "src" : "",
+      "alt" : "The Bridge Icon"
+    },
+    "title" : "THE BRIDGE",
+    "subtitle" : "EVOQ unifies workstreams through governed execution",
+    "hover_description" : "<p>Proprietary IP that connects systems, infuses domain intelligence, and runs autonomous operations — outcomes through intelligence, not effort</p>"
+  }, {
+    "icon" : {
+      "src" : "",
+      "alt" : "The Result Icon"
+    },
+    "title" : "THE RESULT",
+    "subtitle" : "Every execution cycle compounds enterprise value",
+    "hover_description" : "<p>Value scales beyond effort invested. Every cycle raises the ceiling for faster systems, sharper decisions, better experiences</p>"
+  } ]
+}, {
+  "id" : "arrow_labels",
+  "name" : "arrow_labels",
+  "label" : "Arrow Labels",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 4,
+    "sorting_label_field" : null,
+    "default" : 2
+  },
+  "children" : [ {
+    "id" : "arrow_labels.label_text",
+    "name" : "label_text",
+    "label" : "Arrow Label",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "EVOQ Activates"
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "label_text" : "EVOQ Activates"
+  }, {
+    "label_text" : "Value Compounds"
+  } ]
+}, {
+  "id" : "stats",
+  "name" : "stats",
+  "label" : "Stats",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 8,
+    "sorting_label_field" : null,
+    "default" : 4
+  },
+  "children" : [ {
+    "id" : "stats.icon",
+    "name" : "icon",
+    "label" : "Stat Icon",
+    "required" : false,
+    "locked" : false,
+    "responsive" : false,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "",
+      "alt" : "Stat Icon"
+    }
+  }, {
+    "id" : "stats.stat_value",
+    "name" : "stat_value",
+    "label" : "Stat Value",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "60% Faster"
+  }, {
+    "id" : "stats.stat_label",
+    "name" : "stat_label",
+    "label" : "Stat Label",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Speed to Value"
+  }, {
+    "id" : "stats.hover_description",
+    "name" : "hover_description",
+    "label" : "Hover Description",
+    "required" : false,
+    "locked" : false,
+    "type" : "richtext",
+    "display_width" : null,
+    "default" : "<p>Deploy composable AI accelerators 60% faster...</p>"
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "icon" : {
+      "src" : "",
+      "alt" : "Speed Icon"
+    },
+    "stat_value" : "60% Faster",
+    "stat_label" : "Speed to Value",
+    "hover_description" : "<p>Deploy composable AI accelerators 60% faster, from pilot to production in weeks</p>"
+  }, {
+    "icon" : {
+      "src" : "",
+      "alt" : "ROI Icon"
+    },
+    "stat_value" : "Much more for less",
+    "stat_label" : "ROI Supercharged",
+    "hover_description" : "<p>Drive continuous optimization with shared context and intelligence-driven decision making</p>"
+  }, {
+    "icon" : {
+      "src" : "",
+      "alt" : "Teams Icon"
+    },
+    "stat_value" : "Humans + Agents",
+    "stat_label" : "Teams Amplified",
+    "hover_description" : "<p>Pair agentic speed with human judgment through governed, cross-functional AI augmentation</p>"
+  }, {
+    "icon" : {
+      "src" : "",
+      "alt" : "Trust Icon"
+    },
+    "stat_value" : "Trust at scale",
+    "stat_label" : "Governed by Design",
+    "hover_description" : "<p>Drive cloud-agnostic agentic actions with architectural guardrails and human-led governance</p>"
+  } ]
+} ]

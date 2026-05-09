@@ -2,7 +2,11 @@
   'use strict';
 
   var hoverMedia = window.matchMedia('(hover: hover) and (pointer: fine)');
-  var mobileMedia = window.matchMedia('(max-width: 767px)');
+  var mobileMedia = window.matchMedia('(max-width: 768px)');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  var AUTOPLAY_MS = 5000;
+  var SCROLL_RESUME_MS = 8000;
 
   function isMobileLayout() {
     return mobileMedia.matches;
@@ -40,8 +44,7 @@
       if (intro) intro.classList.add('is-in-view');
       return;
     }
-    var reduced =
-      window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var reduced = reduceMotion.matches;
     if (reduced) {
       intro.classList.add('is-in-view');
       return;
@@ -66,8 +69,87 @@
     var cards = Array.prototype.slice.call(container.querySelectorAll('[data-shift-card]'));
     if (!cards.length) return;
 
+    var autoplayTimer = null;
+    var scrollResumeTimer = null;
+    var activeMobileIndex = 0;
+    /** Ignore track scroll events right after programmatic scroll (avoids thrashing timers / page nudge) */
+    var ignoreTrackScrollUntil = 0;
+
+    function scrollCardIntoTrack(container, card, smooth) {
+      if (!container || !card) return;
+      var pad = 24;
+      var cR = container.getBoundingClientRect();
+      var rR = card.getBoundingClientRect();
+      var delta = rR.left - cR.left - pad;
+      var nextLeft = container.scrollLeft + delta;
+      var useSmooth = smooth && !reduceMotion.matches;
+      ignoreTrackScrollUntil = Date.now() + (useSmooth ? 650 : 80);
+      container.scrollTo({
+        left: Math.max(0, nextLeft),
+        behavior: useSmooth ? 'smooth' : 'auto',
+      });
+    }
+
+    function stopAutoplay() {
+      if (autoplayTimer) {
+        clearInterval(autoplayTimer);
+        autoplayTimer = null;
+      }
+    }
+
+    function clearScrollResume() {
+      if (scrollResumeTimer) {
+        clearTimeout(scrollResumeTimer);
+        scrollResumeTimer = null;
+      }
+    }
+
+    function startMobileAutoplay() {
+      stopAutoplay();
+      clearScrollResume();
+      if (!isMobileLayout()) return;
+      if (reduceMotion.matches) return;
+      if (cards.length < 2) return;
+
+      autoplayTimer = window.setInterval(function () {
+        activeMobileIndex = (activeMobileIndex + 1) % cards.length;
+        var c = cards[activeMobileIndex];
+        expandOne(cards, c);
+        window.requestAnimationFrame(function () {
+          window.requestAnimationFrame(function () {
+            scrollCardIntoTrack(container, c, true);
+          });
+        });
+      }, AUTOPLAY_MS);
+    }
+
+    function pauseAutoplayForScroll() {
+      if (!isMobileLayout()) return;
+      stopAutoplay();
+      clearScrollResume();
+      scrollResumeTimer = window.setTimeout(function () {
+        startMobileAutoplay();
+      }, SCROLL_RESUME_MS);
+    }
+
     function applyMode() {
-      if (isMobileLayout() || !useHoverExpand()) {
+      stopAutoplay();
+      clearScrollResume();
+
+      if (isMobileLayout()) {
+        activeMobileIndex = 0;
+        if (reduceMotion.matches) {
+          expandAll(cards);
+        } else {
+          expandOne(cards, cards[0]);
+          window.requestAnimationFrame(function () {
+            window.requestAnimationFrame(function () {
+              scrollCardIntoTrack(container, cards[0], false);
+            });
+          });
+          startMobileAutoplay();
+        }
+      } else if (!useHoverExpand()) {
         expandAll(cards);
       } else {
         collapseAll(cards);
@@ -79,14 +161,36 @@
       expandOne(cards, card);
     }
 
-    cards.forEach(function (card) {
+    cards.forEach(function (card, idx) {
       card.addEventListener('mouseenter', function () {
         onEnter(card);
       });
       card.addEventListener('focus', function () {
         onEnter(card);
       });
+
+      card.addEventListener('click', function () {
+        if (!isMobileLayout()) return;
+        activeMobileIndex = idx;
+        expandOne(cards, card);
+        window.requestAnimationFrame(function () {
+          window.requestAnimationFrame(function () {
+            scrollCardIntoTrack(container, card, !reduceMotion.matches);
+          });
+        });
+        pauseAutoplayForScroll();
+      });
     });
+
+    container.addEventListener(
+      'scroll',
+      function () {
+        if (!isMobileLayout()) return;
+        if (Date.now() < ignoreTrackScrollUntil) return;
+        pauseAutoplayForScroll();
+      },
+      { passive: true }
+    );
 
     applyMode();
 
@@ -99,6 +203,11 @@
       mobileMedia.addEventListener('change', applyMode);
     } else if (mobileMedia.addListener) {
       mobileMedia.addListener(applyMode);
+    }
+    if (reduceMotion.addEventListener) {
+      reduceMotion.addEventListener('change', applyMode);
+    } else if (reduceMotion.addListener) {
+      reduceMotion.addListener(applyMode);
     }
   }
 

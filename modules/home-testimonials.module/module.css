@@ -1,4 +1,4 @@
-/* Home — Testimonials marquee (export-aligned) */
+/* Home — Testimonials marquee (export-aligned) + mobile scroll + controls */
 
 .home-test {
   background: #f6f8f9;
@@ -14,16 +14,18 @@
 }
 
 .home-test__badge {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   margin-bottom: 32px;
 }
 
 .home-test__badge-line {
   display: block;
-  width: 16px;
+  width: 24px;
   height: 2px;
+  border-radius: 2px;
+  flex: 0 0 auto;
   flex-shrink: 0;
   background: #194247;
 }
@@ -43,6 +45,21 @@
   position: relative;
   display: flex;
   width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.home-test__marquee::-webkit-scrollbar {
+  display: none;
+}
+
+/* When paused (arrows / play-pause), allow horizontal scroll to center a card */
+.home-test__marquee.home-test__marquee--scrollable {
+  overflow-x: auto;
+  scroll-padding-inline: 24px;
+  -webkit-overflow-scrolling: touch;
 }
 
 .home-test__track {
@@ -52,6 +69,17 @@
   width: max-content;
   padding-right: 24px;
   animation: home-test-marquee 25s linear infinite;
+  will-change: transform;
+}
+
+.home-test__track.is-paused {
+  animation-play-state: paused;
+}
+
+.home-test__chunk {
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
 }
 
 @keyframes home-test-marquee {
@@ -62,10 +90,6 @@
   100% {
     transform: translateX(-33.333333%);
   }
-}
-
-.home-test__marquee:hover .home-test__track {
-  animation-play-state: paused;
 }
 
 .home-test__card {
@@ -139,14 +163,145 @@
   line-height: 1.4;
 }
 
+/* Toolbar: hidden on desktop (marquee only) */
+.home-test__controls {
+  display: none;
+  box-sizing: border-box;
+  width: 100%;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 40px;
+  gap: 32px;
+}
+
+.home-test__controls-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.home-test__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: #8ca1a3;
+  cursor: pointer;
+  line-height: 0;
+  transition: color 0.25s ease;
+}
+
+.home-test__btn:hover,
+.home-test__btn:focus-visible {
+  color: #194247;
+}
+
+.home-test__btn:focus-visible {
+  outline: 2px solid #194247;
+  outline-offset: 2px;
+}
+
+.home-test__btn--playpause {
+  color: #8ca1a3;
+}
+
+.home-test__btn--playpause:hover {
+  color: #194247;
+}
+
+.home-test__btn--prev svg,
+.home-test__btn--next svg {
+  display: block;
+}
+
 @media (max-width: 768px) {
+  .home-test {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+    padding: 64px 0;
+  }
+
   .home-test__masthead {
-    padding: 0 24px;
-    margin-bottom: 48px;
+    margin: 0 auto;
+    margin-bottom: 0;
+    padding: 0 40px;
+    max-width: none;
+  }
+
+  .home-test__badge {
+    margin-bottom: 0;
+  }
+
+  .home-test__badge-text {
+    font-weight: 500;
+    letter-spacing: 0.2em;
+  }
+
+  .home-test__controls {
+    display: flex;
   }
 
   .home-test__card {
-    width: 320px;
+    width: min(380px, calc(100vw - 24px));
+    height: 320px;
+  }
+
+  .home-test__card-inner {
+    padding: 32px;
+  }
+
+  .home-test__track {
+    gap: 24px;
+    padding-right: 24px;
+    padding-left: 0;
+    animation-duration: 28s;
+  }
+
+  .home-test__chunk {
+    gap: 24px;
+  }
+
+  .home-test__controls-nav {
+    gap: 16px;
+  }
+
+  .home-test__btn--playpause,
+  .home-test__btn--prev,
+  .home-test__btn--next {
+    width: 20px;
+    height: 20px;
+  }
+
+  .home-test__btn--playpause svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .home-test__btn--prev svg,
+  .home-test__btn--next svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-test__masthead {
+    padding: 0 20px;
+  }
+
+  .home-test__controls {
+    padding: 0 20px;
+  }
+
+  .home-test__card {
     height: 300px;
   }
 
@@ -154,36 +309,21 @@
     padding: 24px;
   }
 
-  .home-test__track {
-    gap: 20px;
-    padding-right: 20px;
-    animation-duration: 22s;
-  }
-}
-
-@media (max-width: 480px) {
-  .home-test__masthead {
-    padding: 0 20px;
-    margin-bottom: 40px;
-  }
-
-  .home-test__card {
-    width: 290px;
-    height: 290px;
-  }
-
-  .home-test__card-inner {
-    padding: 20px;
-  }
-
   .home-test__quote {
     font-size: 15px;
   }
 
   .home-test__track {
-    gap: 16px;
-    padding-right: 16px;
-    animation-duration: 20s;
+    gap: 20px;
+    padding-right: 20px;
+  }
+
+  .home-test__chunk {
+    gap: 20px;
+  }
+
+  .home-test__marquee--scrollable {
+    scroll-padding-inline: 20px;
   }
 }
 

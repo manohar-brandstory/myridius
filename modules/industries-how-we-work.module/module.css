@@ -40,7 +40,7 @@
 .hww__badge{
   display: inline-flex; align-items: center; gap: 10px; margin-bottom: 24px;
 }
-.hww__badgeLine{ width: 24px; height: 2px; background: #52E081; border-radius: 2px; }
+.hww__badgeLine{ width: 24px; height: 2px; background: #52E081; border-radius: 2px; flex: 0 0 auto; flex-shrink: 0; }
 .hww__badgeText{
   font-size: 14px; font-weight: 500; text-transform: uppercase;
   letter-spacing: 0.2em; color: #52E081;
@@ -202,7 +202,7 @@
   .hww{ padding: 64px 24px; min-height: auto; }
   .hww__wrap{ max-width: 332px; margin-left: 0; margin-right: 0; }
 
-  .hww__badgeText{ font-size: 12px; line-height: 21px; letter-spacing: 2.8px; }
+  .hww__badgeText{ font-size: 14px; font-weight: 500; line-height: 1.2; letter-spacing: 0.2em; }
   .hww__title{
     font-size: 36px;
     line-height: 54px;

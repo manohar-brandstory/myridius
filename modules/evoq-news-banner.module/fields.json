@@ -1,0 +1,59 @@
+[ {
+  "id" : "badge_text",
+  "name" : "badge_text",
+  "label" : "Badge Text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "News"
+}, {
+  "id" : "items",
+  "name" : "items",
+  "label" : "News Items",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 12,
+    "sorting_label_field" : null,
+    "default" : 3
+  },
+  "children" : [ {
+    "id" : "items.title",
+    "name" : "title",
+    "label" : "Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Transforming human-led delivery into AI-native systems."
+  }, {
+    "id" : "items.description",
+    "name" : "description",
+    "label" : "Description",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Myridius engineers AI-native systems that replace human-led services with agentic, autonomous execution."
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "title" : "Transforming human-led delivery into AI-native systems.",
+    "description" : "Myridius engineers AI-native systems that replace human-led services with agentic, autonomous execution - delivering non-linear, compounding business value."
+  }, {
+    "title" : "The shift from human-in-the-loop to human-on-the-loop.",
+    "description" : "Our agentic workflows allow experts to supervise high-level strategy while autonomous agents handle the heavy lifting of execution and integration."
+  }, {
+    "title" : "Scaling enterprise intelligence with custom model architectures.",
+    "description" : "We deploy specialized AI agents tailored to your unique business logic, ensuring security, compliance, and unprecedented performance."
+  } ]
+} ]
