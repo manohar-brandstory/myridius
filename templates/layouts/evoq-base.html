@@ -2,218 +2,137 @@
   templateType: "page"
   isAvailableForNewContent: false
 -->
-<!doctype html>
-<html lang="{{ html_lang|default('en') }}">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% if content.html_title %}<title>{{ content.html_title }}</title>{% endif %}
-    <meta name="description" content="{{ content.meta_description }}">
-    {% if brand_settings.primaryFavicon.src %}
-      <link rel="shortcut icon" href="{{ brand_settings.primaryFavicon.src }}" />
-    {% endif %}
+{% extends "./base.html" %}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+{% block extra_head %}
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /*
+      EVOQ tokens live on .evoq-page only so they do not replace :root across the
+      whole portal stylesheet bundle (avoids fighting other templates / modules).
+    */
+    .evoq-page {
+      --evoq-font: 'Montserrat', sans-serif;
+      --evoq-mono: 'IBM Plex Mono', monospace;
+      --evoq-primary: #194247;
+      --evoq-dark: #0C2226;
+      --evoq-mid: #337077;
+      --evoq-deepest: #071417;
+      --evoq-accent: #5E2081;
+      --evoq-light: #F6F8F9;
+      --evoq-neutral: #8CA1A3;
+      --evoq-white: #FFFFFF;
+      --evoq-green: #52E081;
+      --evoq-white-80: rgba(255,255,255,0.80);
+      --evoq-white-60: rgba(255,255,255,0.60);
+      --evoq-white-40: rgba(255,255,255,0.40);
+      --evoq-white-20: rgba(255,255,255,0.20);
+      --evoq-white-10: rgba(255,255,255,0.10);
+      --evoq-white-05: rgba(255,255,255,0.05);
+      --evoq-neutral-60: rgba(140,161,163,0.60);
+      --evoq-neutral-30: rgba(140,161,163,0.30);
+      --evoq-mint-light: #D2F0C6;
+      --evoq-mint-pale: #ECFAE5;
+      --evoq-gradient-hero: linear-gradient(200deg, rgba(82,224,129,0.1) 6.43%, rgba(25,66,71,0.1) 26.12%, rgba(82,224,129,0.1) 66.33%, rgba(25,66,71,0.1) 93.56%), linear-gradient(90deg, #071417 0%, #071417 100%);
+      --evoq-gradient-section-dark: linear-gradient(180deg, rgba(12,34,38,0.6) 0%, rgba(12,34,38,0.9) 35.17%, #0C2226 60.15%, #0C2226 100%);
+      --evoq-gradient-card-accent: linear-gradient(180deg, rgba(12,34,38,0.7) 0%, rgba(25,66,71,0.7) 100%);
+      --evoq-radius-card: 12px;
+      --evoq-radius-lg: 20px;
+      --evoq-radius-cta: 20px;
+      --evoq-radius-pill: 9999px;
+      --evoq-section-pad-x: 40px;
+      --evoq-section-pad-y: 100px;
+      --evoq-content-max: 1200px;
+      --evoq-hero-size: 64px;
+      --evoq-hero-lh: 70px;
+      --evoq-title-size: 48px;
+      --evoq-title-lh: 56px;
+      --evoq-large-size: 20px;
+      --evoq-large-lh: 28px;
+      --evoq-medium-size: 18px;
+      --evoq-medium-lh: 28px;
+      --evoq-body-size: 16px;
+      --evoq-body-lh: 24px;
+      --evoq-small-size: 14px;
+      --evoq-small-lh: 20px;
+      --evoq-badge-size: 14px;
+      --evoq-badge-lh: 24px;
 
-    <style>
-      /*
-        Match layouts/base.html theme tokens + document defaults first, so any module
-        dropped into the EVOQ page (breadcrumb, services CTAs, etc.) still resolves
-        var(--font-family), var(--color-*), var(--gutter), etc.
-      */
-      :root {
-        --font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-        --font-size: 16px;
-        --color-ink: #0C2226;
-        --color-ink-2: #071417;
-        --color-brand-1: #194247;
-        --color-brand-2: #337077;
-        --color-accent: #52E081;
-        --color-accent-80: #52e081cc;
-        --color-surface: #ffffff;
-        --color-surface-muted: #f9fafb;
-        --color-border: #e5e7eb;
-        --radius-12: 12px;
-        --radius-16: 16px;
-        --radius-button: 9999px;
-        --container-max: 80rem;
-        --gutter: 64px;
-      }
-      @media (max-width: 1024px) { :root { --gutter: 32px; } }
-      @media (max-width: 768px)  { :root { --gutter: 20px; } }
-      @media (max-width: 480px)  { :root { --gutter: 16px; } }
+      margin: 0;
+      padding: 0;
+      font-family: var(--evoq-font);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      width: 100%;
+    }
 
-      html {
-        font-size: var(--font-size);
-        scroll-behavior: smooth;
-        overflow-x: hidden;
-        width: 100%;
-      }
-      body {
-        margin: 0;
-        padding-top: 64px;
-        font-family: var(--font-family);
-        color: var(--color-brand-1);
-        background: var(--color-surface);
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        overflow-x: hidden;
-        width: 100%;
-      }
-      @supports (overflow: clip) {
-        html, body { overflow-x: clip; }
-      }
-      *, *::before, *::after { box-sizing: border-box; }
-      img { max-width: 100%; height: auto; display: block; }
-      a { color: inherit; text-decoration: none; }
-      button { font-family: inherit; }
-      svg { vertical-align: middle; }
-      :root { --wwd-row-height: 320px; --wwd-accent: #194247; }
-      @media (max-width: 768px) { :root { --wwd-row-height: 260px; } }
-      @media (max-width: 480px) { :root { --wwd-row-height: 220px; } }
-
-      @media (max-width: 768px) {
-        .myridius-page h2,
-        .home-page h2 {
-          font-size: 36px;
-          line-height: 45px;
-          letter-spacing: -2.4px;
-          font-weight: 500;
-        }
-        .myridius-services h2 {
-          font-size: 36px !important;
-          line-height: 45px !important;
-          letter-spacing: -2.4px !important;
-          font-weight: 500 !important;
-        }
-      }
-
-      /*
-        EVOQ tokens live on .evoq-page only so they do not replace :root across the
-        whole portal stylesheet bundle (avoids fighting other templates / modules).
-      */
+    @media (max-width: 767px) {
       .evoq-page {
-        --evoq-font: 'Montserrat', sans-serif;
-        --evoq-mono: 'IBM Plex Mono', monospace;
-        --evoq-primary: #194247;
-        --evoq-dark: #0C2226;
-        --evoq-mid: #337077;
-        --evoq-deepest: #071417;
-        --evoq-accent: #5E2081;
-        --evoq-light: #F6F8F9;
-        --evoq-neutral: #8CA1A3;
-        --evoq-white: #FFFFFF;
-        --evoq-green: #52E081;
-        --evoq-white-80: rgba(255,255,255,0.80);
-        --evoq-white-60: rgba(255,255,255,0.60);
-        --evoq-white-40: rgba(255,255,255,0.40);
-        --evoq-white-20: rgba(255,255,255,0.20);
-        --evoq-white-10: rgba(255,255,255,0.10);
-        --evoq-white-05: rgba(255,255,255,0.05);
-        --evoq-neutral-60: rgba(140,161,163,0.60);
-        --evoq-neutral-30: rgba(140,161,163,0.30);
-        --evoq-mint-light: #D2F0C6;
-        --evoq-mint-pale: #ECFAE5;
-        --evoq-gradient-hero: linear-gradient(200deg, rgba(82,224,129,0.1) 6.43%, rgba(25,66,71,0.1) 26.12%, rgba(82,224,129,0.1) 66.33%, rgba(25,66,71,0.1) 93.56%), linear-gradient(90deg, #071417 0%, #071417 100%);
-        --evoq-gradient-section-dark: linear-gradient(180deg, rgba(12,34,38,0.6) 0%, rgba(12,34,38,0.9) 35.17%, #0C2226 60.15%, #0C2226 100%);
-        --evoq-gradient-card-accent: linear-gradient(180deg, rgba(12,34,38,0.7) 0%, rgba(25,66,71,0.7) 100%);
-        --evoq-radius-card: 12px;
-        --evoq-radius-lg: 20px;
-        --evoq-radius-cta: 20px;
-        --evoq-radius-pill: 9999px;
-        --evoq-section-pad-x: 40px;
-        --evoq-section-pad-y: 100px;
-        --evoq-content-max: 1200px;
-        --evoq-hero-size: 64px;
-        --evoq-hero-lh: 70px;
-        --evoq-title-size: 48px;
-        --evoq-title-lh: 56px;
-        --evoq-large-size: 20px;
-        --evoq-large-lh: 28px;
-        --evoq-medium-size: 18px;
-        --evoq-medium-lh: 28px;
-        --evoq-body-size: 16px;
-        --evoq-body-lh: 24px;
-        --evoq-small-size: 14px;
-        --evoq-small-lh: 20px;
-        --evoq-badge-size: 14px;
-        --evoq-badge-lh: 24px;
-
-        margin: 0;
-        padding: 0;
-        font-family: var(--evoq-font);
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        overflow-x: hidden;
-        width: 100%;
+        --evoq-hero-size: 40px;
+        --evoq-hero-lh: 48px;
+        --evoq-title-size: 32px;
+        --evoq-title-lh: 40px;
+        --evoq-large-size: 18px;
+        --evoq-large-lh: 26px;
+        --evoq-medium-size: 16px;
+        --evoq-medium-lh: 24px;
+        --evoq-body-size: 15px;
+        --evoq-body-lh: 22px;
+        --evoq-small-size: 13px;
+        --evoq-small-lh: 18px;
+        --evoq-badge-size: 12px;
+        --evoq-badge-lh: 20px;
+        --evoq-section-pad-x: 20px;
+        --evoq-section-pad-y: 56px;
       }
+    }
 
-      @media (max-width: 767px) {
-        .evoq-page {
-          --evoq-hero-size: 40px;
-          --evoq-hero-lh: 48px;
-          --evoq-title-size: 32px;
-          --evoq-title-lh: 40px;
-          --evoq-large-size: 18px;
-          --evoq-large-lh: 26px;
-          --evoq-medium-size: 16px;
-          --evoq-medium-lh: 24px;
-          --evoq-body-size: 15px;
-          --evoq-body-lh: 22px;
-          --evoq-small-size: 13px;
-          --evoq-small-lh: 18px;
-          --evoq-badge-size: 12px;
-          --evoq-badge-lh: 20px;
-          --evoq-section-pad-x: 20px;
-          --evoq-section-pad-y: 56px;
-        }
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .evoq-page {
+        --evoq-hero-size: 52px;
+        --evoq-hero-lh: 60px;
+        --evoq-title-size: 40px;
+        --evoq-title-lh: 52px;
+        --evoq-section-pad-x: 32px;
+        --evoq-section-pad-y: 80px;
       }
+    }
 
-      @media (min-width: 768px) and (max-width: 1024px) {
-        .evoq-page {
-          --evoq-hero-size: 52px;
-          --evoq-hero-lh: 60px;
-          --evoq-title-size: 40px;
-          --evoq-title-lh: 52px;
-          --evoq-section-pad-x: 32px;
-          --evoq-section-pad-y: 80px;
-        }
+    @media (min-width: 1920px) {
+      .evoq-page {
+        --evoq-hero-size: 72px;
+        --evoq-hero-lh: 80px;
+        --evoq-title-size: 56px;
+        --evoq-title-lh: 64px;
+        --evoq-large-size: 24px;
+        --evoq-large-lh: 32px;
+        --evoq-section-pad-y: 120px;
+        --evoq-content-max: 1440px;
       }
+    }
 
-      @media (min-width: 1920px) {
-        .evoq-page {
-          --evoq-hero-size: 72px;
-          --evoq-hero-lh: 80px;
-          --evoq-title-size: 56px;
-          --evoq-title-lh: 64px;
-          --evoq-large-size: 24px;
-          --evoq-large-lh: 32px;
-          --evoq-section-pad-y: 120px;
-          --evoq-content-max: 1440px;
-        }
-      }
+    .evoq-page *, .evoq-page *::before, .evoq-page *::after {
+      box-sizing: border-box;
+    }
+    .evoq-page button {
+      font-family: inherit;
+      cursor: pointer;
+    }
+  </style>
+{% endblock extra_head %}
 
-      .evoq-page *, .evoq-page *::before, .evoq-page *::after {
-        box-sizing: border-box;
-      }
-      .evoq-page button {
-        font-family: inherit;
-        cursor: pointer;
-      }
-    </style>
+{% block site_header %}
+  {% module "evoq_navbar" path="/Myridius Theme V1/modules/evoq-navbar.module" %}
+{% endblock site_header %}
 
-    {{ standard_header_includes }}
-  </head>
-  <body>
-    {% module "evoq_navbar" path="/Myridius Theme V1/modules/evoq-navbar.module" %}
-    <div class="evoq-page">
-      {% block body %}
-      {% endblock body %}
-    </div>
-    {% module "evoq_footer" path="/Myridius Theme V1/modules/evoq-footer.module" %}
+{% block body %}
+  <div class="evoq-page">
+    {% block evoq_page_body %}
+    {% endblock evoq_page_body %}
+  </div>
+{% endblock body %}
 
-    {{ standard_footer_includes }}
-  </body>
-</html>
+{% block site_footer %}
+  {% module "evoq_footer" path="/Myridius Theme V1/modules/evoq-footer.module" %}
+{% endblock site_footer %}

@@ -17,17 +17,17 @@
     var panelInfos = section.querySelectorAll('[data-info-index]');
     var dots = section.querySelectorAll('[data-dot-index]');
     var activeIndex = 0;
-    var hoverTimer = null;
 
     function setActive(index) {
       if (index < 0 || index >= rows.length) return;
       if (index === activeIndex && rows[index].classList.contains('is-active')) return;
       activeIndex = index;
 
-      rows.forEach(function (row) {
-        row.classList.remove('is-active');
+      rows.forEach(function (row, i) {
+        row.classList.toggle('is-active', i === index);
+        var hdr = row.querySelector('[data-ind-header]');
+        if (hdr) hdr.setAttribute('aria-expanded', i === index ? 'true' : 'false');
       });
-      rows[index].classList.add('is-active');
 
       panelImages.forEach(function (img) {
         img.classList.remove('is-active');
@@ -56,32 +56,25 @@
       var header = row.querySelector('[data-ind-header]');
       if (!header) return;
 
-      row.addEventListener('mouseenter', function () {
-        if (isMobileLayout()) return;
-        clearTimeout(hoverTimer);
-        hoverTimer = setTimeout(function () {
-          setActive(index);
-        }, 250);
-      });
-
-      row.addEventListener('mouseleave', function () {
-        if (isMobileLayout()) return;
-        clearTimeout(hoverTimer);
-      });
-
-      header.addEventListener('click', function () {
-        clearTimeout(hoverTimer);
+      function activateFromHeader() {
         setActive(index);
         if (isMobileLayout()) {
           row.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
+      }
+
+      header.addEventListener('click', activateFromHeader);
+
+      header.addEventListener('keydown', function (e) {
+        if (e.key !== 'Enter' && e.key !== ' ') return;
+        e.preventDefault();
+        activateFromHeader();
       });
     });
 
     dots.forEach(function (dot) {
       dot.addEventListener('click', function () {
         var index = parseInt(dot.getAttribute('data-dot-index'), 10);
-        clearTimeout(hoverTimer);
         setActive(index);
         if (isMobileLayout() && panel) {
           panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });

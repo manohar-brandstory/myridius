@@ -54,7 +54,7 @@
     });
 
     nav.addEventListener("click", function (e) {
-      var link = e.target && e.target.closest && e.target.closest(".home-navbar__colLink, .home-navbar__subLink, .home-navbar__panelHeader");
+      var link = e.target && e.target.closest && e.target.closest(".home-navbar__megaLink, .home-navbar__colLink, .home-navbar__subLink, .home-navbar__panelHeader");
       if (link) closeMega();
     });
 

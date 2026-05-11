@@ -237,14 +237,26 @@
   padding: 8px 16px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   gap: 8px;
   transition: opacity 0.28s ease, transform 0.28s ease;
 }
 
-.evoq-stats__stat-front { opacity: 1; }
-.evoq-stats__stat-back { opacity: 0; transform: translateY(10px); pointer-events: none; }
+.evoq-stats__stat-front {
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+
+/* Hover / back face: left-aligned copy (icon, label, description) */
+.evoq-stats__stat-back {
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  padding: 20px 20px 16px;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+}
 
 .evoq-stats__stat-item:hover .evoq-stats__stat-front,
 .evoq-stats__stat-item:focus-visible .evoq-stats__stat-front,
@@ -296,7 +308,8 @@
   font-size: 14px;
   color: rgba(255, 255, 255, 0.65);
   line-height: 1.35;
-  text-align: center;
+  text-align: left;
+  width: 100%;
 }
 
 .evoq-stats__stat-description p {

@@ -33,8 +33,21 @@
 .home-navbar__logoIcon{ width: 29px; height: 22px; flex-shrink:0; }
 .home-navbar__logoWordmark{ width: 80px; height: auto; flex-shrink:0; margin-top: 3px; }
 
-.home-navbar__desktop{ display:none; flex: 1; justify-content:center; }
-.home-navbar__links{ display:flex; align-items:center; gap: 32px; margin:0; padding:0; list-style:none; }
+.home-navbar__desktop{
+  display:none;
+  flex: 1;
+  justify-content: center;
+  align-items:center;
+}
+.home-navbar__links{
+  display:flex;
+  align-items:center;
+  gap: 32px;
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+.home-navbar__item{ margin:0; padding:0; }
 .home-navbar__trigger,
 .home-navbar__link{
   display:inline-flex;
@@ -204,10 +217,33 @@
 }
 .home-navbar__panelHeader:hover .home-navbar__panelArrow{ transform: translateX(4px); }
 
-.home-navbar__grid{
-  display:grid;
+/* Flat mega grid — 4 columns (row-major); link chrome matches previous colLink styling */
+.home-navbar__megaFlat{
+  display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 8px 48px;
+  column-gap: 48px;
+  row-gap: 8px;
+  width: 100%;
+}
+.home-navbar__megaLink{
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+  margin: 0 -16px;
+  border-radius: 2px;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: #0C2226;
+  transition: background 180ms ease, color 180ms ease;
+}
+.home-navbar__megaLink:hover{
+  background: #f9fafb;
+  color: #194247;
+}
+.home-navbar__megaCell--span{
+  grid-column: 1 / -1;
 }
 
 .home-navbar__colTitle{

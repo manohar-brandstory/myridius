@@ -76,7 +76,7 @@
   {% if module.show_trust_badges and module.trust_badges %}
     <div class="svc-hero__trust" aria-label="{{ module.trust_aria_label|default('Partner credentials') }}">
       <div class="svc-hero__wrap">
-        <div class="svc-hero__trust-grid" data-sr-trust>
+        <div class="svc-hero__trust-grid" data-sr-trust style="--trust-count: {{ module.trust_badges|length }}">
           {% for item in module.trust_badges %}
             <div class="svc-hero__trust-cell{% if not loop.first %} svc-hero__trust-cell--divider-col{% endif %}">
               <div class="svc-hero__trust-media">

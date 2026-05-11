@@ -158,7 +158,7 @@
     }
 
     function renderExpandedCards(activeIndex) {
-      expandedRight.innerHTML = '';
+      var frag = document.createDocumentFragment();
       for (var step = 1; step < cards.length; step += 1) {
         var idx = (activeIndex + step) % cards.length;
         var card = cards[idx];
@@ -179,14 +179,45 @@
             expand(targetIndex);
           });
         })(idx);
-        expandedRight.appendChild(el);
+        frag.appendChild(el);
+      }
+      if (typeof expandedRight.replaceChildren === 'function') {
+        expandedRight.replaceChildren(frag);
+      } else {
+        expandedRight.innerHTML = '';
+        expandedRight.appendChild(frag);
       }
     }
 
     function setExpandedBackground(index) {
+      var prev = -1;
+      Array.prototype.forEach.call(bgImages, function (bg, i) {
+        if (bg.classList.contains('is-active')) prev = i;
+      });
+      Array.prototype.forEach.call(bgImages, function (bg) {
+        bg.classList.remove('is-exiting');
+      });
+      if (prev !== -1 && prev !== index && bgImages[prev]) {
+        bgImages[prev].classList.add('is-exiting');
+      }
       Array.prototype.forEach.call(bgImages, function (bg, i) {
         bg.classList.toggle('is-active', i === index);
       });
+      if (prev !== -1 && prev !== index && bgImages[prev]) {
+        var oldBg = bgImages[prev];
+        var done = false;
+        function cleanup() {
+          if (done) return;
+          done = true;
+          oldBg.classList.remove('is-exiting');
+          oldBg.removeEventListener('transitionend', onEnd);
+        }
+        function onEnd(e) {
+          if (e.propertyName === 'opacity') cleanup();
+        }
+        oldBg.addEventListener('transitionend', onEnd);
+        window.setTimeout(cleanup, 800);
+      }
     }
 
     function expand(index) {

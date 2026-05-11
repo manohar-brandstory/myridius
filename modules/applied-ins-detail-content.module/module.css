@@ -69,9 +69,30 @@
   color: var(--color-brand-1) !important;
 }
 
+.applied-ins-detail-content__briefText a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
 .applied-ins-detail-content__briefText a:hover,
 .applied-ins-detail-content__briefText a:hover * {
   color: var(--color-accent) !important;
+}
+
+.applied-ins-detail-content__briefText a:hover {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+/* In-article links (richtext): match Figma Make — hairline underline */
+.applied-ins-detail-content__panelInner a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.applied-ins-detail-content__panelInner a:hover {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
 }
 
 /* ─────────────────────────────────────────────────
@@ -249,12 +270,21 @@
 }
 
 .applied-ins-detail-content__tableWrap,
-.applied-ins-detail-content__codeWrap,
-.applied-ins-detail-content__diagramWrap,
-.applied-ins-detail-content__imageWrap,
 .applied-ins-detail-content__impact,
 .applied-ins-detail-content__columns {
   margin: 32px 0;
+}
+
+/* Code / diagram / image blocks: flex column + gap so caption always has
+   space below the media (margin-collapse was removing margin-top on `<p>` captions) */
+.applied-ins-detail-content__codeWrap,
+.applied-ins-detail-content__diagramWrap,
+.applied-ins-detail-content__imageWrap {
+  margin: 32px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 24px;
 }
 
 .applied-ins-detail-content__tableCard,
@@ -335,11 +365,43 @@
 }
 
 .applied-ins-detail-content__codeCaption {
-  margin: 24px 0 0;
+  margin: 0;
   text-align: center;
   color: #6a7282;
   font-size: 14px;
   font-style: italic;
+  line-height: 1.5;
+}
+
+/* Typed captions are `<p>`s: panel `p` / `p:last-child` rules must not fight layout */
+.applied-ins-detail-content__panelInner .applied-ins-detail-content__codeWrap > .applied-ins-detail-content__codeCaption,
+.applied-ins-detail-content__panelInner .applied-ins-detail-content__diagramWrap > .applied-ins-detail-content__codeCaption,
+.applied-ins-detail-content__panelInner .applied-ins-detail-content__imageWrap > .applied-ins-detail-content__codeCaption {
+  margin: 0;
+}
+
+/* Legacy rich text: figures with figcaption inside accordion body */
+.applied-ins-detail-content__panelInner figure {
+  margin: 32px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 24px;
+}
+
+.applied-ins-detail-content__panelInner figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.applied-ins-detail-content__panelInner figure figcaption {
+  margin: 0;
+  text-align: center;
+  color: #6a7282;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.5;
 }
 
 .applied-ins-detail-content__columns {

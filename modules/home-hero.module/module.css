@@ -4,6 +4,13 @@
   padding-top: 7.5rem;
   padding-bottom: 4.5rem;
   font-family: 'Montserrat', system-ui, sans-serif;
+  background-color: transparent;
+  transition: background-color 0.35s ease;
+}
+
+/* Fills any sub-pixel gap during layer crossfades (avoids white body showing through) */
+.home-hero.is-expanded {
+  background-color: #071417;
 }
 
 .home-hero__state-bg {
@@ -21,25 +28,42 @@
 .home-hero__state-bg--expanded {
   opacity: 0;
   pointer-events: none;
+  /* Solid base under photo crossfades so inactive slides at opacity 0 never reveal white */
+  background-color: #071417;
+  /* Stable composited layer during opacity swaps (reduces full-section flash on some GPUs) */
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .home-hero.is-expanded .home-hero__state-bg--default {
   opacity: 0;
+  z-index: 0;
 }
 
 .home-hero.is-expanded .home-hero__state-bg--expanded {
   opacity: 1;
+  z-index: 1;
 }
 
 .home-hero__bg-image {
   position: absolute;
   inset: 0;
+  z-index: 0;
   opacity: 0;
-  transition: opacity 0.6s ease;
+  transition: opacity 0.65s ease;
+  pointer-events: none;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .home-hero__bg-image.is-active {
+  z-index: 1;
   opacity: 1;
+}
+
+/* Outgoing slide paints above the incoming one while both fade — avoids a 1-frame “hole” to the white page */
+.home-hero__bg-image.is-exiting {
+  z-index: 2;
 }
 
 .home-hero__bg-image img {
@@ -193,13 +217,28 @@
   overflow: hidden;
   cursor: pointer;
   transform-origin: 50% 50%;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
   transition:
     width 0.5s ease,
     height 0.5s ease,
     border-color 0.5s ease,
     box-shadow 0.5s ease,
-    background 0.5s ease,
+    background 0.45s ease,
     transform 0.4s ease;
+}
+
+.home-hero__card:focus {
+  outline: none;
+}
+
+.home-hero__card:focus-visible {
+  outline: 2px solid #337077;
+  outline-offset: 3px;
 }
 
 .home-hero__card:hover {
@@ -226,6 +265,21 @@
   box-shadow:
     0 20px 25px -5px rgba(0, 0, 0, 0.1),
     0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+/* Avoid native button press “flash” / transform jump on click */
+.home-hero__card:not(.is-active):active {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(140, 161, 163, 0.2);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+.home-hero__card.is-active:active {
+  background: transparent;
+  transform: none;
 }
 
 .home-hero__card-active {
@@ -468,12 +522,32 @@
   padding: 24px;
   overflow: hidden;
   text-align: left;
-  transition: background 0.3s ease, transform 0.3s ease;
+  color: inherit;
+  font: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  transition: background 0.35s ease, transform 0.35s ease, border-color 0.35s ease;
+}
+
+.home-hero__expanded-card:focus {
+  outline: none;
+}
+
+.home-hero__expanded-card:focus-visible {
+  outline: 2px solid rgba(82, 224, 129, 0.65);
+  outline-offset: 2px;
 }
 
 .home-hero__expanded-card:hover {
   background: rgba(255, 255, 255, 0.2);
   transform: scale(1.05) translateY(-4px);
+}
+
+.home-hero__expanded-card:active {
+  background: rgba(255, 255, 255, 0.12);
+  transform: scale(1.02) translateY(-2px);
 }
 
 .home-hero__expanded-card-media {

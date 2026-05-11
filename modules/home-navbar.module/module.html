@@ -103,43 +103,28 @@
               </a>
             {% endif %}
 
-            <div class="home-navbar__grid">
+            {# Homepage / Figma: one 4-column grid; items flow row-major across all sections #}
+            <div class="home-navbar__megaFlat">
               {% for section in link.sections %}
-                <div class="home-navbar__col">
-                  {% if section.title %}
-                    <div class="home-navbar__colTitle">{{ section.title }}</div>
+                {% for item in section.items %}
+                  {% if item.sub_items|length %}
+                    <div class="home-navbar__megaCell home-navbar__megaCell--span">
+                      <button class="home-navbar__expander" type="button" data-home-expander aria-expanded="false">
+                        <span class="home-navbar__expanderLabel">{{ item.text }}</span>
+                        <span class="home-navbar__expanderIcon" aria-hidden="true"></span>
+                      </button>
+                      <ul class="home-navbar__subList" role="list" hidden>
+                        {% for sub in item.sub_items %}
+                          <li class="home-navbar__subItem">
+                            <a class="home-navbar__subLink" href="{{ sub.sub_url.href }}">{{ sub.text }}</a>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  {% else %}
+                    <a class="home-navbar__megaLink" href="{{ item.url.href }}">{{ item.text }}</a>
                   {% endif %}
-
-                  <ul class="home-navbar__colList" role="list">
-                    {% for item in section.items %}
-                      <li class="home-navbar__colItem">
-                        {% if item.sub_items|length %}
-                          <button class="home-navbar__expander" type="button" data-home-expander>
-                            <span class="home-navbar__expanderLabel">{{ item.text }}</span>
-                            <span class="home-navbar__expanderIcon" aria-hidden="true"></span>
-                          </button>
-                          <ul class="home-navbar__subList" role="list" hidden>
-                            {% for sub in item.sub_items %}
-                              <li class="home-navbar__subItem">
-                                <a class="home-navbar__subLink" href="{{ sub.sub_url.href }}">{{ sub.text }}</a>
-                              </li>
-                            {% endfor %}
-                          </ul>
-                        {% else %}
-                          <a class="home-navbar__colLink" href="{{ item.url.href }}">
-                            <span class="home-navbar__colLinkLabel">{{ item.text }}</span>
-                            <span class="home-navbar__colLinkArrow" aria-hidden="true">
-                              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                                <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                                <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                              </svg>
-                            </span>
-                          </a>
-                        {% endif %}
-                      </li>
-                    {% endfor %}
-                  </ul>
-                </div>
+                {% endfor %}
               {% endfor %}
             </div>
           </div>

@@ -25,9 +25,29 @@
   var isHovered = false;
   var resumeTimer = null;
   var currentIndex = 0;
+  var mobileAutoTimer = null;
+  var MOBILE_AUTOPLAY_MS = 5500;
+  var reducedMotion =
+    typeof window.matchMedia === 'function' &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function isNewsMobile() {
     return window.matchMedia('(max-width: ' + MOBILE_MAX + 'px)').matches;
+  }
+
+  function stopMobileAutoplay() {
+    if (mobileAutoTimer) {
+      clearInterval(mobileAutoTimer);
+      mobileAutoTimer = null;
+    }
+  }
+
+  function syncMobileAutoplay() {
+    stopMobileAutoplay();
+    if (!isNewsMobile() || isPaused || uniqueCount <= 1 || reducedMotion) return;
+    mobileAutoTimer = setInterval(function () {
+      scrollToIndex(currentIndex + 1);
+    }, MOBILE_AUTOPLAY_MS);
   }
 
   function animationPaused() {
@@ -38,8 +58,10 @@
     if (isNewsMobile()) {
       track.classList.add('is-paused');
       marquee.classList.add('home-news__marquee-wrapper--scrollable');
+      syncMobileAutoplay();
       return;
     }
+    stopMobileAutoplay();
     if (animationPaused()) {
       track.classList.add('is-paused');
       marquee.classList.add('home-news__marquee-wrapper--scrollable');
@@ -164,6 +186,20 @@
     window.clearTimeout(marquee._newsScrollT);
     marquee._newsScrollT = window.setTimeout(syncMobileIndexFromScroll, 80);
   });
+
+  /* Pause autoplay while user drags the carousel; resume after idle */
+  marquee.addEventListener(
+    'touchstart',
+    function () {
+      if (!isNewsMobile()) return;
+      stopMobileAutoplay();
+      window.clearTimeout(marquee._newsTouchResumeT);
+      marquee._newsTouchResumeT = window.setTimeout(function () {
+        if (!isPaused) syncMobileAutoplay();
+      }, 5000);
+    },
+    { passive: true }
+  );
 
   var resizeNewsT;
   window.addEventListener('resize', function () {

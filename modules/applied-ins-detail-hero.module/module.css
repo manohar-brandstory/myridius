@@ -22,6 +22,7 @@
   text-transform: uppercase;
   text-decoration: none;
   text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
   letter-spacing: 0.02em;
   transition: color 0.2s ease;
 }
@@ -29,6 +30,8 @@
 .applied-ins-detail-hero__back:hover {
   color: #0c2226;
   text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
 }
 
 .applied-ins-detail-hero__back svg {

@@ -33,7 +33,13 @@
           <div class="home-ind__row{% if loop.first %} is-active{% endif %}" data-ind-row data-index="{{ loop.index0 }}">
 
             {# Row Header #}
-            <div class="home-ind__row-header" data-ind-header>
+            <div
+              class="home-ind__row-header"
+              data-ind-header
+              role="button"
+              tabindex="0"
+              aria-expanded="{% if loop.first %}true{% else %}false{% endif %}"
+            >
               <div class="home-ind__row-icon">
                 {% set ic = loop.index0 % 9 %}
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">

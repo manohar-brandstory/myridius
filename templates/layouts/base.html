@@ -88,15 +88,22 @@
       }
     </style>
 
+    {% block extra_head %}
+    {% endblock extra_head %}
+
     {{ standard_header_includes }}
   </head>
   <body>
-    {% module "navbar" path="/Myridius Theme V1/modules/home-navbar.module" %}
+    {% block site_header %}
+      {% module "navbar" path="/Myridius Theme V1/modules/home-navbar.module" %}
+    {% endblock site_header %}
 
     {% block body %}
     {% endblock body %}
 
-    {% module "footer" path="/Myridius Theme V1/modules/home-footer.module" %}
+    {% block site_footer %}
+      {% module "footer" path="/Myridius Theme V1/modules/home-footer.module" %}
+    {% endblock site_footer %}
 
     {{ standard_footer_includes }}
   </body>

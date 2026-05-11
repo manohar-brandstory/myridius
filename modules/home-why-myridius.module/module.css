@@ -675,6 +675,8 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 64px 0;
+    /* Allow stacked cards to peek past section edge slightly */
+    overflow-x: visible;
   }
 
   .home-why__container {
@@ -747,16 +749,24 @@
   }
 
   .home-why__col-left {
-    height: 520px;
+    height: 560px;
     width: 100%;
     align-items: center;
     justify-content: center;
+    padding-top: 0;
+    overflow: visible;
   }
 
   .home-why__stack-wrap {
-    max-width: 345px;
+    max-width: 300px;
     width: 100%;
     margin: 0 auto;
+    align-self: center;
+    overflow: visible;
+  }
+
+  .home-why__stack .home-why__card {
+    transform-origin: 90% 92%;
   }
 
   .home-why__card {
@@ -779,32 +789,33 @@
     );
   }
 
+  /* Same deck layout as before; only the second card is tilted a touch more so the stack reads as tappable. */
   .home-why__card[data-position='0'] {
-    transform: scale(1) translateY(0) rotate(0deg);
+    transform: scale(0.98) translate(0, 6px) rotate(0deg);
   }
 
   .home-why__card[data-position='1'] {
-    transform: scale(0.952) translateY(12px) rotate(-3deg);
-    opacity: 0.8;
+    transform: scale(0.9) translate(-14px, -12px) rotate(-5deg);
+    opacity: 0.9;
   }
 
   .home-why__card[data-position='2'] {
-    transform: scale(0.902) translateY(24px) rotate(-6deg);
-    opacity: 0.6;
+    transform: scale(0.84) translate(-24px, -22px) rotate(-5.5deg);
+    opacity: 0.78;
   }
 
   .home-why__card[data-position='3'] {
-    transform: scale(0.855) translateY(36px) rotate(-8deg);
-    opacity: 0.45;
+    transform: scale(0.78) translate(-32px, -30px) rotate(-8deg);
+    opacity: 0.46;
   }
 
   .home-why__card[data-position='4'] {
-    transform: scale(0.81) translateY(48px) rotate(-10deg);
+    transform: scale(0.73) translate(-38px, -36px) rotate(-10deg);
     opacity: 0.28;
   }
 
   .home-why__card[data-position='5'] {
-    transform: scale(0.765) translateY(58px) rotate(-12deg);
+    transform: scale(0.68) translate(-42px, -40px) rotate(-11.5deg);
     opacity: 0.14;
   }
 
@@ -938,7 +949,7 @@
   }
 
   .home-why__card[data-position='0']:active {
-    transform: scale(1.02) translateY(-10px) rotate(8deg);
+    transform: scale(0.96) translate(0, 4px) rotate(5deg);
     transition-duration: 0.18s;
   }
 

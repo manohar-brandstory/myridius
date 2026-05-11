@@ -114,13 +114,26 @@
 
   updateMobilePager();
 
-  var coarsePointer =
-    window.matchMedia && window.matchMedia('(hover: none)').matches;
+  function isTouchUi() {
+    if (window.matchMedia && window.matchMedia('(max-width: 767px)').matches) return true;
+    if (window.matchMedia && window.matchMedia('(hover: none)').matches) return true;
+    if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) return true;
+    return false;
+  }
+
+  function closeOtherStoryHovers(active) {
+    Array.prototype.forEach.call(cards, function (c) {
+      if (c !== active) c.classList.remove('is-hovered');
+    });
+  }
+
   Array.prototype.forEach.call(cards, function (card) {
     card.addEventListener('click', function (e) {
       if (e.target.closest('.home-stories__cta')) return;
-      if (!coarsePointer) return;
-      card.classList.toggle('is-hovered');
+      if (!isTouchUi()) return;
+      var on = !card.classList.contains('is-hovered');
+      closeOtherStoryHovers(card);
+      card.classList.toggle('is-hovered', on);
     });
   });
 })();

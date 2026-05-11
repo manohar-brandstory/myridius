@@ -71,7 +71,7 @@
     "name": "mobile_cta_text",
     "label": "Mobile CTA Text",
     "type": "text",
-    "default": "Get in touch"
+    "default": "Contact Us"
   },
   {
     "id": "mobile_cta_url",
@@ -308,7 +308,7 @@
         },
         "mega_menu_enabled": true,
         "mega_header_url": {
-          "href": "#",
+          "href": "https://draft-servicesoverview.figma.site",
           "type": "EXTERNAL",
           "content_id": null
         },
@@ -389,7 +389,7 @@
                 "sub_items": []
               },
               {
-                "text": "Data AI & Analytics",
+                "text": "Data, AI & Analytics",
                 "url": {
                   "href": "#",
                   "type": "EXTERNAL",
