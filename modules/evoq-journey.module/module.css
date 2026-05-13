@@ -149,6 +149,9 @@
 .evoq-journey__cards-slider {
   position: relative;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
 .evoq-journey__cards-viewport {
@@ -156,6 +159,7 @@
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
+  width: 100%;
 }
 
 .evoq-journey__cards-viewport::-webkit-scrollbar {
@@ -251,23 +255,77 @@
   display: none;
 }
 
-.evoq-journey__cards-nav {
+.evoq-journey__cards-toolbar {
   display: none;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 36px;
-  height: 36px;
-  border-radius: 999px;
-  border: 1px solid rgba(82, 224, 129, 0.45);
-  background: rgba(7, 20, 23, 0.9);
-  color: #52E081;
-  cursor: pointer;
-  z-index: 2;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 22rem;
+  margin: 1.5rem auto 0;
+  gap: 1.25rem;
+  pointer-events: none;
 }
 
-.evoq-journey__cards-nav--prev { left: -18px; }
-.evoq-journey__cards-nav--next { right: -18px; }
+.evoq-journey__cards-slider--enabled .evoq-journey__cards-toolbar {
+  display: flex;
+}
+
+.evoq-journey__cards-toolbar .evoq-journey__cards-nav,
+.evoq-journey__cards-toolbar .evoq-journey__cards-index {
+  pointer-events: auto;
+}
+
+.evoq-journey__cards-index {
+  margin: 0;
+  flex: 1;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.evoq-journey__cards-index-current {
+  color: var(--evoq-green, #52e081);
+}
+
+.evoq-journey__cards-index-muted {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.evoq-journey__cards-nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+  z-index: 2;
+  transition: color 0.2s ease;
+}
+
+.evoq-journey__cards-nav:hover,
+.evoq-journey__cards-nav:focus-visible {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.evoq-journey__cards-nav:focus-visible {
+  outline: 2px solid var(--evoq-green, #52e081);
+  outline-offset: 3px;
+}
+
+.evoq-journey__cards-nav-icon {
+  font-size: 1.75rem;
+  font-weight: 300;
+  line-height: 1;
+}
 
 /* Responsive - Tablet */
 @media (max-width: 1024px) {
@@ -297,11 +355,6 @@
     height: 420px;
   }
 
-  .evoq-journey__cards-slider--enabled .evoq-journey__cards-nav {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
 }
 
 /* Responsive - Mobile */
@@ -372,12 +425,78 @@
     color: var(--evoq-green, #52E081);
   }
 
-  .evoq-journey__cards-slider--enabled .evoq-journey__cards-nav {
-    display: inline-flex !important;
-    align-items: center;
+  .evoq-journey__cards-toolbar {
+    max-width: 100%;
+    margin-top: 1.25rem;
+    padding: 0;
     justify-content: center;
+    gap: 0.5rem;
   }
 
-  .evoq-journey__cards-nav--prev { left: -10px; }
-  .evoq-journey__cards-nav--next { right: -10px; }
+  .evoq-journey__cards-index {
+    flex: 0 0 auto;
+    padding: 0 0.125rem;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+  }
+
+  .evoq-journey__cards-nav {
+    width: auto;
+    height: auto;
+    min-width: 1.75rem;
+    min-height: 2.25rem;
+    padding: 0 0.125rem;
+  }
+
+  .evoq-journey__cards-nav-icon {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 641px) {
+  .evoq-journey__cards-toolbar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: none;
+    margin: 0;
+    padding: 0 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+  }
+
+  .evoq-journey__cards-index {
+    display: none;
+  }
+
+  .evoq-journey__cards-slider--enabled .evoq-journey__cards-nav {
+    display: inline-flex;
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    border: 1px solid rgba(82, 224, 129, 0.45);
+    background: rgba(7, 20, 23, 0.9);
+    color: #52e081;
+  }
+
+  .evoq-journey__cards-slider--enabled .evoq-journey__cards-nav:hover,
+  .evoq-journey__cards-slider--enabled .evoq-journey__cards-nav:focus-visible {
+    color: #7ef0a8;
+  }
+
+  .evoq-journey__cards-slider--enabled .evoq-journey__cards-nav-icon {
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+
+  .evoq-journey__cards-nav--prev {
+    margin-left: -10px;
+  }
+
+  .evoq-journey__cards-nav--next {
+    margin-right: -10px;
+  }
 }

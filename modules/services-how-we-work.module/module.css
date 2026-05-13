@@ -101,7 +101,7 @@
 .svc-hww__tabs {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 16px;
+  gap: 0;
   margin-bottom: 32px;
 }
 

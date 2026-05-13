@@ -10,6 +10,8 @@
   --evoq-bi-divider: rgba(25, 66, 71, 0.3);
   --evoq-bi-schematic-border: #194247;
   --evoq-bi-schematic-line: rgba(25, 66, 71, 0.85);
+  /* Approximate fixed header clearance; override from theme if needed */
+  --evoq-bi-sticky-offset: 3.5rem;
   box-sizing: border-box;
   font-family: var(--font-family, "Montserrat", system-ui, sans-serif);
   background: var(--evoq-bi-bg);
@@ -49,10 +51,117 @@
 }
 
 @media (max-width: 639px) {
+  .evoq-bi {
+    scroll-margin-top: var(--evoq-bi-sticky-offset);
+  }
+
+  /* Avoid vertical centering pushing the card under a fixed header (e.g. iPhone SE). */
+  .evoq-bi__shell {
+    min-height: 0;
+    align-items: flex-start;
+    padding-top: calc(env(safe-area-inset-top, 0px) + var(--evoq-bi-sticky-offset));
+    padding-bottom: clamp(0.75rem, 3dvh, 1.5rem);
+  }
+
   .evoq-bi__card {
-    height: min(88dvh, 43.75rem);
-    min-height: 26rem;
+    height: min(
+      calc(
+        100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - var(--evoq-bi-sticky-offset) -
+          clamp(4rem, 12dvh, 6rem)
+      ),
+      43.75rem
+    );
+    min-height: 0;
     max-height: 700px;
+  }
+}
+
+/* Extra-tight vertical viewports (SE-class ~667px height): smaller type and scroll budget */
+@media (max-width: 639px) and (max-height: 700px) {
+  .evoq-bi {
+    padding: clamp(0.75rem, 3vw, 1.25rem) clamp(0.75rem, 3vw, 1.5rem);
+  }
+
+  .evoq-bi__shell {
+    padding-top: calc(env(safe-area-inset-top, 0px) + var(--evoq-bi-sticky-offset));
+  }
+
+  .evoq-bi__card {
+    /* Taller card: less “chrome” subtracted + same cap as wider mobile so content fits (e.g. SE). */
+    height: min(
+      calc(
+        100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - var(--evoq-bi-sticky-offset) -
+          clamp(1.75rem, 4dvh, 2.75rem)
+      ),
+      43.75rem
+    );
+  }
+
+  .evoq-bi__cardInner {
+    gap: clamp(0.5rem, 2vw, 0.75rem);
+  }
+
+  .evoq-bi__left {
+    padding: clamp(0.75rem, 2.5vw, 1rem) clamp(0.75rem, 2.5vw, 1rem) clamp(0.5rem, 1.5vw, 0.75rem);
+  }
+
+  .evoq-bi__leftInner {
+    gap: clamp(0.5rem, 2vw, 0.75rem);
+  }
+
+  .evoq-bi__headline {
+    font-size: clamp(1.35rem, 1rem + 2.2vw, 2.25rem);
+    line-height: 1.06;
+  }
+
+  .evoq-bi__intro {
+    font-size: clamp(0.8125rem, 0.78rem + 0.2vw, 1rem);
+    line-height: 1.65;
+  }
+
+  .evoq-bi__schematic {
+    margin-top: 0;
+    transform: scale(0.82);
+    transform-origin: left center;
+  }
+
+  .evoq-bi__schematicPill {
+    padding: 0.375rem 0.625rem;
+    min-width: 4.75rem;
+  }
+
+  .evoq-bi__schematicOrb {
+    width: clamp(3rem, 8vw, 3.75rem);
+    height: clamp(3rem, 8vw, 3.75rem);
+    font-size: clamp(0.5rem, 1.2vw, 0.6875rem);
+  }
+
+  .evoq-bi__item {
+    padding: clamp(1.25rem, 4vw, 2rem) 0;
+  }
+
+  .evoq-bi__itemInner {
+    gap: 0.875rem;
+  }
+
+  .evoq-bi__iconBox {
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 0.75rem;
+  }
+
+  .evoq-bi__tag {
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+
+  .evoq-bi__title {
+    font-size: clamp(1rem, 0.92rem + 0.35vw, 1.25rem);
+  }
+
+  .evoq-bi__bulletText {
+    font-size: 0.875rem;
+    line-height: 1.55;
   }
 }
 
@@ -103,6 +212,33 @@
 @media (min-width: 1024px) {
   .evoq-bi__scroll {
     padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.25rem, 3vw, 2.5rem) clamp(1.5rem, 3vw, 2.5rem) 0;
+  }
+}
+
+@media (max-width: 1023px) {
+  .evoq-bi__scroll {
+    min-height: min(48dvh, 24rem);
+  }
+}
+
+@media (max-width: 639px) and (max-height: 700px) {
+  .evoq-bi__scroll {
+    min-height: min(28dvh, 11rem);
+    padding: clamp(0.5rem, 2vw, 0.75rem) clamp(0.75rem, 2.5vw, 1rem) clamp(0.75rem, 2.5vw, 1rem);
+    mask-image: linear-gradient(
+      to bottom,
+      transparent,
+      #000 12px,
+      #000 calc(100% - 12px),
+      transparent
+    );
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent,
+      #000 12px,
+      #000 calc(100% - 12px),
+      transparent
+    );
   }
 }
 

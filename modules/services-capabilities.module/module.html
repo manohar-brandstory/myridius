@@ -1,7 +1,9 @@
 {# Services – Capabilities Accordion #}
 {% set sid = module.section_id || "what-we-do" %}
+{% set layout = module.content_style|default('capabilities', true) %}
+{% set use_points = (layout == 'points') %}
 
-<section class="svc-cap" id="{{ sid }}">
+<section class="svc-cap{% if use_points %} svc-cap--layout-points{% endif %}" id="{{ sid }}">
   <div class="svc-cap__wrap">
 
     {# ── Header ── #}
@@ -19,7 +21,8 @@
       <div class="svc-cap__subtitle">{{ module.subtitle }}</div>
     {% endif %}
 
-    {# ── Accordion List ── #}
+    {# ── Capabilities accordion (Layout = Capabilities) ── #}
+    {% if not use_points %}
     <div class="svc-cap__accordion">
       {% for cap in module.capabilities %}
         <div class="svc-cap__item"
@@ -35,8 +38,12 @@
                 <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
-            <span class="svc-cap__title">{{ cap.title }}</span>
-            <span class="svc-cap__brief">{{ cap.brief }}</span>
+            <div class="svc-cap__titleCol">
+              <h3 class="svc-cap__title">{{ cap.title }}</h3>
+            </div>
+            <div class="svc-cap__briefCol">
+              <p class="svc-cap__brief">{{ cap.brief }}</p>
+            </div>
           </div>
 
           {# ── Expanded Panel ── #}
@@ -77,6 +84,75 @@
         </div>
       {% endfor %}
     </div>
+
+    {# ── Points: stable keys heading / intro / brief (same as long-lived schema). Legacy title/description + points_brief retained in fields.json so resave does not drop JSON. ── #}
+    {% else %}
+    <div class="svc-cap__accordion">
+      {% for cap in module.points_sections %}
+        <div class="svc-cap__item" data-svc-cap-item>
+
+          <div class="svc-cap__collapsed">
+            <div class="svc-cap__chevron">
+              <svg class="svc-cap__chevron-down" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <svg class="svc-cap__chevron-up" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="svc-cap__titleCol">
+              <h3 class="svc-cap__title">{{ cap.heading|default(cap.title, true) }}</h3>
+            </div>
+            <div class="svc-cap__briefCol">
+              {# Mirrors CapabilitiesSection: capability.brief in a flex-1 column (plain text). #}
+              {% set pb_plain = cap.brief|default('', true)|trim %}
+              {% set pb_pts = (cap.points_brief|default('', true))|striptags|trim %}
+              {% set pb_cb = (cap.collapsed_brief|default('', true))|trim %}
+              <p class="svc-cap__brief">{% if pb_plain %}{{ pb_plain }}{% elif pb_pts %}{{ pb_pts }}{% elif pb_cb %}{{ pb_cb }}{% endif %}</p>
+            </div>
+          </div>
+
+          <div class="svc-cap__expanded"
+               {% if cap.bg_image.src %}
+                 style="background-image:url('{{ cap.bg_image.src }}')"
+               {% endif %}>
+            <div class="svc-cap__overlay"></div>
+            <div class="svc-cap__expanded-inner">
+
+              <div class="svc-cap__expanded-head">
+                <div class="svc-cap__expanded-row">
+                  <div class="svc-cap__chevron svc-cap__chevron--expanded">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <h3 class="svc-cap__expanded-title">{{ cap.heading|default(cap.title, true) }}</h3>
+                </div>
+                <div class="svc-cap__expanded-desc">{{ cap.intro|default(cap.description, true) }}</div>
+              </div>
+
+              {% if cap.bullets %}
+                <div class="svc-cap__points-matrix">
+                  <div class="svc-cap__points-matrix-grid">
+                    {% for bullet in cap.bullets %}
+                      {% if bullet.text %}
+                        <div class="svc-cap__points-matrix-cell">
+                          <span class="svc-cap__points-matrix-dot" aria-hidden="true"></span>
+                          <span class="svc-cap__points-matrix-text">{{ bullet.text }}</span>
+                        </div>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                </div>
+              {% endif %}
+
+            </div>
+          </div>
+
+        </div>
+      {% endfor %}
+    </div>
+    {% endif %}
 
   </div>
 </section>

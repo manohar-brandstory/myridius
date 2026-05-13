@@ -42,9 +42,6 @@
 
     {# Accordion Cards #}
     <div class="evoq-journey__cards-slider{% if module.accordion_cards|length > 1 %} evoq-journey__cards-slider--enabled{% endif %}">
-      <button class="evoq-journey__cards-nav evoq-journey__cards-nav--prev" type="button" aria-label="Previous cards">
-        <span>‹</span>
-      </button>
       <div class="evoq-journey__cards-viewport">
         <div class="evoq-journey__cards" data-card-count="{{ module.accordion_cards|length }}">
       {% for card in module.accordion_cards %}
@@ -71,9 +68,18 @@
       {% endfor %}
         </div>
       </div>
-      <button class="evoq-journey__cards-nav evoq-journey__cards-nav--next" type="button" aria-label="Next cards">
-        <span>›</span>
-      </button>
+      <div class="evoq-journey__cards-toolbar">
+        <button class="evoq-journey__cards-nav evoq-journey__cards-nav--prev" type="button" aria-label="Previous cards">
+          <span class="evoq-journey__cards-nav-icon" aria-hidden="true">‹</span>
+        </button>
+        <p class="evoq-journey__cards-index" aria-live="polite">
+          <span class="evoq-journey__cards-index-current" data-evoq-journey-index-current>01</span>
+          <span class="evoq-journey__cards-index-muted"><span aria-hidden="true"> / </span><span data-evoq-journey-index-total>{{ module.accordion_cards|length }}</span></span>
+        </p>
+        <button class="evoq-journey__cards-nav evoq-journey__cards-nav--next" type="button" aria-label="Next cards">
+          <span class="evoq-journey__cards-nav-icon" aria-hidden="true">›</span>
+        </button>
+      </div>
     </div>
 
   </div>

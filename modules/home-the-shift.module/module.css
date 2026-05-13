@@ -325,7 +325,8 @@
     padding-inline: 24px;
     gap: 16px;
     -webkit-overflow-scrolling: touch;
-    touch-action: pan-x;
+    /* pan-x alone blocks vertical page scroll when the gesture starts on the track; allow both axes */
+    touch-action: pan-x pan-y;
     scroll-snap-type: x proximity;
     scroll-padding-inline: 24px;
     scrollbar-width: none;

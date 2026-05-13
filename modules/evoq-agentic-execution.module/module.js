@@ -9,6 +9,28 @@
     return window.matchMedia("(hover: hover) and (pointer: fine)").matches;
   }
 
+  function isMobilePillRail() {
+    return window.matchMedia("(max-width: 768px)").matches;
+  }
+
+  /** Scroll horizontal pill rail so the active tab is visible (mobile). */
+  function scrollActivePillIntoRail(rail, activePill) {
+    if (!rail || !activePill || !isMobilePillRail()) return;
+    window.requestAnimationFrame(function () {
+      window.requestAnimationFrame(function () {
+        try {
+          activePill.scrollIntoView({
+            inline: "center",
+            block: "nearest",
+            behavior: prefersReducedMotion() ? "auto" : "smooth",
+          });
+        } catch (e) {
+          /* ignore */
+        }
+      });
+    });
+  }
+
   function updateGlide(rail, glide, activePill) {
     if (!rail || !glide || !activePill) return;
     var pills = rail.querySelector("[data-ae-pills]");
@@ -55,9 +77,12 @@
       }
     }
 
-    if (rail && glide && activePill) {
-      rail.classList.add("is-ready");
-      updateGlide(rail, glide, activePill);
+    if (rail && activePill) {
+      if (glide) {
+        rail.classList.add("is-ready");
+        updateGlide(rail, glide, activePill);
+      }
+      scrollActivePillIntoRail(rail, activePill);
     }
 
     if (scroll && detail && !prefersReducedMotion()) {

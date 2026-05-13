@@ -1,0 +1,404 @@
+{# Services – What We Design (standalone; BEM: swwd) #}
+{% set sid = module.section_id || "what-we-design" %}
+{% if module.tabs|length %}
+  {% set ft = module.tabs|first %}
+  {% set first_key = ft.tab_key|default('cx', true) %}
+{% else %}
+  {% set first_key = 'cx' %}
+{% endif %}
+
+<section class="swwd" id="{{ sid }}" data-swwd data-swwd-active="{{ first_key }}">
+  <div class="swwd__inner">
+
+    <header class="swwd__head">
+      {% if module.badge_text %}
+        <p class="swwd__badge">{{ module.badge_text }}</p>
+      {% endif %}
+      {% if module.heading %}
+        <div class="swwd__heading">{{ module.heading }}</div>
+      {% endif %}
+    </header>
+
+    <div class="swwd__card">
+      <div class="swwd__grid">
+
+        <nav class="swwd__nav" aria-label="What we design categories">
+          {% for tab in module.tabs %}
+            <div class="swwd__tabItem{% if loop.first %} is-active{% endif %}"
+                 data-swwd-tab="{{ tab.tab_key|default('tab-' ~ loop.index, true) }}">
+
+              <button type="button"
+                      class="swwd__tabBtn"
+                      data-swwd-tab-btn="{{ tab.tab_key|default('tab-' ~ loop.index, true) }}"
+                      aria-expanded="{% if loop.first %}true{% else %}false{% endif %}">
+                <span class="swwd__tabBtnLabel">{{ tab.nav_label }}</span>
+                <span class="swwd__tabChevron" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="m9 18 6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </button>
+              <span class="swwd__tabUnderline" aria-hidden="true"></span>
+
+              <div class="swwd__tabBody">
+                {% if tab.tag %}
+                  <p class="swwd__tag">{{ tab.tag }}</p>
+                {% endif %}
+                {% if tab.headline %}
+                  <h3 class="swwd__tabHeadline">{{ tab.headline }}</h3>
+                {% endif %}
+                {% if tab.description %}
+                  <div class="swwd__tabDesc">{{ tab.description }}</div>
+                {% endif %}
+                {% if tab.pills %}
+                  <ul class="swwd__pills">
+                    {% for pill in tab.pills %}
+                      {% if pill.text %}
+                        <li class="swwd__pill">{{ pill.text }}</li>
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </div>
+
+              {% if not loop.last %}
+                <div class="swwd__tabRule" aria-hidden="true"></div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </nav>
+
+        <div class="swwd__stage">
+          <div class="swwd__stageGlow" aria-hidden="true"></div>
+
+          {% for tab in module.tabs %}
+            {% set tk = tab.tab_key|default('tab-' ~ loop.index, true) %}
+            <div class="swwd__mockPair swwd__mockPair--{{ tk|replace(' ', '-') }} {% if loop.first %}is-active{% endif %}"
+                 data-swwd-mock="{{ tk }}"
+                 data-swwd-phase="0"
+                 role="tabpanel"
+                 aria-hidden="{% if loop.first %}false{% else %}true{% endif %}">
+
+              <div class="swwd__mockCol">
+                <div class="swwd__mockFloat swwd__mockFloat--a">
+                  {% if tab.mock_left_image and tab.mock_left_image.src %}
+                    <figure class="swwd__mockFrame swwd__mockFrame--img">
+                      <img src="{{ tab.mock_left_image.src }}" alt="{{ tab.mock_left_image.alt|default('', true) }}" loading="lazy" decoding="async" width="280" height="420">
+                    </figure>
+                  {% else %}
+                    {% if tk == 'cx' %}
+                      {# Tab 1 — Travel mobile (matches WhatWeDesign TravelApp) #}
+                      <div class="swwd__mockFrame swwd__uiPhone swwd__uiTravel">
+                        <div class="swwd__uiTravel__bar">
+                          <span class="swwd__uiTravel__time">9:41</span>
+                          <span class="swwd__uiTravel__signal" aria-hidden="true"></span>
+                        </div>
+                        <div class="swwd__uiTravel__header">
+                          <p class="swwd__uiTravel__k">DISCOVER</p>
+                          <p class="swwd__uiTravel__greet">Good morning,<br>User</p>
+                          <div class="swwd__uiTravel__search">
+                            <svg class="swwd__uiIco" width="10" height="10" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="rgba(255,255,255,0.4)" stroke-width="2"/><path d="m21 21-4.2-4.2" stroke="rgba(255,255,255,0.4)" stroke-width="2" stroke-linecap="round"/></svg>
+                            <span>Search anywhere...</span>
+                          </div>
+                        </div>
+                        <div class="swwd__uiTravel__feat">
+                          <p class="swwd__uiTravel__ftag">FEATURED</p>
+                          <p class="swwd__uiTravel__fname">The Grand Resort</p>
+                          <p class="swwd__uiTravel__fsub">AI-curated for you</p>
+                          <span class="swwd__uiTravel__btn" role="presentation">Explore</span>
+                        </div>
+                        <div class="swwd__uiTravel__cats">
+                          <span class="swwd__uiTravel__chip swwd__uiTravel__chip--on">All</span>
+                          <span class="swwd__uiTravel__chip">Stays</span>
+                          <span class="swwd__uiTravel__chip">Flights</span>
+                          <span class="swwd__uiTravel__chip">Experiences</span>
+                        </div>
+                        <div class="swwd__uiTravel__grid">
+                          <div class="swwd__uiTravel__cell"><span>Hotels</span></div>
+                          <div class="swwd__uiTravel__cell"><span>Flights</span></div>
+                          <div class="swwd__uiTravel__cell"><span>Attractions</span></div>
+                          <div class="swwd__uiTravel__cell"><span>Transfers</span></div>
+                        </div>
+                        <span class="swwd__uiTravel__ghost" aria-hidden="true"></span>
+                      </div>
+                    {% elif tk == 'convert' %}
+                      {# Tab 2 — E-commerce checkout #}
+                      <div class="swwd__mockFrame swwd__mockFrame--wide swwd__uiDesk swwd__uiEcom">
+                        <div class="swwd__uiDesk__chrome">
+                          <span class="swwd__uiDesk__dot swwd__uiDesk__dot--r"></span>
+                          <span class="swwd__uiDesk__dot swwd__uiDesk__dot--y"></span>
+                          <span class="swwd__uiDesk__dot swwd__uiDesk__dot--g"></span>
+                          <span class="swwd__uiDesk__url">shop.web.com/checkout</span>
+                        </div>
+                        <div class="swwd__uiDesk__body">
+                          <div class="swwd__uiEcom__steps">
+                            <div class="swwd__uiEcom__step"><span class="swwd__uiEcom__dot swwd__uiEcom__dot--ok"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></span><span class="swwd__uiEcom__line swwd__uiEcom__line--on"></span></div>
+                            <div class="swwd__uiEcom__step"><span class="swwd__uiEcom__dot swwd__uiEcom__dot--ok"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></span><span class="swwd__uiEcom__line swwd__uiEcom__line--on"></span></div>
+                            <div class="swwd__uiEcom__step"><span class="swwd__uiEcom__dot swwd__uiEcom__dot--num">3</span><span class="swwd__uiEcom__line"></span></div>
+                            <div class="swwd__uiEcom__step"><span class="swwd__uiEcom__dot swwd__uiEcom__dot--off">4</span></div>
+                          </div>
+                          <p class="swwd__uiEcom__title">Payment Details</p>
+                          <div class="swwd__uiEcom__cardRow">
+                            <svg class="swwd__uiIco" width="10" height="10" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2" stroke="#52e081" stroke-width="1.5"/><path d="M2 10h20" stroke="#52e081" stroke-width="1.5"/></svg>
+                            <span class="swwd__uiEcom__muted">•••• •••• •••• 4291</span>
+                            <span class="swwd__uiEcom__visa">VISA</span>
+                          </div>
+                          <div class="swwd__uiEcom__row2">
+                            <div class="swwd__uiEcom__field"><span>12 / 27</span></div>
+                            <div class="swwd__uiEcom__field"><span>CVV</span></div>
+                          </div>
+                          <div class="swwd__uiEcom__sum">
+                            <p class="swwd__uiEcom__sumk">Order Summary</p>
+                            <div class="swwd__uiEcom__lineItem"><span>Pro Desk Mat</span><span>$24.00</span></div>
+                            <div class="swwd__uiEcom__lineItem"><span>Wireless Charger</span><span>$17.00</span></div>
+                            <div class="swwd__uiEcom__total"><span>Total</span><span class="swwd__uiEcom__tot">$41.00</span></div>
+                          </div>
+                          <span class="swwd__uiEcom__cta" role="presentation">Place Order — $41.00</span>
+                        </div>
+                      </div>
+                    {% elif tk == 'tools' %}
+                      {# Tab 3 — Restaurant ops #}
+                      <div class="swwd__mockFrame swwd__mockFrame--wide swwd__uiDesk swwd__uiRest">
+                        <div class="swwd__uiDesk__chrome">
+                          <span class="swwd__uiDesk__dot swwd__uiDesk__dot--r"></span>
+                          <span class="swwd__uiDesk__dot swwd__uiDesk__dot--y"></span>
+                          <span class="swwd__uiDesk__dot swwd__uiDesk__dot--g"></span>
+                          <span class="swwd__uiDesk__url">ops.busines.io/command</span>
+                        </div>
+                        <div class="swwd__uiDesk__body">
+                          <div class="swwd__uiRest__head">
+                            <div>
+                              <p class="swwd__uiRest__t1">Restaurant Ops Center</p>
+                              <p class="swwd__uiRest__t2">Saturday 7:30 PM · 94 covers active</p>
+                            </div>
+                            <div class="swwd__uiRest__badge">PEAK SERVICE</div>
+                          </div>
+                          <div class="swwd__uiRest__tables">
+                            {% for n in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18] %}
+                              <div class="swwd__uiRest__cell{% if loop.index <= 12 %} swwd__uiRest__cell--occ{% elif loop.index <= 15 %} swwd__uiRest__cell--ready{% endif %}{% if loop.index == 5 %} swwd__uiRest__cell--pulse{% endif %}"><span>{{ n }}</span></div>
+                            {% endfor %}
+                          </div>
+                          <div class="swwd__uiRest__leg">
+                            <span><i class="swwd__uiRest__sq swwd__uiRest__sq--occ"></i>Occupied</span>
+                            <span><i class="swwd__uiRest__sq swwd__uiRest__sq--ready"></i>Ready to turn</span>
+                            <span><i class="swwd__uiRest__sq swwd__uiRest__sq--free"></i>Available</span>
+                          </div>
+                          <div class="swwd__uiRest__kpis">
+                            <div class="swwd__uiRest__kpi"><strong>$84</strong><span>Avg ticket</span><em>+12%</em></div>
+                            <div class="swwd__uiRest__kpi"><strong>14m</strong><span>Kitchen wait</span><em>-3m</em></div>
+                            <div class="swwd__uiRest__kpi"><strong>22</strong><span>Covers/hr</span><em>+4</em></div>
+                          </div>
+                        </div>
+                      </div>
+                    {% elif tk == 'scale' %}
+                      {# Tab 4 — Component library #}
+                      <div class="swwd__mockFrame swwd__mockFrame--wide swwd__uiDesk swwd__uiLib">
+                        <div class="swwd__uiDesk__chrome">
+                          <span class="swwd__uiDesk__dot swwd__uiDesk__dot--r"></span>
+                          <span class="swwd__uiDesk__dot swwd__uiDesk__dot--y"></span>
+                          <span class="swwd__uiDesk__dot swwd__uiDesk__dot--g"></span>
+                          <span class="swwd__uiDesk__url">Design System / Components / Button</span>
+                        </div>
+                        <div class="swwd__uiLib__split">
+                          <aside class="swwd__uiLib__side">
+                            <p class="swwd__uiLib__cap">LAYERS</p>
+                            <p class="swwd__uiLib__row swwd__uiLib__row--hi"><i></i>Buttons</p>
+                            <p class="swwd__uiLib__row">Forms</p>
+                            <p class="swwd__uiLib__row">Cards</p>
+                            <p class="swwd__uiLib__row">Navigation</p>
+                            <p class="swwd__uiLib__row">Modals</p>
+                            <p class="swwd__uiLib__row">Data Display</p>
+                            <p class="swwd__uiLib__cap swwd__uiLib__cap--mt">TOKENS</p>
+                            <p class="swwd__uiLib__row">Colors</p>
+                            <p class="swwd__uiLib__row">Typography</p>
+                            <p class="swwd__uiLib__row">Spacing</p>
+                            <p class="swwd__uiLib__row">Motion</p>
+                          </aside>
+                          <div class="swwd__uiLib__main">
+                            <p class="swwd__uiLib__hint">Button Component — All States</p>
+                            <p class="swwd__uiLib__sub">Variants: Primary · Hover · Disabled</p>
+                            <div class="swwd__uiLib__btns">
+                              <span class="swwd__uiLib__btn swwd__uiLib__btn--p">Default</span>
+                              <span class="swwd__uiLib__btn swwd__uiLib__btn--p swwd__uiLib__btn--hover">Hover</span>
+                              <span class="swwd__uiLib__btn swwd__uiLib__btn--dis">Disabled</span>
+                            </div>
+                            <div class="swwd__uiLib__btns">
+                              <span class="swwd__uiLib__btn swwd__uiLib__btn--s">Default</span>
+                              <span class="swwd__uiLib__btn swwd__uiLib__btn--s">Hover</span>
+                              <span class="swwd__uiLib__btn swwd__uiLib__btn--dis">Disabled</span>
+                            </div>
+                            <p class="swwd__uiLib__cap swwd__uiLib__cap--mt2">DESIGN TOKENS</p>
+                            <div class="swwd__uiLib__tok"><i style="background:#52e081"></i><code>--color-accent</code></div>
+                            <div class="swwd__uiLib__tok"><i style="background:#194247"></i><code>--color-primary</code></div>
+                            <div class="swwd__uiLib__tok"><i style="background:#0c2226"></i><code>--color-secondary</code></div>
+                          </div>
+                        </div>
+                      </div>
+                    {% else %}
+                      <div class="swwd__mockFrame swwd__uiFallback"><span>Preview</span></div>
+                    {% endif %}
+                  {% endif %}
+                </div>
+                {% if tab.design_label_left %}
+                  <p class="swwd__mockCaption">{{ tab.design_label_left }}</p>
+                {% endif %}
+              </div>
+
+              <div class="swwd__mockCol swwd__mockCol--offset">
+                <div class="swwd__mockFloat swwd__mockFloat--b">
+                  {% if tab.mock_right_image and tab.mock_right_image.src %}
+                    <figure class="swwd__mockFrame swwd__mockFrame--img swwd__mockFrame--wide">
+                      <img src="{{ tab.mock_right_image.src }}" alt="{{ tab.mock_right_image.alt|default('', true) }}" loading="lazy" decoding="async" width="360" height="280">
+                    </figure>
+                  {% else %}
+                    {% if tk == 'cx' %}
+                      {# Web dashboard #}
+                      <div class="swwd__mockFrame swwd__mockFrame--wide swwd__uiDesk swwd__uiDash">
+                        <div class="swwd__uiDesk__chrome">
+                          <span class="swwd__uiDesk__dot swwd__uiDesk__dot--r"></span>
+                          <span class="swwd__uiDesk__dot swwd__uiDesk__dot--y"></span>
+                          <span class="swwd__uiDesk__dot swwd__uiDesk__dot--g"></span>
+                          <span class="swwd__uiDesk__url">myapp.com/home</span>
+                        </div>
+                        <div class="swwd__uiDesk__body">
+                          <p class="swwd__uiDash__welcome">Welcome back, User</p>
+                          <p class="swwd__uiDash__sub">Here's what's been curated for you today</p>
+                          <div class="swwd__uiDash__stats">
+                            <div class="swwd__uiDash__stat"><strong class="swwd__uiDash__v1">94%</strong><span>Satisfaction</span></div>
+                            <div class="swwd__uiDash__stat"><strong class="swwd__uiDash__v2">2.4x</strong><span>Engagement</span></div>
+                            <div class="swwd__uiDash__stat"><strong class="swwd__uiDash__v1">+38%</strong><span>Growth</span></div>
+                          </div>
+                          <div class="swwd__uiDash__banner">
+                            <span class="swwd__uiDash__dotg"></span>
+                            <div><p>Recommended for you</p><span>Based on your recent activity</span></div>
+                          </div>
+                          <div class="swwd__uiDash__actions">
+                            <span>Premium Plan</span>
+                            <span>Your Orders</span>
+                            <span class="swwd__uiDash__actHi">New Features</span>
+                          </div>
+                          <p class="swwd__uiDash__rec">Recent Activity</p>
+                          <div class="swwd__uiDash__list">
+                            <div><span>The Resort — Booked</span><svg width="8" height="8" viewBox="0 0 24 24" fill="none"><path d="m9 18 6-6-6-6" stroke="rgba(255,255,255,0.2)" stroke-width="2"/></svg></div>
+                            <div><span>The Airlines — Checked in</span><svg width="8" height="8" viewBox="0 0 24 24" fill="none"><path d="m9 18 6-6-6-6" stroke="rgba(255,255,255,0.2)" stroke-width="2"/></svg></div>
+                            <div><span>The Spa — Reviewed</span><svg width="8" height="8" viewBox="0 0 24 24" fill="none"><path d="m9 18 6-6-6-6" stroke="rgba(255,255,255,0.2)" stroke-width="2"/></svg></div>
+                          </div>
+                        </div>
+                      </div>
+                    {% elif tk == 'convert' %}
+                      {# Sales pipeline mobile #}
+                      <div class="swwd__mockFrame swwd__uiPhone swwd__uiPipe">
+                        <div class="swwd__uiPipe__bar">
+                          <span>9:41</span>
+                          <span class="swwd__uiTravel__signal" aria-hidden="true"></span>
+                        </div>
+                        <div class="swwd__uiPipe__head">
+                          <p class="swwd__uiPipe__tag">Sales Lead</p>
+                          <p class="swwd__uiPipe__title">Q2 Pipeline</p>
+                        </div>
+                        <div class="swwd__uiPipe__list">
+                          <div class="swwd__uiPipe__card"><span class="swwd__uiPipe__barv"></span><div><strong>Qualified</strong><span>8 active deals</span></div><em>$240k</em></div>
+                          <div class="swwd__uiPipe__card swwd__uiPipe__card--hot">
+                            <span class="swwd__uiPipe__glow" aria-hidden="true"></span>
+                            <span class="swwd__uiPipe__barv swwd__uiPipe__barv--acc"></span><div><strong>Proposal</strong><span>5 active deals</span></div><em>$185k</em>
+                          </div>
+                          <div class="swwd__uiPipe__card"><span class="swwd__uiPipe__barv"></span><div><strong>Negotiation</strong><span>3 active deals</span></div><em>$310k</em></div>
+                          <div class="swwd__uiPipe__card"><span class="swwd__uiPipe__barv"></span><div><strong>Closed Won</strong><span>2 active deals</span></div><em>$128k</em></div>
+                        </div>
+                        <div class="swwd__uiPipe__insight">
+                          <div class="swwd__uiPipe__insTop"><span class="swwd__uiPipe__pulse"></span><strong>Action Required</strong></div>
+                          <p>3 follow-ups due today</p>
+                        </div>
+                        <span class="swwd__uiPipe__ghost" aria-hidden="true"></span>
+                      </div>
+                    {% elif tk == 'tools' %}
+                      {# AI Chatbot #}
+                      <div class="swwd__mockFrame swwd__uiPhone swwd__uiChat">
+                        <div class="swwd__uiChat__top">
+                          <div class="swwd__uiChat__who">
+                            <span class="swwd__uiChat__ava"><svg width="9" height="9" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="#52e081" stroke-width="2"/></svg></span>
+                            <span>Evoq Assistant</span>
+                          </div>
+                          <span class="swwd__uiChat__live"></span>
+                        </div>
+                        <div class="swwd__uiChat__thread">
+                          <div class="swwd__uiChat__msg swwd__uiChat__msg--ai swwd__uiChat__anim-d1">
+                            <span class="swwd__uiChat__badge">AI</span>
+                            <div class="swwd__uiChat__bubble swwd__uiChat__bubble--ai"><p>What type of analysis do you need today?</p></div>
+                          </div>
+                          <div class="swwd__uiChat__opts swwd__uiChat__anim-d2">
+                            <span>Market segmentation</span>
+                            <span class="swwd__uiChat__optHi">Competitive landscape<span class="swwd__uiChat__tap" aria-hidden="true"></span></span>
+                            <span>Revenue attribution</span>
+                          </div>
+                          <div class="swwd__uiChat__msg swwd__uiChat__msg--user swwd__uiChat__anim-d3">
+                            <div class="swwd__uiChat__bubble swwd__uiChat__bubble--user"><p>Competitive landscape</p></div>
+                          </div>
+                          <div class="swwd__uiChat__msg swwd__uiChat__msg--ai swwd__uiChat__anim-d4">
+                            <span class="swwd__uiChat__badge">AI</span>
+                            <div class="swwd__uiChat__bubble swwd__uiChat__bubble--ai">
+                              <span class="swwd__uiChat__dots"><i></i><i></i><i></i></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="swwd__uiChat__input">
+                          <span>Ask anything...</span>
+                          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-linecap="round"/></svg>
+                        </div>
+                      </div>
+                    {% elif tk == 'scale' %}
+                      {# Token system #}
+                      <div class="swwd__mockFrame swwd__uiToken">
+                        <div class="swwd__uiToken__head">
+                          <p class="swwd__uiToken__k">DESIGN SYSTEM</p>
+                          <p class="swwd__uiToken__t">Multi-Brand Token System</p>
+                        </div>
+                        <div class="swwd__uiToken__body">
+                          <p class="swwd__uiToken__cap">BRAND THEMES</p>
+                          <div class="swwd__uiToken__themes">
+                            <span class="swwd__uiToken__th swwd__uiToken__th--on">Primary</span>
+                            <span class="swwd__uiToken__th">Neutral</span>
+                            <span class="swwd__uiToken__th">Dark</span>
+                          </div>
+                          <p class="swwd__uiToken__cap">COLOR TOKENS</p>
+                          <div class="swwd__uiToken__colors">
+                            <div class="swwd__uiToken__c"><i class="swwd__uiToken__sw swwd__uiToken__sw--a"></i><span>Accent</span></div>
+                            <div class="swwd__uiToken__c"><i class="swwd__uiToken__sw swwd__uiToken__sw--b"></i><span>Primary</span></div>
+                            <div class="swwd__uiToken__c"><i class="swwd__uiToken__sw swwd__uiToken__sw--c"></i><span>Secondary</span></div>
+                            <div class="swwd__uiToken__c"><i class="swwd__uiToken__sw swwd__uiToken__sw--d"></i><span>Tertiary</span></div>
+                            <div class="swwd__uiToken__c"><i class="swwd__uiToken__sw swwd__uiToken__sw--e"></i><span>Neutral</span></div>
+                          </div>
+                          <p class="swwd__uiToken__cap">COMPONENT PREVIEW</p>
+                          <div class="swwd__uiToken__prev">
+                            <div class="swwd__uiToken__prevTop">
+                              <span class="swwd__uiToken__ico"><svg width="9" height="9" viewBox="0 0 24 24" fill="none"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" stroke="#52e081" stroke-width="2"/></svg></span>
+                              <div><strong>CTA Buttons</strong><span>Variants</span></div>
+                            </div>
+                            <div class="swwd__uiToken__prevBtns"><span>Primary</span><span>Secondary</span></div>
+                          </div>
+                          <p class="swwd__uiToken__cap">SPACING SCALE</p>
+                          <div class="swwd__uiToken__scale">
+                            <i></i><i></i><i></i><i></i><i></i><i></i>
+                          </div>
+                          <div class="swwd__uiToken__nums"><span>4</span><span>8</span><span>12</span><span>16</span><span>24</span><span>32</span></div>
+                        </div>
+                      </div>
+                    {% else %}
+                      <div class="swwd__mockFrame swwd__mockFrame--wide swwd__uiFallback"><span>Preview</span></div>
+                    {% endif %}
+                  {% endif %}
+                </div>
+                {% if tab.design_label_right %}
+                  <p class="swwd__mockCaption">{{ tab.design_label_right }}</p>
+                {% endif %}
+              </div>
+
+              <div class="swwd__mockFloor" aria-hidden="true"></div>
+            </div>
+          {% endfor %}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

@@ -105,7 +105,7 @@
 
 .evoq-shift__row {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   gap: 16px;
   align-items: center;
   min-height: 128px;
@@ -124,6 +124,7 @@
   display: flex;
   align-items: center;
   padding: 24px 0;
+  min-width: 0;
 }
 
 .evoq-shift__col--left {
@@ -166,6 +167,7 @@
   flex-direction: column;
   gap: 4px;
   max-width: 340px;
+  min-width: 0;
 }
 
 .evoq-shift__col--left .evoq-shift__text {
@@ -226,77 +228,185 @@
   line-height: 1.3;
 }
 
-/* Tablet */
+/* Tablet — keep tree; ease transition from desktop */
 @media (max-width: 1024px) {
   .evoq-shift {
     --evoq-section-pad-x: 32px;
     --evoq-section-pad-y: 80px;
-  }
-
-  .evoq-shift__row {
-    gap: 12px;
-  }
-
-  .evoq-shift__card-value {
-    font-size: 42px;
-  }
-
-  .evoq-shift__text-active {
-    font-size: 18px;
-  }
-}
-
-/* Mobile */
-@media (max-width: 767px) {
-  .evoq-shift {
-    --evoq-title-size: 32px;
-    --evoq-section-pad-x: 20px;
-    --evoq-section-pad-y: 64px;
+    --evoq-title-size: 40px;
   }
 
   .evoq-shift__header {
-    margin-bottom: 48px;
+    margin-bottom: 56px;
+  }
+
+  .evoq-shift__row {
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    gap: 10px 14px;
+    align-items: start;
+    min-height: 100px;
+  }
+
+  .evoq-shift__col {
+    padding: 18px 0;
+    min-width: 0;
+  }
+
+  .evoq-shift__text {
+    max-width: 100%;
+  }
+
+  .evoq-shift__text-active {
+    font-size: 17px;
+  }
+
+  .evoq-shift__card {
+    max-width: 100%;
+    padding: 18px;
+  }
+
+  .evoq-shift__card-value {
+    font-size: 38px;
+  }
+
+  .evoq-shift__card-label {
+    font-size: 15px;
+  }
+}
+
+/* Mobile — narrow spine + scaled type; minmax(0,1fr) prevents grid blowout */
+@media (max-width: 767px) {
+  .evoq-shift {
+    --evoq-title-size: clamp(1.5rem, 1.1rem + 2.2vw, 1.875rem);
+    --evoq-title-lh: 1.12;
+    --evoq-section-pad-x: 16px;
+    --evoq-section-pad-y: 56px;
+  }
+
+  .evoq-shift__header {
+    margin-bottom: 36px;
+    gap: 10px;
+  }
+
+  .evoq-shift__badge-text {
+    font-size: 12px;
+    letter-spacing: 0.14em;
+  }
+
+  .evoq-shift__title {
+    max-width: none;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   .evoq-shift__timeline {
-    gap: 12px;
+    gap: 0;
   }
 
   .evoq-shift__row {
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    gap: 16px;
-    min-height: 112px;
+    /* Tree: left | spine | right — same as desktop, scaled for narrow viewports */
+    grid-template-columns: minmax(0, 1fr) 18px minmax(0, 1fr);
+    gap: 6px 8px;
+    align-items: start;
+    min-height: 0;
+  }
+
+  .evoq-shift__col {
+    padding: 10px 0;
+    min-width: 0;
   }
 
   .evoq-shift__col--left,
   .evoq-shift__col--right {
-    width: auto;
+    width: 100%;
+  }
+
+  .evoq-shift__center {
+    align-self: stretch;
+    min-width: 18px;
+  }
+
+  .evoq-shift__line {
+    width: 2px;
+  }
+
+  .evoq-shift__dot {
+    width: 11px;
+    height: 11px;
   }
 
   .evoq-shift__text {
-    max-width: 240px;
-  }
-
-  .evoq-shift__card {
-    max-width: 280px;
-    padding: 16px;
-  }
-
-  .evoq-shift__card-value {
-    font-size: 32px;
-  }
-
-  .evoq-shift__text-active {
-    font-size: 16px;
+    max-width: none;
+    width: 100%;
+    min-width: 0;
+    gap: 3px;
   }
 
   .evoq-shift__text-struck {
-    font-size: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  .evoq-shift__text-active {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.25;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  .evoq-shift__card {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 6px;
+    max-width: none;
+    width: 100%;
+    padding: 12px 10px;
+    box-sizing: border-box;
+  }
+
+  .evoq-shift__col--left .evoq-shift__card {
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  .evoq-shift__col--right .evoq-shift__card {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .evoq-shift__card-value {
+    font-size: clamp(1.35rem, 1rem + 2.5vw, 1.75rem);
+    line-height: 1;
   }
 
   .evoq-shift__card-label {
-    font-size: 14px;
+    font-size: 12px;
+    line-height: 1.3;
+    text-align: inherit;
+    max-width: 100%;
+  }
+
+  .evoq-shift__col--left .evoq-shift__card-label {
+    text-align: right;
+  }
+}
+
+@media (max-width: 380px) {
+  .evoq-shift {
+    --evoq-section-pad-x: 14px;
+  }
+
+  .evoq-shift__row {
+    grid-template-columns: minmax(0, 1fr) 16px minmax(0, 1fr);
+    gap: 4px 6px;
+  }
+
+  .evoq-shift__text-active {
+    font-size: 13px;
   }
 }
 

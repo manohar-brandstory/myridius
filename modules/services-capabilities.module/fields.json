@@ -36,13 +36,32 @@
     "default": "<p>End-to-end capability across AWS cloud, data, AI, and applications</p>"
   },
   {
+    "id": "content_style",
+    "name": "content_style",
+    "label": "Layout",
+    "required": false,
+    "locked": false,
+    "type": "choice",
+    "choices": [
+      ["capabilities", "Capabilities"],
+      ["points", "Points"]
+    ],
+    "default": "capabilities",
+    "help_text": "Capabilities: accordion with title, brief (collapsed), description (expanded), and sub-cards. Points: same pattern using Title = Section title, Brief (collapsed row), Description (expanded); bullet matrix instead of sub-cards. Existing pages keep heading/intro keys in JSON when resaved."
+  },
+  {
     "id": "capabilities",
     "name": "capabilities",
     "label": "Capabilities",
     "required": false,
     "locked": false,
+    "visibility": {
+      "controlling_field_path": "content_style",
+      "controlling_value_regex": "capabilities",
+      "operator": "EQUAL"
+    },
     "occurrence": {
-      "min": 1,
+      "min": 0,
       "max": 12,
       "sorting_label_field": "capabilities.title",
       "default": 7
@@ -335,6 +354,158 @@
             "title": "Resilience Engineering & Disaster Recovery",
             "description": "<p>Recovery objectives met and tested, not just documented. Chaos engineering and game-day exercises that prove resilience before you need it.</p>"
           }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "points_sections",
+    "name": "points_sections",
+    "label": "Points sections",
+    "required": false,
+    "locked": false,
+    "occurrence": {
+      "min": 1,
+      "max": 12,
+      "sorting_label_field": "points_sections.heading",
+      "default": 1
+    },
+    "children": [
+      {
+        "id": "points_sections.heading",
+        "name": "heading",
+        "label": "Section title",
+        "required": false,
+        "locked": false,
+        "type": "text",
+        "default": "Product & Platform Design"
+      },
+      {
+        "id": "points_sections.brief",
+        "name": "brief",
+        "label": "Brief (collapsed row)",
+        "required": false,
+        "locked": false,
+        "type": "text",
+        "default": "Optimizing human-AI workflows through high-adoption, error-reducing end-to-end design"
+      },
+      {
+        "id": "points_sections.intro",
+        "name": "intro",
+        "label": "Description (expanded)",
+        "required": false,
+        "locked": false,
+        "type": "richtext",
+        "default": "<p>We design end-to-end platforms and products that cut task completion time, reduce error rates and drive measurable adoption. Built for human users and AI agents operating within the same environment.</p>"
+      },
+      {
+        "id": "points_sections.points_brief",
+        "name": "points_brief",
+        "label": "Brief (legacy storage)",
+        "required": false,
+        "locked": true,
+        "type": "richtext",
+        "help_text": "Locked. Retains older theme saves. The live site prefers Brief (collapsed row), then falls back to this HTML if that field is empty.",
+        "default": "<p></p>"
+      },
+      {
+        "id": "points_sections.bg_image",
+        "name": "bg_image",
+        "label": "Background image (expanded)",
+        "required": false,
+        "locked": false,
+        "responsive": false,
+        "resizable": true,
+        "type": "image",
+        "default": {
+          "src": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": ""
+        }
+      },
+      {
+        "id": "points_sections.bullets",
+        "name": "bullets",
+        "label": "Bullet points",
+        "required": false,
+        "locked": false,
+        "occurrence": {
+          "min": 1,
+          "max": 24,
+          "sorting_label_field": "points_sections.bullets.text",
+          "default": 6
+        },
+        "children": [
+          {
+            "id": "points_sections.bullets.text",
+            "name": "text",
+            "label": "Point",
+            "required": false,
+            "locked": false,
+            "type": "text",
+            "default": ""
+          }
+        ],
+        "type": "group",
+        "default": [
+          { "text": "Enterprise Portal Redesign" },
+          { "text": "Mobile-First App Design" },
+          { "text": "Operational Dashboards" },
+          { "text": "Self-Service Portals" },
+          { "text": "Accessibility & WCAG 2.1" },
+          { "text": "Inclusive Design" }
+        ]
+      },
+      {
+        "id": "points_sections.title",
+        "name": "title",
+        "label": "Legacy row title (read-only)",
+        "required": false,
+        "locked": true,
+        "type": "text",
+        "default": ""
+      },
+      {
+        "id": "points_sections.description",
+        "name": "description",
+        "label": "Legacy description (read-only)",
+        "required": false,
+        "locked": true,
+        "type": "richtext",
+        "default": ""
+      },
+      {
+        "id": "points_sections.collapsed_brief",
+        "name": "collapsed_brief",
+        "label": "Legacy collapsed brief (read-only)",
+        "required": false,
+        "locked": true,
+        "type": "text",
+        "default": ""
+      }
+    ],
+    "type": "group",
+    "visibility": {
+      "controlling_field_path": "content_style",
+      "controlling_value_regex": "points",
+      "operator": "EQUAL"
+    },
+    "default": [
+      {
+        "heading": "Product & Platform Design",
+        "brief": "Optimizing human-AI workflows through high-adoption, error-reducing end-to-end design",
+        "intro": "<p>We design end-to-end platforms and products that cut task completion time, reduce error rates and drive measurable adoption. Built for human users and AI agents operating within the same environment.</p>",
+        "points_brief": "<p></p>",
+        "bg_image": {
+          "src": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "Product & Platform Design"
+        },
+        "bullets": [
+          { "text": "Enterprise Portal Redesign" },
+          { "text": "Mobile-First App Design" },
+          { "text": "Operational Dashboards" },
+          { "text": "Self-Service Portals" },
+          { "text": "Accessibility & WCAG 2.1" },
+          { "text": "Inclusive Design" }
         ]
       }
     ]

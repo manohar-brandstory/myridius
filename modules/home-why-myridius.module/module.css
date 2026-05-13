@@ -749,7 +749,7 @@
   }
 
   .home-why__col-left {
-    height: 560px;
+    height: 503px;
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -765,8 +765,9 @@
     overflow: visible;
   }
 
+  /* Fan downward so cards behind peek below the front (matches desktop stack logic) */
   .home-why__stack .home-why__card {
-    transform-origin: 90% 92%;
+    transform-origin: 50% 0;
   }
 
   .home-why__card {
@@ -789,38 +790,37 @@
     );
   }
 
-  /* Same deck layout as before; only the second card is tilted a touch more so the stack reads as tappable. */
   .home-why__card[data-position='0'] {
-    transform: scale(0.98) translate(0, 6px) rotate(0deg);
+    transform: scale(0.98) translate(0, 4px) rotate(0deg);
   }
 
   .home-why__card[data-position='1'] {
-    transform: scale(0.9) translate(-14px, -12px) rotate(-5deg);
-    opacity: 0.9;
+    transform: scale(0.94) translate(-6px, 14px) rotate(-5deg);
+    opacity: 0.88;
   }
 
   .home-why__card[data-position='2'] {
-    transform: scale(0.84) translate(-24px, -22px) rotate(-5.5deg);
-    opacity: 0.78;
+    transform: scale(0.9) translate(-10px, 26px) rotate(-7deg);
+    opacity: 0.72;
   }
 
   .home-why__card[data-position='3'] {
-    transform: scale(0.78) translate(-32px, -30px) rotate(-8deg);
-    opacity: 0.46;
+    transform: scale(0.86) translate(-14px, 38px) rotate(-8.5deg);
+    opacity: 0.5;
   }
 
   .home-why__card[data-position='4'] {
-    transform: scale(0.73) translate(-38px, -36px) rotate(-10deg);
-    opacity: 0.28;
+    transform: scale(0.82) translate(-16px, 50px) rotate(-10deg);
+    opacity: 0.32;
   }
 
   .home-why__card[data-position='5'] {
-    transform: scale(0.68) translate(-42px, -40px) rotate(-11.5deg);
-    opacity: 0.14;
+    transform: scale(0.78) translate(-18px, 60px) rotate(-11.5deg);
+    opacity: 0.16;
   }
 
   .home-why__card-face {
-    padding: 32px;
+    padding: 20px;
   }
 
   .home-why__icon-box {
