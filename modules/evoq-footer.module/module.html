@@ -1,4 +1,7 @@
-<footer class="evoq-footer">
+<footer
+  class="evoq-footer"
+  {% if module.section_id %}id="{{ module.section_id }}"{% endif %}
+>
   <div class="evoq-footer__container">
 
     {# Row 1: Brand Section #}

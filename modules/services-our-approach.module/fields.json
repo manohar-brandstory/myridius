@@ -29,6 +29,18 @@
     "default": "<p>With an execution layer where data, semantics, controls, and AI operate as one system in production</p>"
   },
   {
+    "id": "card_layout",
+    "name": "card_layout",
+    "label": "Desktop card layout",
+    "type": "choice",
+    "choices": [
+      ["wrap", "Wrap every 3 cards (new row after 3)"],
+      ["single_row", "Single row (all cards in one line; scrolls horizontally if needed)"]
+    ],
+    "default": "wrap",
+    "help_text": "Applies at 1025px and wider. Narrower viewports keep a single stacked column."
+  },
+  {
     "id": "cards",
     "name": "cards",
     "label": "Approach Cards",

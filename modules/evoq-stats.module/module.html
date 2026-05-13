@@ -1,4 +1,8 @@
-<section class="evoq-stats" aria-label="EVOQ Stats Section">
+<section
+  class="evoq-stats"
+  aria-label="EVOQ Stats Section"
+  {% if module.section_id %}id="{{ module.section_id }}"{% endif %}
+>
   <div class="evoq-stats__container">
     <div class="evoq-stats__logo-block" data-animate data-stage="logo">
       <div class="evoq-stats__logo-stack">

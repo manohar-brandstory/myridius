@@ -1,0 +1,87 @@
+<section
+  class="evoq-bi"
+  data-evoq-bi
+  aria-label="Business impact"
+  {% if module.section_id %}id="{{ module.section_id }}"{% endif %}
+>
+  <div class="evoq-bi__shell">
+    <div class="evoq-bi__card" data-evoq-bi-card>
+      <div class="evoq-bi__cardInner">
+        <div class="evoq-bi__left">
+          <div class="evoq-bi__leftInner">
+            <h2 class="evoq-bi__headline">
+              <span class="evoq-bi__headlineLine">{{ module.headline_line_1 }}</span>
+              <br>
+              <span class="evoq-bi__headlineLine">{{ module.headline_line_2 }}</span>
+              <br>
+              <span class="evoq-bi__headlineAccent">{{ module.headline_accent }}</span>
+            </h2>
+            <p class="evoq-bi__intro">
+              {% for line in module.intro|split("\n") %}
+                {% if not loop.first %}<br>{% endif %}{{ line }}
+              {% endfor %}
+            </p>
+            <div class="evoq-bi__schematic" aria-hidden="true">
+              <span class="evoq-bi__schematicPill">
+                <span class="evoq-bi__schematicPillLine">{{ module.schematic_left_line_1 }}</span>
+                <span class="evoq-bi__schematicPillLine">{{ module.schematic_left_line_2 }}</span>
+              </span>
+              <span class="evoq-bi__schematicLine"></span>
+              <span class="evoq-bi__schematicOrb">{{ module.schematic_center }}</span>
+              <span class="evoq-bi__schematicLine"></span>
+              <span class="evoq-bi__schematicPill">
+                <span class="evoq-bi__schematicPillLine">{{ module.schematic_right_line_1 }}</span>
+                <span class="evoq-bi__schematicPillLine">{{ module.schematic_right_line_2 }}</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="evoq-bi__scroll" data-evoq-bi-scroll tabindex="0">
+          <div class="evoq-bi__right">
+            {% for item in module.items %}
+              {% set slug = item.item_slug|regex_replace("[^a-z0-9_-]+", "-")|lower %}
+              <article
+                class="evoq-bi__item evoq-bi__item--accent-{{ item.accent|default('green', true) }}"
+                id="{% if slug %}evoq-bi-{{ slug }}{% else %}evoq-bi-item-{{ loop.index0 }}{% endif %}"
+                data-evoq-bi-item
+              >
+                <div class="evoq-bi__itemInner">
+                  <div class="evoq-bi__iconBox">
+                    {% if item.icon.src %}
+                      <img class="evoq-bi__iconImg" src="{{ item.icon.src }}" alt="{{ item.icon.alt|default('', true) }}" width="26" height="26" loading="lazy">
+                    {% endif %}
+                  </div>
+                  <span class="evoq-bi__tag">{{ item.tag }}</span>
+                  <h3 class="evoq-bi__title">{{ item.title }}</h3>
+                  <ul class="evoq-bi__bullets">
+                    {% if item.bullet_1 %}
+                      <li class="evoq-bi__bullet">
+                        <span class="evoq-bi__dot" aria-hidden="true"></span>
+                        <p class="evoq-bi__bulletText">
+                          {% for line in item.bullet_1|split("\n") %}
+                            {% if not loop.first %}<br>{% endif %}{{ line }}
+                          {% endfor %}
+                        </p>
+                      </li>
+                    {% endif %}
+                    {% if item.bullet_2 %}
+                      <li class="evoq-bi__bullet">
+                        <span class="evoq-bi__dot" aria-hidden="true"></span>
+                        <p class="evoq-bi__bulletText">
+                          {% for line in item.bullet_2|split("\n") %}
+                            {% if not loop.first %}<br>{% endif %}{{ line }}
+                          {% endfor %}
+                        </p>
+                      </li>
+                    {% endif %}
+                  </ul>
+                </div>
+              </article>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

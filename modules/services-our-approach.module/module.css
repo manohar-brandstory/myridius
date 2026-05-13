@@ -105,6 +105,24 @@
 .svc-approach__card:nth-child(2) { transition-delay: 0.12s; }
 .svc-approach__card:nth-child(3) { transition-delay: 0.24s; }
 
+/* Desktop (1025px+): optional single-row flex — all cards one line; scroll if min widths exceed container */
+@media (min-width: 1025px) {
+  .svc-approach--single-row .svc-approach__grid {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .svc-approach--single-row .svc-approach__card {
+    flex: 1 0 200px;
+    min-width: 200px;
+  }
+}
+
 .svc-approach__card--first {
   border-radius: 12px 0 0 12px;
 }

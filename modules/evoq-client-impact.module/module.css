@@ -313,13 +313,14 @@
     gap: 24px;
   }
 
+  /* Always outcome → ambient (matches desktop rhythm); ignore row--reversed on small screens */
   .evoq-impact__row,
   .evoq-impact__row--reversed {
     flex-direction: column;
   }
 
-  .evoq-impact__row--reversed {
-    flex-direction: column-reverse;
+  .evoq-impact__outcome-bottom {
+    margin-top: 20px;
   }
 
   .evoq-impact__ambient-card {

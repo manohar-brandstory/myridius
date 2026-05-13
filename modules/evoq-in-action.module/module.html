@@ -1,4 +1,7 @@
-<section class="evoq-action">
+<section
+  class="evoq-action"
+  {% if module.section_id %}id="{{ module.section_id }}"{% endif %}
+>
   <div class="evoq-action__container">
     <div class="evoq-action__header">
       <div class="evoq-action__badge">

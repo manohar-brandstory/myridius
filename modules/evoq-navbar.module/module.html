@@ -1,4 +1,8 @@
-<nav class="evoq-nav" aria-label="Primary navigation">
+<nav
+  class="evoq-nav"
+  aria-label="Primary navigation"
+  {% if module.section_id %}id="{{ module.section_id }}"{% endif %}
+>
   <div class="evoq-nav__bar">
     <div class="evoq-nav__container">
       <div class="evoq-nav__row">

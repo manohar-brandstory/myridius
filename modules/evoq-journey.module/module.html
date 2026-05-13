@@ -1,4 +1,8 @@
-<section class="evoq-journey" aria-label="The Evoq Journey">
+<section
+  class="evoq-journey"
+  aria-label="The Evoq Journey"
+  {% if module.section_id %}id="{{ module.section_id }}"{% endif %}
+>
   <div class="evoq-journey__container">
 
     {# Header #}
@@ -57,8 +61,8 @@
             </div>
           {% endif %}
           <div class="evoq-journey__card-content">
-            <span class="evoq-journey__card-subtitle">{{ card.subtitle }}</span>
             <h4 class="evoq-journey__card-title">{{ card.title }}</h4>
+            <span class="evoq-journey__card-subtitle">{{ card.subtitle }}</span>
             <div class="evoq-journey__card-description">
               {{ card.description }}
             </div>

@@ -1,4 +1,7 @@
-<section class="evoq-news">
+<section
+  class="evoq-news"
+  {% if module.section_id %}id="{{ module.section_id }}"{% endif %}
+>
   <div class="evoq-news__container">
     <div class="evoq-news__badge">
       <span class="evoq-news__badge-dash"></span>

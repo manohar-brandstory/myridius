@@ -231,7 +231,10 @@
 
 {% set tabs_data = module.tabs|default(default_tabs) %}
 
-<section class="evoq-catalog">
+<section
+  class="evoq-catalog"
+  {% if module.section_id %}id="{{ module.section_id }}"{% endif %}
+>
   <div class="evoq-catalog__container">
 
     {# Header #}

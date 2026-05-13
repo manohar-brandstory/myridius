@@ -58,6 +58,24 @@
   gap: 24px;
 }
 
+/* Desktop (1025px+): optional single row — matches services-our-approach module */
+@media (min-width: 1025px) {
+  .svc-diff--single-row .svc-diff__grid {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .svc-diff--single-row .svc-diff__card {
+    flex: 1 0 200px;
+    min-width: 200px;
+  }
+}
+
 /* ── Card ─────────────────────────────────────────────────────────────── */
 
 .svc-diff__card {

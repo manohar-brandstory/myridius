@@ -1,6 +1,6 @@
 <section
   {% if module.section_id %}id="{{ module.section_id }}"{% endif %}
-  class="svc-diff"
+  class="svc-diff{% if module.card_layout == 'single_row' %} svc-diff--single-row{% endif %}"
 >
   <div class="svc-diff__container">
 

@@ -1,39 +1,54 @@
 (function () {
-  function pad2(n) {
-    var k = typeof n === "number" ? n : parseInt(n, 10);
+  function pad2(num) {
+    var k = typeof num === "number" ? num : parseInt(num, 10);
     if (isNaN(k)) return "01";
     return k < 10 ? "0" + k : String(k);
   }
 
-  function desktopSlidesToShow() {
-    if (window.innerWidth <= 1023) return 2;
+  function slidesToShow() {
+    var w = window.innerWidth;
+    if (w <= 768) return 1;
+    if (w <= 1023) return 2;
     return 3;
   }
 
-  function isMobileUi() {
-    return window.matchMedia("(max-width: 768px)").matches;
+  function readRealCount(carousel, track) {
+    var fromAttr = parseInt(carousel.getAttribute("data-total"), 10);
+    if (!isNaN(fromAttr) && fromAttr > 0) return fromAttr;
+    return track.querySelectorAll("[data-applied-ins-slide]").length;
   }
 
-  function maxIndexDesktop(slidesLength, slidesToShow) {
-    return Math.max(0, slidesLength - slidesToShow);
-  }
-
-  function scrollSlideIntoView(viewport, slide) {
-    if (!viewport || !slide) return;
-    viewport.scrollTo({
-      left: slide.offsetLeft,
-      behavior: "smooth",
-    });
-  }
-
-  function currentMobileSlideIndex(viewport, slides) {
-    if (!viewport || !slides.length) return 0;
-    var x = viewport.scrollLeft;
-    var best = 0;
-    for (var i = 0; i < slides.length; i += 1) {
-      if (slides[i].offsetLeft <= x + 12) best = i;
+  function removeClones(track) {
+    var clones = Array.prototype.slice.call(
+      track.querySelectorAll("[data-applied-ins-clone]")
+    );
+    for (var i = 0; i < clones.length; i += 1) {
+      var p = clones[i].parentNode;
+      if (p) p.removeChild(clones[i]);
     }
-    return best;
+  }
+
+  function decorateClone(node) {
+    node.setAttribute("data-applied-ins-clone", "");
+    node.setAttribute("aria-hidden", "true");
+    node.removeAttribute("data-applied-ins-slide");
+    var link = node.querySelector("a");
+    if (link) link.setAttribute("tabindex", "-1");
+  }
+
+  function setupClones(track, reals, n, st) {
+    if (n <= st) return;
+    var j;
+    for (j = st - 1; j >= 0; j -= 1) {
+      var pre = reals[n - st + j].cloneNode(true);
+      decorateClone(pre);
+      track.insertBefore(pre, track.firstChild);
+    }
+    for (j = 0; j < st; j += 1) {
+      var post = reals[j].cloneNode(true);
+      decorateClone(post);
+      track.appendChild(post);
+    }
   }
 
   function initCarousel(carousel) {
@@ -50,107 +65,126 @@
 
     if (!track || !viewport || !prev || !next) return;
 
-    var slides = carousel.querySelectorAll("[data-applied-ins-slide]");
-    var index = 0;
+    var n = readRealCount(carousel, track);
+    var extendedIndex = 0;
+    var isSnapping = false;
 
-    function applyDesktopTransform() {
-      var st = desktopSlidesToShow();
-      var step = 100 / st;
-      track.style.transform = "translateX(-" + index * step + "%)";
+    function stepPercent() {
+      var st = slidesToShow();
+      return 100 / st;
     }
 
-    function wrapDesktopIndex(delta) {
-      var st = desktopSlidesToShow();
-      var maxIdx = maxIndexDesktop(slides.length, st);
-      if (maxIdx <= 0) return;
-      index += delta;
-      if (index < 0) index = maxIdx;
-      else if (index > maxIdx) index = 0;
+    function applyTransform(instant) {
+      var step = stepPercent();
+      if (instant) {
+        track.style.transition = "none";
+      } else {
+        track.style.transition = "";
+      }
+      track.style.transform = "translateX(-" + extendedIndex * step + "%)";
+      if (instant) {
+        void track.offsetWidth;
+        track.style.transition = "";
+      }
     }
 
-    function syncDesktopAfterResize() {
-      var maxIdx = maxIndexDesktop(slides.length, desktopSlidesToShow());
-      if (index > maxIdx) index = maxIdx;
-      applyDesktopTransform();
+    function settleInfinitePosition() {
+      var st = slidesToShow();
+      if (n <= st) return;
+      var changed = false;
+      if (extendedIndex < st) {
+        extendedIndex += n;
+        changed = true;
+      } else if (extendedIndex >= st + n) {
+        extendedIndex -= n;
+        changed = true;
+      }
+      if (changed) {
+        isSnapping = true;
+        applyTransform(true);
+        isSnapping = false;
+      }
+    }
+
+    function logicalFirst0() {
+      var st = slidesToShow();
+      if (n <= st) return 0;
+      return ((extendedIndex - st) % n + n) % n;
     }
 
     function updateMobNavState() {
       if (!mobPrev || !mobNext) return;
-      var cur = currentMobileSlideIndex(viewport, slides);
-      mobPrev.disabled = cur <= 0;
-      mobNext.disabled = cur >= slides.length - 1;
+      mobPrev.disabled = false;
+      mobNext.disabled = false;
     }
 
     function updateMobPager() {
-      if (!mobCur || !mobTotal || !slides.length) return;
-      mobTotal.textContent = pad2(slides.length);
-      var curIdx = isMobileUi()
-        ? currentMobileSlideIndex(viewport, slides)
-        : index;
-      mobCur.textContent = pad2(Math.min(slides.length, curIdx + 1));
+      if (!mobCur || !mobTotal || !n) return;
+      mobTotal.textContent = pad2(n);
+      mobCur.textContent = pad2(Math.min(n, logicalFirst0() + 1));
     }
 
-    function onResize() {
-      if (isMobileUi()) {
-        track.style.transform = "";
-      } else {
-        syncDesktopAfterResize();
+    function rebuildClonesAndPosition() {
+      removeClones(track);
+      var reals = track.querySelectorAll("[data-applied-ins-slide]");
+      var st = slidesToShow();
+      if (n <= st) {
+        extendedIndex = 0;
+        applyTransform(true);
+        updateMobNavState();
+        updateMobPager();
+        return;
       }
+      setupClones(track, reals, n, st);
+      extendedIndex = st;
+      applyTransform(true);
       updateMobNavState();
       updateMobPager();
     }
 
-    prev.addEventListener("click", function () {
-      if (isMobileUi()) return;
-      wrapDesktopIndex(-1);
-      applyDesktopTransform();
+    function move(delta) {
+      var st = slidesToShow();
+      if (n <= st) return;
+      extendedIndex += delta;
+      applyTransform(false);
       updateMobPager();
-    });
-
-    next.addEventListener("click", function () {
-      if (isMobileUi()) return;
-      wrapDesktopIndex(1);
-      applyDesktopTransform();
-      updateMobPager();
-    });
-
-    if (mobPrev) {
-      mobPrev.addEventListener("click", function () {
-        if (!isMobileUi()) return;
-        var cur = currentMobileSlideIndex(viewport, slides);
-        var nextIdx = Math.max(0, cur - 1);
-        scrollSlideIntoView(viewport, slides[nextIdx]);
-      });
     }
 
-    if (mobNext) {
-      mobNext.addEventListener("click", function () {
-        if (!isMobileUi()) return;
-        var cur = currentMobileSlideIndex(viewport, slides);
-        var nextIdx = Math.min(slides.length - 1, cur + 1);
-        scrollSlideIntoView(viewport, slides[nextIdx]);
-      });
+    function onTransitionEnd(e) {
+      if (e.target !== track || e.propertyName !== "transform" || isSnapping) return;
+      settleInfinitePosition();
+      updateMobPager();
     }
 
-    viewport.addEventListener("scroll", function () {
-      if (!isMobileUi()) return;
-      updateMobPager();
-      updateMobNavState();
-    });
+    function onPrevClick() {
+      move(-1);
+    }
 
-    window.addEventListener("resize", function () {
-      onResize();
-    });
+    function onNextClick() {
+      move(1);
+    }
+
+    var resizeTimer;
+    function onResize() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () {
+        rebuildClonesAndPosition();
+      }, 120);
+    }
+
+    prev.addEventListener("click", onPrevClick);
+    next.addEventListener("click", onNextClick);
+    if (mobPrev) mobPrev.addEventListener("click", onPrevClick);
+    if (mobNext) mobNext.addEventListener("click", onNextClick);
+    track.addEventListener("transitionend", onTransitionEnd);
+    window.addEventListener("resize", onResize);
 
     prev.removeAttribute("disabled");
     next.removeAttribute("disabled");
     prev.disabled = false;
     next.disabled = false;
 
-    onResize();
-    if (!isMobileUi()) applyDesktopTransform();
-    updateMobNavState();
-    updateMobPager();
+    rebuildClonesAndPosition();
   }
 
   function init() {

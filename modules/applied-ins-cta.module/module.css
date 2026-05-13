@@ -114,9 +114,9 @@
 .applied-ins-cta__heading {
   margin: 0 0 16px;
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 300;
   color: #ecfae5;
-  line-height: 1.4;
+  line-height: 36px;
 }
 
 .applied-ins-cta__subtitle {
@@ -175,6 +175,7 @@
   }
   .applied-ins-cta__heading {
     font-size: 20px;
+    line-height: 30px;
   }
   .applied-ins-cta__inner {
     align-items: center;

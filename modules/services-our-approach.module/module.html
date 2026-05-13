@@ -1,6 +1,6 @@
 <section
   {% if module.section_id %}id="{{ module.section_id }}"{% endif %}
-  class="svc-approach"
+  class="svc-approach{% if module.card_layout == 'single_row' %} svc-approach--single-row{% endif %}"
 >
   <div class="svc-approach__container">
 

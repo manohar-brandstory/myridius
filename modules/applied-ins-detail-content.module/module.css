@@ -475,8 +475,9 @@
 
 .applied-ins-detail-content__diagramCard img,
 .applied-ins-detail-content__imageCard img {
-  width: 100%;
   border-radius: 12px;
+  width: 100%;
+  border: 1px solid #e5e7eb;
 }
 
 .applied-ins-detail-content__imageCard {

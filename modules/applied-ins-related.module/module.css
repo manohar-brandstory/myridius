@@ -253,17 +253,10 @@
 }
 
 @media (max-width: 768px) {
+  /* Same transform-based loop as desktop; clones + JS snap avoid wrap jumps */
   .applied-ins-related__carousel.is-slider .applied-ins-related__viewport {
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+    overflow: hidden;
     margin: 0 -4px;
-  }
-
-  .applied-ins-related__carousel.is-slider .applied-ins-related__viewport::-webkit-scrollbar {
-    display: none;
   }
 
   .applied-ins-related__carousel.is-slider {
@@ -273,15 +266,12 @@
 
   .applied-ins-related__carousel.is-slider .applied-ins-related__track {
     display: flex;
-    transform: none !important;
-    transition: none;
   }
 
   .applied-ins-related__carousel.is-slider .applied-ins-related__slide {
     flex: 0 0 100%;
     padding: 0 16px;
     box-sizing: border-box;
-    scroll-snap-align: start;
   }
 
   .applied-ins-related__arrow {

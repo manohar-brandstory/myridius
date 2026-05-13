@@ -1,0 +1,156 @@
+{% set ae_vid = module.hero_video_url %}
+{% if module.hero_video_file and module.hero_video_file.url %}
+  {% set ae_vid = module.hero_video_file.url %}
+{% endif %}
+
+<section
+  class="evoq-ae"
+  data-evoq-ae
+  aria-label="Agentic execution with Evoq"
+  {% if module.section_id %}id="{{ module.section_id }}"{% endif %}
+>
+  <div class="evoq-ae__hero">
+    {% if ae_vid %}
+      <video class="evoq-ae__video" autoplay muted loop playsinline preload="metadata" src="{{ ae_vid }}"></video>
+    {% endif %}
+    <div class="evoq-ae__heroScrim" aria-hidden="true"></div>
+
+    <div class="evoq-ae__heroHead">
+      <div class="evoq-ae__eyebrow">{{ module.hero_eyebrow }}</div>
+      <h2 class="evoq-ae__heroTitle">
+        {% set hl = module.hero_headline|split("\n") %}
+        {% for line in hl %}
+          {% if not loop.first %}<br>{% endif %}{{ line }}
+        {% endfor %}
+      </h2>
+    </div>
+
+    <div class="evoq-ae__hub">
+      <h3 class="evoq-ae__hubTitle">{{ module.hub_title }}</h3>
+      <p class="evoq-ae__hubSub">
+        {% set hs = module.hub_subtitle|split("\n") %}
+        {% for line in hs %}
+          {% if not loop.first %}<br>{% endif %}{{ line }}
+        {% endfor %}
+      </p>
+    </div>
+
+    <div class="evoq-ae__hotspots" role="tablist" aria-label="Execution dimensions">
+      {% for tab in module.tabs %}
+        {% set slug = tab.tab_slug|regex_replace("[^a-z0-9-]+", "-")|lower %}
+        <button
+          type="button"
+          class="evoq-ae__hotspot evoq-ae__hotspot--{{ slug }}"
+          role="tab"
+          id="evoq-ae-hotspot-{{ loop.index0 }}"
+          aria-selected="{% if loop.first %}true{% else %}false{% endif %}"
+          aria-controls="evoq-ae-panel-{{ slug }}"
+          data-tab="{{ slug }}"
+          data-ae-hotspot
+        >
+          <span class="evoq-ae__hotspotGlow" aria-hidden="true"></span>
+          <span class="evoq-ae__hotspotRing">
+            {% if tab.tab_icon.src %}
+              <img src="{{ tab.tab_icon.src }}" alt="{{ tab.tab_icon.alt|default(tab.tab_label, true) }}" class="evoq-ae__hotspotIcon" width="24" height="24" loading="lazy">
+            {% endif %}
+          </span>
+          <span class="evoq-ae__hotspotCaption">
+            <span class="evoq-ae__hotspotPill">{{ tab.tab_label }}</span>
+            <span class="evoq-ae__hotspotTitle">{{ tab.tab_title }}</span>
+          </span>
+        </button>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="evoq-ae__detail" id="evoq-ae-interface" data-ae-detail>
+    <div class="evoq-ae__stickyBar">
+      <div class="evoq-ae__stickyInner">
+        <div class="evoq-ae__pillRail" data-ae-pill-rail>
+          <div class="evoq-ae__pills" role="tablist" aria-label="Section tabs" data-ae-pills>
+            <span class="evoq-ae__pillGlide" data-ae-pill-glide aria-hidden="true"></span>
+            {% for tab in module.tabs %}
+              {% set slug = tab.tab_slug|regex_replace("[^a-z0-9-]+", "-")|lower %}
+              <button
+                type="button"
+                class="evoq-ae__pill{% if loop.first %} is-active{% endif %}"
+                role="tab"
+                aria-selected="{% if loop.first %}true{% else %}false{% endif %}"
+                aria-controls="evoq-ae-panel-{{ slug }}"
+                id="evoq-ae-pill-{{ loop.index0 }}"
+                data-tab="{{ slug }}"
+                data-ae-pill
+              >
+                {% if tab.tab_icon.src %}
+                  <img src="{{ tab.tab_icon.src }}" alt="" class="evoq-ae__pillIcon" width="16" height="16" loading="lazy">
+                {% endif %}
+                <span class="evoq-ae__pillLabel">{{ tab.tab_label }}</span>
+              </button>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="evoq-ae__panelsWrap">
+      {% for tab in module.tabs %}
+        {% set slug = tab.tab_slug|regex_replace("[^a-z0-9-]+", "-")|lower %}
+        <div
+          class="evoq-ae__panel{% if loop.first %} is-active{% endif %}"
+          id="evoq-ae-panel-{{ slug }}"
+          role="tabpanel"
+          aria-labelledby="evoq-ae-pill-{{ loop.index0 }}"
+          data-panel="{{ slug }}"
+          {% if not loop.first %}hidden{% endif %}
+        >
+          <div class="evoq-ae__panelGrid">
+            <div class="evoq-ae__panelCopy">
+              <div class="evoq-ae__chip">
+                {% if tab.tab_icon.src %}
+                  <img src="{{ tab.tab_icon.src }}" alt="" width="16" height="16" loading="lazy">
+                {% endif %}
+                <span>{{ tab.tab_label }}</span>
+              </div>
+              <h3 class="evoq-ae__panelTitle">{{ tab.tab_title }}</h3>
+              <p class="evoq-ae__panelDesc">
+                {% set td = tab.tab_description|split("\n") %}
+                {% for line in td %}
+                  {% if not loop.first %}<br>{% endif %}{{ line }}
+                {% endfor %}
+              </p>
+            </div>
+            <div class="evoq-ae__layers" data-ae-layers>
+              {% for layer in tab.layers %}
+                <button
+                  type="button"
+                  class="evoq-ae__layer{% if loop.first %} is-expanded{% endif %}"
+                  data-ae-layer
+                  aria-expanded="{% if loop.first %}true{% else %}false{% endif %}"
+                >
+                  <span class="evoq-ae__layerRow">
+                    <span class="evoq-ae__layerIconWrap">
+                      {% if layer.layer_icon.src %}
+                        <img src="{{ layer.layer_icon.src }}" alt="" class="evoq-ae__layerIcon" width="16" height="16" loading="lazy">
+                      {% elif tab.tab_icon.src %}
+                        <img src="{{ tab.tab_icon.src }}" alt="" width="16" height="16" loading="lazy">
+                      {% endif %}
+                    </span>
+                    <span class="evoq-ae__layerText">
+                      <span class="evoq-ae__layerName">{{ layer.layer_name }}</span>
+                      <span class="evoq-ae__layerDesc">
+                        {% set ld = layer.layer_desc|split("\n") %}
+                        {% for line in ld %}
+                          {% if not loop.first %}<br>{% endif %}{{ line }}
+                        {% endfor %}
+                      </span>
+                    </span>
+                  </span>
+                </button>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

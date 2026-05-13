@@ -15,6 +15,18 @@
     "default": "<p>Bringing Myridius capabilities together to turn <span class=\"svc-diff__gradient\">ambition</span> into real <span class=\"svc-diff__gradient\">impact</span></p>"
   },
   {
+    "id": "card_layout",
+    "name": "card_layout",
+    "label": "Desktop card layout",
+    "type": "choice",
+    "choices": [
+      ["wrap", "Wrap every 3 cards (new row after 3)"],
+      ["single_row", "Single row (all cards in one line; scrolls horizontally if needed)"]
+    ],
+    "default": "wrap",
+    "help_text": "Applies at 1025px and wider. At 1024px and below, layout follows responsive breakpoints (2 columns, then 1)."
+  },
+  {
     "id": "cards",
     "name": "cards",
     "label": "Cards",

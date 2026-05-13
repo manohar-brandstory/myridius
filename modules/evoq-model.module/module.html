@@ -1,4 +1,7 @@
-<section class="evoq-model">
+<section
+  class="evoq-model"
+  {% if module.section_id %}id="{{ module.section_id }}"{% endif %}
+>
   <div class="evoq-model__glow" aria-hidden="true"></div>
   <div class="evoq-model__container">
     <header class="evoq-model__header">

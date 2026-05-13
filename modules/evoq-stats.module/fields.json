@@ -1,4 +1,15 @@
 [ {
+  "id" : "section_id",
+  "name" : "section_id",
+  "label" : "Section ID",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "evoq-stats",
+  "help_text" : "Unique HTML ID for this section (used for anchor links)."
+}, {
   "id" : "section_title_line_1",
   "name" : "section_title_line_1",
   "label" : "Section Title - Line 1",

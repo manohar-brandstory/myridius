@@ -1,4 +1,7 @@
-<section class="evoq-hero">
+<section
+  class="evoq-hero"
+  {% if module.section_id %}id="{{ module.section_id }}"{% endif %}
+>
   <div class="evoq-hero__ambient" aria-hidden="true">
     <div class="evoq-hero__glow evoq-hero__glow--1"></div>
     <div class="evoq-hero__glow evoq-hero__glow--2"></div>

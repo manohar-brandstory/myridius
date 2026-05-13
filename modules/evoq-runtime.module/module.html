@@ -1,0 +1,157 @@
+<section
+  class="evoq-runtime"
+  aria-label="Evoq runtime"
+  {% if module.section_id %}id="{{ module.section_id }}"{% endif %}
+>
+  <div class="evoq-runtime__inner">
+    <header class="evoq-runtime__header">
+      <div class="evoq-runtime__eyebrowRow">
+        <span class="evoq-runtime__eyebrowDash" aria-hidden="true"></span>
+        <span class="evoq-runtime__eyebrow">{{ module.eyebrow_text }}</span>
+      </div>
+      <h2 class="evoq-runtime__heading">
+        {{ module.headline_before }}
+        <span class="evoq-runtime__headingAccent">{{ module.headline_highlight }}</span>
+      </h2>
+      <p class="evoq-runtime__intro">{{ module.intro_paragraph }}</p>
+    </header>
+
+    <div class="evoq-runtime__grid">
+      <div class="evoq-runtime__col evoq-runtime__col--left">
+        {% for card in module.left_cards %}
+          <article class="evoq-runtime__sideCard evoq-runtime__sideCard--left evoq-runtime__sideCard--in-{{ loop.index0 }}" style="--evoq-card-offset: {{ card.offset_px|default(0) }}px">
+            <div class="evoq-runtime__sidePattern" aria-hidden="true">
+              <svg width="100%" height="100%" class="evoq-runtime__dotsSvg">
+                <defs>
+                  <pattern id="evoq-runtime-dots-l-{{ loop.index0 }}" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <circle cx="2" cy="2" r="1" fill="#52E081" />
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#evoq-runtime-dots-l-{{ loop.index0 }})" />
+              </svg>
+            </div>
+            <div class="evoq-runtime__sideTop">
+              <span class="evoq-runtime__sideTag">{{ card.card_tag }}</span>
+              <div class="evoq-runtime__sideIconWrap">
+                {% if card.card_icon.src %}
+                  <img src="{{ card.card_icon.src }}" alt="{{ card.card_icon.alt|default(card.card_tag, true) }}" class="evoq-runtime__sideIconImg" width="12" height="12" loading="lazy">
+                {% endif %}
+              </div>
+            </div>
+            <div class="evoq-runtime__sideBody">
+              <div class="evoq-runtime__sidePane evoq-runtime__sidePane--default">
+                <h3 class="evoq-runtime__sideTitle">{{ card.card_title }}</h3>
+                <p class="evoq-runtime__sideSub">{{ card.card_subtitle }}</p>
+              </div>
+              <div class="evoq-runtime__sidePane evoq-runtime__sidePane--hover">
+                <div class="evoq-runtime__sideHoverEyebrow">{{ card.card_secondtitle }}</div>
+                <ul class="evoq-runtime__sideBullets">
+                  {% if card.bullet_1 %}<li><span class="evoq-runtime__bulletDot" aria-hidden="true"></span>{{ card.bullet_1 }}</li>{% endif %}
+                  {% if card.bullet_2 %}<li><span class="evoq-runtime__bulletDot" aria-hidden="true"></span>{{ card.bullet_2 }}</li>{% endif %}
+                </ul>
+              </div>
+            </div>
+            <div class="evoq-runtime__sideFoot">
+              <span class="evoq-runtime__sideCode">{{ card.code_label }}</span>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+
+      <div class="evoq-runtime__center">
+        <div class="evoq-runtime__centerGlow" aria-hidden="true"></div>
+        <svg class="evoq-runtime__orbitSvg" viewBox="0 0 300 300" fill="none" aria-hidden="true">
+          <!-- Arcs: pathLength="1" so dash math matches module.js (stroke-dasharray 1 1, offset 1→0 = draw reveal). -->
+          <path class="evoq-runtime__orbitArc evoq-runtime__orbitArc--a" pathLength="1" d="M150 52 A98 98 0 0 1 245 147" />
+          <path class="evoq-runtime__orbitArc evoq-runtime__orbitArc--b" pathLength="1" d="M238 190 A98 98 0 0 1 95 238" />
+          <path class="evoq-runtime__orbitArc evoq-runtime__orbitArc--c" pathLength="1" d="M62 175 A98 98 0 0 1 132 58" />
+        </svg>
+
+        <div class="evoq-runtime__centerHead">
+          <div class="evoq-runtime__logoPulse">
+            {% if module.center_logo.src %}
+              <img class="evoq-runtime__logoImg" src="{{ module.center_logo.src }}" alt="{{ module.center_logo.alt|default('Evoq', true) }}" loading="lazy">
+            {% elif module.center_mark_text %}
+              <span class="evoq-runtime__logoMark">{{ module.center_mark_text }}</span>
+            {% endif %}
+          </div>
+          <span class="evoq-runtime__centerTitle">{{ module.center_subtitle }}</span>
+        </div>
+
+        {% for item in module.runtime_items %}
+          <article class="evoq-runtime__pill evoq-runtime__pill--{{ loop.index0 % 3 }} evoq-runtime__pill--in-{{ loop.index0 }}" tabindex="0">
+            <div class="evoq-runtime__pillRow">
+              <h4 class="evoq-runtime__pillLabel">{{ item.item_label }}</h4>
+              <div class="evoq-runtime__microWrap" aria-hidden="true">
+                {% if item.anim_icon == "workflow" %}
+                  <svg class="evoq-runtime__micro evoq-runtime__micro--workflow" width="40" height="20" viewBox="0 0 40 20" fill="none">
+                    <rect class="evoq-runtime__wfRect" x="5" y="6" width="30" height="8" rx="4" stroke="#52E081" stroke-width="1" fill="none" stroke-dasharray="4 2" />
+                  </svg>
+                {% elif item.anim_icon == "wave" %}
+                  <svg class="evoq-runtime__micro evoq-runtime__micro--wave" width="40" height="20" viewBox="0 0 40 20" fill="none" overflow="hidden">
+                    <g class="evoq-runtime__waveShift">
+                      <path d="M-40,10 C-35,2 -30,18 -25,10 C-20,2 -15,18 -10,10 C-5,2 0,18 5,10 C10,2 15,18 20,10 C25,2 30,18 35,10 C40,2 45,18 50,10 C55,2 60,18 65,10 C70,2 75,18 80,10" stroke="#52E081" stroke-width="1.5" stroke-linecap="round" fill="none" />
+                    </g>
+                  </svg>
+                {% else %}
+                  <svg class="evoq-runtime__micro evoq-runtime__micro--decision" width="40" height="20" viewBox="0 0 40 20">
+                    <circle class="evoq-runtime__decDot" cx="10" cy="10" r="2" fill="#52E081" />
+                    <circle class="evoq-runtime__decDot" cx="18" cy="10" r="2" fill="#52E081" />
+                    <circle class="evoq-runtime__decDot" cx="26" cy="10" r="2" fill="#52E081" />
+                    <circle class="evoq-runtime__decDot" cx="34" cy="10" r="2" fill="#52E081" />
+                  </svg>
+                {% endif %}
+              </div>
+            </div>
+            <div class="evoq-runtime__pillExpand">
+              <div class="evoq-runtime__pillExpandInner">
+                <p class="evoq-runtime__pillDetail">{{ item.item_detail }}</p>
+              </div>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+
+      <div class="evoq-runtime__col evoq-runtime__col--right">
+        {% for card in module.right_cards %}
+          <article class="evoq-runtime__sideCard evoq-runtime__sideCard--right evoq-runtime__sideCard--in-{{ loop.index0 }}" style="--evoq-card-offset: {{ card.offset_px|default(0) }}px">
+            <div class="evoq-runtime__sidePattern" aria-hidden="true">
+              <svg width="100%" height="100%" class="evoq-runtime__dotsSvg">
+                <defs>
+                  <pattern id="evoq-runtime-dots-r-{{ loop.index0 }}" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <circle cx="2" cy="2" r="1" fill="#52E081" />
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#evoq-runtime-dots-r-{{ loop.index0 }})" />
+              </svg>
+            </div>
+            <div class="evoq-runtime__sideTop">
+              <span class="evoq-runtime__sideTag">{{ card.card_tag }}</span>
+              <div class="evoq-runtime__sideIconWrap">
+                {% if card.card_icon.src %}
+                  <img src="{{ card.card_icon.src }}" alt="{{ card.card_icon.alt|default(card.card_tag, true) }}" class="evoq-runtime__sideIconImg" width="12" height="12" loading="lazy">
+                {% endif %}
+              </div>
+            </div>
+            <div class="evoq-runtime__sideBody">
+              <div class="evoq-runtime__sidePane evoq-runtime__sidePane--default">
+                <h3 class="evoq-runtime__sideTitle">{{ card.card_title }}</h3>
+                <p class="evoq-runtime__sideSub">{{ card.card_subtitle }}</p>
+              </div>
+              <div class="evoq-runtime__sidePane evoq-runtime__sidePane--hover">
+                <div class="evoq-runtime__sideHoverEyebrow">{{ card.card_secondtitle }}</div>
+                <ul class="evoq-runtime__sideBullets">
+                  {% if card.bullet_1 %}<li><span class="evoq-runtime__bulletDot" aria-hidden="true"></span>{{ card.bullet_1 }}</li>{% endif %}
+                  {% if card.bullet_2 %}<li><span class="evoq-runtime__bulletDot" aria-hidden="true"></span>{{ card.bullet_2 }}</li>{% endif %}
+                </ul>
+              </div>
+            </div>
+            <div class="evoq-runtime__sideFoot">
+              <span class="evoq-runtime__sideCode">{{ card.code_label }}</span>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

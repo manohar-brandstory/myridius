@@ -1,4 +1,15 @@
 [ {
+  "id" : "section_id",
+  "name" : "section_id",
+  "label" : "Section ID",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "evoq-journey",
+  "help_text" : "Unique HTML ID for this section (used for anchor links)."
+}, {
   "id" : "badge_text",
   "name" : "badge_text",
   "label" : "Badge Text",

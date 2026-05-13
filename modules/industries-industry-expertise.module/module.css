@@ -38,17 +38,22 @@
   color: #fff;
   white-space: pre-line;
 }
-.industry__header{ margin-bottom: 56px; }
+/* Matches React IndustryExpertise: mb-16 below header row */
+.industry__header{ margin-bottom: 64px; }
 
+/* gap-4 in reference; stretch keeps every card in a row the same height */
 .industry__grid{
   display:grid;
   grid-template-columns: 1fr;
   gap: 16px;
+  align-items: stretch;
 }
 
+/* Fixed height = uniform tiles like the reference (aspect-ratio varied by column width). */
 .industry__card{
   position: relative;
-  height: 340px;
+  width: 100%;
+  height: 360px;
   border-radius: var(--radius-12);
   overflow:hidden;
   cursor:pointer;
@@ -85,16 +90,23 @@
   z-index: 2;
   transition: opacity 300ms ease, transform 300ms ease;
 }
+/* Natural wrap like React (no line-clamp) */
 .industry__cardTitle{
   font-size: 18px;
   font-weight: 500;
-  margin-bottom: 6px;
+  margin: 0 0 6px;
+  line-height: 1.25;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 .industry__cardLine{
   font-size: 14px;
   font-weight: 500;
   color: rgba(255,255,255,0.70);
   line-height: 1.5;
+  margin: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .industry__hover{
@@ -129,20 +141,21 @@
 
 @media (min-width: 768px){
   .industry__grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .industry__card{ height: 400px; }
 }
 @media (min-width: 1024px){
   .industry__grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .industry__card{ height: 420px; }
 }
 @media (max-width: 768px){
   .industry{ padding: 64px 0; }
   .industry__title{ font-size: 32px; }
-  .industry__card{ height: 320px; }
   .industry__header{ margin-bottom: 40px; }
   .industry__grid{ gap: 20px; }
 }
 @media (max-width: 480px){
   .industry__title{ font-size: 28px; }
-  .industry__card{ height: 320px; }
+  .industry__card{ height: 340px; }
   .industry__base{ padding: 20px; }
   .industry__hover{ padding: 20px; }
   .industry__grid{ gap: 16px; }
@@ -185,4 +198,3 @@
   }
   .industry__card:hover .industry__img{ transform: none !important; }
 }
-
