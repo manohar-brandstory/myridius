@@ -1,5 +1,15 @@
 [
   {
+    "id": "section_id",
+    "name": "section_id",
+    "label": "Section ID",
+    "required": false,
+    "locked": false,
+    "type": "text",
+    "default": "home-what-we-do",
+    "help_text": "HTML id for anchor links (e.g. #home-what-we-do). Use lowercase letters, numbers, and hyphens only."
+  },
+  {
     "id": "badge_text",
     "name": "badge_text",
     "label": "Badge text",

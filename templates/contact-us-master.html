@@ -1,0 +1,23 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Contact Us - Master Template
+-->
+{% extends "./layouts/base.html" %}
+
+{% block body %}
+  <main class="contact-page">
+    {% dnd_area "contact_us_content", label="Contact Us Content" %}
+      {% dnd_section label="Contact Us - Form" %}
+        {% dnd_column offset=0, width=12 %}
+          {% dnd_module path="/Myridius Theme V1/modules/contact-us.module", label="Contact Us" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section label="Contact Us - Office Map" %}
+        {% dnd_column offset=0, width=12 %}
+          {% dnd_module path="/Myridius Theme V1/modules/office-locations-map.module", label="Office Locations Map" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+    {% end_dnd_area %}
+  </main>
+{% endblock body %}

@@ -1,0 +1,199 @@
+[ {
+  "id" : "section_html_id",
+  "name" : "section_html_id",
+  "label" : "Section HTML ID",
+  "help_text" : "Unique anchor ID. Lowercase letters, numbers, and hyphens only (e.g. about-us-company-overview).",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "about-us-company-overview"
+}, {
+  "id" : "desktop_bg_image",
+  "name" : "desktop_bg_image",
+  "label" : "Desktop Background Image",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "display_width" : null,
+  "default" : {
+    "src" : "",
+    "alt" : ""
+  }
+}, {
+  "id" : "mobile_bg_image",
+  "name" : "mobile_bg_image",
+  "label" : "Mobile Background Image",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "display_width" : null,
+  "default" : {
+    "src" : "",
+    "alt" : ""
+  }
+}, {
+  "id" : "badge_label",
+  "name" : "badge_label",
+  "label" : "Badge Label",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Where We Drive Impact"
+}, {
+  "id" : "heading",
+  "name" : "heading",
+  "label" : "Heading",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Built for Business, People and Systems impact."
+}, {
+  "id" : "cards",
+  "name" : "cards",
+  "label" : "Impact Cards",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 3,
+    "sorting_label_field" : null,
+    "default" : 3
+  },
+  "children" : [ {
+    "id" : "cards.image",
+    "name" : "image",
+    "label" : "Card Background Image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "",
+      "alt" : ""
+    }
+  }, {
+    "id" : "cards.title",
+    "name" : "title",
+    "label" : "Card Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "cards.description",
+    "name" : "description",
+    "label" : "Card Description",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "cards.subheading",
+    "name" : "subheading",
+    "label" : "Hover Subheading",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "cards.items",
+    "name" : "items",
+    "label" : "Hover List Items",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : 1,
+      "max" : 15,
+      "sorting_label_field" : null,
+      "default" : 3
+    },
+    "children" : [ {
+      "id" : "items.text",
+      "name" : "text",
+      "label" : "List Item Text",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : ""
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "image" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "title" : "Business Impact",
+    "description" : "We apply domain expertise to solve industry challenges, create cost efficiencies, and reduce risk. We engineer solutions required to deliver measurable impact focused on business growth.",
+    "subheading" : "Retail & Commercial Banking",
+    "items" : [ {
+      "text" : "Relationship intelligence turning transactions and cash flow data into meaningful conversations"
+    }, {
+      "text" : "Intelligent self-service resolving queries without escalation"
+    }, {
+      "text" : "Credit decisions from days to hours via EVOQ Underwriting Workbench for all borrowers"
+    } ]
+  }, {
+    "image" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "title" : "People Impact",
+    "description" : "To improve digital experiences we examine the current state, uncover what's causing friction and combine smart technology with human insights to help people make better decisions at the right moments.",
+    "subheading" : "Credit Unions",
+    "items" : [ {
+      "text" : "Member intelligence turning life events into proactive, community-focused financial support"
+    }, {
+      "text" : "Automated member-service resolving common inquiries instantly to focus staff on high-value advice"
+    }, {
+      "text" : "Shared infrastructure orchestration enabling credit unions to compete with national banks through intelligent scale"
+    } ]
+  }, {
+    "image" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "title" : "Systems Impact",
+    "description" : "We build adaptive systems across AI and legacy platforms that evolve with you. The result is a unified environment for real-time decision-making and continuous optimization.",
+    "subheading" : "Lending",
+    "items" : [ {
+      "text" : "Explainable credit decisioning with full Fair Lending compliance"
+    }, {
+      "text" : "Early warning signals on credits before they become NPLs"
+    }, {
+      "text" : "End-to-end digital origination with embedded document intelligence"
+    } ]
+  } ]
+} ]

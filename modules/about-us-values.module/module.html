@@ -1,0 +1,43 @@
+<section id="{{ module.section_html_id }}" class="about-us-values" data-about-us-values>
+  <div class="about-us-values__inner">
+    <header class="about-us-values__header">
+      <div class="about-us-values__badge">
+        <span class="about-us-values__badgeLine" aria-hidden="true"></span>
+        <span class="about-us-values__badgeText">{{ module.badge_label }}</span>
+      </div>
+      <h2 class="about-us-values__heading">{{ module.heading }}</h2>
+    </header>
+
+    <div class="about-us-values__slider">
+      <div class="about-us-values__track" aria-label="{{ module.badge_label|default('Values') }}" role="list">
+        {% for stat in module.stats %}
+          <article
+            class="about-us-values__stat"
+            role="listitem"
+            tabindex="0"
+            aria-label="{{ stat.title }}"
+          >
+            <div class="about-us-values__icon" aria-hidden="true">
+              {% if stat.icon_image.src %}
+                <img
+                  class="about-us-values__iconImg"
+                  src="{{ stat.icon_image.src }}"
+                  alt="{{ stat.icon_image.alt|default('') }}"
+                  loading="lazy"
+                  decoding="async"
+                  width="60"
+                  height="60"
+                >
+              {% endif %}
+            </div>
+
+            <div class="about-us-values__copy">
+              <p class="about-us-values__title">{{ stat.title }}</p>
+              <p class="about-us-values__subtitle">{{ stat.subtitle }}</p>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,32 @@
+<section id="{{ module.section_html_id }}" class="about-us-cta" data-about-us-cta>
+  {% if module.background_image.src %}
+    <div
+      class="about-us-cta__bg"
+      style="background-image: url('{{ module.background_image.src }}'); background-position: {{ module.background_position }};"
+      role="img"
+      aria-label="{{ module.background_image.alt|default('') }}"
+    ></div>
+  {% endif %}
+  <div class="about-us-cta__inner">
+    <div class="about-us-cta__badge" aria-hidden="true">
+      <span class="about-us-cta__badgeLine"></span>
+      <span class="about-us-cta__badgeText">{{ module.badge_text }}</span>
+    </div>
+
+    <div class="about-us-cta__headingWrap">
+      <p class="about-us-cta__headingLine about-us-cta__headingLine--top">{{ module.heading_top }}</p>
+      <p class="about-us-cta__headingLine about-us-cta__headingLine--highlight">{{ module.heading_highlight }}</p>
+    </div>
+
+    <div class="about-us-cta__subtitle">{{ module.subtitle }}</div>
+
+    <a class="about-us-cta__button" href="{{ module.button_url.href }}">
+      <span class="about-us-cta__buttonText">{{ module.button_text }}</span>
+      <svg class="about-us-cta__buttonArrow" width="17" height="17" viewBox="0 0 17.49 17.49" fill="none" aria-hidden="true">
+        <path d="M3.645 8.744H13.847" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.457" />
+        <path d="M8.745 3.644L13.846 8.744L8.745 13.845" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.457" />
+      </svg>
+    </a>
+  </div>
+</section>
+

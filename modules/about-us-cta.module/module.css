@@ -1,0 +1,158 @@
+.about-us-cta {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+}
+
+.about-us-cta__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.about-us-cta__inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--container-max, 80rem);
+  margin: 0 auto;
+  padding: 64px var(--gutter, 64px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 28px;
+}
+
+.about-us-cta__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+}
+
+.about-us-cta__badgeLine {
+  width: 24px;
+  height: 2px;
+  background: #194247;
+  border-radius: 9999px;
+}
+
+.about-us-cta__badgeText {
+  font-family: var(--font-family);
+  font-weight: 500;
+  color: #194247;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.about-us-cta__headingWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-us-cta__headingLine {
+  margin: 0;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.15;
+  letter-spacing: -2px;
+  max-width: 700px;
+}
+
+.about-us-cta__headingLine--top {
+  color: #194247;
+}
+
+.about-us-cta__headingLine--highlight {
+  color: #09a78d;
+}
+
+.about-us-cta__subtitle {
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 1.75;
+  font-weight: 500;
+  color: #337077;
+  max-width: 744px;
+}
+
+.about-us-cta__subtitle p {
+  margin: 0 0 0.65em;
+}
+
+.about-us-cta__subtitle p:last-child {
+  margin-bottom: 0;
+}
+
+.about-us-cta__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: #194247;
+  color: #fff;
+  text-decoration: none;
+  padding: 14px 40px;
+  border-radius: 9999px;
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition:
+    background 200ms ease,
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+  width: 100%;
+  max-width: 380px;
+}
+
+.about-us-cta__button:hover {
+  background: #0c2226;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(25, 66, 71, 0.3);
+}
+
+@media (min-width: 1024px) {
+  .about-us-cta__inner {
+    padding: 100px var(--gutter, 64px);
+    gap: 32px;
+  }
+
+  .about-us-cta__badgeText {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 2px;
+  }
+
+  .about-us-cta__headingLine {
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.96px;
+  }
+
+  .about-us-cta__subtitle {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 28px;
+  }
+
+  .about-us-cta__button {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 1px;
+    padding: 14px 40px;
+    width: auto;
+    max-width: none;
+  }
+}
+

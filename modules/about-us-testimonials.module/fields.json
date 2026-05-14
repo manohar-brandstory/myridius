@@ -1,0 +1,111 @@
+[ {
+  "id" : "section_html_id",
+  "name" : "section_html_id",
+  "label" : "Section HTML ID",
+  "help_text" : "Unique anchor ID. Lowercase letters, numbers, and hyphens only (e.g. about-us-client-stories).",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "about-us-testimonials"
+}, {
+  "id" : "enable_section",
+  "name" : "enable_section",
+  "label" : "Enable Testimonials Section",
+  "required" : false,
+  "locked" : false,
+  "display" : "checkbox",
+  "type" : "boolean",
+  "display_width" : null,
+  "default" : false
+}, {
+  "id" : "badge_label",
+  "name" : "badge_label",
+  "label" : "Badge Label",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "What People Say"
+}, {
+  "id" : "heading",
+  "name" : "heading",
+  "label" : "Heading",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Client proof that lasts"
+}, {
+  "id" : "description",
+  "name" : "description",
+  "label" : "Description",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "display_width" : null,
+  "default" : "<p>Stories from leaders across industries who turned ambition into measurable outcomes.</p>"
+}, {
+  "id" : "testimonials",
+  "name" : "testimonials",
+  "label" : "Testimonials",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 6,
+    "sorting_label_field" : null,
+    "default" : 3
+  },
+  "children" : [ {
+    "id" : "testimonials.quote",
+    "name" : "quote",
+    "label" : "Testimonial Quote",
+    "required" : false,
+    "locked" : false,
+    "type" : "richtext",
+    "display_width" : null,
+    "default" : "<p>The Myridius team helped us move from scattered experiments to a scalable, enterprise-ready solution.</p>"
+  }, {
+    "id" : "testimonials.author_name",
+    "name" : "author_name",
+    "label" : "Author Name",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Senior Leader"
+  }, {
+    "id" : "testimonials.author_role",
+    "name" : "author_role",
+    "label" : "Author Role",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Enterprise Technology"
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "quote" : "<p>The Myridius team helped us move from scattered experiments to a scalable, enterprise-ready solution.</p>",
+    "author_name" : "Senior Leader",
+    "author_role" : "Enterprise Technology"
+  }, {
+    "quote" : "<p>From day one, the approach was structured, measurable, and deeply collaborative.</p>",
+    "author_name" : "Director of Digital",
+    "author_role" : "Transformation"
+  }, {
+    "quote" : "<p>They delivered real outcomes quickly, then built the capabilities we needed to keep winning.</p>",
+    "author_name" : "VP, Engineering",
+    "author_role" : "AI Platform"
+  } ]
+} ]

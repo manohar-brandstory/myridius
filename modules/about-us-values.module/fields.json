@@ -1,0 +1,128 @@
+[ {
+  "id" : "section_html_id",
+  "name" : "section_html_id",
+  "label" : "Section HTML ID",
+  "help_text" : "Unique anchor ID. Lowercase letters, numbers, and hyphens only (e.g. about-us-what-sets-us-apart).",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "about-us-values"
+}, {
+  "id" : "badge_label",
+  "name" : "badge_label",
+  "label" : "Badge Label",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "What Sets Us Apart"
+}, {
+  "id" : "heading",
+  "name" : "heading",
+  "label" : "Heading",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Proof that moves beyond the pitch."
+}, {
+  "id" : "stats",
+  "name" : "stats",
+  "label" : "Stats",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 12,
+    "sorting_label_field" : null,
+    "default" : 6
+  },
+  "children" : [ {
+    "id" : "stats.icon_image",
+    "name" : "icon_image",
+    "label" : "Icon Image (SVG, PNG, JPG, or WebP)",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "",
+      "alt" : ""
+    }
+  }, {
+    "id" : "stats.title",
+    "name" : "title",
+    "label" : "Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "stats.subtitle",
+    "name" : "subtitle",
+    "label" : "Subtitle",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "icon_image" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "title" : "ROI-driven",
+    "subtitle" : "roadmaps with value milestones"
+  }, {
+    "icon_image" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "title" : "Proof of value",
+    "subtitle" : "in weeks, not months"
+  }, {
+    "icon_image" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "title" : "350+",
+    "subtitle" : "enterprise clients across industries"
+  }, {
+    "icon_image" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "title" : "50+",
+    "subtitle" : "years of industry and technical expertise"
+  }, {
+    "icon_image" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "title" : "Enterprise architecture",
+    "subtitle" : "and systems integration specialists"
+  }, {
+    "icon_image" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "title" : "AI & Data Expertise",
+    "subtitle" : "AI/ML, data engineering, cloud and AI-native capabilities"
+  } ]
+} ]

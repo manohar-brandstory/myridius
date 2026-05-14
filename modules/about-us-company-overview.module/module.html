@@ -1,0 +1,108 @@
+<section id="{{ module.section_html_id }}" class="about-us-company-overview" data-about-us-company-overview>
+  {% if module.desktop_bg_image.src or module.mobile_bg_image.src %}
+    <div class="about-us-company-overview__bg">
+      {% if module.desktop_bg_image.src %}
+        <div
+          class="about-us-company-overview__bgDesktop"
+          style="background-image: url('{{ module.desktop_bg_image.src }}');"
+          role="img"
+          aria-label="{{ module.desktop_bg_image.alt|default('') }}"
+        ></div>
+      {% endif %}
+      {% if module.mobile_bg_image.src %}
+        <div
+          class="about-us-company-overview__bgMobile"
+          style="background-image: url('{{ module.mobile_bg_image.src }}');"
+          role="img"
+          aria-label="{{ module.mobile_bg_image.alt|default('') }}"
+        ></div>
+      {% endif %}
+      <div class="about-us-company-overview__bgGradient" aria-hidden="true"></div>
+    </div>
+  {% endif %}
+
+  <div class="about-us-company-overview__inner">
+    <div class="about-us-company-overview__header">
+      <div class="about-us-company-overview__badge">
+        <span class="about-us-company-overview__badgeLine" aria-hidden="true"></span>
+        <span class="about-us-company-overview__badgeText">{{ module.badge_label }}</span>
+      </div>
+      <h2 class="about-us-company-overview__heading">{{ module.heading }}</h2>
+    </div>
+
+    <div class="about-us-company-overview__cards" role="list" aria-label="Impact cards">
+      {% for card in module.cards %}
+        <article class="about-us-company-overview__card" role="listitem">
+          <div class="about-us-company-overview__cardMedia" aria-hidden="true">
+            {% if card.image.src %}
+              <img class="about-us-company-overview__cardImg" src="{{ card.image.src }}" alt="" loading="lazy" decoding="async">
+            {% endif %}
+            <div class="about-us-company-overview__cardSaturation"></div>
+            <div class="about-us-company-overview__cardGradient"></div>
+          </div>
+
+          <div class="about-us-company-overview__cardFront">
+            <h3 class="about-us-company-overview__cardTitle">{{ card.title }}</h3>
+            <p class="about-us-company-overview__cardDesc">{{ card.description }}</p>
+          </div>
+
+          <div class="about-us-company-overview__cardDetails" aria-hidden="true">
+            <div class="about-us-company-overview__detailsBorder">
+              <p class="about-us-company-overview__detailsSubheading">{{ card.subheading }}</p>
+            </div>
+            <ul class="about-us-company-overview__detailsList">
+              {% for it in card.items %}
+                <li class="about-us-company-overview__detailsItem">
+                  <span class="about-us-company-overview__detailsArrow">→ </span>
+                  <span class="about-us-company-overview__detailsText">{{ it.text }}</span>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var roots = document.querySelectorAll('[data-about-us-company-overview]');
+      for (var r = 0; r < roots.length; r++) {
+        var section = roots[r];
+        if (section.getAttribute('data-about-us-company-overview-init') === '1') continue;
+        section.setAttribute('data-about-us-company-overview-init', '1');
+
+        var mqHoverNone = window.matchMedia('(hover: none)');
+        var mqNarrow = window.matchMedia('(max-width: 1023px)');
+        function useTapForCardDetails() {
+          return mqHoverNone.matches || mqNarrow.matches;
+        }
+
+        function clearDetailsState(cardEl) {
+          cardEl.classList.remove('is-details-open');
+          var d = cardEl.querySelector('.about-us-company-overview__cardDetails');
+          if (d) d.setAttribute('aria-hidden', 'true');
+        }
+
+        var cards = Array.prototype.slice.call(section.querySelectorAll('.about-us-company-overview__card'));
+        cards.forEach(function (card) {
+          card.addEventListener('click', function () {
+            if (!useTapForCardDetails()) return;
+            var willOpen = !card.classList.contains('is-details-open');
+            if (willOpen) {
+              cards.forEach(function (c) {
+                clearDetailsState(c);
+              });
+            }
+            card.classList.toggle('is-details-open');
+            var details = card.querySelector('.about-us-company-overview__cardDetails');
+            if (details) {
+              details.setAttribute('aria-hidden', card.classList.contains('is-details-open') ? 'false' : 'true');
+            }
+          });
+        });
+      }
+    })();
+  </script>
+</section>
+

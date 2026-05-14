@@ -181,19 +181,32 @@
 }
 
 .evoq-shift__text-struck {
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.25;
   color: var(--evoq-mid);
   text-decoration: line-through;
   text-decoration-color: var(--evoq-mid);
   text-decoration-thickness: 2px;
 }
 
+@media (min-width: 768px) {
+  .evoq-shift__text-struck {
+    font-size: 14px;
+  }
+}
+
 .evoq-shift__text-active {
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 500;
   color: var(--evoq-dark);
-  line-height: 1.15;
+  line-height: 1.25;
+}
+
+@media (min-width: 768px) {
+  .evoq-shift__text-active {
+    font-size: 20px;
+  }
 }
 
 /* Service Card */
@@ -214,18 +227,30 @@
 }
 
 .evoq-shift__card-value {
-  font-size: 48px;
-  font-weight: 700;
+  font-size: 42px;
+  font-weight: 500;
   color: var(--evoq-green);
   line-height: 1;
 }
 
+@media (min-width: 768px) {
+  .evoq-shift__card-value {
+    font-size: 48px;
+  }
+}
+
 .evoq-shift__card-label {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--evoq-primary);
   text-align: right;
-  line-height: 1.3;
+  line-height: 1.375;
+}
+
+@media (min-width: 768px) {
+  .evoq-shift__card-label {
+    font-size: 16px;
+  }
 }
 
 /* Tablet — keep tree; ease transition from desktop */
@@ -256,21 +281,9 @@
     max-width: 100%;
   }
 
-  .evoq-shift__text-active {
-    font-size: 17px;
-  }
-
   .evoq-shift__card {
     max-width: 100%;
     padding: 18px;
-  }
-
-  .evoq-shift__card-value {
-    font-size: 38px;
-  }
-
-  .evoq-shift__card-label {
-    font-size: 15px;
   }
 }
 
@@ -351,7 +364,7 @@
 
   .evoq-shift__text-active {
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 1.25;
     overflow-wrap: break-word;
     word-break: break-word;

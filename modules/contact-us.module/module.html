@@ -1,0 +1,273 @@
+{% require_css %}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap">
+{% end_require_css %}
+
+{# ── EDITABLE FIELDS (set defaults so previews work) ── #}
+{% set bh   =  module.breadcrumb_home     | default("MYRIDIUS") %}
+{% set bc   =  module.breadcrumb_current  | default("CONTACT US") %}
+{% set hdg  =  module.heading          | default("Let's Talk") %}
+{% set sub  = module.subtext            | default("Tell us what you're trying to solve. We'll connect you with the right team.") %}
+{% set resp =  module.response_time       | default("We typically respond within 1 business day.") %}
+{% set note =  module.routing_note        | default("Your inquiry will be reviewed and routed to the right Myridian based on your request.") %}
+{% set eml  =  module.contact_email       | default("info@myridius.com") %}
+{% set addr =  module.hq_address          | default("RCG Global Services (dba Myridius), 99 Wood Avenue South, 9th Floor Iselin, NJ 08830") %}
+{% set jay =  module.myr_cu_contact_info__label    |  default("Contact us") %}
+{% set hrj =   module.myr_cu_hq__label     |  default("Corporate Headquarters") %}
+
+{# ── HubSpot Credentials (portal + form from module fields) ── #}
+{% set hs_portal_id = module.hs_portal_id | default("5230018") %}
+{% set hs_form_guid = module.form_field.form_id if module.form_field and module.form_field.form_id else "48e1988e-811e-4dc1-bf50-0c95909c0f69" %}
+
+<div class="myr-cu-wrapper">
+  <div class="myr-cu-container">
+
+    <!-- LEFT COLUMN -->
+    <div class="myr-cu-left">
+
+      <nav class="myr-cu-breadcrumb" aria-label="Breadcrumb">
+        <span class="myr-cu-breadcrumb__item">{{ bh }}</span>
+        <span class="myr-cu-breadcrumb__sep">/</span>
+        <span class="myr-cu-breadcrumb__item myr-cu-breadcrumb__item--active">{{ bc }}</span>
+      </nav>
+
+      <h1 class="myr-cu-heading">{{ hdg }}</h1>
+
+      <p class="myr-cu-subtext">{{ sub }}</p>
+
+   {#   <div class="myr-cu-badge">
+        <span class="myr-cu-badge__dot"></span>
+        <span class="myr-cu-badge__text">{{ resp }}</span>
+      </div>#}
+
+   {#   <p class="myr-cu-routing-note">{{ note }}</p> #}
+
+      <hr class="myr-cu-divider">
+
+      <div class="myr-cu-contact-info">
+        <p class="myr-cu-contact-info__label">{{jay}}</p>
+        <a href="mailto:{{ eml }}" class="myr-cu-contact-info__email">{{ eml }}</a>
+      </div>
+
+      <div class="myr-cu-hq">
+        <p class="myr-cu-hq__label">{{ hrj }}</p>
+        <p class="myr-cu-hq__address">{{ addr }}</p>
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="myr-cu-right">
+      <div class="myr-cu-form-card">
+        <form class="myr-cu-form" id="myridiusContactForm" novalidate>
+
+          <!-- Row 1 -->
+          <div class="myr-cu-form__row">
+            <div class="myr-cu-form__group">
+              <label class="myr-cu-form__label" for="myr_first_name">FIRST NAME<span class="myr-cu-form__required">*</span></label>
+              <input type="text" id="myr_first_name" name="firstname" class="myr-cu-form__input" required aria-required="true" />
+            </div>
+            <div class="myr-cu-form__group">
+              <label class="myr-cu-form__label" for="myr_last_name">LAST NAME<span class="myr-cu-form__required">*</span></label>
+              <input type="text" id="myr_last_name" name="lastname" class="myr-cu-form__input" required aria-required="true" />
+            </div>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="myr-cu-form__row myr-cu-form__row--full">
+            <div class="myr-cu-form__group">
+              <label class="myr-cu-form__label" for="myr_email">WORK EMAIL ADDRESS<span class="myr-cu-form__required">*</span></label>
+              <input type="email" id="myr_email" name="email" class="myr-cu-form__input" required aria-required="true" />
+            </div>
+          </div>
+
+          <!-- Row 3 -->
+          <div class="myr-cu-form__row">
+            <div class="myr-cu-form__group">
+              <label class="myr-cu-form__label" for="myr_job_title">JOB TITLE<span class="myr-cu-form__required">*</span></label>
+              <div class="myr-cu-form__select-wrap">
+                <select id="myr_job_title" name="jobtitle" class="myr-cu-form__select" required aria-required="true">
+                  <option value="" disabled selected>Select</option>
+                  <option value="c-suite">C-Suite / Executive</option>
+                  <option value="vp">VP / Director</option>
+                  <option value="manager">Manager</option>
+                  <option value="analyst">Analyst / Consultant</option>
+                  <option value="individual">Individual Contributor</option>
+                  <option value="other">Other</option>
+                </select>
+                <span class="myr-cu-form__select-arrow">&#8964;</span>
+              </div>
+            </div>
+            <div class="myr-cu-form__group">
+              <label class="myr-cu-form__label" for="myr_city">CITY<span class="myr-cu-form__required">*</span></label>
+              <div class="myr-cu-form__select-wrap">
+                <select id="myr_city" name="city" class="myr-cu-form__select" required aria-required="true">
+                  <option value="" disabled selected>Select</option>
+                  <option value="new-york">New York</option>
+                  <option value="iselin">Iselin, NJ</option>
+                  <option value="chicago">Chicago</option>
+                  <option value="los-angeles">Los Angeles</option>
+                  <option value="other">Other</option>
+                </select>
+                <span class="myr-cu-form__select-arrow">&#8964;</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 4 -->
+          <div class="myr-cu-form__row">
+            <div class="myr-cu-form__group">
+              <label class="myr-cu-form__label" for="myr_company">COMPANY<span class="myr-cu-form__required">*</span></label>
+              <input type="text" id="myr_company" name="company" class="myr-cu-form__input" required aria-required="true" />
+            </div>
+            <div class="myr-cu-form__group">
+              <label class="myr-cu-form__label" for="myr_inquiry_type">INQUIRY TYPE</label>
+              <div class="myr-cu-form__select-wrap">
+                <select id="myr_inquiry_type" name="inquiry_type" class="myr-cu-form__select">
+                  <option value="" disabled selected>Select</option>
+                  <option value="general">General Inquiry</option>
+                  <option value="sales">Sales</option>
+                  <option value="support">Support</option>
+                  <option value="partnership">Partnership</option>
+                  <option value="media">Media / Press</option>
+                  <option value="careers">Careers</option>
+                </select>
+                <span class="myr-cu-form__select-arrow">&#8964;</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 5 -->
+          <div class="myr-cu-form__row myr-cu-form__row--full">
+            <div class="myr-cu-form__group">
+              <label class="myr-cu-form__label" for="myr_comments">COMMENTS</label>
+              <textarea id="myr_comments" name="message" class="myr-cu-form__textarea" rows="4"></textarea>
+            </div>
+          </div>
+
+          <!-- Submit -->
+          <div class="myr-cu-form__row myr-cu-form__row--full">
+            <button type="submit" class="myr-cu-form__submit">
+              <span class="myr-cu-form__submit-text">Submit</span>
+              <span class="myr-cu-form__submit-loader" aria-hidden="true"></span>
+            </button>
+          </div>
+
+          <!-- Messages -->
+          <div class="myr-cu-form__feedback myr-cu-form__feedback--success" id="myrFormSuccess" role="alert" aria-live="polite" style="display:none;">
+            Thank you! Your message has been received. We'll be in touch within 1 business day.
+          </div>
+          <div class="myr-cu-form__feedback myr-cu-form__feedback--error" id="myrFormError" role="alert" aria-live="polite" style="display:none;">
+            Something went wrong. Please try again or email us at <a href="mailto:{{ eml }}">{{ eml }}</a>.
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script>
+(function () {
+  'use strict';
+
+  /* HubSpot credentials — from module fields at render time */
+  var PORTAL_ID = {{ hs_portal_id|tojson }};
+  var FORM_GUID = {{ hs_form_guid|tojson }};
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var form       = document.getElementById('myridiusContactForm');
+    if (!form) return;
+
+    var submitBtn  = form.querySelector('.myr-cu-form__submit');
+    var successMsg = document.getElementById('myrFormSuccess');
+    var errorMsg   = document.getElementById('myrFormError');
+
+    /* ── Validation helpers ── */
+    function isEmail(v) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+    }
+    function markField(el, valid) {
+      el.classList.toggle('myr-cu-invalid', !valid);
+    }
+    function validateAll() {
+      var ok = true;
+      var rules = [
+        { id: 'myr_first_name',  fn: function(v){ return v.trim().length > 0; } },
+        { id: 'myr_last_name',   fn: function(v){ return v.trim().length > 0; } },
+        { id: 'myr_email',       fn: isEmail },
+        { id: 'myr_job_title',   fn: function(v){ return v !== ''; } },
+        { id: 'myr_city',        fn: function(v){ return v !== ''; } },
+        { id: 'myr_company',     fn: function(v){ return v.trim().length > 0; } },
+      ];
+      rules.forEach(function(r) {
+        var el = document.getElementById(r.id);
+        if (!el) return;
+        var valid = r.fn(el.value);
+        markField(el, valid);
+        if (!valid) ok = false;
+      });
+      return ok;
+    }
+
+    /* ── Clear invalid state on input ── */
+    var inputs = form.querySelectorAll('.myr-cu-form__input, .myr-cu-form__select, .myr-cu-form__textarea');
+    inputs.forEach(function(el) {
+      el.addEventListener('input',  function(){ el.classList.remove('myr-cu-invalid'); });
+      el.addEventListener('change', function(){ el.classList.remove('myr-cu-invalid'); });
+    });
+
+    /* ── Submit handler ── */
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      successMsg.style.display = 'none';
+      errorMsg.style.display   = 'none';
+
+      if (!validateAll()) return;
+
+      submitBtn.classList.add('myr-cu-loading');
+      submitBtn.disabled = true;
+
+      var payload = {
+        fields: [
+          { name: 'firstname',    value: (document.getElementById('myr_first_name').value  || '').trim() },
+          { name: 'lastname',     value: (document.getElementById('myr_last_name').value   || '').trim() },
+          { name: 'email',        value: (document.getElementById('myr_email').value        || '').trim() },
+          { name: 'jobtitle',     value:  document.getElementById('myr_job_title').value   || '' },
+          { name: 'city',         value:  document.getElementById('myr_city').value         || '' },
+          { name: 'company',      value: (document.getElementById('myr_company').value      || '').trim() },
+          { name: 'inquiry_type', value:  document.getElementById('myr_inquiry_type').value || '' },
+          { name: 'message',      value: (document.getElementById('myr_comments').value     || '').trim() },
+        ],
+        context: {
+          pageUri:  window.location.href,
+          pageName: document.title
+        }
+      };
+
+      fetch(
+        'https://api.hsforms.com/submissions/v3/integration/submit/' + PORTAL_ID + '/' + FORM_GUID + '?region=na1',
+        {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify(payload)
+        }
+      )
+      .then(function(res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      })
+      .then(function() {
+        submitBtn.classList.remove('myr-cu-loading');
+        submitBtn.disabled = false;
+        successMsg.style.display = 'block';
+        form.reset();
+      })
+      .catch(function() {
+        submitBtn.classList.remove('myr-cu-loading');
+        submitBtn.disabled = false;
+        errorMsg.style.display = 'block';
+      });
+    });
+  });
+})();
+</script>

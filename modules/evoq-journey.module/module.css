@@ -55,7 +55,7 @@
 
 .evoq-journey__description {
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--evoq-mint-pale, #ECFAE5);
   max-width: 800px;
   margin: 0 auto;
@@ -89,7 +89,7 @@
 
 .evoq-journey__stage-desc {
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
   color: rgba(255, 255, 255, 0.6);
   margin: 0 0 12px;
   line-height: 1.4;
@@ -133,14 +133,14 @@
 
 .evoq-journey__sub-title {
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--evoq-green, #52E081);
   margin: 0 0 12px;
 }
 
 .evoq-journey__sub-description {
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--evoq-white, #ffffff);
   max-width: 700px;
   line-height: 1.55;
@@ -191,9 +191,53 @@
   height: 340px;
   flex-shrink: 0;
   opacity: 0.9;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1),
               height 0.45s cubic-bezier(0.22, 1, 0.36, 1),
               opacity 0.35s ease;
+}
+
+/* Optional CMS photo over card (see fields: background_image) */
+.evoq-journey__card--has-bg {
+  background-color: #0c2226;
+}
+
+.evoq-journey__card--has-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(7, 20, 23, 0.15) 0%, rgba(7, 20, 23, 0.82) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.evoq-journey__card--has-bg .evoq-journey__card-orbit,
+.evoq-journey__card--has-bg .evoq-journey__card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.evoq-journey__card-orbit {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.evoq-journey__card-orbit svg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 130%;
+  min-width: 420px;
+  height: auto;
+  transform: translate(-50%, -48%);
+  opacity: 0.85;
 }
 
 .evoq-journey__card--active {
@@ -204,6 +248,8 @@
 }
 
 .evoq-journey__card-content {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -221,7 +267,7 @@
 
 .evoq-journey__card-title {
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--evoq-mint-pale, #ECFAE5);
   margin: 0;
   transition: color 0.3s ease;
@@ -323,7 +369,7 @@
 
 .evoq-journey__cards-nav-icon {
   font-size: 1.75rem;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 1;
 }
 
@@ -357,103 +403,273 @@
 
 }
 
-/* Responsive - Mobile */
-@media (max-width: 640px) {
+/* Responsive - Mobile (Figma ~393px column) */
+@media (max-width: 767px) {
   .evoq-journey {
-    padding: 60px 16px;
+    padding: 64px 20px;
+  }
+
+  .evoq-journey__container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+    max-width: none;
   }
 
   .evoq-journey__header {
-    margin-bottom: 48px;
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  .evoq-journey__badge {
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 0;
+    gap: 8px;
+  }
+
+  .evoq-journey__badge-dash {
+    width: 32px;
+    height: 1px;
+  }
+
+  .evoq-journey__badge-text {
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.1em;
   }
 
   .evoq-journey__title {
-    font-size: 32px;
+    font-size: 36px;
+    line-height: 42px;
+    font-weight: 500;
+    margin: 0;
+    letter-spacing: 0;
   }
 
   .evoq-journey__description {
-    font-size: 16px;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #ecfae5;
+    max-width: none;
+    margin: 0;
   }
 
   .evoq-journey__stages-bar {
-    flex-direction: column;
     display: flex;
-    gap: 20px;
-    padding: 20px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 25px;
+    padding: 20px 16px;
+    margin-bottom: 0;
+    background: linear-gradient(90.9deg, #0c2226 24.09%, #194247 96.44%);
+    border-radius: 4.87px;
+  }
+
+  .evoq-journey__stage {
+    flex: none;
+    width: 100%;
+  }
+
+  .evoq-journey__stage-title {
+    font-size: 16px;
+    line-height: 16px;
+    color: #52e081;
+    margin: 0 0 2px;
+  }
+
+  .evoq-journey__stage-desc {
+    font-size: 14px;
+    line-height: 20px;
+    color: #ffffff;
+    margin: 0 0 8px;
+  }
+
+  .evoq-journey__stage-progress {
+    height: 2px;
+    background: transparent;
+    border-radius: 20px;
+    margin: 0;
+  }
+
+  .evoq-journey__stage-progress-fill {
+    width: 100%;
+    height: 100%;
+    background: #52e081;
+    border-radius: 20px;
+  }
+
+  .evoq-journey__subheader {
+    margin-bottom: 0;
+    text-align: left;
+  }
+
+  .evoq-journey__sub-title {
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 500;
+    margin: 0 0 24px;
+  }
+
+  .evoq-journey__sub-description {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #ffffff;
+    max-width: none;
+    margin: 0;
+  }
+
+  .evoq-journey__cards-slider {
+    gap: 0;
+    width: 100%;
+    margin: 0;
+  }
+
+  .evoq-journey__cards-viewport {
+    margin: 0 -20px;
+    padding: 0 20px;
+    width: auto;
+    scroll-padding-left: 20px;
+    scroll-padding-right: 20px;
+    scroll-snap-type: x mandatory;
   }
 
   .evoq-journey__cards {
     flex-direction: row;
-    min-height: 300px;
-    gap: 12px;
+    flex-wrap: nowrap;
     align-items: flex-end;
-    scroll-snap-type: x mandatory;
+    justify-content: flex-start;
+    gap: 15px;
+    min-height: 420px;
+    padding-bottom: 0;
+    scroll-snap-type: none;
   }
 
-  .evoq-journey__card,
-  .evoq-journey__card--active {
-    width: 280px;
-    min-width: 280px;
-    min-height: 260px;
-    height: 260px;
-    padding: 20px;
-    transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-                min-height 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  .evoq-journey__card {
+    width: 156px;
+    min-width: 156px;
+    min-height: 275px;
+    height: 275px;
+    padding: 20px 16px;
+    border-radius: 6.875px;
+    opacity: 0.92;
+    flex-shrink: 0;
     scroll-snap-align: start;
+    scroll-snap-stop: normal;
+    box-sizing: border-box;
+    transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+      min-height 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+      height 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.35s ease;
   }
 
   .evoq-journey__card--active {
-    width: 320px;
-    min-width: 320px;
-    min-height: 300px;
-    height: 300px;
-  }
-
-  .evoq-journey__card-description {
-    min-height: 0;
-    max-height: 0;
-    opacity: 0;
-  }
-
-  .evoq-journey__card--active .evoq-journey__card-description {
-    min-height: 120px;
-    max-height: 300px;
+    width: min(304px, calc(100vw - 44px));
+    min-width: min(304px, calc(100vw - 44px));
+    min-height: 400px;
+    height: 400px;
     opacity: 1;
   }
 
+  .evoq-journey__card-orbit svg {
+    width: 115%;
+    min-width: 300px;
+    opacity: 0.75;
+  }
+
+  .evoq-journey__card-title {
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 500;
+    color: #ecfae5;
+  }
+
   .evoq-journey__card--active .evoq-journey__card-title {
-    color: var(--evoq-green, #52E081);
+    color: #52e081;
+  }
+
+  .evoq-journey__card-subtitle {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ffffff;
+    opacity: 1;
+  }
+
+  .evoq-journey__card-description {
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .evoq-journey__card--active .evoq-journey__card-description {
+    min-height: 68px;
+    max-height: none;
+  }
+
+  .evoq-journey__card-content {
+    gap: 6px;
+    width: 100%;
   }
 
   .evoq-journey__cards-toolbar {
-    max-width: 100%;
-    margin-top: 1.25rem;
+    max-width: none;
+    margin-top: 24px;
     padding: 0;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 32px;
+    align-items: center;
   }
 
   .evoq-journey__cards-index {
     flex: 0 0 auto;
-    padding: 0 0.125rem;
-    font-size: 14px;
-    letter-spacing: 0.08em;
+    padding: 0;
+    font-size: 12px;
+    line-height: 24px;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  .evoq-journey__cards-index-muted {
+    color: #8ca1a3;
   }
 
   .evoq-journey__cards-nav {
-    width: auto;
-    height: auto;
-    min-width: 1.75rem;
-    min-height: 2.25rem;
-    padding: 0 0.125rem;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    padding: 8px;
+    color: #8ca1a3;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .evoq-journey__cards-nav:hover,
+  .evoq-journey__cards-nav:focus-visible {
+    color: #ffffff;
   }
 
   .evoq-journey__cards-nav-icon {
     font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
   }
 }
 
-@media (min-width: 641px) {
+@media (min-width: 768px) {
   .evoq-journey__cards-toolbar {
     position: absolute;
     left: 0;

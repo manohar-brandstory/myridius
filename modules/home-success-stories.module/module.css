@@ -51,7 +51,7 @@
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: #52e081;
-  line-height: 21px;
+  line-height: 1.2;
 }
 
 .home-stories__intro {
@@ -413,7 +413,7 @@
 
 .home-stories__bullet-text {
   color: #ecfae5;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .home-stories__card-title--hover {

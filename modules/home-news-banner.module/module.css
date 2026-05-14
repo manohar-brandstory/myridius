@@ -143,7 +143,7 @@
 .home-news__card-title {
   font-family: 'Montserrat', sans-serif;
   font-size: 24px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.25;
   color: #FFFFFF;
   margin: 0;
@@ -353,7 +353,7 @@
 
   .home-news__card-title {
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 22px;
   }
 

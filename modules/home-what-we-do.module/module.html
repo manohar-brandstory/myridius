@@ -1,9 +1,10 @@
 {# Home — What We Do (NewHomePage WhatWeDo / SectionBadge / lucide-aligned icons via fields) #}
+{% set sid = module.section_id || "home-what-we-do" %}
 {% require_css %}
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
 {% end_require_css %}
 
-<section class="home-wwd" data-home-wwd aria-label="{{ module.badge_text }}">
+<section class="home-wwd" id="{{ sid }}" data-home-wwd aria-label="{{ module.badge_text }}">
   <div class="home-wwd__container">
 
     <header class="home-wwd__masthead" data-wwd-intro>

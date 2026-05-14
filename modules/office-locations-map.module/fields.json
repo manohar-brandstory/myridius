@@ -1,0 +1,22 @@
+[ {
+  "id" : "9cc00353-fad3-046d-af40-496bf26b113c",
+  "name" : "image_field",
+  "label" : "Image",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "display_width" : null,
+  "default" : {
+    "size_type" : "auto",
+    "src" : "https://5230018.fs1.hubspotusercontent-na1.net/hubfs/5230018/Map%20(2).png",
+    "alt" : "Map (2)",
+    "loading" : "lazy",
+    "width" : 1586,
+    "height" : 992,
+    "max_width" : 1586,
+    "max_height" : 992
+  }
+} ]

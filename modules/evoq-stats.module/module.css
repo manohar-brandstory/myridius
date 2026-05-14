@@ -168,7 +168,7 @@
 .evoq-stats__card-description {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.72);
-  line-height: 1.35;
+  line-height: 1.375;
   margin-top: 8px;
 }
 
@@ -191,7 +191,7 @@
   color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 2px;
-  font-weight: 400;
+  font-weight: 500;
   white-space: pre-wrap;
   text-align: center;
 }
@@ -307,7 +307,7 @@
 .evoq-stats__stat-description {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.65);
-  line-height: 1.35;
+  line-height: 1.375;
   text-align: left;
   width: 100%;
 }

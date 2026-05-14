@@ -262,6 +262,12 @@
   padding: 12px 0;
 }
 
+.evoq-nav__search-form {
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+
 .evoq-nav__search-icon {
   color: var(--evoq-neutral);
   flex-shrink: 0;

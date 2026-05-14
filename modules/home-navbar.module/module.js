@@ -71,6 +71,7 @@
     var searchToggle = nav.querySelector("[data-home-search-toggle]");
     var searchBox = nav.querySelector(".home-navbar__searchBox");
     var searchInput = nav.querySelector(".home-navbar__searchInput");
+    var searchForm = searchBox && searchBox.querySelector(".home-navbar__searchForm");
     if (searchToggle && searchBox) {
       searchToggle.addEventListener("click", function () {
         var willShow = searchBox.hidden;
@@ -81,9 +82,10 @@
       if (searchInput) {
         searchInput.addEventListener("blur", function () {
           window.setTimeout(function () {
+            if (searchForm && searchForm.contains(document.activeElement)) return;
             searchBox.hidden = true;
             searchToggle.hidden = false;
-          }, 150);
+          }, 200);
         });
       }
     }

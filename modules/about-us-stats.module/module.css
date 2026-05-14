@@ -1,0 +1,425 @@
+.about-us-stats {
+  background: #fff;
+}
+
+.about-us-stats__inner {
+  max-width: var(--container-max, 80rem);
+  margin: 0 auto;
+  padding: 64px var(--gutter, 64px);
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+.about-us-stats__topRow {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.about-us-stats__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.about-us-stats__badgeLine {
+  width: 24px;
+  height: 2px;
+  background: #194247;
+  border-radius: 9999px;
+}
+
+.about-us-stats__badgeText {
+  font-family: var(--font-family);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #194247;
+}
+
+.about-us-stats__headerText {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 700px;
+}
+
+.about-us-stats__heading {
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: 32px;
+  line-height: 1.15;
+  letter-spacing: -2px;
+  font-weight: 500;
+  color: #194247;
+  text-align: left;
+}
+
+.about-us-stats__headingHighlight {
+  color: #09a78d;
+}
+
+.about-us-stats__subtitle {
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 1.75;
+  font-weight: 500;
+  color: #337077;
+}
+
+.about-us-stats__exploreBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: #194247;
+  color: #fff;
+  text-decoration: none;
+  padding: 14px 40px;
+  border-radius: 9999px;
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition:
+    background 200ms ease,
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.about-us-stats__exploreBtn:hover {
+  background: #0c2226;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(25, 66, 71, 0.3);
+}
+
+.about-us-stats__desktopGrid {
+  display: none;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.about-us-stats__mobileCarousel {
+  display: block;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.about-us-stats__desktopGrid,
+.about-us-stats__mobileCarousel {
+  width: 100%;
+}
+
+.about-us-stats__mobileStage {
+  position: relative;
+  width: 100%;
+  min-height: 354px;
+}
+
+.about-us-stats__carouselCard {
+  display: none;
+}
+
+.about-us-stats__carouselCard.is-active {
+  display: block;
+}
+
+/* Mobile pager — same layout/tokens as about-us-values nav (prev / count / next) */
+.about-us-stats__mobilePager {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  margin-top: 20px;
+  position: relative;
+  z-index: 5;
+  pointer-events: auto;
+}
+
+.about-us-stats__pagerBtn {
+  width: 24px;
+  height: 24px;
+  background: none;
+  border: 0;
+  padding: 0;
+  color: #8ca1a3;
+  cursor: pointer;
+  pointer-events: auto;
+  touch-action: manipulation;
+}
+
+.about-us-stats__pagerBtn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.about-us-stats__pagerCount {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.about-us-stats__pagerCurrent {
+  color: #337077;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 24px;
+}
+
+.about-us-stats__pagerDivider {
+  color: #194247;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 24px;
+}
+
+.about-us-stats__pagerTotal {
+  color: #194247;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 24px;
+}
+
+/* Card shell (desktop grid + mobile carousel share inner structure) */
+.about-us-stats__card,
+.about-us-stats__carouselCard {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  height: 354px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  background: #071417;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-us-stats__card {
+  cursor: pointer;
+}
+
+.about-us-stats__cardMedia {
+  position: absolute;
+  inset: 0;
+}
+
+.about-us-stats__cardImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-us-stats__cardSaturation {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 1);
+  mix-blend-mode: saturation;
+}
+
+.about-us-stats__cardGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #0c2226 0%, rgba(12, 34, 38, 0.6) 50%, rgba(12, 34, 38, 0.3) 100%);
+}
+
+.about-us-stats__cardFront {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: opacity 300ms ease;
+  z-index: 1;
+}
+
+.about-us-stats__frontTitle {
+  margin: 0;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.4;
+  color: #fff;
+}
+
+.about-us-stats__frontDesc {
+  margin: 0;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.about-us-stats__cardDetails {
+  position: absolute;
+  inset: 0;
+  padding: 24px;
+  background: #0c2226;
+  transform: translateY(100%);
+  transition: transform 500ms ease, opacity 300ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  opacity: 1;
+  z-index: 2;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.about-us-stats__detailsBorder {
+  border-bottom: 1px solid #8ca1a3;
+  padding-bottom: 12px;
+}
+
+.about-us-stats__detailsSubheading {
+  margin: 0;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16.7px;
+  line-height: 1.5;
+  color: #fff;
+}
+
+.about-us-stats__detailsList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.about-us-stats__detailsItem {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.3;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.about-us-stats__detailsArrow {
+  color: #52e081;
+  font-weight: 600;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .about-us-stats__card:hover .about-us-stats__cardFront {
+    opacity: 0;
+  }
+
+  .about-us-stats__card:hover .about-us-stats__cardDetails {
+    transform: translateY(0);
+  }
+
+  .about-us-stats__card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 48px rgba(7, 20, 23, 0.38);
+    z-index: 2;
+  }
+}
+
+/* Tap / narrow viewports: toggle .is-details-open on the card (see module.html script) */
+.about-us-stats__card.is-details-open .about-us-stats__cardFront,
+.about-us-stats__carouselCard.is-details-open .about-us-stats__cardFront {
+  opacity: 0;
+}
+
+.about-us-stats__card.is-details-open .about-us-stats__cardDetails,
+.about-us-stats__carouselCard.is-details-open .about-us-stats__cardDetails {
+  transform: translateY(0);
+}
+
+@media (min-width: 1024px) {
+  .about-us-stats__inner {
+    padding: 100px var(--gutter, 64px);
+    gap: 64px;
+  }
+
+  .about-us-stats__topRow {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 48px;
+  }
+
+  .about-us-stats__badgeText {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 2px;
+  }
+
+  .about-us-stats__heading {
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.96px;
+  }
+
+  .about-us-stats__subtitle {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 28px;
+  }
+
+  .about-us-stats__exploreBtn {
+    padding: 14px 40px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 1px;
+  }
+
+  .about-us-stats__desktopGrid {
+    display: grid;
+  }
+
+  .about-us-stats__mobileCarousel {
+    display: none;
+  }
+
+  .about-us-stats__frontTitle {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 28px;
+  }
+
+  .about-us-stats__frontDesc {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+  }
+
+  .about-us-stats__detailsSubheading {
+    font-size: 16.671px;
+    font-weight: 500;
+    line-height: 25.007px;
+  }
+
+  .about-us-stats__detailsItem {
+    font-size: 16.671px;
+    font-weight: 500;
+    line-height: 25.007px;
+  }
+
+  .about-us-stats__card:nth-child(2) .about-us-stats__detailsItem,
+  .about-us-stats__carouselCard:nth-child(2) .about-us-stats__detailsItem {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .about-us-stats__card:nth-child(3) .about-us-stats__detailsItem,
+  .about-us-stats__carouselCard:nth-child(3) .about-us-stats__detailsItem {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}

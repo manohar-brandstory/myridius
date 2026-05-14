@@ -49,6 +49,18 @@
     "default": "Search"
   },
   {
+    "id": "search_results_page",
+    "name": "search_results_page",
+    "label": "Site search results page",
+    "type": "url",
+    "help_text": "Must be a real published URL. Easiest: create a **Website page** with slug **search**, template **Page — Site search results**, publish — then use `/search` here. Or configure **Settings → Website → Pages → System pages → Site search** to use **Myridius - Search results** and paste that system URL (often `/hs/search-results`).",
+    "default": {
+      "href": "/search",
+      "type": "EXTERNAL",
+      "content_id": null
+    }
+  },
+  {
     "id": "cta_text",
     "name": "cta_text",
     "label": "CTA Text",

@@ -2,8 +2,8 @@
 
 <section class="svc-hero" id="{{ module.section_id }}">
 
-  {# ── Breadcrumb ── #}
-  <div class="svc-hero__breadcrumb" aria-label="Breadcrumb">
+  {# ── Breadcrumb (Figma: motion.nav y -10, 0.6s on mount) ── #}
+  <div class="svc-hero__breadcrumb" aria-label="Breadcrumb" data-sr="nav">
     <div class="svc-hero__wrap">
       <nav aria-label="Breadcrumb">
         <ol class="svc-hero__crumbList">
@@ -29,7 +29,7 @@
     <div class="svc-hero__wrap">
       <div class="svc-hero__grid">
 
-        <div class="svc-hero__content" data-sr>
+        <div class="svc-hero__content" data-sr="main">
           <h1 class="svc-hero__title">{{ module.title }}</h1>
 
           <div class="svc-hero__subtitle">{{ module.subtitle }}</div>
@@ -55,7 +55,7 @@
           </div>
         </div>
 
-        <div class="svc-hero__media" data-sr>
+        <div class="svc-hero__media" data-sr="media">
           <div class="svc-hero__card">
             {% if module.hero_image.src %}
               <img
@@ -76,7 +76,7 @@
   {% if module.show_trust_badges and module.trust_badges %}
     <div class="svc-hero__trust" aria-label="{{ module.trust_aria_label|default('Partner credentials') }}">
       <div class="svc-hero__wrap">
-        <div class="svc-hero__trust-grid" data-sr-trust style="--trust-count: {{ module.trust_badges|length }}">
+        <div class="svc-hero__trust-grid" style="--trust-count: {{ module.trust_badges|length }}">
           {% for item in module.trust_badges %}
             <div class="svc-hero__trust-cell{% if not loop.first %} svc-hero__trust-cell--divider-col{% endif %}">
               <div class="svc-hero__trust-media">

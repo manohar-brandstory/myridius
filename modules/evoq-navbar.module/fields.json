@@ -79,6 +79,21 @@
   "display_width" : null,
   "default" : "Search..."
 }, {
+  "id" : "search_results_page",
+  "name" : "search_results_page",
+  "label" : "Site search results page",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT" ],
+  "type" : "url",
+  "display_width" : null,
+  "help_text" : "Must be a published URL. Create a page with template Page — Site search results at /search, or set System pages → Site search to Myridius - Search results and use that URL.",
+  "default" : {
+    "content_id" : null,
+    "href" : "/search",
+    "type" : "EXTERNAL"
+  }
+}, {
   "id" : "nav_links",
   "name" : "nav_links",
   "label" : "Navigation links",

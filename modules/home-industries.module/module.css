@@ -53,7 +53,7 @@
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: #194247;
-  line-height: 21px;
+  line-height: 1.2;
 }
 
 .home-ind__title {
@@ -134,7 +134,7 @@
   flex: 1;
   font-size: 16px;
   line-height: 28px;
-  font-weight: 400;
+  font-weight: 500;
   color: #556467;
   transition: color 300ms ease;
 }
@@ -416,11 +416,13 @@
   }
 
   .home-ind__title {
-    font-size: 40px;
+    font-size: 48px;
+    line-height: 1.15;
   }
 
   .home-ind__subtitle {
-    font-size: 18px;
+    font-size: 20px;
+    line-height: 1.4;
   }
 
   .home-ind__grid {

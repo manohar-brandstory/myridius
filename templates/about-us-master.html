@@ -1,0 +1,50 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: About Us - Master Template
+-->
+{% extends "./layouts/base.html" %}
+
+{# Section labels match root BEM blocks (about-us-*) for Design Manager clarity. Navbar + footer from layouts/base.html. #}
+
+{% block body %}
+  <main id="main-content" class="about-us-page">
+    {% dnd_area "about_us_content", label="About Us Content", class="about-us-page__dnd" %}
+      {% dnd_section label="About Us - Hero" %}
+        {% dnd_column offset=0, width=12 %}
+          {% dnd_module path="/Myridius Theme V1/modules/about-us-hero.module", label="About Us - Hero" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section label="About Us - Company overview" %}
+        {% dnd_column offset=0, width=12 %}
+          {% dnd_module path="/Myridius Theme V1/modules/about-us-company-overview.module", label="About Us - Company overview" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section label="About Us - Values" %}
+        {% dnd_column offset=0, width=12 %}
+          {% dnd_module path="/Myridius Theme V1/modules/about-us-values.module", label="About Us - Values" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section label="About Us - Video" %}
+        {% dnd_column offset=0, width=12 %}
+          {% dnd_module path="/Myridius Theme V1/modules/about-us-video.module", label="About Us - Video" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section label="About Us - Stats" %}
+        {% dnd_column offset=0, width=12 %}
+          {% dnd_module path="/Myridius Theme V1/modules/about-us-stats.module", label="About Us - Stats" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section label="About Us - CARES" %}
+        {% dnd_column offset=0, width=12 %}
+          {% dnd_module path="/Myridius Theme V1/modules/about-us-cares.module", label="About Us - CARES" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section label="About Us - CTA" %}
+        {% dnd_column offset=0, width=12 %}
+          {% dnd_module path="/Myridius Theme V1/modules/about-us-cta.module", label="About Us - CTA" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+    {% end_dnd_area %}
+  </main>
+{% endblock body %}

@@ -96,12 +96,12 @@
 }
 .evoq-model__ring-label {
   fill: #fff;
-  font: 700 16px/1 Montserrat, sans-serif;
+  font: 500 16px/1 Montserrat, sans-serif;
   text-anchor: middle;
 }
 .evoq-model__core-title {
   fill: #fff;
-  font: 600 18px/1 Montserrat, sans-serif;
+  font: 500 18px/1 Montserrat, sans-serif;
   letter-spacing: 4px;
   text-anchor: middle;
 }
@@ -117,7 +117,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font: 600 14px/1.2 Montserrat, sans-serif;
+  font: 500 14px/1.2 Montserrat, sans-serif;
   color: #fff;
   white-space: nowrap;
 }
@@ -247,7 +247,7 @@
 .evoq-model__mobile-core p {
   margin: 0;
   color: #fff;
-  font: 600 14px/1 Montserrat, sans-serif;
+  font: 500 14px/1 Montserrat, sans-serif;
   letter-spacing: 3px;
 }
 .evoq-model__mobile-core span {
@@ -274,7 +274,7 @@
 .evoq-model__mobile-label {
   margin: 0 0 10px;
   color: #8ca1a3;
-  font: 600 12px/1.2 Montserrat, sans-serif;
+  font: 500 12px/1.2 Montserrat, sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
@@ -294,7 +294,7 @@
 .evoq-model__insight-card h4 {
   margin: 0 0 8px;
   color: #52e081;
-  font: 600 12px/1.4 Montserrat, sans-serif;
+  font: 500 12px/1.4 Montserrat, sans-serif;
   text-transform: uppercase;
   letter-spacing: 1.5px;
 }

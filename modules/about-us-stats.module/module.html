@@ -1,0 +1,214 @@
+<section id="{{ module.section_html_id }}" class="about-us-stats" data-about-us-stats>
+  <div class="about-us-stats__inner">
+    <div class="about-us-stats__topRow">
+      <div class="about-us-stats__headerText">
+        <div class="about-us-stats__badge">
+          <span class="about-us-stats__badgeLine" aria-hidden="true"></span>
+          <span class="about-us-stats__badgeText">{{ module.badge_label }}</span>
+        </div>
+
+        <h2 class="about-us-stats__heading">
+          <span class="about-us-stats__headingLine1">{{ module.heading_line1 }}</span>
+          <br class="about-us-stats__headingBr">
+          <span class="about-us-stats__headingHighlight">{{ module.heading_highlight }}</span>
+        </h2>
+
+        <p class="about-us-stats__subtitle">{{ module.subtitle }}</p>
+      </div>
+
+      <a class="about-us-stats__exploreBtn" href="{{ module.explore_button_url.href }}">
+        <span>{{ module.explore_button_text }}</span>
+        <svg class="about-us-stats__exploreArrow" width="17" height="17" viewBox="0 0 17.49 17.49" fill="none" aria-hidden="true">
+          <path d="M3.645 8.744H13.847" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.457"/>
+          <path d="M8.745 3.644L13.846 8.744L8.745 13.845" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.457"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Desktop grid -->
+    <div class="about-us-stats__desktopGrid" role="list" aria-label="Value cards">
+      {% for card in module.cards %}
+        <article class="about-us-stats__card" role="listitem">
+          <div class="about-us-stats__cardMedia" aria-hidden="true">
+            {% if card.image.src %}
+              <img class="about-us-stats__cardImg" src="{{ card.image.src }}" alt="" loading="lazy" decoding="async">
+            {% endif %}
+            <div class="about-us-stats__cardSaturation"></div>
+            <div class="about-us-stats__cardGradient"></div>
+          </div>
+
+          <div class="about-us-stats__cardFront">
+            <h3 class="about-us-stats__frontTitle">{{ card.title }}</h3>
+            <p class="about-us-stats__frontDesc">{{ card.description }}</p>
+          </div>
+
+          <div class="about-us-stats__cardDetails" aria-hidden="true">
+            <div class="about-us-stats__detailsBorder">
+              <p class="about-us-stats__detailsSubheading">{{ card.subheading }}</p>
+            </div>
+            <ul class="about-us-stats__detailsList">
+              {% for it in card.items %}
+                <li class="about-us-stats__detailsItem">
+                  <span class="about-us-stats__detailsArrow">→ </span>
+                  <span>{{ it.text }}</span>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+
+    <!-- Mobile carousel -->
+    <div class="about-us-stats__mobileCarousel" data-about-us-stats-carousel aria-label="Value cards carousel">
+      <div class="about-us-stats__mobileStage">
+        {% for card in module.cards %}
+          <article
+            class="about-us-stats__carouselCard{% if loop.first %} is-active{% endif %}"
+            data-card-index="{{ loop.index0 }}"
+            aria-hidden="{% if loop.first %}false{% else %}true{% endif %}"
+          >
+            <div class="about-us-stats__cardMedia" aria-hidden="true">
+              {% if card.image.src %}
+                <img class="about-us-stats__cardImg" src="{{ card.image.src }}" alt="" loading="lazy" decoding="async">
+              {% endif %}
+              <div class="about-us-stats__cardSaturation"></div>
+              <div class="about-us-stats__cardGradient"></div>
+            </div>
+
+            <div class="about-us-stats__cardFront">
+              <h3 class="about-us-stats__frontTitle">{{ card.title }}</h3>
+              <p class="about-us-stats__frontDesc">{{ card.description }}</p>
+            </div>
+
+            <div class="about-us-stats__cardDetails" aria-hidden="true">
+              <div class="about-us-stats__detailsBorder">
+                <p class="about-us-stats__detailsSubheading">{{ card.subheading }}</p>
+              </div>
+              <ul class="about-us-stats__detailsList">
+                {% for it in card.items %}
+                  <li class="about-us-stats__detailsItem">
+                    <span class="about-us-stats__detailsArrow">→ </span>
+                    <span>{{ it.text }}</span>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+
+      <div class="about-us-stats__mobilePager">
+        <button class="about-us-stats__pagerBtn" type="button" aria-label="Previous" data-carousel-prev disabled>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <div class="about-us-stats__pagerCount" aria-live="polite">
+          <span class="about-us-stats__pagerCurrent" data-carousel-current>1</span>
+          <span class="about-us-stats__pagerDivider">/</span>
+          <span class="about-us-stats__pagerTotal" data-carousel-total>{{ module.cards|length }}</span>
+        </div>
+
+        <button class="about-us-stats__pagerBtn" type="button" aria-label="Next" data-carousel-next>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      // Avoid document.currentScript — it is often null in HubSpot's live preview after
+      // "Update", so the carousel would not bind until a full re-render (multiple clicks).
+      var scopes = document.querySelectorAll('[data-about-us-stats]');
+      for (var s = 0; s < scopes.length; s++) {
+        var scope = scopes[s];
+        if (scope.getAttribute('data-about-us-stats-init') === '1') continue;
+        scope.setAttribute('data-about-us-stats-init', '1');
+
+        var mqHoverNone = window.matchMedia('(hover: none)');
+        var mqNarrow = window.matchMedia('(max-width: 1023px)');
+        function useTapForCardDetails() {
+          return mqHoverNone.matches || mqNarrow.matches;
+        }
+
+        function clearDetailsState(cardEl) {
+          cardEl.classList.remove('is-details-open');
+          var d = cardEl.querySelector('.about-us-stats__cardDetails');
+          if (d) d.setAttribute('aria-hidden', 'true');
+        }
+
+        var statCards = Array.prototype.slice.call(
+          scope.querySelectorAll('.about-us-stats__card, .about-us-stats__carouselCard')
+        );
+        statCards.forEach(function (card) {
+          card.addEventListener('click', function (e) {
+            if (!useTapForCardDetails()) return;
+            if (e.target.closest('.about-us-stats__pagerBtn')) return;
+            if (card.classList.contains('about-us-stats__carouselCard') && !card.classList.contains('is-active')) {
+              return;
+            }
+            var willOpen = !card.classList.contains('is-details-open');
+            if (willOpen) {
+              statCards.forEach(function (c) {
+                clearDetailsState(c);
+              });
+            }
+            card.classList.toggle('is-details-open');
+            var details = card.querySelector('.about-us-stats__cardDetails');
+            if (details) {
+              details.setAttribute('aria-hidden', card.classList.contains('is-details-open') ? 'false' : 'true');
+            }
+          });
+        });
+
+        var root = scope.querySelector('[data-about-us-stats-carousel]');
+        if (!root) continue;
+
+        var cards = Array.prototype.slice.call(root.querySelectorAll('[data-card-index]'));
+        var prev = root.querySelector('[data-carousel-prev]');
+        var next = root.querySelector('[data-carousel-next]');
+        var currentEl = root.querySelector('[data-carousel-current]');
+        if (!cards.length) continue;
+
+        var active = 0;
+
+        function render() {
+          cards.forEach(function (c) {
+            var idx = parseInt(c.getAttribute('data-card-index'), 10);
+            var isActive = idx === active;
+            c.classList.toggle('is-active', isActive);
+            c.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+            clearDetailsState(c);
+          });
+
+          if (currentEl) currentEl.textContent = String(active + 1);
+
+          if (prev) prev.disabled = active === 0;
+          if (next) next.disabled = active === cards.length - 1;
+        }
+
+        if (prev) prev.addEventListener('click', function () {
+          active = Math.max(0, active - 1);
+          render();
+        });
+
+        if (next) next.addEventListener('click', function () {
+          active = Math.min(cards.length - 1, active + 1);
+          render();
+        });
+
+        if (cards.length <= 1) {
+          if (prev) prev.disabled = true;
+          if (next) next.disabled = true;
+        }
+        render();
+      }
+    })();
+  </script>
+</section>
+

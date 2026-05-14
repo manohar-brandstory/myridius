@@ -1,0 +1,126 @@
+[ {
+  "id" : "f311f915-b8f6-efb9-9e2c-8d5d5c1a18fe",
+  "name" : "form_field",
+  "label" : "Form",
+  "required" : false,
+  "locked" : false,
+  "embed_versions" : [ "v2", "v4" ],
+  "type" : "form",
+  "display_width" : null,
+  "default" : {
+    "form_id" : "48e1988e-811e-4dc1-bf50-0c95909c0f69",
+    "response_type" : "inline",
+    "message" : "Thanks for submitting the form.",
+    "form_type" : "HUBSPOT"
+  }
+}, {
+  "id" : "dd16f803-7624-9cac-0d7a-16eba2aaf65b",
+  "name" : "heading",
+  "label" : "heading",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Let's Talk"
+}, {
+  "id" : "39d5b562-bc7a-88f0-b180-1562e28c0755",
+  "name" : "subtext",
+  "label" : "subtext",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Tell us what you're trying to solve. We'll connect you with the right team."
+}, {
+  "id" : "b0178a42-967c-c0bd-c8e3-de30a546f1fd",
+  "name" : "response_time",
+  "label" : "response_time",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "We typically respond within 1 business day."
+}, {
+  "id" : "6303f181-189a-f6fa-1400-f8be83412f9d",
+  "name" : "routing_note",
+  "label" : "routing_note",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Your inquiry will be reviewed and routed to the right Myridian based on your request."
+}, {
+  "id" : "32fa55cb-0605-b7ce-d2a3-0f259e6ba891",
+  "name" : "contact_email",
+  "label" : "contact_email",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "info@myridius.com"
+}, {
+  "id" : "4179ba17-6d76-5e9d-18cc-9a5a55d50d54",
+  "name" : "hq_address",
+  "label" : "hq_address",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "RCG Global Services (dba Myridius), 99 Wood Avenue South, 9th Floor Iselin, NJ 08830"
+}, {
+  "id" : "11eda5ee-4029-a245-a7d3-0747a4abe2a5",
+  "name" : "breadcrumb_home",
+  "label" : "breadcrumb_home",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "MYRIDIUS"
+}, {
+  "id" : "c6021a2b-0432-46ae-39d9-0ffa333140a5",
+  "name" : "breadcrumb_current",
+  "label" : "breadcrumb_current",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "CONTACT US"
+}, {
+  "id" : "cf72823e-125d-b746-97a2-4b3204ee8ddf",
+  "name" : "hs_portal_id",
+  "label" : "hs_portal_id",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "5230018"
+}, {
+  "id" : "1e8e4ffc-4bc9-d847-d0d4-7060e1fb371e",
+  "name" : "myr_cu_contact_info__label",
+  "label" : "myr-cu-contact-info__label",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Contact Us"
+}, {
+  "id" : "d87ab088-f68d-16dd-e7c9-dc1cf4cf3350",
+  "name" : "myr_cu_hq__label",
+  "label" : "myr-cu-hq__label",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Corporate Headquarters"
+} ]

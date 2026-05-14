@@ -1,0 +1,308 @@
+.about-us-company-overview {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+}
+
+.about-us-company-overview__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.about-us-company-overview__bgDesktop,
+.about-us-company-overview__bgMobile {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.about-us-company-overview__bgMobile {
+  display: none;
+}
+
+.about-us-company-overview__bgGradient {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(156deg, rgba(12, 34, 38, 0.95) 5%, rgba(25, 66, 71, 0.88) 53.66%, rgba(12, 34, 38, 0.95) 102.31%);
+}
+
+.about-us-company-overview__inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--container-max, 80rem);
+  margin: 0 auto;
+  padding: 100px var(--gutter, 64px);
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+}
+
+.about-us-company-overview__header {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.about-us-company-overview__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.about-us-company-overview__badgeLine {
+  width: 24px;
+  height: 2px;
+  background: #52e081;
+  border-radius: 9999px;
+  display: inline-block;
+}
+
+.about-us-company-overview__badgeText {
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #52e081;
+}
+
+.about-us-company-overview__heading {
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.96px;
+  max-width: 620px;
+}
+
+.about-us-company-overview__cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.about-us-company-overview__card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  height: 354px;
+  cursor: pointer;
+  background: #071417;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-us-company-overview__cardMedia {
+  position: absolute;
+  inset: 0;
+}
+
+.about-us-company-overview__cardImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-us-company-overview__cardSaturation {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 1);
+  mix-blend-mode: saturation;
+}
+
+.about-us-company-overview__cardGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #0c2226 0%, rgba(12, 34, 38, 0.6) 50%, rgba(12, 34, 38, 0.3) 100%);
+}
+
+.about-us-company-overview__cardFront {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: opacity 300ms ease;
+  z-index: 1;
+}
+
+.about-us-company-overview__cardTitle {
+  margin: 0;
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.3;
+  color: #fff;
+}
+
+.about-us-company-overview__cardDesc {
+  margin: 0;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.about-us-company-overview__cardDetails {
+  position: absolute;
+  inset: 0;
+  padding: 24px;
+  background: #0c2226;
+  transform: translateY(100%);
+  transition: transform 500ms ease, opacity 300ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 2;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.about-us-company-overview__detailsBorder {
+  border-bottom: 1px solid #8ca1a3;
+  padding-bottom: 12px;
+}
+
+.about-us-company-overview__detailsSubheading {
+  margin: 0;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16.7px;
+  line-height: 1.5;
+  color: #fff;
+}
+
+.about-us-company-overview__detailsList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.about-us-company-overview__detailsItem {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16.7px;
+  line-height: 1.3;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.about-us-company-overview__detailsArrow {
+  color: #52e081;
+  font-weight: 600;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .about-us-company-overview__card:hover .about-us-company-overview__cardFront {
+    opacity: 0;
+  }
+
+  .about-us-company-overview__card:hover .about-us-company-overview__cardDetails {
+    transform: translateY(0);
+  }
+
+  .about-us-company-overview__card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 48px rgba(7, 20, 23, 0.38);
+    z-index: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Figma Make (About.tsx) — desktop typography */
+  .about-us-company-overview__badgeText {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 2px;
+  }
+
+  .about-us-company-overview__heading {
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.96px;
+  }
+
+  .about-us-company-overview__cardTitle {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 28px;
+  }
+
+  .about-us-company-overview__cardDesc {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+  }
+
+  .about-us-company-overview__detailsSubheading {
+    font-size: 16.671px;
+    font-weight: 500;
+    line-height: 25.007px;
+  }
+
+  .about-us-company-overview__detailsItem {
+    font-size: 16.671px;
+    font-weight: 500;
+    line-height: 25.007px;
+  }
+
+  .about-us-company-overview__card:nth-child(2) .about-us-company-overview__detailsItem {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .about-us-company-overview__card:nth-child(3) .about-us-company-overview__detailsItem {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.about-us-company-overview__card.is-details-open .about-us-company-overview__cardFront {
+  opacity: 0;
+}
+
+.about-us-company-overview__card.is-details-open .about-us-company-overview__cardDetails {
+  transform: translateY(0);
+}
+
+@media (max-width: 1023px) {
+  .about-us-company-overview__inner {
+    padding: 100px var(--gutter, 64px);
+    gap: 16px;
+  }
+
+  .about-us-company-overview__bgDesktop {
+    display: none;
+  }
+  .about-us-company-overview__bgMobile {
+    display: block;
+  }
+
+  .about-us-company-overview__heading {
+    font-size: 36px;
+    letter-spacing: -0.72px;
+  }
+
+  .about-us-company-overview__badgeText {
+    font-size: 12px;
+  }
+
+  .about-us-company-overview__cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

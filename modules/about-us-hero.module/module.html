@@ -1,0 +1,78 @@
+<section id="{{ module.section_html_id }}" class="about-us-hero" data-about-us-hero>
+  {% if module.section_background_image.src %}
+    <div
+      class="about-us-hero__sectionBg"
+      style="background-image: url('{{ module.section_background_image.src }}'); background-position: {{ module.section_background_position }};"
+      role="img"
+      aria-label="{{ module.section_background_image.alt|default('') }}"
+    ></div>
+  {% endif %}
+  <div class="about-us-hero__breadcrumb">
+    <div class="about-us-hero__breadcrumbInner">
+      <span class="about-us-hero__crumbPrimary">{{ module.breadcrumb_primary }}</span>
+      <span class="about-us-hero__crumbSep">{{ module.breadcrumb_separator }}</span>
+      <span class="about-us-hero__crumbSecondary">{{ module.breadcrumb_secondary }}</span>
+    </div>
+  </div>
+
+  <!-- Desktop hero -->
+  <div class="about-us-hero__desktop">
+    <div class="about-us-hero__desktopInner">
+      <div class="about-us-hero__content">
+        <h1 class="about-us-hero__heading">
+          <span class="about-us-hero__headingLine1">{{ module.heading_line1 }}</span>
+          <br />
+          <span class="about-us-hero__headingLine2">{{ module.heading_line2_highlight }}</span>
+        </h1>
+
+        <div class="about-us-hero__description">{{ module.description }}</div>
+
+        <a class="about-us-hero__cta" href="{{ module.cta_url.href }}">
+          <span>{{ module.cta_text }}</span>
+          <svg class="about-us-hero__ctaArrow" width="17" height="17" viewBox="0 0 17.49 17.49" fill="none" aria-hidden="true">
+            <path d="M3.645 8.744H13.847" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.457"/>
+            <path d="M8.745 3.644L13.846 8.744L8.745 13.845" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.457"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="about-us-hero__media" role="img" aria-label="{{ module.hero_image_alt|default('Hero image') }}">
+        {% if module.hero_image.src %}
+          <img class="about-us-hero__mediaImg" src="{{ module.hero_image.src }}" alt="{{ module.hero_image.alt|default('') }}" loading="eager" decoding="async">
+        {% endif %}
+        <div class="about-us-hero__mediaOverlay"></div>
+        {% if module.hero_overlay_image.src %}
+          <img class="about-us-hero__mediaOverlayImg" src="{{ module.hero_overlay_image.src }}" alt="{{ module.hero_overlay_image.alt|default('') }}" loading="lazy" decoding="async">
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile hero -->
+  <div class="about-us-hero__mobile">
+    <div class="about-us-hero__mobileImgWrap">
+      {% if module.hero_mobile_image.src %}
+        <img class="about-us-hero__mobileImg" src="{{ module.hero_mobile_image.src }}" alt="{{ module.hero_mobile_image.alt|default('') }}" loading="eager" decoding="async">
+      {% elif module.hero_image.src %}
+        <img class="about-us-hero__mobileImg" src="{{ module.hero_image.src }}" alt="{{ module.hero_image.alt|default('') }}" loading="eager" decoding="async">
+      {% endif %}
+    </div>
+
+    <div class="about-us-hero__mobileText">
+      <div class="about-us-hero__mobileHeading">
+        <p class="about-us-hero__mobileHeadingLine1">{{ module.heading_line1 }}</p>
+        <p class="about-us-hero__mobileHeadingLine2">{{ module.heading_line2_highlight }}</p>
+      </div>
+      <div class="about-us-hero__mobileDescription">{{ module.description }}</div>
+
+      <a class="about-us-hero__mobileCta" href="{{ module.cta_url.href }}">
+        <span>{{ module.cta_text }}</span>
+        <svg class="about-us-hero__mobileCtaArrow" width="10" height="10" viewBox="0 0 9.7 9.7" fill="none" aria-hidden="true">
+          <path d="M2.02 4.848H7.677" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.808"/>
+          <path d="M4.848 2.02L7.677 4.848L4.848 7.677" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.808"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+

@@ -17,10 +17,13 @@
 
     <div class="home-shift__cards" data-shift-cards>
       {% for stage in module.stages %}
-        <div class="home-shift__card home-shift__card--preset-{{ loop.index0 % 4 }}"
+        <div class="home-shift__card home-shift__card--preset-{{ loop.index0 % 4 }}{% if stage.background_image and stage.background_image.src %} home-shift__card--has-bg{% endif %}"
              role="article"
              data-shift-card
-             tabindex="0">
+             tabindex="0"
+             {% if stage.background_image and stage.background_image.src %}
+             style="background-image: url('{{ stage.background_image.src }}');"
+             {% endif %}>
           <div class="home-shift__card-inner">
             <div class="home-shift__card-content">
               <span class="home-shift__card-index">{{ stage.index }}</span>

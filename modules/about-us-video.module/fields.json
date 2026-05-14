@@ -1,0 +1,90 @@
+[ {
+  "id" : "section_html_id",
+  "name" : "section_html_id",
+  "label" : "Section HTML ID",
+  "help_text" : "Unique anchor ID. Lowercase letters, numbers, and hyphens only (e.g. about-us-bringing-genius-together).",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "about-us-video"
+}, {
+  "id" : "badge_label",
+  "name" : "badge_label",
+  "label" : "Badge Label",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Where Ideas Meet"
+}, {
+  "id" : "heading",
+  "name" : "heading",
+  "label" : "Heading",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Bringing Genius Together"
+}, {
+  "id" : "description",
+  "name" : "description",
+  "label" : "Description",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "display_width" : null,
+  "default" : "<p>Replace this placeholder with your story. This block matches the Figma “Video” section between Industry/Proof and Values.</p>"
+}, {
+  "picker" : "video",
+  "id" : "custom_video_file",
+  "name" : "custom_video_file",
+  "label" : "Custom Video File (upload from File Manager)",
+  "required" : false,
+  "locked" : false,
+  "type" : "file",
+  "display_width" : null
+}, {
+  "id" : "video_image",
+  "name" : "video_image",
+  "label" : "Video Thumbnail / Poster Image",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "display_width" : null,
+  "default" : {
+    "src" : "",
+    "alt" : ""
+  }
+}, {
+  "id" : "video_image_alt",
+  "name" : "video_image_alt",
+  "label" : "Video Thumbnail Alt Text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Bringing Genius Together video"
+}, {
+  "id" : "mobile_bg_image",
+  "name" : "mobile_bg_image",
+  "label" : "Mobile Background Texture Image (Optional)",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "display_width" : null,
+  "default" : {
+    "src" : "",
+    "alt" : ""
+  }
+} ]

@@ -83,7 +83,7 @@
   font-size: 48px;
   font-weight: 500;
   letter-spacing: -0.03em;
-  line-height: 1.2;
+  line-height: 1.25;
   color: #fff;
   margin: 0 0 24px;
 }
@@ -91,6 +91,7 @@
 @media (max-width: 1023px) {
   .home-shift__heading {
     font-size: 40px;
+    line-height: 1.25;
   }
 }
 
@@ -158,6 +159,28 @@
   height: 480px;
 }
 
+/* Per-stage background image (CMS); overrides preset gradients via inline background-image */
+.home-shift__card--has-bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.home-shift__card--has-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(7, 20, 23, 0.1) 0%, rgba(7, 20, 23, 0.75) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.home-shift__card--has-bg .home-shift__card-inner {
+  position: relative;
+  z-index: 1;
+}
+
 /* Preset 0 — SVG + expanded SVG */
 .home-shift__card--preset-0 {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D'0%200%20254%20340'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20preserveAspectRatio%3D'none'%3E%3Cg%20transform%3D'matrix(-13.367%2034%20-25.4%20-62.791%20139.04%200.000010382)'%20opacity%3D'1'%3E%3Crect%20height%3D'74.625'%20width%3D'88.53'%20fill%3D'url(%23grad)'%20id%3D'quad'%20shape-rendering%3D'crispEdges'%2F%3E%3Cuse%20href%3D'%23quad'%20transform%3D'scale(1%20-1)'%2F%3E%3Cuse%20href%3D'%23quad'%20transform%3D'scale(-1%201)'%2F%3E%3Cuse%20href%3D'%23quad'%20transform%3D'scale(-1%20-1)'%2F%3E%3C%2Fg%3E%3Cdefs%3E%3ClinearGradient%20id%3D'grad'%20gradientUnits%3D'userSpaceOnUse'%20x2%3D'5'%20y2%3D'5'%3E%3Cstop%20stop-color%3D'rgba(12%2C34%2C38%2C1)'%20offset%3D'0'%2F%3E%3Cstop%20stop-color%3D'rgba(12%2C34%2C38%2C1)'%20offset%3D'0.23188'%2F%3E%3Cstop%20stop-color%3D'rgba(25%2C66%2C71%2C1)'%20offset%3D'1'%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3C%2Fsvg%3E");
@@ -219,7 +242,7 @@
 .home-shift__card-index {
   display: block;
   font-size: 12px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.25;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -229,7 +252,7 @@
 .home-shift__card-stage {
   display: block;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.25;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -238,7 +261,7 @@
 
 .home-shift__card-title {
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.75rem;
   color: var(--shift-title-soft);
   margin: 0;

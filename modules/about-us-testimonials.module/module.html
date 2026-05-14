@@ -1,0 +1,28 @@
+{% if module.enable_section %}
+  <section id="{{ module.section_html_id }}" class="about-us-testimonials" data-about-us-testimonials>
+    <div class="about-us-testimonials__inner">
+      <div class="about-us-testimonials__header">
+        <div class="about-us-testimonials__badge">
+          <span class="about-us-testimonials__badgeLine" aria-hidden="true"></span>
+          <span class="about-us-testimonials__badgeText">{{ module.badge_label }}</span>
+        </div>
+        <h2 class="about-us-testimonials__heading">{{ module.heading }}</h2>
+        <div class="about-us-testimonials__description">{{ module.description }}</div>
+      </div>
+
+      <div class="about-us-testimonials__grid" role="list">
+        {% for t in module.testimonials %}
+          <article class="about-us-testimonials__card" role="listitem">
+            <div class="about-us-testimonials__quoteMark" aria-hidden="true">“</div>
+            <div class="about-us-testimonials__quote">{{ t.quote }}</div>
+            <div class="about-us-testimonials__author">
+              <p class="about-us-testimonials__name">{{ t.author_name }}</p>
+              <p class="about-us-testimonials__role">{{ t.author_role }}</p>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endif %}
+

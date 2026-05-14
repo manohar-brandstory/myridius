@@ -68,7 +68,8 @@
 }
 
 .home-why__title {
-  font-size: clamp(2rem, 5vw, 48px);
+  /* NewHomePage WhyMyridius: text-5xl md:text-[48px] + leading-tight */
+  font-size: 48px;
   font-weight: 500;
   line-height: 1.25;
   color: #fff;
@@ -223,7 +224,7 @@
 .home-why__card-title {
   font-size: 30px;
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 1.25;
   color: #fff;
   margin: 0 0 16px;
 }
@@ -249,7 +250,7 @@
   padding: 8px 16px;
   border-radius: 9999px;
   font-size: 12px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1;
   color: #fff;
   background: rgba(255, 255, 255, 0.05);

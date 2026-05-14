@@ -102,7 +102,7 @@
   padding: 16px 4px;
   font-family: var(--evoq-font);
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 500;
   color: var(--evoq-neutral);
   background: none;
   border: none;
@@ -161,7 +161,7 @@
 .evoq-catalog__description {
   max-width: 700px;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--evoq-dark);
   line-height: 1.6;
 }
@@ -267,7 +267,7 @@
 
 .evoq-catalog__card-title {
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 500;
   color: #ffffff;
   margin-bottom: 12px;
   line-height: 1.3;

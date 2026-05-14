@@ -1,0 +1,183 @@
+/* Office locations map — scoped to module only (no global body rules) */
+
+.map-section,
+.map-section * {
+  box-sizing: border-box;
+}
+
+.map-section {
+  width: 100%;
+  background: #002a31;
+  position: relative;
+  overflow: visible;
+  font-family: 'Montserrat', sans-serif;
+  --map-base-min: 1400px;
+  --map-zoom: 1;
+}
+
+/* Horizontal scroll on narrow viewports; full-width canvas on desktop */
+.map-section__viewport {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+}
+
+.map-section__canvas {
+  position: relative;
+  width: 100%;
+  /* Desktop: map scales with layout */
+  min-width: 0;
+}
+
+/* Mobile-only zoom controls */
+.map-section__zoom-controls {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .map-section__zoom-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: absolute;
+    right: max(12px, env(safe-area-inset-right, 0px));
+    bottom: max(12px, env(safe-area-inset-bottom, 0px));
+    z-index: 30;
+  }
+
+  .map-section__zoom-btn {
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 12px;
+    background: rgba(0, 42, 49, 0.92);
+    color: #d9e7d3;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+    transition:
+      background 0.2s ease,
+      color 0.2s ease,
+      opacity 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .map-section__zoom-btn:hover,
+  .map-section__zoom-btn:focus-visible {
+    background: rgba(82, 224, 129, 0.2);
+    color: #fff;
+    outline: none;
+  }
+
+  .map-section__zoom-btn:focus-visible {
+    box-shadow: 0 0 0 2px rgba(82, 224, 129, 0.6);
+  }
+
+  .map-section__zoom-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .map-section__canvas {
+    min-width: calc(var(--map-base-min) * var(--map-zoom));
+    transition: min-width 0.22s ease;
+  }
+
+  .map-section__canvas .world-map {
+    max-width: none !important;
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+@media (max-width: 1023px) and (prefers-reduced-motion: reduce) {
+  .map-section__canvas {
+    transition: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .map-section__viewport {
+    overflow-x: visible;
+  }
+}
+
+/* WORLD MAP */
+.world-map {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0.92;
+}
+
+/* DARK OVERLAY */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.2));
+  pointer-events: none;
+}
+
+/* LOCATION — fixed icon/text scale (same as comfortable desktop), not vw */
+.location {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  transition: transform 0.35s ease;
+  z-index: 10;
+}
+
+.location:hover {
+  transform: translate(-50%, -50%) scale(1.2);
+  z-index: 20;
+}
+
+.location svg {
+  width: 42px;
+  height: auto;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.location-name {
+  color: #d9e7d3;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  white-space: nowrap;
+  transition: color 0.35s ease;
+}
+
+.location:hover .location-name {
+  color: #ffffff;
+}
+
+.sub-text {
+  font-size: 11px;
+  font-weight: 500;
+  color: #d9e7d3;
+  opacity: 0.85;
+  margin-top: 2px;
+  white-space: nowrap;
+}
+
+@media (hover: none) {
+  .location:hover {
+    transform: translate(-50%, -50%);
+  }
+}

@@ -43,12 +43,16 @@
     {# Accordion Cards #}
     <div class="evoq-journey__cards-slider{% if module.accordion_cards|length > 1 %} evoq-journey__cards-slider--enabled{% endif %}">
       <div class="evoq-journey__cards-viewport">
-        <div class="evoq-journey__cards" data-card-count="{{ module.accordion_cards|length }}">
+        <div class="evoq-journey__cards" data-card-count="{{ module.accordion_cards|length }}" data-evoq-journey-track>
       {% for card in module.accordion_cards %}
-        <div class="evoq-journey__card {% if loop.last %}evoq-journey__card--active{% endif %}"
+        <div class="evoq-journey__card {% if loop.first %}evoq-journey__card--active{% endif %}{% if card.background_image and card.background_image.src %} evoq-journey__card--has-bg{% endif %}"
              data-card-index="{{ loop.index0 }}"
-             style="background: {{ card.bg_gradient }};">
-          {% if loop.last %}
+             {% if card.background_image and card.background_image.src %}
+             style="background-image: url('{{ card.background_image.src }}');"
+             {% else %}
+             style="background: {{ card.bg_gradient }};"
+             {% endif %}>
+          {% if loop.first %}
             <div class="evoq-journey__card-orbit" aria-hidden="true">
               <svg viewBox="0 0 630 563" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M315.136 562.743C272.592 562.743 231.322 555.303 192.47 540.631C154.944 526.46 121.242 506.171 92.3008 480.331C63.36 454.491 40.6368 424.4 24.7648 390.894C8.3328 356.206 0 319.357 0 281.371H3.2C3.2 318.971 11.4464 355.446 27.712 389.78C43.424 422.946 65.9136 452.731 94.5632 478.309C123.213 503.889 156.573 523.969 193.715 537.997C232.17 552.52 273.021 559.883 315.133 559.883C357.245 559.883 398.096 552.52 436.554 537.997C473.699 523.969 507.059 503.889 535.706 478.309C564.355 452.729 586.845 422.943 602.557 389.78C618.822 355.446 627.069 318.971 627.069 281.371C627.069 243.771 618.822 207.297 602.557 172.96C586.845 139.794 564.355 110.009 535.706 84.4314C507.056 58.8514 473.696 38.7714 436.554 24.7429C398.096 10.22 357.245 2.85714 315.133 2.85714V0C357.677 0 398.947 7.44 437.798 22.1114C475.325 36.2829 509.027 56.5714 537.968 82.4114C566.909 108.251 589.632 138.343 605.504 171.849C621.936 206.537 630.269 243.389 630.269 281.371C630.269 319.354 621.936 356.206 605.504 390.894C589.632 424.4 566.909 454.491 537.968 480.331C509.027 506.171 475.325 526.46 437.798 540.631C398.947 555.303 357.674 562.743 315.133 562.743H315.136Z" fill="#337077" fill-opacity="0.2"></path>
@@ -74,7 +78,7 @@
         </button>
         <p class="evoq-journey__cards-index" aria-live="polite">
           <span class="evoq-journey__cards-index-current" data-evoq-journey-index-current>01</span>
-          <span class="evoq-journey__cards-index-muted"><span aria-hidden="true"> / </span><span data-evoq-journey-index-total>{{ module.accordion_cards|length }}</span></span>
+          <span class="evoq-journey__cards-index-muted"><span aria-hidden="true"> / </span><span data-evoq-journey-index-tot>{{ '%02d'|format(module.accordion_cards|length) }}</span></span>
         </p>
         <button class="evoq-journey__cards-nav evoq-journey__cards-nav--next" type="button" aria-label="Next cards">
           <span class="evoq-journey__cards-nav-icon" aria-hidden="true">›</span>

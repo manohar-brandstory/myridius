@@ -48,13 +48,21 @@
               </svg>
             </button>
             <div class="home-navbar__searchBox" hidden>
-              <input class="home-navbar__searchInput" type="text" placeholder="{{ module.search_placeholder }}" aria-label="{{ module.search_aria_label }}">
-              <span class="home-navbar__searchIcon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                  <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                  <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
-                </svg>
-              </span>
+              {# GET form: HubSpot search results read `term` or `q` (see system search-results template). #}
+              {% set _search_url = module.search_results_page.href %}
+              {% if not _search_url or _search_url == '#' %}
+                {# /hs/search-results only resolves after System pages → Site search is configured; /search works after you publish a page using “Page — Site search results”. #}
+                {% set _search_url = '/search' %}
+              {% endif %}
+              <form class="home-navbar__searchForm" method="get" action="{{ _search_url }}" role="search">
+                <input class="home-navbar__searchInput" name="term" type="search" autocomplete="off" enterkeyhint="search" placeholder="{{ module.search_placeholder }}" aria-label="{{ module.search_aria_label }}">
+                <button class="home-navbar__searchSubmit" type="submit" aria-label="{{ module.search_aria_label }}">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+                  </svg>
+                </button>
+              </form>
             </div>
           </div>
 
@@ -80,7 +88,13 @@
 
       <!-- Mobile Search Bar (below nav row) -->
       <div class="home-navbar__mobileSearchBox" hidden data-home-mobile-search-box>
-        <input class="home-navbar__mobileSearchInput" type="text" placeholder="{{ module.search_placeholder }}" aria-label="{{ module.search_aria_label }}">
+        {% set _search_url = module.search_results_page.href %}
+        {% if not _search_url or _search_url == '#' %}
+          {% set _search_url = '/search' %}
+        {% endif %}
+        <form class="home-navbar__mobileSearchForm" method="get" action="{{ _search_url }}" role="search">
+          <input class="home-navbar__mobileSearchInput" name="term" type="search" autocomplete="off" enterkeyhint="search" placeholder="{{ module.search_placeholder }}" aria-label="{{ module.search_aria_label }}">
+        </form>
       </div>
     </div>
   </div>
@@ -122,7 +136,15 @@
                       </ul>
                     </div>
                   {% else %}
-                    <a class="home-navbar__megaLink" href="{{ item.url.href }}">{{ item.text }}</a>
+                    <a class="home-navbar__megaLink" href="{{ item.url.href }}">
+                      <span class="home-navbar__megaLinkLabel">{{ item.text }}</span>
+                      <span class="home-navbar__megaLinkArrow" aria-hidden="true">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                          <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                          <path d="M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </span>
+                    </a>
                   {% endif %}
                 {% endfor %}
               {% endfor %}

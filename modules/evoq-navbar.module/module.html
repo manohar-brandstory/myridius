@@ -65,18 +65,24 @@
   {# Search overlay #}
   <div class="evoq-nav__search-box" hidden data-evoq-search>
     <div class="evoq-nav__container">
-      <div class="evoq-nav__search-inner">
-        <svg class="evoq-nav__search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
-          <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-        <input class="evoq-nav__search-input" type="text" placeholder="{{ module.search_placeholder }}" aria-label="Search">
-        <button class="evoq-nav__search-close" type="button" aria-label="Close search" data-evoq-search-close>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      {% set _evoq_search_url = module.search_results_page.href %}
+      {% if not _evoq_search_url or _evoq_search_url == '#' %}
+        {% set _evoq_search_url = '/search' %}
+      {% endif %}
+      <form class="evoq-nav__search-form" method="get" action="{{ _evoq_search_url }}" role="search">
+        <div class="evoq-nav__search-inner">
+          <svg class="evoq-nav__search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+            <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
           </svg>
-        </button>
-      </div>
+          <input class="evoq-nav__search-input" name="term" type="search" autocomplete="off" enterkeyhint="search" placeholder="{{ module.search_placeholder }}" aria-label="Search">
+          <button class="evoq-nav__search-close" type="button" aria-label="Close search" data-evoq-search-close>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 

@@ -88,7 +88,7 @@
 .svc-hero__grid{
   display: grid;
   gap: 80px;
-  align-items: center;
+  align-items: start;
 }
 
 /* ── Title ── */
@@ -164,6 +164,10 @@
   text-decoration: none;
 }
 
+.svc-hero__btn:active{
+  transform: scale(0.98);
+}
+
 .svc-hero__btn--primary{
   background: var(--color-accent);
   color: var(--color-ink);
@@ -184,6 +188,11 @@
     background: rgba(255,255,255,0.1);
     border-color: rgba(255,255,255,0.5);
     transform: scale(1.02);
+  }
+  /* Figma motion.button whileTap scale 0.98 */
+  .svc-hero__btn--primary:hover:active,
+  .svc-hero__btn--secondary:hover:active{
+    transform: scale(0.98);
   }
 }
 
@@ -224,7 +233,7 @@
 
 @media (hover: hover) and (pointer: fine){
   .svc-hero__card:hover .svc-hero__image{
-    transform: scale(1.05);
+    transform: scale(1.04);
   }
 }
 
@@ -298,7 +307,7 @@
 
 @media (hover: hover) and (pointer: fine){
   .svc-hero__trust-cell:hover .svc-hero__trust-iconFrame{
-    transform: scale(1.08);
+    transform: scale(1.1);
   }
 }
 
@@ -443,16 +452,53 @@
   }
 }
 
-/* ── Scroll reveal ── */
+/* ── Hero entrance (Service Master Template App.tsx HeroSection — mount, not scroll-y) ──
+   nav: opacity + y -10, 0.6s | main: opacity + x -20, 0.8s | media: opacity + scale .95, 1s, delay .2s
+   Easing aligned with Framer defaults (smooth deceleration). HeroStatSection: no entrance. ── */
 
-.svc-hero [data-sr],
-.svc-hero [data-sr-trust]{ opacity: 1; transform: none; }
+.svc-hero [data-sr="nav"]{
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.6s cubic-bezier(0.25, 0.1, 0.25, 1),
+    transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
 
-.svc-hero .is-sr-hidden{ opacity: 0; transform: translateY(12px); }
-.svc-hero .is-sr-shown{
+.svc-hero [data-sr="main"]{
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.1, 0.25, 1),
+    transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.svc-hero [data-sr="media"]{
+  opacity: 0;
+  transform: scale(0.95);
+  transform-origin: center center;
+  transition: opacity 1s cubic-bezier(0.25, 0.1, 0.25, 1),
+    transform 1s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition-delay: 0.2s;
+}
+
+.svc-hero [data-sr="nav"].is-visible,
+.svc-hero [data-sr="main"].is-visible{
   opacity: 1;
   transform: none;
-  transition: opacity 600ms ease, transform 600ms ease;
+}
+
+.svc-hero [data-sr="media"].is-visible{
+  opacity: 1;
+  transform: scale(1);
+}
+
+@media (prefers-reduced-motion: reduce){
+  .svc-hero [data-sr="nav"],
+  .svc-hero [data-sr="main"],
+  .svc-hero [data-sr="media"]{
+    opacity: 1;
+    transform: none;
+    transition: none;
+    transition-delay: 0s !important;
+  }
 }
 
 /* ================================================================

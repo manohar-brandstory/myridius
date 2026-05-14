@@ -4,21 +4,15 @@
   font-family: var(--font-family), 'Montserrat', sans-serif;
 }
 
-/* Light strip — matches industries-breadcrumb typography & colors */
-.applied-ins-hero__breadcrumbStrip {
-  background: var(--color-surface);
-  padding: 26px var(--gutter, 24px) 0;
-}
-
-.applied-ins-hero__breadcrumbInner {
-  max-width: var(--container-max, 1280px);
-  margin: 0 auto;
+/* Breadcrumb — inside dark hero stage */
+.applied-ins-hero__breadcrumb {
+  margin-bottom: 48px;
 }
 
 .applied-ins-hero__crumbList {
   list-style: none;
   padding: 0;
-  margin: 0 0 32px;
+  margin: 0;
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -33,28 +27,29 @@
 .applied-ins-hero__crumbLink,
 .applied-ins-hero__crumbLabel {
   font-family: var(--font-family);
-  font-weight: 500 !important;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: #556467;
+  color: rgba(255, 255, 255, 0.6);
   font-size: 14px;
   line-height: 1.2;
+  transition: color 200ms ease;
 }
 
 .applied-ins-hero__crumbLink:hover {
-  color: var(--color-brand-1);
+  color: #52E081;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
 .applied-ins-hero__crumbItem--active .applied-ins-hero__crumbLabel {
-  color: var(--color-brand-2);
-  font-weight: 500 !important;
+  color: #52E081;
+  font-weight: 500;
   font-size: 15px;
 }
 
 .applied-ins-hero__crumbSep {
-  color: rgba(85, 100, 103, 0.4);
+  color: rgba(255, 255, 255, 0.2);
   font-size: 12px;
   font-weight: 300;
 }
@@ -127,9 +122,8 @@
 }
 
 @media (max-width: 768px) {
-  /* Match industries: hide breadcrumb on mobile */
-  .applied-ins-hero__breadcrumbStrip {
-    display: none !important;
+  .applied-ins-hero__breadcrumb {
+    display: none;
   }
 
   .applied-ins-hero__gradient {

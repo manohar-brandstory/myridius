@@ -59,6 +59,21 @@
         "label": "Description (shows when expanded)",
         "type": "text",
         "default": "Short stage description shown on expand."
+      },
+      {
+        "id": "stages.background_image",
+        "name": "background_image",
+        "label": "Card background image",
+        "required": false,
+        "locked": false,
+        "responsive": false,
+        "resizable": true,
+        "type": "image",
+        "default": {
+          "src": "",
+          "alt": ""
+        },
+        "help_text": "Optional. When set, replaces the default gradient art for this card. Use ~508×680px or larger; image is cropped to cover the card."
       }
     ],
     "default": [
@@ -66,25 +81,41 @@
         "index": "01",
         "stage_label": "Linear scaling",
         "title": "Integrated Systems",
-        "description": "Replace fragmented, siloed services with unified systems that run business operations."
+        "description": "Replace fragmented, siloed services with unified systems that run business operations.",
+        "background_image": {
+          "src": "",
+          "alt": ""
+        }
       },
       {
         "index": "02",
         "stage_label": "Capacity decouples",
         "title": "System-Led Execution",
-        "description": "Move from human-dependent delivery models to intelligent systems that execute independently."
+        "description": "Move from human-dependent delivery models to intelligent systems that execute independently.",
+        "background_image": {
+          "src": "",
+          "alt": ""
+        }
       },
       {
         "index": "03",
         "stage_label": "Value compounds",
         "title": "Compounding Outcomes",
-        "description": "Shift from linear, effort-based results to software-driven value that compounds over time."
+        "description": "Shift from linear, effort-based results to software-driven value that compounds over time.",
+        "background_image": {
+          "src": "",
+          "alt": ""
+        }
       },
       {
         "index": "04",
         "stage_label": "Autonomy expands",
         "title": "Autonomous Orchestration",
-        "description": "Reduce manual coordination by activating agents that orchestrate complex, real-time enterprise workflows."
+        "description": "Reduce manual coordination by activating agents that orchestrate complex, real-time enterprise workflows.",
+        "background_image": {
+          "src": "",
+          "alt": ""
+        }
       }
     ]
   },

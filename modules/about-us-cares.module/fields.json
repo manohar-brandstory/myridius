@@ -1,0 +1,155 @@
+[ {
+  "id" : "section_html_id",
+  "name" : "section_html_id",
+  "label" : "Section HTML ID",
+  "help_text" : "Unique anchor ID. Lowercase letters, numbers, and hyphens only (e.g. about-us-cares).",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "about-us-cares"
+}, {
+  "id" : "heading",
+  "name" : "heading",
+  "label" : "Heading",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Myridius CARES"
+}, {
+  "id" : "description",
+  "name" : "description",
+  "label" : "Intro description",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "display_width" : null,
+  "default" : "<p>Myridius CARES reflects how we show up for our communities through service, inclusion, and meaningful action.</p>"
+}, {
+  "picker" : "video",
+  "id" : "custom_video_file",
+  "name" : "custom_video_file",
+  "label" : "CARES Video File (optional)",
+  "required" : false,
+  "locked" : false,
+  "type" : "file",
+  "display_width" : null
+}, {
+  "id" : "video_image",
+  "name" : "video_image",
+  "label" : "Video Poster / Thumbnail",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "display_width" : null,
+  "default" : {
+    "src" : "",
+    "alt" : ""
+  }
+}, {
+  "id" : "video_image_alt",
+  "name" : "video_image_alt",
+  "label" : "Video area label (accessibility)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Myridius CARES"
+}, {
+  "id" : "mobile_bg_image",
+  "name" : "mobile_bg_image",
+  "label" : "Mobile background texture (optional)",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "display_width" : null,
+  "default" : {
+    "src" : "",
+    "alt" : ""
+  }
+}, {
+  "id" : "cards",
+  "name" : "cards",
+  "label" : "Highlight cards",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 6,
+    "sorting_label_field" : null,
+    "default" : 3
+  },
+  "children" : [ {
+    "id" : "cards.image",
+    "name" : "image",
+    "label" : "Image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "",
+      "alt" : ""
+    }
+  }, {
+    "id" : "cards.title",
+    "name" : "title",
+    "label" : "Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "cards.description",
+    "name" : "description",
+    "label" : "Description",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "image" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "title" : "Community Outreach",
+    "description" : "Supporting local communities through hands-on volunteer work."
+  }, {
+    "image" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "title" : "Inclusion in Action",
+    "description" : "Creating spaces where people feel seen, valued, and supported."
+  }, {
+    "image" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "title" : "Growth & impact",
+    "description" : "Investing in programs that create lasting positive change."
+  } ]
+} ]

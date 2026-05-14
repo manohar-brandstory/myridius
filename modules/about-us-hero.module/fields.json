@@ -1,0 +1,179 @@
+[ {
+  "id" : "section_html_id",
+  "name" : "section_html_id",
+  "label" : "Section HTML ID",
+  "help_text" : "Unique anchor ID for this block. Use lowercase letters, numbers, and hyphens only (e.g. about-us-hero).",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "about-us-hero"
+}, {
+  "id" : "breadcrumb_primary",
+  "name" : "breadcrumb_primary",
+  "label" : "Breadcrumb Primary",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Myridius"
+}, {
+  "id" : "breadcrumb_separator",
+  "name" : "breadcrumb_separator",
+  "label" : "Breadcrumb Separator",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "/"
+}, {
+  "id" : "breadcrumb_secondary",
+  "name" : "breadcrumb_secondary",
+  "label" : "Breadcrumb Secondary",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "About Myridius"
+}, {
+  "id" : "section_background_image",
+  "name" : "section_background_image",
+  "label" : "Section Background Image (Optional)",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "display_width" : null,
+  "default" : {
+    "src" : "",
+    "alt" : ""
+  }
+}, {
+  "id" : "section_background_position",
+  "name" : "section_background_position",
+  "label" : "Section Background Position",
+  "required" : false,
+  "locked" : false,
+  "display" : "select",
+  "choices" : [ [ "center center", "Center" ], [ "center top", "Top" ], [ "center bottom", "Bottom" ], [ "left center", "Left" ], [ "right center", "Right" ] ],
+  "multiple" : false,
+  "reordering_enabled" : true,
+  "preset" : null,
+  "type" : "choice",
+  "display_width" : null,
+  "default" : "center center"
+}, {
+  "id" : "heading_line1",
+  "name" : "heading_line1",
+  "label" : "Heading Line 1",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "We turn AI ambition"
+}, {
+  "id" : "heading_line2_highlight",
+  "name" : "heading_line2_highlight",
+  "label" : "Heading Line 2 (Gradient Highlight)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "into real impact"
+}, {
+  "id" : "description",
+  "name" : "description",
+  "label" : "Hero Description",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "display_width" : null,
+  "default" : "<p>Myridius is shaping the future of digital engineering in an AI-native world. We bring together human ingenuity, deep industry knowledge, and modern engineering to build intelligent systems that learn, adapt, and deliver. Through Evoq, our innovation fabric, we help organizations move from scattered AI experiments to scalable solutions that create smarter decisions, stronger operations, and lasting impact.</p>"
+}, {
+  "id" : "cta_text",
+  "name" : "cta_text",
+  "label" : "CTA Text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Explore Evoq"
+}, {
+  "id" : "cta_url",
+  "name" : "cta_url",
+  "label" : "CTA URL",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+  "type" : "url",
+  "display_width" : null,
+  "default" : {
+    "href" : "#",
+    "type" : "EXTERNAL",
+    "content_id" : null
+  }
+}, {
+  "id" : "hero_image",
+  "name" : "hero_image",
+  "label" : "Hero Desktop Image (Portrait)",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "display_width" : null,
+  "default" : {
+    "src" : "",
+    "alt" : "Hero"
+  }
+}, {
+  "id" : "hero_image_alt",
+  "name" : "hero_image_alt",
+  "label" : "Hero Desktop Image Alt Text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Hero"
+}, {
+  "id" : "hero_overlay_image",
+  "name" : "hero_overlay_image",
+  "label" : "Hero Overlay Image (Optional)",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "display_width" : null,
+  "default" : {
+    "src" : "",
+    "alt" : ""
+  }
+}, {
+  "id" : "hero_mobile_image",
+  "name" : "hero_mobile_image",
+  "label" : "Hero Mobile Image (Optional)",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "display_width" : null,
+  "default" : {
+    "src" : "",
+    "alt" : "Hero"
+  }
+} ]

@@ -25,8 +25,8 @@
     var prevBtn = section.querySelector('.evoq-journey__cards-nav--prev');
     var nextBtn = section.querySelector('.evoq-journey__cards-nav--next');
     var indexCurrentEl = section.querySelector('[data-evoq-journey-index-current]');
-    var indexTotalEl = section.querySelector('[data-evoq-journey-index-total]');
-    var isMobile = window.matchMedia('(max-width: 640px)');
+    var indexTotalEl = section.querySelector('[data-evoq-journey-index-tot]');
+    var isMobile = window.matchMedia('(max-width: 767px)');
     var isTabletOrMobile = window.matchMedia('(max-width: 1024px)');
 
     stages.forEach(function (stage) {
@@ -75,8 +75,7 @@
         card.classList.remove('evoq-journey__card--active');
       });
       if (cards.length > 0) {
-        var defaultIndex = cards.length - 1;
-        cards[defaultIndex].classList.add('evoq-journey__card--active');
+        cards[0].classList.add('evoq-journey__card--active');
       }
     });
 
@@ -130,20 +129,38 @@
       }
     }
 
+    function scrollStepPx() {
+      if (!cardsViewport || cards.length < 2) {
+        return Math.max(220, (cardsViewport && cardsViewport.clientWidth) ? cardsViewport.clientWidth * 0.8 : 220);
+      }
+      var a = cards[0].getBoundingClientRect();
+      var b = cards[1].getBoundingClientRect();
+      var d = Math.round(b.left - a.left);
+      return d > 0 ? d : 220;
+    }
+
     if (cardsViewport && prevBtn && nextBtn && toolbar) {
       prevBtn.addEventListener('click', function () {
-        var step = Math.max(220, cardsViewport.clientWidth * 0.8);
-        cardsViewport.scrollBy({ left: -step, behavior: 'smooth' });
+        cardsViewport.scrollBy({ left: -scrollStepPx(), behavior: 'smooth' });
       });
 
       nextBtn.addEventListener('click', function () {
-        var step = Math.max(220, cardsViewport.clientWidth * 0.8);
-        cardsViewport.scrollBy({ left: step, behavior: 'smooth' });
+        cardsViewport.scrollBy({ left: scrollStepPx(), behavior: 'smooth' });
       });
 
+      var mobileScrollTimer = null;
       cardsViewport.addEventListener('scroll', function () {
         updateNavState();
         schedulePaginationUpdate();
+        if (!isMobile.matches || !cards.length) return;
+        if (mobileScrollTimer) window.clearTimeout(mobileScrollTimer);
+        mobileScrollTimer = window.setTimeout(function () {
+          mobileScrollTimer = null;
+          var idx = dominantCardIndex();
+          if (cards[idx] && !cards[idx].classList.contains('evoq-journey__card--active')) {
+            expandCard(cards[idx]);
+          }
+        }, 120);
       });
       isTabletOrMobile.addEventListener('change', function () {
         updateNavState();

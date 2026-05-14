@@ -38,7 +38,7 @@
         </div>
 
         <div class="evoq-bi__scroll" data-evoq-bi-scroll tabindex="0">
-          <div class="evoq-bi__right">
+          <div class="evoq-bi__right" data-evoq-bi-track>
             {% for item in module.items %}
               {% set slug = item.item_slug|regex_replace("[^a-z0-9_-]+", "-")|lower %}
               <article
@@ -80,6 +80,24 @@
               </article>
             {% endfor %}
           </div>
+        </div>
+
+        <div class="evoq-bi__mobNav" data-evoq-bi-mobnav aria-label="Slide navigation">
+          <button type="button" class="evoq-bi__mobBtn evoq-bi__mobBtn--prev" data-evoq-bi-prev aria-label="Previous slide">
+            <svg class="evoq-bi__mobChev" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <p class="evoq-bi__mobPager" data-evoq-bi-pager>
+            <span class="evoq-bi__mobPagerCur" data-evoq-bi-pager-cur>01</span>
+            <span class="evoq-bi__mobPagerSep" aria-hidden="true">/</span>
+            <span class="evoq-bi__mobPagerTot" data-evoq-bi-pager-tot>{{ '%02d'|format(module.items|length) }}</span>
+          </p>
+          <button type="button" class="evoq-bi__mobBtn evoq-bi__mobBtn--next" data-evoq-bi-next aria-label="Next slide">
+            <svg class="evoq-bi__mobChev" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
         </div>
       </div>
     </div>

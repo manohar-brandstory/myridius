@@ -1,0 +1,55 @@
+<section id="{{ module.section_html_id }}" class="about-us-video" data-about-us-video>
+  {% if module.mobile_bg_image.src %}
+    <div
+      class="about-us-video__bgTexture"
+      style="background-image: url('{{ module.mobile_bg_image.src }}');"
+      aria-hidden="true"
+    ></div>
+  {% endif %}
+  <div class="about-us-video__bgGradient" aria-hidden="true"></div>
+
+  <div class="about-us-video__inner">
+    <div class="about-us-video__header">
+      <div class="about-us-video__badge">
+        <span class="about-us-video__badgeLine" aria-hidden="true"></span>
+        <span class="about-us-video__badgeText">{{ module.badge_label }}</span>
+      </div>
+      <h2 class="about-us-video__heading">{{ module.heading }}</h2>
+    </div>
+
+    <div class="about-us-video__descriptionWrap">
+      <div class="about-us-video__description">{{ module.description }}</div>
+    </div>
+
+    <div
+      class="about-us-video__videoFrame{% if module.custom_video_file %} about-us-video__videoFrame--native{% endif %}"
+      role="group"
+      aria-label="{{ module.video_image_alt|default('Video') }}"
+    >
+      {% if module.custom_video_file %}
+        <video
+          class="about-us-video__videoEl"
+          controls
+          playsinline
+          preload="metadata"
+          {% if module.video_image.src %}poster="{{ module.video_image.src }}"{% endif %}
+        >
+          <source src="{{ module.custom_video_file }}" type="video/mp4">
+        </video>
+      {% elif module.video_image.src %}
+        <img class="about-us-video__videoImg" src="{{ module.video_image.src }}" alt="{{ module.video_image.alt|default('') }}" loading="lazy" decoding="async">
+        <div class="about-us-video__videoOverlay" aria-hidden="true"></div>
+
+        <div class="about-us-video__play" aria-hidden="true">
+          <div class="about-us-video__playOuter">
+            <div class="about-us-video__playInner">
+              <svg width="34" height="34" viewBox="0 0 23.375 27.63" fill="none">
+                <path d="M23.375 13.8132C23.3759 14.1739 23.2834 14.5288 23.1065 14.8432C22.9296 15.1576 22.6744 15.4209 22.3656 15.6075L3.23 27.3136C2.90738 27.5111 2.53787 27.619 2.15963 27.626C1.7814 27.633 1.40815 27.5389 1.07844 27.3534C0.751865 27.1708 0.47982 26.9045 0.29028 26.5819C0.10074 26.2593 0.000545671 25.8921 0 25.5179V2.1084C0.000545671 1.73424 0.10074 1.36699 0.29028 1.0444C0.47982 0.721807 0.751865 0.455522 1.07844 0.272929C1.40815 0.0874539 1.7814 -0.00664 2.15963 0.000364366C2.53787 0.00736873 2.90738 0.115218 3.23 0.312772L22.3656 12.0189C22.6744 12.2054 22.9296 12.4687 23.1065 12.7831C23.2834 13.0976 23.3759 13.4524 23.375 13.8132Z" fill="#194247"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
