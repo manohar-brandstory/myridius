@@ -232,13 +232,9 @@
   font-weight: 500;
   color: #556467;
   white-space: nowrap;
-  transition: border-color 300ms ease, color 300ms ease, background 300ms ease;
-}
-
-.home-ind__pill:hover {
-  border-color: #337077;
-  color: #337077;
-  background: #ffffff;
+  pointer-events: none;
+  cursor: default;
+  user-select: none;
 }
 
 /* Learn More Link */
@@ -293,33 +289,56 @@
 .home-ind__panel-images {
   position: absolute;
   inset: 0;
+  z-index: 0;
 }
 
 .home-ind__panel-img {
   position: absolute;
   inset: 0;
+  z-index: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   opacity: 0;
   transition: opacity 600ms ease;
+  mask-image: none;
+  -webkit-mask-image: none;
+  filter: none;
 }
 
 .home-ind__panel-img.is-active {
   opacity: 1;
 }
 
+/* Dark wash + gradient as panel overlay (not on the image) */
 .home-ind__panel-overlay {
   position: absolute;
   inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+.home-ind__panel-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: rgba(25, 66, 71, 0.58);
+}
+
+.home-ind__panel-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
   background: linear-gradient(
     to top,
     #0c2226 0%,
-    rgba(12, 34, 38, 0.4) 50%,
-    #ffffff 100%
+    rgba(25, 66, 71, 0.82) 32%,
+    rgba(25, 66, 71, 0.42) 58%,
+    rgba(255, 255, 255, 0.9) 100%
   );
-  z-index: 1;
-  pointer-events: none;
 }
 
 .home-ind__panel-content {

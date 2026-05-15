@@ -85,6 +85,24 @@
         "default": "intent"
       },
       {
+        "id": "tabs.tab_icon_slug",
+        "name": "tab_icon_slug",
+        "label": "Tab icon (Lucide)",
+        "type": "choice",
+        "required": false,
+        "locked": false,
+        "display": "select",
+        "choices": [
+          ["auto", "Auto (match tab slug)"],
+          ["target", "Target"],
+          ["brain", "Brain"],
+          ["zap", "Zap"],
+          ["refresh_cw", "Refresh cw"],
+          ["trending_up", "Trending up"]
+        ],
+        "default": "auto"
+      },
+      {
         "id": "tabs.tab_label",
         "name": "tab_label",
         "label": "Tab label (pill)",
@@ -96,12 +114,12 @@
       {
         "id": "tabs.tab_icon",
         "name": "tab_icon",
-        "label": "Tab icon (hotspot, sticky bar, chip)",
+        "label": "Tab icon image (legacy fallback — prefer Lucide icon above)",
         "type": "image",
         "required": false,
         "locked": false,
         "responsive": false,
-        "resizable": true,
+        "resizable": false,
         "show_loading": false,
         "default": { "src": "", "alt": "" }
       },
@@ -153,14 +171,32 @@
             "default": "Market and operational signals continuously shape execution priorities"
           },
           {
+            "id": "layers.layer_icon_slug",
+            "name": "layer_icon_slug",
+            "label": "Layer icon (Lucide)",
+            "type": "choice",
+            "required": false,
+            "locked": false,
+            "display": "select",
+            "choices": [
+              ["inherit", "Same as tab icon"],
+              ["target", "Target"],
+              ["brain", "Brain"],
+              ["zap", "Zap"],
+              ["refresh_cw", "Refresh cw"],
+              ["trending_up", "Trending up"]
+            ],
+            "default": "inherit"
+          },
+          {
             "id": "layers.layer_icon",
             "name": "layer_icon",
-            "label": "Layer icon (optional)",
+            "label": "Layer icon image (legacy fallback)",
             "type": "image",
             "required": false,
             "locked": false,
             "responsive": false,
-            "resizable": true,
+            "resizable": false,
             "show_loading": false,
             "default": { "src": "", "alt": "" }
           }

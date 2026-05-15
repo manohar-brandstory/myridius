@@ -12,6 +12,8 @@
   width: 100%;
   height: 880px;
   overflow: hidden;
+  overflow: clip;
+  overflow-anchor: none;
   background-color: #0C2226;
   color: #fff;
 }
@@ -118,6 +120,7 @@
   opacity: 0.4;
   transition: opacity 0.35s ease;
   min-height: 80px;
+  scroll-margin: 0;
 }
 
 .svc-hww__tab--active {
@@ -166,15 +169,18 @@
 
 .svc-hww__tab-bar-fill {
   display: block;
-  width: 0;
+  width: 100%;
   height: 100%;
   background: var(--color-accent);
   border-radius: 1px;
-  transition: width 0.15s linear;
+  transform: scaleX(0);
+  transform-origin: left center;
+  will-change: transform;
 }
 
-.svc-hww__tab--active .svc-hww__tab-bar-fill {
-  width: 100%;
+.svc-hww.is-autoplay-paused .svc-hww__tab--active .svc-hww__tab-bar-fill {
+  transform: scaleX(1);
+  animation: none !important;
 }
 
 .svc-hww__tab-sub {
@@ -195,22 +201,30 @@
 .svc-hww__panel {
   position: absolute;
   inset: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease, visibility 0.6s ease;
+  pointer-events: none;
+  z-index: 0;
+  transform: none;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
 }
 
 .svc-hww__panel--active {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0);
+  pointer-events: auto;
+  z-index: 1;
+  transform: none;
 }
 
 /* ---- card ---- */
 
 .svc-hww__card {
-  height: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
   background: rgba(12, 34, 38, 0.4);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -218,7 +232,9 @@
   border: 1px solid rgba(82, 224, 129, 0.2);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   padding: 40px 40px 12px;
+  overflow-x: hidden;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .svc-hww__card-inner {
@@ -386,24 +402,47 @@
   color: rgba(255, 255, 255, 0.7);
   cursor: pointer;
   transition: color 0.25s ease;
+  scroll-margin: 0;
 }
 
 .svc-hww__toggle:hover {
   color: #fff;
 }
 
-/* ============================================================
-   Autoplay progress animation
-   ============================================================ */
-
-.svc-hww__tab--active.svc-hww__tab--animating .svc-hww__tab-bar-fill {
-  width: 100%;
-  transition: width var(--autoplay-duration, 9s) linear;
+.svc-hww__toggle-play,
+.svc-hww__mob-play {
+  display: none;
 }
 
-.svc-hww__tab--active:not(.svc-hww__tab--animating) .svc-hww__tab-bar-fill {
-  width: 0;
-  transition: none;
+.svc-hww.is-autoplay-paused .svc-hww__toggle-pause,
+.svc-hww.is-autoplay-paused .svc-hww__mob-pause {
+  display: none;
+}
+
+.svc-hww.is-autoplay-paused .svc-hww__toggle-play,
+.svc-hww.is-autoplay-paused .svc-hww__mob-play {
+  display: block;
+}
+
+/* ============================================================
+   Autoplay progress animation (transform — no layout jump)
+   ============================================================ */
+
+@keyframes svc-hww-tab-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.svc-hww__tab--active.svc-hww__tab--animating .svc-hww__tab-bar-fill {
+  animation: svc-hww-tab-progress var(--autoplay-duration, 9s) linear forwards;
+}
+
+.svc-hww__tab--active.svc-hww__tab--animating.svc-hww__tab--paused .svc-hww__tab-bar-fill {
+  animation-play-state: paused;
 }
 
 /* ============================================================
@@ -506,9 +545,13 @@
   .svc-hww__panel {
     position: absolute;
     inset: 0;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
+    z-index: 0;
     transform: none;
     transition: opacity 0.5s ease;
   }
@@ -516,15 +559,20 @@
   .svc-hww__panel--active {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
+    z-index: 1;
     transform: none;
   }
 
   /* Card */
   .svc-hww__card {
+    flex: 1 1 auto;
+    min-height: 0;
     padding: 12px;
-    height: 100%;
     border-width: 0.7px;
+    overflow-x: hidden;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .svc-hww__card-inner {

@@ -97,6 +97,14 @@
   box-shadow: 0 10px 26px rgba(25, 66, 71, 0.3);
 }
 
+button.about-us-stats__exploreBtn {
+  border: 0;
+  cursor: pointer;
+  appearance: none;
+  font: inherit;
+  text-align: inherit;
+}
+
 .about-us-stats__desktopGrid {
   display: none;
   grid-template-columns: repeat(3, minmax(0, 1fr));

@@ -1,39 +1,59 @@
 (function () {
-  function revealRows(section) {
+  var VISIBLE_CLASS = 'evoq-shift__row--visible';
+  var STAGGER_MS = 200;
+
+  function revealRowsSequential(section) {
     var rows = section.querySelectorAll('[data-shift-row]');
     if (!rows.length) return;
 
-    if (!('IntersectionObserver' in window)) {
+    var timers = [];
+
+    function revealAllNow() {
       rows.forEach(function (row) {
-        row.classList.add('evoq-shift__row--visible');
+        row.classList.add(VISIBLE_CLASS);
       });
+    }
+
+    function revealInOrder() {
+      rows.forEach(function (row, index) {
+        timers.push(
+          window.setTimeout(function () {
+            row.classList.add(VISIBLE_CLASS);
+          }, index * STAGGER_MS)
+        );
+      });
+    }
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      revealAllNow();
       return;
     }
 
+    if (!('IntersectionObserver' in window)) {
+      revealInOrder();
+      return;
+    }
+
+    var started = false;
     var observer = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          var row = entry.target;
-          var index = Array.prototype.indexOf.call(rows, row);
-          window.setTimeout(function () {
-            row.classList.add('evoq-shift__row--visible');
-          }, Math.max(0, index) * 120);
-          observer.unobserve(row);
+          if (!entry.isIntersecting || started) return;
+          started = true;
+          revealInOrder();
+          observer.unobserve(section);
         });
       },
-      { threshold: 0.2, rootMargin: '0px 0px -40px 0px' }
+      { threshold: 0.12, rootMargin: '0px 0px -15% 0px' }
     );
 
-    rows.forEach(function (row) {
-      observer.observe(row);
-    });
+    observer.observe(section);
   }
 
   function init() {
     var sections = document.querySelectorAll('.evoq-shift');
     if (!sections.length) return;
-    sections.forEach(revealRows);
+    sections.forEach(revealRowsSequential);
   }
 
   if (document.readyState === 'loading') {

@@ -3,28 +3,32 @@
   isAvailableForNewContent: true
   label: Page — Site search results
 -->
-{# Publish a website page with this template (recommended slug: search) so /search?term=… works without System pages. Alternatively use Settings → Website → Pages → System pages → Site search with templates/system/search-results.html #}
 {% extends "./layouts/base.html" %}
 {% set pageTitle = "Search results" %}
 
+{% block extra_head %}
+  {{ require_css(get_asset_url("../css/search-results.css")) }}
+{% endblock extra_head %}
+
 {% block body %}
-<main class="myridius-search-results" style="padding: 48px 32px; max-width: 80rem; margin: 0 auto;">
-  {%- if (get_asset_version("@hubspot/search_results") == 0) -%}
-    {% if request.query_dict.term %}
-      {% set search_query = request.query_dict.term %}
-    {% elif request.query_dict.q %}
-      {% set search_query = request.query_dict.q %}
+<main class="myridius-search-results">
+  {% if request.query_dict.term %}
+    {% set search_query = request.query_dict.term %}
+  {% elif request.query_dict.q %}
+    {% set search_query = request.query_dict.q %}
+  {% endif %}
+
+  <header class="myridius-search-results__header">
+    {% if search_query %}
+      <p class="myridius-search-results__label">Search results</p>
+      <h1 class="myridius-search-results__query">{{ search_query|escape_html }}</h1>
+    {% else %}
+      <h1 class="myridius-search-results__query">Search</h1>
     {% endif %}
+  </header>
 
-    {% module_block module "search_results_heading" label="Search results heading" path="@hubspot/rich_text" %}
-      {% module_attribute "html" %}
-        {% if search_query %}Results for “{{ search_query|escape_html }}”{% else %}Search{% endif %}
-      {% end_module_attribute %}
-    {% end_module_block %}
-
+  <div class="myridius-search-results__results">
     {% module "search_results" path="@hubspot/search_results" %}
-  {%- else -%}
-    {% module "search_results" path="@hubspot/search_results", title={"show_title": "true"} %}
-  {%- endif -%}
+  </div>
 </main>
 {% endblock body %}

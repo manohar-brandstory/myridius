@@ -29,8 +29,9 @@
     var timer = null;
     var expandedCard = null;
     var isAnimating = false;
-    var layoutEase = 'cubic-bezier(0.22, 1, 0.36, 1)';
-    var layoutDuration = 1400;
+    var layoutEase = 'cubic-bezier(0.25, 0.8, 0.25, 1)';
+    var layoutDuration = 1800;
+    var contentSwapMs = 320;
     var total = cards.length;
 
     function pad2(n) {
@@ -157,7 +158,31 @@
       timer = setInterval(rotateForward, interval);
     }
 
-    function renderExpandedCards(activeIndex) {
+    function updateExpandedCopy(index, animate) {
+      var data = cards[index];
+      var tagEl = root.querySelector('[data-expanded-tag]');
+      var titleEl = root.querySelector('[data-expanded-title]');
+      var descEl = root.querySelector('[data-expanded-desc]');
+
+      function apply() {
+        tagEl.textContent = data.tag || '';
+        titleEl.textContent = data.title || '';
+        descEl.textContent = data.description || '';
+      }
+
+      if (!animate || reduced || !expandedLeft) {
+        apply();
+        return;
+      }
+
+      expandedLeft.classList.add('is-content-swapping');
+      window.setTimeout(function () {
+        apply();
+        expandedLeft.classList.remove('is-content-swapping');
+      }, contentSwapMs);
+    }
+
+    function mountExpandedCards(activeIndex) {
       var frag = document.createDocumentFragment();
       for (var step = 1; step < cards.length; step += 1) {
         var idx = (activeIndex + step) % cards.length;
@@ -187,6 +212,22 @@
         expandedRight.innerHTML = '';
         expandedRight.appendChild(frag);
       }
+    }
+
+    function renderExpandedCards(activeIndex, animate) {
+      if (!animate || reduced) {
+        mountExpandedCards(activeIndex);
+        return;
+      }
+
+      expandedRight.classList.add('is-cards-swapping');
+      window.setTimeout(function () {
+        mountExpandedCards(activeIndex);
+        expandedRight.classList.remove('is-cards-swapping');
+        Array.prototype.forEach.call(expandedRight.children, function (el) {
+          el.classList.add('is-card-enter');
+        });
+      }, 220);
     }
 
     function setExpandedBackground(index) {
@@ -222,6 +263,8 @@
 
     function expand(index) {
       if (index < 0 || index >= cards.length) return;
+      var wasExpanded = expandedCard !== null;
+      var animateChange = wasExpanded && expandedCard !== index;
       expandedCard = index;
       isAnimating = false;
       stopAuto();
@@ -229,11 +272,8 @@
       expandedView.setAttribute('aria-hidden', 'false');
       setExpandedBackground(index);
       alignTrackToIndex(index);
-      var data = cards[index];
-      root.querySelector('[data-expanded-tag]').textContent = data.tag || '';
-      root.querySelector('[data-expanded-title]').textContent = data.title || '';
-      root.querySelector('[data-expanded-desc]').textContent = data.description || '';
-      renderExpandedCards(index);
+      updateExpandedCopy(index, animateChange);
+      renderExpandedCards(index, animateChange);
       syncPager();
 
       expandedLeft.offsetHeight;

@@ -125,6 +125,18 @@
         "default": ""
       },
       {
+        "id": "columns.title_url",
+        "name": "title_url",
+        "label": "Column Title Link",
+        "type": "url",
+        "help_text": "Optional. Leave empty for plain text. When set, the column title becomes a link.",
+        "default": {
+          "href": "",
+          "type": "EXTERNAL",
+          "content_id": null
+        }
+      },
+      {
         "id": "columns.show_title",
         "name": "show_title",
         "label": "Show Title",
@@ -175,6 +187,18 @@
         "label": "Extra Section Title",
         "type": "text",
         "default": ""
+      },
+      {
+        "id": "columns.extra_title_url",
+        "name": "extra_title_url",
+        "label": "Extra Section Title Link",
+        "type": "url",
+        "help_text": "Optional. Leave empty for plain text. When set, the extra section title becomes a link.",
+        "default": {
+          "href": "",
+          "type": "EXTERNAL",
+          "content_id": null
+        }
       },
       {
         "id": "columns.extra_links",

@@ -30,6 +30,7 @@
   position: relative;
   overflow: hidden;
   min-height: 140px;
+  transition: height 0.35s ease;
 }
 
 .recog__slide{
@@ -153,7 +154,19 @@
 
 @media (max-width: 768px){
   .recog__card{ padding: 24px; }
-  .recog__desc{ font-size: 16px; }
+  .recog__content{
+    /* Fallback before JS measures; absolute slides do not expand the box */
+    min-height: 220px;
+  }
+  .recog__title{
+    font-size: 20px;
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+  .recog__desc{
+    font-size: 16px;
+    line-height: 1.6;
+  }
   .recog__footer{ flex-direction: column; align-items:flex-start; }
   .recog__nums{ max-width: 100%; }
   .recog{ padding-bottom: 64px; }

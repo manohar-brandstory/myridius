@@ -23,7 +23,7 @@
       </h2>
     </div>
 
-    <div class="evoq-stats__cards-row" data-animate data-stage="cards">
+    <div class="evoq-stats__cards-row" data-stage="cards">
       {% for card in module.cards %}
         {% if not loop.first %}
           {% set arrow_index = loop.index0 - 1 %}
@@ -65,7 +65,7 @@
       {% endfor %}
     </div>
 
-    <div class="evoq-stats__stats-row" data-animate data-stage="stats">
+    <div class="evoq-stats__stats-row" data-stage="stats">
       {% for stat in module.stats %}
         <article class="evoq-stats__stat-item" data-stat tabindex="0">
           <div class="evoq-stats__stat-front">

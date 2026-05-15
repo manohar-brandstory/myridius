@@ -81,7 +81,7 @@
 .evoq-hero__crumb-link,
 .evoq-hero__crumb-text {
   font-family: Montserrat, sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1;
   text-transform: uppercase;
 }
@@ -106,6 +106,12 @@
 
 .evoq-hero__crumb-sep {
   color: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+  .evoq-hero__breadcrumb {
+    display: none;
+  }
 }
 
 .evoq-hero__title {

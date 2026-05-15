@@ -133,6 +133,18 @@
         "default": false
       },
       {
+        "id": "nav_links.show_panel_header",
+        "name": "show_panel_header",
+        "label": "Show panel header",
+        "type": "boolean",
+        "default": true,
+        "visibility": {
+          "controlling_field_path": "nav_links.mega_menu_enabled",
+          "controlling_value_regex": "true",
+          "operator": "EQUAL"
+        }
+      },
+      {
         "id": "nav_links.mega_header_url",
         "name": "mega_header_url",
         "label": "Mega Menu Header URL",
@@ -141,6 +153,11 @@
           "href": "#",
           "type": "EXTERNAL",
           "content_id": null
+        },
+        "visibility": {
+          "controlling_field_path": "nav_links.show_panel_header",
+          "controlling_value_regex": "true",
+          "operator": "EQUAL"
         }
       },
       {

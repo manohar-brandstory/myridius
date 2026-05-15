@@ -87,7 +87,26 @@
       connectorAttr: 'data-outcome-connector'
     });
 
-    animateCorePulse();
+    function startCorePulse() {
+      if (rafId != null) return;
+      animateCorePulse();
+    }
+
+    if ('IntersectionObserver' in window) {
+      var pulseObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            startCorePulse();
+            pulseObserver.unobserve(moduleEl);
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -15% 0px' }
+      );
+      pulseObserver.observe(moduleEl);
+    } else {
+      startCorePulse();
+    }
 
     moduleEl.addEventListener('mouseleave', function () {
       clearState({

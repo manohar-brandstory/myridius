@@ -31,7 +31,14 @@
       {% for col in module.columns %}
         <div class="home-footer__col{% if col.top_padding %} home-footer__col--padded{% endif %}">
           {% if col.show_title and col.title %}
-            <h3 class="home-footer__h">{{ col.title }}</h3>
+            {% set _title_href = col.title_url.href|default('', true)|trim if col.title_url else '' %}
+            {% if _title_href and _title_href != '#' %}
+              <h3 class="home-footer__h home-footer__h--linked">
+                <a class="home-footer__hLink" href="{{ _title_href }}">{{ col.title }}</a>
+              </h3>
+            {% else %}
+              <h3 class="home-footer__h">{{ col.title }}</h3>
+            {% endif %}
           {% endif %}
           {% if col.links|length %}
             <ul class="home-footer__list" role="list">
@@ -43,7 +50,14 @@
 
           {% if col.extra_title %}
             <div class="home-footer__extraSection">
-              <h3 class="home-footer__h">{{ col.extra_title }}</h3>
+              {% set _extra_href = col.extra_title_url.href|default('', true)|trim if col.extra_title_url else '' %}
+              {% if _extra_href and _extra_href != '#' %}
+                <h3 class="home-footer__h home-footer__h--linked">
+                  <a class="home-footer__hLink" href="{{ _extra_href }}">{{ col.extra_title }}</a>
+                </h3>
+              {% else %}
+                <h3 class="home-footer__h">{{ col.extra_title }}</h3>
+              {% endif %}
               {% if col.extra_links|length %}
                 <ul class="home-footer__list" role="list">
                   {% for link in col.extra_links %}

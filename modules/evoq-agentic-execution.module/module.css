@@ -62,12 +62,33 @@
   text-align: center;
 }
 
+.evoq-ae__eyebrowRow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.evoq-ae__eyebrowDash {
+  flex: 0 0 auto;
+  width: 24px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--evoq-ae-green);
+}
+
 .evoq-ae__eyebrow {
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--evoq-ae-green);
+}
+
+.evoq-ae__icon {
+  display: block;
+  flex-shrink: 0;
+  stroke: currentColor;
+  fill: none;
 }
 
 .evoq-ae__heroTitle {
@@ -237,22 +258,11 @@
   transform: scale(1.08);
 }
 
-.evoq-ae__hotspotIcon {
-  display: block;
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
-}
-
 .evoq-ae__hotspot.is-active .evoq-ae__hotspotRing {
   background: var(--evoq-ae-green);
-  color: #fff;
+  color: #071417;
   border-color: rgba(82, 224, 129, 0.9);
   box-shadow: 0 0 34px rgba(82, 224, 129, 0.6);
-}
-
-.evoq-ae__hotspot.is-active .evoq-ae__hotspotIcon {
-  filter: brightness(0) invert(1);
 }
 
 .evoq-ae__hotspotCaption {
@@ -388,14 +398,11 @@
   transition: color 0.25s var(--evoq-ae-ease);
 }
 
-.evoq-ae__pillIcon {
+.evoq-ae__pill .evoq-ae__icon {
   position: relative;
   z-index: 2;
-  width: 16px;
-  height: 16px;
-  object-fit: contain;
-  opacity: 0.55;
-  transition: opacity 0.25s;
+  color: rgba(255, 255, 255, 0.55);
+  transition: color 0.25s var(--evoq-ae-ease);
 }
 
 .evoq-ae__pillLabel {
@@ -404,12 +411,11 @@
 }
 
 .evoq-ae__pill.is-active {
-  color: var(--evoq-ae-bg);
+  color: #071417;
 }
 
-.evoq-ae__pill.is-active .evoq-ae__pillIcon {
-  opacity: 1;
-  filter: brightness(0);
+.evoq-ae__pill.is-active .evoq-ae__icon {
+  color: #071417;
 }
 
 .evoq-ae__pill:focus-visible {
@@ -425,6 +431,40 @@
 
 .evoq-ae__panel[hidden] {
   display: none !important;
+}
+
+@keyframes evoq-ae-panel-copy-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    filter: blur(0);
+  }
+}
+
+@keyframes evoq-ae-panel-layers-in {
+  from {
+    opacity: 0;
+    transform: translate3d(20px, 0, 0);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    filter: blur(0);
+  }
+}
+
+.evoq-ae__panelCopy.is-ae-anim {
+  animation: evoq-ae-panel-copy-in 0.45s var(--evoq-ae-ease) both;
+}
+
+.evoq-ae__layers.is-ae-anim {
+  animation: evoq-ae-panel-layers-in 0.4s var(--evoq-ae-ease) both;
 }
 
 .evoq-ae__panelGrid {
@@ -450,6 +490,10 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(255, 255, 255, 0.04);
   font-size: 0.875rem;
+  color: var(--evoq-ae-green);
+}
+
+.evoq-ae__chip .evoq-ae__icon {
   color: var(--evoq-ae-green);
 }
 
@@ -547,17 +591,6 @@
   background: rgba(82, 224, 129, 0.2);
   color: var(--evoq-ae-green);
   transform: scale(1.08);
-}
-
-.evoq-ae__layerIcon {
-  display: block;
-  width: 16px;
-  height: 16px;
-  object-fit: contain;
-}
-
-.evoq-ae__layer.is-expanded .evoq-ae__layerIcon {
-  filter: none;
 }
 
 .evoq-ae__layerText {

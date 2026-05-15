@@ -1,3 +1,4 @@
+{% set aus_explore_label = module.explore_button_text|default('')|trim %}
 <section id="{{ module.section_html_id }}" class="about-us-stats" data-about-us-stats>
   <div class="about-us-stats__inner">
     <div class="about-us-stats__topRow">
@@ -16,13 +17,28 @@
         <p class="about-us-stats__subtitle">{{ module.subtitle }}</p>
       </div>
 
-      <a class="about-us-stats__exploreBtn" href="{{ module.explore_button_url.href }}">
-        <span>{{ module.explore_button_text }}</span>
+      {% if aus_explore_label %}
+      {% set aus_href = module.explore_button_url.href|default('') %}
+      {% if aus_href and aus_href != '#' %}
+      <a class="about-us-stats__exploreBtn"
+         href="{{ aus_href }}"
+         {% if module.explore_button_url.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}>
+        <span>{{ aus_explore_label }}</span>
         <svg class="about-us-stats__exploreArrow" width="17" height="17" viewBox="0 0 17.49 17.49" fill="none" aria-hidden="true">
           <path d="M3.645 8.744H13.847" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.457"/>
           <path d="M8.745 3.644L13.846 8.744L8.745 13.845" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.457"/>
         </svg>
       </a>
+      {% else %}
+      <button type="button" class="about-us-stats__exploreBtn">
+        <span>{{ aus_explore_label }}</span>
+        <svg class="about-us-stats__exploreArrow" width="17" height="17" viewBox="0 0 17.49 17.49" fill="none" aria-hidden="true">
+          <path d="M3.645 8.744H13.847" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.457"/>
+          <path d="M8.745 3.644L13.846 8.744L8.745 13.845" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.457"/>
+        </svg>
+      </button>
+      {% endif %}
+      {% endif %}
     </div>
 
     <!-- Desktop grid -->

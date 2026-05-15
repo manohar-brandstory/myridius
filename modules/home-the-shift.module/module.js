@@ -161,6 +161,15 @@
       expandOne(cards, card);
     }
 
+    function onLeaveHoverGroup(e) {
+      if (!useHoverExpand() || isMobileLayout()) return;
+      var related = e.relatedTarget;
+      if (related && container.contains(related)) return;
+      collapseAll(cards);
+    }
+
+    container.addEventListener('mouseleave', onLeaveHoverGroup);
+
     cards.forEach(function (card, idx) {
       card.addEventListener('mouseenter', function () {
         onEnter(card);
@@ -168,6 +177,7 @@
       card.addEventListener('focus', function () {
         onEnter(card);
       });
+      card.addEventListener('focusout', onLeaveHoverGroup);
 
       card.addEventListener('click', function () {
         if (!isMobileLayout()) return;

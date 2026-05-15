@@ -100,7 +100,6 @@
 @media (min-width: 1024px) {
   .home-why__grid {
     grid-template-columns: 1fr 1fr;
-    align-items: center;
   }
 }
 
@@ -112,6 +111,7 @@
   justify-content: center;
   height: 500px;
   min-height: 0;
+  overflow: visible;
 }
 
 .home-why__stack-wrap {
@@ -120,12 +120,14 @@
   max-width: 400px;
   height: 100%;
   flex-shrink: 0;
+  overflow: visible;
 }
 
 .home-why__stack {
   position: relative;
   width: 100%;
   height: 100%;
+  overflow: visible;
 }
 
 .home-why__card {
@@ -135,8 +137,12 @@
   background: linear-gradient(to bottom right, var(--why-card-from), var(--why-card-to));
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.55);
-  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1);
-  transform-origin: 50% 50%;
+  overflow: hidden;
+  transition:
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  /* Bottom pivot — fan like playing cards held in hand */
+  transform-origin: 50% 100%;
   will-change: transform, opacity;
 }
 
@@ -148,56 +154,82 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  filter: blur(0);
+  transition: filter 0.65s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .home-why__card[data-position='0'] {
   z-index: 3;
-  transform: scale(1) translateY(0) rotate(0deg);
+  transform: scale(1) translate(0, 0) rotate(0deg);
   opacity: 1;
   cursor: pointer;
 }
 
-/* Tap feedback (matches whileTap on the front card) */
+.home-why__card[data-position='0'] .home-why__card-face {
+  filter: blur(0);
+}
+
+/* Pull forward from the fan (whileTap) */
 .home-why__card[data-position='0']:active {
-  transform: scale(1.02) translateY(-12px) rotate(10deg);
+  transform: scale(1.02) translate(0, -18px) rotate(6deg);
   transition-duration: 0.18s;
 }
 
 .home-why__card[data-position='1'] {
   z-index: 2;
-  transform: scale(0.95) translateY(15px) rotate(-3deg);
-  opacity: 0.8;
+  transform: scale(0.97) translate(-18px, -14px) rotate(-7deg);
+  opacity: 0.72;
   cursor: default;
   pointer-events: none;
+}
+
+.home-why__card[data-position='1'] .home-why__card-face {
+  filter: blur(2.5px);
 }
 
 .home-why__card[data-position='2'] {
   z-index: 1;
-  transform: scale(0.9) translateY(30px) rotate(-6deg);
-  opacity: 0.6;
+  transform: scale(0.94) translate(-34px, -24px) rotate(-13deg);
+  opacity: 0.55;
   cursor: default;
   pointer-events: none;
 }
 
+.home-why__card[data-position='2'] .home-why__card-face {
+  filter: blur(4px);
+}
+
 .home-why__card[data-position='3'] {
   z-index: 0;
-  transform: scale(0.85) translateY(45px) rotate(-9deg);
-  opacity: 0.35;
+  transform: scale(0.91) translate(-48px, -32px) rotate(-18deg);
+  opacity: 0.38;
   pointer-events: none;
+}
+
+.home-why__card[data-position='3'] .home-why__card-face {
+  filter: blur(5px);
 }
 
 .home-why__card[data-position='4'] {
   z-index: -1;
-  transform: scale(0.8) translateY(60px) rotate(-12deg);
-  opacity: 0.18;
+  transform: scale(0.88) translate(-58px, -38px) rotate(-22deg);
+  opacity: 0.24;
   pointer-events: none;
+}
+
+.home-why__card[data-position='4'] .home-why__card-face {
+  filter: blur(5px);
 }
 
 .home-why__card[data-position='5'] {
   z-index: -2;
-  transform: scale(0.75) translateY(72px) rotate(-15deg);
-  opacity: 0.09;
+  transform: scale(0.85) translate(-66px, -42px) rotate(-26deg);
+  opacity: 0.12;
   pointer-events: none;
+}
+
+.home-why__card[data-position='5'] .home-why__card-face {
+  filter: blur(5px);
 }
 
 .home-why__icon-box {
@@ -366,7 +398,9 @@
   width: 192px;
   height: 192px;
   border-radius: 50%;
-  background: var(--why-card-to);
+  background: rgba(12, 34, 38, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 4px solid rgba(82, 224, 129, 0.3);
   display: flex;
   align-items: center;
@@ -480,9 +514,12 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(7, 20, 23, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   color: #fff;
+  isolation: isolate;
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s ease, border-color 0.35s ease, box-shadow 0.35s ease;
 }
 
@@ -492,11 +529,11 @@
 }
 
 .home-why__orbit-item:not(.is-focused) .home-why__node-btn:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(7, 20, 23, 0.82);
 }
 
 .home-why__orbit-item.is-focused .home-why__node-btn {
-  background: rgba(82, 224, 129, 0.2);
+  background: rgba(7, 20, 23, 0.78);
   border-width: 2px;
   border-color: var(--why-accent);
   color: var(--why-accent);
@@ -754,21 +791,24 @@
     width: 100%;
     align-items: center;
     justify-content: center;
-    padding-top: 0;
+    padding: 0 24px;
+    box-sizing: border-box;
     overflow: visible;
   }
 
   .home-why__stack-wrap {
+    width: min(300px, 100%);
     max-width: 300px;
-    width: 100%;
     margin: 0 auto;
     align-self: center;
     overflow: visible;
   }
 
-  /* Fan downward so cards behind peek below the front (matches desktop stack logic) */
-  .home-why__stack .home-why__card {
-    transform-origin: 50% 0;
+  /* Desktop hand-fan, scaled + centered; less horizontal spread on narrow width */
+  .home-why__stack {
+    --why-fan-scale: 0.75;
+    --why-fan-x: 0.42;
+    transform: translateX(12px);
   }
 
   .home-why__card {
@@ -792,32 +832,66 @@
   }
 
   .home-why__card[data-position='0'] {
-    transform: scale(0.98) translate(0, 4px) rotate(0deg);
+    transform: scale(1) translate(0, 0) rotate(0deg);
   }
 
   .home-why__card[data-position='1'] {
-    transform: scale(0.94) translate(-6px, 14px) rotate(-5deg);
-    opacity: 0.88;
+    transform: scale(0.97) translate(calc(-18px * var(--why-fan-scale) * var(--why-fan-x)), calc(-14px * var(--why-fan-scale))) rotate(-6deg);
+    opacity: 0.45;
+  }
+
+  .home-why__card[data-position='1'] .home-why__card-face {
+    filter: blur(4px);
   }
 
   .home-why__card[data-position='2'] {
-    transform: scale(0.9) translate(-10px, 26px) rotate(-7deg);
-    opacity: 0.72;
+    transform: scale(0.94) translate(calc(-34px * var(--why-fan-scale) * var(--why-fan-x)), calc(-24px * var(--why-fan-scale))) rotate(-10deg);
+    opacity: 0.26;
+  }
+
+  .home-why__card[data-position='2'] .home-why__card-face {
+    filter: blur(6px);
   }
 
   .home-why__card[data-position='3'] {
-    transform: scale(0.86) translate(-14px, 38px) rotate(-8.5deg);
-    opacity: 0.5;
+    transform: scale(0.91) translate(calc(-48px * var(--why-fan-scale) * var(--why-fan-x)), calc(-32px * var(--why-fan-scale))) rotate(-14deg);
+    opacity: 0.16;
+  }
+
+  .home-why__card[data-position='3'] .home-why__card-face {
+    filter: blur(6px);
   }
 
   .home-why__card[data-position='4'] {
-    transform: scale(0.82) translate(-16px, 50px) rotate(-10deg);
-    opacity: 0.32;
+    transform: scale(0.88) translate(calc(-58px * var(--why-fan-scale) * var(--why-fan-x)), calc(-38px * var(--why-fan-scale))) rotate(-18deg);
+    opacity: 0.1;
+  }
+
+  .home-why__card[data-position='4'] .home-why__card-face {
+    filter: blur(6px);
   }
 
   .home-why__card[data-position='5'] {
-    transform: scale(0.78) translate(-18px, 60px) rotate(-11.5deg);
-    opacity: 0.16;
+    transform: scale(0.85) translate(calc(-66px * var(--why-fan-scale) * var(--why-fan-x)), calc(-42px * var(--why-fan-scale))) rotate(-22deg);
+    opacity: 0.06;
+  }
+
+  .home-why__card[data-position='5'] .home-why__card-face {
+    filter: blur(6px);
+  }
+
+  .home-why__card:not([data-position='0'])::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    border-radius: inherit;
+    background: rgba(7, 20, 23, 0.45);
+    pointer-events: none;
+  }
+
+  .home-why__card[data-position='0']:active {
+    transform: scale(1.02) translate(0, calc(-18px * var(--why-fan-scale))) rotate(6deg);
   }
 
   .home-why__card-face {
@@ -947,11 +1021,6 @@
 
   .home-why__node-btn {
     flex-shrink: 0;
-  }
-
-  .home-why__card[data-position='0']:active {
-    transform: scale(0.96) translate(0, 4px) rotate(5deg);
-    transition-duration: 0.18s;
   }
 
   /* Mobile: same tooltip content as desktop, centered overlay within viewport */

@@ -9,46 +9,59 @@
     var statsStage = root.querySelector('[data-stage="stats"]');
     if (!logoStage && !cardsStage && !statsStage) return;
 
+    var timers = [];
+
+    function runStagedReveal() {
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (reduced) {
+        if (logoStage) {
+          logoStage.classList.add(VISIBLE_CLASS, 'evoq-stats--powered');
+        }
+        if (cardsStage) cardsStage.classList.add(VISIBLE_CLASS);
+        if (statsStage) statsStage.classList.add(VISIBLE_CLASS);
+        return;
+      }
+
+      if (logoStage) {
+        timers.push(setTimeout(function () {
+          logoStage.classList.add(VISIBLE_CLASS);
+        }, 100));
+        timers.push(setTimeout(function () {
+          logoStage.classList.add('evoq-stats--powered');
+        }, 700));
+      }
+      if (cardsStage) {
+        timers.push(setTimeout(function () {
+          cardsStage.classList.add(VISIBLE_CLASS);
+        }, 1400));
+      }
+      if (statsStage) {
+        timers.push(setTimeout(function () {
+          statsStage.classList.add(VISIBLE_CLASS);
+        }, 2600));
+      }
+    }
+
     if (!('IntersectionObserver' in window)) {
-      if (logoStage) logoStage.classList.add(VISIBLE_CLASS);
-      if (cardsStage) cardsStage.classList.add(VISIBLE_CLASS);
-      if (statsStage) statsStage.classList.add(VISIBLE_CLASS);
+      runStagedReveal();
       return;
     }
 
-    var timers = [];
+    var started = false;
     var observer = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            if (entry.target === logoStage) {
-              logoStage.classList.add(VISIBLE_CLASS);
-              if (cardsStage) {
-                timers.push(setTimeout(function () {
-                  cardsStage.classList.add(VISIBLE_CLASS);
-                }, 700));
-              }
-              if (statsStage) {
-                timers.push(setTimeout(function () {
-                  statsStage.classList.add(VISIBLE_CLASS);
-                }, 1400));
-              }
-            } else {
-              entry.target.classList.add(VISIBLE_CLASS);
-            }
-            observer.unobserve(entry.target);
-          }
+          if (!entry.isIntersecting || started) return;
+          started = true;
+          runStagedReveal();
+          observer.unobserve(root);
         });
       },
-      { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+      { threshold: 0.1, rootMargin: '0px 0px -20% 0px' }
     );
 
-    if (logoStage) {
-      observer.observe(logoStage);
-    } else {
-      if (cardsStage) cardsStage.classList.add(VISIBLE_CLASS);
-      if (statsStage) statsStage.classList.add(VISIBLE_CLASS);
-    }
+    observer.observe(root);
   }
 
   function initCardHovers(root) {

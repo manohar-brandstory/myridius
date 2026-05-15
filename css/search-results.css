@@ -1,0 +1,132 @@
+/* Site search results — title-only vertical list (matches header nav typography) */
+
+.myridius-search-results {
+  padding: 80px var(--gutter, 64px) 120px;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.myridius-search-results__header {
+  margin-bottom: 40px;
+}
+
+.myridius-search-results__label {
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-brand-2, #337077);
+}
+
+.myridius-search-results__query {
+  margin: 0;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-ink, #0c2226);
+}
+
+.myridius-search-results__results {
+  margin: 0;
+}
+
+/* HubSpot @hubspot/search_results module */
+.myridius-search-results .hs-search-results,
+.myridius-search-results .hs-search-results__listing {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.myridius-search-results .hs-search-results__listing > li,
+.myridius-search-results .hs-search-results__listing .hs-search-results__item {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+}
+
+/* Hide snippets, images, tags, URLs — titles only */
+.myridius-search-results .hs-search-results__description,
+.myridius-search-results .hs-search-results__featured-image,
+.myridius-search-results .hs-search-results__tags,
+.myridius-search-results .hs-search-results__url,
+.myridius-search-results .hs-search-results__breadcrumb {
+  display: none !important;
+}
+
+.myridius-search-results .hs-search-results__title {
+  display: block;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(11, 23, 38, 0.08);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--color-ink, #0c2226);
+  text-decoration: none;
+  transition: color 180ms ease, padding-left 180ms ease;
+}
+
+.myridius-search-results .hs-search-results__listing > li:last-child .hs-search-results__title,
+.myridius-search-results .hs-search-results__listing > li:last-of-type .hs-search-results__title {
+  border-bottom: 0;
+}
+
+.myridius-search-results .hs-search-results__title:hover {
+  color: var(--color-brand-1, #194247);
+  padding-left: 6px;
+}
+
+.myridius-search-results .hs-search-highlight,
+.myridius-search-results .hs-search-highlight.hs-highlight-html {
+  font-weight: 600;
+  color: inherit;
+  background: transparent;
+}
+
+/* Module empty / loading states */
+.myridius-search-results .hs-search-results__empty-message,
+.myridius-search-results .hs-search-results__no-results {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-brand-2, #337077);
+}
+
+.myridius-search-results .hs-search-results__pagination {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(11, 23, 38, 0.08);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.myridius-search-results .hs-search-results__pagination a {
+  color: var(--color-brand-1, #194247);
+  text-decoration: none;
+}
+
+.myridius-search-results .hs-search-results__pagination a:hover {
+  text-decoration: underline;
+}
+
+/* Newer search_results module title block */
+.myridius-search-results .hs-search-results__title--show {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .myridius-search-results {
+    padding: 48px 24px 80px;
+  }
+
+  .myridius-search-results__header {
+    margin-bottom: 28px;
+  }
+
+  .myridius-search-results .hs-search-results__title {
+    font-size: 18px;
+    padding: 12px 0;
+  }
+}

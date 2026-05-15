@@ -110,8 +110,9 @@
   align-items: center;
   min-height: 128px;
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.55s ease, transform 0.55s ease;
+  transform: translateY(12px);
+  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .evoq-shift__row.evoq-shift__row--visible {
@@ -182,7 +183,7 @@
 
 .evoq-shift__text-struck {
   font-size: 12px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.25;
   color: var(--evoq-mid);
   text-decoration: line-through;
@@ -198,7 +199,7 @@
 
 .evoq-shift__text-active {
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--evoq-dark);
   line-height: 1.25;
 }
@@ -228,7 +229,7 @@
 
 .evoq-shift__card-value {
   font-size: 42px;
-  font-weight: 500;
+  font-weight: 700;
   color: var(--evoq-green);
   line-height: 1;
 }
@@ -364,7 +365,7 @@
 
   .evoq-shift__text-active {
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 1.25;
     overflow-wrap: break-word;
     word-break: break-word;
@@ -426,4 +427,16 @@
 @keyframes evoq-shift-bg-drift {
   0% { transform: translate3d(0, 0, 0); }
   100% { transform: translate3d(-16px, 12px, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .evoq-shift__row {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .evoq-shift__bg-svg path {
+    animation: none !important;
+  }
 }

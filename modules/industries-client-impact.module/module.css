@@ -167,6 +167,8 @@
 }
 .impact__more{
   display: inline-flex; align-items: center; gap: 8px;
+  visibility: hidden;
+  pointer-events: none;
   color: #52E081;
   font-size: 16px; font-weight: 500;
   text-transform: uppercase;

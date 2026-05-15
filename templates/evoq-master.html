@@ -183,4 +183,64 @@
       {% end_dnd_section %}
     {% end_dnd_area %}
   </div>
+  {% require_js position="footer" %}
+  <script>
+    (function () {
+      var INVIEW = 'evoq-section--inview';
+      var SKIP = 'evoq-hero';
+
+      function boot() {
+        var page = document.querySelector('.evoq-page');
+        if (!page) return;
+
+        var sections = page.querySelectorAll('section[class^="evoq-"]');
+        if (!sections.length) return;
+
+        var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (reduced) {
+          sections.forEach(function (section) {
+            section.classList.add(INVIEW);
+          });
+          return;
+        }
+
+        sections.forEach(function (section) {
+          if (section.classList.contains(SKIP)) {
+            section.classList.add(INVIEW);
+          }
+        });
+
+        if (!('IntersectionObserver' in window)) {
+          sections.forEach(function (section) {
+            section.classList.add(INVIEW);
+          });
+          return;
+        }
+
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add(INVIEW);
+              observer.unobserve(entry.target);
+            });
+          },
+          { threshold: 0.12, rootMargin: '0px 0px -15% 0px' }
+        );
+
+        sections.forEach(function (section) {
+          if (section.classList.contains(SKIP) || section.classList.contains(INVIEW)) return;
+          observer.observe(section);
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', boot);
+      } else {
+        boot();
+      }
+    })();
+  </script>
+  {% end_require_js %}
 {% endblock body %}

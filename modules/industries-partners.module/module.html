@@ -23,7 +23,16 @@
         {% for p in module.partners %}
           <div class="partners__logoCell" title="{{ p.partner_name }}">
             {% if p.logo.src %}
-              <img class="partners__logo" src="{{ p.logo.src }}" alt="{{ p.logo.alt|default(p.partner_name) }}" loading="lazy" decoding="async">
+              {% set _logo_w = p.logo_width|default('')|trim %}
+              {% set _logo_h = p.logo_height|default('')|trim %}
+              <img
+                class="partners__logo{% if _logo_w or _logo_h %} partners__logo--sized{% endif %}"
+                src="{{ p.logo.src }}"
+                alt="{{ p.logo.alt|default(p.partner_name) }}"
+                loading="lazy"
+                decoding="async"
+                {% if _logo_w or _logo_h %}style="{% if _logo_h %}--partners-logo-h: {{ _logo_h }}px;{% endif %}{% if _logo_w %}--partners-logo-w: {{ _logo_w }}px;{% endif %}"{% endif %}
+              >
             {% else %}
               <span class="partners__logoText">{{ p.partner_name }}</span>
             {% endif %}

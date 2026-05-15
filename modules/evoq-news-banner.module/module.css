@@ -42,6 +42,10 @@
 .evoq-news__track {
   display: flex;
   width: max-content;
+  animation: none;
+}
+
+.evoq-news.evoq-section--inview .evoq-news__track {
   animation: evoq-news-marquee 45s linear infinite;
 }
 
@@ -92,7 +96,7 @@
   .evoq-news__container {
     padding: 0 20px;
   }
-  .evoq-news__track {
+  .evoq-news.evoq-section--inview .evoq-news__track {
     animation-duration: 28s;
   }
   .evoq-news__card {
@@ -106,4 +110,15 @@
   .evoq-news__desc {
     font-size: 14px;
   }
+}
+
+.evoq-news:not(.evoq-section--inview) .evoq-news__badge {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.evoq-news.evoq-section--inview .evoq-news__badge {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }

@@ -1,5 +1,6 @@
 {# Home — What We Do (NewHomePage WhatWeDo / SectionBadge / lucide-aligned icons via fields) #}
 {% set sid = module.section_id || "home-what-we-do" %}
+{% set wwd_explore_label = module.explore_link_text|default('')|trim %}
 {% require_css %}
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
 {% end_require_css %}
@@ -30,12 +31,13 @@
             <div class="home-wwd__left-stack">
               <p class="home-wwd__left-para">{{ cat.left_paragraph }}</p>
 
+              {% if wwd_explore_label %}
               {% set wwd_href = module.explore_link_url.href|default('') %}
               {% if wwd_href and wwd_href != '#' %}
               <a class="home-wwd__explore"
                  href="{{ wwd_href }}"
                  {% if module.explore_link_url.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}>
-                <span class="home-wwd__explore-text">{{ module.explore_link_text }}</span>
+                <span class="home-wwd__explore-text">{{ wwd_explore_label }}</span>
                 <svg class="home-wwd__explore-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                   <path d="m12 5 7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -43,12 +45,13 @@
               </a>
               {% else %}
               <button type="button" class="home-wwd__explore">
-                <span class="home-wwd__explore-text">{{ module.explore_link_text }}</span>
+                <span class="home-wwd__explore-text">{{ wwd_explore_label }}</span>
                 <svg class="home-wwd__explore-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                   <path d="m12 5 7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </button>
+              {% endif %}
               {% endif %}
 
               <div class="home-wwd__services">
@@ -163,12 +166,13 @@
                 <div class="home-wwd__acc-mobile-extra">
                   <p class="home-wwd__acc-mobile-para">{{ cat.left_paragraph }}</p>
 
+                  {% if wwd_explore_label %}
                   {% set wwd_mobile_href = module.explore_link_url.href|default('') %}
                   {% if wwd_mobile_href and wwd_mobile_href != '#' %}
                   <a class="home-wwd__explore home-wwd__explore--mobile"
                      href="{{ wwd_mobile_href }}"
                      {% if module.explore_link_url.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}>
-                    <span class="home-wwd__explore-text">{{ module.explore_link_text }}</span>
+                    <span class="home-wwd__explore-text">{{ wwd_explore_label }}</span>
                     <svg class="home-wwd__explore-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                       <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                       <path d="m12 5 7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -176,12 +180,13 @@
                   </a>
                   {% else %}
                   <button type="button" class="home-wwd__explore home-wwd__explore--mobile">
-                    <span class="home-wwd__explore-text">{{ module.explore_link_text }}</span>
+                    <span class="home-wwd__explore-text">{{ wwd_explore_label }}</span>
                     <svg class="home-wwd__explore-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                       <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                       <path d="m12 5 7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                   </button>
+                  {% endif %}
                   {% endif %}
 
                   <div class="home-wwd__services home-wwd__services--mobile">

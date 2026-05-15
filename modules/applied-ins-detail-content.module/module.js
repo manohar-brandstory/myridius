@@ -1,9 +1,19 @@
 (function () {
+  var HOVER_CAPABLE = window.matchMedia("(hover: hover) and (pointer: fine)");
+  var lastTouchAt = 0;
+
+  function isTouchDerivedHover() {
+    return Date.now() - lastTouchAt < 700;
+  }
+
   function initAccordions() {
-    var accordions = document.querySelectorAll("[data-applied-ins-accordion]");
-    var container = accordions.length
-      ? accordions[0].closest(".applied-ins-detail-content__sections")
-      : null;
+    var sectionsRoot = document.querySelector(".applied-ins-detail-content__sections");
+    if (!sectionsRoot || sectionsRoot.dataset.appliedInsAccordionInit === "true") {
+      return;
+    }
+    sectionsRoot.dataset.appliedInsAccordionInit = "true";
+
+    var accordions = sectionsRoot.querySelectorAll("[data-applied-ins-accordion]");
 
     function openAccordion(accordion) {
       var toggle = accordion.querySelector("[data-applied-ins-toggle]");
@@ -22,44 +32,61 @@
     }
 
     function closeAll() {
-      for (var i = 0; i < accordions.length; i++) {
+      for (var i = 0; i < accordions.length; i += 1) {
         closeAccordion(accordions[i]);
       }
     }
 
-    document.addEventListener("click", function (e) {
-      var toggle = e.target.closest("[data-applied-ins-toggle]");
-      if (!toggle) return;
+    function isExpanded(accordion) {
+      var toggle = accordion.querySelector("[data-applied-ins-toggle]");
+      return toggle && toggle.getAttribute("aria-expanded") === "true";
+    }
 
-      var accordion = toggle.closest("[data-applied-ins-accordion]");
-      if (!accordion) return;
+    document.addEventListener(
+      "touchstart",
+      function () {
+        lastTouchAt = Date.now();
+      },
+      { passive: true, capture: true }
+    );
 
-      var expanded = toggle.getAttribute("aria-expanded") === "true";
-      if (expanded) {
-        closeAccordion(accordion);
-      } else {
-        openAccordion(accordion);
-      }
-    });
+    for (var i = 0; i < accordions.length; i += 1) {
+      (function (accordion) {
+        var toggle = accordion.querySelector("[data-applied-ins-toggle]");
+        if (!toggle) return;
 
-    for (var i = 0; i < accordions.length; i++) {
-      (function (acc) {
-        acc.addEventListener("mouseenter", function () {
-          var toggle = acc.querySelector("[data-applied-ins-toggle]");
-          if (!toggle) return;
-          var expanded = toggle.getAttribute("aria-expanded") === "true";
-          if (!expanded) {
-            openAccordion(acc);
+        toggle.addEventListener("click", function () {
+          if (isExpanded(accordion)) {
+            closeAccordion(accordion);
+          } else {
+            openAccordion(accordion);
           }
         });
+
+        /* Desktop only — Figma onMouseEnter; skip touch (phantom mouseenter breaks first tap) */
+        if (HOVER_CAPABLE.matches) {
+          accordion.addEventListener("mouseenter", function () {
+            if (isTouchDerivedHover()) return;
+            if (!isExpanded(accordion)) {
+              openAccordion(accordion);
+            }
+          });
+        }
       })(accordions[i]);
     }
 
-    document.addEventListener("mousedown", function (e) {
-      if (container && !container.contains(e.target)) {
+    document.addEventListener(
+      "pointerdown",
+      function (e) {
+        if (sectionsRoot.contains(e.target)) {
+          if (e.target.closest("[data-applied-ins-toggle]")) return;
+          if (e.target.closest("[data-applied-ins-panel]")) return;
+          return;
+        }
         closeAll();
-      }
-    });
+      },
+      true
+    );
   }
 
   if (document.readyState === "loading") {

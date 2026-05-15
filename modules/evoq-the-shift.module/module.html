@@ -26,7 +26,7 @@
     {# Timeline - Desktop #}
     <div class="evoq-shift__timeline">
       {% for item in module.timeline_items %}
-      <div class="evoq-shift__row" data-shift-row>
+      <div class="evoq-shift__row" data-shift-row data-shift-index="{{ loop.index0 }}">
 
         {# Left Column #}
         <div class="evoq-shift__col evoq-shift__col--left">

@@ -495,7 +495,9 @@
 
 .home-stories__cta:hover,
 .home-stories__cta:focus-visible {
-  color: #6fe699;
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .home-stories__cta-icon {

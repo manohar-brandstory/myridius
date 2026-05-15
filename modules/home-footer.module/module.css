@@ -89,6 +89,19 @@
   color: rgba(255,255,255,0.90);
 }
 
+.home-footer__hLink{
+  color: inherit;
+  text-decoration: none;
+}
+
+.home-footer__h--linked .home-footer__hLink{
+  cursor: pointer;
+}
+
+.home-footer__h--linked .home-footer__hLink:hover{
+  color: #fff;
+}
+
 .home-footer__list{
   list-style: none;
   margin: 0;

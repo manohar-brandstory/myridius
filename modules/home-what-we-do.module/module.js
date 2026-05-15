@@ -66,7 +66,10 @@
     }
 
     function applyState(nextActiveIdx) {
-      activeIdx = Number.isFinite(nextActiveIdx) ? nextActiveIdx : null;
+      if (!Number.isFinite(nextActiveIdx)) {
+        nextActiveIdx = activeIdx !== null ? activeIdx : 0;
+      }
+      activeIdx = nextActiveIdx;
 
       accItems.forEach(function (item) {
         var i = parseInt(item.getAttribute('data-wwd-acc'), 10);
@@ -86,11 +89,8 @@
 
     function toggle(idx) {
       if (!Number.isFinite(idx)) return;
-      if (activeIdx === idx) {
-        applyState(null);
-      } else {
-        applyState(idx);
-      }
+      if (activeIdx === idx) return;
+      applyState(idx);
     }
 
     accItems.forEach(function (item) {
@@ -122,6 +122,9 @@
     window.addEventListener('resize', scheduleMeasure);
     window.addEventListener('orientationchange', scheduleMeasure);
 
+    if (!Number.isFinite(activeIdx) && accItems.length) {
+      activeIdx = 0;
+    }
     applyState(activeIdx);
 
     if (document.fonts && document.fonts.ready) {

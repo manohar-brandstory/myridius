@@ -216,6 +216,10 @@
   margin: 0 auto;
   padding: 48px 32px;
 }
+
+.home-navbar__panel:not(:has(.home-navbar__panelHeader)) .home-navbar__megaFlat{
+  margin-top: 0;
+}
 .home-navbar__panelHeader{
   display:inline-flex;
   align-items:center;
@@ -406,8 +410,11 @@
   position: relative;
   background: #fff;
   width: 100%;
-  max-height: 33vh;
-  overflow-y:auto;
+  max-height: calc(100vh - 64px);
+  max-height: calc(100dvh - 64px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
   box-shadow: 0 18px 40px rgba(0,0,0,0.18);
 }
 .home-navbar__mobileInner{ padding: 24px; }
