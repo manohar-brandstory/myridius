@@ -5,7 +5,7 @@
     {% if module.related_cards|length %}
       {% set cards_count = module.related_cards|length %}
       <div
-        class="applied-ins-related__carousel{% if cards_count > 3 %} is-slider{% endif %}"
+        class="applied-ins-related__carousel{% if cards_count > 1 %} is-slider{% endif %}"
         data-applied-ins-carousel
         data-total="{{ cards_count }}"
       >
@@ -48,7 +48,9 @@
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
           </button>
+        {% endif %}
 
+        {% if cards_count > 1 %}
           <div class="applied-ins-related__mobNav" data-applied-ins-mob-nav>
             <button class="applied-ins-related__mobPrev" type="button" aria-label="Previous insight" data-applied-ins-mob-prev>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="#337077" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>

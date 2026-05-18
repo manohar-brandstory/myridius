@@ -9,7 +9,7 @@
 
   cards.forEach(function (card) {
     card.addEventListener('mouseenter', function () {
-      if (window.matchMedia('(min-width: 769px)').matches) {
+      if (window.matchMedia('only screen and (min-width: 768px)').matches) {
         setActive(card);
       }
     });

@@ -1,371 +1,384 @@
-[
-  {
-    "id": "section_id",
-    "name": "section_id",
-    "label": "Section ID",
-    "type": "text",
-    "default": "the-shift",
-    "required": false,
-    "locked": false
+[ {
+  "id" : "section_id",
+  "name" : "section_id",
+  "label" : "Section ID",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "the-shift"
+}, {
+  "id" : "badge_text",
+  "name" : "badge_text",
+  "label" : "Badge Text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "The Shift"
+}, {
+  "id" : "heading",
+  "name" : "heading",
+  "label" : "Heading",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "display_width" : null,
+  "default" : "From Hierarchy to <span class=\"svc-theshift__heading-accent\">Intelligence</span>"
+}, {
+  "id" : "subtitle",
+  "name" : "subtitle",
+  "label" : "Subtitle",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "display_width" : null,
+  "default" : "Transitioning from slow manual routing to a coordinated layer of agentic intelligence"
+}, {
+  "id" : "center_title",
+  "name" : "center_title",
+  "label" : "Center Title",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "AI-Native Business System"
+}, {
+  "id" : "center_subtitle",
+  "name" : "center_subtitle",
+  "label" : "Center Subtitle",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "EVOQ CORE"
+}, {
+  "id" : "center_hover_desc",
+  "name" : "center_hover_desc",
+  "label" : "Center Hover Description",
+  "help_text" : "Text shown when hovering the center core on desktop.",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "EVOQ unifies work, decisions, controls, and follow-through in one operating system"
+}, {
+  "id" : "nodes",
+  "name" : "nodes",
+  "label" : "Diagram Nodes",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 12,
+    "sorting_label_field" : "node_title",
+    "default" : 8
   },
-  {
-    "id": "badge_text",
-    "name": "badge_text",
-    "label": "Badge Text",
-    "type": "text",
-    "default": "The Shift",
-    "required": false,
-    "locked": false
+  "children" : [ {
+    "id" : "nodes.node_icon_svg",
+    "name" : "node_icon_svg",
+    "label" : "Icon SVG",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"10\"/></svg>"
+  }, {
+    "id" : "nodes.node_title",
+    "name" : "node_title",
+    "label" : "Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Node Title"
+  }, {
+    "id" : "nodes.node_description",
+    "name" : "node_description",
+    "label" : "Description",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Node description text."
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "node_icon_svg" : "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z\"/><path d=\"M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z\"/></svg>",
+    "node_title" : "Strategy",
+    "node_description" : "Sets reinvention priority and value path"
+  }, {
+    "node_icon_svg" : "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 20V10\"/><path d=\"M18 20V4\"/><path d=\"M6 20v-4\"/></svg>",
+    "node_title" : "Decision Systems",
+    "node_description" : "Shapes approvals, thresholds, and exception flow"
+  }, {
+    "node_icon_svg" : "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"4\" y=\"4\" width=\"16\" height=\"16\" rx=\"2\"/><rect x=\"9\" y=\"9\" width=\"6\" height=\"6\"/><path d=\"M15 2v2\"/><path d=\"M15 20v2\"/><path d=\"M2 15h2\"/><path d=\"M2 9h2\"/><path d=\"M20 15h2\"/><path d=\"M20 9h2\"/><path d=\"M9 2v2\"/><path d=\"M9 20v2\"/></svg>",
+    "node_title" : "AI Solutions",
+    "node_description" : "Puts intelligence into the flow of work"
+  }, {
+    "node_icon_svg" : "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"/><path d=\"M3 5v14a9 3 0 0 0 18 0V5\"/><path d=\"M3 12a9 3 0 0 0 18 0\"/></svg>",
+    "node_title" : "Data + Context",
+    "node_description" : "Grounds action in state, knowledge, and context"
+  }, {
+    "node_icon_svg" : "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\"/></svg>",
+    "node_title" : "Governance",
+    "node_description" : "Keeps policy, risk, and traceability live"
+  }, {
+    "node_icon_svg" : "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1.08-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1.08 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1.08 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9c.26.604.852.997 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1.08z\"/></svg>",
+    "node_title" : "Operating Model",
+    "node_description" : "Sets ownership, adoption, and oversight"
+  }, {
+    "node_icon_svg" : "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"16 18 22 12 16 6\"/><polyline points=\"8 6 2 12 8 18\"/></svg>",
+    "node_title" : "Integration Fabric",
+    "node_description" : "Connects workflows, APIs, and systems of record"
+  }, {
+    "node_icon_svg" : "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"4 17 10 11 4 5\"/><line x1=\"12\" y1=\"19\" x2=\"20\" y2=\"19\"/></svg>",
+    "node_title" : "Codified Patterns",
+    "node_description" : "Turns proven designs into scalable advantage"
+  } ]
+}, {
+  "id" : "left_card_tag",
+  "name" : "left_card_tag",
+  "label" : "Left Card Tag",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Traditional Enterprise"
+}, {
+  "id" : "left_card_title",
+  "name" : "left_card_title",
+  "label" : "Left Card Title (Default)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Work moves through hierarchy"
+}, {
+  "id" : "left_card_description",
+  "name" : "left_card_description",
+  "label" : "Left Card Description (Default)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Manual routing · Fragmented ownership · Slow follow-through"
+}, {
+  "id" : "left_card_hover_title",
+  "name" : "left_card_hover_title",
+  "label" : "Left Card Title (Hover)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Execution depends on handoffs"
+}, {
+  "id" : "left_card_items",
+  "name" : "left_card_items",
+  "label" : "Left Card Items (Hover)",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 8,
+    "sorting_label_field" : "item_title",
+    "default" : 4
   },
-  {
-    "id": "heading",
-    "name": "heading",
-    "label": "Heading",
-    "type": "richtext",
-    "default": "From Hierarchy to <span class=\"svc-theshift__heading-accent\">Intelligence</span>",
-    "required": false,
-    "locked": false
+  "children" : [ {
+    "id" : "left_card_items.item_title",
+    "name" : "item_title",
+    "label" : "Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Item Title"
+  }, {
+    "id" : "left_card_items.item_description",
+    "name" : "item_description",
+    "label" : "Description",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Item description."
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "item_title" : "Manual routing",
+    "item_description" : "Work waits for people"
+  }, {
+    "item_title" : "Context resets",
+    "item_description" : "Teams re-brief the case"
+  }, {
+    "item_title" : "Decision queues",
+    "item_description" : "Approvals slow momentum"
+  }, {
+    "item_title" : "Local fixes",
+    "item_description" : "Learning does not scale"
+  } ]
+}, {
+  "id" : "right_card_tag",
+  "name" : "right_card_tag",
+  "label" : "Right Card Tag",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "AI-Native Enterprise"
+}, {
+  "id" : "right_card_title",
+  "name" : "right_card_title",
+  "label" : "Right Card Title (Default)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Work & context moves through agentic systems"
+}, {
+  "id" : "right_card_description",
+  "name" : "right_card_description",
+  "label" : "Right Card Description (Default)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Connected context · Agentic coordination · Adaptive control"
+}, {
+  "id" : "right_card_hover_title",
+  "name" : "right_card_hover_title",
+  "label" : "Right Card Title (Hover)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Execution runs in-system"
+}, {
+  "id" : "right_card_items",
+  "name" : "right_card_items",
+  "label" : "Right Card Items (Hover)",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 8,
+    "sorting_label_field" : "item_title",
+    "default" : 4
   },
-  {
-    "id": "subtitle",
-    "name": "subtitle",
-    "label": "Subtitle",
-    "type": "richtext",
-    "default": "Transitioning from slow manual routing to a coordinated layer of agentic intelligence",
-    "required": false,
-    "locked": false
+  "children" : [ {
+    "id" : "right_card_items.item_title",
+    "name" : "item_title",
+    "label" : "Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Item Title"
+  }, {
+    "id" : "right_card_items.item_description",
+    "name" : "item_description",
+    "label" : "Description",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Item description."
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "item_title" : "Context attached",
+    "item_description" : "State travels with work"
+  }, {
+    "item_title" : "Agents coordinate",
+    "item_description" : "Next actions stay live"
+  }, {
+    "item_title" : "Decisions guided",
+    "item_description" : "Controls shape the path"
+  }, {
+    "item_title" : "Patterns codified",
+    "item_description" : "Learning scales across flows"
+  } ]
+}, {
+  "id" : "bottom_items",
+  "name" : "bottom_items",
+  "label" : "Bottom Items",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 8,
+    "sorting_label_field" : "item_title",
+    "default" : 4
   },
-  {
-    "id": "center_title",
-    "name": "center_title",
-    "label": "Center Title",
-    "type": "text",
-    "default": "AI-Native Business System",
-    "required": false,
-    "locked": false
-  },
-  {
-    "id": "center_subtitle",
-    "name": "center_subtitle",
-    "label": "Center Subtitle",
-    "type": "text",
-    "default": "EVOQ CORE",
-    "required": false,
-    "locked": false
-  },
-  {
-    "id": "center_hover_desc",
-    "name": "center_hover_desc",
-    "label": "Center Hover Description",
-    "type": "text",
-    "default": "EVOQ unifies work, decisions, controls, and follow-through in one operating system",
-    "required": false,
-    "locked": false,
-    "help_text": "Text shown when hovering the center core on desktop."
-  },
-  {
-    "id": "nodes",
-    "name": "nodes",
-    "label": "Diagram Nodes",
-    "type": "group",
-    "occurrence": {
-      "min": 1,
-      "max": 12,
-      "default": 8,
-      "sorting_label_field": "node_title"
-    },
-    "children": [
-      {
-        "id": "nodes.node_icon_svg",
-        "name": "node_icon_svg",
-        "label": "Icon SVG",
-        "type": "text",
-        "default": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"10\"/></svg>",
-        "required": false,
-        "locked": false
-      },
-      {
-        "id": "nodes.node_title",
-        "name": "node_title",
-        "label": "Title",
-        "type": "text",
-        "default": "Node Title",
-        "required": false,
-        "locked": false
-      },
-      {
-        "id": "nodes.node_description",
-        "name": "node_description",
-        "label": "Description",
-        "type": "text",
-        "default": "Node description text.",
-        "required": false,
-        "locked": false
-      }
-    ],
-    "default": [
-      {
-        "node_icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z\"/><path d=\"M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z\"/></svg>",
-        "node_title": "Strategy",
-        "node_description": "Sets reinvention priority and value path"
-      },
-      {
-        "node_icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 20V10\"/><path d=\"M18 20V4\"/><path d=\"M6 20v-4\"/></svg>",
-        "node_title": "Decision Systems",
-        "node_description": "Shapes approvals, thresholds, and exception flow"
-      },
-      {
-        "node_icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"4\" y=\"4\" width=\"16\" height=\"16\" rx=\"2\"/><rect x=\"9\" y=\"9\" width=\"6\" height=\"6\"/><path d=\"M15 2v2\"/><path d=\"M15 20v2\"/><path d=\"M2 15h2\"/><path d=\"M2 9h2\"/><path d=\"M20 15h2\"/><path d=\"M20 9h2\"/><path d=\"M9 2v2\"/><path d=\"M9 20v2\"/></svg>",
-        "node_title": "AI Solutions",
-        "node_description": "Puts intelligence into the flow of work"
-      },
-      {
-        "node_icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"/><path d=\"M3 5v14a9 3 0 0 0 18 0V5\"/><path d=\"M3 12a9 3 0 0 0 18 0\"/></svg>",
-        "node_title": "Data + Context",
-        "node_description": "Grounds action in state, knowledge, and context"
-      },
-      {
-        "node_icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\"/></svg>",
-        "node_title": "Governance",
-        "node_description": "Keeps policy, risk, and traceability live"
-      },
-      {
-        "node_icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1.08-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1.08 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1.08 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9c.26.604.852.997 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1.08z\"/></svg>",
-        "node_title": "Operating Model",
-        "node_description": "Sets ownership, adoption, and oversight"
-      },
-      {
-        "node_icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"16 18 22 12 16 6\"/><polyline points=\"8 6 2 12 8 18\"/></svg>",
-        "node_title": "Integration Fabric",
-        "node_description": "Connects workflows, APIs, and systems of record"
-      },
-      {
-        "node_icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"4 17 10 11 4 5\"/><line x1=\"12\" y1=\"19\" x2=\"20\" y2=\"19\"/></svg>",
-        "node_title": "Codified Patterns",
-        "node_description": "Turns proven designs into scalable advantage"
-      }
-    ]
-  },
-  {
-    "id": "left_card_tag",
-    "name": "left_card_tag",
-    "label": "Left Card Tag",
-    "type": "text",
-    "default": "Traditional Enterprise",
-    "required": false,
-    "locked": false
-  },
-  {
-    "id": "left_card_title",
-    "name": "left_card_title",
-    "label": "Left Card Title (Default)",
-    "type": "text",
-    "default": "Work moves through hierarchy",
-    "required": false,
-    "locked": false
-  },
-  {
-    "id": "left_card_description",
-    "name": "left_card_description",
-    "label": "Left Card Description (Default)",
-    "type": "text",
-    "default": "Manual routing · Fragmented ownership · Slow follow-through",
-    "required": false,
-    "locked": false
-  },
-  {
-    "id": "left_card_hover_title",
-    "name": "left_card_hover_title",
-    "label": "Left Card Title (Hover)",
-    "type": "text",
-    "default": "Execution depends on handoffs",
-    "required": false,
-    "locked": false
-  },
-  {
-    "id": "left_card_items",
-    "name": "left_card_items",
-    "label": "Left Card Items (Hover)",
-    "type": "group",
-    "occurrence": {
-      "min": 1,
-      "max": 8,
-      "default": 4,
-      "sorting_label_field": "item_title"
-    },
-    "children": [
-      {
-        "id": "left_card_items.item_title",
-        "name": "item_title",
-        "label": "Title",
-        "type": "text",
-        "default": "Item Title",
-        "required": false,
-        "locked": false
-      },
-      {
-        "id": "left_card_items.item_description",
-        "name": "item_description",
-        "label": "Description",
-        "type": "text",
-        "default": "Item description.",
-        "required": false,
-        "locked": false
-      }
-    ],
-    "default": [
-      {
-        "item_title": "Manual routing",
-        "item_description": "Work waits for people"
-      },
-      {
-        "item_title": "Context resets",
-        "item_description": "Teams re-brief the case"
-      },
-      {
-        "item_title": "Decision queues",
-        "item_description": "Approvals slow momentum"
-      },
-      {
-        "item_title": "Local fixes",
-        "item_description": "Learning does not scale"
-      }
-    ]
-  },
-  {
-    "id": "right_card_tag",
-    "name": "right_card_tag",
-    "label": "Right Card Tag",
-    "type": "text",
-    "default": "AI-Native Enterprise",
-    "required": false,
-    "locked": false
-  },
-  {
-    "id": "right_card_title",
-    "name": "right_card_title",
-    "label": "Right Card Title (Default)",
-    "type": "text",
-    "default": "Work & context moves through agentic systems",
-    "required": false,
-    "locked": false
-  },
-  {
-    "id": "right_card_description",
-    "name": "right_card_description",
-    "label": "Right Card Description (Default)",
-    "type": "text",
-    "default": "Connected context · Agentic coordination · Adaptive control",
-    "required": false,
-    "locked": false
-  },
-  {
-    "id": "right_card_hover_title",
-    "name": "right_card_hover_title",
-    "label": "Right Card Title (Hover)",
-    "type": "text",
-    "default": "Execution runs in-system",
-    "required": false,
-    "locked": false
-  },
-  {
-    "id": "right_card_items",
-    "name": "right_card_items",
-    "label": "Right Card Items (Hover)",
-    "type": "group",
-    "occurrence": {
-      "min": 1,
-      "max": 8,
-      "default": 4,
-      "sorting_label_field": "item_title"
-    },
-    "children": [
-      {
-        "id": "right_card_items.item_title",
-        "name": "item_title",
-        "label": "Title",
-        "type": "text",
-        "default": "Item Title",
-        "required": false,
-        "locked": false
-      },
-      {
-        "id": "right_card_items.item_description",
-        "name": "item_description",
-        "label": "Description",
-        "type": "text",
-        "default": "Item description.",
-        "required": false,
-        "locked": false
-      }
-    ],
-    "default": [
-      {
-        "item_title": "Context attached",
-        "item_description": "State travels with work"
-      },
-      {
-        "item_title": "Agents coordinate",
-        "item_description": "Next actions stay live"
-      },
-      {
-        "item_title": "Decisions guided",
-        "item_description": "Controls shape the path"
-      },
-      {
-        "item_title": "Patterns codified",
-        "item_description": "Learning scales across flows"
-      }
-    ]
-  },
-  {
-    "id": "bottom_items",
-    "name": "bottom_items",
-    "label": "Bottom Items",
-    "type": "group",
-    "occurrence": {
-      "min": 1,
-      "max": 8,
-      "default": 4,
-      "sorting_label_field": "item_title"
-    },
-    "children": [
-      {
-        "id": "bottom_items.item_title",
-        "name": "item_title",
-        "label": "Title",
-        "type": "text",
-        "default": "Title",
-        "required": false,
-        "locked": false
-      },
-      {
-        "id": "bottom_items.item_description",
-        "name": "item_description",
-        "label": "Description",
-        "type": "text",
-        "default": "Description text.",
-        "required": false,
-        "locked": false
-      }
-    ],
-    "default": [
-      {
-        "item_title": "Strategy + Reinvention Roadmap",
-        "item_description": "Sets value priorities and reinvention sequence."
-      },
-      {
-        "item_title": "AI Solutions + Workbenches",
-        "item_description": "Places agents and people act together."
-      },
-      {
-        "item_title": "Process Reinvention + Autonomous Operations",
-        "item_description": "Moves execution, escalation, and follow-through in-flow."
-      },
-      {
-        "item_title": "Data, Knowledge, Integration + Context",
-        "item_description": "Connects grounding, systems, and business memory."
-      }
-    ]
-  }
-]
+  "children" : [ {
+    "id" : "bottom_items.item_title",
+    "name" : "item_title",
+    "label" : "Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Title"
+  }, {
+    "id" : "bottom_items.item_description",
+    "name" : "item_description",
+    "label" : "Description",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Description text."
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "item_title" : "Strategy + Reinvention Roadmap",
+    "item_description" : "Sets value priorities and reinvention sequence."
+  }, {
+    "item_title" : "AI Solutions + Workbenches",
+    "item_description" : "Places agents and people act together."
+  }, {
+    "item_title" : "Process Reinvention + Autonomous Operations",
+    "item_description" : "Moves execution, escalation, and follow-through in-flow."
+  }, {
+    "item_title" : "Data, Knowledge, Integration + Context",
+    "item_description" : "Connects grounding, systems, and business memory."
+  } ]
+} ]

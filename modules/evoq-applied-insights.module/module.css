@@ -86,7 +86,7 @@
   background: var(--evoq-primary, #194247);
   color: #ffffff;
   font-family: var(--evoq-font, inherit);
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
   letter-spacing: 1px;
   text-decoration: none;
@@ -217,9 +217,9 @@
   width: 14px;
   height: 14px;
   flex-shrink: 0;
-  opacity: 0;
-  transform: translateX(-4px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 1;
+  transform: translateX(0);
+  transition: transform 0.3s ease;
 }
 
 .evoq-insights__read-more:hover {
@@ -228,19 +228,20 @@
 }
 
 .evoq-insights__read-more:hover .evoq-insights__read-more-arrow {
-  opacity: 1;
-  transform: translateX(0);
+  transform: translateX(3px);
 }
 
 /* Author Info */
 
 .evoq-insights__featured-author {
   display: flex;
-  align-items: center;
-  gap: 8px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
 }
 
 .evoq-insights__author-label {
+  display: block;
   font-family: var(--evoq-font, inherit);
   font-size: 16px;
   font-weight: 500;
@@ -248,6 +249,7 @@
 }
 
 .evoq-insights__author-name {
+  display: block;
   font-family: var(--evoq-font, inherit);
   font-size: 16px;
   font-weight: 400;
@@ -316,20 +318,20 @@
   height: 14px;
   color: var(--evoq-primary, #194247);
   opacity: 0;
-  transform: translate(-4px, 4px);
+  transform: translateX(-4px);
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .evoq-insights__card:hover .evoq-insights__card-arrow {
   opacity: 1;
-  transform: translate(0, 0);
+  transform: translateX(0);
 }
 
 /* ============================================
    Responsive – Tablet
    ============================================ */
 
-@media (max-width: 1024px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
   .evoq-insights {
     padding: 72px var(--evoq-section-pad-x, 20px);
   }
@@ -357,7 +359,7 @@
    Responsive – Mobile
    ============================================ */
 
-@media (max-width: 767px) {
+@media only screen and (max-width: 767px) {
   .evoq-insights {
     padding: 56px var(--evoq-section-pad-x, 16px);
   }
@@ -393,7 +395,7 @@
 
   .evoq-insights__cta {
     padding: 16px 32px;
-    font-size: 14px;
+    font-size: 16px;
     width: 100%;
     justify-content: center;
   }
@@ -412,18 +414,13 @@
     justify-content: center;
   }
 
-  .evoq-insights__read-more-arrow {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
   .evoq-insights__grid {
     grid-template-columns: 1fr;
   }
 
   .evoq-insights__card-arrow {
     opacity: 1;
-    transform: translate(0, 0);
+    transform: translateX(0);
   }
 }
 

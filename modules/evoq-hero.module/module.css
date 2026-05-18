@@ -108,7 +108,7 @@
   color: rgba(255, 255, 255, 0.2);
 }
 
-@media (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .evoq-hero__breadcrumb {
     display: none;
   }
@@ -362,7 +362,7 @@
   }
 }
 
-@media (max-width: 479px) {
+@media only screen and (max-width: 767px) {
   .evoq-hero__title {
     font-size: 32px;
   }

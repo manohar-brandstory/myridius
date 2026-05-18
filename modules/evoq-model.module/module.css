@@ -356,7 +356,7 @@
   .evoq-model__insights { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
 }
 
-@media (max-width: 1279px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
   .evoq-model__node-copy h3 { font-size: 12px; }
   .evoq-model__node-copy p { font-size: 10px; }
   .evoq-model__node-icon { width: 32px; height: 32px; }

@@ -1,229 +1,255 @@
-[
-  {
-    "id": "section_id",
-    "name": "section_id",
-    "label": "Section ID",
-    "type": "text",
-    "required": false,
-    "locked": false,
-    "allow_new_line": false,
-    "default": "evoq-business-impact",
-    "help_text": "Unique HTML ID for this section (used for anchor links)."
+[ {
+  "id" : "section_id",
+  "name" : "section_id",
+  "label" : "Section ID",
+  "help_text" : "Unique HTML ID for this section (used for anchor links).",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "evoq-business-impact"
+}, {
+  "id" : "headline_line_1",
+  "name" : "headline_line_1",
+  "label" : "Headline line 1",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Built modular."
+}, {
+  "id" : "headline_line_2",
+  "name" : "headline_line_2",
+  "label" : "Headline line 2",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Built scalable."
+}, {
+  "id" : "headline_accent",
+  "name" : "headline_accent",
+  "label" : "Headline accent line (green)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Built to evolve."
+}, {
+  "id" : "intro",
+  "name" : "intro",
+  "label" : "Intro paragraph",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : true,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Turning business intent into intelligent execution through one continuous execution system, connected by shared context, reusable capabilities, and embedded trust."
+}, {
+  "id" : "schematic_left_line_1",
+  "name" : "schematic_left_line_1",
+  "label" : "Schematic — left pill line 1 (top)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "BUSINESS"
+}, {
+  "id" : "schematic_left_line_2",
+  "name" : "schematic_left_line_2",
+  "label" : "Schematic — left pill line 2 (bottom)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "REINVENTION"
+}, {
+  "id" : "schematic_center",
+  "name" : "schematic_center",
+  "label" : "Schematic — center (orb)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "EVOQ"
+}, {
+  "id" : "schematic_right_line_1",
+  "name" : "schematic_right_line_1",
+  "label" : "Schematic — right pill line 1 (top)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "AGENTIC"
+}, {
+  "id" : "schematic_right_line_2",
+  "name" : "schematic_right_line_2",
+  "label" : "Schematic — right pill line 2 (bottom)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "VELOCITY"
+}, {
+  "id" : "items",
+  "name" : "items",
+  "label" : "Impact pillars (scroll list)",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 8,
+    "sorting_label_field" : null,
+    "default" : 5
   },
-  {
-    "id": "headline_line_1",
-    "name": "headline_line_1",
-    "label": "Headline line 1",
-    "type": "text",
-    "required": false,
-    "locked": false,
-    "default": "Built modular."
-  },
-  {
-    "id": "headline_line_2",
-    "name": "headline_line_2",
-    "label": "Headline line 2",
-    "type": "text",
-    "required": false,
-    "locked": false,
-    "default": "Built scalable."
-  },
-  {
-    "id": "headline_accent",
-    "name": "headline_accent",
-    "label": "Headline accent line (green)",
-    "type": "text",
-    "required": false,
-    "locked": false,
-    "default": "Built to evolve."
-  },
-  {
-    "id": "intro",
-    "name": "intro",
-    "label": "Intro paragraph",
-    "type": "text",
-    "required": false,
-    "locked": false,
-    "allow_new_line": true,
-    "default": "Turning business intent into intelligent execution through one continuous execution system, connected by shared context, reusable capabilities, and embedded trust."
-  },
-  {
-    "id": "schematic_left_line_1",
-    "name": "schematic_left_line_1",
-    "label": "Schematic — left pill line 1 (top)",
-    "type": "text",
-    "required": false,
-    "locked": false,
-    "default": "BUSINESS"
-  },
-  {
-    "id": "schematic_left_line_2",
-    "name": "schematic_left_line_2",
-    "label": "Schematic — left pill line 2 (bottom)",
-    "type": "text",
-    "required": false,
-    "locked": false,
-    "default": "REINVENTION"
-  },
-  {
-    "id": "schematic_center",
-    "name": "schematic_center",
-    "label": "Schematic — center (orb)",
-    "type": "text",
-    "required": false,
-    "locked": false,
-    "default": "EVOQ"
-  },
-  {
-    "id": "schematic_right_line_1",
-    "name": "schematic_right_line_1",
-    "label": "Schematic — right pill line 1 (top)",
-    "type": "text",
-    "required": false,
-    "locked": false,
-    "default": "AGENTIC"
-  },
-  {
-    "id": "schematic_right_line_2",
-    "name": "schematic_right_line_2",
-    "label": "Schematic — right pill line 2 (bottom)",
-    "type": "text",
-    "required": false,
-    "locked": false,
-    "default": "VELOCITY"
-  },
-  {
-    "id": "items",
-    "name": "items",
-    "label": "Impact pillars (scroll list)",
-    "type": "group",
-    "required": false,
-    "locked": false,
-    "occurrence": { "min": 1, "max": 8, "default": 5 },
-    "children": [
-      {
-        "id": "items.item_slug",
-        "name": "item_slug",
-        "label": "Anchor slug (optional, e.g. humans_agents)",
-        "type": "text",
-        "required": false,
-        "locked": false,
-        "default": "humans_agents"
-      },
-      {
-        "id": "items.tag",
-        "name": "tag",
-        "label": "Eyebrow tag",
-        "type": "text",
-        "required": false,
-        "locked": false,
-        "default": "HUMANS + AGENTS"
-      },
-      {
-        "id": "items.title",
-        "name": "title",
-        "label": "Title",
-        "type": "text",
-        "required": false,
-        "locked": false,
-        "default": "Execution stays human-guided."
-      },
-      {
-        "id": "items.accent",
-        "name": "accent",
-        "label": "Accent color",
-        "type": "choice",
-        "required": false,
-        "locked": false,
-        "display": "select",
-        "choices": [
-          ["green", "Green (#52E081)"],
-          ["mint", "Mint (#D2F0C6)"]
-        ],
-        "multiple": false,
-        "reordering_enabled": true,
-        "preset": null,
-        "default": "green"
-      },
-      {
-        "id": "items.icon",
-        "name": "icon",
-        "label": "Icon image",
-        "type": "image",
-        "required": false,
-        "locked": false,
-        "responsive": false,
-        "resizable": true,
-        "show_loading": false,
-        "default": { "src": "", "alt": "" }
-      },
-      {
-        "id": "items.bullet_1",
-        "name": "bullet_1",
-        "label": "Bullet 1",
-        "type": "text",
-        "required": false,
-        "locked": false,
-        "allow_new_line": true,
-        "default": "People, copilots, and workflows stay inside continuous execution."
-      },
-      {
-        "id": "items.bullet_2",
-        "name": "bullet_2",
-        "label": "Bullet 2",
-        "type": "text",
-        "required": false,
-        "locked": false,
-        "allow_new_line": true,
-        "default": "Human decisions and agent actions operate as one coordinated system."
-      }
-    ],
-    "default": [
-      {
-        "item_slug": "humans_agents",
-        "tag": "HUMANS + AGENTS",
-        "title": "Execution stays human-guided.",
-        "accent": "green",
-        "icon": { "src": "", "alt": "" },
-        "bullet_1": "People, copilots, and workflows stay inside continuous execution.",
-        "bullet_2": "Human decisions and agent actions operate as one coordinated system."
-      },
-      {
-        "item_slug": "modular",
-        "tag": "MODULAR BY DESIGN",
-        "title": "Capabilities built to compound.",
-        "accent": "mint",
-        "icon": { "src": "", "alt": "" },
-        "bullet_1": "Each execution flow adds reusable capabilities for the next deployment.",
-        "bullet_2": "Value scales through reusable systems, not isolated builds."
-      },
-      {
-        "item_slug": "orchestration",
-        "tag": "DYNAMIC ORCHESTRATION",
-        "title": "Context and execution stay connected.",
-        "accent": "green",
-        "icon": { "src": "", "alt": "" },
-        "bullet_1": "Signals, decisions, and execution stay continuously connected.",
-        "bullet_2": "Execution continues without losing system context."
-      },
-      {
-        "item_slug": "enterprise",
-        "tag": "ENTERPRISE READY",
-        "title": "Built for enterprise scale.",
-        "accent": "mint",
-        "icon": { "src": "", "alt": "" },
-        "bullet_1": "Built for enterprise data, intelligence, integrations, and scale.",
-        "bullet_2": "Trust and transparency stay embedded as execution expands."
-      },
-      {
-        "item_slug": "secure",
-        "tag": "SECURE BY DESIGN",
-        "title": "Embedded execution controls.",
-        "accent": "green",
-        "icon": { "src": "", "alt": "" },
-        "bullet_1": "Policy, risk controls, and observability stay active during execution.",
-        "bullet_2": "Execution accelerates without losing enterprise control."
-      }
-    ]
-  }
-]
+  "children" : [ {
+    "id" : "items.item_slug",
+    "name" : "item_slug",
+    "label" : "Anchor slug (optional, e.g. humans_agents)",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "humans_agents"
+  }, {
+    "id" : "items.tag",
+    "name" : "tag",
+    "label" : "Eyebrow tag",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "HUMANS + AGENTS"
+  }, {
+    "id" : "items.title",
+    "name" : "title",
+    "label" : "Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Execution stays human-guided."
+  }, {
+    "id" : "items.accent",
+    "name" : "accent",
+    "label" : "Accent color",
+    "required" : false,
+    "locked" : false,
+    "display" : "select",
+    "choices" : [ [ "green", "Green (#52E081)" ], [ "mint", "Mint (#D2F0C6)" ] ],
+    "multiple" : false,
+    "reordering_enabled" : true,
+    "preset" : null,
+    "type" : "choice",
+    "display_width" : null,
+    "default" : "green"
+  }, {
+    "id" : "items.icon",
+    "name" : "icon",
+    "label" : "Icon image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : false,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "",
+      "alt" : ""
+    }
+  }, {
+    "id" : "items.bullet_1",
+    "name" : "bullet_1",
+    "label" : "Bullet 1",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : true,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "People, copilots, and workflows stay inside continuous execution."
+  }, {
+    "id" : "items.bullet_2",
+    "name" : "bullet_2",
+    "label" : "Bullet 2",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : true,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Human decisions and agent actions operate as one coordinated system."
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "item_slug" : "humans_agents",
+    "tag" : "HUMANS + AGENTS",
+    "title" : "Execution stays human-guided.",
+    "accent" : "green",
+    "icon" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "bullet_1" : "People, copilots, and workflows stay inside continuous execution.",
+    "bullet_2" : "Human decisions and agent actions operate as one coordinated system."
+  }, {
+    "item_slug" : "modular",
+    "tag" : "MODULAR BY DESIGN",
+    "title" : "Capabilities built to compound.",
+    "accent" : "mint",
+    "icon" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "bullet_1" : "Each execution flow adds reusable capabilities for the next deployment.",
+    "bullet_2" : "Value scales through reusable systems, not isolated builds."
+  }, {
+    "item_slug" : "orchestration",
+    "tag" : "DYNAMIC ORCHESTRATION",
+    "title" : "Context and execution stay connected.",
+    "accent" : "green",
+    "icon" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "bullet_1" : "Signals, decisions, and execution stay continuously connected.",
+    "bullet_2" : "Execution continues without losing system context."
+  }, {
+    "item_slug" : "enterprise",
+    "tag" : "ENTERPRISE READY",
+    "title" : "Built for enterprise scale.",
+    "accent" : "mint",
+    "icon" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "bullet_1" : "Built for enterprise data, intelligence, integrations, and scale.",
+    "bullet_2" : "Trust and transparency stay embedded as execution expands."
+  }, {
+    "item_slug" : "secure",
+    "tag" : "SECURE BY DESIGN",
+    "title" : "Embedded execution controls.",
+    "accent" : "green",
+    "icon" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "bullet_1" : "Policy, risk controls, and observability stay active during execution.",
+    "bullet_2" : "Execution accelerates without losing enterprise control."
+  } ]
+} ]

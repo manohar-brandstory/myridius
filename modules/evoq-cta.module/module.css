@@ -141,7 +141,7 @@
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .evoq-cta {
     padding: 80px 0;
   }

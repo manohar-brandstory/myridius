@@ -1,98 +1,96 @@
-[
-  {
-    "name": "section_id",
-    "label": "Section ID",
-    "required": false,
-    "locked": false,
-    "type": "text",
-    "default": "why-choose-us",
-    "id": "section_id"
+[ {
+  "id" : "section_id",
+  "name" : "section_id",
+  "label" : "Section ID",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "why-choose-us"
+}, {
+  "id" : "badge_text",
+  "name" : "badge_text",
+  "label" : "Badge Text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "WHY CHOOSE US"
+}, {
+  "id" : "heading",
+  "name" : "heading",
+  "label" : "Heading",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Why Leading Enterprises Choose Us for Cloud Transformation"
+}, {
+  "id" : "subtitle",
+  "name" : "subtitle",
+  "label" : "Subtitle",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "display_width" : null,
+  "default" : "<p>We combine deep AWS expertise with enterprise-grade delivery to accelerate your cloud journey.</p>"
+}, {
+  "id" : "reasons",
+  "name" : "reasons",
+  "label" : "Reasons",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 12,
+    "sorting_label_field" : "reasons.title",
+    "default" : 6
   },
-  {
-    "name": "badge_text",
-    "label": "Badge Text",
-    "required": false,
-    "locked": false,
-    "type": "text",
-    "default": "WHY CHOOSE US",
-    "id": "badge_text"
-  },
-  {
-    "name": "heading",
-    "label": "Heading",
-    "required": false,
-    "locked": false,
-    "type": "text",
-    "default": "Why Leading Enterprises Choose Us for Cloud Transformation",
-    "id": "heading"
-  },
-  {
-    "name": "subtitle",
-    "label": "Subtitle",
-    "required": false,
-    "locked": false,
-    "type": "richtext",
-    "default": "<p>We combine deep AWS expertise with enterprise-grade delivery to accelerate your cloud journey.</p>",
-    "id": "subtitle"
-  },
-  {
-    "name": "reasons",
-    "label": "Reasons",
-    "required": false,
-    "locked": false,
-    "type": "group",
-    "occurrence": {
-      "min": 1,
-      "max": 12,
-      "sorting_label_field": "reasons.title",
-      "default": 6
-    },
-    "children": [
-      {
-        "name": "title",
-        "label": "Title",
-        "required": false,
-        "locked": false,
-        "type": "text",
-        "default": "Card Title",
-        "id": "reasons.title"
-      },
-      {
-        "name": "description",
-        "label": "Description",
-        "required": false,
-        "locked": false,
-        "type": "richtext",
-        "default": "<p>Card description text goes here.</p>",
-        "id": "reasons.description"
-      }
-    ],
-    "default": [
-      {
-        "title": "Speed Without Trade-offs",
-        "description": "<p>Up to 30–50% shorter delivery timelines. Fewer rework cycles. Measurable velocity from day one — a pattern repeated across migration, modernization, and AI programs</p>"
-      },
-      {
-        "title": "Well-Architected First",
-        "description": "<p>AWS Well-Architected Program Partner. Zero compliance findings in every regulated engagement completed to date. Architecture that satisfies regulators and CISOs from day one</p>"
-      },
-      {
-        "title": "Full AWS Ecosystem Mastery",
-        "description": "<p>900+ cloud-enabled associates. Seven industries. Certified architects across every AWS layer — one team, no coordination gaps, full outcome accountability from first engagement</p>"
-      },
-      {
-        "title": "FinOps from Day One",
-        "description": "<p>An average of 25–35% of cloud spend is avoidable. We eliminate it by treating cost governance as an architecture principle, not a retrospective exercise.</p>"
-      },
-      {
-        "title": "Zero-Trust Security Posture",
-        "description": "<p>Audit-ready deployments. Zero-trust identity, threat detection, and compliance guardrails live from day one. Not retrofitted. Not reviewed after the fact. Built in.</p>"
-      },
-      {
-        "title": "Transformation, Not Just Migration",
-        "description": "<p>Launch new revenue-generating capability live within 90 days of final migration. Faster releases, lower cost base, new capability deliver outcomes in months with long-term accountability.</p>"
-      }
-    ],
-    "id": "reasons"
-  }
-]
+  "children" : [ {
+    "id" : "reasons.title",
+    "name" : "title",
+    "label" : "Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Card Title"
+  }, {
+    "id" : "reasons.description",
+    "name" : "description",
+    "label" : "Description",
+    "required" : false,
+    "locked" : false,
+    "type" : "richtext",
+    "display_width" : null,
+    "default" : "<p>Card description text goes here.</p>"
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "title" : "Speed Without Trade-offs",
+    "description" : "<p>Up to 30–50% shorter delivery timelines. Fewer rework cycles. Measurable velocity from day one — a pattern repeated across migration, modernization, and AI programs</p>"
+  }, {
+    "title" : "Well-Architected First",
+    "description" : "<p>AWS Well-Architected Program Partner. Zero compliance findings in every regulated engagement completed to date. Architecture that satisfies regulators and CISOs from day one</p>"
+  }, {
+    "title" : "Full AWS Ecosystem Mastery",
+    "description" : "<p>900+ cloud-enabled associates. Seven industries. Certified architects across every AWS layer — one team, no coordination gaps, full outcome accountability from first engagement</p>"
+  }, {
+    "title" : "FinOps from Day One",
+    "description" : "<p>An average of 25–35% of cloud spend is avoidable. We eliminate it by treating cost governance as an architecture principle, not a retrospective exercise.</p>"
+  }, {
+    "title" : "Zero-Trust Security Posture",
+    "description" : "<p>Audit-ready deployments. Zero-trust identity, threat detection, and compliance guardrails live from day one. Not retrofitted. Not reviewed after the fact. Built in.</p>"
+  }, {
+    "title" : "Transformation, Not Just Migration",
+    "description" : "<p>Launch new revenue-generating capability live within 90 days of final migration. Faster releases, lower cost base, new capability deliver outcomes in months with long-term accountability.</p>"
+  } ]
+} ]

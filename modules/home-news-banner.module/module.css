@@ -235,7 +235,7 @@
 /* ============================================
    Tablet — max-width: 1024px
    ============================================ */
-@media (max-width: 1024px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
   .home-news {
     padding: 80px 0 56px;
   }
@@ -261,9 +261,9 @@
 }
 
 /* ============================================
-   Mobile — max-width: 768px
+   Mobile — max-width: 767px
    ============================================ */
-@media (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .home-news {
     display: flex;
     flex-direction: column;

@@ -1,562 +1,586 @@
-[
-  {
-    "id": "logo",
-    "name": "logo",
-    "label": "Logo",
-    "type": "image",
-    "default": {
-      "src": "",
-      "alt": "Myridius",
-      "width": 160,
-      "height": 40
-    }
-  },
-  {
-    "id": "logo_url",
-    "name": "logo_url",
-    "label": "Logo URL",
-    "type": "url",
-    "default": {
-      "href": "#",
-      "type": "EXTERNAL",
-      "content_id": null
-    }
-  },
-  {
-    "id": "tagline",
-    "name": "tagline",
-    "label": "Tagline",
-    "type": "text",
-    "default": "Building adaptive capacity for the enterprise."
-  },
-  {
-    "id": "social",
-    "name": "social",
-    "label": "Social Links",
-    "type": "group",
-    "occurrence": {
-      "min": 0,
-      "max": 8,
-      "default": 4
-    },
-    "children": [
-      {
-        "id": "social.platform",
-        "name": "platform",
-        "label": "Platform Name",
-        "type": "text",
-        "default": ""
-      },
-      {
-        "id": "social.url",
-        "name": "url",
-        "label": "URL",
-        "type": "url",
-        "default": {
-          "href": "#",
-          "type": "EXTERNAL",
-          "content_id": null
-        }
-      },
-      {
-        "id": "social.svg_icon",
-        "name": "svg_icon",
-        "label": "SVG Icon Markup",
-        "type": "text",
-        "allow_new_line": true,
-        "default": ""
-      }
-    ],
-    "default": [
-      {
-        "platform": "LinkedIn",
-        "url": {
-          "href": "#",
-          "type": "EXTERNAL",
-          "content_id": null
-        },
-        "svg_icon": "<svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z\"/><rect x=\"2\" y=\"9\" width=\"4\" height=\"12\"/><circle cx=\"4\" cy=\"4\" r=\"2\"/></svg>"
-      },
-      {
-        "platform": "Facebook",
-        "url": {
-          "href": "#",
-          "type": "EXTERNAL",
-          "content_id": null
-        },
-        "svg_icon": "<svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z\"/></svg>"
-      },
-      {
-        "platform": "Instagram",
-        "url": {
-          "href": "#",
-          "type": "EXTERNAL",
-          "content_id": null
-        },
-        "svg_icon": "<svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"2\" y=\"2\" width=\"20\" height=\"20\" rx=\"5\" ry=\"5\"/><path d=\"M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z\"/><line x1=\"17.5\" y1=\"6.5\" x2=\"17.51\" y2=\"6.5\"/></svg>"
-      },
-      {
-        "platform": "YouTube",
-        "url": {
-          "href": "#",
-          "type": "EXTERNAL",
-          "content_id": null
-        },
-        "svg_icon": "<svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z\"/><polygon points=\"9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02\"/></svg>"
-      }
-    ]
-  },
-  {
-    "id": "columns",
-    "name": "columns",
-    "label": "Footer Columns",
-    "type": "group",
-    "occurrence": {
-      "min": 1,
-      "max": 8,
-      "default": 5
-    },
-    "children": [
-      {
-        "id": "columns.title",
-        "name": "title",
-        "label": "Column Title",
-        "type": "text",
-        "default": ""
-      },
-      {
-        "id": "columns.title_url",
-        "name": "title_url",
-        "label": "Column Title Link",
-        "type": "url",
-        "help_text": "Optional. Leave empty for plain text. When set, the column title becomes a link.",
-        "default": {
-          "href": "",
-          "type": "EXTERNAL",
-          "content_id": null
-        }
-      },
-      {
-        "id": "columns.show_title",
-        "name": "show_title",
-        "label": "Show Title",
-        "type": "boolean",
-        "default": true
-      },
-      {
-        "id": "columns.top_padding",
-        "name": "top_padding",
-        "label": "Add Top Padding (align with adjacent column)",
-        "type": "boolean",
-        "default": false
-      },
-      {
-        "id": "columns.links",
-        "name": "links",
-        "label": "Links",
-        "type": "group",
-        "occurrence": {
-          "min": 0,
-          "max": 20,
-          "default": 0
-        },
-        "children": [
-          {
-            "id": "links.text",
-            "name": "text",
-            "label": "Link Text",
-            "type": "text",
-            "default": ""
-          },
-          {
-            "id": "links.url",
-            "name": "url",
-            "label": "Link URL",
-            "type": "url",
-            "default": {
-              "href": "#",
-              "type": "EXTERNAL",
-              "content_id": null
-            }
-          }
-        ]
-      },
-      {
-        "id": "columns.extra_title",
-        "name": "extra_title",
-        "label": "Extra Section Title",
-        "type": "text",
-        "default": ""
-      },
-      {
-        "id": "columns.extra_title_url",
-        "name": "extra_title_url",
-        "label": "Extra Section Title Link",
-        "type": "url",
-        "help_text": "Optional. Leave empty for plain text. When set, the extra section title becomes a link.",
-        "default": {
-          "href": "",
-          "type": "EXTERNAL",
-          "content_id": null
-        }
-      },
-      {
-        "id": "columns.extra_links",
-        "name": "extra_links",
-        "label": "Extra Section Links",
-        "type": "group",
-        "occurrence": {
-          "min": 0,
-          "max": 10,
-          "default": 0
-        },
-        "children": [
-          {
-            "id": "extra_links.text",
-            "name": "text",
-            "label": "Link Text",
-            "type": "text",
-            "default": ""
-          },
-          {
-            "id": "extra_links.url",
-            "name": "url",
-            "label": "Link URL",
-            "type": "url",
-            "default": {
-              "href": "#",
-              "type": "EXTERNAL",
-              "content_id": null
-            }
-          }
-        ]
-      }
-    ],
-    "default": [
-      {
-        "title": "INDUSTRIES",
-        "show_title": true,
-        "top_padding": false,
-        "links": [
-          {
-            "text": "Banking & Financial Services",
-            "url": {
-              "href": "#",
-              "type": "EXTERNAL",
-              "content_id": null
-            }
-          },
-          {
-            "text": "Insurance",
-            "url": {
-              "href": "#",
-              "type": "EXTERNAL",
-              "content_id": null
-            }
-          },
-          {
-            "text": "Healthcare & Life Sciences",
-            "url": {
-              "href": "#",
-              "type": "EXTERNAL",
-              "content_id": null
-            }
-          },
-          {
-            "text": "Travel & Hospitality",
-            "url": {
-              "href": "#",
-              "type": "EXTERNAL",
-              "content_id": null
-            }
-          },
-          {
-            "text": "Manufacturing & Logistics",
-            "url": {
-              "href": "#",
-              "type": "EXTERNAL",
-              "content_id": null
-            }
-          },
-          {
-            "text": "Retail & Consumer",
-            "url": {
-              "href": "#",
-              "type": "EXTERNAL",
-              "content_id": null
-            }
-          },
-          {
-            "text": "Hi-Tech & Startups",
-            "url": {
-              "href": "#",
-              "type": "EXTERNAL",
-              "content_id": null
-            }
-          }
-        ],
-        "extra_title": "",
-        "extra_links": []
-      },
-      {
-        "title": "SERVICES",
-        "show_title": true,
-        "top_padding": false,
-        "links": [
-          {
-            "text": "Advisory",
-            "url": {
-              "href": "#",
-              "type": "EXTERNAL",
-              "content_id": null
-            }
-          },
-          {
-            "text": "Adobe Experience Cloud",
-            "url": {
-              "href": "#",
-              "type": "EXTERNAL",
-              "content_id": null
-            }
-          },
-          {
-            "text": "Agentic AI",
-            "url": {
-              "href": "#",
-              "type": "EXTERNAL",
-              "content_id": null
-            }
-          },
-          {
-            "text": "Agentic Engineering",
-            "url": {
-              "href": "#",
-              "type": "EXTERNAL",
-              "content_id": null
-            }
-          },
-          {
-            "text": "Agentic Process Transformation",
-            "url": {
-              "href": "#",
-              "type": "EXTERNAL",
-              "content_id": null
-            }
-          },
-          {
-            "text": "AI-Native Application Support",
-            "url": {
-              "href": "#",
-              "type": "EXTERNAL",
-              "content_id": null
-            }
-          },
-          {
-            "text": "AWS Cloud Services",
-            "url": {
-              "href": "#",
-              "type": "EXTERNAL",
-              "content_id": null
-            }
-          },
-          {
-            "text": "Cloud Transformation",
-            "url": {
-              "href": "#",
-              "type": "EXTERNAL",
-              "content_id": null
-            }
-          }
-        ],
-        "extra_title": "",
-        "extra_links": []
-      },
-      {
-        "title": "",
-        "show_title": false,
-        "top_padding": true,
-        "links": [
-          {
-            "text": "Data, AI & Analytics",
-            "url": {
-              "href": "#",
-              "type": "EXTERNAL",
-              "content_id": null
-            }
-          },
-          {
-            "text": "Design Studio",
-            "url": {
-              "href": "#",
-              "type": "EXTERNAL",
-              "content_id": null
-            }
-          },
-          {
-            "text": "Digital Experience",
-            "url": {
-              "href": "#",
-              "type": "EXTERNAL",
-              "content_id": null
-            }
-          },
-          {
-            "text": "Microsoft Cloud Services",
-            "url": {
-              "href": "#",
-              "type": "EXTERNAL",
-              "content_id": null
-            }
-          },
-          {
-            "text": "Salesforce",
-            "url": {
-              "href": "#",
-              "type": "EXTERNAL",
-              "content_id": null
-            }
-          },
-          {
-            "text": "ServiceNow",
-            "url": {
-              "href": "#",
-              "type": "EXTERNAL",
-              "content_id": null
-            }
-          },
-          {
-            "text": "Quality Engineering & Assurance",
-            "url": {
-              "href": "#",
-              "type": "EXTERNAL",
-              "content_id": null
-            }
-          }
-        ],
-        "extra_title": "",
-        "extra_links": []
-      },
-      {
-        "title": "EVOQ",
-        "show_title": true,
-        "top_padding": false,
-        "links": [
-          {
-            "text": "EVOQ",
-            "url": {
-              "href": "#",
-              "type": "EXTERNAL",
-              "content_id": null
-            }
-          },
-          {
-            "text": "Applied Insights",
-            "url": {
-              "href": "#",
-              "type": "EXTERNAL",
-              "content_id": null
-            }
-          }
-        ],
-        "extra_title": "RESOURCES",
-        "extra_links": [
-          {
-            "text": "Events",
-            "url": {
-              "href": "#",
-              "type": "EXTERNAL",
-              "content_id": null
-            }
-          },
-          {
-            "text": "News",
-            "url": {
-              "href": "#",
-              "type": "EXTERNAL",
-              "content_id": null
-            }
-          },
-          {
-            "text": "Press Releases",
-            "url": {
-              "href": "#",
-              "type": "EXTERNAL",
-              "content_id": null
-            }
-          },
-          {
-            "text": "Resource Hub",
-            "url": {
-              "href": "#",
-              "type": "EXTERNAL",
-              "content_id": null
-            }
-          }
-        ]
-      },
-      {
-        "title": "ABOUT",
-        "show_title": true,
-        "top_padding": false,
-        "links": [
-          {
-            "text": "Partners",
-            "url": {
-              "href": "#",
-              "type": "EXTERNAL",
-              "content_id": null
-            }
-          },
-          {
-            "text": "Company",
-            "url": {
-              "href": "#",
-              "type": "EXTERNAL",
-              "content_id": null
-            }
-          },
-          {
-            "text": "Our Leaders",
-            "url": {
-              "href": "#",
-              "type": "EXTERNAL",
-              "content_id": null
-            }
-          },
-          {
-            "text": "Culture",
-            "url": {
-              "href": "#",
-              "type": "EXTERNAL",
-              "content_id": null
-            }
-          },
-          {
-            "text": "Contact Us",
-            "url": {
-              "href": "#",
-              "type": "EXTERNAL",
-              "content_id": null
-            }
-          }
-        ],
-        "extra_title": "CAREERS",
-        "extra_links": []
-      }
-    ]
-  },
-  {
-    "id": "copyright",
-    "name": "copyright",
-    "label": "Copyright Text",
-    "type": "text",
-    "default": "© 2026 Myridius. All Rights Reserved."
-  },
-  {
-    "id": "bottom_right",
-    "name": "bottom_right",
-    "label": "Bottom Right Text",
-    "type": "text",
-    "default": "Execution at Scale."
+[ {
+  "id" : "logo",
+  "name" : "logo",
+  "label" : "Logo",
+  "required" : false,
+  "locked" : true,
+  "responsive" : false,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "display_width" : null,
+  "default" : {
+    "src" : "",
+    "alt" : "Myridius",
+    "width" : 160,
+    "height" : 40
   }
-]
+}, {
+  "id" : "logo_url",
+  "name" : "logo_url",
+  "label" : "Logo URL",
+  "required" : false,
+  "locked" : true,
+  "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+  "type" : "url",
+  "display_width" : null,
+  "default" : {
+    "href" : "#",
+    "type" : "EXTERNAL",
+    "content_id" : null
+  }
+}, {
+  "id" : "tagline",
+  "name" : "tagline",
+  "label" : "Tagline",
+  "required" : false,
+  "locked" : true,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Building adaptive capacity for the enterprise."
+}, {
+  "id" : "social",
+  "name" : "social",
+  "label" : "Social Links",
+  "required" : false,
+  "locked" : true,
+  "occurrence" : {
+    "min" : 0,
+    "max" : 8,
+    "sorting_label_field" : null,
+    "default" : 4
+  },
+  "children" : [ {
+    "id" : "social.platform",
+    "name" : "platform",
+    "label" : "Platform Name",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "social.url",
+    "name" : "url",
+    "label" : "URL",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+    "type" : "url",
+    "display_width" : null,
+    "default" : {
+      "href" : "#",
+      "type" : "EXTERNAL",
+      "content_id" : null
+    }
+  }, {
+    "id" : "social.svg_icon",
+    "name" : "svg_icon",
+    "label" : "SVG Icon Markup",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : true,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "platform" : "LinkedIn",
+    "url" : {
+      "href" : "#",
+      "type" : "EXTERNAL",
+      "content_id" : null
+    },
+    "svg_icon" : "<svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z\"/><rect x=\"2\" y=\"9\" width=\"4\" height=\"12\"/><circle cx=\"4\" cy=\"4\" r=\"2\"/></svg>"
+  }, {
+    "platform" : "Facebook",
+    "url" : {
+      "href" : "#",
+      "type" : "EXTERNAL",
+      "content_id" : null
+    },
+    "svg_icon" : "<svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z\"/></svg>"
+  }, {
+    "platform" : "Instagram",
+    "url" : {
+      "href" : "#",
+      "type" : "EXTERNAL",
+      "content_id" : null
+    },
+    "svg_icon" : "<svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"2\" y=\"2\" width=\"20\" height=\"20\" rx=\"5\" ry=\"5\"/><path d=\"M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z\"/><line x1=\"17.5\" y1=\"6.5\" x2=\"17.51\" y2=\"6.5\"/></svg>"
+  }, {
+    "platform" : "YouTube",
+    "url" : {
+      "href" : "#",
+      "type" : "EXTERNAL",
+      "content_id" : null
+    },
+    "svg_icon" : "<svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z\"/><polygon points=\"9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02\"/></svg>"
+  } ]
+}, {
+  "id" : "columns",
+  "name" : "columns",
+  "label" : "Footer Columns",
+  "required" : false,
+  "locked" : true,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 8,
+    "sorting_label_field" : null,
+    "default" : 5
+  },
+  "children" : [ {
+    "id" : "columns.title",
+    "name" : "title",
+    "label" : "Column Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "columns.title_url",
+    "name" : "title_url",
+    "label" : "Column Title Link",
+    "help_text" : "Optional. Leave empty for plain text. When set, the column title becomes a link.",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+    "type" : "url",
+    "display_width" : null,
+    "default" : {
+      "href" : "",
+      "type" : "EXTERNAL",
+      "content_id" : null
+    }
+  }, {
+    "id" : "columns.show_title",
+    "name" : "show_title",
+    "label" : "Show Title",
+    "required" : false,
+    "locked" : false,
+    "display" : "checkbox",
+    "type" : "boolean",
+    "display_width" : null,
+    "default" : true
+  }, {
+    "id" : "columns.top_padding",
+    "name" : "top_padding",
+    "label" : "Add Top Padding (align with adjacent column)",
+    "required" : false,
+    "locked" : false,
+    "display" : "checkbox",
+    "type" : "boolean",
+    "display_width" : null,
+    "default" : false
+  }, {
+    "id" : "columns.links",
+    "name" : "links",
+    "label" : "Links",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : 0,
+      "max" : 20,
+      "sorting_label_field" : null,
+      "default" : 0
+    },
+    "children" : [ {
+      "id" : "links.text",
+      "name" : "text",
+      "label" : "Link Text",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : ""
+    }, {
+      "id" : "links.url",
+      "name" : "url",
+      "label" : "Link URL",
+      "required" : false,
+      "locked" : false,
+      "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+      "type" : "url",
+      "display_width" : null,
+      "default" : {
+        "href" : "#",
+        "type" : "EXTERNAL",
+        "content_id" : null
+      }
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null
+  }, {
+    "id" : "columns.extra_title",
+    "name" : "extra_title",
+    "label" : "Extra Section Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "columns.extra_title_url",
+    "name" : "extra_title_url",
+    "label" : "Extra Section Title Link",
+    "help_text" : "Optional. Leave empty for plain text. When set, the extra section title becomes a link.",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+    "type" : "url",
+    "display_width" : null,
+    "default" : {
+      "href" : "",
+      "type" : "EXTERNAL",
+      "content_id" : null
+    }
+  }, {
+    "id" : "columns.extra_links",
+    "name" : "extra_links",
+    "label" : "Extra Section Links",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : 0,
+      "max" : 10,
+      "sorting_label_field" : null,
+      "default" : 0
+    },
+    "children" : [ {
+      "id" : "extra_links.text",
+      "name" : "text",
+      "label" : "Link Text",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : ""
+    }, {
+      "id" : "extra_links.url",
+      "name" : "url",
+      "label" : "Link URL",
+      "required" : false,
+      "locked" : false,
+      "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+      "type" : "url",
+      "display_width" : null,
+      "default" : {
+        "href" : "#",
+        "type" : "EXTERNAL",
+        "content_id" : null
+      }
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "title" : "INDUSTRIES",
+    "show_title" : true,
+    "top_padding" : false,
+    "links" : [ {
+      "text" : "Banking & Financial Services",
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL",
+        "content_id" : null
+      }
+    }, {
+      "text" : "Insurance",
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL",
+        "content_id" : null
+      }
+    }, {
+      "text" : "Healthcare & Life Sciences",
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL",
+        "content_id" : null
+      }
+    }, {
+      "text" : "Travel & Hospitality",
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL",
+        "content_id" : null
+      }
+    }, {
+      "text" : "Manufacturing & Logistics",
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL",
+        "content_id" : null
+      }
+    }, {
+      "text" : "Retail & Consumer",
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL",
+        "content_id" : null
+      }
+    }, {
+      "text" : "Hi-Tech & Startups",
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL",
+        "content_id" : null
+      }
+    } ],
+    "extra_title" : "",
+    "extra_links" : [ ]
+  }, {
+    "title" : "SERVICES",
+    "show_title" : true,
+    "top_padding" : false,
+    "links" : [ {
+      "text" : "Advisory",
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL",
+        "content_id" : null
+      }
+    }, {
+      "text" : "Adobe Experience Cloud",
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL",
+        "content_id" : null
+      }
+    }, {
+      "text" : "Agentic AI",
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL",
+        "content_id" : null
+      }
+    }, {
+      "text" : "Agentic Engineering",
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL",
+        "content_id" : null
+      }
+    }, {
+      "text" : "Agentic Process Transformation",
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL",
+        "content_id" : null
+      }
+    }, {
+      "text" : "AI-Native Application Support",
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL",
+        "content_id" : null
+      }
+    }, {
+      "text" : "AWS Cloud Services",
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL",
+        "content_id" : null
+      }
+    }, {
+      "text" : "Cloud Transformation",
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL",
+        "content_id" : null
+      }
+    } ],
+    "extra_title" : "",
+    "extra_links" : [ ]
+  }, {
+    "title" : "",
+    "show_title" : false,
+    "top_padding" : true,
+    "links" : [ {
+      "text" : "Data, AI & Analytics",
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL",
+        "content_id" : null
+      }
+    }, {
+      "text" : "Design Studio",
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL",
+        "content_id" : null
+      }
+    }, {
+      "text" : "Digital Experience",
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL",
+        "content_id" : null
+      }
+    }, {
+      "text" : "Microsoft Cloud Services",
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL",
+        "content_id" : null
+      }
+    }, {
+      "text" : "Salesforce",
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL",
+        "content_id" : null
+      }
+    }, {
+      "text" : "ServiceNow",
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL",
+        "content_id" : null
+      }
+    }, {
+      "text" : "Quality Engineering & Assurance",
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL",
+        "content_id" : null
+      }
+    } ],
+    "extra_title" : "",
+    "extra_links" : [ ]
+  }, {
+    "title" : "EVOQ",
+    "show_title" : true,
+    "top_padding" : false,
+    "links" : [ {
+      "text" : "EVOQ",
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL",
+        "content_id" : null
+      }
+    }, {
+      "text" : "Applied Insights",
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL",
+        "content_id" : null
+      }
+    } ],
+    "extra_title" : "RESOURCES",
+    "extra_links" : [ {
+      "text" : "Events",
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL",
+        "content_id" : null
+      }
+    }, {
+      "text" : "News",
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL",
+        "content_id" : null
+      }
+    }, {
+      "text" : "Press Releases",
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL",
+        "content_id" : null
+      }
+    }, {
+      "text" : "Resource Hub",
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL",
+        "content_id" : null
+      }
+    } ]
+  }, {
+    "title" : "ABOUT",
+    "show_title" : true,
+    "top_padding" : false,
+    "links" : [ {
+      "text" : "Partners",
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL",
+        "content_id" : null
+      }
+    }, {
+      "text" : "Company",
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL",
+        "content_id" : null
+      }
+    }, {
+      "text" : "Our Leaders",
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL",
+        "content_id" : null
+      }
+    }, {
+      "text" : "Culture",
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL",
+        "content_id" : null
+      }
+    }, {
+      "text" : "Contact Us",
+      "url" : {
+        "href" : "#",
+        "type" : "EXTERNAL",
+        "content_id" : null
+      }
+    } ],
+    "extra_title" : "CAREERS",
+    "extra_links" : [ ]
+  } ]
+}, {
+  "id" : "copyright",
+  "name" : "copyright",
+  "label" : "Copyright Text",
+  "required" : false,
+  "locked" : true,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "© 2026 Myridius. All Rights Reserved."
+}, {
+  "id" : "bottom_right",
+  "name" : "bottom_right",
+  "label" : "Bottom Right Text",
+  "required" : false,
+  "locked" : true,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Execution at Scale."
+} ]

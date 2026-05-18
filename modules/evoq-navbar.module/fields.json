@@ -2,13 +2,13 @@
   "id" : "section_id",
   "name" : "section_id",
   "label" : "Section ID",
+  "help_text" : "Unique HTML ID for this section (used for anchor links).",
   "required" : false,
   "locked" : false,
   "allow_new_line" : false,
   "type" : "text",
   "display_width" : null,
-  "default" : "evoq-navbar",
-  "help_text" : "Unique HTML ID for this section (used for anchor links)."
+  "default" : "evoq-navbar"
 }, {
   "id" : "logo_image",
   "name" : "logo_image",
@@ -82,12 +82,12 @@
   "id" : "search_results_page",
   "name" : "search_results_page",
   "label" : "Site search results page",
+  "help_text" : "Must be a published URL. Create a page with template Page — Site search results at /search, or set System pages → Site search to Myridius - Search results and use that URL.",
   "required" : false,
   "locked" : false,
   "supported_types" : [ "EXTERNAL", "CONTENT" ],
   "type" : "url",
   "display_width" : null,
-  "help_text" : "Must be a published URL. Create a page with template Page — Site search results at /search, or set System pages → Site search to Myridius - Search results and use that URL.",
   "default" : {
     "content_id" : null,
     "href" : "/search",

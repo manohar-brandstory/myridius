@@ -1,289 +1,247 @@
-[
-  {
-    "id": "section_id",
-    "name": "section_id",
-    "label": "Section ID",
-    "required": false,
-    "locked": false,
-    "allow_new_line": false,
-    "display_width": null,
-    "type": "text",
-    "default": "method"
+[ {
+  "id" : "section_id",
+  "name" : "section_id",
+  "label" : "Section ID",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "method"
+}, {
+  "id" : "badge",
+  "name" : "badge",
+  "label" : "Badge",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "HOW WE WORK"
+}, {
+  "id" : "title",
+  "name" : "title",
+  "label" : "Title",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Engineering Your\nStrategic Execution."
+}, {
+  "id" : "slides",
+  "name" : "slides",
+  "label" : "Slides",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 10,
+    "sorting_label_field" : null,
+    "default" : 5
   },
-  {
-    "id": "badge",
-    "name": "badge",
-    "label": "Badge",
-    "required": false,
-    "locked": false,
-    "allow_new_line": false,
-    "display_width": null,
-    "type": "text",
-    "default": "HOW WE WORK"
-  },
-  {
-    "id": "title",
-    "name": "title",
-    "label": "Title",
-    "required": false,
-    "locked": false,
-    "allow_new_line": false,
-    "display_width": null,
-    "type": "text",
-    "default": "Engineering Your\nStrategic Execution."
-  },
-  {
-    "id": "slides",
-    "name": "slides",
-    "label": "Slides",
-    "required": false,
-    "locked": false,
-    "occurrence": {
-      "min": 1,
-      "max": 10,
-      "sorting_label_field": null,
-      "default": 5
+  "children" : [ {
+    "id" : "slides.icon",
+    "name" : "icon",
+    "label" : "Icon key",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "trending_up"
+  }, {
+    "id" : "slides.title",
+    "name" : "title",
+    "label" : "Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Outcomes-First"
+  }, {
+    "id" : "slides.tag",
+    "name" : "tag",
+    "label" : "Tag",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "P&L IMPACT OVER PROJECT COMPLETION"
+  }, {
+    "id" : "slides.description",
+    "name" : "description",
+    "label" : "Description",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Turn AI ambition into balance sheet impact."
+  }, {
+    "id" : "slides.image",
+    "name" : "image",
+    "label" : "Background image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : false,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "",
+      "alt" : null,
+      "size_type" : null,
+      "width" : null,
+      "height" : null,
+      "max_width" : null,
+      "max_height" : null,
+      "loading" : "disabled"
+    }
+  }, {
+    "id" : "slides.points",
+    "name" : "points",
+    "label" : "Points",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : 0,
+      "max" : 6,
+      "sorting_label_field" : null,
+      "default" : 3
     },
-    "children": [
-      {
-        "id": "slides.icon",
-        "name": "icon",
-        "label": "Icon key",
-        "required": false,
-        "locked": false,
-        "allow_new_line": false,
-        "display_width": null,
-        "type": "text",
-        "default": "trending_up"
-      },
-      {
-        "id": "slides.title",
-        "name": "title",
-        "label": "Title",
-        "required": false,
-        "locked": false,
-        "allow_new_line": false,
-        "display_width": null,
-        "type": "text",
-        "default": "Outcomes-First"
-      },
-      {
-        "id": "slides.tag",
-        "name": "tag",
-        "label": "Tag",
-        "required": false,
-        "locked": false,
-        "allow_new_line": false,
-        "display_width": null,
-        "type": "text",
-        "default": "P&L IMPACT OVER PROJECT COMPLETION"
-      },
-      {
-        "id": "slides.description",
-        "name": "description",
-        "label": "Description",
-        "required": false,
-        "locked": false,
-        "allow_new_line": false,
-        "display_width": null,
-        "type": "text",
-        "default": "Turn AI ambition into balance sheet impact."
-      },
-      {
-        "id": "slides.image",
-        "name": "image",
-        "label": "Background image",
-        "required": false,
-        "locked": false,
-        "responsive": false,
-        "resizable": true,
-        "show_loading": false,
-        "display_width": null,
-        "type": "image",
-        "default": {
-          "src": "",
-          "alt": null,
-          "size_type": null,
-          "width": null,
-          "height": null,
-          "max_width": null,
-          "max_height": null,
-          "loading": "disabled"
-        }
-      },
-      {
-        "id": "slides.points",
-        "name": "points",
-        "label": "Points",
-        "required": false,
-        "locked": false,
-        "occurrence": {
-          "min": 0,
-          "max": 6,
-          "sorting_label_field": null,
-          "default": 3
-        },
-        "children": [
-          {
-            "id": "points.strong",
-            "name": "strong",
-            "label": "Strong label",
-            "required": false,
-            "locked": false,
-            "allow_new_line": false,
-            "display_width": null,
-            "type": "text",
-            "default": "Revenue"
-          },
-          {
-            "id": "points.text",
-            "name": "text",
-            "label": "Text",
-            "required": false,
-            "locked": false,
-            "allow_new_line": false,
-            "display_width": null,
-            "type": "text",
-            "default": "Description text"
-          }
-        ],
-        "tab": "CONTENT",
-        "expanded": false,
-        "group_occurrence_meta": null,
-        "display_width": null,
-        "type": "group"
-      }
-    ],
-    "tab": "CONTENT",
-    "expanded": false,
-    "group_occurrence_meta": null,
-    "display_width": null,
-    "type": "group",
-    "default": [
-      {
-        "icon": "trending_up",
-        "title": "Outcomes-First",
-        "tag": "P&L IMPACT OVER PROJECT COMPLETION",
-        "description": "Turn AI ambition into balance sheet impact, with security, governance, and regulatory confidence built in from the start.",
-        "image": {
-          "src": "https://images.unsplash.com/photo-1649182784901-48f5f2d40ecc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "alt": ""
-        },
-        "points": [
-          {
-            "strong": "Revenue",
-            "text": "AI-powered decisioning at the heart of every client interaction, not bolted on as an afterthought"
-          },
-          {
-            "strong": "Risk",
-            "text": "Predictive risk intelligence that works for the CFO, not just the CRO"
-          },
-          {
-            "strong": "Operations",
-            "text": "Eliminate process debt and free your people to do what only humans can"
-          }
-        ]
-      },
-      {
-        "icon": "network",
-        "title": "Journey Orchestration",
-        "tag": "FROM THE CLIENT IN, NOT THE SYSTEM OUT",
-        "description": "Rebuild every financial services touchpoint from the moment your client experiences it, underpinned by trusted, governed data. Not constrained by legacy core.",
-        "image": {
-          "src": "https://images.unsplash.com/photo-1762264644326-c1f8891ba644?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "alt": ""
-        },
-        "points": [
-          {
-            "strong": "Onboarding",
-            "text": "KYC and account origination in minutes, not days, controls intact"
-          },
-          {
-            "strong": "Servicing",
-            "text": "Seamless, context-aware interactions that replace channel-hopping with continuity"
-          },
-          {
-            "strong": "Advice",
-            "text": "Relationship managers armed with real-time client intelligence, so every conversation lands"
-          }
-        ]
-      },
-      {
-        "icon": "cpu",
-        "title": "Integrated Intelligence",
-        "tag": "ONE INSIGHT LAYER ACROSS YOUR ENTIRE VALUE CHAIN",
-        "description": "Connect your data, decisioning, and AI into a single governed, access-controlled layer, so intelligence flows to the point of action, not to a dashboard nobody checks.",
-        "image": {
-          "src": "https://images.unsplash.com/photo-1763811939712-52c5b21920c0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "alt": ""
-        },
-        "points": [
-          {
-            "strong": "Credit & Lending",
-            "text": "Adaptive AI scoring that improves with every decision and explains every outcome"
-          },
-          {
-            "strong": "Fraud & AML",
-            "text": "Real-time detection across transaction, behavioral, and network signals, unified, not siloed"
-          },
-          {
-            "strong": "Client Intelligence",
-            "text": "Next best action surfaced from a single, always-current client view"
-          }
-        ]
-      },
-      {
-        "icon": "user_check",
-        "title": "Human Ingenuity",
-        "tag": "DEEP BFS EXPERTISE IN EVERY ENGAGEMENT",
-        "description": "The questions that shape the best financial services solutions cannot be prompted, they come from practitioners who have lived inside these institutions.",
-        "image": {
-          "src": "https://images.unsplash.com/photo-1771270759486-1f7703945072?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "alt": ""
-        },
-        "points": [
-          {
-            "strong": "Domain depth",
-            "text": "Practitioners who know how credit is priced, wealth is managed, and payment schemes work"
-          },
-          {
-            "strong": "Judgment",
-            "text": "Teams that design for how institutions operate, not how textbooks say they should"
-          },
-          {
-            "strong": "Cross-discipline",
-            "text": "Strategy, engineering, CX, and data in one room—upstream decisions aligned"
-          },
-          {
-            "strong": "Responsible AI & Governance",
-            "text": "AI applied with genuine advantage, explainability, auditability, and human oversight"
-          }
-        ]
-      },
-      {
-        "icon": "wrench",
-        "title": "AI-Native Engineering",
-        "tag": "AI EMBEDDED ACROSS THE ENTIRE FINANCIAL SERVICES DELIVERY STACK",
-        "description": "AI acceleration across every delivery mode—custom platforms, core banking configurations, data ecosystems, and managed services—with the same regulatory discipline whether building greenfield or running 24/7 operations.",
-        "image": {
-          "src": "https://images.unsplash.com/photo-1589539574113-aa8d54506e9d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "alt": ""
-        },
-        "points": [
-          {
-            "strong": "Discover, Configure & Build",
-            "text": "AI-accelerated delivery across banking, lending, and wealth platforms without sacrificing regulatory rigor"
-          },
-          {
-            "strong": "Data Engineering & Integration",
-            "text": "AI-assisted pipelines, migrations, and streaming to establish governed foundations for decisioning"
-          },
-          {
-            "strong": "Run & Continuously Improve",
-            "text": "AI-driven monitoring and self-healing operations protecting uptime across platforms"
-          }
-        ]
-      }
-    ]
-  }
-]
+    "children" : [ {
+      "id" : "points.strong",
+      "name" : "strong",
+      "label" : "Strong label",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : "Revenue"
+    }, {
+      "id" : "points.text",
+      "name" : "text",
+      "label" : "Text",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : "Description text"
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "icon" : "trending_up",
+    "title" : "Outcomes-First",
+    "tag" : "P&L IMPACT OVER PROJECT COMPLETION",
+    "description" : "Turn AI ambition into balance sheet impact, with security, governance, and regulatory confidence built in from the start.",
+    "image" : {
+      "src" : "https://images.unsplash.com/photo-1649182784901-48f5f2d40ecc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "alt" : ""
+    },
+    "points" : [ {
+      "strong" : "Revenue",
+      "text" : "AI-powered decisioning at the heart of every client interaction, not bolted on as an afterthought"
+    }, {
+      "strong" : "Risk",
+      "text" : "Predictive risk intelligence that works for the CFO, not just the CRO"
+    }, {
+      "strong" : "Operations",
+      "text" : "Eliminate process debt and free your people to do what only humans can"
+    } ]
+  }, {
+    "icon" : "network",
+    "title" : "Journey Orchestration",
+    "tag" : "FROM THE CLIENT IN, NOT THE SYSTEM OUT",
+    "description" : "Rebuild every financial services touchpoint from the moment your client experiences it, underpinned by trusted, governed data. Not constrained by legacy core.",
+    "image" : {
+      "src" : "https://images.unsplash.com/photo-1762264644326-c1f8891ba644?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "alt" : ""
+    },
+    "points" : [ {
+      "strong" : "Onboarding",
+      "text" : "KYC and account origination in minutes, not days, controls intact"
+    }, {
+      "strong" : "Servicing",
+      "text" : "Seamless, context-aware interactions that replace channel-hopping with continuity"
+    }, {
+      "strong" : "Advice",
+      "text" : "Relationship managers armed with real-time client intelligence, so every conversation lands"
+    } ]
+  }, {
+    "icon" : "cpu",
+    "title" : "Integrated Intelligence",
+    "tag" : "ONE INSIGHT LAYER ACROSS YOUR ENTIRE VALUE CHAIN",
+    "description" : "Connect your data, decisioning, and AI into a single governed, access-controlled layer, so intelligence flows to the point of action, not to a dashboard nobody checks.",
+    "image" : {
+      "src" : "https://images.unsplash.com/photo-1763811939712-52c5b21920c0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "alt" : ""
+    },
+    "points" : [ {
+      "strong" : "Credit & Lending",
+      "text" : "Adaptive AI scoring that improves with every decision and explains every outcome"
+    }, {
+      "strong" : "Fraud & AML",
+      "text" : "Real-time detection across transaction, behavioral, and network signals, unified, not siloed"
+    }, {
+      "strong" : "Client Intelligence",
+      "text" : "Next best action surfaced from a single, always-current client view"
+    } ]
+  }, {
+    "icon" : "user_check",
+    "title" : "Human Ingenuity",
+    "tag" : "DEEP BFS EXPERTISE IN EVERY ENGAGEMENT",
+    "description" : "The questions that shape the best financial services solutions cannot be prompted, they come from practitioners who have lived inside these institutions.",
+    "image" : {
+      "src" : "https://images.unsplash.com/photo-1771270759486-1f7703945072?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "alt" : ""
+    },
+    "points" : [ {
+      "strong" : "Domain depth",
+      "text" : "Practitioners who know how credit is priced, wealth is managed, and payment schemes work"
+    }, {
+      "strong" : "Judgment",
+      "text" : "Teams that design for how institutions operate, not how textbooks say they should"
+    }, {
+      "strong" : "Cross-discipline",
+      "text" : "Strategy, engineering, CX, and data in one room—upstream decisions aligned"
+    }, {
+      "strong" : "Responsible AI & Governance",
+      "text" : "AI applied with genuine advantage, explainability, auditability, and human oversight"
+    } ]
+  }, {
+    "icon" : "wrench",
+    "title" : "AI-Native Engineering",
+    "tag" : "AI EMBEDDED ACROSS THE ENTIRE FINANCIAL SERVICES DELIVERY STACK",
+    "description" : "AI acceleration across every delivery mode—custom platforms, core banking configurations, data ecosystems, and managed services—with the same regulatory discipline whether building greenfield or running 24/7 operations.",
+    "image" : {
+      "src" : "https://images.unsplash.com/photo-1589539574113-aa8d54506e9d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "alt" : ""
+    },
+    "points" : [ {
+      "strong" : "Discover, Configure & Build",
+      "text" : "AI-accelerated delivery across banking, lending, and wealth platforms without sacrificing regulatory rigor"
+    }, {
+      "strong" : "Data Engineering & Integration",
+      "text" : "AI-assisted pipelines, migrations, and streaming to establish governed foundations for decisioning"
+    }, {
+      "strong" : "Run & Continuously Improve",
+      "text" : "AI-driven monitoring and self-healing operations protecting uptime across platforms"
+    } ]
+  } ]
+} ]

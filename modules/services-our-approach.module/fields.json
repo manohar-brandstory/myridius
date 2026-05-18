@@ -1,135 +1,159 @@
-[
-  {
-    "id": "section_id",
-    "name": "section_id",
-    "label": "Section ID",
-    "type": "text",
-    "default": "our-approach",
-    "help_text": "Unique HTML ID for this section (used for anchor links)."
+[ {
+  "id" : "section_id",
+  "name" : "section_id",
+  "label" : "Section ID",
+  "help_text" : "Unique HTML ID for this section (used for anchor links).",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "our-approach"
+}, {
+  "id" : "badge_text",
+  "name" : "badge_text",
+  "label" : "Badge Text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Our Approach"
+}, {
+  "id" : "heading",
+  "name" : "heading",
+  "label" : "Heading",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Engineering intelligence system with trusted context"
+}, {
+  "id" : "subtitle",
+  "name" : "subtitle",
+  "label" : "Subtitle",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "display_width" : null,
+  "default" : "<p>With an execution layer where data, semantics, controls, and AI operate as one system in production</p>"
+}, {
+  "id" : "card_layout",
+  "name" : "card_layout",
+  "label" : "Desktop card layout",
+  "help_text" : "Applies at 1025px and wider. Narrower viewports keep a single stacked column.",
+  "required" : false,
+  "locked" : false,
+  "display" : "select",
+  "choices" : [ [ "wrap", "Wrap every 3 cards (new row after 3)" ], [ "single_row", "Single row (all cards in one line; scrolls horizontally if needed)" ] ],
+  "multiple" : false,
+  "reordering_enabled" : true,
+  "preset" : null,
+  "type" : "choice",
+  "display_width" : null,
+  "default" : "wrap"
+}, {
+  "id" : "cards",
+  "name" : "cards",
+  "label" : "Approach Cards",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 6,
+    "sorting_label_field" : null,
+    "default" : 3
   },
-  {
-    "id": "badge_text",
-    "name": "badge_text",
-    "label": "Badge Text",
-    "type": "text",
-    "default": "Our Approach"
-  },
-  {
-    "id": "heading",
-    "name": "heading",
-    "label": "Heading",
-    "type": "text",
-    "default": "Engineering intelligence system with trusted context"
-  },
-  {
-    "id": "subtitle",
-    "name": "subtitle",
-    "label": "Subtitle",
-    "type": "richtext",
-    "default": "<p>With an execution layer where data, semantics, controls, and AI operate as one system in production</p>"
-  },
-  {
-    "id": "card_layout",
-    "name": "card_layout",
-    "label": "Desktop card layout",
-    "type": "choice",
-    "choices": [
-      ["wrap", "Wrap every 3 cards (new row after 3)"],
-      ["single_row", "Single row (all cards in one line; scrolls horizontally if needed)"]
-    ],
-    "default": "wrap",
-    "help_text": "Applies at 1025px and wider. Narrower viewports keep a single stacked column."
-  },
-  {
-    "id": "cards",
-    "name": "cards",
-    "label": "Approach Cards",
-    "type": "group",
-    "occurrence": {
-      "min": 1,
-      "max": 6,
-      "default": 3
-    },
-    "children": [
-      {
-        "id": "cards.icon_svg",
-        "name": "icon_svg",
-        "label": "Icon SVG",
-        "type": "text",
-        "help_text": "Paste inline SVG markup for the card icon.",
-        "default": ""
-      },
-      {
-        "id": "cards.title",
-        "name": "title",
-        "label": "Title",
-        "type": "text",
-        "default": "Card Title"
-      },
-      {
-        "id": "cards.description",
-        "name": "description",
-        "label": "Description",
-        "type": "richtext",
-        "default": "<p>Card description goes here.</p>"
-      },
-      {
-        "id": "cards.button_text",
-        "name": "button_text",
-        "label": "Button Text",
-        "type": "text",
-        "default": "Learn More"
-      },
-      {
-        "id": "cards.button_url",
-        "name": "button_url",
-        "label": "Button URL",
-        "type": "url",
-        "default": {
-          "content_id": null,
-          "href": "#",
-          "type": "EXTERNAL"
-        },
-        "supported_types": [
-          "EXTERNAL",
-          "CONTENT"
-        ]
-      }
-    ],
-    "default": [
-      {
-        "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z\"/><path d=\"M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z\"/><path d=\"M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4\"/><path d=\"M17.599 6.5a3 3 0 0 0 .399-1.375\"/><path d=\"M6.003 5.125A3 3 0 0 0 6.401 6.5\"/><path d=\"M3.477 10.896a4 4 0 0 1 .585-.396\"/><path d=\"M19.938 10.5a4 4 0 0 1 .585.396\"/><path d=\"M6 18a4 4 0 0 1-1.967-.516\"/><path d=\"M19.967 17.484A4 4 0 0 1 18 18\"/></svg>",
-        "title": "AI-Native Intelligence Systems",
-        "description": "<p>We engineer the core layer across platforms, pipelines, governance, and knowledge so AI systems can sense, reason, and operate on trusted enterprise data.</p>",
-        "button_text": "HOW WE DELIVER",
-        "button_url": {
-          "content_id": null,
-          "href": "#",
-          "type": "EXTERNAL"
-        }
-      },
-      {
-        "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"16\" y=\"16\" width=\"6\" height=\"6\" rx=\"1\"/><rect x=\"2\" y=\"16\" width=\"6\" height=\"6\" rx=\"1\"/><rect x=\"9\" y=\"2\" width=\"6\" height=\"6\" rx=\"1\"/><path d=\"M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3\"/><path d=\"M12 12V8\"/></svg>",
-        "title": "Connected Business Context",
-        "description": "<p>We connect data, semantics, policy, lineage, and domain knowledge so copilots, agents, and decision systems understand the business before they act.</p>",
-        "button_text": "OUR SYSTEM COMPONENTS",
-        "button_url": {
-          "content_id": null,
-          "href": "#",
-          "type": "EXTERNAL"
-        }
-      },
-      {
-        "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\"/><path d=\"m9 12 2 2 4-4\"/></svg>",
-        "title": "Governed Autonomous Action",
-        "description": "<p>We operationalize decision intelligence, generative AI, and agentic workflows on Evoq so intelligence becomes governed action at enterprise scale.</p>",
-        "button_text": "EVOQ",
-        "button_url": {
-          "content_id": null,
-          "href": "#",
-          "type": "EXTERNAL"
-        }
-      }
-    ]
-  }
-]
+  "children" : [ {
+    "id" : "cards.icon_svg",
+    "name" : "icon_svg",
+    "label" : "Icon SVG",
+    "help_text" : "Paste inline SVG markup for the card icon.",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "cards.title",
+    "name" : "title",
+    "label" : "Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Card Title"
+  }, {
+    "id" : "cards.description",
+    "name" : "description",
+    "label" : "Description",
+    "required" : false,
+    "locked" : false,
+    "type" : "richtext",
+    "display_width" : null,
+    "default" : "<p>Card description goes here.</p>"
+  }, {
+    "id" : "cards.button_text",
+    "name" : "button_text",
+    "label" : "Button Text",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Learn More"
+  }, {
+    "id" : "cards.button_url",
+    "name" : "button_url",
+    "label" : "Button URL",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT" ],
+    "type" : "url",
+    "display_width" : null,
+    "default" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "icon_svg" : "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z\"/><path d=\"M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z\"/><path d=\"M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4\"/><path d=\"M17.599 6.5a3 3 0 0 0 .399-1.375\"/><path d=\"M6.003 5.125A3 3 0 0 0 6.401 6.5\"/><path d=\"M3.477 10.896a4 4 0 0 1 .585-.396\"/><path d=\"M19.938 10.5a4 4 0 0 1 .585.396\"/><path d=\"M6 18a4 4 0 0 1-1.967-.516\"/><path d=\"M19.967 17.484A4 4 0 0 1 18 18\"/></svg>",
+    "title" : "AI-Native Intelligence Systems",
+    "description" : "<p>We engineer the core layer across platforms, pipelines, governance, and knowledge so AI systems can sense, reason, and operate on trusted enterprise data.</p>",
+    "button_text" : "HOW WE DELIVER",
+    "button_url" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
+    }
+  }, {
+    "icon_svg" : "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"16\" y=\"16\" width=\"6\" height=\"6\" rx=\"1\"/><rect x=\"2\" y=\"16\" width=\"6\" height=\"6\" rx=\"1\"/><rect x=\"9\" y=\"2\" width=\"6\" height=\"6\" rx=\"1\"/><path d=\"M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3\"/><path d=\"M12 12V8\"/></svg>",
+    "title" : "Connected Business Context",
+    "description" : "<p>We connect data, semantics, policy, lineage, and domain knowledge so copilots, agents, and decision systems understand the business before they act.</p>",
+    "button_text" : "OUR SYSTEM COMPONENTS",
+    "button_url" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
+    }
+  }, {
+    "icon_svg" : "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\"/><path d=\"m9 12 2 2 4-4\"/></svg>",
+    "title" : "Governed Autonomous Action",
+    "description" : "<p>We operationalize decision intelligence, generative AI, and agentic workflows on Evoq so intelligence becomes governed action at enterprise scale.</p>",
+    "button_text" : "EVOQ",
+    "button_url" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
+    }
+  } ]
+} ]

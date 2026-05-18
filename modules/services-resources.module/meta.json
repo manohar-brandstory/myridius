@@ -1,12 +1,9 @@
 {
-  "label": "Services - Resources",
-  "css_assets": [],
-  "external_js": [],
-  "global": false,
-  "host_template_types": ["PAGE"],
-  "icon": "module",
-  "js_assets": [],
-  "other_assets": [],
-  "smart_type": "NOT_SMART",
-  "is_available_for_new_content": true
+  "global" : false,
+  "content_types" : [ "LANDING_PAGE", "SITE_PAGE" ],
+  "host_template_types" : [ "PAGE" ],
+  "module_id" : 212217910356,
+  "label" : "Services - Resources",
+  "icon" : "module",
+  "is_available_for_new_content" : true
 }

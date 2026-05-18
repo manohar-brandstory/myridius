@@ -50,7 +50,58 @@
   flex-direction: column;
 }
 
-@media (max-width: 639px) {
+/* Section entrance — card + left column (EvoqBusiness_2 viewport reveal) */
+.evoq-bi:not(.evoq-bi--inview) .evoq-bi__card {
+  opacity: 0;
+  transform: translateY(24px) scale(0.98);
+}
+
+.evoq-bi:not(.evoq-bi--inview) .evoq-bi__headline,
+.evoq-bi:not(.evoq-bi--inview) .evoq-bi__intro,
+.evoq-bi:not(.evoq-bi--inview) .evoq-bi__schematic {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+@keyframes evoq-bi-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes evoq-bi-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.evoq-bi--inview .evoq-bi__card {
+  animation: evoq-bi-card-in 0.75s var(--evoq-bi-ease) both;
+}
+
+.evoq-bi--inview .evoq-bi__headline {
+  animation: evoq-bi-fade-up 0.7s var(--evoq-bi-ease) 0.12s both;
+}
+
+.evoq-bi--inview .evoq-bi__intro {
+  animation: evoq-bi-fade-up 0.7s var(--evoq-bi-ease) 0.22s both;
+}
+
+.evoq-bi--inview .evoq-bi__schematic {
+  animation: evoq-bi-fade-up 0.65s var(--evoq-bi-ease) 0.32s both;
+}
+
+@media only screen and (max-width: 767px) {
   .evoq-bi {
     scroll-margin-top: var(--evoq-bi-sticky-offset);
   }
@@ -77,7 +128,7 @@
 }
 
 /* Extra-tight vertical viewports (SE-class ~667px height): smaller type and scroll budget */
-@media (max-width: 639px) and (max-height: 700px) {
+@media only screen and (max-width: 767px) and (max-height: 700px) {
   .evoq-bi {
     padding: clamp(0.75rem, 3vw, 1.25rem) clamp(0.75rem, 3vw, 1.5rem);
   }
@@ -215,13 +266,13 @@
   }
 }
 
-@media (max-width: 1023px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px), only screen and (max-width: 767px) {
   .evoq-bi__scroll {
     min-height: min(48dvh, 24rem);
   }
 }
 
-@media (max-width: 639px) and (max-height: 700px) {
+@media only screen and (max-width: 767px) and (max-height: 700px) {
   .evoq-bi__scroll {
     min-height: min(28dvh, 11rem);
     padding: clamp(0.5rem, 2vw, 0.75rem) clamp(0.75rem, 2.5vw, 1rem) clamp(0.75rem, 2.5vw, 1rem);
@@ -324,7 +375,7 @@
   display: none;
 }
 
-@media (max-width: 520px) {
+@media only screen and (max-width: 767px) {
   .evoq-bi__schematic {
     transform: scale(1);
   }
@@ -538,6 +589,21 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .evoq-bi:not(.evoq-bi--inview) .evoq-bi__card,
+  .evoq-bi:not(.evoq-bi--inview) .evoq-bi__headline,
+  .evoq-bi:not(.evoq-bi--inview) .evoq-bi__intro,
+  .evoq-bi:not(.evoq-bi--inview) .evoq-bi__schematic {
+    opacity: 1;
+    transform: none;
+  }
+
+  .evoq-bi--inview .evoq-bi__card,
+  .evoq-bi--inview .evoq-bi__headline,
+  .evoq-bi--inview .evoq-bi__intro,
+  .evoq-bi--inview .evoq-bi__schematic {
+    animation: none !important;
+  }
+
   .evoq-bi__itemInner,
   .evoq-bi__iconBox,
   .evoq-bi__tag,
@@ -594,7 +660,7 @@
 }
 
 /* ── Figma EvoqBusiness_2 mobile (≤767px): framed card, horizontal slides, pager ── */
-@media (max-width: 767px) {
+@media only screen and (max-width: 767px) {
   .evoq-bi {
     padding: 40px 20px;
   }
@@ -881,7 +947,7 @@
   }
 }
 
-@media (max-width: 767px) and (prefers-reduced-motion: reduce) {
+@media only screen and (max-width: 767px) and (prefers-reduced-motion: reduce) {
   .evoq-bi__scroll {
     scroll-snap-type: none;
   }

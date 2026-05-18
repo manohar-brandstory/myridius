@@ -1,177 +1,185 @@
-[
-  {
-    "id": "badge_text",
-    "name": "badge_text",
-    "label": "Badge Text",
-    "type": "text",
-    "required": false,
-    "default": "Insights"
+[ {
+  "id" : "badge_text",
+  "name" : "badge_text",
+  "label" : "Badge Text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Insights"
+}, {
+  "id" : "heading",
+  "name" : "heading",
+  "label" : "Heading",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Stay ahead of your market."
+}, {
+  "id" : "insights",
+  "name" : "insights",
+  "label" : "Insights",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 12,
+    "sorting_label_field" : null,
+    "default" : 8
   },
-  {
-    "id": "heading",
-    "name": "heading",
-    "label": "Heading",
-    "type": "text",
-    "required": false,
-    "default": "Stay ahead of your market."
-  },
-  {
-    "id": "insights",
-    "name": "insights",
-    "label": "Insights",
-    "type": "group",
-    "occurrence": {
-      "min": 1,
-      "max": 12,
-      "default": 8
+  "children" : [ {
+    "id" : "insights.category",
+    "name" : "category",
+    "label" : "Category",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Article"
+  }, {
+    "id" : "insights.title",
+    "name" : "title",
+    "label" : "Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Insight title goes here"
+  }, {
+    "id" : "insights.image",
+    "name" : "image",
+    "label" : "Image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : false,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "",
+      "alt" : "Insight image"
+    }
+  }, {
+    "id" : "insights.link_url",
+    "name" : "link_url",
+    "label" : "Link URL",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+    "type" : "url",
+    "display_width" : null,
+    "default" : {
+      "href" : "#",
+      "type" : "EXTERNAL",
+      "content_id" : null
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "category" : "AI Strategy",
+    "title" : "The shift from automation to autonomy in enterprise",
+    "image" : {
+      "src" : "",
+      "alt" : "AI Strategy article"
     },
-    "sorting_label_field": "title",
-    "children": [
-      {
-        "id": "insights.category",
-        "name": "category",
-        "label": "Category",
-        "type": "text",
-        "required": false,
-        "default": "Article"
-      },
-      {
-        "id": "insights.title",
-        "name": "title",
-        "label": "Title",
-        "type": "text",
-        "required": false,
-        "default": "Insight title goes here"
-      },
-      {
-        "id": "insights.image",
-        "name": "image",
-        "label": "Image",
-        "type": "image",
-        "required": false,
-        "default": {
-          "src": "",
-          "alt": "Insight image"
-        }
-      },
-      {
-        "id": "insights.link_url",
-        "name": "link_url",
-        "label": "Link URL",
-        "type": "url",
-        "required": false,
-        "default": {
-          "href": "#",
-          "type": "EXTERNAL",
-          "content_id": null
-        }
-      }
-    ],
-    "default": [
-      {
-        "category": "AI Strategy",
-        "title": "The shift from automation to autonomy in enterprise",
-        "image": {
-          "src": "",
-          "alt": "AI Strategy article"
-        },
-        "link_url": {
-          "href": "#",
-          "type": "EXTERNAL",
-          "content_id": null
-        }
-      },
-      {
-        "category": "Technology",
-        "title": "Why agentic systems are the next platform shift",
-        "image": {
-          "src": "",
-          "alt": "Technology article"
-        },
-        "link_url": {
-          "href": "#",
-          "type": "EXTERNAL",
-          "content_id": null
-        }
-      },
-      {
-        "category": "Operations",
-        "title": "Reimagining workflows for the intelligence age",
-        "image": {
-          "src": "",
-          "alt": "Operations article"
-        },
-        "link_url": {
-          "href": "#",
-          "type": "EXTERNAL",
-          "content_id": null
-        }
-      },
-      {
-        "category": "Case Study",
-        "title": "How compound AI delivered 40% efficiency gains",
-        "image": {
-          "src": "",
-          "alt": "Case Study article"
-        },
-        "link_url": {
-          "href": "#",
-          "type": "EXTERNAL",
-          "content_id": null
-        }
-      },
-      {
-        "category": "Industry",
-        "title": "The convergence of design and decision intelligence",
-        "image": {
-          "src": "",
-          "alt": "Industry article"
-        },
-        "link_url": {
-          "href": "#",
-          "type": "EXTERNAL",
-          "content_id": null
-        }
-      },
-      {
-        "category": "Research",
-        "title": "Dynamic orchestration patterns for scalable teams",
-        "image": {
-          "src": "",
-          "alt": "Research article"
-        },
-        "link_url": {
-          "href": "#",
-          "type": "EXTERNAL",
-          "content_id": null
-        }
-      },
-      {
-        "category": "Perspective",
-        "title": "Building compounding value through AI-native design",
-        "image": {
-          "src": "",
-          "alt": "Perspective article"
-        },
-        "link_url": {
-          "href": "#",
-          "type": "EXTERNAL",
-          "content_id": null
-        }
-      },
-      {
-        "category": "Leadership",
-        "title": "What CXOs need to know about autonomous systems",
-        "image": {
-          "src": "",
-          "alt": "Leadership article"
-        },
-        "link_url": {
-          "href": "#",
-          "type": "EXTERNAL",
-          "content_id": null
-        }
-      }
-    ]
-  }
-]
+    "link_url" : {
+      "href" : "#",
+      "type" : "EXTERNAL",
+      "content_id" : null
+    }
+  }, {
+    "category" : "Technology",
+    "title" : "Why agentic systems are the next platform shift",
+    "image" : {
+      "src" : "",
+      "alt" : "Technology article"
+    },
+    "link_url" : {
+      "href" : "#",
+      "type" : "EXTERNAL",
+      "content_id" : null
+    }
+  }, {
+    "category" : "Operations",
+    "title" : "Reimagining workflows for the intelligence age",
+    "image" : {
+      "src" : "",
+      "alt" : "Operations article"
+    },
+    "link_url" : {
+      "href" : "#",
+      "type" : "EXTERNAL",
+      "content_id" : null
+    }
+  }, {
+    "category" : "Case Study",
+    "title" : "How compound AI delivered 40% efficiency gains",
+    "image" : {
+      "src" : "",
+      "alt" : "Case Study article"
+    },
+    "link_url" : {
+      "href" : "#",
+      "type" : "EXTERNAL",
+      "content_id" : null
+    }
+  }, {
+    "category" : "Industry",
+    "title" : "The convergence of design and decision intelligence",
+    "image" : {
+      "src" : "",
+      "alt" : "Industry article"
+    },
+    "link_url" : {
+      "href" : "#",
+      "type" : "EXTERNAL",
+      "content_id" : null
+    }
+  }, {
+    "category" : "Research",
+    "title" : "Dynamic orchestration patterns for scalable teams",
+    "image" : {
+      "src" : "",
+      "alt" : "Research article"
+    },
+    "link_url" : {
+      "href" : "#",
+      "type" : "EXTERNAL",
+      "content_id" : null
+    }
+  }, {
+    "category" : "Perspective",
+    "title" : "Building compounding value through AI-native design",
+    "image" : {
+      "src" : "",
+      "alt" : "Perspective article"
+    },
+    "link_url" : {
+      "href" : "#",
+      "type" : "EXTERNAL",
+      "content_id" : null
+    }
+  }, {
+    "category" : "Leadership",
+    "title" : "What CXOs need to know about autonomous systems",
+    "image" : {
+      "src" : "",
+      "alt" : "Leadership article"
+    },
+    "link_url" : {
+      "href" : "#",
+      "type" : "EXTERNAL",
+      "content_id" : null
+    }
+  } ]
+} ]

@@ -1,110 +1,125 @@
-[
-  {
-    "id": "section_id",
-    "name": "section_id",
-    "label": "Section ID",
-    "type": "text",
-    "default": "myridius-diff",
-    "help_text": "Unique HTML ID for this section (used for anchor links)."
+[ {
+  "id" : "section_id",
+  "name" : "section_id",
+  "label" : "Section ID",
+  "help_text" : "Unique HTML ID for this section (used for anchor links).",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "myridius-diff"
+}, {
+  "id" : "heading",
+  "name" : "heading",
+  "label" : "Heading",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "display_width" : null,
+  "default" : "<p>Bringing Myridius capabilities together to turn <span class=\"svc-diff__gradient\">ambition</span> into real <span class=\"svc-diff__gradient\">impact</span></p>"
+}, {
+  "id" : "card_layout",
+  "name" : "card_layout",
+  "label" : "Desktop card layout",
+  "help_text" : "Applies at 1025px and wider. At 1024px and below, layout follows responsive breakpoints (2 columns, then 1).",
+  "required" : false,
+  "locked" : false,
+  "display" : "select",
+  "choices" : [ [ "wrap", "Wrap every 3 cards (new row after 3)" ], [ "single_row", "Single row (all cards in one line; scrolls horizontally if needed)" ] ],
+  "multiple" : false,
+  "reordering_enabled" : true,
+  "preset" : null,
+  "type" : "choice",
+  "display_width" : null,
+  "default" : "wrap"
+}, {
+  "id" : "cards",
+  "name" : "cards",
+  "label" : "Cards",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 6,
+    "sorting_label_field" : null,
+    "default" : 3
   },
-  {
-    "id": "heading",
-    "name": "heading",
-    "label": "Heading",
-    "type": "richtext",
-    "default": "<p>Bringing Myridius capabilities together to turn <span class=\"svc-diff__gradient\">ambition</span> into real <span class=\"svc-diff__gradient\">impact</span></p>"
-  },
-  {
-    "id": "card_layout",
-    "name": "card_layout",
-    "label": "Desktop card layout",
-    "type": "choice",
-    "choices": [
-      ["wrap", "Wrap every 3 cards (new row after 3)"],
-      ["single_row", "Single row (all cards in one line; scrolls horizontally if needed)"]
-    ],
-    "default": "wrap",
-    "help_text": "Applies at 1025px and wider. At 1024px and below, layout follows responsive breakpoints (2 columns, then 1)."
-  },
-  {
-    "id": "cards",
-    "name": "cards",
-    "label": "Cards",
-    "type": "group",
-    "occurrence": {
-      "min": 1,
-      "max": 6,
-      "default": 3
-    },
-    "children": [
-      {
-        "id": "cards.title",
-        "name": "title",
-        "label": "Title",
-        "type": "text",
-        "default": "Card Title"
-      },
-      {
-        "id": "cards.description",
-        "name": "description",
-        "label": "Description",
-        "type": "richtext",
-        "default": "<p>Card description goes here.</p>"
-      },
-      {
-        "id": "cards.button_text",
-        "name": "button_text",
-        "label": "Button Text",
-        "type": "text",
-        "default": "Learn More"
-      },
-      {
-        "id": "cards.button_url",
-        "name": "button_url",
-        "label": "Button URL",
-        "type": "url",
-        "default": {
-          "content_id": null,
-          "href": "#",
-          "type": "EXTERNAL"
-        },
-        "supported_types": [
-          "EXTERNAL",
-          "CONTENT"
-        ]
-      }
-    ],
-    "default": [
-      {
-        "title": "Outcome Architecture",
-        "description": "<p>Architecture anchored in measurable business outcomes — not just technical deliverables. Every sprint moves a commercial needle you can see.</p>",
-        "button_text": "Our Capabilities",
-        "button_url": {
-          "content_id": null,
-          "href": "#",
-          "type": "EXTERNAL"
-        }
-      },
-      {
-        "title": "AI-Accelerated Delivery via Evoq",
-        "description": "<p>Our agentic delivery layer compresses timelines by automating scaffolding, QA and documentation — so your teams ship faster without sacrificing quality.</p>",
-        "button_text": "Explore Evoq",
-        "button_url": {
-          "content_id": null,
-          "href": "#",
-          "type": "EXTERNAL"
-        }
-      },
-      {
-        "title": "Agentic Operations",
-        "description": "<p>Post go-live, your estate detects, diagnoses and resolves issues autonomously — turning maintenance from a cost centre into a competitive edge.</p>",
-        "button_text": "Agentic AI",
-        "button_url": {
-          "content_id": null,
-          "href": "#",
-          "type": "EXTERNAL"
-        }
-      }
-    ]
-  }
-]
+  "children" : [ {
+    "id" : "cards.title",
+    "name" : "title",
+    "label" : "Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Card Title"
+  }, {
+    "id" : "cards.description",
+    "name" : "description",
+    "label" : "Description",
+    "required" : false,
+    "locked" : false,
+    "type" : "richtext",
+    "display_width" : null,
+    "default" : "<p>Card description goes here.</p>"
+  }, {
+    "id" : "cards.button_text",
+    "name" : "button_text",
+    "label" : "Button Text",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Learn More"
+  }, {
+    "id" : "cards.button_url",
+    "name" : "button_url",
+    "label" : "Button URL",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT" ],
+    "type" : "url",
+    "display_width" : null,
+    "default" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "title" : "Outcome Architecture",
+    "description" : "<p>Architecture anchored in measurable business outcomes — not just technical deliverables. Every sprint moves a commercial needle you can see.</p>",
+    "button_text" : "Our Capabilities",
+    "button_url" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
+    }
+  }, {
+    "title" : "AI-Accelerated Delivery via Evoq",
+    "description" : "<p>Our agentic delivery layer compresses timelines by automating scaffolding, QA and documentation — so your teams ship faster without sacrificing quality.</p>",
+    "button_text" : "Explore Evoq",
+    "button_url" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
+    }
+  }, {
+    "title" : "Agentic Operations",
+    "description" : "<p>Post go-live, your estate detects, diagnoses and resolves issues autonomously — turning maintenance from a cost centre into a competitive edge.</p>",
+    "button_text" : "Agentic AI",
+    "button_url" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
+    }
+  } ]
+} ]

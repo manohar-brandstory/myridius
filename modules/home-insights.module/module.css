@@ -286,7 +286,7 @@
   color: #0c2226;
 }
 
-@media (max-width: 1024px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
   .home-ins__heading {
     font-size: 40px;
   }
@@ -297,7 +297,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .home-ins {
     padding: 64px 0;
   }

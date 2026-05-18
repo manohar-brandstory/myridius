@@ -5,8 +5,8 @@
   "required" : false,
   "locked" : false,
   "allow_new_line" : false,
-  "display_width" : null,
   "type" : "text",
+  "display_width" : null,
   "default" : "services-hero"
 }, {
   "id" : "breadcrumb_items",
@@ -27,8 +27,8 @@
     "required" : false,
     "locked" : false,
     "allow_new_line" : false,
-    "display_width" : null,
     "type" : "text",
+    "display_width" : null,
     "default" : "Myridius"
   }, {
     "id" : "breadcrumb_items.url",
@@ -37,8 +37,8 @@
     "required" : false,
     "locked" : false,
     "supported_types" : [ "EXTERNAL", "CONTENT" ],
-    "display_width" : null,
     "type" : "url",
+    "display_width" : null,
     "default" : {
       "content_id" : null,
       "href" : "#",
@@ -50,15 +50,16 @@
     "label" : "Active (last item)",
     "required" : false,
     "locked" : false,
-    "display_width" : null,
+    "display" : "checkbox",
     "type" : "boolean",
+    "display_width" : null,
     "default" : false
   } ],
   "tab" : "CONTENT",
   "expanded" : false,
   "group_occurrence_meta" : null,
-  "display_width" : null,
   "type" : "group",
+  "display_width" : null,
   "default" : [ {
     "text" : "Myridius",
     "url" : {
@@ -90,8 +91,8 @@
   "label" : "Title (supports inline HTML for gradient spans)",
   "required" : false,
   "locked" : false,
-  "display_width" : null,
   "type" : "richtext",
+  "display_width" : null,
   "default" : "AWS Cloud.<br>Wired for <span class=\"svc-hero__gradient\">Outcomes,</span><br><span class=\"svc-hero__title-line\">Not Just Deployment.</span>"
 }, {
   "id" : "subtitle",
@@ -99,8 +100,8 @@
   "label" : "Subtitle",
   "required" : false,
   "locked" : false,
-  "display_width" : null,
   "type" : "richtext",
+  "display_width" : null,
   "default" : "<p>Drive measurable cost reduction and TCO improvement across your entire enterprise. We modernize complex applications in regulated industries through a repeatable delivery model built entirely around your outcomes.</p>"
 }, {
   "id" : "primary_button_text",
@@ -109,8 +110,8 @@
   "required" : false,
   "locked" : false,
   "allow_new_line" : false,
-  "display_width" : null,
   "type" : "text",
+  "display_width" : null,
   "default" : "Explore Our Work"
 }, {
   "id" : "primary_button_url",
@@ -119,8 +120,8 @@
   "required" : false,
   "locked" : false,
   "supported_types" : [ "EXTERNAL", "CONTENT" ],
-  "display_width" : null,
   "type" : "url",
+  "display_width" : null,
   "default" : {
     "content_id" : null,
     "href" : "#cta",
@@ -133,8 +134,8 @@
   "required" : false,
   "locked" : false,
   "allow_new_line" : false,
-  "display_width" : null,
   "type" : "text",
+  "display_width" : null,
   "default" : "Get in Touch"
 }, {
   "id" : "secondary_button_url",
@@ -143,8 +144,8 @@
   "required" : false,
   "locked" : false,
   "supported_types" : [ "EXTERNAL", "CONTENT" ],
-  "display_width" : null,
   "type" : "url",
+  "display_width" : null,
   "default" : {
     "content_id" : null,
     "href" : "#contact",
@@ -159,8 +160,8 @@
   "responsive" : false,
   "resizable" : true,
   "show_loading" : false,
-  "display_width" : null,
   "type" : "image",
+  "display_width" : null,
   "default" : {
     "src" : "https://images.unsplash.com/photo-1451187580459-43490279c0fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
     "alt" : "AWS Cloud Infrastructure"
@@ -171,8 +172,9 @@
   "label" : "Show partner trust badges row",
   "required" : false,
   "locked" : false,
-  "display_width" : null,
+  "display" : "checkbox",
   "type" : "boolean",
+  "display_width" : null,
   "default" : true
 }, {
   "id" : "trust_aria_label",
@@ -181,8 +183,8 @@
   "required" : false,
   "locked" : false,
   "allow_new_line" : false,
-  "display_width" : null,
   "type" : "text",
+  "display_width" : null,
   "default" : "Partner credentials"
 }, {
   "id" : "trust_badges",
@@ -206,8 +208,8 @@
     "responsive" : false,
     "resizable" : true,
     "show_loading" : false,
-    "display_width" : null,
     "type" : "image",
+    "display_width" : null,
     "default" : {
       "src" : "",
       "alt" : ""
@@ -219,15 +221,15 @@
     "required" : false,
     "locked" : false,
     "allow_new_line" : false,
-    "display_width" : null,
     "type" : "text",
+    "display_width" : null,
     "default" : ""
   } ],
   "tab" : "CONTENT",
   "expanded" : false,
   "group_occurrence_meta" : null,
-  "display_width" : null,
   "type" : "group",
+  "display_width" : null,
   "default" : [ {
     "icon" : {
       "src" : "{{ get_asset_url('/Myridius Theme V1/images/services-trust-advanced-tier.svg') }}",

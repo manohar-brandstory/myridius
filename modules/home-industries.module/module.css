@@ -425,7 +425,7 @@
    ===================================================== */
 
 /* Tablet — stacked; image panel above list for mid widths */
-@media (max-width: 1024px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
   .home-ind {
     padding: 80px 0;
   }
@@ -467,7 +467,7 @@
 }
 
 /* Mobile — Figma IndustriesSection (393) */
-@media (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .home-ind {
     padding: 64px 0;
   }

@@ -176,7 +176,7 @@
 }
 
 /* Responsive: Tablet */
-@media (max-width: 1024px) {
+@media only screen and (max-width: 1024px) {
   .svc-why {
     padding: 80px 24px 0;
   }

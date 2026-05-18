@@ -134,36 +134,188 @@
     }
   }
 
+  var SIDE_SLIDE_PX = 20;
+  var SIDE_DURATION_MS = 600;
+  var SIDE_BASE_DELAY_MS = 300;
+  var SIDE_STAGGER_MS = 150;
+  var SIDE_EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
+
+  function sideCardIndex(card) {
+    var match = card.className.match(/evoq-runtime__sideCard--in-(\d+)/);
+    return match ? parseInt(match[1], 10) : 0;
+  }
+
+  function primeSideCards(section) {
+    var cards = section.querySelectorAll(".evoq-runtime__sideCard");
+    for (var i = 0; i < cards.length; i += 1) {
+      var card = cards[i];
+      var fromX = card.classList.contains("evoq-runtime__sideCard--left")
+        ? -SIDE_SLIDE_PX
+        : SIDE_SLIDE_PX;
+      card.style.opacity = "0";
+      card.style.transform = "translateX(" + fromX + "px)";
+    }
+  }
+
+  function finishSideCard(card) {
+    card.classList.add("evoq-runtime__sideCard--entered");
+    card.style.opacity = "";
+    card.style.transform = "";
+  }
+
+  /** Left: -20px → 0. Right: +20px → 0. Stagger matches EvoqRuntime.tsx SideCard. */
+  function animateSideCards(section) {
+    var cards = section.querySelectorAll(".evoq-runtime__sideCard");
+    if (!cards.length) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      for (var r = 0; r < cards.length; r += 1) {
+        finishSideCard(cards[r]);
+      }
+      return;
+    }
+
+    for (var i = 0; i < cards.length; i += 1) {
+      (function (card) {
+        var fromX = card.classList.contains("evoq-runtime__sideCard--left")
+          ? -SIDE_SLIDE_PX
+          : SIDE_SLIDE_PX;
+        var delay = SIDE_BASE_DELAY_MS + sideCardIndex(card) * SIDE_STAGGER_MS;
+
+        if (typeof card.animate !== "function") {
+          finishSideCard(card);
+          return;
+        }
+
+        try {
+          var anim = card.animate(
+            [
+              { opacity: 0, transform: "translateX(" + fromX + "px)" },
+              { opacity: 1, transform: "translateX(0)" },
+            ],
+            {
+              duration: SIDE_DURATION_MS,
+              delay: delay,
+              easing: SIDE_EASE,
+              fill: "forwards",
+            }
+          );
+          anim.onfinish = function () {
+            finishSideCard(card);
+          };
+          anim.oncancel = function () {
+            finishSideCard(card);
+          };
+        } catch (e) {
+          finishSideCard(card);
+        }
+      })(cards[i]);
+    }
+  }
+
+  function activateInView(section) {
+    if (!section || section.classList.contains("evoq-runtime--inview")) return;
+
+    var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reduced) {
+      animateSideCards(section);
+    } else {
+      primeSideCards(section);
+    }
+
+    section.classList.add("evoq-runtime--inview");
+    syncOrbitArcLengths(section);
+
+    void section.offsetWidth;
+
+    window.requestAnimationFrame(function () {
+      if (!reduced) {
+        animateSideCards(section);
+      }
+      startOrbitArcAnims(section);
+    });
+  }
+
+  function activateInViewAfterPaint(section) {
+    if (!section || section.classList.contains("evoq-runtime--inview")) return;
+
+    window.requestAnimationFrame(function () {
+      activateInView(section);
+    });
+  }
+
+  function useSideCardTapToggle() {
+    return (
+      !window.matchMedia("(hover: hover) and (pointer: fine)").matches ||
+      window.matchMedia("only screen and (max-width: 1024px)").matches
+    );
+  }
+
+  /** Mobile / touch: tap toggles expanded state (avoids sticky :hover). */
+  function bindSideCardToggle(section) {
+    if (!useSideCardTapToggle()) return;
+
+    var cards = section.querySelectorAll(".evoq-runtime__sideCard");
+    if (!cards.length) return;
+
+    for (var i = 0; i < cards.length; i += 1) {
+      (function (card) {
+        if (!card.hasAttribute("tabindex")) {
+          card.setAttribute("tabindex", "0");
+        }
+        if (!card.hasAttribute("aria-expanded")) {
+          card.setAttribute("aria-expanded", "false");
+        }
+
+        function setExpanded(target, on) {
+          target.classList.toggle("is-expanded", on);
+          target.setAttribute("aria-expanded", on ? "true" : "false");
+        }
+
+        card.addEventListener("click", function () {
+          var wasExpanded = card.classList.contains("is-expanded");
+          for (var j = 0; j < cards.length; j += 1) {
+            setExpanded(cards[j], false);
+          }
+          if (!wasExpanded) {
+            setExpanded(card, true);
+          }
+        });
+      })(cards[i]);
+    }
+  }
+
   function observeSection(section) {
     if (!section || section.getAttribute("data-evoq-runtime-observed")) return;
     section.setAttribute("data-evoq-runtime-observed", "1");
 
-    function measureAndMaybePlay() {
-      syncOrbitArcLengths(section);
-      if (section.classList.contains("evoq-runtime--inview")) {
-        window.requestAnimationFrame(function () {
-          startOrbitArcAnims(section);
-        });
-      }
-    }
-
-    measureAndMaybePlay();
-    window.requestAnimationFrame(measureAndMaybePlay);
+    bindSideCardToggle(section);
+    syncOrbitArcLengths(section);
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      section.classList.add("evoq-runtime--inview");
+      activateInView(section);
       return;
+    }
+
+    if (!("IntersectionObserver" in window)) {
+      activateInViewAfterPaint(section);
+      return;
+    }
+
+    var activated = false;
+
+    function onIntersect(entry) {
+      if (activated || !entry.isIntersecting) return;
+      activated = true;
+      activateInViewAfterPaint(section);
+      io.disconnect();
     }
 
     var io = new IntersectionObserver(
       function (entries) {
         for (var i = 0; i < entries.length; i += 1) {
-          if (entries[i].isIntersecting) {
-            section.classList.add("evoq-runtime--inview");
-            measureAndMaybePlay();
-            io.disconnect();
-            return;
-          }
+          onIntersect(entries[i]);
         }
       },
       { rootMargin: "0px 0px -10% 0px", threshold: 0 }

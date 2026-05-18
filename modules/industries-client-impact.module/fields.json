@@ -5,8 +5,8 @@
   "required" : false,
   "locked" : false,
   "allow_new_line" : false,
-  "display_width" : null,
   "type" : "text",
+  "display_width" : null,
   "default" : "impact"
 }, {
   "id" : "badge",
@@ -15,8 +15,8 @@
   "required" : false,
   "locked" : false,
   "allow_new_line" : false,
-  "display_width" : null,
   "type" : "text",
+  "display_width" : null,
   "default" : "CLIENT IMPACT"
 }, {
   "id" : "nav_aria_label",
@@ -25,8 +25,8 @@
   "required" : false,
   "locked" : false,
   "allow_new_line" : false,
-  "display_width" : null,
   "type" : "text",
+  "display_width" : null,
   "default" : "Client impact slides"
 }, {
   "id" : "more_text",
@@ -35,8 +35,8 @@
   "required" : false,
   "locked" : false,
   "allow_new_line" : false,
-  "display_width" : null,
   "type" : "text",
+  "display_width" : null,
   "default" : "Know more"
 }, {
   "id" : "more_url",
@@ -45,8 +45,8 @@
   "required" : false,
   "locked" : false,
   "supported_types" : [ "EXTERNAL", "CONTENT" ],
-  "display_width" : null,
   "type" : "url",
+  "display_width" : null,
   "default" : {
     "content_id" : null,
     "href" : "#",
@@ -59,8 +59,8 @@
   "required" : false,
   "locked" : false,
   "allow_new_line" : false,
-  "display_width" : null,
   "type" : "text",
+  "display_width" : null,
   "default" : "The Challenge"
 }, {
   "id" : "outcomes_label",
@@ -69,8 +69,8 @@
   "required" : false,
   "locked" : false,
   "allow_new_line" : false,
-  "display_width" : null,
   "type" : "text",
+  "display_width" : null,
   "default" : "Outcomes"
 }, {
   "id" : "items",
@@ -91,8 +91,8 @@
     "required" : false,
     "locked" : false,
     "allow_new_line" : false,
-    "display_width" : null,
     "type" : "text",
+    "display_width" : null,
     "default" : "Financial Services"
   }, {
     "id" : "items.metric",
@@ -101,8 +101,8 @@
     "required" : false,
     "locked" : false,
     "allow_new_line" : false,
-    "display_width" : null,
     "type" : "text",
+    "display_width" : null,
     "default" : "Real-Time Fraud Intelligence at Scale"
   }, {
     "id" : "items.company",
@@ -111,8 +111,8 @@
     "required" : false,
     "locked" : false,
     "allow_new_line" : false,
-    "display_width" : null,
     "type" : "text",
+    "display_width" : null,
     "default" : "FORTUNE 200 WEALTH MANAGEMENT LEADER"
   }, {
     "id" : "items.description",
@@ -121,8 +121,8 @@
     "required" : false,
     "locked" : false,
     "allow_new_line" : false,
-    "display_width" : null,
     "type" : "text",
+    "display_width" : null,
     "default" : "Description of the engagement."
   }, {
     "id" : "items.challenge",
@@ -131,8 +131,8 @@
     "required" : false,
     "locked" : false,
     "allow_new_line" : false,
-    "display_width" : null,
     "type" : "text",
+    "display_width" : null,
     "default" : "The challenge faced."
   }, {
     "id" : "items.solution",
@@ -141,8 +141,8 @@
     "required" : false,
     "locked" : false,
     "allow_new_line" : false,
-    "display_width" : null,
     "type" : "text",
+    "display_width" : null,
     "default" : "The outcomes achieved."
   }, {
     "id" : "items.image",
@@ -153,8 +153,8 @@
     "responsive" : false,
     "resizable" : true,
     "show_loading" : false,
-    "display_width" : null,
     "type" : "image",
+    "display_width" : null,
     "default" : {
       "src" : "",
       "alt" : null,
@@ -169,8 +169,8 @@
   "tab" : "CONTENT",
   "expanded" : false,
   "group_occurrence_meta" : null,
-  "display_width" : null,
   "type" : "group",
+  "display_width" : null,
   "default" : [ {
     "industry" : "Financial Services",
     "metric" : "Multi-Cloud Operations for Wealth Management",

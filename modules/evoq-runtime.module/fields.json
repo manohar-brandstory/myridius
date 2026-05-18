@@ -1,392 +1,438 @@
-[
-  {
-    "id": "section_id",
-    "name": "section_id",
-    "label": "Section ID",
-    "type": "text",
-    "required": false,
-    "locked": false,
-    "allow_new_line": false,
-    "default": "evoq-runtime",
-    "help_text": "Unique HTML ID for this section (used for anchor links)."
-  },
-  {
-    "id": "eyebrow_text",
-    "name": "eyebrow_text",
-    "label": "Eyebrow",
-    "type": "text",
-    "required": false,
-    "locked": false,
-    "allow_new_line": false,
-    "default": "Evoq Runtime"
-  },
-  {
-    "id": "headline_before",
-    "name": "headline_before",
-    "label": "Headline (before highlight)",
-    "type": "text",
-    "required": false,
-    "locked": false,
-    "allow_new_line": false,
-    "default": "Evoq is where enterprise"
-  },
-  {
-    "id": "headline_highlight",
-    "name": "headline_highlight",
-    "label": "Headline highlight (green)",
-    "type": "text",
-    "required": false,
-    "locked": false,
-    "allow_new_line": false,
-    "default": "execution runs."
-  },
-  {
-    "id": "intro_paragraph",
-    "name": "intro_paragraph",
-    "label": "Intro paragraph",
-    "type": "text",
-    "required": false,
-    "locked": false,
-    "allow_new_line": true,
-    "default": "A single execution system runtime for services, workflows, agents, data, and decisions - so the enterprise does not manage execution; it runs on Evoq."
-  },
-  {
-    "id": "center_logo",
-    "name": "center_logo",
-    "label": "Center logo (optional — overrides text mark)",
-    "type": "image",
-    "required": false,
-    "locked": false,
-    "responsive": true,
-    "resizable": true,
-    "show_loading": false,
-    "default": { "src": "", "alt": "Evoq runtime mark" }
-  },
-  {
-    "id": "center_mark_text",
-    "name": "center_mark_text",
-    "label": "Center mark text (when no logo image)",
-    "type": "text",
-    "required": false,
-    "locked": false,
-    "allow_new_line": false,
-    "default": "M"
-  },
-  {
-    "id": "center_subtitle",
-    "name": "center_subtitle",
-    "label": "Center subtitle (under logo)",
-    "type": "text",
-    "required": false,
-    "locked": false,
-    "allow_new_line": false,
-    "default": "The Execution System Runtime"
-  },
-  {
-    "id": "left_cards",
-    "name": "left_cards",
-    "label": "Left column cards",
-    "type": "group",
-    "required": false,
-    "locked": false,
-    "occurrence": { "min": 1, "max": 4, "default": 2 },
-    "children": [
-      {
-        "id": "left_cards.card_tag",
-        "name": "card_tag",
-        "label": "Tag (uppercase)",
-        "type": "text",
-        "required": false,
-        "locked": false,
-        "default": "OPERATING MODEL"
-      },
-      {
-        "id": "left_cards.card_title",
-        "name": "card_title",
-        "label": "Title",
-        "type": "text",
-        "required": false,
-        "locked": false,
-        "default": "Run services as execution systems"
-      },
-      {
-        "id": "left_cards.card_subtitle",
-        "name": "card_subtitle",
-        "label": "Subtitle",
-        "type": "text",
-        "required": false,
-        "locked": false,
-        "allow_new_line": true,
-        "default": "Service logic operates through continuous execution, not manual coordination."
-      },
-      {
-        "id": "left_cards.card_secondtitle",
-        "name": "card_secondtitle",
-        "label": "Hover — eyebrow",
-        "type": "text",
-        "required": false,
-        "locked": false,
-        "default": "Execution runs as a system"
-      },
-      {
-        "id": "left_cards.bullet_1",
-        "name": "bullet_1",
-        "label": "Hover — bullet 1",
-        "type": "text",
-        "required": false,
-        "locked": false,
-        "default": "Fewer handoffs"
-      },
-      {
-        "id": "left_cards.bullet_2",
-        "name": "bullet_2",
-        "label": "Hover — bullet 2",
-        "type": "text",
-        "required": false,
-        "locked": false,
-        "default": "Greater execution control"
-      },
-      {
-        "id": "left_cards.code_label",
-        "name": "code_label",
-        "label": "Code label (footer)",
-        "type": "text",
-        "required": false,
-        "locked": false,
-        "default": "//runtime.services"
-      },
-      {
-        "id": "left_cards.card_icon",
-        "name": "card_icon",
-        "label": "Icon image",
-        "type": "image",
-        "required": false,
-        "locked": false,
-        "responsive": false,
-        "resizable": true,
-        "show_loading": false,
-        "default": { "src": "", "alt": "" }
-      },
-      {
-        "id": "left_cards.offset_px",
-        "name": "offset_px",
-        "label": "Horizontal offset (px)",
-        "type": "number",
-        "required": false,
-        "locked": false,
-        "default": 0,
-        "min": 0,
-        "max": 80
-      }
-    ],
-    "default": [
-      {
-        "card_tag": "OPERATING MODEL",
-        "card_title": "Run services as execution systems",
-        "card_subtitle": "Service logic operates through continuous execution, not manual coordination.",
-        "card_secondtitle": "Execution runs as a system",
-        "bullet_1": "Fewer handoffs",
-        "bullet_2": "Greater execution control",
-        "code_label": "//runtime.services",
-        "card_icon": { "src": "", "alt": "" },
-        "offset_px": 0
-      },
-      {
-        "card_tag": "AGENTIC WORK",
-        "card_title": "Run agents in execution flow",
-        "card_subtitle": "Agents, workflows, and context operate as one coordinated system.",
-        "card_secondtitle": "Agents execute with context",
-        "bullet_1": "Continuous context",
-        "bullet_2": "Higher execution quality",
-        "code_label": "//runtime.agents",
-        "card_icon": { "src": "", "alt": "" },
-        "offset_px": 0
-      }
-    ]
-  },
-  {
-    "id": "right_cards",
-    "name": "right_cards",
-    "label": "Right column cards",
-    "type": "group",
-    "required": false,
-    "locked": false,
-    "occurrence": { "min": 1, "max": 4, "default": 2 },
-    "children": [
-      {
-        "id": "right_cards.card_tag",
-        "name": "card_tag",
-        "label": "Tag (uppercase)",
-        "type": "text",
-        "required": false,
-        "locked": false,
-        "default": "GOVERNANCE"
-      },
-      {
-        "id": "right_cards.card_title",
-        "name": "card_title",
-        "label": "Title",
-        "type": "text",
-        "required": false,
-        "locked": false,
-        "default": "Run with embedded control"
-      },
-      {
-        "id": "right_cards.card_subtitle",
-        "name": "card_subtitle",
-        "label": "Subtitle",
-        "type": "text",
-        "required": false,
-        "locked": false,
-        "allow_new_line": true,
-        "default": "Policy, trust, and observability stay inside execution as scale grows."
-      },
-      {
-        "id": "right_cards.card_secondtitle",
-        "name": "card_secondtitle",
-        "label": "Hover — eyebrow",
-        "type": "text",
-        "required": false,
-        "locked": false,
-        "default": "Human-guided execution"
-      },
-      {
-        "id": "right_cards.bullet_1",
-        "name": "bullet_1",
-        "label": "Hover — bullet 1",
-        "type": "text",
-        "required": false,
-        "locked": false,
-        "default": "Policy embedded"
-      },
-      {
-        "id": "right_cards.bullet_2",
-        "name": "bullet_2",
-        "label": "Hover — bullet 2",
-        "type": "text",
-        "required": false,
-        "locked": false,
-        "default": "Audit by design"
-      },
-      {
-        "id": "right_cards.code_label",
-        "name": "code_label",
-        "label": "Code label (footer)",
-        "type": "text",
-        "required": false,
-        "locked": false,
-        "default": "//runtime.governance"
-      },
-      {
-        "id": "right_cards.card_icon",
-        "name": "card_icon",
-        "label": "Icon image",
-        "type": "image",
-        "required": false,
-        "locked": false,
-        "responsive": false,
-        "resizable": true,
-        "show_loading": false,
-        "default": { "src": "", "alt": "" }
-      },
-      {
-        "id": "right_cards.offset_px",
-        "name": "offset_px",
-        "label": "Horizontal offset (px)",
-        "type": "number",
-        "required": false,
-        "locked": false,
-        "default": 0,
-        "min": 0,
-        "max": 80
-      }
-    ],
-    "default": [
-      {
-        "card_tag": "GOVERNANCE",
-        "card_title": "Run with embedded control",
-        "card_subtitle": "Policy, trust, and observability stay inside execution as scale grows.",
-        "card_secondtitle": "Human-guided execution",
-        "bullet_1": "Policy embedded",
-        "bullet_2": "Audit by design",
-        "code_label": "//runtime.governance",
-        "card_icon": { "src": "", "alt": "" },
-        "offset_px": 0
-      },
-      {
-        "card_tag": "COMPOUNDING VALUE",
-        "card_title": "Every release compounds forward",
-        "card_subtitle": "Each deployment builds on reusable intelligence and execution control.",
-        "card_secondtitle": "Value compounds in runtime",
-        "bullet_1": "Reuse compounds",
-        "bullet_2": "Value scales",
-        "code_label": "//runtime.compound",
-        "card_icon": { "src": "", "alt": "" },
-        "offset_px": 32
-      }
-    ]
-  },
-  {
-    "id": "runtime_items",
-    "name": "runtime_items",
-    "label": "Center runtime pills",
-    "type": "group",
-    "required": false,
-    "locked": false,
-    "occurrence": { "min": 1, "max": 3, "default": 3 },
-    "children": [
-      {
-        "id": "runtime_items.item_label",
-        "name": "item_label",
-        "label": "Label",
-        "type": "text",
-        "required": false,
-        "locked": false,
-        "default": "Intelligence Drives Decisions"
-      },
-      {
-        "id": "runtime_items.item_detail",
-        "name": "item_detail",
-        "label": "Detail (on hover)",
-        "type": "text",
-        "required": false,
-        "locked": false,
-        "allow_new_line": true,
-        "default": "Live events and context stay connected across execution."
-      },
-      {
-        "id": "runtime_items.anim_icon",
-        "name": "anim_icon",
-        "label": "Micro animation",
-        "type": "choice",
-        "required": false,
-        "locked": false,
-        "display": "select",
-        "choices": [
-          ["decision", "Decision (pulsing dots)"],
-          ["workflow", "Workflow (dashed rail)"],
-          ["wave", "Wave (scrolling line)"]
-        ],
-        "multiple": false,
-        "default": "decision"
-      }
-    ],
-    "default": [
-      {
-        "item_label": "Intelligence Drives Decisions",
-        "item_detail": "Live events and context stay connected across execution.",
-        "anim_icon": "decision"
-      },
-      {
-        "item_label": "Systems Execute Work",
-        "item_detail": "Work executes in-system instead of across fragmented handoffs.",
-        "anim_icon": "workflow"
-      },
-      {
-        "item_label": "Execution Continuously Improves",
-        "item_detail": "Each cycle improves how execution performs next.",
-        "anim_icon": "wave"
-      }
-    ]
+[ {
+  "id" : "section_id",
+  "name" : "section_id",
+  "label" : "Section ID",
+  "help_text" : "Unique HTML ID for this section (used for anchor links).",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "evoq-runtime"
+}, {
+  "id" : "eyebrow_text",
+  "name" : "eyebrow_text",
+  "label" : "Eyebrow",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Evoq Runtime"
+}, {
+  "id" : "headline_before",
+  "name" : "headline_before",
+  "label" : "Headline (before highlight)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Evoq is where enterprise"
+}, {
+  "id" : "headline_highlight",
+  "name" : "headline_highlight",
+  "label" : "Headline highlight (green)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "execution runs."
+}, {
+  "id" : "intro_paragraph",
+  "name" : "intro_paragraph",
+  "label" : "Intro paragraph",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : true,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "A single execution system runtime for services, workflows, agents, data, and decisions - so the enterprise does not manage execution; it runs on Evoq."
+}, {
+  "id" : "center_logo",
+  "name" : "center_logo",
+  "label" : "Center logo (optional — overrides text mark)",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "display_width" : null,
+  "default" : {
+    "src" : "",
+    "alt" : "Evoq runtime mark"
   }
-]
+}, {
+  "id" : "center_mark_text",
+  "name" : "center_mark_text",
+  "label" : "Center mark text (when no logo image)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "M"
+}, {
+  "id" : "center_subtitle",
+  "name" : "center_subtitle",
+  "label" : "Center subtitle (under logo)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "The Execution System Runtime"
+}, {
+  "id" : "left_cards",
+  "name" : "left_cards",
+  "label" : "Left column cards",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 4,
+    "sorting_label_field" : null,
+    "default" : 2
+  },
+  "children" : [ {
+    "id" : "left_cards.card_tag",
+    "name" : "card_tag",
+    "label" : "Tag (uppercase)",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "OPERATING MODEL"
+  }, {
+    "id" : "left_cards.card_title",
+    "name" : "card_title",
+    "label" : "Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Run services as execution systems"
+  }, {
+    "id" : "left_cards.card_subtitle",
+    "name" : "card_subtitle",
+    "label" : "Subtitle",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : true,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Service logic operates through continuous execution, not manual coordination."
+  }, {
+    "id" : "left_cards.card_secondtitle",
+    "name" : "card_secondtitle",
+    "label" : "Hover — eyebrow",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Execution runs as a system"
+  }, {
+    "id" : "left_cards.bullet_1",
+    "name" : "bullet_1",
+    "label" : "Hover — bullet 1",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Fewer handoffs"
+  }, {
+    "id" : "left_cards.bullet_2",
+    "name" : "bullet_2",
+    "label" : "Hover — bullet 2",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Greater execution control"
+  }, {
+    "id" : "left_cards.code_label",
+    "name" : "code_label",
+    "label" : "Code label (footer)",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "//runtime.services"
+  }, {
+    "id" : "left_cards.card_icon",
+    "name" : "card_icon",
+    "label" : "Icon image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : false,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "",
+      "alt" : ""
+    }
+  }, {
+    "id" : "left_cards.offset_px",
+    "name" : "offset_px",
+    "label" : "Horizontal offset (px)",
+    "required" : false,
+    "locked" : false,
+    "display" : "text",
+    "min" : 0,
+    "max" : 80,
+    "step" : 1,
+    "type" : "number",
+    "display_width" : null,
+    "default" : 0
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "card_tag" : "OPERATING MODEL",
+    "card_title" : "Run services as execution systems",
+    "card_subtitle" : "Service logic operates through continuous execution, not manual coordination.",
+    "card_secondtitle" : "Execution runs as a system",
+    "bullet_1" : "Fewer handoffs",
+    "bullet_2" : "Greater execution control",
+    "code_label" : "//runtime.services",
+    "card_icon" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "offset_px" : 0
+  }, {
+    "card_tag" : "AGENTIC WORK",
+    "card_title" : "Run agents in execution flow",
+    "card_subtitle" : "Agents, workflows, and context operate as one coordinated system.",
+    "card_secondtitle" : "Agents execute with context",
+    "bullet_1" : "Continuous context",
+    "bullet_2" : "Higher execution quality",
+    "code_label" : "//runtime.agents",
+    "card_icon" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "offset_px" : 0
+  } ]
+}, {
+  "id" : "right_cards",
+  "name" : "right_cards",
+  "label" : "Right column cards",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 4,
+    "sorting_label_field" : null,
+    "default" : 2
+  },
+  "children" : [ {
+    "id" : "right_cards.card_tag",
+    "name" : "card_tag",
+    "label" : "Tag (uppercase)",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "GOVERNANCE"
+  }, {
+    "id" : "right_cards.card_title",
+    "name" : "card_title",
+    "label" : "Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Run with embedded control"
+  }, {
+    "id" : "right_cards.card_subtitle",
+    "name" : "card_subtitle",
+    "label" : "Subtitle",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : true,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Policy, trust, and observability stay inside execution as scale grows."
+  }, {
+    "id" : "right_cards.card_secondtitle",
+    "name" : "card_secondtitle",
+    "label" : "Hover — eyebrow",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Human-guided execution"
+  }, {
+    "id" : "right_cards.bullet_1",
+    "name" : "bullet_1",
+    "label" : "Hover — bullet 1",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Policy embedded"
+  }, {
+    "id" : "right_cards.bullet_2",
+    "name" : "bullet_2",
+    "label" : "Hover — bullet 2",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Audit by design"
+  }, {
+    "id" : "right_cards.code_label",
+    "name" : "code_label",
+    "label" : "Code label (footer)",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "//runtime.governance"
+  }, {
+    "id" : "right_cards.card_icon",
+    "name" : "card_icon",
+    "label" : "Icon image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : false,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "",
+      "alt" : ""
+    }
+  }, {
+    "id" : "right_cards.offset_px",
+    "name" : "offset_px",
+    "label" : "Horizontal offset (px)",
+    "required" : false,
+    "locked" : false,
+    "display" : "text",
+    "min" : 0,
+    "max" : 80,
+    "step" : 1,
+    "type" : "number",
+    "display_width" : null,
+    "default" : 0
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "card_tag" : "GOVERNANCE",
+    "card_title" : "Run with embedded control",
+    "card_subtitle" : "Policy, trust, and observability stay inside execution as scale grows.",
+    "card_secondtitle" : "Human-guided execution",
+    "bullet_1" : "Policy embedded",
+    "bullet_2" : "Audit by design",
+    "code_label" : "//runtime.governance",
+    "card_icon" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "offset_px" : 0
+  }, {
+    "card_tag" : "COMPOUNDING VALUE",
+    "card_title" : "Every release compounds forward",
+    "card_subtitle" : "Each deployment builds on reusable intelligence and execution control.",
+    "card_secondtitle" : "Value compounds in runtime",
+    "bullet_1" : "Reuse compounds",
+    "bullet_2" : "Value scales",
+    "code_label" : "//runtime.compound",
+    "card_icon" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "offset_px" : 32
+  } ]
+}, {
+  "id" : "runtime_items",
+  "name" : "runtime_items",
+  "label" : "Center runtime pills",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 3,
+    "sorting_label_field" : null,
+    "default" : 3
+  },
+  "children" : [ {
+    "id" : "runtime_items.item_label",
+    "name" : "item_label",
+    "label" : "Label",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Intelligence Drives Decisions"
+  }, {
+    "id" : "runtime_items.item_detail",
+    "name" : "item_detail",
+    "label" : "Detail (on hover)",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : true,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Live events and context stay connected across execution."
+  }, {
+    "id" : "runtime_items.anim_icon",
+    "name" : "anim_icon",
+    "label" : "Micro animation",
+    "required" : false,
+    "locked" : false,
+    "display" : "select",
+    "choices" : [ [ "decision", "Decision (pulsing dots)" ], [ "workflow", "Workflow (dashed rail)" ], [ "wave", "Wave (scrolling line)" ] ],
+    "multiple" : false,
+    "reordering_enabled" : true,
+    "preset" : null,
+    "type" : "choice",
+    "display_width" : null,
+    "default" : "decision"
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "item_label" : "Intelligence Drives Decisions",
+    "item_detail" : "Live events and context stay connected across execution.",
+    "anim_icon" : "decision"
+  }, {
+    "item_label" : "Systems Execute Work",
+    "item_detail" : "Work executes in-system instead of across fragmented handoffs.",
+    "anim_icon" : "workflow"
+  }, {
+    "item_label" : "Execution Continuously Improves",
+    "item_detail" : "Each cycle improves how execution performs next.",
+    "anim_icon" : "wave"
+  } ]
+} ]

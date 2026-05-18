@@ -23,7 +23,7 @@
     var mobNav = section.querySelector(".svc-ind__mob-nav");
     var isTouchDevice =
       window.matchMedia("(hover: none) and (pointer: coarse)").matches;
-    var mobileQuery = window.matchMedia("(max-width: 768px)");
+    var mobileQuery = window.matchMedia("(max-width: 767px)");
 
     /* ── Desktop: row-hover logic ── */
     if (!isTouchDevice && !mobileQuery.matches) {
@@ -117,7 +117,7 @@
     /* Recalculate row indices when the grid column count changes */
     function updateRowIndices() {
       var newIsMobile = mobileQuery.matches;
-      var isTablet = window.matchMedia("(max-width: 1024px)").matches;
+      var isTablet = window.matchMedia("(min-width: 768px) and (max-width: 1024px)").matches;
       var cols = newIsMobile ? 1 : isTablet ? 2 : 3;
 
       cards.forEach(function (card, i) {

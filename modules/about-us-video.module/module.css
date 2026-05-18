@@ -237,7 +237,7 @@
   }
 }
 
-@media (max-width: 1023px) {
+@media only screen and (max-width: 1024px) {
   .about-us-video__bgTexture {
     display: block;
   }

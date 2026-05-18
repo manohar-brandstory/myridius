@@ -192,7 +192,7 @@
 }
 
 /* Responsive - Tablet */
-@media (max-width: 1024px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
   .svc-res {
     padding: 80px 32px;
   }
@@ -207,7 +207,7 @@
 }
 
 /* Responsive - Mobile */
-@media (max-width: 767px) {
+@media only screen and (max-width: 767px) {
   .svc-res {
     padding: 64px 20px;
   }

@@ -67,7 +67,7 @@
         {% endif %}
         <button
           type="button"
-          class="evoq-ae__hotspot evoq-ae__hotspot--{{ slug }}"
+          class="evoq-ae__hotspot evoq-ae__hotspot--{{ slug }} evoq-ae__hotspot--in-{{ loop.index0 }}"
           role="tab"
           id="evoq-ae-hotspot-{{ loop.index0 }}"
           aria-selected="{% if loop.first %}true{% else %}false{% endif %}"

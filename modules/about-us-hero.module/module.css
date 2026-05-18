@@ -297,7 +297,29 @@
   margin-bottom: 0;
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+
+/* Mobile + tablet shared layout (≤1024px) */
+@media only screen and (max-width: 1024px) {
+.about-us-hero__breadcrumbInner {
+    padding: 0 var(--gutter, 64px);
+  }
+
+  .about-us-hero__mobile {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 var(--gutter, 64px) 48px;
+  }
+
+  .about-us-hero__mobileImgWrap {
+    margin-bottom: 32px;
+  }
+
+  .about-us-hero__mobileImg {
+    height: 420px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
   .about-us-hero__breadcrumbInner {
     padding: 0 var(--gutter, 64px);
   }

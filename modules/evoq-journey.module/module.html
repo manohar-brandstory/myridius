@@ -43,15 +43,14 @@
     {# Accordion Cards #}
     <div class="evoq-journey__cards-slider{% if module.accordion_cards|length > 1 %} evoq-journey__cards-slider--enabled{% endif %}">
       <div class="evoq-journey__cards-viewport">
-        <div class="evoq-journey__cards" data-card-count="{{ module.accordion_cards|length }}" data-evoq-journey-track>
+        <div class="evoq-journey__cards" data-card-count="{{ module.accordion_cards|length }}" data-evoq-journey-track data-evoq-journey-cards>
       {% for card in module.accordion_cards %}
-        <div class="evoq-journey__card {% if loop.first %}evoq-journey__card--active{% endif %}{% if card.background_image and card.background_image.src %} evoq-journey__card--has-bg{% endif %}"
+        <div class="evoq-journey__card{% if card.background_image and card.background_image.src %} evoq-journey__card--has-bg{% endif %}"
+             role="article"
+             data-journey-card
              data-card-index="{{ loop.index0 }}"
-             {% if card.background_image and card.background_image.src %}
-             style="background-image: url('{{ card.background_image.src }}');"
-             {% else %}
-             style="background: {{ card.bg_gradient }};"
-             {% endif %}>
+             tabindex="0"
+             style="--journey-card-gradient: {{ card.bg_gradient|default('linear-gradient(186deg, #0c2226 0%, #194247 100%)', true) }};{% if card.background_image and card.background_image.src %} --journey-card-bg: url('{{ card.background_image.src }}');{% endif %}">
           {% if loop.first %}
             <div class="evoq-journey__card-orbit" aria-hidden="true">
               <svg viewBox="0 0 630 563" fill="none" xmlns="http://www.w3.org/2000/svg">

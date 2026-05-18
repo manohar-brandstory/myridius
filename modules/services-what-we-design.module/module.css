@@ -1985,7 +1985,7 @@
   pointer-events: none;
 }
 
-@media (max-width: 1023px) {
+@media only screen and (max-width: 1024px) {
   .swwd {
     padding: 64px 20px;
   }

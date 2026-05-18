@@ -279,7 +279,7 @@
   transform: translateY(0);
 }
 
-@media (max-width: 1023px) {
+@media only screen and (max-width: 1024px) {
   .about-us-company-overview__inner {
     padding: 100px var(--gutter, 64px);
     gap: 16px;

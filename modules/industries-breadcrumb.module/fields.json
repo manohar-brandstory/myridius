@@ -17,8 +17,8 @@
     "required" : false,
     "locked" : false,
     "allow_new_line" : false,
-    "display_width" : null,
     "type" : "text",
+    "display_width" : null,
     "default" : "Myridius"
   }, {
     "id" : "items.url",
@@ -27,8 +27,8 @@
     "required" : false,
     "locked" : false,
     "supported_types" : [ "EXTERNAL", "CONTENT" ],
-    "display_width" : null,
     "type" : "url",
+    "display_width" : null,
     "default" : {
       "content_id" : null,
       "href" : "#",
@@ -38,8 +38,8 @@
   "tab" : "CONTENT",
   "expanded" : false,
   "group_occurrence_meta" : null,
-  "display_width" : null,
   "type" : "group",
+  "display_width" : null,
   "default" : [ {
     "text" : "Myridius",
     "url" : {

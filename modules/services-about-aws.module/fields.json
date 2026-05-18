@@ -1,63 +1,71 @@
-[
-  {
-    "name": "section_id",
-    "label": "Section ID",
-    "type": "text",
-    "required": false,
-    "default": "services-about-aws",
-    "id": "section_id"
-  },
-  {
-    "name": "heading",
-    "label": "Heading",
-    "type": "text",
-    "required": false,
-    "default": "About Amazon Web Services",
-    "id": "heading"
-  },
-  {
-    "name": "description",
-    "label": "Description",
-    "type": "richtext",
-    "required": false,
-    "default": "<p>Amazon Web Services is the world's most comprehensive and broadly adopted cloud, enabling customers to build almost anything they can imagine. We offer the greatest choice of innovative cloud and AI capabilities and expertise, on the most extensive global infrastructure, with industry-leading security, reliability, and performance.</p>",
-    "id": "description"
-  },
-  {
-    "name": "cta_text",
-    "label": "CTA Text",
-    "type": "text",
-    "required": false,
-    "default": "Visit Amazon Web Services",
-    "id": "cta_text"
-  },
-  {
-    "name": "cta_url",
-    "label": "CTA URL",
-    "type": "url",
-    "required": false,
-    "supported_types": [
-      "EXTERNAL",
-      "CONTENT"
-    ],
-    "default": {
-      "content_id": null,
-      "href": "https://aws.amazon.com/?nc2=h_home",
-      "type": "EXTERNAL"
-    },
-    "id": "cta_url"
-  },
-  {
-    "name": "partner_logo",
-    "label": "Partner Logo",
-    "type": "image",
-    "required": false,
-    "default": {
-      "src": "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
-      "alt": "AWS Logo",
-      "width": null,
-      "height": 64
-    },
-    "id": "partner_logo"
+[ {
+  "id" : "section_id",
+  "name" : "section_id",
+  "label" : "Section ID",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "services-about-aws"
+}, {
+  "id" : "heading",
+  "name" : "heading",
+  "label" : "Heading",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "About Amazon Web Services"
+}, {
+  "id" : "description",
+  "name" : "description",
+  "label" : "Description",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "display_width" : null,
+  "default" : "<p>Amazon Web Services is the world's most comprehensive and broadly adopted cloud, enabling customers to build almost anything they can imagine. We offer the greatest choice of innovative cloud and AI capabilities and expertise, on the most extensive global infrastructure, with industry-leading security, reliability, and performance.</p>"
+}, {
+  "id" : "cta_text",
+  "name" : "cta_text",
+  "label" : "CTA Text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Visit Amazon Web Services"
+}, {
+  "id" : "cta_url",
+  "name" : "cta_url",
+  "label" : "CTA URL",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT" ],
+  "type" : "url",
+  "display_width" : null,
+  "default" : {
+    "content_id" : null,
+    "href" : "https://aws.amazon.com/?nc2=h_home",
+    "type" : "EXTERNAL"
   }
-]
+}, {
+  "id" : "partner_logo",
+  "name" : "partner_logo",
+  "label" : "Partner Logo",
+  "required" : false,
+  "locked" : false,
+  "responsive" : false,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "display_width" : null,
+  "default" : {
+    "src" : "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
+    "alt" : "AWS Logo",
+    "width" : null,
+    "height" : 64
+  }
+} ]

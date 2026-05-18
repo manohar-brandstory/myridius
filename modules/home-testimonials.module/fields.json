@@ -1,83 +1,72 @@
-[
-  {
-    "id": "badge_text",
-    "name": "badge_text",
-    "label": "Badge text",
-    "required": false,
-    "locked": false,
-    "allow_new_line": false,
-    "display_width": null,
-    "type": "text",
-    "default": "testimonials"
+[ {
+  "id" : "badge_text",
+  "name" : "badge_text",
+  "label" : "Badge text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "testimonials"
+}, {
+  "id" : "testimonials",
+  "name" : "testimonials",
+  "label" : "Testimonials",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 10,
+    "sorting_label_field" : null,
+    "default" : 3
   },
-  {
-    "id": "testimonials",
-    "name": "testimonials",
-    "label": "Testimonials",
-    "required": false,
-    "locked": false,
-    "type": "group",
-    "occurrence": {
-      "min": 1,
-      "max": 10,
-      "default": 3
-    },
-    "sorting_label_field": "company",
-    "children": [
-      {
-        "id": "testimonials.quote",
-        "name": "quote",
-        "label": "Quote text",
-        "required": false,
-        "locked": false,
-        "allow_new_line": false,
-        "display_width": null,
-        "type": "text",
-        "default": "Quote text appears here."
-      },
-      {
-        "id": "testimonials.role",
-        "name": "role",
-        "label": "Role / title",
-        "required": false,
-        "locked": false,
-        "allow_new_line": false,
-        "display_width": null,
-        "type": "text",
-        "default": "Title"
-      },
-      {
-        "id": "testimonials.company",
-        "name": "company",
-        "label": "Company",
-        "required": false,
-        "locked": false,
-        "allow_new_line": false,
-        "display_width": null,
-        "type": "text",
-        "default": "Company name"
-      }
-    ],
-    "tab": "CONTENT",
-    "expanded": false,
-    "group_occurrence_meta": null,
-    "display_width": null,
-    "default": [
-      {
-        "quote": "Myridius delivered A++ work launching our internal chatbot with Salesforce Agentforce. Organized, responsive, and highly professional, they translated our needs into a solution our team adopted immediately.",
-        "role": "Senior Executive",
-        "company": "Fortune 500"
-      },
-      {
-        "quote": "Myridius's deep understanding of our Policy Decisions platform and collaborative approach delivered results that speak for themselves, and we look forward to continuing this successful collaboration.",
-        "role": "Vice President",
-        "company": "Professional Services"
-      },
-      {
-        "quote": "From concept to deployment, Myridius moved fast—delivering a secure, scalable AI solution ready to go nationwide.",
-        "role": "Account Executive",
-        "company": "Enterprise Nonprofit"
-      }
-    ]
-  }
-]
+  "children" : [ {
+    "id" : "testimonials.quote",
+    "name" : "quote",
+    "label" : "Quote text",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Quote text appears here."
+  }, {
+    "id" : "testimonials.role",
+    "name" : "role",
+    "label" : "Role / title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Title"
+  }, {
+    "id" : "testimonials.company",
+    "name" : "company",
+    "label" : "Company",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Company name"
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "quote" : "Myridius delivered A++ work launching our internal chatbot with Salesforce Agentforce. Organized, responsive, and highly professional, they translated our needs into a solution our team adopted immediately.",
+    "role" : "Senior Executive",
+    "company" : "Fortune 500"
+  }, {
+    "quote" : "Myridius's deep understanding of our Policy Decisions platform and collaborative approach delivered results that speak for themselves, and we look forward to continuing this successful collaboration.",
+    "role" : "Vice President",
+    "company" : "Professional Services"
+  }, {
+    "quote" : "From concept to deployment, Myridius moved fast—delivering a secure, scalable AI solution ready to go nationwide.",
+    "role" : "Account Executive",
+    "company" : "Enterprise Nonprofit"
+  } ]
+} ]

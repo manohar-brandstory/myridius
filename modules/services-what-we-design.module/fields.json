@@ -1,229 +1,278 @@
-[
-  {
-    "id": "section_id",
-    "name": "section_id",
-    "label": "Section ID",
-    "required": false,
-    "locked": false,
-    "type": "text",
-    "default": "what-we-design",
-    "help_text": "Unique HTML id for anchor links."
+[ {
+  "id" : "section_id",
+  "name" : "section_id",
+  "label" : "Section ID",
+  "help_text" : "Unique HTML id for anchor links.",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "what-we-design"
+}, {
+  "id" : "badge_text",
+  "name" : "badge_text",
+  "label" : "Badge text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "What We Design"
+}, {
+  "id" : "heading",
+  "name" : "heading",
+  "label" : "Heading",
+  "help_text" : "Use line breaks as needed; matches the Figma hero title.",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "display_width" : null,
+  "default" : "<p>Engage. Differentiate.<br>Grow. With Us.</p>"
+}, {
+  "id" : "tabs",
+  "name" : "tabs",
+  "label" : "Tabs",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 8,
+    "sorting_label_field" : "tabs.nav_label",
+    "default" : 4
   },
-  {
-    "id": "badge_text",
-    "name": "badge_text",
-    "label": "Badge text",
-    "required": false,
-    "locked": false,
-    "type": "text",
-    "default": "What We Design"
-  },
-  {
-    "id": "heading",
-    "name": "heading",
-    "label": "Heading",
-    "required": false,
-    "locked": false,
-    "type": "richtext",
-    "default": "<p>Engage. Differentiate.<br>Grow. With Us.</p>",
-    "help_text": "Use line breaks as needed; matches the Figma hero title."
-  },
-  {
-    "id": "tabs",
-    "name": "tabs",
-    "label": "Tabs",
-    "required": false,
-    "locked": false,
-    "type": "group",
-    "occurrence": {
-      "min": 1,
-      "max": 8,
-      "sorting_label_field": "tabs.nav_label",
-      "default": 4
+  "children" : [ {
+    "id" : "tabs.tab_key",
+    "name" : "tab_key",
+    "label" : "Tab key (slug)",
+    "help_text" : "Lowercase slug (e.g. cx, convert, tools, scale). Used for styling presets when mock images are empty.",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "cx"
+  }, {
+    "id" : "tabs.nav_label",
+    "name" : "nav_label",
+    "label" : "Tab label",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Experiences Customers Return To"
+  }, {
+    "id" : "tabs.tag",
+    "name" : "tag",
+    "label" : "Tag (uppercase line)",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "CONSUMER EXPERIENCE"
+  }, {
+    "id" : "tabs.headline",
+    "name" : "headline",
+    "label" : "Headline (expanded)",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "When people choose you over every alternative."
+  }, {
+    "id" : "tabs.description",
+    "name" : "description",
+    "label" : "Description",
+    "required" : false,
+    "locked" : false,
+    "type" : "richtext",
+    "display_width" : null,
+    "default" : "<p>Intuitive, personal experiences that earn loyalty and preference.</p>"
+  }, {
+    "id" : "tabs.pills",
+    "name" : "pills",
+    "label" : "Pills",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : 1,
+      "max" : 8,
+      "sorting_label_field" : "tabs.pills.text",
+      "default" : 3
     },
-    "children": [
-      {
-        "id": "tabs.tab_key",
-        "name": "tab_key",
-        "label": "Tab key (slug)",
-        "required": false,
-        "locked": false,
-        "type": "text",
-        "default": "cx",
-        "help_text": "Lowercase slug (e.g. cx, convert, tools, scale). Used for styling presets when mock images are empty."
-      },
-      {
-        "id": "tabs.nav_label",
-        "name": "nav_label",
-        "label": "Tab label",
-        "required": false,
-        "locked": false,
-        "type": "text",
-        "default": "Experiences Customers Return To"
-      },
-      {
-        "id": "tabs.tag",
-        "name": "tag",
-        "label": "Tag (uppercase line)",
-        "required": false,
-        "locked": false,
-        "type": "text",
-        "default": "CONSUMER EXPERIENCE"
-      },
-      {
-        "id": "tabs.headline",
-        "name": "headline",
-        "label": "Headline (expanded)",
-        "required": false,
-        "locked": false,
-        "type": "text",
-        "default": "When people choose you over every alternative."
-      },
-      {
-        "id": "tabs.description",
-        "name": "description",
-        "label": "Description",
-        "required": false,
-        "locked": false,
-        "type": "richtext",
-        "default": "<p>Intuitive, personal experiences that earn loyalty and preference.</p>"
-      },
-      {
-        "id": "tabs.pills",
-        "name": "pills",
-        "label": "Pills",
-        "required": false,
-        "locked": false,
-        "type": "group",
-        "occurrence": {
-          "min": 1,
-          "max": 8,
-          "sorting_label_field": "tabs.pills.text",
-          "default": 3
-        },
-        "children": [
-          {
-            "id": "tabs.pills.text",
-            "name": "text",
-            "label": "Pill text",
-            "required": false,
-            "locked": false,
-            "type": "text",
-            "default": "Pill"
-          }
-        ],
-        "default": [
-          { "text": "Higher engagement" },
-          { "text": "Stronger conversion" },
-          { "text": "Lasting loyalty" }
-        ]
-      },
-      {
-        "id": "tabs.design_label_left",
-        "name": "design_label_left",
-        "label": "Left mock caption",
-        "required": false,
-        "locked": false,
-        "type": "text",
-        "default": "Mobile Consumer App"
-      },
-      {
-        "id": "tabs.design_label_right",
-        "name": "design_label_right",
-        "label": "Right mock caption",
-        "required": false,
-        "locked": false,
-        "type": "text",
-        "default": "Personalized Web Platform"
-      },
-      {
-        "id": "tabs.mock_left_image",
-        "name": "mock_left_image",
-        "label": "Left mock image (optional)",
-        "required": false,
-        "locked": false,
-        "responsive": false,
-        "resizable": true,
-        "type": "image",
-        "default": { "src": "", "alt": "" }
-      },
-      {
-        "id": "tabs.mock_right_image",
-        "name": "mock_right_image",
-        "label": "Right mock image (optional)",
-        "required": false,
-        "locked": false,
-        "responsive": false,
-        "resizable": true,
-        "type": "image",
-        "default": { "src": "", "alt": "" }
-      }
-    ],
-    "default": [
-      {
-        "tab_key": "cx",
-        "nav_label": "Experiences Customers Return To",
-        "tag": "CONSUMER EXPERIENCE",
-        "headline": "When people choose you over every alternative.",
-        "description": "<p>Intuitive, personal experiences that earn loyalty and preference.</p>",
-        "pills": [
-          { "text": "Higher engagement" },
-          { "text": "Stronger conversion" },
-          { "text": "Lasting loyalty" }
-        ],
-        "design_label_left": "Mobile Consumer App",
-        "design_label_right": "Personalized Web Platform",
-        "mock_left_image": { "src": "", "alt": "" },
-        "mock_right_image": { "src": "", "alt": "" }
-      },
-      {
-        "tab_key": "convert",
-        "nav_label": "Interfaces That Convert",
-        "tag": "REVENUE & GROWTH",
-        "headline": "Design that turns intent into revenue.",
-        "description": "<p>Every screen in a buying journey either earns trust or loses it.</p>",
-        "pills": [
-          { "text": "More self-service" },
-          { "text": "Less abandonment" },
-          { "text": "Faster pipeline" }
-        ],
-        "design_label_left": "Checkout & Conversion Flow",
-        "design_label_right": "Sales Pipeline App",
-        "mock_left_image": { "src": "", "alt": "" },
-        "mock_right_image": { "src": "", "alt": "" }
-      },
-      {
-        "tab_key": "tools",
-        "nav_label": "Tools That Free Your Teams",
-        "tag": "WORKFORCE & OPERATIONS",
-        "headline": "When your tools work, your people can too.",
-        "description": "<p>Tools designed for human-AI collaboration: reducing friction, amplifying judgment.</p>",
-        "pills": [
-          { "text": "Fewer errors" },
-          { "text": "Faster resolution" },
-          { "text": "Strong adoption" }
-        ],
-        "design_label_left": "Operations Command Center",
-        "design_label_right": "AI Assistant Interface",
-        "mock_left_image": { "src": "", "alt": "" },
-        "mock_right_image": { "src": "", "alt": "" }
-      },
-      {
-        "tab_key": "scale",
-        "nav_label": "Systems Built to Scale",
-        "tag": "DESIGN INFRASTRUCTURE",
-        "headline": "The foundation that lets every team move faster.",
-        "description": "<p>Consistent foundations that let every team ship faster.</p>",
-        "pills": [
-          { "text": "Faster design-to-dev" },
-          { "text": "WCAG AA compliant" },
-          { "text": "One system, every product" }
-        ],
-        "design_label_left": "Component Library",
-        "design_label_right": "Design Token System",
-        "mock_left_image": { "src": "", "alt": "" },
-        "mock_right_image": { "src": "", "alt": "" }
-      }
-    ]
-  }
-]
+    "children" : [ {
+      "id" : "tabs.pills.text",
+      "name" : "text",
+      "label" : "Pill text",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : "Pill"
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null,
+    "default" : [ {
+      "text" : "Higher engagement"
+    }, {
+      "text" : "Stronger conversion"
+    }, {
+      "text" : "Lasting loyalty"
+    } ]
+  }, {
+    "id" : "tabs.design_label_left",
+    "name" : "design_label_left",
+    "label" : "Left mock caption",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Mobile Consumer App"
+  }, {
+    "id" : "tabs.design_label_right",
+    "name" : "design_label_right",
+    "label" : "Right mock caption",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Personalized Web Platform"
+  }, {
+    "id" : "tabs.mock_left_image",
+    "name" : "mock_left_image",
+    "label" : "Left mock image (optional)",
+    "required" : false,
+    "locked" : false,
+    "responsive" : false,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "",
+      "alt" : ""
+    }
+  }, {
+    "id" : "tabs.mock_right_image",
+    "name" : "mock_right_image",
+    "label" : "Right mock image (optional)",
+    "required" : false,
+    "locked" : false,
+    "responsive" : false,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "",
+      "alt" : ""
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "tab_key" : "cx",
+    "nav_label" : "Experiences Customers Return To",
+    "tag" : "CONSUMER EXPERIENCE",
+    "headline" : "When people choose you over every alternative.",
+    "description" : "<p>Intuitive, personal experiences that earn loyalty and preference.</p>",
+    "pills" : [ {
+      "text" : "Higher engagement"
+    }, {
+      "text" : "Stronger conversion"
+    }, {
+      "text" : "Lasting loyalty"
+    } ],
+    "design_label_left" : "Mobile Consumer App",
+    "design_label_right" : "Personalized Web Platform",
+    "mock_left_image" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "mock_right_image" : {
+      "src" : "",
+      "alt" : ""
+    }
+  }, {
+    "tab_key" : "convert",
+    "nav_label" : "Interfaces That Convert",
+    "tag" : "REVENUE & GROWTH",
+    "headline" : "Design that turns intent into revenue.",
+    "description" : "<p>Every screen in a buying journey either earns trust or loses it.</p>",
+    "pills" : [ {
+      "text" : "More self-service"
+    }, {
+      "text" : "Less abandonment"
+    }, {
+      "text" : "Faster pipeline"
+    } ],
+    "design_label_left" : "Checkout & Conversion Flow",
+    "design_label_right" : "Sales Pipeline App",
+    "mock_left_image" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "mock_right_image" : {
+      "src" : "",
+      "alt" : ""
+    }
+  }, {
+    "tab_key" : "tools",
+    "nav_label" : "Tools That Free Your Teams",
+    "tag" : "WORKFORCE & OPERATIONS",
+    "headline" : "When your tools work, your people can too.",
+    "description" : "<p>Tools designed for human-AI collaboration: reducing friction, amplifying judgment.</p>",
+    "pills" : [ {
+      "text" : "Fewer errors"
+    }, {
+      "text" : "Faster resolution"
+    }, {
+      "text" : "Strong adoption"
+    } ],
+    "design_label_left" : "Operations Command Center",
+    "design_label_right" : "AI Assistant Interface",
+    "mock_left_image" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "mock_right_image" : {
+      "src" : "",
+      "alt" : ""
+    }
+  }, {
+    "tab_key" : "scale",
+    "nav_label" : "Systems Built to Scale",
+    "tag" : "DESIGN INFRASTRUCTURE",
+    "headline" : "The foundation that lets every team move faster.",
+    "description" : "<p>Consistent foundations that let every team ship faster.</p>",
+    "pills" : [ {
+      "text" : "Faster design-to-dev"
+    }, {
+      "text" : "WCAG AA compliant"
+    }, {
+      "text" : "One system, every product"
+    } ],
+    "design_label_left" : "Component Library",
+    "design_label_right" : "Design Token System",
+    "mock_left_image" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "mock_right_image" : {
+      "src" : "",
+      "alt" : ""
+    }
+  } ]
+} ]

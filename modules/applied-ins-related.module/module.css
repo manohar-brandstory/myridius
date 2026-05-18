@@ -242,7 +242,69 @@
 }
 
 /* ── Responsive ── */
-@media (max-width: 1023px) {
+
+/* Mobile + tablet shared layout (≤1024px) */
+@media only screen and (max-width: 1024px) {
+  .applied-ins-related__carousel.is-slider .applied-ins-related__viewport {
+    overflow: hidden;
+    margin: 0 -4px;
+  }
+
+  .applied-ins-related__carousel.is-slider {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .applied-ins-related__carousel.is-slider .applied-ins-related__track {
+    display: flex;
+    gap: 0;
+    grid-template-columns: none;
+  }
+
+  .applied-ins-related__carousel.is-slider .applied-ins-related__slide {
+    flex: 0 0 50%;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+
+  .applied-ins-related__arrow {
+    display: none;
+  }
+
+  .applied-ins-related__mobNav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+    margin-top: 24px;
+  }
+}
+
+/* Desktop: 2–3 cards stay grid; 4+ use slider arrows */
+@media (min-width: 1025px) {
+  .applied-ins-related__carousel.is-slider .applied-ins-related__track {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    transform: none !important;
+  }
+
+  .applied-ins-related__carousel.is-slider .applied-ins-related__viewport {
+    overflow: visible;
+  }
+
+  .applied-ins-related__carousel.is-slider .applied-ins-related__slide {
+    flex: none;
+    padding: 0;
+  }
+
+  .applied-ins-related__mobNav {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
   .applied-ins-related__track {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -252,7 +314,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   /* Same transform-based loop as desktop; clones + JS snap avoid wrap jumps */
   .applied-ins-related__carousel.is-slider .applied-ins-related__viewport {
     overflow: hidden;

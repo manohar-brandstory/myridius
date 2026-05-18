@@ -1,146 +1,128 @@
-[
-  {
-    "id": "badge_text",
-    "name": "badge_text",
-    "label": "Badge text",
-    "required": false,
-    "locked": false,
-    "allow_new_line": false,
-    "display_width": null,
-    "type": "text",
-    "default": "partners"
+[ {
+  "id" : "badge_text",
+  "name" : "badge_text",
+  "label" : "Badge text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "partners"
+}, {
+  "id" : "heading",
+  "name" : "heading",
+  "label" : "Heading",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Powered by Robust Ecosystem"
+}, {
+  "id" : "subheading",
+  "name" : "subheading",
+  "label" : "Subheading",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "display_width" : null,
+  "default" : "<p>We partner with the world's most innovative technology companies to deliver cutting-edge solutions that drive measurable business outcomes.</p>"
+}, {
+  "id" : "partners",
+  "name" : "partners",
+  "label" : "Partners",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 20,
+    "sorting_label_field" : null,
+    "default" : 9
   },
-  {
-    "id": "heading",
-    "name": "heading",
-    "label": "Heading",
-    "required": false,
-    "locked": false,
-    "allow_new_line": false,
-    "display_width": null,
-    "type": "text",
-    "default": "Powered by Robust Ecosystem"
-  },
-  {
-    "id": "subheading",
-    "name": "subheading",
-    "label": "Subheading",
-    "required": false,
-    "locked": false,
-    "display_width": null,
-    "type": "richtext",
-    "default": "<p>We partner with the world's most innovative technology companies to deliver cutting-edge solutions that drive measurable business outcomes.</p>"
-  },
-  {
-    "id": "partners",
-    "name": "partners",
-    "label": "Partners",
-    "required": false,
-    "locked": false,
-    "occurrence": {
-      "min": 1,
-      "max": 20,
-      "default": 9
-    },
-    "sorting_label_field": "item_name",
-    "children": [
-      {
-        "id": "partners.item_name",
-        "name": "item_name",
-        "label": "Partner name",
-        "required": false,
-        "locked": false,
-        "allow_new_line": false,
-        "display_width": null,
-        "type": "text",
-        "default": "Partner"
-      },
-      {
-        "id": "partners.logo",
-        "name": "logo",
-        "label": "Partner logo",
-        "required": false,
-        "locked": false,
-        "responsive": false,
-        "resizable": false,
-        "show_loading": false,
-        "display_width": null,
-        "type": "image",
-        "default": {
-          "src": "",
-          "alt": "Partner logo"
-        }
-      }
-    ],
-    "tab": "CONTENT",
-    "expanded": false,
-    "group_occurrence_meta": null,
-    "display_width": null,
-    "type": "group",
-    "default": [
-      {
-        "item_name": "Salesforce",
-        "logo": {
-          "src": "https://cdn.brandfetch.io/idVE84WdIN/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1667559911541",
-          "alt": "Salesforce logo"
-        }
-      },
-      {
-        "item_name": "Databricks",
-        "logo": {
-          "src": "https://cdn.brandfetch.io/idSUrLOWbH/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1667650343823",
-          "alt": "Databricks logo"
-        }
-      },
-      {
-        "item_name": "Microsoft",
-        "logo": {
-          "src": "https://cdn.brandfetch.io/idchmboHEZ/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B",
-          "alt": "Microsoft logo"
-        }
-      },
-      {
-        "item_name": "Snowflake",
-        "logo": {
-          "src": "https://cdn.brandfetch.io/idJz-fGD_q/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1667589076965",
-          "alt": "Snowflake logo"
-        }
-      },
-      {
-        "item_name": "AWS",
-        "logo": {
-          "src": "https://cdn.brandfetch.io/idVoqFQ-78/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1758604187114",
-          "alt": "AWS logo"
-        }
-      },
-      {
-        "item_name": "Adobe",
-        "logo": {
-          "src": "https://cdn.brandfetch.io/id_KsyK7J9/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1747138938812",
-          "alt": "Adobe logo"
-        }
-      },
-      {
-        "item_name": "ServiceNow",
-        "logo": {
-          "src": "https://cdn.brandfetch.io/idgONjBNKe/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1667862255485",
-          "alt": "ServiceNow logo"
-        }
-      },
-      {
-        "item_name": "Google Cloud",
-        "logo": {
-          "src": "https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg",
-          "alt": "Google Cloud logo"
-        }
-      },
-      {
-        "item_name": "Anthropic",
-        "logo": {
-          "src": "https://cdn.brandfetch.io/idmJWF3N06/w/800/h/90/theme/dark/logo.png?c=1dxbfHSJFAPEGdCLU4o5B",
-          "alt": "Anthropic logo"
-        }
-      }
-    ]
-  }
-]
+  "children" : [ {
+    "id" : "partners.item_name",
+    "name" : "item_name",
+    "label" : "Partner name",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Partner"
+  }, {
+    "id" : "partners.logo",
+    "name" : "logo",
+    "label" : "Partner logo",
+    "required" : false,
+    "locked" : false,
+    "responsive" : false,
+    "resizable" : false,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "",
+      "alt" : "Partner logo"
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "item_name" : "Salesforce",
+    "logo" : {
+      "src" : "https://cdn.brandfetch.io/idVE84WdIN/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1667559911541",
+      "alt" : "Salesforce logo"
+    }
+  }, {
+    "item_name" : "Databricks",
+    "logo" : {
+      "src" : "https://cdn.brandfetch.io/idSUrLOWbH/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1667650343823",
+      "alt" : "Databricks logo"
+    }
+  }, {
+    "item_name" : "Microsoft",
+    "logo" : {
+      "src" : "https://cdn.brandfetch.io/idchmboHEZ/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B",
+      "alt" : "Microsoft logo"
+    }
+  }, {
+    "item_name" : "Snowflake",
+    "logo" : {
+      "src" : "https://cdn.brandfetch.io/idJz-fGD_q/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1667589076965",
+      "alt" : "Snowflake logo"
+    }
+  }, {
+    "item_name" : "AWS",
+    "logo" : {
+      "src" : "https://cdn.brandfetch.io/idVoqFQ-78/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1758604187114",
+      "alt" : "AWS logo"
+    }
+  }, {
+    "item_name" : "Adobe",
+    "logo" : {
+      "src" : "https://cdn.brandfetch.io/id_KsyK7J9/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1747138938812",
+      "alt" : "Adobe logo"
+    }
+  }, {
+    "item_name" : "ServiceNow",
+    "logo" : {
+      "src" : "https://cdn.brandfetch.io/idgONjBNKe/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1667862255485",
+      "alt" : "ServiceNow logo"
+    }
+  }, {
+    "item_name" : "Google Cloud",
+    "logo" : {
+      "src" : "https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg",
+      "alt" : "Google Cloud logo"
+    }
+  }, {
+    "item_name" : "Anthropic",
+    "logo" : {
+      "src" : "https://cdn.brandfetch.io/idmJWF3N06/w/800/h/90/theme/dark/logo.png?c=1dxbfHSJFAPEGdCLU4o5B",
+      "alt" : "Anthropic logo"
+    }
+  } ]
+} ]

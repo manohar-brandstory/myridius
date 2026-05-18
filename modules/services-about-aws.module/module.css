@@ -78,7 +78,19 @@
 }
 
 /* Responsive */
-@media (max-width: 1024px) {
+
+/* Mobile + tablet shared layout (≤1024px) */
+@media only screen and (max-width: 1024px) {
+.svc-about {
+    padding: 80px 32px;
+  }
+
+  .svc-about__container {
+    padding-right: 0;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
   .svc-about {
     padding: 80px 32px;
   }
@@ -88,7 +100,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .svc-about {
     padding: 64px 20px;
   }

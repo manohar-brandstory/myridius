@@ -1,371 +1,438 @@
-[
-  {
-    "id": "section_id",
-    "name": "section_id",
-    "label": "Section ID",
-    "type": "text",
-    "required": false,
-    "locked": false,
-    "allow_new_line": false,
-    "default": "evoq-agentic-execution",
-    "help_text": "Unique HTML ID for this section (used for anchor links)."
+[ {
+  "id" : "section_id",
+  "name" : "section_id",
+  "label" : "Section ID",
+  "help_text" : "Unique HTML ID for this section (used for anchor links).",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "evoq-agentic-execution"
+}, {
+  "id" : "hero_video_url",
+  "name" : "hero_video_url",
+  "label" : "Background video URL (MP4)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "https://v.ftcdn.net/13/09/10/47/700_F_1309104740_i0V0uPrKXAzhqEYhGzdSRBOGQA8ClNPV_ST.mp4"
+}, {
+  "picker" : "video",
+  "id" : "hero_video_file",
+  "name" : "hero_video_file",
+  "label" : "Background video upload (optional — overrides URL)",
+  "required" : false,
+  "locked" : false,
+  "type" : "file",
+  "display_width" : null
+}, {
+  "id" : "hero_eyebrow",
+  "name" : "hero_eyebrow",
+  "label" : "Hero eyebrow",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "AGENTIC EXECUTION WITH EVOQ"
+}, {
+  "id" : "hero_headline",
+  "name" : "hero_headline",
+  "label" : "Hero headline",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : true,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Business reinvention. Executed with agentic velocity."
+}, {
+  "id" : "hub_title",
+  "name" : "hub_title",
+  "label" : "Center hub title",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "EVOQ"
+}, {
+  "id" : "hub_subtitle",
+  "name" : "hub_subtitle",
+  "label" : "Center hub subtitle",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "The Enterprise Runtime"
+}, {
+  "id" : "tabs",
+  "name" : "tabs",
+  "label" : "Tabs / hotspots / detail content",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 7,
+    "sorting_label_field" : null,
+    "default" : 5
   },
-  {
-    "id": "hero_video_url",
-    "name": "hero_video_url",
-    "label": "Background video URL (MP4)",
-    "type": "text",
-    "required": false,
-    "locked": false,
-    "allow_new_line": false,
-    "default": "https://v.ftcdn.net/13/09/10/47/700_F_1309104740_i0V0uPrKXAzhqEYhGzdSRBOGQA8ClNPV_ST.mp4"
-  },
-  {
-    "id": "hero_video_file",
-    "name": "hero_video_file",
-    "label": "Background video upload (optional — overrides URL)",
-    "type": "file",
-    "required": false,
-    "locked": false,
-    "picker": "video"
-  },
-  {
-    "id": "hero_eyebrow",
-    "name": "hero_eyebrow",
-    "label": "Hero eyebrow",
-    "type": "text",
-    "required": false,
-    "locked": false,
-    "default": "AGENTIC EXECUTION WITH EVOQ"
-  },
-  {
-    "id": "hero_headline",
-    "name": "hero_headline",
-    "label": "Hero headline",
-    "type": "text",
-    "required": false,
-    "locked": false,
-    "allow_new_line": true,
-    "default": "Business reinvention. Executed with agentic velocity."
-  },
-  {
-    "id": "hub_title",
-    "name": "hub_title",
-    "label": "Center hub title",
-    "type": "text",
-    "required": false,
-    "locked": false,
-    "default": "EVOQ"
-  },
-  {
-    "id": "hub_subtitle",
-    "name": "hub_subtitle",
-    "label": "Center hub subtitle",
-    "type": "text",
-    "required": false,
-    "locked": false,
-    "default": "The Enterprise Runtime"
-  },
-  {
-    "id": "tabs",
-    "name": "tabs",
-    "label": "Tabs / hotspots / detail content",
-    "type": "group",
-    "required": false,
-    "locked": false,
-    "occurrence": { "min": 1, "max": 7, "default": 5 },
-    "children": [
-      {
-        "id": "tabs.tab_slug",
-        "name": "tab_slug",
-        "label": "Tab slug (unique, e.g. intent, intelligence)",
-        "type": "text",
-        "required": false,
-        "locked": false,
-        "default": "intent"
-      },
-      {
-        "id": "tabs.tab_icon_slug",
-        "name": "tab_icon_slug",
-        "label": "Tab icon (Lucide)",
-        "type": "choice",
-        "required": false,
-        "locked": false,
-        "display": "select",
-        "choices": [
-          ["auto", "Auto (match tab slug)"],
-          ["target", "Target"],
-          ["brain", "Brain"],
-          ["zap", "Zap"],
-          ["refresh_cw", "Refresh cw"],
-          ["trending_up", "Trending up"]
-        ],
-        "default": "auto"
-      },
-      {
-        "id": "tabs.tab_label",
-        "name": "tab_label",
-        "label": "Tab label (pill)",
-        "type": "text",
-        "required": false,
-        "locked": false,
-        "default": "Enterprise Intent"
-      },
-      {
-        "id": "tabs.tab_icon",
-        "name": "tab_icon",
-        "label": "Tab icon image (legacy fallback — prefer Lucide icon above)",
-        "type": "image",
-        "required": false,
-        "locked": false,
-        "responsive": false,
-        "resizable": false,
-        "show_loading": false,
-        "default": { "src": "", "alt": "" }
-      },
-      {
-        "id": "tabs.tab_title",
-        "name": "tab_title",
-        "label": "Tab title (hero + detail heading)",
-        "type": "text",
-        "required": false,
-        "locked": false,
-        "default": "Intent becomes executable direction"
-      },
-      {
-        "id": "tabs.tab_description",
-        "name": "tab_description",
-        "label": "Tab description",
-        "type": "text",
-        "required": false,
-        "locked": false,
-        "allow_new_line": true,
-        "default": "Business signals, priorities, and goals enter Evoq as active intent that can move straight into execution."
-      },
-      {
-        "id": "tabs.layers",
-        "name": "layers",
-        "label": "Layers (right stack)",
-        "type": "group",
-        "required": false,
-        "locked": false,
-        "occurrence": { "min": 1, "max": 8, "default": 4 },
-        "children": [
-          {
-            "id": "layers.layer_name",
-            "name": "layer_name",
-            "label": "Layer name",
-            "type": "text",
-            "required": false,
-            "locked": false,
-            "default": "Signals"
-          },
-          {
-            "id": "layers.layer_desc",
-            "name": "layer_desc",
-            "label": "Layer description",
-            "type": "text",
-            "required": false,
-            "locked": false,
-            "allow_new_line": true,
-            "default": "Market and operational signals continuously shape execution priorities"
-          },
-          {
-            "id": "layers.layer_icon_slug",
-            "name": "layer_icon_slug",
-            "label": "Layer icon (Lucide)",
-            "type": "choice",
-            "required": false,
-            "locked": false,
-            "display": "select",
-            "choices": [
-              ["inherit", "Same as tab icon"],
-              ["target", "Target"],
-              ["brain", "Brain"],
-              ["zap", "Zap"],
-              ["refresh_cw", "Refresh cw"],
-              ["trending_up", "Trending up"]
-            ],
-            "default": "inherit"
-          },
-          {
-            "id": "layers.layer_icon",
-            "name": "layer_icon",
-            "label": "Layer icon image (legacy fallback)",
-            "type": "image",
-            "required": false,
-            "locked": false,
-            "responsive": false,
-            "resizable": false,
-            "show_loading": false,
-            "default": { "src": "", "alt": "" }
-          }
-        ],
-        "default": [
-          {
-            "layer_name": "Signals",
-            "layer_desc": "Market and operational signals continuously shape execution priorities",
-            "layer_icon": { "src": "", "alt": "" }
-          },
-          {
-            "layer_name": "Goals",
-            "layer_desc": "Strategic goals become executable system outcomes",
-            "layer_icon": { "src": "", "alt": "" }
-          },
-          {
-            "layer_name": "Priorities",
-            "layer_desc": "Execution dynamically aligns to changing business priorities",
-            "layer_icon": { "src": "", "alt": "" }
-          },
-          {
-            "layer_name": "Adaptive Direction",
-            "layer_desc": "Execution continuously adjusts as enterprise intent evolves",
-            "layer_icon": { "src": "", "alt": "" }
-          }
-        ]
+  "children" : [ {
+    "id" : "tabs.tab_slug",
+    "name" : "tab_slug",
+    "label" : "Tab slug (unique, e.g. intent, intelligence)",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "intent"
+  }, {
+    "id" : "tabs.tab_icon_slug",
+    "name" : "tab_icon_slug",
+    "label" : "Tab icon (Lucide)",
+    "required" : false,
+    "locked" : false,
+    "display" : "select",
+    "choices" : [ [ "auto", "Auto (match tab slug)" ], [ "target", "Target" ], [ "brain", "Brain" ], [ "zap", "Zap" ], [ "refresh_cw", "Refresh cw" ], [ "trending_up", "Trending up" ] ],
+    "multiple" : false,
+    "reordering_enabled" : true,
+    "preset" : null,
+    "type" : "choice",
+    "display_width" : null,
+    "default" : "auto"
+  }, {
+    "id" : "tabs.tab_label",
+    "name" : "tab_label",
+    "label" : "Tab label (pill)",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Enterprise Intent"
+  }, {
+    "id" : "tabs.tab_icon",
+    "name" : "tab_icon",
+    "label" : "Tab icon image (legacy fallback — prefer Lucide icon above)",
+    "required" : false,
+    "locked" : false,
+    "responsive" : false,
+    "resizable" : false,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "",
+      "alt" : ""
+    }
+  }, {
+    "id" : "tabs.tab_title",
+    "name" : "tab_title",
+    "label" : "Tab title (hero + detail heading)",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Intent becomes executable direction"
+  }, {
+    "id" : "tabs.tab_description",
+    "name" : "tab_description",
+    "label" : "Tab description",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : true,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Business signals, priorities, and goals enter Evoq as active intent that can move straight into execution."
+  }, {
+    "id" : "tabs.layers",
+    "name" : "layers",
+    "label" : "Layers (right stack)",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : 1,
+      "max" : 8,
+      "sorting_label_field" : null,
+      "default" : 4
+    },
+    "children" : [ {
+      "id" : "layers.layer_name",
+      "name" : "layer_name",
+      "label" : "Layer name",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : "Signals"
+    }, {
+      "id" : "layers.layer_desc",
+      "name" : "layer_desc",
+      "label" : "Layer description",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : true,
+      "type" : "text",
+      "display_width" : null,
+      "default" : "Market and operational signals continuously shape execution priorities"
+    }, {
+      "id" : "layers.layer_icon_slug",
+      "name" : "layer_icon_slug",
+      "label" : "Layer icon (Lucide)",
+      "required" : false,
+      "locked" : false,
+      "display" : "select",
+      "choices" : [ [ "inherit", "Same as tab icon" ], [ "target", "Target" ], [ "brain", "Brain" ], [ "zap", "Zap" ], [ "refresh_cw", "Refresh cw" ], [ "trending_up", "Trending up" ] ],
+      "multiple" : false,
+      "reordering_enabled" : true,
+      "preset" : null,
+      "type" : "choice",
+      "display_width" : null,
+      "default" : "inherit"
+    }, {
+      "id" : "layers.layer_icon",
+      "name" : "layer_icon",
+      "label" : "Layer icon image (legacy fallback)",
+      "required" : false,
+      "locked" : false,
+      "responsive" : false,
+      "resizable" : false,
+      "show_loading" : false,
+      "type" : "image",
+      "display_width" : null,
+      "default" : {
+        "src" : "",
+        "alt" : ""
       }
-    ],
-    "default": [
-      {
-        "tab_slug": "intent",
-        "tab_label": "Enterprise Intent",
-        "tab_title": "Intent becomes executable direction",
-        "tab_description": "Business signals, priorities, and goals enter Evoq as active intent that can move straight into execution.",
-        "tab_icon": { "src": "", "alt": "" },
-        "layers": [
-          {
-            "layer_name": "Signals",
-            "layer_desc": "Market and operational signals continuously shape execution priorities",
-            "layer_icon": { "src": "", "alt": "" }
-          },
-          {
-            "layer_name": "Goals",
-            "layer_desc": "Strategic goals become executable system outcomes",
-            "layer_icon": { "src": "", "alt": "" }
-          },
-          {
-            "layer_name": "Priorities",
-            "layer_desc": "Execution dynamically aligns to changing business priorities",
-            "layer_icon": { "src": "", "alt": "" }
-          },
-          {
-            "layer_name": "Adaptive Direction",
-            "layer_desc": "Execution continuously adjusts as enterprise intent evolves",
-            "layer_icon": { "src": "", "alt": "" }
-          }
-        ]
-      },
-      {
-        "tab_slug": "intelligence",
-        "tab_label": "Execution Intelligence",
-        "tab_title": "Intelligence stays embedded in the runtime",
-        "tab_description": "Context, interfaces, and business solution patterns stay close to live work so execution improves while it runs.",
-        "tab_icon": { "src": "", "alt": "" },
-        "layers": [
-          {
-            "layer_name": "Context & Workbench",
-            "layer_desc": "Execution operates with shared business and operational context",
-            "layer_icon": { "src": "", "alt": "" }
-          },
-          {
-            "layer_name": "Learning Interfaces",
-            "layer_desc": "Human and AI interactions continuously improve system intelligence",
-            "layer_icon": { "src": "", "alt": "" }
-          },
-          {
-            "layer_name": "Engineering Patterns",
-            "layer_desc": "Reusable execution patterns accelerate how systems evolve and scale",
-            "layer_icon": { "src": "", "alt": "" }
-          },
-          {
-            "layer_name": "Business Solutions",
-            "layer_desc": "Business capabilities are engineered directly into execution systems",
-            "layer_icon": { "src": "", "alt": "" }
-          }
-        ]
-      },
-      {
-        "tab_slug": "execution",
-        "tab_label": "Coordinated Execution",
-        "tab_title": "Execution keeps work in coordinated motion",
-        "tab_description": "People, workflows, capabilities, and integrations move together in one operating fabric that compounds over time.",
-        "tab_icon": { "src": "", "alt": "" },
-        "layers": [
-          {
-            "layer_name": "Human + Agent Flow",
-            "layer_desc": "Humans and agents operate together as one coordinated execution model",
-            "layer_icon": { "src": "", "alt": "" }
-          },
-          {
-            "layer_name": "Connected Workflows",
-            "layer_desc": "Workflows operate as connected systems, not isolated processes",
-            "layer_icon": { "src": "", "alt": "" }
-          },
-          {
-            "layer_name": "Reusable Capabilities",
-            "layer_desc": "Execution accelerates through reusable intelligence and capabilities",
-            "layer_icon": { "src": "", "alt": "" }
-          },
-          {
-            "layer_name": "Integrations",
-            "layer_desc": "Systems, data, and workflows operate through unified execution",
-            "layer_icon": { "src": "", "alt": "" }
-          }
-        ]
-      },
-      {
-        "tab_slug": "learning",
-        "tab_label": "Continuous Learning",
-        "tab_title": "Learning is built into how the system runs",
-        "tab_description": "Controls, decision quality, and transparency stay active inside the operating loop so the system improves with use.",
-        "tab_icon": { "src": "", "alt": "" },
-        "layers": [
-          {
-            "layer_name": "Embedded Controls",
-            "layer_desc": "Governance and controls are built directly into execution",
-            "layer_icon": { "src": "", "alt": "" }
-          },
-          {
-            "layer_name": "Decision Quality",
-            "layer_desc": "Systems continuously improve the speed and quality of decisions",
-            "layer_icon": { "src": "", "alt": "" }
-          },
-          {
-            "layer_name": "Transparency",
-            "layer_desc": "Execution remains observable, explainable, and accountable",
-            "layer_icon": { "src": "", "alt": "" }
-          },
-          {
-            "layer_name": "Continuous Improvement",
-            "layer_desc": "Execution systems learn, adapt, and improve in real time",
-            "layer_icon": { "src": "", "alt": "" }
-          }
-        ]
-      },
-      {
-        "tab_slug": "outcomes",
-        "tab_label": "Business Outcomes",
-        "tab_title": "Outcomes expand as the system compounds",
-        "tab_description": "Growth, agility, and new operating advantage become visible as intent turns into coordinated execution and learning.",
-        "tab_icon": { "src": "", "alt": "" },
-        "layers": [
-          {
-            "layer_name": "Growth",
-            "layer_desc": "Execution systems accelerate growth through faster business response",
-            "layer_icon": { "src": "", "alt": "" }
-          },
-          {
-            "layer_name": "Agility",
-            "layer_desc": "Enterprises adapt faster through continuously coordinated execution",
-            "layer_icon": { "src": "", "alt": "" }
-          },
-          {
-            "layer_name": "Reimagined Journeys",
-            "layer_desc": "AI-native execution transforms customer and employee experiences.",
-            "layer_icon": { "src": "", "alt": "" }
-          }
-        ]
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null,
+    "default" : [ {
+      "layer_name" : "Signals",
+      "layer_desc" : "Market and operational signals continuously shape execution priorities",
+      "layer_icon" : {
+        "src" : "",
+        "alt" : ""
       }
-    ]
-  }
-]
+    }, {
+      "layer_name" : "Goals",
+      "layer_desc" : "Strategic goals become executable system outcomes",
+      "layer_icon" : {
+        "src" : "",
+        "alt" : ""
+      }
+    }, {
+      "layer_name" : "Priorities",
+      "layer_desc" : "Execution dynamically aligns to changing business priorities",
+      "layer_icon" : {
+        "src" : "",
+        "alt" : ""
+      }
+    }, {
+      "layer_name" : "Adaptive Direction",
+      "layer_desc" : "Execution continuously adjusts as enterprise intent evolves",
+      "layer_icon" : {
+        "src" : "",
+        "alt" : ""
+      }
+    } ]
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "tab_slug" : "intent",
+    "tab_label" : "Enterprise Intent",
+    "tab_title" : "Intent becomes executable direction",
+    "tab_description" : "Business signals, priorities, and goals enter Evoq as active intent that can move straight into execution.",
+    "tab_icon" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "layers" : [ {
+      "layer_name" : "Signals",
+      "layer_desc" : "Market and operational signals continuously shape execution priorities",
+      "layer_icon" : {
+        "src" : "",
+        "alt" : ""
+      }
+    }, {
+      "layer_name" : "Goals",
+      "layer_desc" : "Strategic goals become executable system outcomes",
+      "layer_icon" : {
+        "src" : "",
+        "alt" : ""
+      }
+    }, {
+      "layer_name" : "Priorities",
+      "layer_desc" : "Execution dynamically aligns to changing business priorities",
+      "layer_icon" : {
+        "src" : "",
+        "alt" : ""
+      }
+    }, {
+      "layer_name" : "Adaptive Direction",
+      "layer_desc" : "Execution continuously adjusts as enterprise intent evolves",
+      "layer_icon" : {
+        "src" : "",
+        "alt" : ""
+      }
+    } ]
+  }, {
+    "tab_slug" : "intelligence",
+    "tab_label" : "Execution Intelligence",
+    "tab_title" : "Intelligence stays embedded in the runtime",
+    "tab_description" : "Context, interfaces, and business solution patterns stay close to live work so execution improves while it runs.",
+    "tab_icon" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "layers" : [ {
+      "layer_name" : "Context & Workbench",
+      "layer_desc" : "Execution operates with shared business and operational context",
+      "layer_icon" : {
+        "src" : "",
+        "alt" : ""
+      }
+    }, {
+      "layer_name" : "Learning Interfaces",
+      "layer_desc" : "Human and AI interactions continuously improve system intelligence",
+      "layer_icon" : {
+        "src" : "",
+        "alt" : ""
+      }
+    }, {
+      "layer_name" : "Engineering Patterns",
+      "layer_desc" : "Reusable execution patterns accelerate how systems evolve and scale",
+      "layer_icon" : {
+        "src" : "",
+        "alt" : ""
+      }
+    }, {
+      "layer_name" : "Business Solutions",
+      "layer_desc" : "Business capabilities are engineered directly into execution systems",
+      "layer_icon" : {
+        "src" : "",
+        "alt" : ""
+      }
+    } ]
+  }, {
+    "tab_slug" : "execution",
+    "tab_label" : "Coordinated Execution",
+    "tab_title" : "Execution keeps work in coordinated motion",
+    "tab_description" : "People, workflows, capabilities, and integrations move together in one operating fabric that compounds over time.",
+    "tab_icon" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "layers" : [ {
+      "layer_name" : "Human + Agent Flow",
+      "layer_desc" : "Humans and agents operate together as one coordinated execution model",
+      "layer_icon" : {
+        "src" : "",
+        "alt" : ""
+      }
+    }, {
+      "layer_name" : "Connected Workflows",
+      "layer_desc" : "Workflows operate as connected systems, not isolated processes",
+      "layer_icon" : {
+        "src" : "",
+        "alt" : ""
+      }
+    }, {
+      "layer_name" : "Reusable Capabilities",
+      "layer_desc" : "Execution accelerates through reusable intelligence and capabilities",
+      "layer_icon" : {
+        "src" : "",
+        "alt" : ""
+      }
+    }, {
+      "layer_name" : "Integrations",
+      "layer_desc" : "Systems, data, and workflows operate through unified execution",
+      "layer_icon" : {
+        "src" : "",
+        "alt" : ""
+      }
+    } ]
+  }, {
+    "tab_slug" : "learning",
+    "tab_label" : "Continuous Learning",
+    "tab_title" : "Learning is built into how the system runs",
+    "tab_description" : "Controls, decision quality, and transparency stay active inside the operating loop so the system improves with use.",
+    "tab_icon" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "layers" : [ {
+      "layer_name" : "Embedded Controls",
+      "layer_desc" : "Governance and controls are built directly into execution",
+      "layer_icon" : {
+        "src" : "",
+        "alt" : ""
+      }
+    }, {
+      "layer_name" : "Decision Quality",
+      "layer_desc" : "Systems continuously improve the speed and quality of decisions",
+      "layer_icon" : {
+        "src" : "",
+        "alt" : ""
+      }
+    }, {
+      "layer_name" : "Transparency",
+      "layer_desc" : "Execution remains observable, explainable, and accountable",
+      "layer_icon" : {
+        "src" : "",
+        "alt" : ""
+      }
+    }, {
+      "layer_name" : "Continuous Improvement",
+      "layer_desc" : "Execution systems learn, adapt, and improve in real time",
+      "layer_icon" : {
+        "src" : "",
+        "alt" : ""
+      }
+    } ]
+  }, {
+    "tab_slug" : "outcomes",
+    "tab_label" : "Business Outcomes",
+    "tab_title" : "Outcomes expand as the system compounds",
+    "tab_description" : "Growth, agility, and new operating advantage become visible as intent turns into coordinated execution and learning.",
+    "tab_icon" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "layers" : [ {
+      "layer_name" : "Growth",
+      "layer_desc" : "Execution systems accelerate growth through faster business response",
+      "layer_icon" : {
+        "src" : "",
+        "alt" : ""
+      }
+    }, {
+      "layer_name" : "Agility",
+      "layer_desc" : "Enterprises adapt faster through continuously coordinated execution",
+      "layer_icon" : {
+        "src" : "",
+        "alt" : ""
+      }
+    }, {
+      "layer_name" : "Reimagined Journeys",
+      "layer_desc" : "AI-native execution transforms customer and employee experiences.",
+      "layer_icon" : {
+        "src" : "",
+        "alt" : ""
+      }
+    } ]
+  } ]
+} ]

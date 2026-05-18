@@ -1,293 +1,285 @@
-[
-  {
-    "id": "badge_text",
-    "name": "badge_text",
-    "label": "Badge Text",
-    "required": false,
-    "locked": false,
-    "allow_new_line": false,
-    "display_width": null,
-    "type": "text",
-    "default": "SUCCESS STORIES"
+[ {
+  "id" : "badge_text",
+  "name" : "badge_text",
+  "label" : "Badge Text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "SUCCESS STORIES"
+}, {
+  "id" : "heading",
+  "name" : "heading",
+  "label" : "Heading",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Business outcomes that prove the model."
+}, {
+  "id" : "subheading",
+  "name" : "subheading",
+  "label" : "Subheading",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "display_width" : null,
+  "default" : "<p>Outcome-led examples across financial services, insurance, healthcare, manufacturing, and retail.</p>"
+}, {
+  "id" : "stories",
+  "name" : "stories",
+  "label" : "Stories",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 10,
+    "sorting_label_field" : null,
+    "default" : 5
   },
-  {
-    "id": "heading",
-    "name": "heading",
-    "label": "Heading",
-    "required": false,
-    "locked": false,
-    "allow_new_line": false,
-    "display_width": null,
-    "type": "text",
-    "default": "Business outcomes that prove the model."
-  },
-  {
-    "id": "subheading",
-    "name": "subheading",
-    "label": "Subheading",
-    "required": false,
-    "locked": false,
-    "display_width": null,
-    "type": "richtext",
-    "default": "<p>Outcome-led examples across financial services, insurance, healthcare, manufacturing, and retail.</p>"
-  },
-  {
-    "id": "stories",
-    "name": "stories",
-    "label": "Stories",
-    "required": false,
-    "locked": false,
-    "type": "group",
-    "occurrence": {
-      "min": 1,
-      "max": 10,
-      "default": 5
+  "children" : [ {
+    "id" : "stories.tag",
+    "name" : "tag",
+    "label" : "Tag / Industry",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "stories.metric",
+    "name" : "metric",
+    "label" : "Metric Value",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "stories.metric_label",
+    "name" : "metric_label",
+    "label" : "Metric Label",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "stories.title",
+    "name" : "title",
+    "label" : "Card Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "stories.description",
+    "name" : "description",
+    "label" : "Description (hover)",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "stories.bullets",
+    "name" : "bullets",
+    "label" : "Bullet Points (hover)",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : 0,
+      "max" : 5,
+      "sorting_label_field" : null,
+      "default" : 2
     },
-    "sorting_label_field": "tag",
-    "children": [
-      {
-        "id": "stories.tag",
-        "name": "tag",
-        "label": "Tag / Industry",
-        "required": false,
-        "locked": false,
-        "allow_new_line": false,
-        "display_width": null,
-        "type": "text",
-        "default": ""
-      },
-      {
-        "id": "stories.metric",
-        "name": "metric",
-        "label": "Metric Value",
-        "required": false,
-        "locked": false,
-        "allow_new_line": false,
-        "display_width": null,
-        "type": "text",
-        "default": ""
-      },
-      {
-        "id": "stories.metric_label",
-        "name": "metric_label",
-        "label": "Metric Label",
-        "required": false,
-        "locked": false,
-        "allow_new_line": false,
-        "display_width": null,
-        "type": "text",
-        "default": ""
-      },
-      {
-        "id": "stories.title",
-        "name": "title",
-        "label": "Card Title",
-        "required": false,
-        "locked": false,
-        "allow_new_line": false,
-        "display_width": null,
-        "type": "text",
-        "default": ""
-      },
-      {
-        "id": "stories.description",
-        "name": "description",
-        "label": "Description (hover)",
-        "required": false,
-        "locked": false,
-        "allow_new_line": false,
-        "display_width": null,
-        "type": "text",
-        "default": ""
-      },
-      {
-        "id": "stories.bullets",
-        "name": "bullets",
-        "label": "Bullet Points (hover)",
-        "required": false,
-        "locked": false,
-        "type": "group",
-        "occurrence": {
-          "min": 0,
-          "max": 5,
-          "default": 2
-        },
-        "sorting_label_field": "text",
-        "children": [
-          {
-            "id": "bullets.text",
-            "name": "text",
-            "label": "Bullet Text",
-            "required": false,
-            "locked": false,
-            "allow_new_line": false,
-            "display_width": null,
-            "type": "text",
-            "default": ""
-          }
-        ],
-        "default": []
-      },
-      {
-        "id": "stories.image",
-        "name": "image",
-        "label": "Background Image",
-        "required": false,
-        "locked": false,
-        "responsive": true,
-        "display_width": null,
-        "type": "image",
-        "default": {
-          "src": "",
-          "alt": "",
-          "width": 603,
-          "height": 400
-        }
-      },
-      {
-        "id": "stories.cta_label",
-        "name": "cta_label",
-        "label": "CTA label",
-        "help_text": "Shown next to arrow. Leave blank to hide this row.",
-        "required": false,
-        "locked": false,
-        "allow_new_line": false,
-        "display_width": null,
-        "type": "text",
-        "default": "LEARN MORE"
-      },
-      {
-        "id": "stories.link_url",
-        "name": "link_url",
-        "label": "Learn More Link",
-        "required": false,
-        "locked": false,
-        "supported_types": ["EXTERNAL", "CONTENT"],
-        "display_width": null,
-        "type": "url",
-        "default": {
-          "content_id": null,
-          "href": "",
-          "type": "EXTERNAL"
-        }
-      }
-    ],
-    "default": [
-      {
-        "tag": "Banking & Financial Services",
-        "metric": "$10M+",
-        "metric_label": "Annual Fraud Prevented",
-        "title": "Fraud intelligence at enterprise scale",
-        "description": "Intelligent commerce workflows improved customer relevance and operational efficiency.",
-        "bullets": [
-          { "text": "40% reduction in false positives" },
-          { "text": "Real-time agentic decisioning" }
-        ],
-        "cta_label": "LEARN MORE",
-        "image": {
-          "src": "",
-          "alt": "Banking success story",
-          "width": 603,
-          "height": 400
-        },
-        "link_url": {
-          "content_id": null,
-          "href": "",
-          "type": "EXTERNAL"
-        }
-      },
-      {
-        "tag": "Insurance",
-        "metric": "60%+",
-        "metric_label": "Faster Claims Processing",
-        "title": "Claims and service redesigned",
-        "description": "Moving from manual review to agentic underwriting and claim handling at scale.",
-        "bullets": [
-          { "text": "Reduced settlement time by 5 days" },
-          { "text": "Automated document extraction" }
-        ],
-        "cta_label": "LEARN MORE",
-        "image": {
-          "src": "",
-          "alt": "Insurance success story",
-          "width": 603,
-          "height": 400
-        },
-        "link_url": {
-          "content_id": null,
-          "href": "",
-          "type": "EXTERNAL"
-        }
-      },
-      {
-        "tag": "Healthcare & Life Sciences",
-        "metric": "70%+",
-        "metric_label": "Prior Auth Automated",
-        "title": "Clinical and admin workflows streamlined",
-        "description": "Eliminating administrative bottlenecks with secure, compliant agentic execution layers.",
-        "bullets": [
-          { "text": "HIPAA compliant data processing" },
-          { "text": "15% lower operational overhead" }
-        ],
-        "cta_label": "LEARN MORE",
-        "image": {
-          "src": "",
-          "alt": "Healthcare success story",
-          "width": 603,
-          "height": 400
-        },
-        "link_url": {
-          "content_id": null,
-          "href": "",
-          "type": "EXTERNAL"
-        }
-      },
-      {
-        "tag": "Manufacturing & Logistics",
-        "metric": "30%",
-        "metric_label": "Less Unplanned Downtime",
-        "title": "Predictive operations that lift throughput",
-        "description": "Autonomous supply chain agents predicting disruptions before they impact production.",
-        "bullets": [
-          { "text": "12% increase in OEE" },
-          { "text": "Zero manual inventory logs" }
-        ],
-        "cta_label": "LEARN MORE",
-        "image": {
-          "src": "",
-          "alt": "Manufacturing success story",
-          "width": 603,
-          "height": 400
-        },
-        "link_url": {
-          "content_id": null,
-          "href": "",
-          "type": "EXTERNAL"
-        }
-      },
-      {
-        "tag": "Retail & Consumer",
-        "metric": "25%",
-        "metric_label": "Inventory cost reduction",
-        "title": "Smarter personalization and inventory",
-        "description": "Intelligent commerce workflows improved customer relevance and operational efficiency.",
-        "bullets": [
-          { "text": "Supply-chain intelligence" },
-          { "text": "Enhanced customer relevance" }
-        ],
-        "cta_label": "LEARN MORE",
-        "image": {
-          "src": "",
-          "alt": "Retail success story",
-          "width": 603,
-          "height": 400
-        },
-        "link_url": {
-          "content_id": null,
-          "href": "",
-          "type": "EXTERNAL"
-        }
-      }
-    ]
-  }
-]
+    "children" : [ {
+      "id" : "bullets.text",
+      "name" : "text",
+      "label" : "Bullet Text",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : ""
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null,
+    "default" : [ ]
+  }, {
+    "id" : "stories.image",
+    "name" : "image",
+    "label" : "Background Image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "",
+      "alt" : "",
+      "width" : 603,
+      "height" : 400
+    }
+  }, {
+    "id" : "stories.cta_label",
+    "name" : "cta_label",
+    "label" : "CTA label",
+    "help_text" : "Shown next to arrow. Leave blank to hide this row.",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "LEARN MORE"
+  }, {
+    "id" : "stories.link_url",
+    "name" : "link_url",
+    "label" : "Learn More Link",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT" ],
+    "type" : "url",
+    "display_width" : null,
+    "default" : {
+      "content_id" : null,
+      "href" : "",
+      "type" : "EXTERNAL"
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "tag" : "Banking & Financial Services",
+    "metric" : "$10M+",
+    "metric_label" : "Annual Fraud Prevented",
+    "title" : "Fraud intelligence at enterprise scale",
+    "description" : "Intelligent commerce workflows improved customer relevance and operational efficiency.",
+    "bullets" : [ {
+      "text" : "40% reduction in false positives"
+    }, {
+      "text" : "Real-time agentic decisioning"
+    } ],
+    "cta_label" : "LEARN MORE",
+    "image" : {
+      "src" : "",
+      "alt" : "Banking success story",
+      "width" : 603,
+      "height" : 400
+    },
+    "link_url" : {
+      "content_id" : null,
+      "href" : "",
+      "type" : "EXTERNAL"
+    }
+  }, {
+    "tag" : "Insurance",
+    "metric" : "60%+",
+    "metric_label" : "Faster Claims Processing",
+    "title" : "Claims and service redesigned",
+    "description" : "Moving from manual review to agentic underwriting and claim handling at scale.",
+    "bullets" : [ {
+      "text" : "Reduced settlement time by 5 days"
+    }, {
+      "text" : "Automated document extraction"
+    } ],
+    "cta_label" : "LEARN MORE",
+    "image" : {
+      "src" : "",
+      "alt" : "Insurance success story",
+      "width" : 603,
+      "height" : 400
+    },
+    "link_url" : {
+      "content_id" : null,
+      "href" : "",
+      "type" : "EXTERNAL"
+    }
+  }, {
+    "tag" : "Healthcare & Life Sciences",
+    "metric" : "70%+",
+    "metric_label" : "Prior Auth Automated",
+    "title" : "Clinical and admin workflows streamlined",
+    "description" : "Eliminating administrative bottlenecks with secure, compliant agentic execution layers.",
+    "bullets" : [ {
+      "text" : "HIPAA compliant data processing"
+    }, {
+      "text" : "15% lower operational overhead"
+    } ],
+    "cta_label" : "LEARN MORE",
+    "image" : {
+      "src" : "",
+      "alt" : "Healthcare success story",
+      "width" : 603,
+      "height" : 400
+    },
+    "link_url" : {
+      "content_id" : null,
+      "href" : "",
+      "type" : "EXTERNAL"
+    }
+  }, {
+    "tag" : "Manufacturing & Logistics",
+    "metric" : "30%",
+    "metric_label" : "Less Unplanned Downtime",
+    "title" : "Predictive operations that lift throughput",
+    "description" : "Autonomous supply chain agents predicting disruptions before they impact production.",
+    "bullets" : [ {
+      "text" : "12% increase in OEE"
+    }, {
+      "text" : "Zero manual inventory logs"
+    } ],
+    "cta_label" : "LEARN MORE",
+    "image" : {
+      "src" : "",
+      "alt" : "Manufacturing success story",
+      "width" : 603,
+      "height" : 400
+    },
+    "link_url" : {
+      "content_id" : null,
+      "href" : "",
+      "type" : "EXTERNAL"
+    }
+  }, {
+    "tag" : "Retail & Consumer",
+    "metric" : "25%",
+    "metric_label" : "Inventory cost reduction",
+    "title" : "Smarter personalization and inventory",
+    "description" : "Intelligent commerce workflows improved customer relevance and operational efficiency.",
+    "bullets" : [ {
+      "text" : "Supply-chain intelligence"
+    }, {
+      "text" : "Enhanced customer relevance"
+    } ],
+    "cta_label" : "LEARN MORE",
+    "image" : {
+      "src" : "",
+      "alt" : "Retail success story",
+      "width" : 603,
+      "height" : 400
+    },
+    "link_url" : {
+      "content_id" : null,
+      "href" : "",
+      "type" : "EXTERNAL"
+    }
+  } ]
+} ]

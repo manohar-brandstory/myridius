@@ -2,7 +2,7 @@
   'use strict';
 
   var hoverMedia = window.matchMedia('(hover: hover) and (pointer: fine)');
-  var mobileMedia = window.matchMedia('(max-width: 768px)');
+  var mobileMedia = window.matchMedia('(max-width: 767px)');
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   var AUTOPLAY_MS = 5000;

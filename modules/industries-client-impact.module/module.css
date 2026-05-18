@@ -216,7 +216,7 @@
 .impact__num:hover{ color: #fff; }
 .impact__num.is-active{ color: #fff; }
 
-@media (max-width: 768px){
+@media only screen and (max-width: 767px){
   .impact{ padding: 64px 16px; }
   .impact__metric{ font-size: 2rem; }
   .impact__desc{ font-size: 16px; }
@@ -245,8 +245,8 @@
   }
 }
 
-/* Desktop stability: prevent layout jumps/overlaps when switching slides */
-@media (min-width: 769px){
+/* Tablet + desktop: prevent layout jumps/overlaps when switching slides */
+@media only screen and (min-width: 768px) {
   .impact__body{ min-height: 480px; }
   .impact__content{ min-height: 260px; }
   .impact__nav{ margin-top: 28px; }

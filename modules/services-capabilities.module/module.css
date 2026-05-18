@@ -286,7 +286,7 @@
    ═══════════════════════════════════════════════ */
 
 /* Tablet */
-@media (max-width: 1024px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
   .svc-cap { padding: 80px 40px; }
 
   .svc-cap__heading { font-size: 48px; }
@@ -322,7 +322,7 @@
 }
 
 /* Mobile */
-@media (max-width: 767px) {
+@media only screen and (max-width: 767px) {
   .svc-cap {
     padding: 64px 20px;
   }

@@ -89,7 +89,7 @@
   color: #ffffff;
 }
 
-@media (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .home-cta__title {
     font-size: 40px;
   }
@@ -176,7 +176,7 @@
   background: rgba(255, 255, 255, 0.08);
 }
 
-@media (max-width: 1024px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
   .home-cta {
     padding: 100px 0;
   }
@@ -187,7 +187,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .home-cta {
     padding: 80px 0;
   }

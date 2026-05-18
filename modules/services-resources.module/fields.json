@@ -1,116 +1,135 @@
-[
-  {
-    "name": "section_id",
-    "label": "Section ID",
-    "type": "text",
-    "default": "services-resources",
-    "id": "section_id"
+[ {
+  "id" : "section_id",
+  "name" : "section_id",
+  "label" : "Section ID",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "services-resources"
+}, {
+  "id" : "badge_text",
+  "name" : "badge_text",
+  "label" : "Badge Text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "RESOURCES"
+}, {
+  "id" : "heading",
+  "name" : "heading",
+  "label" : "Heading",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Featured: Ambition in Action"
+}, {
+  "id" : "resources",
+  "name" : "resources",
+  "label" : "Resources",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 6,
+    "sorting_label_field" : null,
+    "default" : 3
   },
-  {
-    "name": "badge_text",
-    "label": "Badge Text",
-    "type": "text",
-    "default": "RESOURCES",
-    "id": "badge_text"
-  },
-  {
-    "name": "heading",
-    "label": "Heading",
-    "type": "text",
-    "default": "Featured: Ambition in Action",
-    "id": "heading"
-  },
-  {
-    "name": "resources",
-    "label": "Resources",
-    "type": "group",
-    "occurrence": {
-      "min": 1,
-      "max": 6,
-      "default": 3
+  "children" : [ {
+    "id" : "resources.category",
+    "name" : "category",
+    "label" : "Category",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "EBOOK"
+  }, {
+    "id" : "resources.title",
+    "name" : "title",
+    "label" : "Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "resources.image",
+    "name" : "image",
+    "label" : "Image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : false,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "",
+      "alt" : ""
+    }
+  }, {
+    "id" : "resources.url",
+    "name" : "url",
+    "label" : "URL",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT" ],
+    "type" : "url",
+    "display_width" : null,
+    "default" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "category" : "EBOOK",
+    "title" : "Get Started With Generative AI on AWS With Confidence",
+    "image" : {
+      "src" : "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80",
+      "alt" : "Generative AI on AWS"
     },
-    "children": [
-      {
-        "name": "category",
-        "label": "Category",
-        "type": "text",
-        "default": "EBOOK",
-        "id": "resources.category"
-      },
-      {
-        "name": "title",
-        "label": "Title",
-        "type": "text",
-        "default": "",
-        "id": "resources.title"
-      },
-      {
-        "name": "image",
-        "label": "Image",
-        "type": "image",
-        "default": {
-          "src": "",
-          "alt": ""
-        },
-        "id": "resources.image"
-      },
-      {
-        "name": "url",
-        "label": "URL",
-        "type": "url",
-        "default": {
-          "content_id": null,
-          "href": "#",
-          "type": "EXTERNAL"
-        },
-        "supported_types": [
-          "EXTERNAL",
-          "CONTENT"
-        ],
-        "id": "resources.url"
-      }
-    ],
-    "default": [
-      {
-        "category": "EBOOK",
-        "title": "Get Started With Generative AI on AWS With Confidence",
-        "image": {
-          "src": "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80",
-          "alt": "Generative AI on AWS"
-        },
-        "url": {
-          "content_id": null,
-          "href": "#",
-          "type": "EXTERNAL"
-        }
-      },
-      {
-        "category": "BLOG",
-        "title": "Myridius at AWS re:Invent 2024 – Cloud Innovation Leadership",
-        "image": {
-          "src": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80",
-          "alt": "AWS re:Invent 2024"
-        },
-        "url": {
-          "content_id": null,
-          "href": "#",
-          "type": "EXTERNAL"
-        }
-      },
-      {
-        "category": "EBOOK",
-        "title": "How AI, Data, and CRM Power Smarter Product Recommendations",
-        "image": {
-          "src": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-          "alt": "AI Data and CRM"
-        },
-        "url": {
-          "content_id": null,
-          "href": "#",
-          "type": "EXTERNAL"
-        }
-      }
-    ],
-    "id": "resources"
-  }
-]
+    "url" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
+    }
+  }, {
+    "category" : "BLOG",
+    "title" : "Myridius at AWS re:Invent 2024 – Cloud Innovation Leadership",
+    "image" : {
+      "src" : "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80",
+      "alt" : "AWS re:Invent 2024"
+    },
+    "url" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
+    }
+  }, {
+    "category" : "EBOOK",
+    "title" : "How AI, Data, and CRM Power Smarter Product Recommendations",
+    "image" : {
+      "src" : "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      "alt" : "AI Data and CRM"
+    },
+    "url" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
+    }
+  } ]
+} ]

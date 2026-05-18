@@ -5,8 +5,8 @@
   "required" : false,
   "locked" : false,
   "allow_new_line" : false,
-  "display_width" : null,
   "type" : "text",
+  "display_width" : null,
   "default" : "partners"
 }, {
   "id" : "badge",
@@ -15,8 +15,8 @@
   "required" : false,
   "locked" : false,
   "allow_new_line" : false,
-  "display_width" : null,
   "type" : "text",
+  "display_width" : null,
   "default" : "PARTNERS"
 }, {
   "id" : "title",
@@ -25,8 +25,8 @@
   "required" : false,
   "locked" : false,
   "allow_new_line" : false,
-  "display_width" : null,
   "type" : "text",
+  "display_width" : null,
   "default" : "A partner ecosystem aligned\nto your results"
 }, {
   "id" : "description",
@@ -35,8 +35,8 @@
   "required" : false,
   "locked" : false,
   "allow_new_line" : false,
-  "display_width" : null,
   "type" : "text",
+  "display_width" : null,
   "default" : "The best financial services outcomes aren’t built on single platforms. Our ecosystem ensures every partner works toward your business results."
 }, {
   "id" : "link_text",
@@ -45,8 +45,8 @@
   "required" : false,
   "locked" : false,
   "allow_new_line" : false,
-  "display_width" : null,
   "type" : "text",
+  "display_width" : null,
   "default" : "Partner Approach"
 }, {
   "id" : "link_url",
@@ -55,8 +55,8 @@
   "required" : false,
   "locked" : false,
   "supported_types" : [ "EXTERNAL", "CONTENT" ],
-  "display_width" : null,
   "type" : "url",
+  "display_width" : null,
   "default" : {
     "content_id" : null,
     "href" : "#",
@@ -81,8 +81,8 @@
     "required" : false,
     "locked" : false,
     "allow_new_line" : false,
-    "display_width" : null,
     "type" : "text",
+    "display_width" : null,
     "default" : "AWS"
   }, {
     "id" : "partners.logo",
@@ -93,8 +93,8 @@
     "responsive" : false,
     "resizable" : false,
     "show_loading" : false,
-    "display_width" : null,
     "type" : "image",
+    "display_width" : null,
     "default" : {
       "src" : "",
       "alt" : null,
@@ -105,30 +105,30 @@
     "id" : "partners.logo_width",
     "name" : "logo_width",
     "label" : "Logo width (px)",
+    "help_text" : "Optional. Set a pixel width for this logo. Leave empty for natural width.",
     "required" : false,
     "locked" : false,
     "allow_new_line" : false,
     "type" : "text",
     "display_width" : null,
-    "help_text" : "Optional. Set a pixel width for this logo. Leave empty for natural width.",
     "default" : ""
   }, {
     "id" : "partners.logo_height",
     "name" : "logo_height",
     "label" : "Logo height (px)",
+    "help_text" : "Optional. Set a pixel height for this logo. Leave empty for natural height.",
     "required" : false,
     "locked" : false,
     "allow_new_line" : false,
     "type" : "text",
     "display_width" : null,
-    "help_text" : "Optional. Set a pixel height for this logo. Leave empty for natural height.",
     "default" : ""
   } ],
   "tab" : "CONTENT",
   "expanded" : false,
   "group_occurrence_meta" : null,
-  "display_width" : null,
   "type" : "group",
+  "display_width" : null,
   "default" : [ {
     "partner_name" : "Prove",
     "logo" : {

@@ -166,7 +166,7 @@
   display: none;
 }
 
-/* Accordion Cards */
+/* Accordion cards — single horizontal row, bottom-aligned (Figma Journey Card Matrix) */
 .evoq-journey__cards {
   display: flex;
   flex-direction: row;
@@ -174,7 +174,36 @@
   gap: 24px;
   align-items: flex-end;
   justify-content: flex-start;
-  min-height: 500px;
+  width: max-content;
+  max-width: none;
+  min-height: 480px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1025px) {
+  .evoq-journey__cards-viewport {
+    overflow-x: visible;
+    overflow-y: visible;
+  }
+
+  .evoq-journey__cards-slider {
+    width: 100%;
+  }
+
+  .evoq-journey__cards {
+    width: 100%;
+    max-width: var(--evoq-content-max, 1200px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .evoq-journey__card,
+  .evoq-journey__card-content,
+  .evoq-journey__card-description,
+  .evoq-journey__card-orbit {
+    transition: none;
+  }
 }
 
 .evoq-journey__card {
@@ -184,24 +213,37 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 16px 24px 24px;
-  cursor: pointer;
+  padding: 16px;
+  cursor: default;
+  outline: none;
   width: 180px;
-  min-height: 340px;
   height: 340px;
+  flex: 0 0 auto;
   flex-shrink: 0;
-  opacity: 0.9;
+  box-shadow: 0 4px 20px 0 rgba(7, 20, 23, 0.2);
+  background-color: #0c2226;
+  background-image: var(--journey-card-gradient, linear-gradient(186deg, #0c2226 0%, #194247 100%));
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-              height 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-              opacity 0.35s ease;
+  transition:
+    width 0.55s cubic-bezier(0.33, 1, 0.68, 1),
+    height 0.55s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.evoq-journey__card:focus-visible {
+  box-shadow: 0 4px 20px 0 rgba(7, 20, 23, 0.2), 0 0 0 2px var(--evoq-green, #52e081);
+}
+
+.evoq-journey__card[data-expanded='true'] {
+  width: 384px;
+  height: 480px;
 }
 
 /* Optional CMS photo over card (see fields: background_image) */
 .evoq-journey__card--has-bg {
   background-color: #0c2226;
+  background-image: var(--journey-card-bg);
 }
 
 .evoq-journey__card--has-bg::before {
@@ -227,6 +269,19 @@
   z-index: 0;
   overflow: hidden;
   border-radius: inherit;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.45s cubic-bezier(0.33, 1, 0.68, 1),
+    visibility 0.45s step-end;
+}
+
+.evoq-journey__card[data-expanded='true'] .evoq-journey__card-orbit {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.45s cubic-bezier(0.33, 1, 0.68, 1) 0.08s,
+    visibility 0s;
 }
 
 .evoq-journey__card-orbit svg {
@@ -240,19 +295,19 @@
   opacity: 0.85;
 }
 
-.evoq-journey__card--active {
-  width: 384px;
-  min-height: 480px;
-  height: 480px;
-  opacity: 1;
-}
-
 .evoq-journey__card-content {
   position: relative;
   z-index: 1;
-  display: flex;
-  flex-direction: column;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto 0fr;
   gap: 8px;
+  transition: grid-template-rows 0.55s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.evoq-journey__card[data-expanded='true'] .evoq-journey__card-content {
+  grid-template-rows: auto auto 1fr;
 }
 
 .evoq-journey__card-subtitle {
@@ -270,10 +325,11 @@
   font-weight: 500;
   color: var(--evoq-mint-pale, #ECFAE5);
   margin: 0;
-  transition: color 0.3s ease;
+  line-height: 1.75rem;
+  transition: color 0.45s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
-.evoq-journey__card--active .evoq-journey__card-title {
+.evoq-journey__card[data-expanded='true'] .evoq-journey__card-title {
   color: var(--evoq-green, #52E081);
 }
 
@@ -281,24 +337,23 @@
   font-size: 16px;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.95);
-  line-height: 1.55;
+  line-height: 24px;
+  margin: 0;
   min-height: 0;
-  max-height: 0;
   overflow: hidden;
   opacity: 0;
-  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-              opacity 0.4s ease 0.1s,
-              min-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  visibility: hidden;
+  transition:
+    opacity 0.45s cubic-bezier(0.33, 1, 0.68, 1) 0.06s,
+    visibility 0.45s step-end 0.06s;
 }
 
-.evoq-journey__card--active .evoq-journey__card-description {
-  min-height: 120px;
-  max-height: 300px;
+.evoq-journey__card[data-expanded='true'] .evoq-journey__card-description {
   opacity: 1;
-}
-
-.evoq-journey__card:not(.evoq-journey__card--active) .evoq-journey__card-description {
-  display: none;
+  visibility: visible;
+  transition:
+    opacity 0.45s cubic-bezier(0.33, 1, 0.68, 1) 0.12s,
+    visibility 0s 0.12s;
 }
 
 .evoq-journey__cards-toolbar {
@@ -374,37 +429,105 @@
 }
 
 /* Responsive - Tablet */
-@media (max-width: 1024px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
   .evoq-journey__stages-bar {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px;
   }
 
+  .evoq-journey__cards-viewport {
+    overflow-x: auto;
+  }
+
   .evoq-journey__cards {
-    scroll-snap-type: x mandatory;
-    min-height: 430px;
+    scroll-snap-type: x proximity;
+    align-items: flex-end;
+    justify-content: flex-start;
+    width: max-content;
+    min-height: 480px;
     padding-bottom: 16px;
   }
 
   .evoq-journey__card {
     scroll-snap-align: start;
-    min-width: 170px;
-    width: 170px;
-    min-height: 320px;
-    height: 320px;
+    width: 180px;
+    height: 340px;
   }
 
-  .evoq-journey__card--active {
-    width: 300px;
-    min-height: 420px;
-    height: 420px;
+  .evoq-journey__card[data-expanded='true'] {
+    width: 384px;
+    height: 480px;
   }
 
+  /* Slider nav — circular prev/next on card track (mobile carousel pattern) */
+  .evoq-journey__cards-viewport {
+    margin: 0 -24px;
+    padding: 0 24px;
+    width: auto;
+    scroll-padding-left: 24px;
+    scroll-padding-right: 24px;
+    scroll-snap-type: x mandatory;
+  }
+
+  .evoq-journey__cards {
+    gap: 15px;
+  }
+
+  .evoq-journey__card {
+    flex-shrink: 0;
+  }
+
+  .evoq-journey__cards-toolbar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: none;
+    margin: 0;
+    padding: 0 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  .evoq-journey__cards-index {
+    display: none;
+  }
+
+  .evoq-journey__cards-slider--enabled .evoq-journey__cards-nav {
+    display: inline-flex;
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    border: 1px solid rgba(82, 224, 129, 0.45);
+    background: rgba(7, 20, 23, 0.9);
+    color: #52e081;
+  }
+
+  .evoq-journey__cards-slider--enabled .evoq-journey__cards-nav:hover,
+  .evoq-journey__cards-slider--enabled .evoq-journey__cards-nav:focus-visible {
+    color: #7ef0a8;
+  }
+
+  .evoq-journey__cards-slider--enabled .evoq-journey__cards-nav-icon {
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+
+  .evoq-journey__cards-nav--prev {
+    margin-left: -10px;
+  }
+
+  .evoq-journey__cards-nav--next {
+    margin-right: -10px;
+  }
 }
 
 /* Responsive - Mobile (Figma ~393px column) */
-@media (max-width: 767px) {
+@media only screen and (max-width: 767px) {
   .evoq-journey {
     padding: 64px 20px;
   }
@@ -542,36 +665,39 @@
     flex-wrap: nowrap;
     align-items: flex-end;
     justify-content: flex-start;
+    width: max-content;
     gap: 15px;
-    min-height: 420px;
-    padding-bottom: 0;
+    min-height: 400px;
+    padding: 0 0 28px;
     scroll-snap-type: none;
   }
 
   .evoq-journey__card {
-    width: 156px;
-    min-width: 156px;
-    min-height: 275px;
-    height: 275px;
-    padding: 20px 16px;
-    border-radius: 6.875px;
-    opacity: 0.92;
+    width: min(88vw, 280px);
+    height: 280px;
+    min-height: 0;
+    padding: 16px;
+    border-radius: 14px;
     flex-shrink: 0;
     scroll-snap-align: start;
     scroll-snap-stop: normal;
     box-sizing: border-box;
-    transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-      min-height 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-      height 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-      opacity 0.35s ease;
+    align-self: flex-end;
   }
 
-  .evoq-journey__card--active {
-    width: min(304px, calc(100vw - 44px));
-    min-width: min(304px, calc(100vw - 44px));
-    min-height: 400px;
-    height: 400px;
-    opacity: 1;
+  .evoq-journey__card[data-expanded='true'] {
+    width: min(92vw, 340px);
+    height: auto;
+    min-height: 360px;
+    align-self: flex-end;
+  }
+
+  .evoq-journey__card[data-expanded='true'] .evoq-journey__card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex: 1;
+    min-height: 0;
   }
 
   .evoq-journey__card-orbit svg {
@@ -587,7 +713,7 @@
     color: #ecfae5;
   }
 
-  .evoq-journey__card--active .evoq-journey__card-title {
+  .evoq-journey__card[data-expanded='true'] .evoq-journey__card-title {
     color: #52e081;
   }
 
@@ -603,14 +729,9 @@
 
   .evoq-journey__card-description {
     font-size: 14px;
-    line-height: 16px;
+    line-height: 20px;
     font-weight: 400;
     color: rgba(255, 255, 255, 0.6);
-  }
-
-  .evoq-journey__card--active .evoq-journey__card-description {
-    min-height: 68px;
-    max-height: none;
   }
 
   .evoq-journey__card-content {
@@ -669,7 +790,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1025px) {
   .evoq-journey__cards-toolbar {
     position: absolute;
     left: 0;
@@ -752,10 +873,11 @@
 .evoq-journey.evoq-section--inview .evoq-journey__card {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-    width 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-    min-height 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    width 0.55s cubic-bezier(0.33, 1, 0.68, 1),
+    height 0.55s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
 .evoq-journey.evoq-section--inview .evoq-journey__card:nth-child(1) { transition-delay: 0.12s; }

@@ -255,7 +255,7 @@
 }
 
 /* Tablet — keep tree; ease transition from desktop */
-@media (max-width: 1024px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
   .evoq-shift {
     --evoq-section-pad-x: 32px;
     --evoq-section-pad-y: 80px;
@@ -289,7 +289,7 @@
 }
 
 /* Mobile — narrow spine + scaled type; minmax(0,1fr) prevents grid blowout */
-@media (max-width: 767px) {
+@media only screen and (max-width: 767px) {
   .evoq-shift {
     --evoq-title-size: clamp(1.5rem, 1.1rem + 2.2vw, 1.875rem);
     --evoq-title-lh: 1.12;
@@ -409,7 +409,7 @@
   }
 }
 
-@media (max-width: 380px) {
+@media only screen and (max-width: 767px) {
   .evoq-shift {
     --evoq-section-pad-x: 14px;
   }

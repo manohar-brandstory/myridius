@@ -220,16 +220,6 @@
   cursor: default;
 }
 
-@media (min-width: 1201px) {
-  .evoq-stats__stat-item {
-    border-right: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .evoq-stats__stat-item:last-child {
-    border-right: 0;
-  }
-}
-
 .evoq-stats__stat-front,
 .evoq-stats__stat-back {
   position: absolute;
@@ -425,7 +415,7 @@
   }
 }
 
-@media (max-width: 1200px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
   .evoq-stats {
     padding: 80px 24px;
   }
@@ -449,7 +439,7 @@
   }
 }
 
-@media (max-width: 767px) {
+@media only screen and (max-width: 767px) {
   .evoq-stats {
     padding: 72px 24px;
   }

@@ -7,8 +7,8 @@
 
   function slidesToShow() {
     var w = window.innerWidth;
-    if (w <= 768) return 1;
-    if (w <= 1023) return 2;
+    if (w <= 767) return 1;
+    if (w <= 1024) return 2;
     return 3;
   }
 
@@ -51,9 +51,14 @@
     }
   }
 
-  function initCarousel(carousel) {
-    if (!carousel.classList.contains("is-slider")) return;
+  function shouldUseSlider(carousel) {
+    var n = parseInt(carousel.getAttribute("data-total"), 10) || 0;
+    if (!n) return false;
+    if (window.matchMedia("(max-width: 1024px)").matches) return n > 1;
+    return n > 3;
+  }
 
+  function initCarousel(carousel) {
     var track = carousel.querySelector("[data-applied-ins-track]");
     var viewport = carousel.querySelector("[data-applied-ins-viewport]");
     var prev = carousel.querySelector("[data-applied-ins-prev]");
@@ -63,9 +68,30 @@
     var mobCur = carousel.querySelector("[data-applied-ins-mob-cur]");
     var mobTotal = carousel.querySelector("[data-applied-ins-mob-total]");
 
-    if (!track || !viewport || !prev || !next) return;
+    if (!track || !viewport) return;
 
     var n = readRealCount(carousel, track);
+
+    function syncSliderMode() {
+      var active = shouldUseSlider(carousel);
+      carousel.classList.toggle("is-slider", active);
+      if (!active) {
+        removeClones(track);
+        track.style.transform = "";
+        track.style.transition = "";
+        if (mobCur) mobCur.textContent = pad2(1);
+        if (mobTotal) mobTotal.textContent = pad2(n || 1);
+        return false;
+      }
+      return true;
+    }
+
+    if (!syncSliderMode()) return;
+
+    var prevBtn = prev || mobPrev;
+    var nextBtn = next || mobNext;
+    if (!prevBtn || !nextBtn) return;
+
     var extendedIndex = 0;
     var isSnapping = false;
 
@@ -168,21 +194,22 @@
     function onResize() {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(function () {
+        if (!syncSliderMode()) return;
         rebuildClonesAndPosition();
       }, 120);
     }
 
-    prev.addEventListener("click", onPrevClick);
-    next.addEventListener("click", onNextClick);
-    if (mobPrev) mobPrev.addEventListener("click", onPrevClick);
-    if (mobNext) mobNext.addEventListener("click", onNextClick);
+    prevBtn.addEventListener("click", onPrevClick);
+    nextBtn.addEventListener("click", onNextClick);
+    if (mobPrev && mobPrev !== prevBtn) mobPrev.addEventListener("click", onPrevClick);
+    if (mobNext && mobNext !== nextBtn) mobNext.addEventListener("click", onNextClick);
     track.addEventListener("transitionend", onTransitionEnd);
     window.addEventListener("resize", onResize);
 
-    prev.removeAttribute("disabled");
-    next.removeAttribute("disabled");
-    prev.disabled = false;
-    next.disabled = false;
+    prevBtn.removeAttribute("disabled");
+    nextBtn.removeAttribute("disabled");
+    prevBtn.disabled = false;
+    nextBtn.disabled = false;
 
     rebuildClonesAndPosition();
   }

@@ -357,7 +357,7 @@
 /* ═══════════════════════════════════════════════════════
    Responsive – Tablet (≤ 1024px)
    ═══════════════════════════════════════════════════════ */
-@media (max-width: 1024px) {
+@media only screen and (max-width: 1024px) {
   .svc-evoq {
     padding: 80px 24px 40px;
   }

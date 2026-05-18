@@ -2,13 +2,13 @@
   "id" : "section_id",
   "name" : "section_id",
   "label" : "Section ID",
+  "help_text" : "Unique HTML ID for this section (used for anchor links).",
   "required" : false,
   "locked" : false,
   "allow_new_line" : false,
   "type" : "text",
   "display_width" : null,
-  "default" : "evoq-model",
-  "help_text" : "Unique HTML ID for this section (used for anchor links)."
+  "default" : "evoq-model"
 }, {
   "id" : "eyebrow_text",
   "name" : "eyebrow_text",

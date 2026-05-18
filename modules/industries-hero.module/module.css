@@ -159,7 +159,24 @@
   .hero__actions{ flex-direction: row; align-items:center; }
 }
 
-@media (max-width: 1024px){
+
+/* Mobile + tablet shared layout (≤1024px) */
+@media only screen and (max-width: 1024px) {
+.hero{ padding-bottom: 96px; }
+  /* Keep BFS desktop/tablet hero title size consistent */
+  .hero__title{ font-size: 72px; }
+  /* Mobile/tablet stacking order to match updated design:
+     image card first, content second. */
+  .hero__grid{
+    display:flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+  .hero__media{ order: 1; }
+  .hero__content{ order: 2; }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px){
   .hero{ padding-bottom: 96px; }
   /* Keep BFS desktop/tablet hero title size consistent */
   .hero__title{ font-size: 72px; }
@@ -174,7 +191,7 @@
   .hero__content{ order: 2; }
 }
 
-@media (max-width: 768px){
+@media only screen and (max-width: 767px){
   .hero{ padding: 0 var(--gutter) 64px; }
   .hero__title{ font-size: clamp(36px, 8vw, 48px); }
   .hero__desc{ font-size: 16px; margin-bottom: 32px; }

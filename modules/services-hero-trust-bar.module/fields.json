@@ -1,0 +1,84 @@
+[ {
+  "id" : "section_id",
+  "name" : "section_id",
+  "label" : "Section ID",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "services-hero-trust-bar"
+}, {
+  "id" : "aria_label",
+  "name" : "aria_label",
+  "label" : "Accessible name (screen readers)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Partner credentials"
+}, {
+  "id" : "badges",
+  "name" : "badges",
+  "label" : "Trust badges",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 6,
+    "sorting_label_field" : "badges.badge_text",
+    "default" : 3
+  },
+  "children" : [ {
+    "id" : "badges.icon",
+    "name" : "icon",
+    "label" : "Badge image",
+    "help_text" : "For production, upload the official PNG from AWS Partner Central (APN Badge Manager). Defaults are theme placeholders only.",
+    "required" : false,
+    "locked" : false,
+    "responsive" : false,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "",
+      "alt" : ""
+    }
+  }, {
+    "id" : "badges.badge_text",
+    "name" : "badge_text",
+    "label" : "Caption",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "icon" : {
+      "src" : "{{ get_asset_url('/Myridius Theme V1/images/services-trust-advanced-tier.svg') }}",
+      "alt" : "Advanced Tier Services Partner badge"
+    },
+    "badge_text" : "Advanced Tier Services Partner"
+  }, {
+    "icon" : {
+      "src" : "{{ get_asset_url('/Myridius Theme V1/images/services-trust-well-architected.svg') }}",
+      "alt" : "Well-Architected Program Partner badge"
+    },
+    "badge_text" : "Well-Architected Program Partner"
+  }, {
+    "icon" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "badge_text" : "15+ Years Experience with AWS"
+  } ]
+} ]

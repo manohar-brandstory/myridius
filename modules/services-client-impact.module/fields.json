@@ -1,303 +1,257 @@
-[
-  {
-    "id": "section_id",
-    "name": "section_id",
-    "label": "Section ID",
-    "required": false,
-    "locked": false,
-    "allow_new_line": false,
-    "display_width": null,
-    "type": "text",
-    "default": "client-impact"
-  },
-  {
-    "id": "badge_text",
-    "name": "badge_text",
-    "label": "Badge text",
-    "required": false,
-    "locked": false,
-    "allow_new_line": false,
-    "display_width": null,
-    "type": "text",
-    "default": "CLIENT IMPACT"
-  },
-  {
-    "id": "cta_text",
-    "name": "cta_text",
-    "label": "CTA link text",
-    "required": false,
-    "locked": false,
-    "allow_new_line": false,
-    "display_width": null,
-    "type": "text",
-    "default": "Know more"
-  },
-  {
-    "id": "cta_url",
-    "name": "cta_url",
-    "label": "CTA link",
-    "required": false,
-    "locked": false,
-    "supported_types": [
-      "EXTERNAL",
-      "CONTENT"
-    ],
-    "display_width": null,
-    "type": "url",
-    "default": {
-      "content_id": null,
-      "href": "#",
-      "type": "EXTERNAL"
-    }
-  },
-  {
-    "id": "challenge_label",
-    "name": "challenge_label",
-    "label": "Challenge label",
-    "required": false,
-    "locked": false,
-    "allow_new_line": false,
-    "display_width": null,
-    "type": "text",
-    "default": "The Challenge"
-  },
-  {
-    "id": "outcomes_label",
-    "name": "outcomes_label",
-    "label": "Outcomes label",
-    "required": false,
-    "locked": false,
-    "allow_new_line": false,
-    "display_width": null,
-    "type": "text",
-    "default": "Outcomes"
-  },
-  {
-    "id": "stories",
-    "name": "stories",
-    "label": "Impact stories",
-    "required": false,
-    "locked": false,
-    "occurrence": {
-      "min": 1,
-      "max": 10,
-      "sorting_label_field": null,
-      "default": 4
-    },
-    "children": [
-      {
-        "id": "stories.category",
-        "name": "category",
-        "label": "Category",
-        "required": false,
-        "locked": false,
-        "allow_new_line": false,
-        "display_width": null,
-        "type": "text",
-        "default": "Category"
-      },
-      {
-        "id": "stories.company",
-        "name": "company",
-        "label": "Company name",
-        "required": false,
-        "locked": false,
-        "allow_new_line": false,
-        "display_width": null,
-        "type": "text",
-        "default": "Company name"
-      },
-      {
-        "id": "stories.metric",
-        "name": "metric",
-        "label": "Main metric / title",
-        "required": false,
-        "locked": false,
-        "allow_new_line": false,
-        "display_width": null,
-        "type": "text",
-        "default": "Metric headline"
-      },
-      {
-        "id": "stories.description",
-        "name": "description",
-        "label": "Description",
-        "required": false,
-        "locked": false,
-        "display_width": null,
-        "type": "richtext",
-        "default": "<p>Description of the engagement.</p>"
-      },
-      {
-        "id": "stories.challenge",
-        "name": "challenge",
-        "label": "Challenge",
-        "required": false,
-        "locked": false,
-        "display_width": null,
-        "type": "richtext",
-        "default": "<p>The challenge faced.</p>"
-      },
-      {
-        "id": "stories.outcomes",
-        "name": "outcomes",
-        "label": "Outcomes",
-        "required": false,
-        "locked": false,
-        "occurrence": {
-          "min": 0,
-          "max": 10,
-          "sorting_label_field": null,
-          "default": 4
-        },
-        "children": [
-          {
-            "id": "outcomes.text",
-            "name": "text",
-            "label": "Outcome text",
-            "required": false,
-            "locked": false,
-            "allow_new_line": false,
-            "display_width": null,
-            "type": "text",
-            "default": "Outcome description"
-          }
-        ],
-        "tab": "CONTENT",
-        "expanded": false,
-        "group_occurrence_meta": null,
-        "display_width": null,
-        "type": "group"
-      },
-      {
-        "id": "stories.image",
-        "name": "image",
-        "label": "Background image",
-        "required": false,
-        "locked": false,
-        "responsive": false,
-        "resizable": true,
-        "show_loading": false,
-        "display_width": null,
-        "type": "image",
-        "default": {
-          "src": "",
-          "alt": null,
-          "size_type": null,
-          "width": null,
-          "height": null,
-          "max_width": null,
-          "max_height": null,
-          "loading": "disabled"
-        }
-      }
-    ],
-    "tab": "CONTENT",
-    "expanded": false,
-    "group_occurrence_meta": null,
-    "display_width": null,
-    "type": "group",
-    "default": [
-      {
-        "category": "Fraud & Financial Crime",
-        "company": "a 3rd Largest US Credit Card Brand",
-        "metric": "Real-time fraud intelligence at scale",
-        "description": "<p>Event-driven, ML-powered fraud detection platform processing 4,000+ transactions per second for one of America's largest credit card issuers.</p>",
-        "challenge": "<p>A top-3 US credit card brand needed to combat increasingly sophisticated fraud at scale while migrating 50TB of legacy data without disrupting live transaction processing for 40M+ active cardholders.</p>",
-        "outcomes": [
-          {
-            "text": "$10M+ annual fraud losses eliminated"
-          },
-          {
-            "text": "42% faster case resolution"
-          },
-          {
-            "text": ">90% alert accuracy"
-          },
-          {
-            "text": "Real-time Kafka streaming and ML-based scoring on AWS"
-          }
-        ],
-        "image": {
-          "src": "https://images.unsplash.com/photo-1430276084627-789fe55a6da0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "alt": ""
-        }
-      },
-      {
-        "category": "AIOps & Observability",
-        "company": "a Global Leader in Live Entertainment & Ticketing",
-        "metric": "AIOps-driven infrastructure excellence for global event operations",
-        "description": "<p>Comprehensive AIOps-powered monitoring framework on AWS serving millions of fans across 40+ countries.</p>",
-        "challenge": "<p>A global live entertainment company managing tens of thousands of events annually struggled with CMDB performance bottlenecks and limited monitoring capabilities on AWS, risking disruption to mission-critical operations.</p>",
-        "outcomes": [
-          {
-            "text": "99.95% system uptime achieved"
-          },
-          {
-            "text": "50% reduction in MTTR"
-          },
-          {
-            "text": "AI-driven alert correlation across DataDog, BigPanda, and CloudWatch"
-          },
-          {
-            "text": "Proactive threshold monitoring across global infrastructure"
-          }
-        ],
-        "image": {
-          "src": "https://images.unsplash.com/photo-1667984390553-7f439e6ae401?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "alt": ""
-        }
-      },
-      {
-        "category": "Digital Guest Experience",
-        "company": "an Ultra-Luxury Cruise Line",
-        "metric": "Seamless luxury at every touchpoint",
-        "description": "<p>Advanced self-service portals and custom applications connecting every stage of the guest journey with complex third-party integrations.</p>",
-        "challenge": "<p>An ultra-luxury cruise line needed to digitally enable the entire guest journey with self-service portals and complex integrations across shoreside and shipboard systems, while maintaining exacting luxury brand standards.</p>",
-        "outcomes": [
-          {
-            "text": "New digital revenue streams unlocked — excursions, dining, spa"
-          },
-          {
-            "text": "Seamless connected experience from pre-voyage to onboard"
-          },
-          {
-            "text": "Unified digital platform across all guest touchpoints"
-          },
-          {
-            "text": "Complex third-party integrations delivered at luxury-grade standard"
-          }
-        ],
-        "image": {
-          "src": "https://images.unsplash.com/photo-1533234944761-2f5337579079?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "alt": ""
-        }
-      },
-      {
-        "category": "Manufacturing & Industrial",
-        "company": "an International Chemical Waste Recycling Technology Leader",
-        "metric": "Modernizing enterprise infrastructure through cloud integration",
-        "description": "<p>Cloud infrastructure and legacy modernization enabling real-time operational visibility and revenue validation for distributed recycling operations.</p>",
-        "challenge": "<p>Outdated technology stack, zero field visibility, and inability to validate solvent recovery for revenue recognition.</p>",
-        "outcomes": [
-          {
-            "text": "500,000+ hourly data records processed"
-          },
-          {
-            "text": "Accurate revenue validation via real-time monitoring"
-          },
-          {
-            "text": "Full field visibility across distributed operations"
-          },
-          {
-            "text": "Critical technical debt eliminated with future-proof architecture"
-          }
-        ],
-        "image": {
-          "src": "https://images.unsplash.com/photo-1768938360622-d5214392ba09?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-          "alt": ""
-        }
-      }
-    ]
+[ {
+  "id" : "section_id",
+  "name" : "section_id",
+  "label" : "Section ID",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "client-impact"
+}, {
+  "id" : "badge_text",
+  "name" : "badge_text",
+  "label" : "Badge text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "CLIENT IMPACT"
+}, {
+  "id" : "cta_text",
+  "name" : "cta_text",
+  "label" : "CTA link text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Know more"
+}, {
+  "id" : "cta_url",
+  "name" : "cta_url",
+  "label" : "CTA link",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT" ],
+  "type" : "url",
+  "display_width" : null,
+  "default" : {
+    "content_id" : null,
+    "href" : "#",
+    "type" : "EXTERNAL"
   }
-]
+}, {
+  "id" : "challenge_label",
+  "name" : "challenge_label",
+  "label" : "Challenge label",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "The Challenge"
+}, {
+  "id" : "outcomes_label",
+  "name" : "outcomes_label",
+  "label" : "Outcomes label",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Outcomes"
+}, {
+  "id" : "stories",
+  "name" : "stories",
+  "label" : "Impact stories",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 10,
+    "sorting_label_field" : null,
+    "default" : 4
+  },
+  "children" : [ {
+    "id" : "stories.category",
+    "name" : "category",
+    "label" : "Category",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Category"
+  }, {
+    "id" : "stories.company",
+    "name" : "company",
+    "label" : "Company name",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Company name"
+  }, {
+    "id" : "stories.metric",
+    "name" : "metric",
+    "label" : "Main metric / title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Metric headline"
+  }, {
+    "id" : "stories.description",
+    "name" : "description",
+    "label" : "Description",
+    "required" : false,
+    "locked" : false,
+    "type" : "richtext",
+    "display_width" : null,
+    "default" : "<p>Description of the engagement.</p>"
+  }, {
+    "id" : "stories.challenge",
+    "name" : "challenge",
+    "label" : "Challenge",
+    "required" : false,
+    "locked" : false,
+    "type" : "richtext",
+    "display_width" : null,
+    "default" : "<p>The challenge faced.</p>"
+  }, {
+    "id" : "stories.outcomes",
+    "name" : "outcomes",
+    "label" : "Outcomes",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : 0,
+      "max" : 10,
+      "sorting_label_field" : null,
+      "default" : 4
+    },
+    "children" : [ {
+      "id" : "outcomes.text",
+      "name" : "text",
+      "label" : "Outcome text",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : "Outcome description"
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null
+  }, {
+    "id" : "stories.image",
+    "name" : "image",
+    "label" : "Background image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : false,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "",
+      "alt" : null,
+      "size_type" : null,
+      "width" : null,
+      "height" : null,
+      "max_width" : null,
+      "max_height" : null,
+      "loading" : "disabled"
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "category" : "Fraud & Financial Crime",
+    "company" : "a 3rd Largest US Credit Card Brand",
+    "metric" : "Real-time fraud intelligence at scale",
+    "description" : "<p>Event-driven, ML-powered fraud detection platform processing 4,000+ transactions per second for one of America's largest credit card issuers.</p>",
+    "challenge" : "<p>A top-3 US credit card brand needed to combat increasingly sophisticated fraud at scale while migrating 50TB of legacy data without disrupting live transaction processing for 40M+ active cardholders.</p>",
+    "outcomes" : [ {
+      "text" : "$10M+ annual fraud losses eliminated"
+    }, {
+      "text" : "42% faster case resolution"
+    }, {
+      "text" : ">90% alert accuracy"
+    }, {
+      "text" : "Real-time Kafka streaming and ML-based scoring on AWS"
+    } ],
+    "image" : {
+      "src" : "https://images.unsplash.com/photo-1430276084627-789fe55a6da0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "alt" : ""
+    }
+  }, {
+    "category" : "AIOps & Observability",
+    "company" : "a Global Leader in Live Entertainment & Ticketing",
+    "metric" : "AIOps-driven infrastructure excellence for global event operations",
+    "description" : "<p>Comprehensive AIOps-powered monitoring framework on AWS serving millions of fans across 40+ countries.</p>",
+    "challenge" : "<p>A global live entertainment company managing tens of thousands of events annually struggled with CMDB performance bottlenecks and limited monitoring capabilities on AWS, risking disruption to mission-critical operations.</p>",
+    "outcomes" : [ {
+      "text" : "99.95% system uptime achieved"
+    }, {
+      "text" : "50% reduction in MTTR"
+    }, {
+      "text" : "AI-driven alert correlation across DataDog, BigPanda, and CloudWatch"
+    }, {
+      "text" : "Proactive threshold monitoring across global infrastructure"
+    } ],
+    "image" : {
+      "src" : "https://images.unsplash.com/photo-1667984390553-7f439e6ae401?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "alt" : ""
+    }
+  }, {
+    "category" : "Digital Guest Experience",
+    "company" : "an Ultra-Luxury Cruise Line",
+    "metric" : "Seamless luxury at every touchpoint",
+    "description" : "<p>Advanced self-service portals and custom applications connecting every stage of the guest journey with complex third-party integrations.</p>",
+    "challenge" : "<p>An ultra-luxury cruise line needed to digitally enable the entire guest journey with self-service portals and complex integrations across shoreside and shipboard systems, while maintaining exacting luxury brand standards.</p>",
+    "outcomes" : [ {
+      "text" : "New digital revenue streams unlocked — excursions, dining, spa"
+    }, {
+      "text" : "Seamless connected experience from pre-voyage to onboard"
+    }, {
+      "text" : "Unified digital platform across all guest touchpoints"
+    }, {
+      "text" : "Complex third-party integrations delivered at luxury-grade standard"
+    } ],
+    "image" : {
+      "src" : "https://images.unsplash.com/photo-1533234944761-2f5337579079?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "alt" : ""
+    }
+  }, {
+    "category" : "Manufacturing & Industrial",
+    "company" : "an International Chemical Waste Recycling Technology Leader",
+    "metric" : "Modernizing enterprise infrastructure through cloud integration",
+    "description" : "<p>Cloud infrastructure and legacy modernization enabling real-time operational visibility and revenue validation for distributed recycling operations.</p>",
+    "challenge" : "<p>Outdated technology stack, zero field visibility, and inability to validate solvent recovery for revenue recognition.</p>",
+    "outcomes" : [ {
+      "text" : "500,000+ hourly data records processed"
+    }, {
+      "text" : "Accurate revenue validation via real-time monitoring"
+    }, {
+      "text" : "Full field visibility across distributed operations"
+    }, {
+      "text" : "Critical technical debt eliminated with future-proof architecture"
+    } ],
+    "image" : {
+      "src" : "https://images.unsplash.com/photo-1768938360622-d5214392ba09?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "alt" : ""
+    }
+  } ]
+} ]

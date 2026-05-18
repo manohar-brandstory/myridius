@@ -371,13 +371,13 @@
 /* ===================================================================
    Responsive
    =================================================================== */
-@media (min-width: 769px) {
+@media only screen and (min-width: 768px) {
   .svc-impact__body    { min-height: 480px; }
   .svc-impact__content { min-height: 260px; }
   .svc-impact__nav     { margin-top: 28px; }
 }
 
-@media (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .svc-impact {
     padding: 64px 16px;
   }

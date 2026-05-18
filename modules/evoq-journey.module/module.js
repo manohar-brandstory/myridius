@@ -1,6 +1,16 @@
 (function () {
+  'use strict';
+
   var sections = document.querySelectorAll('.evoq-journey');
   if (!sections.length) return;
+
+  var hoverMedia = window.matchMedia('(hover: hover) and (pointer: fine)');
+  var mobileMedia = window.matchMedia('only screen and (max-width: 767px)');
+  var tabletMedia = window.matchMedia(
+    'only screen and (min-width: 768px) and (max-width: 1024px)'
+  );
+  var carouselNavMedia = window.matchMedia('only screen and (max-width: 1024px)');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   function pad2(n) {
     var v = Math.max(0, parseInt(n, 10) || 0);
@@ -14,20 +24,67 @@
     return dy;
   }
 
+  function isMobileLayout() {
+    return mobileMedia.matches;
+  }
+
+  function useHoverExpand() {
+    return hoverMedia.matches && !isMobileLayout();
+  }
+
+  function expandOne(cards, target) {
+    for (var i = 0; i < cards.length; i++) {
+      if (cards[i] === target) {
+        cards[i].setAttribute('data-expanded', 'true');
+      } else {
+        cards[i].removeAttribute('data-expanded');
+      }
+    }
+  }
+
+  function expandAll(cards) {
+    for (var i = 0; i < cards.length; i++) {
+      cards[i].setAttribute('data-expanded', 'true');
+    }
+  }
+
+  function collapseAll(cards) {
+    for (var i = 0; i < cards.length; i++) {
+      cards[i].removeAttribute('data-expanded');
+    }
+  }
+
+  function scrollCardIntoViewport(viewport, card, smooth) {
+    if (!viewport || !card) return;
+    var pad = isMobileLayout() ? 20 : 0;
+    var vR = viewport.getBoundingClientRect();
+    var cR = card.getBoundingClientRect();
+    var delta = cR.left - vR.left - pad;
+    var nextLeft = viewport.scrollLeft + delta;
+    var useSmooth = smooth && !reduceMotion.matches;
+    viewport.scrollTo({
+      left: Math.max(0, nextLeft),
+      behavior: useSmooth ? 'smooth' : 'auto',
+    });
+  }
+
   sections.forEach(function (section) {
     var stages = section.querySelectorAll('.evoq-journey__stage');
-    var cards = section.querySelectorAll('.evoq-journey__card');
-    var cardsTrack = section.querySelector('.evoq-journey__cards');
+    var cardsContainer = section.querySelector('[data-evoq-journey-cards]');
+    var cards = cardsContainer
+      ? Array.prototype.slice.call(cardsContainer.querySelectorAll('[data-journey-card]'))
+      : [];
+    var cardsTrack = section.querySelector('[data-evoq-journey-track]');
     var cardsViewport = section.querySelector('.evoq-journey__cards-viewport');
     var cardsSlider = section.querySelector('.evoq-journey__cards-slider');
     var toolbar = section.querySelector('.evoq-journey__cards-toolbar');
-    var cardsCount = parseInt(cardsTrack && cardsTrack.getAttribute('data-card-count'), 10) || cards.length;
+    var cardsCount =
+      parseInt(cardsTrack && cardsTrack.getAttribute('data-card-count'), 10) || cards.length;
     var prevBtn = section.querySelector('.evoq-journey__cards-nav--prev');
     var nextBtn = section.querySelector('.evoq-journey__cards-nav--next');
     var indexCurrentEl = section.querySelector('[data-evoq-journey-index-current]');
     var indexTotalEl = section.querySelector('[data-evoq-journey-index-tot]');
-    var isMobile = window.matchMedia('(max-width: 767px)');
-    var isTabletOrMobile = window.matchMedia('(max-width: 1024px)');
+    var activeMobileIndex = 0;
 
     stages.forEach(function (stage) {
       stage.addEventListener('mouseenter', function () {
@@ -42,42 +99,87 @@
       });
     });
 
-    function expandCard(targetCard) {
-      cards.forEach(function (card) {
-        card.classList.remove('evoq-journey__card--active');
-      });
-      targetCard.classList.add('evoq-journey__card--active');
+    function applyCardMode() {
+      if (!cards.length) return;
+
+      if (isMobileLayout()) {
+        activeMobileIndex = 0;
+        if (reduceMotion.matches) {
+          expandAll(cards);
+        } else {
+          expandOne(cards, cards[0]);
+          window.requestAnimationFrame(function () {
+            window.requestAnimationFrame(function () {
+              scrollCardIntoViewport(cardsViewport, cards[0], false);
+            });
+          });
+        }
+      } else if (!useHoverExpand()) {
+        expandAll(cards);
+      } else {
+        collapseAll(cards);
+      }
     }
 
-    cards.forEach(function (card) {
-      card.addEventListener('mouseenter', function () {
-        if (!isMobile.matches) {
-          expandCard(card);
-        }
+    function onEnter(card) {
+      if (!useHoverExpand() || isMobileLayout()) return;
+      expandOne(cards, card);
+    }
+
+    function onLeaveHoverGroup(e) {
+      if (!useHoverExpand() || isMobileLayout()) return;
+      var related = e.relatedTarget;
+      if (related && cardsContainer && cardsContainer.contains(related)) return;
+      collapseAll(cards);
+    }
+
+    if (cardsContainer && cards.length) {
+      cardsContainer.addEventListener('mouseleave', onLeaveHoverGroup);
+
+      cards.forEach(function (card, idx) {
+        card.addEventListener('mouseenter', function () {
+          onEnter(card);
+        });
+        card.addEventListener('focus', function () {
+          onEnter(card);
+        });
+        card.addEventListener('focusout', onLeaveHoverGroup);
+
+        card.addEventListener('click', function () {
+          if (!isMobileLayout()) return;
+          if (card.getAttribute('data-expanded') === 'true') return;
+          activeMobileIndex = idx;
+          expandOne(cards, card);
+          window.requestAnimationFrame(function () {
+            window.requestAnimationFrame(function () {
+              scrollCardIntoViewport(cardsViewport, card, !reduceMotion.matches);
+            });
+          });
+        });
       });
 
-      card.addEventListener('click', function () {
-        if (isMobile.matches) {
-          if (card.classList.contains('evoq-journey__card--active')) return;
-          expandCard(card);
-        } else {
-          expandCard(card);
-        }
-      });
+      applyCardMode();
 
-      card.addEventListener('focusin', function () {
-        expandCard(card);
-      });
-    });
-
-    isMobile.addEventListener('change', function () {
-      cards.forEach(function (card) {
-        card.classList.remove('evoq-journey__card--active');
-      });
-      if (cards.length > 0) {
-        cards[0].classList.add('evoq-journey__card--active');
+      function onModeChange() {
+        applyCardMode();
       }
-    });
+
+      if (hoverMedia.addEventListener) {
+        hoverMedia.addEventListener('change', onModeChange);
+      } else if (hoverMedia.addListener) {
+        hoverMedia.addListener(onModeChange);
+      }
+      if (mobileMedia.addEventListener) {
+        mobileMedia.addEventListener('change', onModeChange);
+      } else if (mobileMedia.addListener) {
+        mobileMedia.addListener(onModeChange);
+      }
+      if (reduceMotion.addEventListener) {
+        reduceMotion.addEventListener('change', onModeChange);
+      } else if (reduceMotion.addListener) {
+        reduceMotion.addListener(onModeChange);
+      }
+    }
 
     var indexRaf = null;
     function dominantCardIndex() {
@@ -122,7 +224,9 @@
         return;
       }
       var canScroll = cardsViewport.scrollWidth > cardsViewport.clientWidth + 2;
-      var showNav = isTabletOrMobile.matches && cardsCount > 1 && canScroll;
+      var showNav =
+        cardsCount > 1 &&
+        ((mobileMedia.matches && canScroll) || tabletMedia.matches);
       toolbar.style.display = showNav ? '' : 'none';
       if (showNav) {
         schedulePaginationUpdate();
@@ -131,7 +235,10 @@
 
     function scrollStepPx() {
       if (!cardsViewport || cards.length < 2) {
-        return Math.max(220, (cardsViewport && cardsViewport.clientWidth) ? cardsViewport.clientWidth * 0.8 : 220);
+        return Math.max(
+          220,
+          cardsViewport && cardsViewport.clientWidth ? cardsViewport.clientWidth * 0.8 : 220
+        );
       }
       var a = cards[0].getBoundingClientRect();
       var b = cards[1].getBoundingClientRect();
@@ -152,17 +259,18 @@
       cardsViewport.addEventListener('scroll', function () {
         updateNavState();
         schedulePaginationUpdate();
-        if (!isMobile.matches || !cards.length) return;
+        if (!isMobileLayout() || !cards.length) return;
         if (mobileScrollTimer) window.clearTimeout(mobileScrollTimer);
         mobileScrollTimer = window.setTimeout(function () {
           mobileScrollTimer = null;
           var idx = dominantCardIndex();
-          if (cards[idx] && !cards[idx].classList.contains('evoq-journey__card--active')) {
-            expandCard(cards[idx]);
+          if (cards[idx] && cards[idx].getAttribute('data-expanded') !== 'true') {
+            expandOne(cards, cards[idx]);
+            activeMobileIndex = idx;
           }
         }, 120);
       });
-      isTabletOrMobile.addEventListener('change', function () {
+      carouselNavMedia.addEventListener('change', function () {
         updateNavState();
         schedulePaginationUpdate();
       });
@@ -178,7 +286,7 @@
       cardsViewport.addEventListener(
         'wheel',
         function (event) {
-          if (isTabletOrMobile.matches) return;
+          if (carouselNavMedia.matches) return;
           if (event.ctrlKey) return;
           if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
 

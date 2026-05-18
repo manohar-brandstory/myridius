@@ -449,7 +449,7 @@
    Responsive – Tablet (< 1024px  →  maps to Tailwind < lg)
    ============================================================ */
 
-@media (max-width: 1023px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
   .svc-hww {
     height: 750px;
   }
@@ -504,7 +504,7 @@
    Responsive – Mobile (< 768px)
    ============================================================ */
 
-@media (max-width: 767px) {
+@media only screen and (max-width: 767px) {
   .svc-hww {
     height: 860px;
   }

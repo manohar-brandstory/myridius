@@ -1,5 +1,5 @@
 (function () {
-  var MOBILE_QUERY = "(max-width: 768px)";
+  var MOBILE_QUERY = "(max-width: 767px)";
 
   function init() {
     var root =

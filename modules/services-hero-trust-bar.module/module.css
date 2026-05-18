@@ -1,0 +1,255 @@
+/* ================================================================
+   Services Hero Trust Bar — svc-trust
+   Desktop: HeroStatSection (3-up grid)
+   Mobile: HeroStatSection rows — badge left, caption right, dividers
+   ================================================================ */
+
+.svc-trust{
+  background: linear-gradient(
+    90deg,
+    #194247 0%,
+    #183f44 8.33%,
+    #173c41 16.67%,
+    #163a3e 25%,
+    #15373c 33.33%,
+    #143439 41.67%,
+    #123236 50%,
+    #112f33 58.33%,
+    #102c31 66.67%,
+    #0f2a2e 75%,
+    #0e272b 83.33%,
+    #0d2529 91.67%,
+    #0c2226 100%
+  );
+  padding: 0 var(--gutter) 48px;
+}
+
+.svc-trust__wrap{
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.svc-trust__grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  text-align: center;
+}
+
+.svc-trust__cell{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 24px;
+  transition: transform 300ms ease;
+}
+
+@media (hover: hover) and (pointer: fine){
+  .svc-trust__cell:hover{
+    transform: translateY(-4px);
+  }
+}
+
+.svc-trust__media{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 96px;
+}
+
+.svc-trust__img{
+  height: 96px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  transition: transform 300ms ease;
+}
+
+@media (hover: hover) and (pointer: fine){
+  .svc-trust__cell:hover .svc-trust__img{
+    transform: scale(1.05);
+  }
+}
+
+.svc-trust__iconFrame{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border-radius: 10px;
+  background: rgba(82, 224, 129, 0.1);
+  border: 1px solid rgba(82, 224, 129, 0.2);
+  transition: transform 300ms ease;
+  box-sizing: border-box;
+}
+
+.svc-trust__iconSvg{
+  display: block;
+  color: var(--color-accent);
+}
+
+@media (hover: hover) and (pointer: fine){
+  .svc-trust__cell:hover .svc-trust__iconFrame{
+    transform: scale(1.08);
+  }
+}
+
+/* Caption: Figma default #D2F0C6 — hover only on desktop/tablet (matches desktop HeroStatSection) */
+.svc-trust__caption{
+  margin: 0;
+  max-width: 220px;
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.375;
+  color: #d2f0c6;
+  transition: color 220ms ease;
+}
+
+@media (min-width: 769px) and (hover: hover) and (pointer: fine){
+  .svc-trust__cell:hover .svc-trust__caption{
+    color: #ecfae5;
+    font-weight: 400;
+  }
+}
+
+/* Scroll reveal */
+.svc-trust [data-sr]{ opacity: 1; transform: none; }
+.svc-trust .is-sr-hidden{ opacity: 0; transform: translateY(12px); }
+.svc-trust .is-sr-shown{
+  opacity: 1;
+  transform: none;
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+
+@media (min-width: 769px){
+  .svc-trust__grid{
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    align-items: start;
+  }
+
+  .svc-trust__cell--border{
+    border-left: 1px solid rgba(210, 240, 198, 0.3);
+  }
+}
+
+/* ── Mobile HeroStatSection — row layout, 12px stack gap, inset dividers ── */
+@media (max-width: 768px){
+  .svc-trust{
+    padding: 16px 20px;
+  }
+
+  .svc-trust__wrap{
+    max-width: none;
+    margin: 0;
+  }
+
+  .svc-trust__grid{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    text-align: left;
+  }
+
+  .svc-trust__cell{
+    position: relative;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    box-sizing: border-box;
+    min-height: 0;
+  }
+
+  .svc-trust__cell:not(:last-child){
+    padding-bottom: 13px;
+    margin-bottom: 0;
+    border-bottom: none;
+  }
+
+  /* Inset rule — does not run edge-to-edge (matches reference layout) */
+  .svc-trust__cell:not(:last-child)::after{
+    content: "";
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 0;
+    height: 1px;
+    background: rgba(210, 240, 198, 0.3);
+    pointer-events: none;
+  }
+
+  .svc-trust__cell--border{
+    border-left: none;
+    border-top: none;
+  }
+
+  @media (hover: hover) and (pointer: fine){
+    .svc-trust__cell:hover{
+      transform: none;
+    }
+
+    .svc-trust__cell:hover .svc-trust__caption{
+      color: #d2f0c6;
+    }
+  }
+
+  .svc-trust__media{
+    width: 80px;
+    height: 80px;
+    min-height: 0;
+    flex-shrink: 0;
+    justify-content: center;
+  }
+
+  .svc-trust__img{
+    width: 80px;
+    height: 80px;
+    max-width: 80px;
+    object-fit: contain;
+  }
+
+  .svc-trust__iconFrame{
+    width: 57px;
+    height: 57px;
+    padding: 0;
+    margin: 0 auto;
+    border-radius: 10px;
+    border-width: 0.7px;
+    flex-shrink: 0;
+  }
+
+  .svc-trust__iconSvg{
+    width: 32px;
+    height: 32px;
+  }
+
+  .svc-trust__caption{
+    flex: 1 1 auto;
+    align-self: center;
+    max-width: none;
+    line-height: 19px;
+    font-weight: 400;
+    font-size: 14px;
+    text-align: left;
+    color: #d2f0c6;
+  }
+}
+
+@media (hover: none) and (pointer: coarse){
+  .svc-trust__cell:hover .svc-trust__caption{
+    color: #d2f0c6;
+  }
+  .svc-trust__cell:hover .svc-trust__img,
+  .svc-trust__cell:hover .svc-trust__iconFrame{
+    transform: none;
+  }
+  .svc-trust__cell:hover{
+    transform: none;
+  }
+}

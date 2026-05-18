@@ -1,8 +1,9 @@
 {
-  "global": false,
-  "content_types": ["LANDING_PAGE", "SITE_PAGE"],
-  "categories": ["BODY_CONTENT"],
-  "host_template_types": ["PAGE", "BLOG_LISTING", "BLOG_POST"],
-  "label": "EVOQ - Model",
-  "is_available_for_new_content": true
+  "global" : false,
+  "content_types" : [ "LANDING_PAGE", "SITE_PAGE" ],
+  "categories" : [ "BODY_CONTENT" ],
+  "host_template_types" : [ "PAGE", "BLOG_LISTING", "BLOG_POST" ],
+  "module_id" : 212566234425,
+  "label" : "EVOQ - Model",
+  "is_available_for_new_content" : true
 }

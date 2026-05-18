@@ -67,7 +67,7 @@
 
   function isWhyMobile() {
     return typeof window.matchMedia === 'function' &&
-      window.matchMedia('(max-width: 768px)').matches;
+      window.matchMedia('(max-width: 767px)').matches;
   }
 
   function initWhy(section) {

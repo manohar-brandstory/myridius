@@ -1,301 +1,313 @@
-[
-  {
-    "id": "section_id",
-    "name": "section_id",
-    "label": "Section ID",
-    "required": false,
-    "locked": false,
-    "type": "text",
-    "default": "home-what-we-do",
-    "help_text": "HTML id for anchor links (e.g. #home-what-we-do). Use lowercase letters, numbers, and hyphens only."
+[ {
+  "id" : "section_id",
+  "name" : "section_id",
+  "label" : "Section ID",
+  "help_text" : "HTML id for anchor links (e.g. #home-what-we-do). Use lowercase letters, numbers, and hyphens only.",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "home-what-we-do"
+}, {
+  "id" : "badge_text",
+  "name" : "badge_text",
+  "label" : "Badge text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "WHAT WE DO"
+}, {
+  "id" : "heading",
+  "name" : "heading",
+  "label" : "Heading",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Engineering AI-native systems: Ambition to production & beyond"
+}, {
+  "id" : "subheading",
+  "name" : "subheading",
+  "label" : "Subheading",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "display_width" : null,
+  "default" : "<p>Myridius moves enterprises from operating-model redesign to agentic execution through software-driven systems, AI-native foundations, and continuous optimization.</p>"
+}, {
+  "id" : "categories",
+  "name" : "categories",
+  "label" : "Categories",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 6,
+    "sorting_label_field" : "title",
+    "default" : 4
   },
-  {
-    "id": "badge_text",
-    "name": "badge_text",
-    "label": "Badge text",
-    "type": "text",
-    "default": "WHAT WE DO"
-  },
-  {
-    "id": "heading",
-    "name": "heading",
-    "label": "Heading",
-    "type": "text",
-    "default": "Engineering AI-native systems: Ambition to production & beyond"
-  },
-  {
-    "id": "subheading",
-    "name": "subheading",
-    "label": "Subheading",
-    "type": "richtext",
-    "default": "<p>Myridius moves enterprises from operating-model redesign to agentic execution through software-driven systems, AI-native foundations, and continuous optimization.</p>"
-  },
-  {
-    "id": "categories",
-    "name": "categories",
-    "label": "Categories",
-    "type": "group",
-    "occurrence": {
-      "min": 1,
-      "max": 6,
-      "default": 4,
-      "sorting_label_field": "title"
+  "children" : [ {
+    "id" : "categories.title",
+    "name" : "title",
+    "label" : "Accordion title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Category title"
+  }, {
+    "id" : "categories.accordion_icon",
+    "name" : "accordion_icon",
+    "label" : "Accordion header icon",
+    "required" : false,
+    "locked" : false,
+    "display" : "select",
+    "choices" : [ [ "auto", "Auto (by row: Layers, Zap, CPU, Trending)" ], [ "layers", "Layers" ], [ "zap", "Zap" ], [ "cpu", "CPU" ], [ "trending_up", "Trending up" ] ],
+    "multiple" : false,
+    "reordering_enabled" : true,
+    "preset" : null,
+    "type" : "choice",
+    "display_width" : null,
+    "default" : "auto"
+  }, {
+    "id" : "categories.badge",
+    "name" : "badge",
+    "label" : "Tagline (expanded panel)",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "TAGLINE"
+  }, {
+    "id" : "categories.description",
+    "name" : "description",
+    "label" : "Description (expanded panel)",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Category description."
+  }, {
+    "id" : "categories.left_paragraph",
+    "name" : "left_paragraph",
+    "label" : "Left column paragraph",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Supporting copy for the sticky column."
+  }, {
+    "id" : "categories.services",
+    "name" : "services",
+    "label" : "Services (grid cards)",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : 1,
+      "max" : 8,
+      "sorting_label_field" : "item_name",
+      "default" : 3
     },
-    "children": [
-      {
-        "id": "categories.title",
-        "name": "title",
-        "label": "Accordion title",
-        "type": "text",
-        "default": "Category title"
-      },
-      {
-        "id": "categories.accordion_icon",
-        "name": "accordion_icon",
-        "label": "Accordion header icon",
-        "type": "choice",
-        "choices": [
-          ["auto", "Auto (by row: Layers, Zap, CPU, Trending)"],
-          ["layers", "Layers"],
-          ["zap", "Zap"],
-          ["cpu", "CPU"],
-          ["trending_up", "Trending up"]
-        ],
-        "default": "auto"
-      },
-      {
-        "id": "categories.badge",
-        "name": "badge",
-        "label": "Tagline (expanded panel)",
-        "type": "text",
-        "default": "TAGLINE"
-      },
-      {
-        "id": "categories.description",
-        "name": "description",
-        "label": "Description (expanded panel)",
-        "type": "text",
-        "default": "Category description."
-      },
-      {
-        "id": "categories.left_paragraph",
-        "name": "left_paragraph",
-        "label": "Left column paragraph",
-        "type": "text",
-        "default": "Supporting copy for the sticky column."
-      },
-      {
-        "id": "categories.services",
-        "name": "services",
-        "label": "Services (grid cards)",
-        "type": "group",
-        "occurrence": {
-          "min": 1,
-          "max": 8,
-          "default": 3,
-          "sorting_label_field": "item_name"
-        },
-        "children": [
-          {
-            "id": "services.item_name",
-            "name": "item_name",
-            "label": "Service name",
-            "type": "text",
-            "default": "Service name"
-          },
-          {
-            "id": "services.description",
-            "name": "description",
-            "label": "Service description",
-            "type": "text",
-            "default": "Short description."
-          },
-          {
-            "id": "services.icon_slug",
-            "name": "icon_slug",
-            "label": "Card icon",
-            "type": "choice",
-            "choices": [
-              ["message_square", "Message"],
-              ["git_branch", "Git branch"],
-              ["palette", "Palette"],
-              ["cloud", "Cloud"],
-              ["cpu", "CPU"],
-              ["panels_top_left", "Panels / layout"],
-              ["briefcase", "Briefcase"],
-              ["activity", "Activity"],
-              ["code", "Code"],
-              ["database", "Database"],
-              ["rocket", "Rocket"],
-              ["life_buoy", "Life buoy"],
-              ["shield_check", "Shield check"]
-            ],
-            "default": "cloud"
-          },
-          {
-            "id": "services.catchphrase",
-            "name": "catchphrase",
-            "label": "Catchphrase (editor reference)",
-            "type": "text",
-            "default": ""
-          }
-        ],
-        "default": []
-      }
-    ],
-    "default": [
-      {
-        "title": "Identify where AI changes the business",
-        "accordion_icon": "layers",
-        "badge": "REINVENT THE OPERATING MODEL",
-        "description": "Redesign business, operating, and technology models around software-driven, agentic execution.",
-        "left_paragraph": "We identify where AI shifts the economics, redesign the model, and define the move before build begins.",
-        "services": [
-          {
-            "item_name": "Advisory",
-            "description": "AI-native execution. Engineered into how you run.",
-            "icon_slug": "message_square",
-            "catchphrase": "STRATEGIC ADVISORY"
-          },
-          {
-            "item_name": "Agentic Process Transformation",
-            "description": "Automation that evolves into autonomous operations",
-            "icon_slug": "git_branch",
-            "catchphrase": "PROCESS TRANSFORMATION"
-          },
-          {
-            "item_name": "Design Studio",
-            "description": "Engineering agentic UX for human+AI interaction.",
-            "icon_slug": "palette",
-            "catchphrase": "EXPERIENCE DESIGN"
-          }
-        ]
-      },
-      {
-        "title": "Products, workflows, and decisioning systems",
-        "accordion_icon": "zap",
-        "badge": "BUILD AGENTIC SYSTEMS",
-        "description": "Design and engineer systems that can sense, decide, act, and improve in the flow of work.",
-        "left_paragraph": "We build agentic products, workflows, and decisioning systems that turn intelligence into execution.",
-        "services": [
-          {
-            "item_name": "Adobe Experience Cloud",
-            "description": "Modernize Adobe. Activate data. Deliver real growth.",
-            "icon_slug": "cloud",
-            "catchphrase": "EXPERIENCE CLOUD"
-          },
-          {
-            "item_name": "Agentic AI",
-            "description": "From enterprise hierarchy to agent-driven harmony.",
-            "icon_slug": "cpu",
-            "catchphrase": "AGENTIC AI"
-          },
-          {
-            "item_name": "Digital Experience",
-            "description": "Built for humans. Engineered for AI agents.",
-            "icon_slug": "panels_top_left",
-            "catchphrase": "DIGITAL EXPERIENCE"
-          },
-          {
-            "item_name": "Salesforce",
-            "description": "Turn Salesforce into your growth engine",
-            "icon_slug": "briefcase",
-            "catchphrase": "CRM EVOLUTION"
-          },
-          {
-            "item_name": "ServiceNow",
-            "description": "Build autonomous enterprise operations with ServiceNow.",
-            "icon_slug": "activity",
-            "catchphrase": "WORKFLOW AUTOMATION"
-          }
-        ]
-      },
-      {
-        "title": "Cloud, data, and engineering built for autonomy",
-        "accordion_icon": "cpu",
-        "badge": "ENGINEER THE AI-NATIVE FOUNDATION",
-        "description": "Create the technical foundation that connects platforms, models, tools, and data into production-ready systems.",
-        "left_paragraph": "We engineer the AI-native foundation that lets agentic systems operate securely, reliably, and at scale.",
-        "services": [
-          {
-            "item_name": "Agentic Engineering",
-            "description": "Discovery to operations. One agentic execution system.",
-            "icon_slug": "code",
-            "catchphrase": "AUTONOMY ENGINEERING"
-          },
-          {
-            "item_name": "AWS Cloud Services",
-            "description": "Faster AWS delivery. Zero compliance surprises.",
-            "icon_slug": "cloud",
-            "catchphrase": "SCALABLE INFRA"
-          },
-          {
-            "item_name": "Data, AI & Analytics",
-            "description": "Trusted data. Governed AI. Enterprise execution.",
-            "icon_slug": "database",
-            "catchphrase": "INTELLIGENCE LAYER"
-          },
-          {
-            "item_name": "Cloud Transformation",
-            "description": "AWS. Azure. GCP. Built around your workload.",
-            "icon_slug": "rocket",
-            "catchphrase": "MODERN STACK"
-          },
-          {
-            "item_name": "Microsoft Cloud Services",
-            "description": "Your entire Microsoft stack, unified and governed",
-            "icon_slug": "cloud",
-            "catchphrase": "ENTERPRISE CLOUD"
-          }
-        ]
-      },
-      {
-        "title": "Autonomous execution with compounding value",
-        "accordion_icon": "trending_up",
-        "badge": "OPERATE & OPTIMIZE CONTINUOUSLY",
-        "description": "Run, govern, and improve live systems so performance rises while effort falls over time.",
-        "left_paragraph": "We operate, optimise, and govern continuously so value compounds with every deployment.",
-        "services": [
-          {
-            "item_name": "AI-Native Application Support",
-            "description": "Autonomous application execution governed by design.",
-            "icon_slug": "life_buoy",
-            "catchphrase": "CONTINUOUS OPS"
-          },
-          {
-            "item_name": "Quality Engineering & Assurance",
-            "description": "From quality assurance to autonomous quality system.",
-            "icon_slug": "shield_check",
-            "catchphrase": "TRUST & RELIABILITY"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "footer_text",
-    "name": "footer_text",
-    "label": "Footer ribbon",
-    "type": "richtext",
-    "default": "<p>Designed as execution systems. Engineered as system layers. Run continuously on Evoq</p>"
-  },
-  {
-    "id": "explore_link_text",
-    "name": "explore_link_text",
-    "label": "Explore link label",
-    "type": "text",
-    "default": "Explore All Services"
-  },
-  {
-    "id": "explore_link_url",
-    "name": "explore_link_url",
-    "label": "Explore link URL",
-    "type": "url",
-    "supported_types": ["EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG"],
-    "default": {
-      "href": "#",
-      "type": "EXTERNAL",
-      "content_id": null
-    }
+    "children" : [ {
+      "id" : "services.item_name",
+      "name" : "item_name",
+      "label" : "Service name",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : "Service name"
+    }, {
+      "id" : "services.description",
+      "name" : "description",
+      "label" : "Service description",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : "Short description."
+    }, {
+      "id" : "services.icon_slug",
+      "name" : "icon_slug",
+      "label" : "Card icon",
+      "required" : false,
+      "locked" : false,
+      "display" : "select",
+      "choices" : [ [ "message_square", "Message" ], [ "git_branch", "Git branch" ], [ "palette", "Palette" ], [ "cloud", "Cloud" ], [ "cpu", "CPU" ], [ "panels_top_left", "Panels / layout" ], [ "briefcase", "Briefcase" ], [ "activity", "Activity" ], [ "code", "Code" ], [ "database", "Database" ], [ "rocket", "Rocket" ], [ "life_buoy", "Life buoy" ], [ "shield_check", "Shield check" ] ],
+      "multiple" : false,
+      "reordering_enabled" : true,
+      "preset" : null,
+      "type" : "choice",
+      "display_width" : null,
+      "default" : "cloud"
+    }, {
+      "id" : "services.catchphrase",
+      "name" : "catchphrase",
+      "label" : "Catchphrase (editor reference)",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : ""
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null,
+    "default" : [ ]
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "title" : "Identify where AI changes the business",
+    "accordion_icon" : "layers",
+    "badge" : "REINVENT THE OPERATING MODEL",
+    "description" : "Redesign business, operating, and technology models around software-driven, agentic execution.",
+    "left_paragraph" : "We identify where AI shifts the economics, redesign the model, and define the move before build begins.",
+    "services" : [ {
+      "item_name" : "Advisory",
+      "description" : "AI-native execution. Engineered into how you run.",
+      "icon_slug" : "message_square",
+      "catchphrase" : "STRATEGIC ADVISORY"
+    }, {
+      "item_name" : "Agentic Process Transformation",
+      "description" : "Automation that evolves into autonomous operations",
+      "icon_slug" : "git_branch",
+      "catchphrase" : "PROCESS TRANSFORMATION"
+    }, {
+      "item_name" : "Design Studio",
+      "description" : "Engineering agentic UX for human+AI interaction.",
+      "icon_slug" : "palette",
+      "catchphrase" : "EXPERIENCE DESIGN"
+    } ]
+  }, {
+    "title" : "Products, workflows, and decisioning systems",
+    "accordion_icon" : "zap",
+    "badge" : "BUILD AGENTIC SYSTEMS",
+    "description" : "Design and engineer systems that can sense, decide, act, and improve in the flow of work.",
+    "left_paragraph" : "We build agentic products, workflows, and decisioning systems that turn intelligence into execution.",
+    "services" : [ {
+      "item_name" : "Adobe Experience Cloud",
+      "description" : "Modernize Adobe. Activate data. Deliver real growth.",
+      "icon_slug" : "cloud",
+      "catchphrase" : "EXPERIENCE CLOUD"
+    }, {
+      "item_name" : "Agentic AI",
+      "description" : "From enterprise hierarchy to agent-driven harmony.",
+      "icon_slug" : "cpu",
+      "catchphrase" : "AGENTIC AI"
+    }, {
+      "item_name" : "Digital Experience",
+      "description" : "Built for humans. Engineered for AI agents.",
+      "icon_slug" : "panels_top_left",
+      "catchphrase" : "DIGITAL EXPERIENCE"
+    }, {
+      "item_name" : "Salesforce",
+      "description" : "Turn Salesforce into your growth engine",
+      "icon_slug" : "briefcase",
+      "catchphrase" : "CRM EVOLUTION"
+    }, {
+      "item_name" : "ServiceNow",
+      "description" : "Build autonomous enterprise operations with ServiceNow.",
+      "icon_slug" : "activity",
+      "catchphrase" : "WORKFLOW AUTOMATION"
+    } ]
+  }, {
+    "title" : "Cloud, data, and engineering built for autonomy",
+    "accordion_icon" : "cpu",
+    "badge" : "ENGINEER THE AI-NATIVE FOUNDATION",
+    "description" : "Create the technical foundation that connects platforms, models, tools, and data into production-ready systems.",
+    "left_paragraph" : "We engineer the AI-native foundation that lets agentic systems operate securely, reliably, and at scale.",
+    "services" : [ {
+      "item_name" : "Agentic Engineering",
+      "description" : "Discovery to operations. One agentic execution system.",
+      "icon_slug" : "code",
+      "catchphrase" : "AUTONOMY ENGINEERING"
+    }, {
+      "item_name" : "AWS Cloud Services",
+      "description" : "Faster AWS delivery. Zero compliance surprises.",
+      "icon_slug" : "cloud",
+      "catchphrase" : "SCALABLE INFRA"
+    }, {
+      "item_name" : "Data, AI & Analytics",
+      "description" : "Trusted data. Governed AI. Enterprise execution.",
+      "icon_slug" : "database",
+      "catchphrase" : "INTELLIGENCE LAYER"
+    }, {
+      "item_name" : "Cloud Transformation",
+      "description" : "AWS. Azure. GCP. Built around your workload.",
+      "icon_slug" : "rocket",
+      "catchphrase" : "MODERN STACK"
+    }, {
+      "item_name" : "Microsoft Cloud Services",
+      "description" : "Your entire Microsoft stack, unified and governed",
+      "icon_slug" : "cloud",
+      "catchphrase" : "ENTERPRISE CLOUD"
+    } ]
+  }, {
+    "title" : "Autonomous execution with compounding value",
+    "accordion_icon" : "trending_up",
+    "badge" : "OPERATE & OPTIMIZE CONTINUOUSLY",
+    "description" : "Run, govern, and improve live systems so performance rises while effort falls over time.",
+    "left_paragraph" : "We operate, optimise, and govern continuously so value compounds with every deployment.",
+    "services" : [ {
+      "item_name" : "AI-Native Application Support",
+      "description" : "Autonomous application execution governed by design.",
+      "icon_slug" : "life_buoy",
+      "catchphrase" : "CONTINUOUS OPS"
+    }, {
+      "item_name" : "Quality Engineering & Assurance",
+      "description" : "From quality assurance to autonomous quality system.",
+      "icon_slug" : "shield_check",
+      "catchphrase" : "TRUST & RELIABILITY"
+    } ]
+  } ]
+}, {
+  "id" : "footer_text",
+  "name" : "footer_text",
+  "label" : "Footer ribbon",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "display_width" : null,
+  "default" : "<p>Designed as execution systems. Engineered as system layers. Run continuously on Evoq</p>"
+}, {
+  "id" : "explore_link_text",
+  "name" : "explore_link_text",
+  "label" : "Explore link label",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Explore All Services"
+}, {
+  "id" : "explore_link_url",
+  "name" : "explore_link_url",
+  "label" : "Explore link URL",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+  "type" : "url",
+  "display_width" : null,
+  "default" : {
+    "href" : "#",
+    "type" : "EXTERNAL",
+    "content_id" : null
   }
-]
+} ]

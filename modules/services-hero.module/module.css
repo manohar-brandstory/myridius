@@ -322,14 +322,14 @@
   transition: color 220ms ease;
 }
 
-@media (min-width: 769px) and (hover: hover) and (pointer: fine){
+@media only screen and (min-width: 768px) and (hover: hover) and (pointer: fine){
   .svc-hero__trust-cell:hover .svc-hero__trust-caption{
     color: #ecfae5;
     font-weight: 400;
   }
 }
 
-@media (min-width: 769px){
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
   .svc-hero__trust-grid{
     grid-template-columns: repeat(var(--trust-count, 3), 1fr);
     gap: 32px;
@@ -341,7 +341,7 @@
   }
 }
 
-@media (max-width: 768px){
+@media only screen and (max-width: 767px){
   .svc-hero__trust{
     padding: 16px 0 0;
   }
@@ -513,9 +513,19 @@
     flex-direction: row;
     align-items: center;
   }
+
+  .svc-hero__trust-grid{
+    grid-template-columns: repeat(var(--trust-count, 3), 1fr);
+    gap: 32px;
+    align-items: start;
+  }
+
+  .svc-hero__trust-cell--divider-col{
+    border-left: 1px solid rgba(210, 240, 198, 0.3);
+  }
 }
 
-@media (max-width: 1023px){
+@media only screen and (min-width: 768px) and (max-width: 1024px){
   .svc-hero__breadcrumb{ padding: 26px var(--gutter) 40px; }
   .svc-hero__main{ padding: 20px var(--gutter) 48px; }
   .svc-hero__grid{
@@ -527,7 +537,7 @@
   .svc-hero__content{ order: 2; }
 }
 
-@media (max-width: 768px){
+@media only screen and (max-width: 767px){
   /* ── Figma mobile HeroSection (~393px): hide breadcrumb ── */
   .svc-hero__breadcrumb{
     display: none;

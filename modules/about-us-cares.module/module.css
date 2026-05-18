@@ -283,7 +283,35 @@
   }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+
+/* Mobile + tablet shared layout (≤1024px) */
+@media only screen and (max-width: 1024px) {
+.about-us-cares__inner {
+    padding: 80px var(--gutter, 64px);
+    gap: 40px;
+  }
+
+  .about-us-cares__videoFrame {
+    max-width: 100%;
+    margin-inline: auto;
+  }
+
+  .about-us-cares__cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+
+  .about-us-cares__card {
+    flex: 1 1 280px;
+    max-width: calc(50% - 10px);
+    min-width: 0;
+    width: auto;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
   .about-us-cares__inner {
     padding: 80px var(--gutter, 64px);
     gap: 40px;
@@ -309,7 +337,7 @@
   }
 }
 
-@media (max-width: 1023px) {
+@media only screen and (max-width: 1024px) {
   .about-us-cares__bgTexture {
     display: block;
   }

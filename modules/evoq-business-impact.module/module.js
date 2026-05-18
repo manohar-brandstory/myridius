@@ -265,9 +265,51 @@
     root.addEventListener("wheel", onWheel, { passive: false, capture: true });
   }
 
+  function observeSectionEntrance(root) {
+    if (!root || root.getAttribute("data-evoq-bi-entrance")) return;
+    root.setAttribute("data-evoq-bi-entrance", "1");
+
+    function reveal() {
+      if (root.classList.contains("evoq-bi--inview")) return;
+      window.requestAnimationFrame(function () {
+        window.requestAnimationFrame(function () {
+          root.classList.add("evoq-bi--inview");
+        });
+      });
+    }
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      root.classList.add("evoq-bi--inview");
+      return;
+    }
+
+    if (!("IntersectionObserver" in window)) {
+      reveal();
+      return;
+    }
+
+    var activated = false;
+    var io = new IntersectionObserver(
+      function (entries) {
+        for (var i = 0; i < entries.length; i += 1) {
+          if (activated || !entries[i].isIntersecting) continue;
+          activated = true;
+          reveal();
+          io.disconnect();
+          return;
+        }
+      },
+      { rootMargin: "0px 0px -10% 0px", threshold: 0.08 }
+    );
+
+    io.observe(root);
+  }
+
   function initSection(root) {
     if (!root || root.getAttribute("data-evoq-bi-bound")) return;
     root.setAttribute("data-evoq-bi-bound", "1");
+
+    observeSectionEntrance(root);
 
     var scrollEl = root.querySelector("[data-evoq-bi-scroll]");
     var items = root.querySelectorAll("[data-evoq-bi-item]");

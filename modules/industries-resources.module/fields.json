@@ -5,8 +5,8 @@
   "required" : false,
   "locked" : false,
   "allow_new_line" : false,
-  "display_width" : null,
   "type" : "text",
+  "display_width" : null,
   "default" : "infocus"
 }, {
   "id" : "badge",
@@ -15,8 +15,8 @@
   "required" : false,
   "locked" : false,
   "allow_new_line" : false,
-  "display_width" : null,
   "type" : "text",
+  "display_width" : null,
   "default" : "RESOURCES"
 }, {
   "id" : "title",
@@ -25,8 +25,8 @@
   "required" : false,
   "locked" : false,
   "allow_new_line" : false,
-  "display_width" : null,
   "type" : "text",
+  "display_width" : null,
   "default" : "Latest Perspectives"
 }, {
   "id" : "articles",
@@ -47,8 +47,8 @@
     "required" : false,
     "locked" : false,
     "allow_new_line" : false,
-    "display_width" : null,
     "type" : "text",
+    "display_width" : null,
     "default" : "WHITEPAPER"
   }, {
     "id" : "articles.title",
@@ -57,8 +57,8 @@
     "required" : false,
     "locked" : false,
     "allow_new_line" : false,
-    "display_width" : null,
     "type" : "text",
+    "display_width" : null,
     "default" : "Accelerating Digitization in Credit Unions for a Gen Z Future"
   }, {
     "id" : "articles.image",
@@ -69,8 +69,8 @@
     "responsive" : false,
     "resizable" : true,
     "show_loading" : false,
-    "display_width" : null,
     "type" : "image",
+    "display_width" : null,
     "default" : {
       "src" : "",
       "alt" : null,
@@ -88,8 +88,8 @@
     "required" : false,
     "locked" : false,
     "supported_types" : [ "EXTERNAL", "CONTENT" ],
-    "display_width" : null,
     "type" : "url",
+    "display_width" : null,
     "default" : {
       "content_id" : null,
       "href" : "#",
@@ -99,8 +99,8 @@
   "tab" : "CONTENT",
   "expanded" : false,
   "group_occurrence_meta" : null,
-  "display_width" : null,
   "type" : "group",
+  "display_width" : null,
   "default" : [ {
     "category" : "WHITEPAPER",
     "title" : "Accelerating Digitization in Credit Unions for a Gen Z Future",

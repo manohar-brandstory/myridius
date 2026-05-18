@@ -136,7 +136,7 @@
 }
 
 /* Responsive: Tablet */
-@media (max-width: 1024px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
   .evoq-footer__container {
     padding: 48px 32px;
   }
@@ -147,7 +147,7 @@
 }
 
 /* Responsive: Mobile */
-@media (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .evoq-footer__container {
     padding: 48px 24px;
   }

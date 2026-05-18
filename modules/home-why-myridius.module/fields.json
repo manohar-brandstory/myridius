@@ -1,286 +1,372 @@
-[
-  {
-    "id": "section_id",
-    "name": "section_id",
-    "label": "Section ID",
-    "type": "text",
-    "default": "why-myridius",
-    "help_text": "Unique HTML ID for anchor links."
+[ {
+  "id" : "section_id",
+  "name" : "section_id",
+  "label" : "Section ID",
+  "help_text" : "Unique HTML ID for anchor links.",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "why-myridius"
+}, {
+  "id" : "badge_text",
+  "name" : "badge_text",
+  "label" : "Badge Text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Why Myridius"
+}, {
+  "id" : "heading",
+  "name" : "heading",
+  "label" : "Heading",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "A new operating model for the AI-native enterprise"
+}, {
+  "id" : "subheading",
+  "name" : "subheading",
+  "label" : "Subheading",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "display_width" : null,
+  "default" : "<p>We don't deliver services. We engineer secure, responsible systems that execute with trust.</p>"
+}, {
+  "id" : "cards",
+  "name" : "cards",
+  "label" : "Cards",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 6,
+    "sorting_label_field" : null,
+    "default" : 3
   },
-  {
-    "id": "badge_text",
-    "name": "badge_text",
-    "label": "Badge Text",
-    "type": "text",
-    "default": "Why Myridius"
-  },
-  {
-    "id": "heading",
-    "name": "heading",
-    "label": "Heading",
-    "type": "text",
-    "default": "A new operating model for the AI-native enterprise"
-  },
-  {
-    "id": "subheading",
-    "name": "subheading",
-    "label": "Subheading",
-    "type": "richtext",
-    "default": "<p>We don't deliver services. We engineer secure, responsible systems that execute with trust.</p>"
-  },
-  {
-    "id": "cards",
-    "name": "cards",
-    "label": "Cards",
-    "type": "group",
-    "occurrence": {
-      "min": 1,
-      "max": 6,
-      "default": 3
+  "children" : [ {
+    "id" : "cards.number",
+    "name" : "number",
+    "label" : "Number",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "01"
+  }, {
+    "id" : "cards.title",
+    "name" : "title",
+    "label" : "Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Card Title"
+  }, {
+    "id" : "cards.description",
+    "name" : "description",
+    "label" : "Description",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Card description goes here."
+  }, {
+    "id" : "cards.pills",
+    "name" : "pills",
+    "label" : "Pills",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : 1,
+      "max" : 8,
+      "sorting_label_field" : null,
+      "default" : 3
     },
-    "children": [
-      {
-        "id": "cards.number",
-        "name": "number",
-        "label": "Number",
-        "type": "text",
-        "default": "01"
-      },
-      {
-        "id": "cards.title",
-        "name": "title",
-        "label": "Title",
-        "type": "text",
-        "default": "Card Title"
-      },
-      {
-        "id": "cards.description",
-        "name": "description",
-        "label": "Description",
-        "type": "text",
-        "default": "Card description goes here."
-      },
-      {
-        "id": "cards.pills",
-        "name": "pills",
-        "label": "Pills",
-        "type": "group",
-        "occurrence": {
-          "min": 1,
-          "max": 8,
-          "default": 3
-        },
-        "children": [
-          {
-            "id": "pills.item_label",
-            "name": "item_label",
-            "label": "Label",
-            "type": "text",
-            "default": "Pill Label"
-          }
-        ],
-        "default": [
-          { "item_label": "Pill 1" },
-          { "item_label": "Pill 2" },
-          { "item_label": "Pill 3" }
-        ]
-      }
-    ],
-    "default": [
-      {
-        "number": "01",
-        "title": "Reinvent the model",
-        "description": "We define where AI can change the business and shape the move.",
-        "pills": [
-          { "item_label": "Break linearity" },
-          { "item_label": "Reimagine models" },
-          { "item_label": "Outcome first" }
-        ]
-      },
-      {
-        "number": "02",
-        "title": "Build AI-native systems",
-        "description": "We turn strategy into products, workflows, and experiences that act.",
-        "pills": [
-          { "item_label": "Reengineer processes" },
-          { "item_label": "Win in market" },
-          { "item_label": "Agentic execution" }
-        ]
-      },
-      {
-        "number": "03",
-        "title": "Run agentic execution",
-        "description": "We compound value through reuse, governance, and delivery leverage.",
-        "pills": [
-          { "item_label": "Responsible Autonomy" },
-          { "item_label": "Reusable intelligence" },
-          { "item_label": "Compounding value" }
-        ]
-      }
-    ]
+    "children" : [ {
+      "id" : "pills.item_label",
+      "name" : "item_label",
+      "label" : "Label",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : "Pill Label"
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null,
+    "default" : [ {
+      "item_label" : "Pill 1"
+    }, {
+      "item_label" : "Pill 2"
+    }, {
+      "item_label" : "Pill 3"
+    } ]
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "number" : "01",
+    "title" : "Reinvent the model",
+    "description" : "We define where AI can change the business and shape the move.",
+    "pills" : [ {
+      "item_label" : "Break linearity"
+    }, {
+      "item_label" : "Reimagine models"
+    }, {
+      "item_label" : "Outcome first"
+    } ]
+  }, {
+    "number" : "02",
+    "title" : "Build AI-native systems",
+    "description" : "We turn strategy into products, workflows, and experiences that act.",
+    "pills" : [ {
+      "item_label" : "Reengineer processes"
+    }, {
+      "item_label" : "Win in market"
+    }, {
+      "item_label" : "Agentic execution"
+    } ]
+  }, {
+    "number" : "03",
+    "title" : "Run agentic execution",
+    "description" : "We compound value through reuse, governance, and delivery leverage.",
+    "pills" : [ {
+      "item_label" : "Responsible Autonomy"
+    }, {
+      "item_label" : "Reusable intelligence"
+    }, {
+      "item_label" : "Compounding value"
+    } ]
+  } ]
+}, {
+  "id" : "diagram_center_title",
+  "name" : "diagram_center_title",
+  "label" : "Diagram center line 1 (accent)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Agentic"
+}, {
+  "id" : "diagram_center_subtitle",
+  "name" : "diagram_center_subtitle",
+  "label" : "Diagram center line 2 (white)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Advantage"
+}, {
+  "id" : "diagram_center_hover_text",
+  "name" : "diagram_center_hover_text",
+  "label" : "Center circle hover text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Reinvention, AI-native systems, and agentic execution connected in one operating model."
+}, {
+  "id" : "diagram_nodes",
+  "name" : "diagram_nodes",
+  "label" : "Diagram nodes",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 8,
+    "sorting_label_field" : null,
+    "default" : 5
   },
-  {
-    "id": "diagram_center_title",
-    "name": "diagram_center_title",
-    "label": "Diagram center line 1 (accent)",
-    "type": "text",
-    "default": "Agentic"
-  },
-  {
-    "id": "diagram_center_subtitle",
-    "name": "diagram_center_subtitle",
-    "label": "Diagram center line 2 (white)",
-    "type": "text",
-    "default": "Advantage"
-  },
-  {
-    "id": "diagram_center_hover_text",
-    "name": "diagram_center_hover_text",
-    "label": "Center circle hover text",
-    "type": "text",
-    "default": "Reinvention, AI-native systems, and agentic execution connected in one operating model."
-  },
-  {
-    "id": "diagram_nodes",
-    "name": "diagram_nodes",
-    "label": "Diagram nodes",
-    "type": "group",
-    "occurrence": {
-      "min": 1,
-      "max": 8,
-      "default": 5
+  "children" : [ {
+    "id" : "diagram_nodes.item_label",
+    "name" : "item_label",
+    "label" : "Label",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Node label"
+  }, {
+    "id" : "diagram_nodes.tagline",
+    "name" : "tagline",
+    "label" : "Tagline (under label)",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "diagram_nodes.tooltip_title",
+    "name" : "tooltip_title",
+    "label" : "Tooltip title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "diagram_nodes.tooltip_description",
+    "name" : "tooltip_description",
+    "label" : "Tooltip description",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "diagram_nodes.position_top",
+    "name" : "position_top",
+    "label" : "Position top",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "50%"
+  }, {
+    "id" : "diagram_nodes.position_left",
+    "name" : "position_left",
+    "label" : "Position left",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "50%"
+  }, {
+    "id" : "diagram_nodes.tooltip_bullets",
+    "name" : "tooltip_bullets",
+    "label" : "Tooltip bullets",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : 0,
+      "max" : 8,
+      "sorting_label_field" : null,
+      "default" : 3
     },
-    "children": [
-      {
-        "id": "diagram_nodes.item_label",
-        "name": "item_label",
-        "label": "Label",
-        "type": "text",
-        "default": "Node label"
-      },
-      {
-        "id": "diagram_nodes.tagline",
-        "name": "tagline",
-        "label": "Tagline (under label)",
-        "type": "text",
-        "default": ""
-      },
-      {
-        "id": "diagram_nodes.tooltip_title",
-        "name": "tooltip_title",
-        "label": "Tooltip title",
-        "type": "text",
-        "default": ""
-      },
-      {
-        "id": "diagram_nodes.tooltip_description",
-        "name": "tooltip_description",
-        "label": "Tooltip description",
-        "type": "text",
-        "default": ""
-      },
-      {
-        "id": "diagram_nodes.position_top",
-        "name": "position_top",
-        "label": "Position top",
-        "type": "text",
-        "default": "50%"
-      },
-      {
-        "id": "diagram_nodes.position_left",
-        "name": "position_left",
-        "label": "Position left",
-        "type": "text",
-        "default": "50%"
-      },
-      {
-        "id": "diagram_nodes.tooltip_bullets",
-        "name": "tooltip_bullets",
-        "label": "Tooltip bullets",
-        "type": "group",
-        "occurrence": {
-          "min": 0,
-          "max": 8,
-          "default": 3
-        },
-        "children": [
-          {
-            "id": "diagram_nodes.tooltip_bullets.item_text",
-            "name": "item_text",
-            "label": "Bullet",
-            "type": "text",
-            "default": ""
-          }
-        ],
-        "default": [{ "item_text": "" }, { "item_text": "" }, { "item_text": "" }]
-      }
-    ],
-    "default": [
-      {
-        "item_label": "Break Linearity",
-        "tagline": "We break linearity.",
-        "tooltip_title": "Break Linearity",
-        "tooltip_description": "We break linearity. We create non-linear returns with agentic engineering.",
-        "position_top": "20%",
-        "position_left": "50%",
-        "tooltip_bullets": [
-          { "item_text": "Non-linear returns" },
-          { "item_text": "Agentic engineering" },
-          { "item_text": "Outcome shift" }
-        ]
-      },
-      {
-        "item_label": "Reimagine",
-        "tagline": "We reimagine how the business runs.",
-        "tooltip_title": "Reimagine",
-        "tooltip_description": "We reimagine how the business runs. We rethink business, operating, and technology models for the AI era.",
-        "position_top": "50%",
-        "position_left": "90%",
-        "tooltip_bullets": [
-          { "item_text": "Responsible Autonomy" },
-          { "item_text": "Secure & Governed" },
-          { "item_text": "Trust at scale" }
-        ]
-      },
-      {
-        "item_label": "Re-Engineer",
-        "tagline": "We redesign work around agents.",
-        "tooltip_title": "Reengineer",
-        "tooltip_description": "We redesign work around agents. We build workflows where agents can recommend, execute, and improve in the flow of work.",
-        "position_top": "74%",
-        "position_left": "70%",
-        "tooltip_bullets": [
-          { "item_text": "Autonomous agents" },
-          { "item_text": "Workflow redesign" },
-          { "item_text": "Execution" }
-        ]
-      },
-      {
-        "item_label": "Governance",
-        "tagline": "We scale with trust.",
-        "tooltip_title": "Govern",
-        "tooltip_description": "We scale with trust. We keep humans in control while AI handles more analysis, coordination, and action.",
-        "position_top": "74%",
-        "position_left": "30%",
-        "tooltip_bullets": [
-          { "item_text": "Responsible Autonomy" },
-          { "item_text": "Secure & Governed" },
-          { "item_text": "Trust at scale" }
-        ]
-      },
-      {
-        "item_label": "Differentiate",
-        "tagline": "We build solutions that win.",
-        "tooltip_title": "Differentiate",
-        "tooltip_description": "We build solutions that win. We create differentiated customer and workforce experiences that strengthen market position.",
-        "position_top": "45%",
-        "position_left": "15%",
-        "tooltip_bullets": [
-          { "item_text": "Agentic experiences" },
-          { "item_text": "Differentiation" },
-          { "item_text": "Market impact" }
-        ]
-      }
-    ]
-  }
-]
+    "children" : [ {
+      "id" : "diagram_nodes.tooltip_bullets.item_text",
+      "name" : "item_text",
+      "label" : "Bullet",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : ""
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null,
+    "default" : [ {
+      "item_text" : ""
+    }, {
+      "item_text" : ""
+    }, {
+      "item_text" : ""
+    } ]
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "item_label" : "Break Linearity",
+    "tagline" : "We break linearity.",
+    "tooltip_title" : "Break Linearity",
+    "tooltip_description" : "We break linearity. We create non-linear returns with agentic engineering.",
+    "position_top" : "20%",
+    "position_left" : "50%",
+    "tooltip_bullets" : [ {
+      "item_text" : "Non-linear returns"
+    }, {
+      "item_text" : "Agentic engineering"
+    }, {
+      "item_text" : "Outcome shift"
+    } ]
+  }, {
+    "item_label" : "Reimagine",
+    "tagline" : "We reimagine how the business runs.",
+    "tooltip_title" : "Reimagine",
+    "tooltip_description" : "We reimagine how the business runs. We rethink business, operating, and technology models for the AI era.",
+    "position_top" : "50%",
+    "position_left" : "90%",
+    "tooltip_bullets" : [ {
+      "item_text" : "Responsible Autonomy"
+    }, {
+      "item_text" : "Secure & Governed"
+    }, {
+      "item_text" : "Trust at scale"
+    } ]
+  }, {
+    "item_label" : "Re-Engineer",
+    "tagline" : "We redesign work around agents.",
+    "tooltip_title" : "Reengineer",
+    "tooltip_description" : "We redesign work around agents. We build workflows where agents can recommend, execute, and improve in the flow of work.",
+    "position_top" : "74%",
+    "position_left" : "70%",
+    "tooltip_bullets" : [ {
+      "item_text" : "Autonomous agents"
+    }, {
+      "item_text" : "Workflow redesign"
+    }, {
+      "item_text" : "Execution"
+    } ]
+  }, {
+    "item_label" : "Governance",
+    "tagline" : "We scale with trust.",
+    "tooltip_title" : "Govern",
+    "tooltip_description" : "We scale with trust. We keep humans in control while AI handles more analysis, coordination, and action.",
+    "position_top" : "74%",
+    "position_left" : "30%",
+    "tooltip_bullets" : [ {
+      "item_text" : "Responsible Autonomy"
+    }, {
+      "item_text" : "Secure & Governed"
+    }, {
+      "item_text" : "Trust at scale"
+    } ]
+  }, {
+    "item_label" : "Differentiate",
+    "tagline" : "We build solutions that win.",
+    "tooltip_title" : "Differentiate",
+    "tooltip_description" : "We build solutions that win. We create differentiated customer and workforce experiences that strengthen market position.",
+    "position_top" : "45%",
+    "position_left" : "15%",
+    "tooltip_bullets" : [ {
+      "item_text" : "Agentic experiences"
+    }, {
+      "item_text" : "Differentiation"
+    }, {
+      "item_text" : "Market impact"
+    } ]
+  } ]
+} ]

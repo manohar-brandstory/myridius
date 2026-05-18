@@ -5,8 +5,8 @@
   "required" : false,
   "locked" : false,
   "allow_new_line" : false,
-  "display_width" : null,
   "type" : "text",
+  "display_width" : null,
   "default" : "cta"
 }, {
   "id" : "badge",
@@ -15,8 +15,8 @@
   "required" : false,
   "locked" : false,
   "allow_new_line" : false,
-  "display_width" : null,
   "type" : "text",
+  "display_width" : null,
   "default" : "LET'S TALK"
 }, {
   "id" : "title",
@@ -25,8 +25,8 @@
   "required" : false,
   "locked" : false,
   "allow_new_line" : false,
-  "display_width" : null,
   "type" : "text",
+  "display_width" : null,
   "default" : "Grow Revenue. Reduce Risk.\nOperate at Full Speed."
 }, {
   "id" : "description",
@@ -35,8 +35,8 @@
   "required" : false,
   "locked" : false,
   "allow_new_line" : false,
-  "display_width" : null,
   "type" : "text",
+  "display_width" : null,
   "default" : "Turn strategic priorities into measurable financial outcomes"
 }, {
   "id" : "primary_text",
@@ -45,8 +45,8 @@
   "required" : false,
   "locked" : false,
   "allow_new_line" : false,
-  "display_width" : null,
   "type" : "text",
+  "display_width" : null,
   "default" : "Schedule a Conversation"
 }, {
   "id" : "primary_url",
@@ -55,8 +55,8 @@
   "required" : false,
   "locked" : false,
   "supported_types" : [ "EXTERNAL", "CONTENT" ],
-  "display_width" : null,
   "type" : "url",
+  "display_width" : null,
   "default" : {
     "content_id" : null,
     "href" : "#",
@@ -69,8 +69,8 @@
   "required" : false,
   "locked" : false,
   "allow_new_line" : false,
-  "display_width" : null,
   "type" : "text",
+  "display_width" : null,
   "default" : "Explore EVOQ"
 }, {
   "id" : "secondary_url",
@@ -79,8 +79,8 @@
   "required" : false,
   "locked" : false,
   "supported_types" : [ "EXTERNAL", "CONTENT" ],
-  "display_width" : null,
   "type" : "url",
+  "display_width" : null,
   "default" : {
     "content_id" : null,
     "href" : "#evoq",

@@ -634,7 +634,7 @@ button.home-wwd__explore {
 }
 
 /* ── Responsive ── */
-@media (max-width: 1023px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
   .home-wwd {
     padding: 80px 0;
   }
@@ -665,7 +665,7 @@ button.home-wwd__explore {
   }
 }
 
-@media (max-width: 767px) {
+@media only screen and (max-width: 767px) {
   .home-wwd {
     padding: 64px 0;
   }
@@ -775,16 +775,13 @@ button.home-wwd__explore {
     font-weight: 500;
   }
 
-  /* Accordion service tiles — 2-col grid (not flex column; matches desktop mini-cards) */
+  /* Accordion service tiles — mobile flex layout */
   .home-wwd__services--mobile {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: flex;
     gap: 11px;
+    flex-direction: column;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     width: 100%;
-  }
-
-  .home-wwd__services--mobile .home-wwd__svc-card--full {
-    grid-column: 1 / -1;
   }
 
   .home-wwd__services--mobile .home-wwd__svc-card {

@@ -5,8 +5,8 @@
   "required" : false,
   "locked" : false,
   "allow_new_line" : false,
-  "display_width" : null,
   "type" : "text",
+  "display_width" : null,
   "default" : "capabilities"
 }, {
   "id" : "badge",
@@ -15,8 +15,8 @@
   "required" : false,
   "locked" : false,
   "allow_new_line" : false,
-  "display_width" : null,
   "type" : "text",
+  "display_width" : null,
   "default" : "WHAT WE DO"
 }, {
   "id" : "title",
@@ -25,8 +25,8 @@
   "required" : false,
   "locked" : false,
   "allow_new_line" : false,
-  "display_width" : null,
   "type" : "text",
+  "display_width" : null,
   "default" : "Built Across\nEvery Layer."
 }, {
   "id" : "card_height",
@@ -36,8 +36,8 @@
   "locked" : false,
   "display" : "text",
   "step" : 1,
-  "display_width" : null,
   "type" : "number",
+  "display_width" : null,
   "default" : 320
 }, {
   "id" : "cards",
@@ -58,8 +58,8 @@
     "required" : false,
     "locked" : false,
     "allow_new_line" : false,
-    "display_width" : null,
     "type" : "text",
+    "display_width" : null,
     "default" : "Autonomous Operations"
   }, {
     "id" : "cards.description",
@@ -68,8 +68,8 @@
     "required" : false,
     "locked" : false,
     "allow_new_line" : false,
-    "display_width" : null,
     "type" : "text",
+    "display_width" : null,
     "default" : "AI-driven automation spanning core operations."
   }, {
     "id" : "cards.accent",
@@ -78,8 +78,8 @@
     "required" : false,
     "locked" : false,
     "allow_new_line" : false,
-    "display_width" : null,
     "type" : "text",
+    "display_width" : null,
     "default" : "#194247"
   }, {
     "id" : "cards.image",
@@ -90,8 +90,8 @@
     "responsive" : false,
     "resizable" : true,
     "show_loading" : false,
-    "display_width" : null,
     "type" : "image",
+    "display_width" : null,
     "default" : {
       "src" : "",
       "alt" : null,
@@ -106,8 +106,8 @@
   "tab" : "CONTENT",
   "expanded" : false,
   "group_occurrence_meta" : null,
-  "display_width" : null,
   "type" : "group",
+  "display_width" : null,
   "default" : [ {
     "title" : "Autonomous Operations",
     "description" : "AI-driven automation spanning core operations from underwriting to reconciliation, bridging legacy to modern systems with AI that run continuously, decides in context and escalates when it matters.",

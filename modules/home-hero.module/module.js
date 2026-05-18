@@ -37,8 +37,9 @@
     var contentSwapMsMobile = 480;
     var cardsSwapMs = 280;
     var cardsSwapMsMobile = 420;
-    var mobileMq = window.matchMedia('(max-width: 768px)');
+    var mobileMq = window.matchMedia('(max-width: 767px)');
     var total = cards.length;
+    var heroInView = true;
 
     function isMobileHero() {
       return mobileMq.matches;
@@ -133,18 +134,21 @@
       });
     }
 
-    function scrollActiveCollapsedCard() {
+    /** Active card is always first in DOM — keep scroll at start (never scrollIntoView). */
+    function resetMobileTrackScroll(smooth) {
       if (expandedCard !== null || !isMobileHero()) return;
-      var active = track.querySelector('.home-hero__card.is-active');
-      if (!active || typeof active.scrollIntoView !== 'function') return;
-      active.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'center'
-      });
+      var behavior = smooth !== false && !reduced ? 'smooth' : 'auto';
+      var row = root.querySelector('.home-hero__row');
+
+      if (typeof track.scrollTo === 'function') {
+        track.scrollTo({ left: 0, behavior: behavior });
+      }
+      if (row && typeof row.scrollTo === 'function') {
+        row.scrollTo({ left: 0, behavior: behavior });
+      }
     }
 
-    function animateReorder(mutator) {
+    function animateReorder(mutator, scrollTrackAfter) {
       if (expandedCard !== null || isAnimating) return;
 
       var firstRects = captureRects();
@@ -156,26 +160,26 @@
         isAnimating = true;
         window.setTimeout(function () {
           isAnimating = false;
-          scrollActiveCollapsedCard();
+          if (isMobileHero()) resetMobileTrackScroll(scrollTrackAfter);
         }, getLayoutDuration() + 80);
-      } else {
-        scrollActiveCollapsedCard();
+      } else if (isMobileHero()) {
+        resetMobileTrackScroll(false);
       }
     }
 
-    function rotateForward() {
+    function rotateForward(userInitiated) {
       if (track.children.length < 2) return;
       animateReorder(function () {
         track.appendChild(track.children[0]);
-      });
+      }, userInitiated);
       syncPager();
     }
 
-    function rotateBackward() {
+    function rotateBackward(userInitiated) {
       if (track.children.length < 2) return;
       animateReorder(function () {
         track.insertBefore(track.children[track.children.length - 1], track.children[0]);
-      });
+      }, userInitiated);
       syncPager();
     }
 
@@ -187,7 +191,10 @@
 
     function startAuto() {
       stopAuto();
-      timer = setInterval(rotateForward, interval);
+      if (expandedCard !== null || reduced || !heroInView) return;
+      timer = setInterval(function () {
+        rotateForward(false);
+      }, interval);
     }
 
     function updateExpandedCopy(index, animate) {
@@ -340,6 +347,7 @@
       root.classList.remove('is-expanded');
       expandedView.setAttribute('aria-hidden', 'true');
       syncPager();
+      if (isMobileHero()) resetMobileTrackScroll(false);
       if (!reduced) startAuto();
     }
 
@@ -369,8 +377,8 @@
 
     root.addEventListener('keydown', function (e) {
       if (expandedCard !== null) return;
-      if (e.key === 'ArrowRight') rotateForward();
-      if (e.key === 'ArrowLeft') rotateBackward();
+      if (e.key === 'ArrowRight') rotateForward(true);
+      if (e.key === 'ArrowLeft') rotateBackward(true);
     });
 
     var touchX = 0;
@@ -380,8 +388,8 @@
     track.addEventListener('touchend', function (e) {
       var dx = touchX - e.changedTouches[0].screenX;
       if (Math.abs(dx) < 50) return;
-      if (dx > 0) rotateForward();
-      else rotateBackward();
+      if (dx > 0) rotateForward(true);
+      else rotateBackward(true);
     }, { passive: true });
 
     if (prevBtn) {
@@ -391,7 +399,7 @@
           expand(target);
           return;
         }
-        rotateBackward();
+        rotateBackward(true);
       });
     }
 
@@ -402,8 +410,24 @@
           expand(target);
           return;
         }
-        rotateForward();
+        rotateForward(true);
       });
+    }
+
+    if ('IntersectionObserver' in window) {
+      var heroIo = new IntersectionObserver(
+        function (entries) {
+          var entry = entries[0];
+          heroInView = !!(entry && entry.isIntersecting);
+          if (heroInView && expandedCard === null && !reduced) {
+            startAuto();
+          } else {
+            stopAuto();
+          }
+        },
+        { root: null, threshold: 0.12, rootMargin: '0px' }
+      );
+      heroIo.observe(root);
     }
 
     var animateEls = root.querySelectorAll('[data-animate]');
@@ -424,7 +448,7 @@
     var onMotionChange = function () {
       reduced = mq.matches;
       if (reduced) stopAuto();
-      else if (expandedCard === null) startAuto();
+      else if (expandedCard === null && heroInView) startAuto();
     };
     if (typeof mq.addEventListener === 'function') {
       mq.addEventListener('change', onMotionChange);
@@ -434,6 +458,7 @@
 
     setActiveByPosition();
     syncPager();
+    if (isMobileHero()) resetMobileTrackScroll(false);
     if (!reduced) startAuto();
   });
 

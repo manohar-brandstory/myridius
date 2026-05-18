@@ -5,8 +5,8 @@
   "required" : false,
   "locked" : false,
   "allow_new_line" : false,
-  "display_width" : null,
   "type" : "text",
+  "display_width" : null,
   "default" : "recognitions"
 }, {
   "id" : "items",
@@ -27,8 +27,8 @@
     "required" : false,
     "locked" : false,
     "allow_new_line" : false,
-    "display_width" : null,
     "type" : "text",
+    "display_width" : null,
     "default" : "Houlihan Lokey"
   }, {
     "id" : "items.title",
@@ -37,8 +37,8 @@
     "required" : false,
     "locked" : false,
     "allow_new_line" : false,
-    "display_width" : null,
     "type" : "text",
+    "display_width" : null,
     "default" : "Houlihan Lokey"
   }, {
     "id" : "items.description",
@@ -47,8 +47,8 @@
     "required" : false,
     "locked" : false,
     "allow_new_line" : false,
-    "display_width" : null,
     "type" : "text",
+    "display_width" : null,
     "default" : "Myridius Featured in Houlihan Lokey's Digital Engineering Market Report"
   }, {
     "id" : "items.report_url",
@@ -57,8 +57,8 @@
     "required" : false,
     "locked" : false,
     "supported_types" : [ "EXTERNAL", "CONTENT" ],
-    "display_width" : null,
     "type" : "url",
+    "display_width" : null,
     "default" : {
       "content_id" : null,
       "href" : "https://cdn.hl.com/pdf/2025/from-code-to-creation-how-ai-is-reshaping-digital-engineering-september-2025-houlihan-lokey.pdf",
@@ -71,15 +71,15 @@
     "required" : false,
     "locked" : false,
     "allow_new_line" : false,
-    "display_width" : null,
     "type" : "text",
+    "display_width" : null,
     "default" : "View Report"
   } ],
   "tab" : "CONTENT",
   "expanded" : false,
   "group_occurrence_meta" : null,
-  "display_width" : null,
   "type" : "group",
+  "display_width" : null,
   "default" : [ {
     "kicker" : "Houlihan Lokey",
     "title" : "Houlihan Lokey",

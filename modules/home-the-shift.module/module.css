@@ -92,7 +92,7 @@
   margin: 0 0 24px;
 }
 
-@media (max-width: 1023px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
   .home-shift__heading {
     font-size: 40px;
     line-height: 1.25;
@@ -326,7 +326,7 @@
 }
 
 /* Desktop: lock copy to expanded width so lines don't reflow while the card animates */
-@media (min-width: 769px) {
+@media (min-width: 1024px) {
   .home-shift__cards {
     align-items: flex-end;
   }
@@ -352,7 +352,7 @@
 }
 
 /* Mobile: horizontal carousel (Figma), expand matches desktop hover */
-@media (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .home-shift {
     padding: 64px 0;
   }
@@ -469,7 +469,7 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) and (max-width: 768px) {
+@media (prefers-reduced-motion: reduce) and (max-width: 767px) {
   .home-shift__cards {
     scroll-snap-type: none;
   }

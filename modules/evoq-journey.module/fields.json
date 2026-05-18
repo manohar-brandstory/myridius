@@ -2,13 +2,13 @@
   "id" : "section_id",
   "name" : "section_id",
   "label" : "Section ID",
+  "help_text" : "Unique HTML ID for this section (used for anchor links).",
   "required" : false,
   "locked" : false,
   "allow_new_line" : false,
   "type" : "text",
   "display_width" : null,
-  "default" : "evoq-journey",
-  "help_text" : "Unique HTML ID for this section (used for anchor links)."
+  "default" : "evoq-journey"
 }, {
   "id" : "badge_text",
   "name" : "badge_text",
@@ -163,16 +163,18 @@
     "id" : "accordion_cards.background_image",
     "name" : "background_image",
     "label" : "Card background image (optional)",
+    "help_text" : "When set, shows as a photo background over the card (with a subtle dark overlay). Falls back to the CSS gradient when empty.",
     "required" : false,
     "locked" : false,
     "responsive" : false,
     "resizable" : true,
+    "show_loading" : false,
     "type" : "image",
+    "display_width" : null,
     "default" : {
       "src" : "",
       "alt" : ""
-    },
-    "help_text" : "When set, shows as a photo background over the card (with a subtle dark overlay). Falls back to the CSS gradient when empty."
+    }
   }, {
     "id" : "accordion_cards.bg_gradient",
     "name" : "bg_gradient",
@@ -193,31 +195,46 @@
     "title" : "Understand",
     "subtitle" : "Discovery & Baseline",
     "description" : "<p>Map systems, data flows, and operational patterns to build a complete picture of where AI can create immediate and compounding value.</p>",
-    "background_image" : { "src" : "", "alt" : "" },
+    "background_image" : {
+      "src" : "",
+      "alt" : ""
+    },
     "bg_gradient" : "linear-gradient(180deg, #194247 0%, #0C2226 76%, #0C2226 100%)"
   }, {
     "title" : "Re-Architect",
     "subtitle" : "AI-Native Design",
     "description" : "<p>Reimagine core workflows, data architectures, and decision frameworks for an AI-native operating model.</p>",
-    "background_image" : { "src" : "", "alt" : "" },
+    "background_image" : {
+      "src" : "",
+      "alt" : ""
+    },
     "bg_gradient" : "linear-gradient(1.67deg, #0C2226 25%, #194247 124%)"
   }, {
     "title" : "Activate",
     "subtitle" : "Agentic Go-Live",
     "description" : "<p>Deploying production-ready agents that execute autonomously within governed frameworks, delivering measurable value from day one.</p>",
-    "background_image" : { "src" : "", "alt" : "" },
+    "background_image" : {
+      "src" : "",
+      "alt" : ""
+    },
     "bg_gradient" : "linear-gradient(180deg, #0C2226 0%, #194247 100%)"
   }, {
     "title" : "Operate",
     "subtitle" : "Agentic Ways of Working",
     "description" : "<p>Continuous optimization of human-AI collaboration patterns, expanding agent capabilities as trust and performance compound.</p>",
-    "background_image" : { "src" : "", "alt" : "" },
+    "background_image" : {
+      "src" : "",
+      "alt" : ""
+    },
     "bg_gradient" : "linear-gradient(258deg, #194247 32%, #071417 30%, #0C2226 96%)"
   }, {
     "title" : "Compound",
     "subtitle" : "Business Reinvention",
     "description" : "<p>Where AI doesn't just improve the business—it redefines it. New revenue models, market positions, and competitive moats emerge.</p>",
-    "background_image" : { "src" : "", "alt" : "" },
+    "background_image" : {
+      "src" : "",
+      "alt" : ""
+    },
     "bg_gradient" : "#0C2226"
   } ]
 } ]

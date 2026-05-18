@@ -99,7 +99,7 @@
   width: 100%;
 }
 
-@media (max-width: 1023px) {
+@media only screen and (max-width: 767px) {
   .evoq-runtime__grid {
     display: flex;
     flex-direction: column;
@@ -150,7 +150,7 @@
   }
 }
 
-@media (max-width: 1023px) {
+@media only screen and (max-width: 767px) {
   .evoq-runtime__col {
     max-width: 100%;
     margin-left: 0;
@@ -167,7 +167,7 @@
   margin-right: var(--evoq-card-offset, 0px);
 }
 
-@media (max-width: 1023px) {
+@media only screen and (max-width: 767px) {
   .evoq-runtime__sideCard--left,
   .evoq-runtime__sideCard--right {
     margin-left: 0;
@@ -189,17 +189,45 @@
   border: 1px solid var(--evoq-border);
   border-radius: 16px;
   cursor: default;
-  transition: border-color 0.3s ease;
 }
 
-@media (max-width: 1023px) {
+@media only screen and (max-width: 767px) {
   .evoq-runtime__sideCard {
     max-width: 100%;
   }
 }
 
-.evoq-runtime__sideCard:hover {
+@media (hover: hover) and (pointer: fine) {
+  .evoq-runtime__sideCard:hover {
+    border-color: rgba(82, 224, 129, 0.4);
+  }
+
+  .evoq-runtime__sideCard:hover .evoq-runtime__sidePane--default {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  .evoq-runtime__sideCard:hover .evoq-runtime__sidePane--hover {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+
+/* Tap / coarse pointer — toggled via .is-expanded in module.js */
+.evoq-runtime__sideCard.is-expanded {
   border-color: rgba(82, 224, 129, 0.4);
+}
+
+.evoq-runtime__sideCard.is-expanded .evoq-runtime__sidePane--default {
+  opacity: 0;
+  transform: translateY(-5px);
+}
+
+.evoq-runtime__sideCard.is-expanded .evoq-runtime__sidePane--hover {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .evoq-runtime__sidePattern {
@@ -275,17 +303,6 @@
   gap: 8px;
 }
 
-.evoq-runtime__sideCard:hover .evoq-runtime__sidePane--default {
-  opacity: 0;
-  transform: translateY(-5px);
-}
-
-.evoq-runtime__sideCard:hover .evoq-runtime__sidePane--hover {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
 .evoq-runtime__sideTitle {
   margin: 0;
   font-size: clamp(1rem, 0.92rem + 0.35vw, 1.125rem);
@@ -351,35 +368,29 @@
   color: rgba(82, 224, 129, 0.3);
 }
 
-/* Scroll-in once */
+/* Side cards — off-screen until viewport (slide driven by module.js WAAPI) */
 .evoq-runtime:not(.evoq-runtime--inview) .evoq-runtime__sideCard--left {
   opacity: 0;
-  transform: translateX(-24px);
+  transform: translateX(-20px);
 }
 
 .evoq-runtime:not(.evoq-runtime--inview) .evoq-runtime__sideCard--right {
   opacity: 0;
-  transform: translateX(24px);
+  transform: translateX(20px);
 }
 
-.evoq-runtime--inview .evoq-runtime__sideCard--left,
-.evoq-runtime--inview .evoq-runtime__sideCard--right {
+.evoq-runtime__sideCard--entered {
   opacity: 1;
   transform: translateX(0);
-  transition: opacity 0.6s var(--evoq-runtime-ease), transform 0.6s var(--evoq-runtime-ease);
 }
 
-.evoq-runtime--inview .evoq-runtime__sideCard--in-0 {
-  transition-delay: 0.3s;
+.evoq-runtime__sideCard {
+  transition: border-color 0.3s ease;
+  will-change: transform, opacity;
 }
-.evoq-runtime--inview .evoq-runtime__sideCard--in-1 {
-  transition-delay: 0.45s;
-}
-.evoq-runtime--inview .evoq-runtime__sideCard--in-2 {
-  transition-delay: 0.6s;
-}
-.evoq-runtime--inview .evoq-runtime__sideCard--in-3 {
-  transition-delay: 0.75s;
+
+.evoq-runtime__sideCard--entered {
+  will-change: auto;
 }
 
 /* Center */
@@ -469,7 +480,10 @@
   border: 1px solid rgba(82, 224, 129, 0.3);
   background: rgba(7, 20, 23, 0.95);
   backdrop-filter: blur(12px);
-  animation: evoqRuntimeLogoRing 10s ease-in-out infinite;
+}
+
+.evoq-runtime--inview .evoq-runtime__logoPulse {
+  animation: evoqRuntimeLogoRing 3s ease-in-out infinite;
 }
 
 @keyframes evoqRuntimeLogoRing {
@@ -526,12 +540,11 @@
   background: var(--evoq-bg);
   padding: 8px 12px;
   cursor: default;
-  transition: transform 0.25s var(--evoq-runtime-ease), box-shadow 0.25s ease;
 }
 
 .evoq-runtime__pill:focus {
-  outline: 2px solid rgba(82, 224, 129, 0.5);
-  outline-offset: 2px;
+  outline: 1px solid rgba(82, 224, 129, 0.5);
+  outline-offset: 0;
 }
 
 .evoq-runtime__pill--0 {
@@ -620,61 +633,58 @@
   color: var(--evoq-muted);
 }
 
-/* Pills entrance */
-.evoq-runtime:not(.evoq-runtime--inview) .evoq-runtime__pill {
+/* Pills entrance (EvoqRuntime.tsx: opacity + y + scale, delay 0.35 + i*0.12) */
+.evoq-runtime__pill {
   opacity: 0;
+  transition:
+    opacity 0.55s var(--evoq-runtime-ease),
+    transform 0.55s var(--evoq-runtime-ease),
+    box-shadow 0.25s ease;
 }
 
-.evoq-runtime:not(.evoq-runtime--inview) .evoq-runtime__pill--0 {
+.evoq-runtime__pill--0 {
   transform: translate(-50%, 18px) scale(0.94);
 }
 
-.evoq-runtime:not(.evoq-runtime--inview) .evoq-runtime__pill--1,
-.evoq-runtime:not(.evoq-runtime--inview) .evoq-runtime__pill--2 {
+.evoq-runtime__pill--1,
+.evoq-runtime__pill--2 {
   transform: translateY(18px) scale(0.94);
 }
 
-.evoq-runtime--inview .evoq-runtime__pill--0 {
+.evoq-runtime--inview .evoq-runtime__pill {
   opacity: 1;
+}
+
+.evoq-runtime--inview .evoq-runtime__pill--0 {
   transform: translate(-50%, 0) scale(1);
-  transition: opacity 0.55s var(--evoq-runtime-ease), transform 0.55s var(--evoq-runtime-ease);
   transition-delay: 0.35s;
 }
 
 .evoq-runtime--inview .evoq-runtime__pill--1 {
-  opacity: 1;
   transform: translateY(0) scale(1);
-  transition: opacity 0.55s var(--evoq-runtime-ease), transform 0.55s var(--evoq-runtime-ease);
   transition-delay: 0.47s;
 }
 
 .evoq-runtime--inview .evoq-runtime__pill--2 {
-  opacity: 1;
   transform: translateY(0) scale(1);
-  transition: opacity 0.55s var(--evoq-runtime-ease), transform 0.55s var(--evoq-runtime-ease);
   transition-delay: 0.59s;
 }
 
-.evoq-runtime--inview .evoq-runtime__pill--in-3,
-.evoq-runtime--inview .evoq-runtime__pill--in-4,
-.evoq-runtime--inview .evoq-runtime__pill--in-5 {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  transition: opacity 0.55s var(--evoq-runtime-ease), transform 0.55s var(--evoq-runtime-ease);
-}
-
 .evoq-runtime--inview .evoq-runtime__pill--in-3 {
+  transform: translateY(0) scale(1);
   transition-delay: 0.71s;
 }
 .evoq-runtime--inview .evoq-runtime__pill--in-4 {
+  transform: translateY(0) scale(1);
   transition-delay: 0.83s;
 }
 .evoq-runtime--inview .evoq-runtime__pill--in-5 {
+  transform: translateY(0) scale(1);
   transition-delay: 0.95s;
 }
 
-/* Micro icons */
-.evoq-runtime__decDot {
+/* Micro icons — loop only after section is in view */
+.evoq-runtime--inview .evoq-runtime__decDot {
   transform-origin: center;
   animation: evoqRuntimeDecDot 1.5s ease-in-out infinite;
 }
@@ -704,7 +714,7 @@
   }
 }
 
-.evoq-runtime__wfRect {
+.evoq-runtime--inview .evoq-runtime__wfRect {
   animation: evoqRuntimeWfDash 2s linear infinite;
 }
 
@@ -714,7 +724,7 @@
   }
 }
 
-.evoq-runtime__waveShift {
+.evoq-runtime--inview .evoq-runtime__waveShift {
   animation: evoqRuntimeWaveX 10s linear infinite;
 }
 
@@ -727,24 +737,96 @@
   }
 }
 
-@media (max-width: 1023px) {
-  .evoq-runtime__orbitSvg {
-    width: min(260px, 82vw);
-    height: min(260px, 82vw);
-  }
-
-  .evoq-runtime__pill--1 {
-    right: 8%;
-    bottom: 14%;
-  }
-
-  .evoq-runtime__pill--2 {
-    left: 8%;
-    bottom: 11%;
+@media only screen and (max-width: 767px) {
+  .evoq-runtime__sideCard {
+    cursor: pointer;
   }
 }
 
-@media (max-width: 639px) {
+/* Tablet — 3-column layout + centered orbit/pills (matches Figma / EvoqRuntime.tsx lg) */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .evoq-runtime {
+    padding-top: clamp(3.5rem, 5vw, 5rem);
+    padding-bottom: clamp(3.5rem, 5vw, 5rem);
+  }
+
+  .evoq-runtime__header {
+    margin-bottom: clamp(2rem, 4vw, 3.5rem);
+  }
+
+  .evoq-runtime__grid {
+    display: grid;
+    grid-template-columns: minmax(160px, 220px) minmax(0, 1fr) minmax(160px, 220px);
+    gap: clamp(1rem, 2.5vw, 1.5rem);
+    align-items: stretch;
+  }
+
+  .evoq-runtime__col {
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .evoq-runtime__col--left,
+  .evoq-runtime__col--right {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .evoq-runtime__sideCard {
+    width: 100%;
+    max-width: none;
+    min-height: 200px;
+    padding: 1rem 1.125rem;
+  }
+
+  .evoq-runtime__sideCard--left,
+  .evoq-runtime__sideCard--right {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .evoq-runtime__center {
+    order: 0;
+    min-height: 400px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .evoq-runtime__orbitSvg {
+    width: min(280px, 78%);
+    height: min(280px, 78%);
+    top: 68%;
+  }
+
+  .evoq-runtime__pill {
+    width: min(148px, 40%);
+  }
+
+  .evoq-runtime__pill--0 {
+    top: 36%;
+    max-width: min(190px, calc(100% - 1.5rem));
+  }
+
+  .evoq-runtime__pill--1 {
+    right: 10%;
+    bottom: 15%;
+    left: auto;
+    top: auto;
+    max-width: calc(50% - 0.5rem);
+  }
+
+  .evoq-runtime__pill--2 {
+    left: 10%;
+    bottom: 12%;
+    top: auto;
+    max-width: calc(50% - 0.5rem);
+  }
+}
+
+@media only screen and (max-width: 767px) {
   .evoq-runtime__pill--0 {
     top: 41%;
   }
@@ -775,7 +857,7 @@
   }
 }
 
-@media (max-width: 479px) {
+@media only screen and (max-width: 767px) {
   .evoq-runtime__eyebrow {
     font-size: 11px;
     letter-spacing: 0.14em;
@@ -807,6 +889,24 @@
   .evoq-runtime--inview .evoq-runtime__orbitArc {
     stroke-dashoffset: 0;
     opacity: 0.45;
+  }
+
+  .evoq-runtime__sideCard,
+  .evoq-runtime__sideCard--entered,
+  .evoq-runtime__pill {
+    opacity: 1;
+    transform: none;
+    transition: none !important;
+  }
+
+  .evoq-runtime:not(.evoq-runtime--inview) .evoq-runtime__sideCard--left,
+  .evoq-runtime:not(.evoq-runtime--inview) .evoq-runtime__sideCard--right {
+    opacity: 1;
+    transform: none;
+  }
+
+  .evoq-runtime__pill--0 {
+    transform: translate(-50%, 0);
   }
 
   .evoq-runtime__sidePane,

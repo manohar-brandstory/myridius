@@ -1,0 +1,62 @@
+{# Optional strip below Services Hero — partner badges / credentials (matches Figma HeroStatSection). #}
+<section
+  {% if module.section_id %}id="{{ module.section_id }}"{% endif %}
+  class="svc-trust"
+  aria-label="{{ module.aria_label|default('Credentials') }}"
+>
+  <div class="svc-trust__wrap">
+    {% if module.badges %}
+      <div class="svc-trust__grid" data-sr>
+        {% for item in module.badges %}
+          <div class="svc-trust__cell{% if not loop.first %} svc-trust__cell--border{% endif %}">
+            <div class="svc-trust__media">
+              {% if item.icon.src %}
+                <img
+                  class="svc-trust__img"
+                  src="{{ item.icon.src }}"
+                  alt="{{ item.icon.alt|default('') }}"
+                  loading="lazy"
+                  decoding="async"
+                  width="80"
+                  height="80"
+                >
+              {% elif loop.index == 1 %}
+                <img
+                  class="svc-trust__img"
+                  src="{{ get_asset_url('/Myridius Theme V1/images/services-trust-advanced-tier.svg') }}"
+                  alt="{{ item.icon.alt|default('Advanced Tier Services Partner badge') }}"
+                  loading="lazy"
+                  decoding="async"
+                  width="80"
+                  height="80"
+                >
+              {% elif loop.index == 2 %}
+                <img
+                  class="svc-trust__img"
+                  src="{{ get_asset_url('/Myridius Theme V1/images/services-trust-well-architected.svg') }}"
+                  alt="{{ item.icon.alt|default('Well-Architected Program Partner badge') }}"
+                  loading="lazy"
+                  decoding="async"
+                  width="80"
+                  height="80"
+                >
+              {% else %}
+                {# Figma card 3: Award icon in tinted frame when no image is set #}
+                <div class="svc-trust__iconFrame" aria-hidden="true">
+                  {# Lucide-style Award (matches Figma HeroStatSection card 3) #}
+                  <svg class="svc-trust__iconSvg" width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="12" cy="8" r="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+              {% endif %}
+            </div>
+            {% if item.badge_text %}
+              <p class="svc-trust__caption">{{ item.badge_text }}</p>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>

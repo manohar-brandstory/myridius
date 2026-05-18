@@ -42,7 +42,11 @@
           {% set grad_to   = "rgba(25,66,71,1)" %}
         {% endif %}
 
-        {% set link_href = item.url.href|default("#") %}
+        {% set link_href = item.url.href|default('')|trim %}
+        {% if item.url.type == 'CONTENT' and item.url.content_id and (not link_href or link_href == '#') %}
+          {% set link_href = content_by_id(item.url.content_id).absolute_url|default('')|trim %}
+        {% endif %}
+        {% set item_has_link = link_href and link_href != '#' and link_href != 'javascript:void(0)' and '{{' not in link_href %}
         {% set link_target = "target=\"_blank\" rel=\"noopener noreferrer\"" if item.url.open_in_new_tab else "" %}
 
         {% if loop.index0 % 2 == 0 %}
@@ -51,8 +55,12 @@
           {% set mob_grad = "linear-gradient(180deg, rgba(25,66,71,0.5) 0%, rgba(25,66,71,0.9) 42.93%, #194247 85.85%)" %}
         {% endif %}
 
+        {% if item_has_link %}
         <a href="{{ link_href }}" {{ link_target }}
-           class="svc-ind__card"
+        {% else %}
+        <article
+        {% endif %}
+           class="svc-ind__card{% if not item_has_link %} svc-ind__card--no-link{% endif %}"
            data-svc-ind-index="{{ loop.index0 }}"
            data-svc-ind-row="{{ row_index }}"
            style="--svc-ind-grad-from:{{ grad_from }};--svc-ind-grad-via:{{ grad_via }};--svc-ind-grad-to:{{ grad_to }};--svc-ind-mob-grad:{{ mob_grad }};">
@@ -72,9 +80,11 @@
           <div class="svc-ind__card-hover">
             <div class="svc-ind__card-hover-top">
               <span class="svc-ind__card-hover-title">{{ hover_title }}</span>
+              {% if item_has_link %}
               <span class="svc-ind__card-arrow" aria-hidden="true">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
               </span>
+              {% endif %}
             </div>
             {% if item.description_items %}
               <ul class="svc-ind__card-bullets" role="list">
@@ -87,7 +97,7 @@
               </ul>
             {% endif %}
           </div>
-        </a>
+        {% if item_has_link %}</a>{% else %}</article>{% endif %}
       {% endfor %}
     </div>
 

@@ -715,7 +715,7 @@
   background: rgba(255, 255, 255, 0.1);
 }
 
-@media (max-width: 1024px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
   .home-hero {
     padding-top: 6.75rem;
     padding-bottom: 4.25rem;
@@ -775,7 +775,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .home-hero {
     padding-top: 4.5rem;
     padding-bottom: 3.5rem;
@@ -869,6 +869,7 @@
   }
 
   .home-hero__card.is-active {
+    scroll-snap-align: start;
     width: 300px;
     height: 360px;
   }

@@ -1,94 +1,97 @@
-[
-  {
-    "id": "authors_heading",
-    "name": "authors_heading",
-    "label": "Authors Heading",
-    "type": "text",
-    "required": false,
-    "locked": false,
-    "default": "Authors & Contributors"
+[ {
+  "id" : "authors_heading",
+  "name" : "authors_heading",
+  "label" : "Authors Heading",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Authors & Contributors"
+}, {
+  "id" : "author_list",
+  "name" : "author_list",
+  "label" : "Author List",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 0,
+    "max" : 10,
+    "sorting_label_field" : null,
+    "default" : 1
   },
-  {
-    "id": "author_list",
-    "name": "author_list",
-    "label": "Author List",
-    "type": "group",
-    "required": false,
-    "locked": false,
-    "occurrence": {
-      "min": 0,
-      "max": 10,
-      "default": 1
-    },
-    "children": [
-      {
-        "id": "author_list.author_full_name",
-        "name": "author_full_name",
-        "label": "Author Full Name",
-        "type": "text",
-        "required": false,
-        "locked": false,
-        "default": "Balaji Ramarajan"
-      },
-      {
-        "id": "author_list.author_role",
-        "name": "author_role",
-        "label": "Author Role",
-        "type": "text",
-        "required": false,
-        "locked": false,
-        "default": "Enterprise Architect"
-      }
-    ],
-    "default": [
-      {
-        "author_full_name": "Balaji Ramarajan",
-        "author_role": "Enterprise Architect"
-      }
-    ]
-  },
-  {
-    "id": "cta_heading",
-    "name": "cta_heading",
-    "label": "CTA Heading",
-    "type": "text",
-    "required": false,
-    "locked": false,
-    "default": "Want deeper context behind this work?"
-  },
-  {
-    "id": "cta_subtitle",
-    "name": "cta_subtitle",
-    "label": "CTA Subtitle",
-    "type": "text",
-    "required": false,
-    "locked": false,
-    "default": "Connect with our experts and schedule a conversation"
-  },
-  {
-    "id": "cta_button_text",
-    "name": "cta_button_text",
-    "label": "Button Text",
-    "type": "text",
-    "required": false,
-    "locked": false,
-    "default": "Schedule a conversation"
-  },
-  {
-    "id": "cta_button_url",
-    "name": "cta_button_url",
-    "label": "Button URL",
-    "type": "url",
-    "required": false,
-    "locked": false,
-    "supported_types": [
-      "EXTERNAL",
-      "CONTENT"
-    ],
-    "default": {
-      "content_id": null,
-      "href": "#",
-      "type": "EXTERNAL"
-    }
+  "children" : [ {
+    "id" : "author_list.author_full_name",
+    "name" : "author_full_name",
+    "label" : "Author Full Name",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Balaji Ramarajan"
+  }, {
+    "id" : "author_list.author_role",
+    "name" : "author_role",
+    "label" : "Author Role",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Enterprise Architect"
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "author_full_name" : "Balaji Ramarajan",
+    "author_role" : "Enterprise Architect"
+  } ]
+}, {
+  "id" : "cta_heading",
+  "name" : "cta_heading",
+  "label" : "CTA Heading",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Want deeper context behind this work?"
+}, {
+  "id" : "cta_subtitle",
+  "name" : "cta_subtitle",
+  "label" : "CTA Subtitle",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Connect with our experts and schedule a conversation"
+}, {
+  "id" : "cta_button_text",
+  "name" : "cta_button_text",
+  "label" : "Button Text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Schedule a conversation"
+}, {
+  "id" : "cta_button_url",
+  "name" : "cta_button_url",
+  "label" : "Button URL",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT" ],
+  "type" : "url",
+  "display_width" : null,
+  "default" : {
+    "content_id" : null,
+    "href" : "#",
+    "type" : "EXTERNAL"
   }
-]
+} ]

@@ -89,7 +89,7 @@
   100% { transform: translateX(-33.333%); }
 }
 
-@media (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .evoq-news {
     padding: 72px 0 48px;
   }

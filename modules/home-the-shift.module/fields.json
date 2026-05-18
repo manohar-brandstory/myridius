@@ -1,129 +1,150 @@
-[
-  {
-    "id": "badge_text",
-    "name": "badge_text",
-    "label": "Badge text",
-    "type": "text",
-    "default": "THE SHIFT"
+[ {
+  "id" : "badge_text",
+  "name" : "badge_text",
+  "label" : "Badge text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "THE SHIFT"
+}, {
+  "id" : "heading",
+  "name" : "heading",
+  "label" : "Heading",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "From Services to Execution Systems"
+}, {
+  "id" : "subheading",
+  "name" : "subheading",
+  "label" : "Subheading",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "display_width" : null,
+  "default" : "<p>Driving towards autonomous systems that improve, scale, and compound value over time.</p>"
+}, {
+  "id" : "stages",
+  "name" : "stages",
+  "label" : "Stage cards",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 2,
+    "max" : 6,
+    "sorting_label_field" : null,
+    "default" : 4
   },
-  {
-    "id": "heading",
-    "name": "heading",
-    "label": "Heading",
-    "type": "text",
-    "default": "From Services to Execution Systems"
-  },
-  {
-    "id": "subheading",
-    "name": "subheading",
-    "label": "Subheading",
-    "type": "richtext",
-    "default": "<p>Driving towards autonomous systems that improve, scale, and compound value over time.</p>"
-  },
-  {
-    "id": "stages",
-    "name": "stages",
-    "label": "Stage cards",
-    "type": "group",
-    "occurrence": {
-      "min": 2,
-      "max": 6,
-      "default": 4
-    },
-    "sorting_label_field": "title",
-    "children": [
-      {
-        "id": "stages.index",
-        "name": "index",
-        "label": "Index label",
-        "type": "text",
-        "default": "01"
-      },
-      {
-        "id": "stages.stage_label",
-        "name": "stage_label",
-        "label": "Stage microcopy",
-        "type": "text",
-        "default": "Stage name"
-      },
-      {
-        "id": "stages.title",
-        "name": "title",
-        "label": "Title",
-        "type": "text",
-        "default": "Stage title"
-      },
-      {
-        "id": "stages.description",
-        "name": "description",
-        "label": "Description (shows when expanded)",
-        "type": "text",
-        "default": "Short stage description shown on expand."
-      },
-      {
-        "id": "stages.background_image",
-        "name": "background_image",
-        "label": "Card background image",
-        "required": false,
-        "locked": false,
-        "responsive": false,
-        "resizable": true,
-        "type": "image",
-        "default": {
-          "src": "",
-          "alt": ""
-        },
-        "help_text": "Optional. When set, replaces the default gradient art for this card. Use ~508×680px or larger; image is cropped to cover the card."
-      }
-    ],
-    "default": [
-      {
-        "index": "01",
-        "stage_label": "Linear scaling",
-        "title": "Integrated Systems",
-        "description": "Replace fragmented, siloed services with unified systems that run business operations.",
-        "background_image": {
-          "src": "",
-          "alt": ""
-        }
-      },
-      {
-        "index": "02",
-        "stage_label": "Capacity decouples",
-        "title": "System-Led Execution",
-        "description": "Move from human-dependent delivery models to intelligent systems that execute independently.",
-        "background_image": {
-          "src": "",
-          "alt": ""
-        }
-      },
-      {
-        "index": "03",
-        "stage_label": "Value compounds",
-        "title": "Compounding Outcomes",
-        "description": "Shift from linear, effort-based results to software-driven value that compounds over time.",
-        "background_image": {
-          "src": "",
-          "alt": ""
-        }
-      },
-      {
-        "index": "04",
-        "stage_label": "Autonomy expands",
-        "title": "Autonomous Orchestration",
-        "description": "Reduce manual coordination by activating agents that orchestrate complex, real-time enterprise workflows.",
-        "background_image": {
-          "src": "",
-          "alt": ""
-        }
-      }
-    ]
-  },
-  {
-    "id": "footer_text",
-    "name": "footer_text",
-    "label": "Closing paragraph",
-    "type": "richtext",
-    "default": "<p>Execution systems unify decisions, workflows, data, and agents into a continuous system, where intelligence drives decisions, systems execute work, and execution continuously improves itself.</p>"
-  }
-]
+  "children" : [ {
+    "id" : "stages.index",
+    "name" : "index",
+    "label" : "Index label",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "01"
+  }, {
+    "id" : "stages.stage_label",
+    "name" : "stage_label",
+    "label" : "Stage microcopy",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Stage name"
+  }, {
+    "id" : "stages.title",
+    "name" : "title",
+    "label" : "Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Stage title"
+  }, {
+    "id" : "stages.description",
+    "name" : "description",
+    "label" : "Description (shows when expanded)",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Short stage description shown on expand."
+  }, {
+    "id" : "stages.background_image",
+    "name" : "background_image",
+    "label" : "Card background image",
+    "help_text" : "Optional. When set, replaces the default gradient art for this card. Use ~508×680px or larger; image is cropped to cover the card.",
+    "required" : false,
+    "locked" : false,
+    "responsive" : false,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "",
+      "alt" : ""
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "index" : "01",
+    "stage_label" : "Linear scaling",
+    "title" : "Integrated Systems",
+    "description" : "Replace fragmented, siloed services with unified systems that run business operations.",
+    "background_image" : {
+      "src" : "",
+      "alt" : ""
+    }
+  }, {
+    "index" : "02",
+    "stage_label" : "Capacity decouples",
+    "title" : "System-Led Execution",
+    "description" : "Move from human-dependent delivery models to intelligent systems that execute independently.",
+    "background_image" : {
+      "src" : "",
+      "alt" : ""
+    }
+  }, {
+    "index" : "03",
+    "stage_label" : "Value compounds",
+    "title" : "Compounding Outcomes",
+    "description" : "Shift from linear, effort-based results to software-driven value that compounds over time.",
+    "background_image" : {
+      "src" : "",
+      "alt" : ""
+    }
+  }, {
+    "index" : "04",
+    "stage_label" : "Autonomy expands",
+    "title" : "Autonomous Orchestration",
+    "description" : "Reduce manual coordination by activating agents that orchestrate complex, real-time enterprise workflows.",
+    "background_image" : {
+      "src" : "",
+      "alt" : ""
+    }
+  } ]
+}, {
+  "id" : "footer_text",
+  "name" : "footer_text",
+  "label" : "Closing paragraph",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "display_width" : null,
+  "default" : "<p>Execution systems unify decisions, workflows, data, and agents into a continuous system, where intelligence drives decisions, systems execute work, and execution continuously improves itself.</p>"
+} ]
