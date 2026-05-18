@@ -235,6 +235,18 @@
   pointer-events: none;
   cursor: default;
   user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.home-ind__pill:hover,
+.home-ind__pill:focus,
+.home-ind__pill:focus-visible,
+.home-ind__pill:active {
+  background: #f6f8f9;
+  border-color: rgba(140, 161, 163, 0.3);
+  color: #556467;
+  outline: none;
+  box-shadow: none;
 }
 
 /* Learn More Link */
@@ -310,34 +322,22 @@
   opacity: 1;
 }
 
-/* Dark wash + gradient as panel overlay (not on the image) */
+/*
+ * Image overlay — matches IndustriesSection.tsx:
+ * bg-gradient-to-t from-[#0C2226] via-[#0C2226]/40 to-[white]
+ * White at top of panel (page blend); dark at bottom for caption. Not on the <img>.
+ */
 .home-ind__panel-overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  isolation: isolate;
-}
-
-.home-ind__panel-overlay::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: rgba(25, 66, 71, 0.58);
-}
-
-.home-ind__panel-overlay::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 1;
+  border-radius: inherit;
   background: linear-gradient(
     to top,
     #0c2226 0%,
-    rgba(25, 66, 71, 0.82) 32%,
-    rgba(25, 66, 71, 0.42) 58%,
-    rgba(255, 255, 255, 0.9) 100%
+    rgba(12, 34, 38, 0.4) 50%,
+    #ffffff 100%
   );
 }
 

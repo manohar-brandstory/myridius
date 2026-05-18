@@ -534,6 +534,7 @@
 
 .home-hero__expanded-card.is-card-enter {
   animation: homeHeroExpandedCardIn 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) both;
+  animation-delay: var(--hero-card-enter-delay, 0s);
 }
 
 @keyframes homeHeroExpandedCardIn {
@@ -837,7 +838,7 @@
     padding-left: 0;
     scroll-behavior: smooth;
     scroll-snap-type: x proximity;
-    scroll-padding-inline: 16px;
+    scroll-padding-inline: 24px;
   }
 
   .home-hero__row {
@@ -852,6 +853,19 @@
 
   .home-hero__card {
     scroll-snap-align: center;
+    transition:
+      border-color 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+      background 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+      width 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+      height 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .home-hero__card-active,
+  .home-hero__card-small {
+    transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .home-hero__card.is-active {
@@ -873,7 +887,43 @@
   }
 
   .home-hero__bg-image {
-    transition: opacity 0.85s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .home-hero.is-expanded .home-hero__expanded {
+    transition:
+      opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+      max-height 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+      visibility 0s linear 0s;
+  }
+
+  .home-hero__expanded-left.is-content-swapping {
+    transition:
+      opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .home-hero__expanded-right.is-cards-swapping {
+    opacity: 0.55;
+    transition: opacity 0.48s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .home-hero__expanded-card.is-card-enter {
+    animation: homeHeroExpandedCardInMobile 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--hero-card-enter-delay, 0s);
+  }
+
+  @keyframes homeHeroExpandedCardInMobile {
+    from {
+      opacity: 0;
+      transform: translateY(14px) scale(0.97);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
   }
 
   .home-hero__expanded-card-media {

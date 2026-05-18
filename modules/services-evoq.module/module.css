@@ -99,8 +99,12 @@
   background: #fff;
   color: #194247;
 }
-.svc-evoq__cta svg {
+.svc-evoq__cta-icon {
   flex-shrink: 0;
+  display: block;
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -169,6 +173,13 @@
 .svc-evoq__center-icon {
   margin-bottom: 24px;
   filter: drop-shadow(0 0 15px rgba(82, 224, 129, 0.4));
+}
+
+.svc-evoq__center-icon-img {
+  display: block;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
 }
 .svc-evoq__center-title {
   margin: 0 0 24px;
@@ -251,10 +262,11 @@
   margin-bottom: 16px;
   transition: transform 300ms ease;
 }
-.svc-evoq__item-icon svg {
+.svc-evoq__item-icon-img {
   display: block;
   width: 28px;
   height: 28px;
+  object-fit: contain;
 }
 .svc-evoq__card--item:hover .svc-evoq__item-icon {
   transform: scale(1.25);

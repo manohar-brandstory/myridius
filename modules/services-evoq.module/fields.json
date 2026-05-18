@@ -62,6 +62,28 @@
     "type" : "EXTERNAL"
   }
 }, {
+  "id" : "cta_icon",
+  "name" : "cta_icon",
+  "label" : "CTA Arrow Icon",
+  "help_text" : "Upload an SVG or PNG (recommended 20×20). Default: File Manager → /services-evoq/icons/",
+  "required" : false,
+  "locked" : false,
+  "responsive" : false,
+  "resizable" : true,
+  "show_loading" : false,
+  "display_width" : null,
+  "type" : "image",
+  "default" : {
+    "src" : "https://5230018.fs1.hubspotusercontent-na1.net/hubfs/5230018/services-evoq/icons/services-evoq-cta-arrow.svg",
+    "alt" : "",
+    "size_type" : null,
+    "width" : null,
+    "height" : null,
+    "max_width" : null,
+    "max_height" : null,
+    "loading" : "disabled"
+  }
+}, {
   "id" : "center_label",
   "name" : "center_label",
   "label" : "Center Card Label",
@@ -91,6 +113,28 @@
   "display_width" : null,
   "type" : "text",
   "default" : "Operating layer for autonomous execution"
+}, {
+  "id" : "center_icon",
+  "name" : "center_icon",
+  "label" : "Center Card Icon",
+  "help_text" : "Upload an SVG or PNG (recommended 48×48). Default: File Manager → /services-evoq/icons/",
+  "required" : false,
+  "locked" : false,
+  "responsive" : false,
+  "resizable" : true,
+  "show_loading" : false,
+  "display_width" : null,
+  "type" : "image",
+  "default" : {
+    "src" : "https://5230018.fs1.hubspotusercontent-na1.net/hubfs/5230018/services-evoq/icons/services-evoq-center-icon.svg",
+    "alt" : "",
+    "size_type" : null,
+    "width" : null,
+    "height" : null,
+    "max_width" : null,
+    "max_height" : null,
+    "loading" : "disabled"
+  }
 }, {
   "id" : "center_bg_image",
   "name" : "center_bg_image",
@@ -125,15 +169,27 @@
     "default" : 4
   },
   "children" : [ {
-    "id" : "cards.icon_svg",
-    "name" : "icon_svg",
-    "label" : "Icon SVG",
+    "id" : "cards.icon",
+    "name" : "icon",
+    "label" : "Card Icon",
+    "help_text" : "Upload an SVG or PNG (recommended 28×28). Defaults in File Manager → /services-evoq/icons/",
     "required" : false,
     "locked" : false,
-    "allow_new_line" : true,
+    "responsive" : false,
+    "resizable" : true,
+    "show_loading" : false,
     "display_width" : null,
-    "type" : "text",
-    "default" : "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"10\"/></svg>"
+    "type" : "image",
+    "default" : {
+      "src" : "",
+      "alt" : "",
+      "size_type" : null,
+      "width" : null,
+      "height" : null,
+      "max_width" : null,
+      "max_height" : null,
+      "loading" : "disabled"
+    }
   }, {
     "id" : "cards.title",
     "name" : "title",
@@ -192,25 +248,37 @@
   "display_width" : null,
   "type" : "group",
   "default" : [ {
-    "icon_svg" : "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"/><circle cx=\"9\" cy=\"7\" r=\"4\"/><path d=\"M22 21v-2a4 4 0 0 0-3-3.87\"/><path d=\"M16 3.13a4 4 0 0 1 0 7.75\"/></svg>",
+    "icon" : {
+      "src" : "https://5230018.fs1.hubspotusercontent-na1.net/hubfs/5230018/services-evoq/icons/services-evoq-icon-connected-context.svg",
+      "alt" : "Connected Context"
+    },
     "title" : "Connected Context",
     "subtitle" : "Business, customer, policy, and workflow context stay connected.",
     "hover_subtitle" : "Goals, history, documents, data, and decisions stay connected across every interaction.",
     "bg_image" : { "src" : "https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=1080", "alt" : "Connected Context" }
   }, {
-    "icon_svg" : "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"4\" y=\"4\" width=\"16\" height=\"16\" rx=\"2\"/><rect x=\"9\" y=\"9\" width=\"6\" height=\"6\"/><path d=\"M15 2v2\"/><path d=\"M15 20v2\"/><path d=\"M2 15h2\"/><path d=\"M2 9h2\"/><path d=\"M20 15h2\"/><path d=\"M20 9h2\"/><path d=\"M9 2v2\"/><path d=\"M9 20v2\"/></svg>",
+    "icon" : {
+      "src" : "https://5230018.fs1.hubspotusercontent-na1.net/hubfs/5230018/services-evoq/icons/services-evoq-icon-coordinated-execution.svg",
+      "alt" : "Coordinated Execution"
+    },
     "title" : "Coordinated Execution",
     "subtitle" : "AI and human work move in sync across complex workflows.",
     "hover_subtitle" : "Orchestration keeps work moving across analysis, action, approval, and escalation.",
     "bg_image" : { "src" : "https://images.unsplash.com/photo-1695668548342-c0c1ad479aee?q=80&w=1080", "alt" : "Coordinated Execution" }
   }, {
-    "icon_svg" : "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20\"/><path d=\"M2 12h20\"/></svg>",
+    "icon" : {
+      "src" : "https://5230018.fs1.hubspotusercontent-na1.net/hubfs/5230018/services-evoq/icons/services-evoq-icon-governed-scale.svg",
+      "alt" : "Governed Scale"
+    },
     "title" : "Governed Scale",
     "subtitle" : "Autonomy expands without losing oversight or control.",
     "hover_subtitle" : "Policies, approvals, auditability, and escalation are built into execution from the start.",
     "bg_image" : { "src" : "https://images.unsplash.com/photo-1648824572410-2e15e187084c?q=80&w=1080", "alt" : "Governed Scale" }
   }, {
-    "icon_svg" : "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\"/><path d=\"m9 12 2 2 4-4\"/></svg>",
+    "icon" : {
+      "src" : "https://5230018.fs1.hubspotusercontent-na1.net/hubfs/5230018/services-evoq/icons/services-evoq-icon-reusable-advantage.svg",
+      "alt" : "Reusable Advantage"
+    },
     "title" : "Reusable Advantage",
     "subtitle" : "What works once becomes repeatable business capability.",
     "hover_subtitle" : "Proven patterns, components, and workbenches reused across teams and business units.",

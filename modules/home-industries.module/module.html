@@ -148,7 +148,8 @@
             {% endif %}
           {% endfor %}
         </div>
-        <div class="home-ind__panel-overlay"></div>
+        <div class="home-ind__panel-overlay" aria-hidden="true">
+        </div>
         <div class="home-ind__panel-content" data-panel-content>
           {% for industry in module.industries %}
             <div class="home-ind__panel-info{% if loop.first %} is-active{% endif %}" data-info-index="{{ loop.index0 }}">

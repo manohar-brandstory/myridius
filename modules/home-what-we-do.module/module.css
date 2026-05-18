@@ -775,10 +775,7 @@ button.home-wwd__explore {
     font-weight: 500;
   }
 
-  .home-wwd__services {
-    grid-template-columns: 1fr;
-  }
-
+  /* Accordion service tiles — 2-col grid (not flex column; matches desktop mini-cards) */
   .home-wwd__services--mobile {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -786,8 +783,8 @@ button.home-wwd__explore {
     width: 100%;
   }
 
-  .home-wwd__svc-card--full {
-    grid-column: span 2;
+  .home-wwd__services--mobile .home-wwd__svc-card--full {
+    grid-column: 1 / -1;
   }
 
   .home-wwd__services--mobile .home-wwd__svc-card {

@@ -12,33 +12,44 @@
 
     <div class="home-ins__track" data-ins-track>
       {% for item in module.insights %}
-        {% set link_href = item.link_url.href|default('#') %}
-        <a class="home-ins__card"
+        {% set ins_img_src = item.image.src|default('')|trim %}
+        {% if ins_img_src and '{{' in ins_img_src %}
+          {% set ins_img_src = '' %}
+        {% endif %}
+        {% set link_href = item.link_url.href|default('')|trim %}
+        {% set ins_has_link = link_href and link_href != '#' and '{{' not in link_href %}
+        {% if ins_has_link %}
+        <a class="home-ins__card{% if ins_img_src %} home-ins__card--has-bg{% endif %}"
            href="{{ link_href }}"
            {% if item.link_url.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}
            data-ins-card="{{ loop.index0 }}">
+        {% else %}
+        <article class="home-ins__card home-ins__card--no-link{% if ins_img_src %} home-ins__card--has-bg{% endif %}"
+                 data-ins-card="{{ loop.index0 }}">
+        {% endif %}
 
-          {% if item.image.src %}
-            <img class="home-ins__card-img"
-                 src="{{ item.image.src }}"
-                 alt="{{ item.image.alt }}"
-                 loading="lazy">
+          {% if ins_img_src %}
+            <span class="home-ins__card-media"
+                  style="background-image: url('{{ ins_img_src }}');"
+                  aria-hidden="true"></span>
           {% else %}
-            <div class="home-ins__card-img home-ins__card-img--placeholder"></div>
+            <span class="home-ins__card-media home-ins__card-media--placeholder" aria-hidden="true"></span>
           {% endif %}
 
           <div class="home-ins__card-overlay" aria-hidden="true"></div>
 
           <span class="home-ins__card-category">{{ item.category }}</span>
 
+          {% if ins_has_link %}
           <span class="home-ins__card-arrow" aria-hidden="true">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
               <path d="M10 6 16 12 10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
+          {% endif %}
 
           <h3 class="home-ins__card-title">{{ item.title }}</h3>
-        </a>
+        {% if ins_has_link %}</a>{% else %}</article>{% endif %}
       {% endfor %}
     </div>
 

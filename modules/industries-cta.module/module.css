@@ -30,7 +30,7 @@
 .cta__badgeText{ font-size:14px; font-weight:500; text-transform:uppercase; letter-spacing:0.2em; color: var(--color-accent); }
 .cta__title{ margin:0 0 20px; font-size: clamp(40px, 4.5vw, 68px); font-weight:500; line-height:1.08; letter-spacing:-0.05em; }
 .cta__titleAccent{ color: var(--color-accent-80, #52e081cc); }
-.cta__desc{ margin:0 auto 44px; max-width: 480px; font-size: 16px; font-weight: 500; line-height: 1.7; color: rgba(255,255,255,0.70); }
+.cta__desc{ margin:0 auto 44px; max-width: 480px; font-size: 20px; font-weight: 500; line-height: 1.4; color: rgba(255,255,255,0.70); }
 .cta__actions{ display:flex; align-items:center; justify-content:center; gap: 16px; flex-wrap: wrap; }
 .cta__btn{
   display:inline-flex; align-items:center; justify-content:center;
@@ -76,8 +76,8 @@
     margin-bottom: 20px;
   }
   .cta__desc{
-    font-size: 16px;
-    line-height: 27px;
+    font-size: 20px;
+    line-height: 28px;
     margin-bottom: 28px;
     max-width: 266px;
   }

@@ -87,29 +87,37 @@
   display: block;
   text-decoration: none;
   color: #ffffff;
+  background-color: #0c2226;
 }
 
-.home-ins__card-img {
+.home-ins__card--no-link {
+  cursor: default;
+}
+
+/* CMS photo layer (background-image set inline in module.html) */
+.home-ins__card-media {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   filter: grayscale(100%);
   transition: filter 0.7s ease, transform 0.7s ease;
 }
 
-.home-ins__card-img--placeholder {
+.home-ins__card-media--placeholder {
   background: linear-gradient(135deg, #194247 0%, #0c2226 60%, #337077 100%);
   filter: none;
 }
 
-.home-ins__card:hover .home-ins__card-img {
+.home-ins__card--has-bg:hover .home-ins__card-media {
   filter: grayscale(0%);
   transform: scale(1.05);
 }
 
-.home-ins__card:hover .home-ins__card-img--placeholder {
+.home-ins__card:hover .home-ins__card-media--placeholder {
   transform: scale(1.05);
 }
 

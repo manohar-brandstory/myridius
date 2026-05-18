@@ -134,19 +134,30 @@
   position: absolute;
   inset: 0;
   border-radius: 24px;
-  background: linear-gradient(to bottom right, var(--why-card-from), var(--why-card-to));
+  background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.55);
   overflow: hidden;
-  transition:
-    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
   /* Bottom pivot — fan like playing cards held in hand */
   transform-origin: 50% 100%;
-  will-change: transform, opacity;
+  will-change: transform;
+}
+
+/* Gradient stays sharp on every card in the stack */
+.home-why__card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: 0;
+  background: linear-gradient(to bottom right, var(--why-card-from), var(--why-card-to));
+  pointer-events: none;
 }
 
 .home-why__card-face {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
   padding: 32px;
@@ -154,8 +165,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  filter: blur(0);
-  transition: filter 0.65s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .home-why__card[data-position='0'] {
@@ -163,10 +172,6 @@
   transform: scale(1) translate(0, 0) rotate(0deg);
   opacity: 1;
   cursor: pointer;
-}
-
-.home-why__card[data-position='0'] .home-why__card-face {
-  filter: blur(0);
 }
 
 /* Pull forward from the fan (whileTap) */
@@ -178,58 +183,64 @@
 .home-why__card[data-position='1'] {
   z-index: 2;
   transform: scale(0.97) translate(-18px, -14px) rotate(-7deg);
-  opacity: 0.72;
   cursor: default;
   pointer-events: none;
 }
 
-.home-why__card[data-position='1'] .home-why__card-face {
-  filter: blur(2.5px);
+/* Back cards: blur copy only; gradient (::before) stays full color */
+.home-why__card:not([data-position='0']) .home-why__card-top,
+.home-why__card:not([data-position='0']) .home-why__pills {
+  transition: filter 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.home-why__card[data-position='1'] .home-why__card-top,
+.home-why__card[data-position='1'] .home-why__pills {
+  filter: blur(4px);
 }
 
 .home-why__card[data-position='2'] {
   z-index: 1;
   transform: scale(0.94) translate(-34px, -24px) rotate(-13deg);
-  opacity: 0.55;
   cursor: default;
   pointer-events: none;
 }
 
-.home-why__card[data-position='2'] .home-why__card-face {
-  filter: blur(4px);
+.home-why__card[data-position='2'] .home-why__card-top,
+.home-why__card[data-position='2'] .home-why__pills {
+  filter: blur(5px);
 }
 
 .home-why__card[data-position='3'] {
   z-index: 0;
   transform: scale(0.91) translate(-48px, -32px) rotate(-18deg);
-  opacity: 0.38;
   pointer-events: none;
 }
 
-.home-why__card[data-position='3'] .home-why__card-face {
-  filter: blur(5px);
+.home-why__card[data-position='3'] .home-why__card-top,
+.home-why__card[data-position='3'] .home-why__pills {
+  filter: blur(6px);
 }
 
 .home-why__card[data-position='4'] {
   z-index: -1;
   transform: scale(0.88) translate(-58px, -38px) rotate(-22deg);
-  opacity: 0.24;
   pointer-events: none;
 }
 
-.home-why__card[data-position='4'] .home-why__card-face {
-  filter: blur(5px);
+.home-why__card[data-position='4'] .home-why__card-top,
+.home-why__card[data-position='4'] .home-why__pills {
+  filter: blur(7px);
 }
 
 .home-why__card[data-position='5'] {
   z-index: -2;
   transform: scale(0.85) translate(-66px, -42px) rotate(-26deg);
-  opacity: 0.12;
   pointer-events: none;
 }
 
-.home-why__card[data-position='5'] .home-why__card-face {
-  filter: blur(5px);
+.home-why__card[data-position='5'] .home-why__card-top,
+.home-why__card[data-position='5'] .home-why__pills {
+  filter: blur(8px);
 }
 
 .home-why__icon-box {
@@ -791,28 +802,35 @@
     width: 100%;
     align-items: center;
     justify-content: center;
-    padding: 0 24px;
+    padding: 0 16px;
     box-sizing: border-box;
     overflow: visible;
   }
 
+  /* Symmetric bleed so the left fan + front card sit centered in the column */
   .home-why__stack-wrap {
-    width: min(300px, 100%);
+    --why-fan-bleed: 26px;
+    width: min(300px, calc(100% - 32px));
     max-width: 300px;
     margin: 0 auto;
+    padding: 0 var(--why-fan-bleed);
+    box-sizing: content-box;
     align-self: center;
     overflow: visible;
   }
 
-  /* Desktop hand-fan, scaled + centered; less horizontal spread on narrow width */
+  /* Same hand-fan as desktop, slightly tighter peel so it fits centered column */
   .home-why__stack {
-    --why-fan-scale: 0.75;
-    --why-fan-x: 0.42;
-    transform: translateX(12px);
+    --why-fan-scale: 0.66;
+    --why-fan-x: 0.32;
+    transform: none;
   }
 
   .home-why__card {
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+
+  .home-why__card::before {
     background: linear-gradient(
       135deg,
       #194247 0%,
@@ -835,59 +853,64 @@
     transform: scale(1) translate(0, 0) rotate(0deg);
   }
 
-  .home-why__card[data-position='1'] {
-    transform: scale(0.97) translate(calc(-18px * var(--why-fan-scale) * var(--why-fan-x)), calc(-14px * var(--why-fan-scale))) rotate(-6deg);
-    opacity: 0.45;
+  /* Match desktop stack (sharp bg + content blur); slightly softer back cards on narrow screens */
+  .home-why__card:not([data-position='0']) {
+    box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.4);
   }
 
-  .home-why__card[data-position='1'] .home-why__card-face {
-    filter: blur(4px);
+  .home-why__card[data-position='1'] {
+    z-index: 2;
+    opacity: 0.92;
+    transform: scale(0.97) translate(calc(-18px * var(--why-fan-scale) * var(--why-fan-x)), calc(-14px * var(--why-fan-scale))) rotate(-6deg);
+  }
+
+  .home-why__card[data-position='1'] .home-why__card-top,
+  .home-why__card[data-position='1'] .home-why__pills {
+    filter: blur(3px);
   }
 
   .home-why__card[data-position='2'] {
+    z-index: 1;
+    opacity: 0.86;
     transform: scale(0.94) translate(calc(-34px * var(--why-fan-scale) * var(--why-fan-x)), calc(-24px * var(--why-fan-scale))) rotate(-10deg);
-    opacity: 0.26;
   }
 
-  .home-why__card[data-position='2'] .home-why__card-face {
-    filter: blur(6px);
+  .home-why__card[data-position='2'] .home-why__card-top,
+  .home-why__card[data-position='2'] .home-why__pills {
+    filter: blur(4px);
   }
 
   .home-why__card[data-position='3'] {
+    z-index: 0;
+    opacity: 0.8;
     transform: scale(0.91) translate(calc(-48px * var(--why-fan-scale) * var(--why-fan-x)), calc(-32px * var(--why-fan-scale))) rotate(-14deg);
-    opacity: 0.16;
   }
 
-  .home-why__card[data-position='3'] .home-why__card-face {
-    filter: blur(6px);
+  .home-why__card[data-position='3'] .home-why__card-top,
+  .home-why__card[data-position='3'] .home-why__pills {
+    filter: blur(5px);
   }
 
   .home-why__card[data-position='4'] {
+    z-index: -1;
+    opacity: 0.74;
     transform: scale(0.88) translate(calc(-58px * var(--why-fan-scale) * var(--why-fan-x)), calc(-38px * var(--why-fan-scale))) rotate(-18deg);
-    opacity: 0.1;
   }
 
-  .home-why__card[data-position='4'] .home-why__card-face {
+  .home-why__card[data-position='4'] .home-why__card-top,
+  .home-why__card[data-position='4'] .home-why__pills {
     filter: blur(6px);
   }
 
   .home-why__card[data-position='5'] {
+    z-index: -2;
+    opacity: 0.68;
     transform: scale(0.85) translate(calc(-66px * var(--why-fan-scale) * var(--why-fan-x)), calc(-42px * var(--why-fan-scale))) rotate(-22deg);
-    opacity: 0.06;
   }
 
-  .home-why__card[data-position='5'] .home-why__card-face {
-    filter: blur(6px);
-  }
-
-  .home-why__card:not([data-position='0'])::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    border-radius: inherit;
-    background: rgba(7, 20, 23, 0.45);
-    pointer-events: none;
+  .home-why__card[data-position='5'] .home-why__card-top,
+  .home-why__card[data-position='5'] .home-why__pills {
+    filter: blur(7px);
   }
 
   .home-why__card[data-position='0']:active {

@@ -30,9 +30,27 @@
     var expandedCard = null;
     var isAnimating = false;
     var layoutEase = 'cubic-bezier(0.25, 0.8, 0.25, 1)';
+    var layoutEaseMobile = 'cubic-bezier(0.22, 1, 0.36, 1)';
     var layoutDuration = 1800;
+    var layoutDurationMobile = 2200;
     var contentSwapMs = 320;
+    var contentSwapMsMobile = 480;
+    var cardsSwapMs = 280;
+    var cardsSwapMsMobile = 420;
+    var mobileMq = window.matchMedia('(max-width: 768px)');
     var total = cards.length;
+
+    function isMobileHero() {
+      return mobileMq.matches;
+    }
+
+    function getLayoutDuration() {
+      return isMobileHero() ? layoutDurationMobile : layoutDuration;
+    }
+
+    function getLayoutEase() {
+      return isMobileHero() ? layoutEaseMobile : layoutEase;
+    }
 
     function pad2(n) {
       return n < 10 ? '0' + n : String(n);
@@ -107,11 +125,22 @@
             }
           ],
           {
-            duration: layoutDuration,
-            easing: layoutEase,
+            duration: getLayoutDuration(),
+            easing: getLayoutEase(),
             fill: 'none'
           }
         );
+      });
+    }
+
+    function scrollActiveCollapsedCard() {
+      if (expandedCard !== null || !isMobileHero()) return;
+      var active = track.querySelector('.home-hero__card.is-active');
+      if (!active || typeof active.scrollIntoView !== 'function') return;
+      active.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center'
       });
     }
 
@@ -127,7 +156,10 @@
         isAnimating = true;
         window.setTimeout(function () {
           isAnimating = false;
-        }, layoutDuration + 50);
+          scrollActiveCollapsedCard();
+        }, getLayoutDuration() + 80);
+      } else {
+        scrollActiveCollapsedCard();
       }
     }
 
@@ -175,11 +207,22 @@
         return;
       }
 
+      var swapMs = isMobileHero() ? contentSwapMsMobile : contentSwapMs;
       expandedLeft.classList.add('is-content-swapping');
       window.setTimeout(function () {
         apply();
         expandedLeft.classList.remove('is-content-swapping');
-      }, contentSwapMs);
+      }, swapMs);
+    }
+
+    function staggerExpandedCardEnter() {
+      Array.prototype.forEach.call(expandedRight.children, function (el, i) {
+        el.classList.remove('is-card-enter');
+        el.style.removeProperty('--hero-card-enter-delay');
+        void el.offsetWidth;
+        el.style.setProperty('--hero-card-enter-delay', (i * (isMobileHero() ? 0.1 : 0.06)) + 's');
+        el.classList.add('is-card-enter');
+      });
     }
 
     function mountExpandedCards(activeIndex) {
@@ -220,14 +263,13 @@
         return;
       }
 
+      var swapMs = isMobileHero() ? cardsSwapMsMobile : cardsSwapMs;
       expandedRight.classList.add('is-cards-swapping');
       window.setTimeout(function () {
         mountExpandedCards(activeIndex);
         expandedRight.classList.remove('is-cards-swapping');
-        Array.prototype.forEach.call(expandedRight.children, function (el) {
-          el.classList.add('is-card-enter');
-        });
-      }, 220);
+        staggerExpandedCardEnter();
+      }, swapMs);
     }
 
     function setExpandedBackground(index) {
@@ -264,7 +306,8 @@
     function expand(index) {
       if (index < 0 || index >= cards.length) return;
       var wasExpanded = expandedCard !== null;
-      var animateChange = wasExpanded && expandedCard !== index;
+      var switching = wasExpanded && expandedCard !== index;
+      var firstExpand = !wasExpanded;
       expandedCard = index;
       isAnimating = false;
       stopAuto();
@@ -272,10 +315,21 @@
       expandedView.setAttribute('aria-hidden', 'false');
       setExpandedBackground(index);
       alignTrackToIndex(index);
-      updateExpandedCopy(index, animateChange);
-      renderExpandedCards(index, animateChange);
-      syncPager();
 
+      if (switching && !reduced) {
+        updateExpandedCopy(index, true);
+        renderExpandedCards(index, true);
+      } else {
+        updateExpandedCopy(index, false);
+        mountExpandedCards(index);
+        if (firstExpand && !reduced) {
+          window.requestAnimationFrame(function () {
+            staggerExpandedCardEnter();
+          });
+        }
+      }
+
+      syncPager();
       expandedLeft.offsetHeight;
     }
 
