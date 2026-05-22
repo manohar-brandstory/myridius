@@ -18,7 +18,7 @@
 }
 
 .swwd__inner {
-  max-width: 1200px;
+  max-width: var(--container-max);
   margin: 0 auto;
 }
 
@@ -28,23 +28,25 @@
 }
 
 .swwd__badge {
+  display: inline-flex;
+  align-items: center;
   margin: 0 0 16px;
   font-family: var(--swwd-font);
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--color-accent, #52e081);
 }
 
 .swwd__badge::before {
   content: "";
-  display: inline-block;
+  display: block;
+  flex: 0 0 auto;
   width: 24px;
   height: 2px;
   margin-right: 10px;
-  vertical-align: middle;
-  background: var(--swwd-accent);
+  background: var(--color-accent, #52e081);
   border-radius: 2px;
 }
 

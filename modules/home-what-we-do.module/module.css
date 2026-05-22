@@ -15,7 +15,7 @@
 
 /* React: max-w-7xl mx-auto px-6 lg:px-8 */
 .home-wwd__container {
-  max-width: 80rem;
+  max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -348,18 +348,17 @@ button.home-wwd__explore {
   color: #fff;
 }
 
-/* React: text-sm text-[#8ca1a3] group-hover:text-white/70 */
 .home-wwd__svc-desc {
   margin: 0;
   font-family: 'Montserrat', system-ui, sans-serif;
   font-size: 14px;
   line-height: 20px;
-  color: #8ca1a3;
+  color: #556467;
   transition: color 0.3s ease;
 }
 
 .home-wwd__svc-card:hover .home-wwd__svc-desc {
-  color: rgba(255, 255, 255, 0.7);
+  color: #8ca1a3;
 }
 
 /* ── Right column — accordion ── */
@@ -673,9 +672,9 @@ button.home-wwd__explore {
   /* Match other home sections: full-width content area inside standard container */
   .home-wwd__container {
     width: 100%;
-    max-width: 80rem;
+    max-width: var(--container-max);
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 var(--gutter);
   }
 
   .home-wwd__masthead {

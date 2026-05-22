@@ -39,20 +39,53 @@
   "display_width" : null,
   "default" : "<p>Replace this placeholder with your story. This block matches the Figma “Video” section between Industry/Proof and Values.</p>"
 }, {
+  "id" : "media_type",
+  "name" : "media_type",
+  "label" : "Media type",
+  "help_text" : "Choose whether this section shows a video player or a still image.",
+  "required" : false,
+  "locked" : false,
+  "display" : "radio",
+  "choices" : [ [ "video", "Video" ], [ "image", "Image" ] ],
+  "multiple" : false,
+  "reordering_enabled" : true,
+  "preset" : null,
+  "type" : "choice",
+  "display_width" : null,
+  "default" : "video"
+}, {
   "picker" : "video",
   "id" : "custom_video_file",
   "name" : "custom_video_file",
-  "label" : "Custom Video File (upload from File Manager)",
+  "label" : "Video file",
+  "help_text" : "Upload an MP4 (or other supported format) from the File Manager.",
   "required" : false,
   "locked" : false,
+  "visibility" : {
+    "controlling_field" : null,
+    "controlling_field_path" : "media_type",
+    "controlling_value_regex" : "video",
+    "property" : null,
+    "operator" : "EQUAL",
+    "access" : null
+  },
   "type" : "file",
   "display_width" : null
 }, {
   "id" : "video_image",
   "name" : "video_image",
-  "label" : "Video Thumbnail / Poster Image",
+  "label" : "Video poster image",
+  "help_text" : "Optional poster shown before the video plays.",
   "required" : false,
   "locked" : false,
+  "visibility" : {
+    "controlling_field" : null,
+    "controlling_field_path" : "media_type",
+    "controlling_value_regex" : "video",
+    "property" : null,
+    "operator" : "EQUAL",
+    "access" : null
+  },
   "responsive" : true,
   "resizable" : true,
   "show_loading" : false,
@@ -65,13 +98,45 @@
 }, {
   "id" : "video_image_alt",
   "name" : "video_image_alt",
-  "label" : "Video Thumbnail Alt Text",
+  "label" : "Video alt text",
   "required" : false,
   "locked" : false,
+  "visibility" : {
+    "controlling_field" : null,
+    "controlling_field_path" : "media_type",
+    "controlling_value_regex" : "video",
+    "property" : null,
+    "operator" : "EQUAL",
+    "access" : null
+  },
   "allow_new_line" : false,
   "type" : "text",
   "display_width" : null,
   "default" : "Bringing Genius Together video"
+}, {
+  "id" : "section_image",
+  "name" : "section_image",
+  "label" : "Section image",
+  "help_text" : "Displayed when Media type is Image.",
+  "required" : false,
+  "locked" : false,
+  "visibility" : {
+    "controlling_field" : null,
+    "controlling_field_path" : "media_type",
+    "controlling_value_regex" : "image",
+    "property" : null,
+    "operator" : "EQUAL",
+    "access" : null
+  },
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "display_width" : null,
+  "default" : {
+    "src" : "",
+    "alt" : ""
+  }
 }, {
   "id" : "mobile_bg_image",
   "name" : "mobile_bg_image",

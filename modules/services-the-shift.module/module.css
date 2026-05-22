@@ -9,9 +9,7 @@
     --color-brand-2: #337077;
     --color-accent: #52E081;
     --color-surface: #fff;
-    --container-max: 80rem;
-    --gutter: 64px;
-  
+
     position: relative;
     background: var(--color-ink);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -63,7 +61,11 @@
   .svc-theshift__header {
     text-align: left;
     margin-bottom: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: var(--container-max);
     padding: 0 var(--gutter);
+    box-sizing: border-box;
   }
   
   .svc-theshift__badge {
@@ -617,7 +619,7 @@
      Responsive
      ═══════════════════════════════════════════════ */
   
-  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+  @media (max-width: 1024px) {
     .svc-theshift__container {
       padding: 80px 0;
     }
@@ -626,8 +628,8 @@
     .svc-theshift__nodes-mobile,
     .svc-theshift__cards-mobile,
     .svc-theshift__bottom {
-      padding-left: 40px;
-      padding-right: 40px;
+      padding-left: var(--gutter);
+      padding-right: var(--gutter);
     }
   
     .svc-theshift__heading {
@@ -712,7 +714,7 @@
     }
   }
   
-  @media only screen and (max-width: 767px) {
+  @media (max-width: 767px) {
     .svc-theshift__container {
       padding: 64px 0;
     }
@@ -721,8 +723,8 @@
     .svc-theshift__nodes-mobile,
     .svc-theshift__cards-mobile,
     .svc-theshift__bottom {
-      padding-left: 20px;
-      padding-right: 20px;
+      padding-left: var(--gutter);
+      padding-right: var(--gutter);
     }
   
     .svc-theshift__heading {

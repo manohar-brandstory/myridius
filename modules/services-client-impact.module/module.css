@@ -63,9 +63,9 @@
 .svc-impact__container {
   position: relative;
   z-index: 10;
-  max-width: var(--container-max, 1280px);
+  max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 64px;
+  padding: 0 var(--gutter);
 }
 
 /* ── Badge ── */
@@ -371,13 +371,13 @@
 /* ===================================================================
    Responsive
    =================================================================== */
-@media only screen and (min-width: 768px) {
+@media (min-width: 769px) {
   .svc-impact__body    { min-height: 480px; }
   .svc-impact__content { min-height: 260px; }
   .svc-impact__nav     { margin-top: 28px; }
 }
 
-@media only screen and (max-width: 767px) {
+@media (max-width: 768px) {
   .svc-impact {
     padding: 64px 16px;
   }

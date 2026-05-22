@@ -248,7 +248,7 @@ span.myr-cu-badge__text {
     line-height: 28px;
     height: 44px;
     outline: none;
-    padding: 0 40px 0 14px;
+    padding: 0 var(--gutter) 0 14px;
     transition: border-color var(--myr-ease), box-shadow var(--myr-ease);
     width: 100%;
 }

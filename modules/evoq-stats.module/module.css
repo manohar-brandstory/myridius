@@ -12,7 +12,7 @@
 }
 
 .evoq-stats__container {
-  max-width: 1200px;
+  max-width: var(--container-max);
   margin: 0 auto;
 }
 
@@ -415,6 +415,16 @@
   }
 }
 
+@media (min-width: 1025px) {
+  .evoq-stats {
+    padding: 100px 0;
+  }
+
+  .evoq-stats__container {
+    padding: 0 var(--gutter);
+  }
+}
+
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
   .evoq-stats {
     padding: 80px 24px;
@@ -441,11 +451,40 @@
 
 @media only screen and (max-width: 767px) {
   .evoq-stats {
-    padding: 72px 24px;
+    padding: 72px 0;
+  }
+
+  .evoq-stats__container {
+    padding: 0 var(--gutter);
   }
 
   .evoq-stats__heading {
     font-size: 32px;
+  }
+
+  .evoq-stats__cards-row {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+
+  .evoq-stats__arrow {
+    display: none;
+  }
+
+  .evoq-stats__card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .evoq-stats__cards-row:not(.evoq-stats--visible) > .evoq-stats__card {
+    transform: translateY(-16px);
+  }
+
+  .evoq-stats__cards-row.evoq-stats--visible > .evoq-stats__card {
+    transform: translateY(0);
   }
 
   .evoq-stats__stats-row {

@@ -33,7 +33,30 @@
              decoding="async">
       {% endif %}
     </div>
-    <h3 class="svc-evoq__center-title">{{ module.center_title }}</h3>
+    {% if module.center_title_image.src %}
+      {% set title_img = module.center_title_image %}
+      {% set title_size_attrs = '' %}
+      {% set title_style = '' %}
+      {% if title_img.width %}{% set title_size_attrs = title_size_attrs ~ ' width="' ~ title_img.width|escape_attr ~ '"' %}{% endif %}
+      {% if title_img.height %}{% set title_size_attrs = title_size_attrs ~ ' height="' ~ title_img.height|escape_attr ~ '"' %}{% endif %}
+      {% if title_img.size_type == 'auto' %}
+        {% set title_style = 'max-width: 100%; height: auto;' %}
+      {% elif title_img.size_type == 'auto_custom_max' %}
+        {% if title_img.max_width %}{% set title_style = 'max-width: ' ~ title_img.max_width ~ 'px; height: auto;' %}{% else %}{% set title_style = 'max-width: 100%; height: auto;' %}{% endif %}
+      {% elif title_img.width or title_img.height %}
+        {% if title_img.width %}{% set title_style = title_style ~ 'width: ' ~ title_img.width ~ 'px;' %}{% endif %}
+        {% if title_img.height %}{% set title_style = title_style ~ 'height: ' ~ title_img.height ~ 'px;' %}{% endif %}
+      {% endif %}
+      <img
+        class="svc-evoq__center-title"
+        src="{{ title_img.src|escape_url }}"
+        alt="{{ title_img.alt|default('')|escape_attr }}"
+        {{ title_size_attrs }}
+        {% if title_style %}style="{{ title_style|escape_attr }}"{% endif %}
+        loading="lazy"
+        decoding="async"
+      >
+    {% endif %}
     <p class="svc-evoq__center-sub">{{ module.center_subtitle }}</p>
   </div>
 </div>

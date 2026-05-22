@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  var MOBILE_MAX = 767;
+  var MOBILE_MAX = 768;
 
   var section = document.querySelector('.home-news');
   if (!section) return;

@@ -12,9 +12,9 @@
 }
 
 .applied-ins-related__wrap {
-  max-width: 1152px;
+  max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 var(--gutter, 24px);
+  padding: 0 var(--gutter);
 }
 
 .applied-ins-related__heading {
@@ -65,9 +65,11 @@
   will-change: transform;
 }
 
-.applied-ins-related__carousel.is-slider .applied-ins-related__slide {
-  flex: 0 0 33.3333%;
-  padding: 0 16px;
+.applied-ins-related__carousel.is-slider .applied-ins-related__slide,
+.applied-ins-related__carousel.is-slider [data-applied-ins-clone] {
+  flex: 0 0 auto;
+  flex-shrink: 0;
+  padding: 0 12px;
   box-sizing: border-box;
 }
 
@@ -189,11 +191,11 @@
 }
 
 .applied-ins-related__arrow--prev {
-  left: 0;
+  left: -30px;
 }
 
 .applied-ins-related__arrow--next {
-  right: 0;
+  right: -30px;
 }
 
 .applied-ins-related__mobPrev,
@@ -261,9 +263,11 @@
     grid-template-columns: none;
   }
 
-  .applied-ins-related__carousel.is-slider .applied-ins-related__slide {
-    flex: 0 0 50%;
-    padding: 0 16px;
+  .applied-ins-related__carousel.is-slider .applied-ins-related__slide,
+  .applied-ins-related__carousel.is-slider [data-applied-ins-clone] {
+    flex: 0 0 auto;
+    flex-shrink: 0;
+    padding: 0 12px;
     box-sizing: border-box;
   }
 
@@ -281,36 +285,31 @@
   }
 }
 
-/* Desktop: 2–3 cards stay grid; 4+ use slider arrows */
+/* Desktop: 4+ cards — flex track + arrows; ≤3 cards stay static grid (no is-slider) */
 @media (min-width: 1025px) {
-  .applied-ins-related__carousel.is-slider .applied-ins-related__track {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 24px;
-    transform: none !important;
-  }
-
   .applied-ins-related__carousel.is-slider .applied-ins-related__viewport {
-    overflow: visible;
+    overflow: hidden;
   }
 
-  .applied-ins-related__carousel.is-slider .applied-ins-related__slide {
-    flex: none;
-    padding: 0;
+  .applied-ins-related__carousel.is-slider .applied-ins-related__track {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0;
+    grid-template-columns: none;
   }
 
-  .applied-ins-related__mobNav {
+  .applied-ins-related__carousel.is-slider .applied-ins-related__arrow {
+    display: inline-flex;
+  }
+
+  .applied-ins-related__carousel.is-slider .applied-ins-related__mobNav {
     display: none !important;
   }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
-  .applied-ins-related__track {
+  .applied-ins-related__carousel:not(.is-slider) .applied-ins-related__track {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .applied-ins-related__carousel.is-slider .applied-ins-related__slide {
-    flex-basis: 50%;
   }
 }
 
@@ -330,9 +329,11 @@
     display: flex;
   }
 
-  .applied-ins-related__carousel.is-slider .applied-ins-related__slide {
-    flex: 0 0 100%;
-    padding: 0 16px;
+  .applied-ins-related__carousel.is-slider .applied-ins-related__slide,
+  .applied-ins-related__carousel.is-slider [data-applied-ins-clone] {
+    flex: 0 0 auto;
+    flex-shrink: 0;
+    padding: 0 12px;
     box-sizing: border-box;
   }
 
@@ -354,11 +355,8 @@
   .applied-ins-related {
     padding: 48px 0;
   }
-  .applied-ins-related__track {
+  .applied-ins-related__carousel:not(.is-slider) .applied-ins-related__track {
     grid-template-columns: 1fr;
-  }
-  .applied-ins-related__carousel.is-slider .applied-ins-related__slide {
-    flex-basis: 100%;
   }
   .applied-ins-related__card {
     height: 320px;

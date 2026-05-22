@@ -289,7 +289,7 @@
     }
 
     var shouldAnimate =
-      !skipAnimate && prevSlug && prevSlug !== slug && activePanel;
+      !skipAnimate && activePanel && prevSlug !== slug;
 
     if (shouldAnimate) {
       activePanel.removeAttribute("hidden");
@@ -318,6 +318,10 @@
 
     section.setAttribute("data-ae-active-slug", slug);
 
+    if (activePanel && (!prevPanel || prevPanel !== activePanel)) {
+      resetPanelLayers(activePanel);
+    }
+
     if (rail && activePill) {
       if (glide) {
         rail.classList.add("is-ready");
@@ -335,42 +339,67 @@
     }
   }
 
+  function collapseAllLayers(layers) {
+    for (var i = 0; i < layers.length; i += 1) {
+      layers[i].classList.remove("is-expanded");
+      layers[i].setAttribute("aria-expanded", "false");
+    }
+  }
+
+  function expandLayerIndex(layers, idx) {
+    for (var i = 0; i < layers.length; i += 1) {
+      var on = i === idx;
+      layers[i].classList.toggle("is-expanded", on);
+      layers[i].setAttribute("aria-expanded", on ? "true" : "false");
+    }
+  }
+
+  function resetPanelLayers(panel) {
+    var stack = panel && panel.querySelector("[data-ae-layers]");
+    if (!stack) return;
+    var layers = stack.querySelectorAll("[data-ae-layer]");
+    if (!layers.length) return;
+    collapseAllLayers(layers);
+  }
+
   function initLayers(panel) {
     var stack = panel.querySelector("[data-ae-layers]");
     if (!stack) return;
     var layers = stack.querySelectorAll("[data-ae-layer]");
     if (!layers.length) return;
 
-    function expandIndex(idx) {
-      for (var i = 0; i < layers.length; i += 1) {
-        var on = i === idx;
-        layers[i].classList.toggle("is-expanded", on);
-        layers[i].setAttribute("aria-expanded", on ? "true" : "false");
-      }
-    }
+    if (stack.getAttribute("data-ae-layers-bound")) return;
+    stack.setAttribute("data-ae-layers-bound", "1");
 
     var useHover = finePointerHover();
+
+    collapseAllLayers(layers);
 
     if (useHover) {
       for (var h = 0; h < layers.length; h += 1) {
         (function (index) {
           layers[index].addEventListener("mouseenter", function () {
-            expandIndex(index);
+            expandLayerIndex(layers, index);
           });
         })(h);
       }
       stack.addEventListener("mouseleave", function () {
-        expandIndex(0);
+        collapseAllLayers(layers);
+      });
+      stack.addEventListener("focusout", function (e) {
+        var next = e.relatedTarget;
+        if (next && stack.contains(next)) return;
+        collapseAllLayers(layers);
       });
     }
 
     for (var c = 0; c < layers.length; c += 1) {
       (function (index) {
         layers[index].addEventListener("click", function () {
-          if (!useHover) expandIndex(index);
+          if (!useHover) expandLayerIndex(layers, index);
         });
         layers[index].addEventListener("focusin", function () {
-          expandIndex(index);
+          expandLayerIndex(layers, index);
         });
       })(c);
     }

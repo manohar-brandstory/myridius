@@ -191,14 +191,17 @@
 }
 
 @media (min-width: 1024px){
+  .hww__wrap {
+    padding: 0 var(--gutter);
+  }
   .hww__slideGrid{ grid-template-columns: 7fr 5fr; gap: 64px; }
   .hww__tabLabel{ display: inline; }
 }
-@media only screen and (min-width: 768px) and (max-width: 1024px){
+@media (max-width: 1024px){
   .hww__tabs{ justify-content: flex-start; padding-left: 40px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .hww__pause{ left: 0; z-index: 2; }
 }
-@media only screen and (max-width: 767px){
+@media (max-width: 768px){
   .hww{ padding: 64px 24px; min-height: auto; }
   .hww__wrap{ max-width: 332px; margin-left: 0; margin-right: 0; }
 

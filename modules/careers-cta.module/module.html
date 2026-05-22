@@ -1,0 +1,18 @@
+<section class="careers-cta"{% if module.section_id %} id="{{ module.section_id }}"{% endif %}>
+  <div class="careers-cta__wrap">
+    <div class="careers-cta__badge">
+      <span class="careers-cta__badge-line" aria-hidden="true"></span>
+      <span class="careers-cta__badge-text">{{ module.badge_text }}</span>
+    </div>
+    <h2 class="careers-cta__heading">{{ module.heading }}</h2>
+    {% if module.cta_url.href %}
+      <a class="careers-cta__btn" href="{{ module.cta_url.href }}">
+        <span>{{ module.cta_text }}</span>
+        <svg width="17" height="17" viewBox="0 0 17.49 17.49" fill="none" aria-hidden="true">
+          <path d="M3.645 8.744H13.847" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.457"/>
+          <path d="M8.745 3.644L13.846 8.744L8.745 13.845" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.457"/>
+        </svg>
+      </a>
+    {% endif %}
+  </div>
+</section>

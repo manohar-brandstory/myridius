@@ -37,6 +37,14 @@
   justify-content: center;
 }
 
+@media (min-width: 1025px) {
+  .evoq-bi__shell {
+    max-width: var(--container-max);
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+  }
+}
+
 .evoq-bi__card {
   width: 100%;
   max-width: calc(100vw - clamp(2rem, 10vw, 5rem));
@@ -229,7 +237,8 @@
   .evoq-bi__cardInner {
     flex-direction: row;
     align-items: stretch;
-    gap: clamp(1.5rem, 3vw, 2.5rem);
+    gap: clamp(2rem, 3vw, 4rem);
+    padding: clamp(2.5rem, 3vw, 4rem) clamp(2.5rem, 4vw, 4rem);
   }
 }
 
@@ -262,7 +271,7 @@
 
 @media (min-width: 1024px) {
   .evoq-bi__scroll {
-    padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.25rem, 3vw, 2.5rem) clamp(1.5rem, 3vw, 2.5rem) 0;
+    padding: clamp(1.5rem, 3vw, 2.5rem) 0;
   }
 }
 
@@ -313,7 +322,7 @@
 @media (min-width: 1024px) {
   .evoq-bi__left {
     width: min(100%, 28.125rem);
-    padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(1.5rem, 3vw, 2.5rem) clamp(1.25rem, 3vw, 2.5rem);
+    padding: 0;
     display: flex;
     align-items: center;
     align-self: stretch;
@@ -662,13 +671,15 @@
 /* ── Figma EvoqBusiness_2 mobile (≤767px): framed card, horizontal slides, pager ── */
 @media only screen and (max-width: 767px) {
   .evoq-bi {
-    padding: 40px 20px;
+    padding: 40px 0;
   }
 
   .evoq-bi__shell {
     min-height: 0;
     align-items: center;
     justify-content: center;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
     padding-top: calc(env(safe-area-inset-top, 0px) + var(--evoq-bi-sticky-offset));
     padding-bottom: env(safe-area-inset-bottom, 0px);
   }

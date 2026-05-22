@@ -11,7 +11,7 @@
 
 /* Container */
 .svc-res__container {
-  max-width: 1280px;
+  max-width: var(--container-max);
   margin: 0 auto;
 }
 
@@ -191,8 +191,15 @@
   transition-delay: 300ms;
 }
 
+/* Desktop container padding */
+@media (min-width: 1024px) {
+  .svc-res__container {
+    padding: 0 var(--gutter);
+  }
+}
+
 /* Responsive - Tablet */
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
+@media (max-width: 1024px) {
   .svc-res {
     padding: 80px 32px;
   }
@@ -207,9 +214,9 @@
 }
 
 /* Responsive - Mobile */
-@media only screen and (max-width: 767px) {
+@media (max-width: 767px) {
   .svc-res {
-    padding: 64px 20px;
+    padding: 64px var(--gutter);
   }
 
   .svc-res__heading {

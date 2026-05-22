@@ -8,8 +8,6 @@
   --evoq-title-lh: 1.1;
   --evoq-section-pad-x: 48px;
   --evoq-section-pad-y: 120px;
-  --evoq-content-max: 1200px;
-
   position: relative;
   background: #FFFFFF;
   overflow: hidden;
@@ -50,6 +48,13 @@
   margin: 0 auto;
   position: relative;
   z-index: 1;
+}
+
+@media (min-width: 1025px) {
+  .evoq-shift__container {
+    max-width: var(--container-max);
+    padding: 0 var(--gutter);
+  }
 }
 
 /* Header */
@@ -293,7 +298,7 @@
   .evoq-shift {
     --evoq-title-size: clamp(1.5rem, 1.1rem + 2.2vw, 1.875rem);
     --evoq-title-lh: 1.12;
-    --evoq-section-pad-x: 16px;
+    --evoq-section-pad-x: var(--gutter);
     --evoq-section-pad-y: 56px;
   }
 

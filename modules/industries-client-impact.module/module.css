@@ -216,7 +216,7 @@
 .impact__num:hover{ color: #fff; }
 .impact__num.is-active{ color: #fff; }
 
-@media only screen and (max-width: 767px){
+@media (max-width: 768px){
   .impact{ padding: 64px 16px; }
   .impact__metric{ font-size: 2rem; }
   .impact__desc{ font-size: 16px; }
@@ -232,7 +232,7 @@
   .impact__navRight{ width: 100%; justify-content: space-between; }
 }
 @media (max-width: 480px){
-  .impact{ padding: 48px 16px; }
+  .impact{ padding: 48px 0; }
   .impact__nums{ gap: 16px; }
   .impact__metric{ font-size: 1.6rem; }
   .impact__company{ font-size: 13px; margin-bottom: 24px; }
@@ -245,8 +245,8 @@
   }
 }
 
-/* Tablet + desktop: prevent layout jumps/overlaps when switching slides */
-@media only screen and (min-width: 768px) {
+/* Desktop stability: prevent layout jumps/overlaps when switching slides */
+@media (min-width: 769px){
   .impact__body{ min-height: 480px; }
   .impact__content{ min-height: 260px; }
   .impact__nav{ margin-top: 28px; }

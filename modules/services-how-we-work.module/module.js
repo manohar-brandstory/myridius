@@ -63,6 +63,7 @@
       if (!panelsWrap || !panels.length) return;
       if (!isMobileView()) {
         panelsWrap.style.minHeight = '';
+        panelsWrap.style.height = '';
         return;
       }
 
@@ -77,24 +78,55 @@
           visibility: panel.style.visibility,
           opacity: panel.style.opacity,
           pointerEvents: panel.style.pointerEvents,
+          height: panel.style.height,
+          minHeight: panel.style.minHeight,
+        };
+        var savedCard = {
+          height: card.style.height,
+          minHeight: card.style.minHeight,
+          overflow: card.style.overflow,
         };
 
         panel.style.position = 'relative';
         panel.style.visibility = 'hidden';
         panel.style.opacity = '0';
         panel.style.pointerEvents = 'none';
+        panel.style.height = 'auto';
+        panel.style.minHeight = '0';
         panel.classList.add('svc-hww__panel--active');
 
-        maxH = Math.max(maxH, card.offsetHeight || card.scrollHeight || 0);
+        card.style.height = 'auto';
+        card.style.minHeight = '0';
+        card.style.overflow = 'visible';
+
+        var cardInner = card.querySelector('.svc-hww__card-inner');
+        maxH = Math.max(
+          maxH,
+          card.scrollHeight || 0,
+          cardInner ? cardInner.scrollHeight : 0,
+          card.offsetHeight || 0
+        );
 
         panel.classList.toggle('svc-hww__panel--active', wasActive);
         panel.style.position = saved.position;
         panel.style.visibility = saved.visibility;
         panel.style.opacity = saved.opacity;
         panel.style.pointerEvents = saved.pointerEvents;
+        panel.style.height = saved.height;
+        panel.style.minHeight = saved.minHeight;
+
+        card.style.height = savedCard.height;
+        card.style.minHeight = savedCard.minHeight;
+        card.style.overflow = savedCard.overflow;
       });
 
-      panelsWrap.style.minHeight = maxH ? maxH + 'px' : '';
+      if (maxH) {
+        panelsWrap.style.minHeight = maxH + 'px';
+        panelsWrap.style.height = maxH + 'px';
+      } else {
+        panelsWrap.style.minHeight = '';
+        panelsWrap.style.height = '';
+      }
     }
 
     function setMobNavDisabled() {
@@ -186,6 +218,9 @@
       if (bgs[current]) bgs[current].classList.add('svc-hww__bg-slide--active');
 
       updatePagination();
+      if (isMobileView()) {
+        requestAnimationFrame(syncPanelsHeight);
+      }
 
       if (playing && !isMobileView()) {
         startBarAnimation();

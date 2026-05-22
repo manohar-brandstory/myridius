@@ -1,0 +1,168 @@
+[ {
+  "id" : "section_id",
+  "name" : "section_id",
+  "label" : "Section ID",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "careers-open-roles"
+}, {
+  "id" : "badge_text",
+  "name" : "badge_text",
+  "label" : "Badge Text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Open Roles"
+}, {
+  "id" : "heading",
+  "name" : "heading",
+  "label" : "Heading",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Create solutions that will define"
+}, {
+  "id" : "heading_highlight",
+  "name" : "heading_highlight",
+  "label" : "Heading Highlight",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "how enterprises run"
+}, {
+  "id" : "primary_cta_text",
+  "name" : "primary_cta_text",
+  "label" : "Primary CTA Text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Explore Open Roles"
+}, {
+  "id" : "primary_cta_url",
+  "name" : "primary_cta_url",
+  "label" : "Primary CTA URL",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT" ],
+  "type" : "url",
+  "display_width" : null,
+  "default" : {
+    "href" : "#",
+    "type" : "EXTERNAL",
+    "content_id" : null
+  }
+}, {
+  "id" : "secondary_cta_text",
+  "name" : "secondary_cta_text",
+  "label" : "Secondary CTA Text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Join our talent community"
+}, {
+  "id" : "secondary_cta_url",
+  "name" : "secondary_cta_url",
+  "label" : "Secondary CTA URL",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT" ],
+  "type" : "url",
+  "display_width" : null,
+  "default" : {
+    "href" : "#",
+    "type" : "EXTERNAL",
+    "content_id" : null
+  }
+}, {
+  "id" : "roles",
+  "name" : "roles",
+  "label" : "Job Openings",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 12,
+    "sorting_label_field" : "roles.title",
+    "default" : 4
+  },
+  "children" : [ {
+    "id" : "roles.title",
+    "name" : "title",
+    "label" : "Job Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Role title"
+  }, {
+    "id" : "roles.meta",
+    "name" : "meta",
+    "label" : "Location / Department",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Remote · Engineering"
+  }, {
+    "id" : "roles.url",
+    "name" : "url",
+    "label" : "Role URL",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT" ],
+    "type" : "url",
+    "display_width" : null,
+    "default" : {
+      "href" : "#",
+      "type" : "EXTERNAL",
+      "content_id" : null
+    }
+  }, {
+    "id" : "roles.link_text",
+    "name" : "link_text",
+    "label" : "Link Text",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "View Role"
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "title" : "Senior Software Engineer",
+    "meta" : "Remote · Engineering",
+    "link_text" : "View Role"
+  }, {
+    "title" : "Product Designer",
+    "meta" : "Hybrid · Design",
+    "link_text" : "View Role"
+  }, {
+    "title" : "AI Solutions Architect",
+    "meta" : "Remote · AI & Data",
+    "link_text" : "View Role"
+  }, {
+    "title" : "Client Delivery Lead",
+    "meta" : "On-site · Consulting",
+    "link_text" : "View Role"
+  } ]
+} ]

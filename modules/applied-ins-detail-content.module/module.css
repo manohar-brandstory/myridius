@@ -6,9 +6,9 @@
 
 /* ── Shared container ── */
 .applied-ins-detail-content__container {
-  max-width: 1024px;
+  max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 var(--gutter, 24px);
+  padding: 0 var(--gutter);
 }
 
 /* ─────────────────────────────────────────────────
@@ -528,33 +528,7 @@
 }
 
 /* ── Responsive ── */
-
-/* Mobile + tablet shared layout (≤1024px) */
-@media only screen and (max-width: 1024px) {
-.applied-ins-detail-content__codeCard,
-  .applied-ins-detail-content__diagramCard,
-  .applied-ins-detail-content__tableCard {
-    overflow: auto;
-  }
-
-  .applied-ins-detail-content__impactGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .applied-ins-detail-content__impactGrid--1 {
-    grid-template-columns: 1fr;
-  }
-  .applied-ins-detail-content__impactGrid--4 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .applied-ins-detail-content__columns--3 .applied-ins-detail-content__colItem {
-    flex-basis: calc((100% - 24px) / 2);
-  }
-  .applied-ins-detail-content__table {
-    min-width: 680px;
-  }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
+@media (max-width: 1023px) {
   .applied-ins-detail-content__codeCard,
   .applied-ins-detail-content__diagramCard,
   .applied-ins-detail-content__tableCard {
@@ -578,7 +552,7 @@
   }
 }
 
-@media only screen and (max-width: 767px) {
+@media (max-width: 767px) {
   .applied-ins-detail-content__sectionTitle {
     font-size: 20px;
   }

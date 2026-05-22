@@ -36,7 +36,7 @@
   display: none;
 }
 
-@media only screen and (max-width: 1024px) {
+@media (max-width: 1023px) {
   .map-section__zoom-controls {
     display: flex;
     flex-direction: column;
@@ -99,7 +99,7 @@
   }
 }
 
-@media only screen and (max-width: 1024px) and (prefers-reduced-motion: reduce) {
+@media (max-width: 1023px) and (prefers-reduced-motion: reduce) {
   .map-section__canvas {
     transition: none;
   }

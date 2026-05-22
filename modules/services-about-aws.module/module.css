@@ -4,7 +4,7 @@
 }
 
 .svc-about__container {
-  max-width: 1200px;
+  max-width: var(--container-max);
   margin: 0 auto;
   display: flex;
   flex-direction: row;
@@ -102,25 +102,27 @@
 
 @media only screen and (max-width: 767px) {
   .svc-about {
-    padding: 64px 20px;
+    padding: 64px 0;
   }
 
   .svc-about__container {
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 16px;
+    row-gap: 16px;
+    align-items: center;
     text-align: left;
-    gap: 24px;
-    padding-right: 0;
-    position: relative;
+    padding: 0 var(--gutter);
   }
 
+  /* Let title, description, and CTA participate in the container grid */
   .svc-about__content {
+    display: contents;
     max-width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
   }
 
   .svc-about__title {
+    grid-column: 1 / -1;
     font-family: 'Montserrat', sans-serif;
     font-size: 30px;
     line-height: 36px;
@@ -131,6 +133,7 @@
   }
 
   .svc-about__description {
+    grid-column: 1 / -1;
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     line-height: 26px;
@@ -140,6 +143,9 @@
   }
 
   .svc-about__cta {
+    grid-column: 1;
+    justify-self: start;
+    align-self: center;
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     font-weight: 500;
@@ -148,13 +154,28 @@
   }
 
   .svc-about__logo {
-    position: absolute;
-    bottom: 0;
-    right: 0;
+    position: static;
+    grid-column: 2;
+    align-self: center;
+    justify-self: end;
   }
 
   .svc-about__logo img {
+    display: block;
     width: 69px;
     height: 41px;
+    object-fit: contain;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .svc-about__container {
+    padding: 0 var(--gutter);
+  }
+
+  .svc-about__logo img {
+    height: 105px;
+    width: auto;
+    object-fit: contain;
   }
 }

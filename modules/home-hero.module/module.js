@@ -37,7 +37,7 @@
     var contentSwapMsMobile = 480;
     var cardsSwapMs = 280;
     var cardsSwapMsMobile = 420;
-    var mobileMq = window.matchMedia('(max-width: 767px)');
+    var mobileMq = window.matchMedia('(max-width: 768px)');
     var total = cards.length;
     var heroInView = true;
 

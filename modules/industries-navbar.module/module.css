@@ -158,6 +158,13 @@
   transition: border-color 180ms ease;
 }
 .navbar__panelHeader:hover{ border-color: var(--color-brand-1); }
+.navbar__panelHeader--static{
+  cursor: default;
+  text-decoration: none;
+}
+.navbar__panelHeader--static:hover{
+  border-color: rgba(229,231,235,0.50);
+}
 .navbar__panelTitle{
   font-size: 20px;
   font-weight: 600;

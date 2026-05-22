@@ -5,8 +5,15 @@
 }
 
 .evoq-journey__container {
-  max-width: var(--evoq-content-max, 1200px);
+  max-width: var(--evoq-content-max);
   margin: 0 auto;
+}
+
+@media (min-width: 1025px) {
+  .evoq-journey__container {
+    max-width: var(--container-max);
+    padding: 0 var(--gutter);
+  }
 }
 
 /* Header */
@@ -193,7 +200,24 @@
 
   .evoq-journey__cards {
     width: 100%;
-    max-width: var(--evoq-content-max, 1200px);
+    max-width: none;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  .evoq-journey__card {
+    flex: 0 0 180px;
+    width: 180px;
+    cursor: pointer;
+  }
+
+  .evoq-journey__card[data-expanded='true'] {
+    flex: 0 0 384px;
+    width: 384px;
+    min-width: 384px;
+    max-width: 384px;
+    z-index: 2;
+    box-shadow: 0 8px 32px 0 rgba(7, 20, 23, 0.35);
   }
 }
 
@@ -240,10 +264,14 @@
   height: 480px;
 }
 
-/* Optional CMS photo over card (see fields: background_image) */
+/* Optional CMS photo — visible only when expanded (hover / active) */
 .evoq-journey__card--has-bg {
   background-color: #0c2226;
-  background-image: var(--journey-card-bg);
+  background-image: var(--journey-card-gradient, linear-gradient(186deg, #0c2226 0%, #194247 100%));
+}
+
+.evoq-journey__card--has-bg[data-expanded='true'] {
+  background-image: var(--journey-card-bg), var(--journey-card-gradient, linear-gradient(186deg, #0c2226 0%, #194247 100%));
 }
 
 .evoq-journey__card--has-bg::before {
@@ -254,6 +282,14 @@
   background: linear-gradient(180deg, rgba(7, 20, 23, 0.15) 0%, rgba(7, 20, 23, 0.82) 100%);
   pointer-events: none;
   z-index: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.45s cubic-bezier(0.33, 1, 0.68, 1), visibility 0.45s step-end;
+}
+
+.evoq-journey__card--has-bg[data-expanded='true']::before {
+  opacity: 1;
+  visibility: visible;
 }
 
 .evoq-journey__card--has-bg .evoq-journey__card-orbit,
@@ -529,7 +565,7 @@
 /* Responsive - Mobile (Figma ~393px column) */
 @media only screen and (max-width: 767px) {
   .evoq-journey {
-    padding: 64px 20px;
+    padding: 64px 0;
   }
 
   .evoq-journey__container {
@@ -538,6 +574,7 @@
     align-items: stretch;
     gap: 24px;
     max-width: none;
+    padding: 0 var(--gutter);
   }
 
   .evoq-journey__header {

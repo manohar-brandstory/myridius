@@ -342,9 +342,59 @@
   }
 }
 
+/* Tablet — larger code type, shorter IDE window (no desktop/mobile impact) */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .evoq-hero {
+    min-height: auto;
+  }
+
+  .evoq-hero__grid {
+    gap: 48px;
+  }
+
+  .evoq-hero__ide-wrap {
+    max-width: 420px;
+    aspect-ratio: auto;
+    height: auto;
+  }
+
+  .evoq-hero__ide {
+    height: auto;
+  }
+
+  .evoq-hero__ide-header {
+    height: 40px;
+    padding: 0 14px;
+  }
+
+  .evoq-hero__ide-title {
+    font-size: 13px;
+  }
+
+  .evoq-hero__ide-body {
+    flex: 0 0 auto;
+    padding: 20px 22px;
+  }
+
+  .evoq-hero__ide-body pre {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+}
+
 @media (min-width: 1024px) {
+  .evoq-hero {
+    min-height: 800px;
+  }
+
   .evoq-hero__container {
-    padding: 100px 80px;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 100px var(--gutter);
+  }
+
+  .evoq-hero__btn {
+    padding: 20px 25px;
   }
 
   .evoq-hero__grid {
@@ -360,9 +410,42 @@
   .evoq-hero__title {
     font-size: 60px;
   }
+
+  .evoq-hero__ide-wrap {
+    max-width: 476px;
+    aspect-ratio: 476 / 500;
+    height: auto;
+  }
+
+  .evoq-hero__ide {
+    height: 100%;
+  }
+
+  .evoq-hero__ide-header {
+    height: 45px;
+    padding: 0 16px;
+  }
+
+  .evoq-hero__ide-title {
+    font-size: 12px;
+  }
+
+  .evoq-hero__ide-body {
+    flex: 1;
+    padding: 24px;
+  }
+
+  .evoq-hero__ide-body pre {
+    font-size: 13px;
+    line-height: 1.6;
+  }
 }
 
 @media only screen and (max-width: 767px) {
+  .evoq-hero__container {
+    padding: 60px var(--gutter);
+  }
+
   .evoq-hero__title {
     font-size: 32px;
   }

@@ -3,7 +3,7 @@
 }
 
 .about-us-stats__inner {
-  max-width: var(--container-max, 80rem);
+  max-width: var(--container-max);
   margin: 0 auto;
   padding: 64px var(--gutter, 64px);
   display: flex;

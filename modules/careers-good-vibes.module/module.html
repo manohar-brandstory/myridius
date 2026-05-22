@@ -1,0 +1,32 @@
+<section class="careers-vibes"{% if module.section_id %} id="{{ module.section_id }}"{% endif %}>
+  <div class="careers-vibes__wrap">
+    <header class="careers-vibes__header">
+      <h2 class="careers-vibes__heading">{{ module.heading }}</h2>
+      <div class="careers-vibes__description">{{ module.description }}</div>
+    </header>
+    <div class="careers-vibes__grid">
+      <div class="careers-vibes__stack" aria-hidden="true">
+        <div class="careers-vibes__stack-card careers-vibes__stack-card--back"></div>
+        <div class="careers-vibes__stack-card careers-vibes__stack-card--mid"></div>
+        <article class="careers-vibes__stack-card careers-vibes__stack-card--front">
+          {% if module.stack_image.src %}
+            <img class="careers-vibes__stack-img" src="{{ module.stack_image.src }}" alt="" loading="lazy" decoding="async">
+          {% endif %}
+          <div class="careers-vibes__stack-overlay" aria-hidden="true"></div>
+          <p class="careers-vibes__stack-title">{{ module.stack_title }}</p>
+        </article>
+      </div>
+      <div class="careers-vibes__feature">
+        {% if module.main_image.src %}
+          <div class="careers-vibes__feature-media">
+            <img class="careers-vibes__feature-img" src="{{ module.main_image.src }}" alt="{{ module.main_image.alt|default(module.caption_title) }}" loading="lazy" decoding="async">
+          </div>
+        {% endif %}
+        <div class="careers-vibes__caption">
+          <h3 class="careers-vibes__caption-title">{{ module.caption_title }}</h3>
+          <p class="careers-vibes__caption-text">{{ module.caption_text }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

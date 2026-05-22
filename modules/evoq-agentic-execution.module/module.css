@@ -387,7 +387,7 @@
 }
 
 .evoq-ae__stickyInner {
-  max-width: 80rem;
+  max-width: var(--container-max);
   margin: 0 auto;
   padding: clamp(0.75rem, 2vw, 1.5rem) clamp(1rem, 3vw, 1.5rem) 0.75rem;
 }
@@ -488,7 +488,7 @@
 
 .evoq-ae__panelsWrap {
   display: grid;
-  max-width: 80rem;
+  max-width: var(--container-max);
   margin: 0 auto;
   padding: clamp(2.5rem, 6vw, 5rem) clamp(1rem, 3vw, 1.5rem);
   overflow: visible;

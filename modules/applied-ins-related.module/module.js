@@ -77,6 +77,7 @@
       carousel.classList.toggle("is-slider", active);
       if (!active) {
         removeClones(track);
+        clearSlideWidths();
         track.style.transform = "";
         track.style.transition = "";
         if (mobCur) mobCur.textContent = pad2(1);
@@ -95,19 +96,38 @@
     var extendedIndex = 0;
     var isSnapping = false;
 
-    function stepPercent() {
+    function slideStepPx() {
       var st = slidesToShow();
-      return 100 / st;
+      return viewport.getBoundingClientRect().width / st;
+    }
+
+    function applySlideWidths() {
+      var w = slideStepPx();
+      var kids = track.children;
+      for (var i = 0; i < kids.length; i += 1) {
+        kids[i].style.flex = "0 0 " + w + "px";
+        kids[i].style.width = w + "px";
+        kids[i].style.maxWidth = w + "px";
+      }
+    }
+
+    function clearSlideWidths() {
+      var kids = track.children;
+      for (var i = 0; i < kids.length; i += 1) {
+        kids[i].style.flex = "";
+        kids[i].style.width = "";
+        kids[i].style.maxWidth = "";
+      }
     }
 
     function applyTransform(instant) {
-      var step = stepPercent();
+      var offset = extendedIndex * slideStepPx();
       if (instant) {
         track.style.transition = "none";
       } else {
         track.style.transition = "";
       }
-      track.style.transform = "translateX(-" + extendedIndex * step + "%)";
+      track.style.transform = "translateX(-" + offset + "px)";
       if (instant) {
         void track.offsetWidth;
         track.style.transition = "";
@@ -156,6 +176,7 @@
       var st = slidesToShow();
       if (n <= st) {
         extendedIndex = 0;
+        clearSlideWidths();
         applyTransform(true);
         updateMobNavState();
         updateMobPager();
@@ -163,6 +184,7 @@
       }
       setupClones(track, reals, n, st);
       extendedIndex = st;
+      applySlideWidths();
       applyTransform(true);
       updateMobNavState();
       updateMobPager();
@@ -196,6 +218,8 @@
       resizeTimer = setTimeout(function () {
         if (!syncSliderMode()) return;
         rebuildClonesAndPosition();
+        applySlideWidths();
+        applyTransform(true);
       }, 120);
     }
 

@@ -7,8 +7,15 @@
 }
 
 .evoq-impact__container {
-  max-width: var(--evoq-content-max, 1200px);
+  max-width: var(--evoq-content-max);
   margin: 0 auto;
+}
+
+@media (min-width: 1025px) {
+  .evoq-impact__container {
+    max-width: var(--container-max);
+    padding: 0 var(--gutter);
+  }
 }
 
 /* --- Header --- */
@@ -298,7 +305,11 @@
 
 @media only screen and (max-width: 767px) {
   .evoq-impact {
-    padding: 64px 20px;
+    padding: 64px 0;
+  }
+
+  .evoq-impact__container {
+    padding: 0 var(--gutter);
   }
 
   .evoq-impact__header {

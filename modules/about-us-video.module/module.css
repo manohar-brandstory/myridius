@@ -23,7 +23,7 @@
 .about-us-video__inner {
   position: relative;
   z-index: 1;
-  max-width: var(--container-max, 80rem);
+  max-width: var(--container-max);
   margin: 0 auto;
   padding: 101px var(--gutter, 64px);
   display: flex;
@@ -100,7 +100,9 @@
 }
 
 .about-us-video__videoFrame--native .about-us-video__videoOverlay,
-.about-us-video__videoFrame--native .about-us-video__play {
+.about-us-video__videoFrame--native .about-us-video__play,
+.about-us-video__videoFrame--image .about-us-video__videoOverlay,
+.about-us-video__videoFrame--image .about-us-video__play {
   display: none;
 }
 
@@ -237,7 +239,7 @@
   }
 }
 
-@media only screen and (max-width: 1024px) {
+@media (max-width: 1023px) {
   .about-us-video__bgTexture {
     display: block;
   }

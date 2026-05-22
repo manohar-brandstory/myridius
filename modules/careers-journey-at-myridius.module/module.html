@@ -1,0 +1,33 @@
+<section class="careers-journey"{% if module.section_id %} id="{{ module.section_id }}"{% endif %}>
+  <div class="careers-journey__wrap">
+    <header class="careers-journey__header">
+      <div class="careers-journey__badge">
+        <span class="careers-journey__badge-line" aria-hidden="true"></span>
+        <span class="careers-journey__badge-text">{{ module.badge_text }}</span>
+      </div>
+      <h2 class="careers-journey__heading">{{ module.heading }}</h2>
+    </header>
+    <div class="careers-journey__grid">
+      {% for card in module.cards %}
+        {% if card.url.href %}
+          <a class="careers-journey__card" href="{{ card.url.href }}">
+        {% else %}
+          <div class="careers-journey__card">
+        {% endif %}
+          {% if card.image.src %}
+            <img class="careers-journey__card-img" src="{{ card.image.src }}" alt="{{ card.image.alt|default(card.title) }}" loading="lazy" decoding="async">
+          {% endif %}
+          <div class="careers-journey__card-overlay" aria-hidden="true"></div>
+          <div class="careers-journey__card-body">
+            <h3 class="careers-journey__card-title">{{ card.title }}</h3>
+            <p class="careers-journey__card-desc">{{ card.description }}</p>
+          </div>
+        {% if card.url.href %}
+          </a>
+        {% else %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>

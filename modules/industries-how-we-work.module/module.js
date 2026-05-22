@@ -16,7 +16,7 @@
   var timer = null;
   var INTERVAL = 12000;
   var mqMobile = (typeof window.matchMedia === 'function')
-    ? window.matchMedia('(max-width: 767px)')
+    ? window.matchMedia('(max-width: 768px)')
     : null;
 
   function setCounter() {
@@ -27,14 +27,14 @@
   function setNavDisabled() {
     if (!btnPrev || !btnNext) return;
     // Mobile UX: clamp at ends (prevents wrap + accidental scroll jumps near section boundary).
-    var isMobile = mqMobile ? mqMobile.matches : (window.innerWidth <= 767);
+    var isMobile = mqMobile ? mqMobile.matches : (window.innerWidth <= 768);
     btnPrev.disabled = isMobile && current <= 0;
     btnNext.disabled = isMobile && current >= (slides.length - 1);
   }
 
   function syncSlidesHeight() {
     if (!slidesWrap || !slides.length) return;
-    var isMobile = mqMobile ? mqMobile.matches : (window.innerWidth <= 767);
+    var isMobile = mqMobile ? mqMobile.matches : (window.innerWidth <= 768);
     if (!isMobile) {
       slidesWrap.style.minHeight = '';
       return;
@@ -75,7 +75,7 @@
   }
 
   function goTo(idx) {
-    var isMobile = mqMobile ? mqMobile.matches : (window.innerWidth <= 767);
+    var isMobile = mqMobile ? mqMobile.matches : (window.innerWidth <= 768);
     if (isMobile) {
       // Clamp on mobile (no wrap). Wrapping at the end can cause a perceived "jump"
       // when the section height changes near the viewport boundary.

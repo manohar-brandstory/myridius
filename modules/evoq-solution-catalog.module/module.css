@@ -17,7 +17,6 @@
   --evoq-green: #52E081;
   --evoq-neutral: #8CA1A3;
   --evoq-title-size: clamp(40px, 5vw, 48px);
-  --evoq-content-max: 1200px;
   --evoq-section-pad-x: clamp(24px, 4vw, 40px);
   --evoq-section-pad-y: 100px;
   --evoq-radius-card: 12px;
@@ -41,6 +40,13 @@
   max-width: var(--evoq-content-max);
   margin: 0 auto;
   width: 100%;
+}
+
+@media (min-width: 1025px) {
+  .evoq-catalog__container {
+    max-width: var(--container-max);
+    padding: 0 var(--gutter);
+  }
 }
 
 /* ---- Header ---- */
@@ -232,15 +238,15 @@
 
 /* Figma: gradient backdrop behind image + content (#194247 → Carbon Moss) */
 .evoq-catalog__card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
+  background-color: white;
+  /* background-image: var(--evoq-card-backdrop); */
   border-radius: inherit;
-  background-color: var(--evoq-carbon-moss);
-  background-image: var(--evoq-card-backdrop);
+  content: "";
+  inset: 0;
   pointer-events: none;
+  position: absolute;
   transition: background-image 0.35s ease, opacity 0.35s ease;
+  z-index: 0;
 }
 
 .evoq-catalog__card-bg {
@@ -265,23 +271,20 @@
   z-index: 2;
   background: linear-gradient(
     180deg,
-    rgba(25, 66, 71, 0.35) 0%,
-    rgba(12, 34, 38, 0.55) 40%,
-    rgba(12, 34, 38, 0.92) 70%,
-    #0c2226 100%
+    rgba(12, 34, 38, 0.4) 0%,
+    rgba(12, 34, 38, 0.8) 40%,
+    #0C2226 100%
   );
   transition: background 0.35s ease, opacity 0.35s ease;
 }
 
-/* Hover: strong scrim so title + bullets read like Figma reference */
 .evoq-catalog__card:hover .evoq-catalog__card-overlay,
 .evoq-catalog__card:focus-visible .evoq-catalog__card-overlay {
   background: linear-gradient(
     180deg,
-    rgba(12, 34, 38, 0.72) 0%,
-    rgba(12, 34, 38, 0.92) 35.17%,
-    rgb(12, 34, 38) 60.15%,
-    rgb(12, 34, 38) 100%
+    rgba(12, 34, 38, 0.8) 0%,
+    rgba(12, 34, 38, 0.95) 50%,
+    #0C2226 100%
   );
 }
 
@@ -308,7 +311,7 @@
 
 .evoq-catalog__card-lift {
   margin: auto 0 0;
-  transform: translateY(160px);
+  transform: translateY(0);
   transition:
     transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
     margin 0.35s cubic-bezier(0.22, 1, 0.36, 1);
@@ -447,6 +450,11 @@
 @media only screen and (max-width: 767px) {
   .evoq-catalog {
     --evoq-section-pad-y: 64px;
+    padding: var(--evoq-section-pad-y) 0;
+  }
+
+  .evoq-catalog__container {
+    padding: 0 var(--gutter);
   }
 
   .evoq-catalog__header {
@@ -476,7 +484,7 @@
   }
 
   .evoq-catalog__card-lift {
-    transform: translateY(150px);
+    transform: translateY(0);
   }
 
   .evoq-catalog__card-category {

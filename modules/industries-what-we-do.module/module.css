@@ -143,16 +143,20 @@
 .wwd .is-sr-hidden{ opacity: 0; transform: translateY(12px); }
 .wwd .is-sr-shown{ opacity: 1; transform: none; transition: opacity 600ms ease, transform 600ms ease; }
 
+.wwd__nav {
+  display: none;
+}
+
 @media (min-width: 1024px){
   .wwd__track{ grid-template-columns: repeat(4, minmax(0,1fr)); }
-  .wwd__nav{ display:none; }
 }
-@media (max-width: 768px){
+/* Tablet + mobile — horizontal slider + nav (same as mobile) */
+@media (max-width: 1023px){
   .wwd{ padding: 64px 0; }
   .wwd__title{ font-size: 32px; }
   .wwd__header{ margin-bottom: 40px; }
   /* Mobile slider layout (matches Figma screenshot) */
-  .wwd__wrap{ padding: 0 24px; }
+  .wwd__wrap{ padding: 0 var(--gutter); }
   .wwd__badgeText{ font-size: 14px; font-weight: 500; letter-spacing: 0.2em; }
   .wwd__title{ font-size: 36px; line-height: 54px; letter-spacing: -2.4px; }
   .wwd__header{ margin-bottom: 36px; }
@@ -218,7 +222,7 @@
 }
 @media (max-width: 480px){
   .wwd{ padding: 64px 0; }
-  .wwd__wrap{ padding: 0 24px; }
+  .wwd__wrap{ padding: 0 var(--gutter); }
   .wwd__track{
     overflow-x: auto;
     overflow-y: hidden;

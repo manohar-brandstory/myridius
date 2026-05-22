@@ -4,7 +4,7 @@
 }
 
 .evoq-action__container {
-  max-width: 1200px;
+  max-width: var(--container-max);
   margin: 0 auto;
 }
 

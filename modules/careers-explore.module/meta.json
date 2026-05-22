@@ -1,0 +1,9 @@
+{
+  "global" : false,
+  "content_types" : [ "LANDING_PAGE", "SITE_PAGE" ],
+  "categories" : [ "BODY_CONTENT" ],
+  "host_template_types" : [ "PAGE" ],
+  "module_id" : 213404080968,
+  "label" : "Careers - Explore",
+  "is_available_for_new_content" : true
+}

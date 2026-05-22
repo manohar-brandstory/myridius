@@ -8,7 +8,7 @@
 }
 
 .svc-approach__container {
-  max-width: var(--container-max, 80rem);
+  max-width: var(--container-max);
   margin: 0 auto;
 }
 
@@ -104,6 +104,12 @@
 
 .svc-approach__card:nth-child(2) { transition-delay: 0.12s; }
 .svc-approach__card:nth-child(3) { transition-delay: 0.24s; }
+
+@media (min-width: 1025px) {
+  .svc-approach__container {
+    padding: 0 var(--gutter);
+  }
+}
 
 /* Desktop (1025px+): optional single-row flex — all cards one line; scroll if min widths exceed container */
 @media (min-width: 1025px) {
@@ -263,7 +269,7 @@
 
 /* ── Responsive ──────────────────────────────────────────────────────── */
 
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
+@media (max-width: 1024px) {
   .svc-approach {
     padding: 72px 40px;
   }
@@ -303,9 +309,13 @@
   }
 }
 
-@media only screen and (max-width: 767px) {
+@media (max-width: 767px) {
   .svc-approach {
-    padding: 56px 20px;
+    padding: 56px 0;
+  }
+
+  .svc-approach__container {
+    padding: 0 var(--gutter);
   }
 
   /* Match services / industry mobile H2 (base .myridius-services h2); avoid smaller local override */

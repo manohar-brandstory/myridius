@@ -11,14 +11,14 @@
 }
 
 .home-ind__container {
-  max-width: 1280px;
+  max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 24px;
 }
 
 @media (min-width: 1024px) {
   .home-ind__container {
-    padding: 0 40px;
+    padding: 0 var(--gutter);
   }
 }
 
@@ -425,7 +425,7 @@
    ===================================================== */
 
 /* Tablet — stacked; image panel above list for mid widths */
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
+@media (max-width: 1024px) {
   .home-ind {
     padding: 80px 0;
   }
@@ -467,13 +467,13 @@
 }
 
 /* Mobile — Figma IndustriesSection (393) */
-@media only screen and (max-width: 767px) {
+@media (max-width: 768px) {
   .home-ind {
     padding: 64px 0;
   }
 
   .home-ind__container {
-    padding: 0 24px;
+    padding: 0 var(--gutter);
   }
 
   .home-ind__header {

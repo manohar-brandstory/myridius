@@ -33,7 +33,7 @@
 .about-us-company-overview__inner {
   position: relative;
   z-index: 1;
-  max-width: var(--container-max, 80rem);
+  max-width: var(--container-max);
   margin: 0 auto;
   padding: 100px var(--gutter, 64px);
   display: flex;
@@ -279,7 +279,7 @@
   transform: translateY(0);
 }
 
-@media only screen and (max-width: 1024px) {
+@media (max-width: 1023px) {
   .about-us-company-overview__inner {
     padding: 100px var(--gutter, 64px);
     gap: 16px;

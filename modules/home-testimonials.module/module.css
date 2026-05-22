@@ -8,9 +8,9 @@
 }
 
 .home-test__masthead {
-  max-width: 1200px;
+  max-width: var(--container-max);
   margin: 0 auto 60px;
-  padding: 0 40px;
+  padding: 0 var(--gutter);
 }
 
 .home-test__badge {
@@ -171,7 +171,7 @@
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  padding: 0 40px;
+  padding: 0 var(--gutter);
   gap: 32px;
 }
 
@@ -232,7 +232,7 @@
   .home-test__masthead {
     margin: 0 auto;
     margin-bottom: 0;
-    padding: 0 40px;
+    padding: 0 var(--gutter);
     max-width: none;
   }
 

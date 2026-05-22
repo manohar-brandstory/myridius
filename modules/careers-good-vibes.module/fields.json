@@ -1,0 +1,90 @@
+[ {
+  "id" : "section_id",
+  "name" : "section_id",
+  "label" : "Section ID",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "careers-good-vibes"
+}, {
+  "id" : "heading",
+  "name" : "heading",
+  "label" : "Heading",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Good vibes"
+}, {
+  "id" : "description",
+  "name" : "description",
+  "label" : "Description",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "display_width" : null,
+  "default" : "<p>From team celebrations to collaborative workshops, life at Myridius is built on curiosity, respect, and shared wins.</p>"
+}, {
+  "id" : "stack_image",
+  "name" : "stack_image",
+  "label" : "Stack Card Image",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "display_width" : null,
+  "default" : {
+    "src" : "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80",
+    "alt" : "Team"
+  }
+}, {
+  "id" : "stack_title",
+  "name" : "stack_title",
+  "label" : "Stack Card Title",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Work with the best minds in the industry"
+}, {
+  "id" : "main_image",
+  "name" : "main_image",
+  "label" : "Main Image",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "display_width" : null,
+  "default" : {
+    "src" : "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1000&q=80",
+    "alt" : "Life at Myridius"
+  }
+}, {
+  "id" : "caption_title",
+  "name" : "caption_title",
+  "label" : "Caption Title",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Life at Myridius"
+}, {
+  "id" : "caption_text",
+  "name" : "caption_text",
+  "label" : "Caption Text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Celebrating milestones, learning together, and building a culture people are proud to be part of."
+} ]

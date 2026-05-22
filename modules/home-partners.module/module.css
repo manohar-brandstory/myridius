@@ -10,7 +10,7 @@
 
 .home-partners__container {
   position: relative;
-  max-width: 1200px;
+  max-width: var(--container-max);
   margin: 0 auto;
 }
 
@@ -69,6 +69,10 @@
 }
 
 @media (min-width: 1024px) {
+  .home-partners__container {
+    padding: 0 var(--gutter);
+  }
+
   .home-partners__title {
     font-size: 48px;
   }
@@ -81,7 +85,7 @@
   font-weight: 400;
   line-height: 24px;
   color: #556467;
-  max-width: 1200px;
+  max-width: var(--container-max);
 }
 
 .home-partners__subtitle p {
@@ -226,7 +230,7 @@
 /* Mobile — same infinite marquee + original logo colors; typography/spacing only */
 @media (max-width: 768px) {
   .home-partners {
-    padding: 64px 24px;
+    padding: 64px var(--gutter);
   }
 
   .home-partners__header {
@@ -283,8 +287,8 @@
 
 @media (max-width: 479px) {
   .home-partners {
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
   }
 
   .home-partners__fade {

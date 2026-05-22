@@ -1,0 +1,42 @@
+<section class="careers-roles"{% if module.section_id %} id="{{ module.section_id }}"{% endif %}>
+  <div class="careers-roles__wrap">
+    <div class="careers-roles__grid">
+      <div class="careers-roles__intro">
+        <div class="careers-roles__badge">
+          <span class="careers-roles__badge-line" aria-hidden="true"></span>
+          <span class="careers-roles__badge-text">{{ module.badge_text }}</span>
+        </div>
+        <h2 class="careers-roles__heading">
+          {{ module.heading }}{% if module.heading_highlight %} <span class="careers-roles__heading-accent">{{ module.heading_highlight }}</span>{% endif %}
+        </h2>
+        <div class="careers-roles__actions">
+          {% if module.primary_cta_url.href %}
+            <a class="careers-roles__btn careers-roles__btn--primary" href="{{ module.primary_cta_url.href }}">{{ module.primary_cta_text }}</a>
+          {% endif %}
+          {% if module.secondary_cta_url.href %}
+            <a class="careers-roles__btn careers-roles__btn--secondary" href="{{ module.secondary_cta_url.href }}">{{ module.secondary_cta_text }}</a>
+          {% endif %}
+        </div>
+      </div>
+      <div class="careers-roles__list">
+        {% for role in module.roles %}
+          <article class="careers-roles__card">
+            <div class="careers-roles__card-copy">
+              <h3 class="careers-roles__card-title">{{ role.title }}</h3>
+              <p class="careers-roles__card-meta">{{ role.meta }}</p>
+            </div>
+            {% if role.url.href %}
+              <a class="careers-roles__card-link" href="{{ role.url.href }}">
+                <span>{{ role.link_text }}</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            {% endif %}
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

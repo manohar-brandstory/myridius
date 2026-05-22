@@ -10,8 +10,14 @@
 }
 
 .svc-cap__wrap {
-  max-width: var(--container-max, 80rem);
+  max-width: var(--container-max);
   margin: 0 auto;
+}
+
+@media (min-width: 1025px) {
+  .svc-cap__wrap {
+    padding: 0 var(--gutter);
+  }
 }
 
 /* ── Header ── */
@@ -286,7 +292,7 @@
    ═══════════════════════════════════════════════ */
 
 /* Tablet */
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
+@media (max-width: 1024px) {
   .svc-cap { padding: 80px 40px; }
 
   .svc-cap__heading { font-size: 48px; }
@@ -322,9 +328,13 @@
 }
 
 /* Mobile */
-@media only screen and (max-width: 767px) {
+@media (max-width: 767px) {
   .svc-cap {
-    padding: 64px 20px;
+    padding: 64px 0;
+  }
+
+  .svc-cap__wrap {
+    padding: 0 var(--gutter);
   }
 
   .svc-cap__header {

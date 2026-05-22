@@ -5,7 +5,6 @@
 }
 
 .home-footer__wrap{
-  max-width: 1400px;
   margin: 0 auto;
   padding: 64px 24px;
 }
@@ -162,7 +161,8 @@
 
 @media (min-width: 1024px){
   .home-footer__wrap{
-    padding: 64px 48px;
+    max-width: var(--container-max);
+    padding: 64px var(--gutter);
   }
   .home-footer__cols{
     grid-template-columns: repeat(5, minmax(0, 1fr));

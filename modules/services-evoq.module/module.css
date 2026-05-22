@@ -27,9 +27,15 @@
 .svc-evoq__wrap {
   position: relative;
   z-index: 1;
-  max-width: 1200px;
+  max-width: var(--container-max);
   margin: 0 auto;
   margin-bottom: 40px;
+}
+
+@media (min-width: 1025px) {
+  .svc-evoq__wrap {
+    padding: 0 var(--gutter);
+  }
 }
 
 /* ── Badge ── */
@@ -182,12 +188,10 @@
   object-fit: contain;
 }
 .svc-evoq__center-title {
+  display: block;
   margin: 0 0 24px;
-  font-size: 24px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #fff;
-  letter-spacing: -0.025em;
+  max-width: 100%;
+  object-fit: contain;
 }
 .svc-evoq__center-sub {
   margin: 0;
@@ -357,7 +361,7 @@
 /* ═══════════════════════════════════════════════════════
    Responsive – Tablet (≤ 1024px)
    ═══════════════════════════════════════════════════════ */
-@media only screen and (max-width: 1024px) {
+@media (max-width: 1024px) {
   .svc-evoq {
     padding: 80px 24px 40px;
   }

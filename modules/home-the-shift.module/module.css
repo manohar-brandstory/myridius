@@ -32,7 +32,7 @@
 }
 
 .home-shift__container {
-  max-width: 1280px;
+  max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -172,27 +172,8 @@
   box-shadow: 0 8px 32px 0 rgba(7, 20, 23, 0.35);
 }
 
-/* CMS photo (inline background-image on card) — beats preset gradient art */
-.home-shift__card--has-bg {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.home-shift__card--has-bg.home-shift__card--preset-0,
-.home-shift__card--has-bg.home-shift__card--preset-1,
-.home-shift__card--has-bg.home-shift__card--preset-2,
-.home-shift__card--has-bg.home-shift__card--preset-3,
-.home-shift__card--has-bg.home-shift__card--preset-0[data-expanded='true'],
-.home-shift__card--has-bg.home-shift__card--preset-1[data-expanded='true'],
-.home-shift__card--has-bg.home-shift__card--preset-2[data-expanded='true'],
-.home-shift__card--has-bg.home-shift__card--preset-3[data-expanded='true'] {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.home-shift__card--has-bg::before {
+/* CMS photo overlay — gradient/preset in default; photo layer only when expanded */
+.home-shift__card--has-bg[data-expanded='true']::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -241,6 +222,16 @@
 
 .home-shift__card--preset-3[data-expanded='true'] {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D'0%200%20362%20480'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20preserveAspectRatio%3D'none'%3E%3Cg%20transform%3D'matrix(-23.662%2045.4%20-27%20-91.866%20252.17%2013.5)'%20opacity%3D'1'%3E%3Crect%20height%3D'78.292'%20width%3D'91.116'%20fill%3D'url(%23grad)'%20id%3D'quad'%20shape-rendering%3D'crispEdges'%2F%3E%3Cuse%20href%3D'%23quad'%20transform%3D'scale(1%20-1)'%2F%3E%3Cuse%20href%3D'%23quad'%20transform%3D'scale(-1%201)'%2F%3E%3Cuse%20href%3D'%23quad'%20transform%3D'scale(-1%20-1)'%2F%3E%3C%2Fg%3E%3Cdefs%3E%3ClinearGradient%20id%3D'grad'%20gradientUnits%3D'userSpaceOnUse'%20x2%3D'5'%20y2%3D'5'%3E%3Cstop%20stop-color%3D'rgba(12%2C34%2C38%2C1)'%20offset%3D'0'%2F%3E%3Cstop%20stop-color%3D'rgba(7%2C20%2C23%2C1)'%20offset%3D'0.5625'%2F%3E%3Cstop%20stop-color%3D'rgba(12%2C34%2C38%2C1)'%20offset%3D'0.96635'%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3C%2Fsvg%3E");
+}
+
+.home-shift__card--has-bg.home-shift__card--preset-0[data-expanded='true'],
+.home-shift__card--has-bg.home-shift__card--preset-1[data-expanded='true'],
+.home-shift__card--has-bg.home-shift__card--preset-2[data-expanded='true'],
+.home-shift__card--has-bg.home-shift__card--preset-3[data-expanded='true'] {
+  background-image: var(--shift-card-photo);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .home-shift__card-inner {
@@ -358,7 +349,7 @@
   }
 
   .home-shift__container {
-    padding: 0 24px;
+    padding: 0 var(--gutter);
   }
 
   .home-shift__header {

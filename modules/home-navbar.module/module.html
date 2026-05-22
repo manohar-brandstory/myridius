@@ -105,16 +105,30 @@
       {% for link in module.nav_links %}
         {% if link.mega_menu_enabled %}
           <div class="home-navbar__panel" data-home-nav-panel="{{ loop.index0 }}" hidden>
-            {% if link.show_panel_header|default(true) and link.mega_header_url.href and link.mega_header_url.href != '#' %}
-              <a class="home-navbar__panelHeader" href="{{ link.mega_header_url.href }}">
-                <span class="home-navbar__panelTitle">{{ link.text }}</span>
-                <span class="home-navbar__panelArrow" aria-hidden="true">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </span>
-              </a>
+            {% if link.show_panel_header|default(true) %}
+              {% set header_href = link.mega_header_url.href|default('')|trim %}
+              {% set header_has_link = header_href and header_href != '#' and '{{' not in header_href %}
+              {% if header_has_link %}
+                <a class="home-navbar__panelHeader" href="{{ header_href }}">
+                  <span class="home-navbar__panelTitle">{{ link.text }}</span>
+                  <span class="home-navbar__panelArrow" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                </a>
+              {% else %}
+                <div class="home-navbar__panelHeader home-navbar__panelHeader--static">
+                  <span class="home-navbar__panelTitle">{{ link.text }}</span>
+                  <span class="home-navbar__panelArrow" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                </div>
+              {% endif %}
             {% endif %}
 
             {# Homepage / Figma: one 4-column grid; items flow row-major across all sections #}

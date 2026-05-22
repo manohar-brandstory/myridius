@@ -1,4 +1,6 @@
 <section id="{{ module.section_html_id }}" class="about-us-video" data-about-us-video>
+  {% set is_video = module.media_type|default('video') != 'image' %}
+
   {% if module.mobile_bg_image.src %}
     <div
       class="about-us-video__bgTexture"
@@ -21,12 +23,12 @@
       <div class="about-us-video__description">{{ module.description }}</div>
     </div>
 
-    <div
-      class="about-us-video__videoFrame{% if module.custom_video_file %} about-us-video__videoFrame--native{% endif %}"
-      role="group"
-      aria-label="{{ module.video_image_alt|default('Video') }}"
-    >
-      {% if module.custom_video_file %}
+    {% if is_video and module.custom_video_file %}
+      <div
+        class="about-us-video__videoFrame about-us-video__videoFrame--native"
+        role="group"
+        aria-label="{{ module.video_image_alt|default('Video') }}"
+      >
         <video
           class="about-us-video__videoEl"
           controls
@@ -36,10 +38,15 @@
         >
           <source src="{{ module.custom_video_file }}" type="video/mp4">
         </video>
-      {% elif module.video_image.src %}
+      </div>
+    {% elif is_video and module.video_image.src %}
+      <div
+        class="about-us-video__videoFrame"
+        role="group"
+        aria-label="{{ module.video_image_alt|default('Video') }}"
+      >
         <img class="about-us-video__videoImg" src="{{ module.video_image.src }}" alt="{{ module.video_image.alt|default('') }}" loading="lazy" decoding="async">
         <div class="about-us-video__videoOverlay" aria-hidden="true"></div>
-
         <div class="about-us-video__play" aria-hidden="true">
           <div class="about-us-video__playOuter">
             <div class="about-us-video__playInner">
@@ -49,7 +56,19 @@
             </div>
           </div>
         </div>
+      </div>
+    {% elif not is_video %}
+      {% set section_img_src = module.section_image.src if module.section_image.src else module.video_image.src %}
+      {% set section_img_alt = module.section_image.alt|default(module.video_image.alt|default(module.video_image_alt|default(''))) if module.section_image.src else module.video_image.alt|default(module.video_image_alt|default('')) %}
+      {% if section_img_src %}
+        <div
+          class="about-us-video__videoFrame about-us-video__videoFrame--image"
+          role="img"
+          aria-label="{{ section_img_alt|default(module.heading) }}"
+        >
+          <img class="about-us-video__videoImg" src="{{ section_img_src }}" alt="{{ section_img_alt }}" loading="lazy" decoding="async">
+        </div>
       {% endif %}
-    </div>
+    {% endif %}
   </div>
 </section>

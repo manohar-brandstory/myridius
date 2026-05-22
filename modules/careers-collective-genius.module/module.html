@@ -1,0 +1,45 @@
+<section class="careers-genius"{% if module.section_id %} id="{{ module.section_id }}"{% endif %} data-careers-genius>
+  <div class="careers-genius__wrap">
+    <header class="careers-genius__header">
+      <div class="careers-genius__badge">
+        <span class="careers-genius__badge-line" aria-hidden="true"></span>
+        <span class="careers-genius__badge-text">{{ module.badge_text }}</span>
+      </div>
+      <h2 class="careers-genius__heading">{{ module.heading }}</h2>
+      <div class="careers-genius__description">{{ module.description }}</div>
+    </header>
+
+    {% if module.video_url %}
+      <div class="careers-genius__media careers-genius__media--video">
+        <video
+          class="careers-genius__video"
+          controls
+          playsinline
+          preload="metadata"
+          {% if module.poster_image.src %}poster="{{ module.poster_image.src }}"{% endif %}
+        >
+          <source src="{{ module.video_url }}" type="video/mp4">
+        </video>
+      </div>
+    {% elif module.poster_image.src %}
+      <div class="careers-genius__media">
+        <img
+          class="careers-genius__poster"
+          src="{{ module.poster_image.src }}"
+          alt="{{ module.poster_image.alt|default('') }}"
+          loading="lazy"
+          decoding="async"
+        >
+        <div class="careers-genius__overlay" aria-hidden="true"></div>
+        <button type="button" class="careers-genius__play" aria-label="Play video">
+          <span class="careers-genius__play-ring" aria-hidden="true"></span>
+          <span class="careers-genius__play-core" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              <path d="M8 5v14l11-7L8 5z" fill="#194247"/>
+            </svg>
+          </span>
+        </button>
+      </div>
+    {% endif %}
+  </div>
+</section>

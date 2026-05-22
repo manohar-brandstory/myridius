@@ -1,0 +1,36 @@
+<section class="careers-why"{% if module.section_id %} id="{{ module.section_id }}"{% endif %}>
+  <div class="careers-why__wrap">
+    <header class="careers-why__header">
+      <div class="careers-why__header-copy">
+        <div class="careers-why__badge">
+          <span class="careers-why__badge-line" aria-hidden="true"></span>
+          <span class="careers-why__badge-text">{{ module.badge_text }}</span>
+        </div>
+        <h2 class="careers-why__heading">{{ module.heading }}</h2>
+      </div>
+      {% if module.link_url.href %}
+        <a class="careers-why__link" href="{{ module.link_url.href }}">
+          <span>{{ module.link_text }}</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      {% endif %}
+    </header>
+    <div class="careers-why__grid">
+      {% for card in module.cards %}
+        <article class="careers-why__card">
+          {% if card.image.src %}
+            <img class="careers-why__card-bg" src="{{ card.image.src }}" alt="" loading="lazy" decoding="async">
+          {% endif %}
+          <div class="careers-why__card-overlay" aria-hidden="true"></div>
+          <div class="careers-why__card-body">
+            <h3 class="careers-why__card-title">{{ card.title }}</h3>
+            <p class="careers-why__card-desc">{{ card.description }}</p>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

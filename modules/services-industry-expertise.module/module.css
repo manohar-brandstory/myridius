@@ -340,6 +340,14 @@
    Responsive
    =================================================================== */
 
+@media (min-width: 1025px) {
+  .svc-ind__wrap {
+    max-width: var(--container-max);
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+  }
+}
+
 /* Tablet: 2-column */
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
   .svc-ind {
@@ -387,7 +395,7 @@
   }
 
   .svc-ind__wrap {
-    padding: 64px 20px;
+    padding: 64px var(--gutter);
     max-width: none;
     display: flex;
     flex-direction: column;

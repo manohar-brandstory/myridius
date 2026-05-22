@@ -83,7 +83,7 @@
 .applied-ins-hero__wrap {
   position: relative;
   z-index: 1;
-  max-width: var(--container-max, 1280px);
+  max-width: var(--container-max);
   margin: 0 auto;
   padding: 80px var(--gutter, 24px) 64px;
   color: #fff;

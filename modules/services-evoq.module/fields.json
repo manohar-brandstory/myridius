@@ -94,15 +94,27 @@
   "display_width" : null,
   "default" : "Powered By"
 }, {
-  "id" : "center_title",
-  "name" : "center_title",
+  "id" : "center_title_image",
+  "name" : "center_title_image",
   "label" : "Center Card Title",
+  "help_text" : "Upload a logo or wordmark image (SVG or PNG recommended).",
   "required" : false,
   "locked" : false,
-  "allow_new_line" : false,
-  "type" : "text",
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
   "display_width" : null,
-  "default" : "Myridius EVOQ"
+  "default" : {
+    "src" : "",
+    "alt" : "Myridius EVOQ",
+    "size_type" : "auto",
+    "width" : null,
+    "height" : null,
+    "max_width" : null,
+    "max_height" : null,
+    "loading" : "disabled"
+  }
 }, {
   "id" : "center_subtitle",
   "name" : "center_subtitle",

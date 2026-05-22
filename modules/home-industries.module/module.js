@@ -4,7 +4,7 @@
   var sections = document.querySelectorAll('[data-home-ind]');
   if (!sections.length) return;
 
-  var mobileMedia = window.matchMedia('(max-width: 767px)');
+  var mobileMedia = window.matchMedia('(max-width: 768px)');
 
   function isMobileLayout() {
     return mobileMedia.matches;

@@ -17,7 +17,15 @@
           <h2 class="evoq__title">Ambition to Impact.<br><span class="evoq__titleAccent">Experience-Led. Intelligence-Driven.</span></h2>
           <a class="evoq__powered" href="{{ module.powered_url.href }}">
             <span class="evoq__poweredKicker">{{ module.powered_kicker }}</span>
-            <span class="evoq__poweredName">{{ module.powered_name }}</span>
+            {% if module.powered_image.src %}
+              <img
+                class="evoq__poweredImg"
+                src="{{ module.powered_image.src }}"
+                alt="{{ module.powered_image.alt|default('') }}"
+                loading="lazy"
+                decoding="async"
+              >
+            {% endif %}
             <span class="evoq__poweredArrow" aria-hidden="true">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                 <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>

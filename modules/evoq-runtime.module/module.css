@@ -114,6 +114,14 @@
   }
 }
 
+@media (min-width: 1025px) {
+  .evoq-runtime__inner {
+    max-width: var(--container-max);
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+  }
+}
+
 @media (min-width: 1024px) {
   .evoq-runtime__grid {
     grid-template-columns: minmax(240px, 320px) 1fr minmax(240px, 320px);
@@ -151,6 +159,11 @@
 }
 
 @media only screen and (max-width: 767px) {
+  .evoq-runtime__inner {
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+  }
+
   .evoq-runtime__col {
     max-width: 100%;
     margin-left: 0;

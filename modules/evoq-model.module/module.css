@@ -26,7 +26,7 @@
 .evoq-model__container {
   position: relative;
   z-index: 1;
-  max-width: 1200px;
+  max-width: var(--container-max);
   margin: 0 auto;
 }
 
@@ -351,7 +351,7 @@
 }
 
 @media (min-width: 768px) {
-  .evoq-model { padding-left: 40px; padding-right: 40px; }
+  .evoq-model { padding-left: var(--gutter); padding-right: var(--gutter); }
   .evoq-model__heading { font-size: 48px; }
   .evoq-model__insights { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
 }

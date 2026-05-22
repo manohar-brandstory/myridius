@@ -16,7 +16,7 @@
 }
 
 .home-why__container {
-  max-width: 1280px;
+  max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -718,7 +718,7 @@
 }
 
 /* Mobile — Figma WhyMyridius (393): intro 24px gutters, centered headline block, 48px rhythm, scaled stack + orbit */
-@media (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .home-why {
     display: flex;
     flex-direction: column;
@@ -731,7 +731,7 @@
   .home-why__container {
     width: 100%;
     max-width: none;
-    padding: 0 24px;
+    padding: 0 var(--gutter);
     box-sizing: border-box;
   }
 
@@ -802,19 +802,18 @@
     width: 100%;
     align-items: center;
     justify-content: center;
-    padding: 0 16px;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     overflow: visible;
   }
 
-  /* Symmetric bleed so the left fan + front card sit centered in the column */
   .home-why__stack-wrap {
-    --why-fan-bleed: 26px;
     width: min(300px, calc(100% - 32px));
     max-width: 300px;
-    margin: 0 auto;
-    padding: 0 var(--why-fan-bleed);
-    box-sizing: content-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     align-self: center;
     overflow: visible;
   }
@@ -861,7 +860,7 @@
   .home-why__card[data-position='1'] {
     z-index: 2;
     opacity: 0.92;
-    transform: scale(0.97) translate(calc(-18px * var(--why-fan-scale) * var(--why-fan-x)), calc(-14px * var(--why-fan-scale))) rotate(-6deg);
+    transform: scale(0.97) translate(calc(-18px * var(--why-fan-scale) * var(--why-fan-x)), calc(-14px * var(--why-fan-scale))) rotate(-3deg);
   }
 
   .home-why__card[data-position='1'] .home-why__card-top,
@@ -872,7 +871,7 @@
   .home-why__card[data-position='2'] {
     z-index: 1;
     opacity: 0.86;
-    transform: scale(0.94) translate(calc(-34px * var(--why-fan-scale) * var(--why-fan-x)), calc(-24px * var(--why-fan-scale))) rotate(-10deg);
+    transform: scale(0.94) translate(calc(-34px * var(--why-fan-scale) * var(--why-fan-x)), calc(-24px * var(--why-fan-scale))) rotate(-6deg);
   }
 
   .home-why__card[data-position='2'] .home-why__card-top,

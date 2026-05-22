@@ -75,8 +75,10 @@
       {% for link in module.nav_links %}
         {% if link.mega_menu_enabled %}
           <div class="navbar__panel" data-nav-panel="{{ loop.index0 }}" hidden>
-            {% if link.mega_header_url.href %}
-              <a class="navbar__panelHeader" href="{{ link.mega_header_url.href }}">
+            {% set header_href = link.mega_header_url.href|default('')|trim %}
+            {% set header_has_link = header_href and header_href != '#' and '{{' not in header_href %}
+            {% if header_has_link %}
+              <a class="navbar__panelHeader" href="{{ header_href }}">
                 <span class="navbar__panelTitle">{{ link.text }}</span>
                 <span class="navbar__panelArrow" aria-hidden="true">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
@@ -85,6 +87,16 @@
                   </svg>
                 </span>
               </a>
+            {% else %}
+              <div class="navbar__panelHeader navbar__panelHeader--static">
+                <span class="navbar__panelTitle">{{ link.text }}</span>
+                <span class="navbar__panelArrow" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </div>
             {% endif %}
 
             <div class="navbar__grid">

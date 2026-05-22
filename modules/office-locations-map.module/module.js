@@ -1,5 +1,5 @@
 (function () {
-  var MQ = '(max-width: 1024px)';
+  var MQ = '(max-width: 1023px)';
   var ZOOM_MIN = 0.65;
   var ZOOM_MAX = 1.35;
   var STEP = 0.1;

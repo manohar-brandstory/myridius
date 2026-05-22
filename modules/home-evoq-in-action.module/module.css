@@ -9,7 +9,7 @@
 
 @media (max-width: 767px) {
   .home-evoq {
-    padding: 64px 24px;
+    padding: 64px var(--gutter);
   }
 }
 
@@ -21,8 +21,14 @@
 }
 
 .home-evoq__container {
-  max-width: 1200px;
+  max-width: var(--container-max);
   margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .home-evoq__container {
+    padding: 0 var(--gutter);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

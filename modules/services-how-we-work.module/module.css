@@ -5,8 +5,6 @@
 
 .svc-hww {
   --color-accent: #52E081;
-  --container-max: 1400px;
-  --gutter: 48px;
 
   position: relative;
   width: 100%;
@@ -505,12 +503,17 @@
    ============================================================ */
 
 @media only screen and (max-width: 767px) {
+  /* Height grows with content (see syncPanelsHeight in module.js) — no fixed px */
   .svc-hww {
-    height: 860px;
+    height: auto;
+    min-height: 0;
+    overflow: hidden;
   }
 
   .svc-hww__container {
     --gutter: 20px;
+    height: auto;
+    min-height: 0;
     padding: 64px var(--gutter);
     display: flex;
     flex-direction: column;
@@ -535,11 +538,15 @@
     letter-spacing: 0.2em;
   }
 
-  /* Panels */
+  /*
+   * Slide viewport: fixed height (tallest slide) set inline by syncPanelsHeight().
+   * Short slides keep the same box; section height still grows with badge + nav.
+   */
   .svc-hww__panels {
     position: relative;
-    flex: 1 1 auto;
-    min-height: 0;
+    flex: 0 0 auto;
+    width: 100%;
+    overflow: hidden;
   }
 
   .svc-hww__panel {
@@ -547,7 +554,8 @@
     inset: 0;
     display: flex;
     flex-direction: column;
-    min-height: 0;
+    min-height: 100%;
+    height: 100%;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -564,20 +572,24 @@
     transform: none;
   }
 
-  /* Card */
+  /* Card fills the fixed slide viewport; align content to top */
   .svc-hww__card {
     flex: 1 1 auto;
-    min-height: 0;
+    min-height: 100%;
+    height: 100%;
     padding: 12px;
     border-width: 0.7px;
     overflow-x: hidden;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
   }
 
   .svc-hww__card-inner {
     grid-template-columns: 1fr;
     gap: 40px;
+    height: auto;
+    align-content: start;
   }
 
   .svc-hww__card-title {

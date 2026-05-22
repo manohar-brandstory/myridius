@@ -81,15 +81,26 @@
   "display_width" : null,
   "default" : "Powered by"
 }, {
-  "id" : "powered_name",
-  "name" : "powered_name",
-  "label" : "Powered by name",
+  "id" : "powered_image",
+  "name" : "powered_image",
+  "label" : "Powered by logo",
   "required" : false,
   "locked" : false,
-  "allow_new_line" : false,
-  "type" : "text",
+  "responsive" : false,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
   "display_width" : null,
-  "default" : "Myridius EVOQ"
+  "default" : {
+    "src" : "",
+    "alt" : "Myridius EVOQ",
+    "size_type" : null,
+    "width" : null,
+    "height" : null,
+    "max_width" : null,
+    "max_height" : null,
+    "loading" : "disabled"
+  }
 }, {
   "id" : "powered_url",
   "name" : "powered_url",
