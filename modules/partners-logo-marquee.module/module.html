@@ -1,0 +1,81 @@
+{% set bg_src = get_asset_url('/Myridius Theme V1/images/partners/' ~ module.background_filename) %}
+{% set default_logos = [
+  'logo-27.png', 'logo-28.png', 'logo-29.png', 'logo-30.png', 'logo-31.png', 'logo-32.png', 'logo-33.png',
+  'logo-34.png', 'logo-35.png', 'logo-36.png', 'logo-37.png', 'logo-38.png', 'logo-39.png', 'logo-40.png',
+  'logo-41.png', 'logo-42.png', 'logo-43.png', 'logo-44.png', 'logo-45.png', 'logo-46.png'
+] %}
+{% set has_row_groups = module.row_1_logos|length or module.row_2_logos|length or module.row_3_logos|length %}
+
+{% macro partners_logo_tile(src, alt, is_short) %}
+  <div class="partners-logos__tile{% if is_short %} partners-logos__tile--short{% endif %}">
+    <img src="{{ src }}" alt="{{ alt }}" loading="lazy" decoding="async">
+  </div>
+{% endmacro %}
+
+{% macro partners_logo_item(logo, is_short) %}
+  {% set src = logo.image.src|default('')|trim %}
+  {% if (not src) and logo.image_filename %}
+    {% set src = get_asset_url('/Myridius Theme V1/images/partners/' ~ logo.image_filename) %}
+  {% endif %}
+  {% if src %}
+    {{ partners_logo_tile(src, logo.image.alt|default('Partner logo'), is_short) }}
+  {% endif %}
+{% endmacro %}
+
+{% macro partners_logo_strip(row_num, hidden) %}
+  {% set row_index = row_num|int - 1 %}
+  {% set is_short = row_num == '3' %}
+  <div class="partners-logos__strip"{% if hidden %} aria-hidden="true"{% endif %} data-marquee-strip>
+    {% if has_row_groups %}
+      {% if row_num == '1' %}
+        {% for logo in module.row_1_logos %}
+          {{ partners_logo_item(logo, is_short) }}
+        {% endfor %}
+      {% elif row_num == '2' %}
+        {% for logo in module.row_2_logos %}
+          {{ partners_logo_item(logo, is_short) }}
+        {% endfor %}
+      {% else %}
+        {% for logo in module.row_3_logos %}
+          {{ partners_logo_item(logo, is_short) }}
+        {% endfor %}
+      {% endif %}
+    {% elif module.logos|length %}
+      {% for logo in module.logos %}
+        {% set use_row = logo.row|default('auto') %}
+        {% set logo_row_index = (loop.index0 % 3) if use_row == 'auto' else (use_row|int - 1) %}
+        {% if logo_row_index == row_index %}
+          {{ partners_logo_item(logo, is_short) }}
+        {% endif %}
+      {% endfor %}
+    {% else %}
+      {% for filename in default_logos %}
+        {% set idx = loop.index0 %}
+        {% set assigned_row = '1' if idx < 7 else ('2' if idx < 14 else '3') %}
+        {% if assigned_row == row_num %}
+          {{ partners_logo_tile(get_asset_url('/Myridius Theme V1/images/partners/' ~ filename), '', is_short) }}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  </div>
+{% endmacro %}
+
+<section class="partners-logos"{% if module.section_id %} id="{{ module.section_id }}"{% endif %} data-partners-logos>
+  <div class="partners-logos__bg" aria-hidden="true"{% if bg_src %} style="background-image: url('{{ bg_src }}');"{% endif %}></div>
+  <div class="partners-logos__base" aria-hidden="true"></div>
+  <div class="partners-logos__fade partners-logos__fade--left" aria-hidden="true"></div>
+  <div class="partners-logos__fade partners-logos__fade--right" aria-hidden="true"></div>
+
+  <div class="partners-logos__rows">
+    {% for row_num in ['1', '2', '3'] %}
+      {% set direction = 'right' if row_num == '2' else 'left' %}
+      {% set duration = '40' if row_num == '1' else ('52' if row_num == '2' else '34') %}
+      <div class="partners-logos__row" data-direction="{{ direction }}" data-row="{{ row_num }}" style="--marquee-duration: {{ duration }}s;">
+        <div class="partners-logos__track" data-marquee-track>
+          {{ partners_logo_strip(row_num, false) }}
+          {{ partners_logo_strip(row_num, true) }}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>

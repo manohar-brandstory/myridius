@@ -1,0 +1,134 @@
+.pd-value {
+  background: #fff;
+  padding: 0 var(--gutter) clamp(48px, 7vw, 100px);
+  box-sizing: border-box;
+}
+
+.pd-value__panel {
+  max-width: var(--container-max, 1200px);
+  margin: 0 auto;
+  background: #f6f3f0;
+  border-radius: 12px;
+  padding: clamp(32px, 4.4vw, 64px) clamp(20px, 8vw, 120px);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(32px, 4.4vw, 64px);
+}
+
+.pd-value__intro {
+  margin: 0;
+  max-width: 587px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #194247;
+}
+
+.pd-value__pillars {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  width: 100%;
+}
+
+.pd-value__pillar {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 14px;
+  transition: transform 0.3s ease;
+}
+
+.pd-value__pillar:hover {
+  transform: translateY(-3px);
+}
+
+.pd-value__icon {
+  flex-shrink: 0;
+  width: var(--pd-icon-size-mobile, 40px);
+  height: var(--pd-icon-size-mobile, 40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pd-value__icon svg,
+.pd-value__icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.pd-value__title {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 28px;
+  color: #194247;
+}
+
+.pd-value__desc {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 26px;
+  color: #337077;
+}
+
+.pd-value [data-sr] {
+  opacity: 1;
+  transform: none;
+}
+
+.pd-value .is-sr-hidden {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.pd-value .is-sr-shown {
+  opacity: 1;
+  transform: none;
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+
+@media (min-width: 768px) {
+  .pd-value__icon {
+    width: var(--pd-icon-size, 52px);
+    height: var(--pd-icon-size, 52px);
+  }
+
+  .pd-value__pillars {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 42px;
+    row-gap: 42px;
+    max-width: 900px;
+  }
+}
+
+@media (max-width: 767px) {
+  .pd-value__intro {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+  }
+
+  .pd-value__title {
+    font-size: 15px;
+    line-height: 24px;
+  }
+
+  .pd-value__desc {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .pd-value__pillar:hover {
+    transform: none;
+  }
+}

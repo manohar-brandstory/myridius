@@ -1,0 +1,126 @@
+.leadership-hero {
+  background: #fff;
+  overflow: hidden;
+}
+
+.leadership-hero__wrap {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: clamp(48px, 8vw, 100px) var(--gutter);
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.leadership-hero__breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 11px;
+  margin: 0 0 24px;
+}
+
+.leadership-hero__crumb {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  line-height: 1.25;
+}
+
+.leadership-hero__crumb--primary {
+  color: #556467;
+}
+
+a.leadership-hero__crumb--primary:hover {
+  color: #194247;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.leadership-hero__crumb-sep {
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(85, 100, 103, 0.4);
+  letter-spacing: 0.2em;
+}
+
+.leadership-hero__crumb--current {
+  color: #337077;
+}
+
+.leadership-hero__content {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.leadership-hero__heading {
+  margin: 0 0 16px;
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+  color: #194247;
+}
+
+.leadership-hero__heading-highlight {
+  background: linear-gradient(
+    90deg,
+    #194247 0%,
+    #1a454a 7%,
+    #1b484d 14%,
+    #1d4a50 21%,
+    #1e4d53 29%,
+    #1f5056 36%,
+    #205359 43%,
+    #21565c 50%,
+    #235960 57%,
+    #245c63 64%,
+    #255f66 71%,
+    #266269 79%,
+    #28656c 86%,
+    #296870 93%,
+    #2a6b73 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.leadership-hero__description {
+  font-size: clamp(16px, 2vw, 18px);
+  line-height: 1.55;
+  font-weight: 500;
+  color: #337077;
+}
+
+.leadership-hero__description p {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .leadership-hero__wrap {
+    padding-top: 24px;
+    padding-bottom: 28px;
+    text-align: left;
+  }
+
+  .leadership-hero__breadcrumb {
+    display: none;
+  }
+
+  .leadership-hero__content {
+    max-width: none;
+    margin-top: 24px;
+  }
+
+  .leadership-hero__heading {
+    margin-bottom: 15px;
+    line-height: 1.15;
+  }
+
+  .leadership-hero__description {
+    line-height: 2.03;
+  }
+}

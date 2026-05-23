@@ -1,0 +1,49 @@
+<section
+  class="res-detail-form pd-form"
+  data-pd-form
+  {% if module.section_id %}id="{{ module.section_id }}"{% endif %}
+>
+  {% if module.background_image.src %}
+    <img class="res-detail-form__bgImg" src="{{ module.background_image.src }}" alt="" aria-hidden="true" loading="lazy" decoding="async">
+  {% endif %}
+  <div class="res-detail-form__overlay" aria-hidden="true"></div>
+
+  <div class="res-detail-form__wrap">
+    <div class="res-detail-form__promo pd-form__promo" data-sr="left">
+      <div class="pd-form__badge">
+        <span class="pd-form__badgeLine" aria-hidden="true"></span>
+        <span class="pd-form__badgeText">{{ module.badge_text }}</span>
+      </div>
+      <h2 class="pd-form__heading">
+        {% if module.heading_line %}
+          <span class="pd-form__heading-line">{{ module.heading_line }}</span>
+        {% endif %}
+        {% if module.heading_accent %}
+          <span class="pd-form__heading-accent">{{ module.heading_accent }}</span>
+        {% endif %}
+      </h2>
+      {% if module.description %}
+        <div class="pd-form__description">{{ module.description }}</div>
+      {% endif %}
+    </div>
+
+    <div class="res-detail-form__panel" data-sr="right">
+      <div class="res-detail-form__card">
+        {% if module.form_field and module.form_field.form_id %}
+          <div class="res-detail-form__embed">
+            {% form
+              form_to_use="{{ module.form_field.form_id }}"
+              response_response_type="{{ module.form_field.response_type }}"
+              response_message="{{ module.form_field.message }}"
+              response_redirect_id="{{ module.form_field.redirect_id }}"
+              response_redirect_url="{{ module.form_field.redirect_url }}"
+              gotowebinar_webinar_key="{{ module.form_field.gotowebinar_webinar_key }}"
+            %}
+          </div>
+        {% else %}
+          <p class="res-detail-form__placeholder">Select a HubSpot form in the module settings.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>

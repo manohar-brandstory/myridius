@@ -1,0 +1,106 @@
+[
+  {
+    "id": "section_id",
+    "name": "section_id",
+    "label": "Section ID",
+    "type": "text",
+    "default": "partner-offerings"
+  },
+  {
+    "id": "badge_text",
+    "name": "badge_text",
+    "label": "Badge text",
+    "type": "text",
+    "default": "Solutions & services"
+  },
+  {
+    "id": "title",
+    "name": "title",
+    "label": "Heading",
+    "type": "text",
+    "default": "What we deliver together"
+  },
+  {
+    "id": "description",
+    "name": "description",
+    "label": "Description",
+    "type": "richtext",
+    "default": "<p>Explore joint offerings designed to help your teams ship faster with confidence.</p>"
+  },
+  {
+    "id": "background_filename",
+    "name": "background_filename",
+    "label": "Background texture filename",
+    "type": "text",
+    "default": "section-bg.png"
+  },
+  {
+    "id": "offerings",
+    "name": "offerings",
+    "label": "Offering cards",
+    "type": "group",
+    "occurrence": { "min": 1, "max": 9, "default": 3 },
+    "children": [
+      {
+        "id": "offerings.logo",
+        "name": "logo",
+        "label": "Logo image",
+        "type": "image",
+        "default": { "src": "", "alt": null }
+      },
+      {
+        "id": "offerings.logo_label",
+        "name": "logo_label",
+        "label": "Logo text fallback",
+        "type": "text",
+        "default": ""
+      },
+      {
+        "id": "offerings.description",
+        "name": "description",
+        "label": "Description",
+        "type": "text",
+        "default": "Description of the joint offering."
+      },
+      {
+        "id": "offerings.link_text",
+        "name": "link_text",
+        "label": "Link text",
+        "type": "text",
+        "default": "Know more"
+      },
+      {
+        "id": "offerings.link_url",
+        "name": "link_url",
+        "label": "Link URL",
+        "type": "url",
+        "default": { "href": "", "type": "EXTERNAL" }
+      },
+      {
+        "id": "offerings.cta_color",
+        "name": "cta_color",
+        "label": "CTA color",
+        "type": "choice",
+        "choices": [["green", "Green"], ["light", "Light"]],
+        "default": "green"
+      }
+    ],
+    "default": [
+      {
+        "description": "Automated regression and continuous testing across Salesforce releases.",
+        "link_text": "Know more",
+        "cta_color": "light"
+      },
+      {
+        "description": "Data management and masking for secure, compliant test environments.",
+        "link_text": "Know more",
+        "cta_color": "green"
+      },
+      {
+        "description": "Quality engineering advisory aligned to your release cadence.",
+        "link_text": "Know more",
+        "cta_color": "green"
+      }
+    ]
+  }
+]

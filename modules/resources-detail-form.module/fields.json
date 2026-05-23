@@ -1,0 +1,50 @@
+[
+  {
+    "id": "section_id",
+    "name": "section_id",
+    "label": "Section ID (anchor)",
+    "type": "text",
+    "default": "resource-download-form"
+  },
+  {
+    "id": "badge_text",
+    "name": "badge_text",
+    "label": "Badge Text",
+    "type": "text",
+    "default": "Get the Full Guide"
+  },
+  {
+    "id": "headline",
+    "name": "headline",
+    "label": "Headline",
+    "type": "text",
+    "default": "Download a PDF version of the Everest Whitepaper by filling out this form."
+  },
+  {
+    "id": "preview_image",
+    "name": "preview_image",
+    "label": "PDF Preview Image",
+    "type": "image",
+    "default": { "src": "", "alt": "Whitepaper preview" }
+  },
+  {
+    "id": "background_image",
+    "name": "background_image",
+    "label": "Background Image",
+    "type": "image",
+    "default": { "src": "", "alt": "" }
+  },
+  {
+    "id": "form_field",
+    "name": "form_field",
+    "label": "HubSpot Form",
+    "type": "form",
+    "embed_versions": ["v2", "v4"],
+    "default": {
+      "form_id": "",
+      "response_type": "inline_message",
+      "message": "Thanks for submitting the form.",
+      "form_type": "HUBSPOT"
+    }
+  }
+]

@@ -1,0 +1,167 @@
+[
+  {
+    "id": "section_id",
+    "name": "section_id",
+    "label": "Section ID",
+    "type": "text",
+    "default": "salesforce-overview-services"
+  },
+  {
+    "id": "badge",
+    "name": "badge",
+    "label": "Badge",
+    "type": "text",
+    "default": "SALESFORCE OVERVIEW & SERVICES"
+  },
+  {
+    "id": "title",
+    "name": "title",
+    "label": "Title",
+    "type": "text",
+    "default": "Turn Salesforce into\nyour growth engine"
+  },
+  {
+    "id": "cards",
+    "name": "cards",
+    "label": "Cards",
+    "type": "group",
+    "occurrence": { "min": 1, "max": 12, "default": 6 },
+    "children": [
+      {
+        "id": "cards.title",
+        "name": "title",
+        "label": "Title",
+        "type": "text",
+        "default": "Sales Cloud"
+      },
+      {
+        "id": "cards.line",
+        "name": "line",
+        "label": "Supporting line",
+        "type": "text",
+        "default": "Accelerate pipeline velocity with intelligent selling workflows"
+      },
+      {
+        "id": "cards.hover_title",
+        "name": "hover_title",
+        "label": "Hover title",
+        "type": "text",
+        "default": "Sales Cloud"
+      },
+      {
+        "id": "cards.hover_items",
+        "name": "hover_items",
+        "label": "Hover bullet points",
+        "type": "group",
+        "occurrence": { "min": 0, "max": 6, "default": 3 },
+        "children": [
+          {
+            "id": "hover_items.text",
+            "name": "text",
+            "label": "Bullet text",
+            "type": "text",
+            "default": "Key capability"
+          }
+        ],
+        "default": [
+          { "text": "AI-guided selling and next-best-action" },
+          { "text": "Revenue intelligence across the funnel" },
+          { "text": "Seamless CPQ and contract workflows" }
+        ]
+      },
+      {
+        "id": "cards.image",
+        "name": "image",
+        "label": "Image",
+        "type": "image",
+        "default": { "src": "", "alt": null }
+      }
+    ],
+    "default": [
+      {
+        "title": "Sales Cloud",
+        "line": "Accelerate pipeline velocity with intelligent selling workflows",
+        "hover_title": "Sales Cloud",
+        "hover_items": [
+          { "text": "AI-guided selling and next-best-action" },
+          { "text": "Revenue intelligence across the funnel" },
+          { "text": "Seamless CPQ and contract workflows" }
+        ],
+        "image": {
+          "src": "https://images.unsplash.com/photo-1556761175-5973dc0e32e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "Sales Cloud"
+        }
+      },
+      {
+        "title": "Service Cloud",
+        "line": "Deliver proactive, personalized service at scale",
+        "hover_title": "Service Cloud",
+        "hover_items": [
+          { "text": "Omnichannel case routing and deflection" },
+          { "text": "Field service optimization" },
+          { "text": "Knowledge and self-service automation" }
+        ],
+        "image": {
+          "src": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "Service Cloud"
+        }
+      },
+      {
+        "title": "Marketing Cloud",
+        "line": "Orchestrate journeys that convert and retain",
+        "hover_title": "Marketing Cloud",
+        "hover_items": [
+          { "text": "Unified customer profiles and segmentation" },
+          { "text": "Cross-channel journey orchestration" },
+          { "text": "Real-time personalization at scale" }
+        ],
+        "image": {
+          "src": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "Marketing Cloud"
+        }
+      },
+      {
+        "title": "Data Cloud",
+        "line": "Unify data for trusted AI and activation",
+        "hover_title": "Data Cloud",
+        "hover_items": [
+          { "text": "Zero-copy data harmonization" },
+          { "text": "Identity resolution and governance" },
+          { "text": "Real-time insights for agents and teams" }
+        ],
+        "image": {
+          "src": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "Data Cloud"
+        }
+      },
+      {
+        "title": "Agentforce",
+        "line": "Deploy autonomous agents in the flow of work",
+        "hover_title": "Agentforce",
+        "hover_items": [
+          { "text": "Task-specific agents with guardrails" },
+          { "text": "Human-in-the-loop orchestration" },
+          { "text": "Continuous learning from outcomes" }
+        ],
+        "image": {
+          "src": "https://images.unsplash.com/photo-1677442136019-21780ecad995?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "Agentforce"
+        }
+      },
+      {
+        "title": "Industry Solutions",
+        "line": "Accelerate outcomes with pre-built accelerators",
+        "hover_title": "Industry Solutions",
+        "hover_items": [
+          { "text": "Financial services and insurance patterns" },
+          { "text": "Healthcare and life sciences workflows" },
+          { "text": "Retail and manufacturing execution kits" }
+        ],
+        "image": {
+          "src": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+          "alt": "Industry Solutions"
+        }
+      }
+    ]
+  }
+]

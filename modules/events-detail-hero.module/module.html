@@ -1,0 +1,113 @@
+<section class="evt-hero" id="{{ module.section_id }}">
+  <div class="evt-hero__wrap">
+    <div class="evt-hero__grid">
+      <div class="evt-hero__content">
+        {% if module.breadcrumb_items %}
+          <nav class="evt-hero__crumb" aria-label="Breadcrumb" data-sr>
+            {% for item in module.breadcrumb_items %}
+              {% if not loop.first %}
+                <span class="evt-hero__crumbSep" aria-hidden="true">/</span>
+              {% endif %}
+              {% if item.link.href and not item.is_current %}
+                <a class="evt-hero__crumbLink" href="{{ item.link.href }}">{{ item.crumb_text }}</a>
+              {% else %}
+                <span class="evt-hero__crumbLink{% if item.is_current %} is-current{% endif %}">{{ item.crumb_text }}</span>
+              {% endif %}
+            {% endfor %}
+          </nav>
+        {% endif %}
+
+        <h1 class="evt-hero__title" data-sr>{{ module.title }}</h1>
+
+        {% if module.description %}
+          <div class="evt-hero__desc" data-sr>{{ module.description }}</div>
+        {% endif %}
+
+        {% set day = module.event_day|default('')|striptags|trim %}
+        {% set month = module.event_month_year|default('')|striptags|trim %}
+        {% set time = module.event_time|default('')|striptags|trim %}
+        {% set loc1 = module.location_line_1|default('')|striptags|trim %}
+        {% set loc2 = module.location_line_2|default('')|striptags|trim %}
+        {% set booth = module.booth_text|default('')|striptags|trim %}
+        {% set show_date = day or month or time %}
+        {% set show_location = loc1 or loc2 or booth %}
+
+        {% if show_date or show_location %}
+          <div class="evt-hero__metaRow" data-sr>
+            {% if show_date %}
+              <div class="evt-hero__date">
+                {% if day %}<span class="evt-hero__dateDay">{{ day }}</span>{% endif %}
+                {% if month %}<span class="evt-hero__dateMonth">{{ month }}</span>{% endif %}
+                {% if time %}<span class="evt-hero__dateTime">{{ time }}</span>{% endif %}
+              </div>
+            {% endif %}
+
+            {% if show_location %}
+              <div class="evt-hero__location">
+                {% if loc1 %}
+                  <p class="evt-hero__locLine">
+                    <svg class="evt-hero__locIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M12 21s7-4.5 7-10a7 7 0 1 0-14 0c0 5.5 7 10 7 10Z" stroke="currentColor" stroke-width="1.5"/>
+                      <circle cx="12" cy="11" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                    <span>{{ loc1 }}</span>
+                  </p>
+                {% endif %}
+                {% if loc2 %}
+                  <p class="evt-hero__locLine">
+                    <svg class="evt-hero__locIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                      <path d="M8 10h8M8 14h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    <span>{{ loc2 }}</span>
+                  </p>
+                {% endif %}
+                {% if booth %}
+                  <p class="evt-hero__locLine">
+                    <svg class="evt-hero__locIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <rect x="4" y="6" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                      <path d="M8 10h8M8 14h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    <span>{{ booth }}</span>
+                  </p>
+                {% endif %}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        {% set primary_text = module.primary_button_text|default('')|striptags|trim %}
+        {% set primary_href = module.primary_button_url.href|default('')|trim %}
+        {% set show_primary = primary_text and primary_href and primary_href != '#' and '{{' not in primary_href %}
+
+        {% if show_primary %}
+          <div class="evt-hero__actions" data-sr>
+            <a class="evt-hero__btn evt-hero__btn--primary" href="{{ primary_href }}" data-scroll>
+              <span class="evt-hero__btnText">{{ primary_text }}</span>
+              <span class="evt-hero__btnIcon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </a>
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="evt-hero__media" data-sr>
+        <div class="evt-hero__card">
+          {% if module.image.src %}
+            <img
+              class="evt-hero__image"
+              src="{{ module.image.src }}"
+              alt="{{ module.image.alt|default(module.image_alt_fallback) }}"
+              loading="eager"
+              decoding="async"
+            >
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

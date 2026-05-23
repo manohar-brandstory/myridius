@@ -1,0 +1,631 @@
+﻿{% macro evt_icon_field(icon_field) %}
+  {% if icon_field and icon_field.src %}
+    <img
+      class="evt__locIconImg"
+      src="{{ icon_field.src|escape_url }}"
+      alt="{{ icon_field.alt|escape_attr }}"
+      width="16"
+      height="16"
+      loading="lazy"
+      decoding="async"
+    >
+  {% endif %}
+{% endmacro %}
+
+{% macro evt_event_card(event, row, card_index) %}
+  {% if row %}
+    {% set card_status = row[module.hubdb_col_status]|default("upcoming")|lower %}
+    {% set card_event_type = row[module.hubdb_col_event_type]|default("webinar")|lower %}
+    {% set card_tag_label = row[module.hubdb_col_tag_label]|default("WEBINAR") %}
+    {% set card_title = row[module.hubdb_col_title]|default("") %}
+    {% set card_description = row[module.hubdb_col_description]|default("") %}
+    {% set card_attending_label = row[module.hubdb_col_attending_label]|default("ATTENDING FROM MYRIDIUS") %}
+    {% set card_date_day = row[module.hubdb_col_date_day]|default("") %}
+    {% set card_date_month = row[module.hubdb_col_date_month]|default("") %}
+    {% set card_date_time = row[module.hubdb_col_date_time]|default("") %}
+    {% set card_location_text = row[module.hubdb_col_location_text]|default("") %}
+    {% set card_booth_text = row[module.hubdb_col_booth_text]|default("") %}
+    {% set card_online_label = row[module.hubdb_col_online_label]|default("Online webinar") %}
+    {% set card_cta_text = row[module.hubdb_col_cta_text]|default("Learn more") %}
+    {% set card_overflow_text = row[module.hubdb_col_overflow_text]|default("") %}
+    {% set card_overflow_close_text = module.overflow_close_text|default("Close") %}
+    {% set card_show_overflow_raw = row[module.hubdb_col_show_overflow]|default("true")|string|lower %}
+    {% set card_show_overflow = card_show_overflow_raw in ["true", "1", "yes"] %}
+    {% set cta_href = row[module.hubdb_col_cta_url]|default("#") %}
+    {% set loc_href = row[module.hubdb_col_location_url]|default("#") %}
+    {% set online_href = row[module.hubdb_col_cta_url]|default("#") %}
+    {% set cta_new_tab = true %}
+    {% set loc_new_tab = true %}
+    {% set online_new_tab = true %}
+    {% set logo_cell = row[module.hubdb_col_logo] %}
+    {% if logo_cell and logo_cell.url %}
+      {% set partner_logo_src = logo_cell.url %}
+      {% set partner_logo_alt = logo_cell.alt|default(card_title) %}
+    {% elif logo_cell %}
+      {% set partner_logo_src = logo_cell %}
+      {% set partner_logo_alt = card_title %}
+    {% elif module.default_partner_logo.src %}
+      {% set partner_logo_src = module.default_partner_logo.src %}
+      {% set partner_logo_alt = module.default_partner_logo.alt|default("Partner logo") %}
+    {% else %}
+      {% set partner_logo_src = get_asset_url("../../images/events-partner-logo-salesforce.svg") %}
+      {% set partner_logo_alt = "Salesforce" %}
+    {% endif %}
+    {% set card_attendees = [] %}
+    {% if row[module.hubdb_col_attendees_json] %}
+      {% set card_attendees = row[module.hubdb_col_attendees_json]|fromjson %}
+    {% endif %}
+    {% set card_attendees_count = card_attendees|length %}
+    {% set card_icon_online = module.icon_online_webinar %}
+    {% set card_icon_location = module.icon_location %}
+    {% set card_icon_booth = module.icon_booth %}
+  {% else %}
+    {% set card_status = event.status %}
+    {% set card_event_type = event.event_type %}
+    {% set card_tag_label = event.tag_label %}
+    {% set card_title = event.title %}
+    {% set card_description = event.description %}
+    {% set card_attending_label = event.attending_label %}
+    {% set card_date_day = event.date_day %}
+    {% set card_date_month = event.date_month %}
+    {% set card_date_time = event.date_time %}
+    {% set card_location_text = event.location_text %}
+    {% set card_booth_text = event.booth_text %}
+    {% set card_online_label = event.online_label %}
+    {% set card_cta_text = event.cta_text %}
+    {% set card_overflow_text = event.overflow_text %}
+    {% set card_overflow_close_text = event.overflow_close_text|default(module.overflow_close_text)|default("Close") %}
+    {% set card_show_overflow = event.show_overflow|default(true) %}
+    {% set cta_href = event.cta_link.url.href %}
+    {% if event.cta_link.url.type == "EMAIL_ADDRESS" %}
+      {% set cta_href = "mailto:" + cta_href %}
+    {% endif %}
+    {% set loc_href = event.location_link.url.href %}
+    {% if event.location_link.url.type == "EMAIL_ADDRESS" %}
+      {% set loc_href = "mailto:" + loc_href %}
+    {% endif %}
+    {% set cta_new_tab = event.cta_link.open_in_new_tab %}
+    {% set loc_new_tab = event.location_link.open_in_new_tab %}
+    {% set online_href = event.online_link.url.href %}
+    {% if event.online_link.url.type == "EMAIL_ADDRESS" %}
+      {% set online_href = "mailto:" + online_href %}
+    {% endif %}
+    {% set online_new_tab = event.online_link.open_in_new_tab %}
+    {% if event.logo.src %}
+      {% set partner_logo_src = event.logo.src %}
+      {% set partner_logo_alt = event.logo.alt|default(event.title) %}
+    {% elif module.default_partner_logo.src %}
+      {% set partner_logo_src = module.default_partner_logo.src %}
+      {% set partner_logo_alt = module.default_partner_logo.alt|default("Partner logo") %}
+    {% else %}
+      {% set partner_logo_src = get_asset_url("../../images/events-partner-logo-salesforce.svg") %}
+      {% set partner_logo_alt = "Salesforce" %}
+    {% endif %}
+    {% set card_attendees = event.attendees %}
+    {% set card_attendees_count = event.attendees|length %}
+    {% if event.icon_online.src %}
+      {% set card_icon_online = event.icon_online %}
+    {% else %}
+      {% set card_icon_online = module.icon_online_webinar %}
+    {% endif %}
+    {% if event.icon_location.src %}
+      {% set card_icon_location = event.icon_location %}
+    {% else %}
+      {% set card_icon_location = module.icon_location %}
+    {% endif %}
+    {% if event.icon_booth.src %}
+      {% set card_icon_booth = event.icon_booth %}
+    {% else %}
+      {% set card_icon_booth = module.icon_booth %}
+    {% endif %}
+  {% endif %}
+
+  {% set has_physical_location = card_location_text or card_booth_text %}
+
+  <article
+    class="evt__card"
+    data-evt-card
+    data-evt-status="{{ card_status }}"
+    data-evt-type="{{ card_event_type }}"
+  >
+    <div class="evt__cardTop">
+      <span class="evt__tag evt__tag--{{ card_event_type }}">{{ card_tag_label|escape_html }}</span>
+    </div>
+
+    <div class="evt__cardBody">
+      <div class="evt__cardMain">
+        <h3 class="evt__cardTitle">{{ card_title|escape_html }}</h3>
+        {% if card_description %}
+          <div class="evt__cardDesc">{{ card_description|sanitize_html }}</div>
+        {% endif %}
+      </div>
+
+      <div class="evt__attending">
+        <div class="evt__attendingHead">
+          <span class="evt__attendingIcon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M16 19v-1a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v1" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+              <circle cx="10" cy="8" r="3" stroke="currentColor" stroke-width="1.75"/>
+              <path d="M20 19v-1a3 3 0 0 0-2-2.83M16 4.17a3 3 0 0 1 0 5.66" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span class="evt__attendingLabel">{{ card_attending_label|escape_html }}</span>
+        </div>
+
+        <div class="evt__attendees" data-evt-attendees>
+          {% for person in card_attendees %}
+            {% if loop.index <= 2 %}
+              {% if row %}
+                {% set person_name = person.attendee_name|default(person.name) %}
+                {% set person_role = person.role|default("") %}
+                {% if person.avatar is string %}
+                  {% set person_avatar_src = person.avatar %}
+                  {% set person_avatar_alt = person_name %}
+                {% elif person.avatar and person.avatar.url %}
+                  {% set person_avatar_src = person.avatar.url %}
+                  {% set person_avatar_alt = person.avatar.alt|default(person_name) %}
+                {% elif person.avatar and person.avatar.src %}
+                  {% set person_avatar_src = person.avatar.src %}
+                  {% set person_avatar_alt = person.avatar.alt|default(person_name) %}
+                {% else %}
+                  {% set person_avatar_src = "" %}
+                  {% set person_avatar_alt = person_name %}
+                {% endif %}
+              {% else %}
+                {% set person_name = person.attendee_name %}
+                {% set person_role = person.role %}
+                {% set person_avatar_src = person.avatar.src %}
+                {% set person_avatar_alt = person.avatar.alt|default(person.attendee_name) %}
+              {% endif %}
+              <div class="evt__attendee">
+                {% if person_avatar_src %}
+                  <img
+                    class="evt__avatar"
+                    src="{{ person_avatar_src|escape_url }}"
+                    alt="{{ person_avatar_alt|escape_attr }}"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                {% endif %}
+                <div class="evt__attendeeText">
+                  <span class="evt__attendeeName">{{ person_name|escape_html }}</span>
+                  {% if person_role %}
+                    <span class="evt__attendeeRole">{{ person_role|escape_html }}</span>
+                  {% endif %}
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+
+          {% for person in card_attendees %}
+            {% if loop.index > 2 %}
+              {% if row %}
+                {% set person_name = person.attendee_name|default(person.name) %}
+                {% set person_role = person.role|default("") %}
+                {% if person.avatar is string %}
+                  {% set person_avatar_src = person.avatar %}
+                  {% set person_avatar_alt = person_name %}
+                {% elif person.avatar and person.avatar.url %}
+                  {% set person_avatar_src = person.avatar.url %}
+                  {% set person_avatar_alt = person.avatar.alt|default(person_name) %}
+                {% elif person.avatar and person.avatar.src %}
+                  {% set person_avatar_src = person.avatar.src %}
+                  {% set person_avatar_alt = person.avatar.alt|default(person_name) %}
+                {% else %}
+                  {% set person_avatar_src = "" %}
+                  {% set person_avatar_alt = person_name %}
+                {% endif %}
+              {% else %}
+                {% set person_name = person.attendee_name %}
+                {% set person_role = person.role %}
+                {% set person_avatar_src = person.avatar.src %}
+                {% set person_avatar_alt = person.avatar.alt|default(person.attendee_name) %}
+              {% endif %}
+              <div class="evt__attendee evt__attendee--extra">
+                {% if person_avatar_src %}
+                  <img
+                    class="evt__avatar"
+                    src="{{ person_avatar_src|escape_url }}"
+                    alt="{{ person_avatar_alt|escape_attr }}"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                {% endif %}
+                <div class="evt__attendeeText">
+                  <span class="evt__attendeeName">{{ person_name|escape_html }}</span>
+                  {% if person_role %}
+                    <span class="evt__attendeeRole">{{ person_role|escape_html }}</span>
+                  {% endif %}
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+
+          {% if card_attendees_count > 2 %}
+            <div class="evt__moreWrap">
+              <span class="evt__overflowAvatars evt__overflowAvatars--lead" aria-hidden="true">
+                {% for person in card_attendees %}
+                  {% if loop.index <= 2 %}
+                    {% if row %}
+                      {% if person.avatar is string %}
+                        {% set lead_avatar_src = person.avatar %}
+                      {% elif person.avatar and person.avatar.url %}
+                        {% set lead_avatar_src = person.avatar.url %}
+                      {% elif person.avatar and person.avatar.src %}
+                        {% set lead_avatar_src = person.avatar.src %}
+                      {% else %}
+                        {% set lead_avatar_src = "" %}
+                      {% endif %}
+                    {% else %}
+                      {% set lead_avatar_src = person.avatar.src %}
+                    {% endif %}
+                    {% if lead_avatar_src %}
+                      <img
+                        class="evt__overflowAvatar"
+                        src="{{ lead_avatar_src|escape_url }}"
+                        alt=""
+                        loading="lazy"
+                        decoding="async"
+                      >
+                    {% endif %}
+                  {% endif %}
+                {% endfor %}
+              </span>
+              <span class="evt__overflowAvatars evt__overflowAvatars--extra" aria-hidden="true">
+                {% for person in card_attendees %}
+                  {% if loop.index > 2 and loop.index <= 5 %}
+                    {% if row %}
+                      {% if person.avatar is string %}
+                        {% set overflow_avatar_src = person.avatar %}
+                      {% elif person.avatar and person.avatar.url %}
+                        {% set overflow_avatar_src = person.avatar.url %}
+                      {% elif person.avatar and person.avatar.src %}
+                        {% set overflow_avatar_src = person.avatar.src %}
+                      {% else %}
+                        {% set overflow_avatar_src = "" %}
+                      {% endif %}
+                    {% else %}
+                      {% set overflow_avatar_src = person.avatar.src %}
+                    {% endif %}
+                    {% if overflow_avatar_src %}
+                      <img
+                        class="evt__overflowAvatar"
+                        src="{{ overflow_avatar_src|escape_url }}"
+                        alt=""
+                        loading="lazy"
+                        decoding="async"
+                      >
+                    {% endif %}
+                  {% endif %}
+                {% endfor %}
+              </span>
+              {% if card_show_overflow or card_status == 'past' %}
+              {% set card_more_open_text = card_overflow_text if card_overflow_text else "+" ~ (card_attendees_count - 2) ~ " More" %}
+              <button
+                type="button"
+                class="evt__moreBtn evt__moreBtn--desktopExpand"
+                data-evt-more-btn
+                data-evt-more-open="{{ card_more_open_text|escape_attr }}"
+                data-evt-more-close="{{ card_overflow_close_text|escape_attr }}"
+                aria-expanded="false"
+              >
+                <span data-evt-more-label>{{ card_more_open_text|escape_html }}</span>
+              </button>
+              {% endif %}
+            </div>
+          {% elif card_attendees_count > 0 %}
+            <div class="evt__moreWrap evt__moreWrap--mobileLead">
+              <span class="evt__overflowAvatars evt__overflowAvatars--lead" aria-hidden="true">
+                {% for person in card_attendees %}
+                  {% if loop.index <= 2 %}
+                    {% if row %}
+                      {% if person.avatar is string %}
+                        {% set lead_avatar_src = person.avatar %}
+                      {% elif person.avatar and person.avatar.url %}
+                        {% set lead_avatar_src = person.avatar.url %}
+                      {% elif person.avatar and person.avatar.src %}
+                        {% set lead_avatar_src = person.avatar.src %}
+                      {% else %}
+                        {% set lead_avatar_src = "" %}
+                      {% endif %}
+                    {% else %}
+                      {% set lead_avatar_src = person.avatar.src %}
+                    {% endif %}
+                    {% if lead_avatar_src %}
+                      <img
+                        class="evt__overflowAvatar"
+                        src="{{ lead_avatar_src|escape_url }}"
+                        alt=""
+                        loading="lazy"
+                        decoding="async"
+                      >
+                    {% endif %}
+                  {% endif %}
+                {% endfor %}
+              </span>
+            </div>
+          {% endif %}
+
+        </div>
+      </div>
+
+      <div class="evt__cardAside">
+        <div class="evt__asideHead">
+          <img
+            class="evt__logo evt__logo--aside"
+            src="{{ partner_logo_src|escape_url }}"
+            alt="{{ partner_logo_alt|escape_attr }}"
+            loading="lazy"
+            decoding="async"
+          >
+        </div>
+
+        <div class="evt__metaRow">
+          <div class="evt__date">
+            <div class="evt__dateTop">
+              <span class="evt__dateDay">{{ card_date_day|escape_html }}</span>
+              <span class="evt__dateMonth">{{ card_date_month|escape_html }}</span>
+            </div>
+            <div class="evt__dateTime">{{ card_date_time|escape_html }}</div>
+          </div>
+
+          <div class="evt__locPanel" data-evt-loc-panel>
+            {% if has_physical_location %}
+              <div class="evt__loc evt__locView evt__locView--details evt__locView--physical">
+                {% if card_location_text %}
+                  <div class="evt__locRow">
+                    <span class="evt__locIcon" aria-hidden="true">
+                      {% if card_icon_location.src %}
+                        {{ evt_icon_field(card_icon_location) }}
+                      {% else %}
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                          <path d="M12 21s6-5.2 6-10a6 6 0 1 0-12 0c0 4.8 6 10 6 10Z" stroke="currentColor" stroke-width="1.75"/>
+                          <circle cx="12" cy="11" r="2" stroke="currentColor" stroke-width="1.75"/>
+                        </svg>
+                      {% endif %}
+                    </span>
+                    <a
+                      class="evt__locLink"
+                      href="{{ loc_href|escape_url }}"
+                      {% if loc_new_tab %}target="_blank" rel="noopener"{% endif %}
+                    >
+                      {{ card_location_text|escape_html }}
+                    </a>
+                  </div>
+                {% endif %}
+                {% if card_booth_text %}
+                  <div class="evt__locRow">
+                    <span class="evt__locIcon" aria-hidden="true">
+                      {% if card_icon_booth.src %}
+                        {{ evt_icon_field(card_icon_booth) }}
+                      {% else %}
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                          <path d="M7 7h10v4l-2 2H9l-2-2V7Z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+                          <path d="M9 13v4h6v-4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+                        </svg>
+                      {% endif %}
+                    </span>
+                    <span class="evt__locText">{{ card_booth_text|escape_html }}</span>
+                  </div>
+                {% endif %}
+              </div>
+            {% else %}
+              <div class="evt__loc evt__locView evt__locView--online evt__locView--static">
+                <span class="evt__locIcon" aria-hidden="true">
+                  {% if card_icon_online.src %}
+                    {{ evt_icon_field(card_icon_online) }}
+                  {% else %}
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.75"/>
+                      <circle cx="12" cy="12" r="2.5" fill="currentColor"/>
+                    </svg>
+                  {% endif %}
+                </span>
+                <span class="evt__onlineBtnText">{{ card_online_label|default("Online webinar")|escape_html }}</span>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+
+        <a
+          class="evt__cta"
+          href="{{ cta_href|escape_url }}"
+          {% if cta_new_tab %}target="_blank" rel="noopener"{% endif %}
+        >
+          <span class="evt__ctaText">{{ card_cta_text|default("Learn more")|escape_html }}</span>
+          <span class="evt__ctaArrow" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </article>
+{% endmacro %}
+
+{% macro evt_tab_icon(icon_key) %}
+  {% if icon_key == "trend" %}
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M4 18V6M10 18V10M16 18V4M22 18V14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  {% elif icon_key == "users" %}
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 3a6 6 0 0 0-6 6v1H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V9a6 6 0 0 0-6-6Z" stroke="currentColor" stroke-width="1.75"/>
+      <path d="M9 12h6M12 9v6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+    </svg>
+  {% elif icon_key == "gear" %}
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M8 3v2M16 3v2M4 9h16M6 5h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+      <circle cx="12" cy="14" r="2.5" stroke="currentColor" stroke-width="1.75"/>
+    </svg>
+  {% elif icon_key == "calendar" %}
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M8 3v2M16 3v2M4 9h16M6 5h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+    </svg>
+  {% else %}
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M4 18V6M10 18V10M16 18V4M22 18V14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  {% endif %}
+{% endmacro %}
+
+{% macro evt_tab_icon_img(icon_image) %}
+  <img
+    class="evt__tabIconImg"
+    src="{{ icon_image.src|escape_url }}"
+    alt="{{ icon_image.alt|escape_attr }}"
+    width="18"
+    height="18"
+    loading="lazy"
+    decoding="async"
+  >
+{% endmacro %}
+
+{% macro evt_tab_icon_markup(icon_key, icon_image) %}
+  {% if icon_key == "custom" and icon_image.src %}
+    {{ evt_tab_icon_img(icon_image) }}
+  {% else %}
+    {{ evt_tab_icon(icon_key) }}
+  {% endif %}
+{% endmacro %}
+
+{% macro evt_tab_icon_state(icon_default, icon_active, icon_key, icon_fallback) %}
+  {% if icon_default.src %}
+    {{ evt_tab_icon_img(icon_default) }}
+  {% elif icon_active.src and icon_key == "custom" and icon_fallback.src %}
+    {{ evt_tab_icon_img(icon_fallback) }}
+  {% else %}
+    {{ evt_tab_icon_markup(icon_key, icon_fallback) }}
+  {% endif %}
+{% endmacro %}
+
+{% macro evt_tab_icons_desktop(icon_default, icon_active, icon_key, icon_fallback) %}
+  <span class="evt__tabIcons" aria-hidden="true">
+    <span class="evt__tabIcon evt__tabIcon--default">
+      {{ evt_tab_icon_state(icon_default, icon_active, icon_key, icon_fallback) }}
+    </span>
+    <span class="evt__tabIcon evt__tabIcon--active">
+      {% if icon_active.src %}
+        {{ evt_tab_icon_img(icon_active) }}
+      {% else %}
+        {{ evt_tab_icon_state(icon_default, icon_active, icon_key, icon_fallback) }}
+      {% endif %}
+    </span>
+  </span>
+{% endmacro %}
+
+{% set evt_bg_src = module.section_background_image.src if module.section_background_image.src else get_asset_url("../../images/events-listings-bg.png") %}
+
+<section class="evt" id="{{ module.section_id|escape_attr }}" style="--evt-bg-image: url('{{ evt_bg_src|escape_url }}');">
+  <div class="evt__bg" aria-hidden="true"></div>
+  <div class="evt__wrap">
+    <header class="evt__header">
+      <div class="evt__badge">
+        <span class="evt__badgeLine" aria-hidden="true"></span>
+        <span class="evt__badgeText">{{ module.badge|escape_html }}</span>
+      </div>
+      <h2 class="evt__title">{{ module.title|escape_html }}</h2>
+    </header>
+
+    {% set filter_tabs = module.filter_tabs if module.filter_tabs else [] %}
+    {% set default_tab = filter_tabs[0] if filter_tabs else none %}
+
+    {% if filter_tabs|length > 1 %}
+    <div class="evt__filterMobile">
+      <label class="evt__visuallyHidden" for="evt-filter-select-{{ name }}">{{ module.tabs_aria_label|escape_html }}</label>
+      <div class="evt__filterSelectWrap">
+        <select
+          class="evt__filterSelect"
+          id="evt-filter-select-{{ name }}"
+          data-evt-filter-select
+          aria-label="{{ module.tabs_aria_label|escape_attr }}"
+        >
+          {% for tab in filter_tabs %}
+            <option value="{{ tab.filter_key|escape_attr }}"{% if loop.first %} selected{% endif %}>{{ tab.tab_label|escape_html }}</option>
+          {% endfor %}
+        </select>
+        <div class="evt__filterSelectFace" aria-hidden="true">
+          <span class="evt__filterSelectLabel" data-evt-filter-label>{% if default_tab %}{{ default_tab.tab_label|escape_html }}{% endif %}</span>
+          <span class="evt__filterCountBox">
+            <span class="evt__filterCount" data-evt-filter-count>0</span>
+          </span>
+        </div>
+        <span class="evt__filterSelectChevron" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </div>
+    </div>
+
+    <nav class="evt__tabs" role="tablist" aria-label="{{ module.tabs_aria_label|escape_attr }}">
+      {% for tab in filter_tabs %}
+        <button
+          type="button"
+          class="evt__tab{% if loop.first %} is-active{% endif %}"
+          role="tab"
+          aria-selected="{{ 'true' if loop.first else 'false' }}"
+          data-evt-filter="{{ tab.filter_key|escape_attr }}"
+          id="evt-tab-{{ loop.index }}-{{ name }}"
+        >
+          {{ evt_tab_icons_desktop(tab.tab_icon_default, tab.tab_icon_active, tab.tab_icon, tab.tab_icon_image) }}
+          <span class="evt__tabLabel">{{ tab.tab_label|escape_html }}</span>
+          <span class="evt__tabCountBox"><span class="evt__tabCount" data-evt-count="{{ tab.filter_key|escape_attr }}">0</span></span>
+        </button>
+      {% endfor %}
+    </nav>
+    {% elif default_tab %}
+      <span class="evt__visuallyHidden" data-evt-single-filter="{{ default_tab.filter_key|escape_attr }}"></span>
+    {% endif %}
+
+    <div class="evt__list" data-evt-list>
+      {% if module.data_source == "hubdb" %}
+        {% if module.hubdb_table %}
+          {% set hubdb_query = module.hubdb_sort_query|default("orderBy=hs_id") %}
+          {% for row in hubdb_table_rows(module.hubdb_table, hubdb_query) %}
+            {{ evt_event_card(null, row, loop.index) }}
+          {% endfor %}
+        {% else %}
+          <p class="evt__notice">{{ module.hubdb_empty_message|escape_html }}</p>
+        {% endif %}
+      {% else %}
+        {% for event in module.events %}
+          {{ evt_event_card(event, null, loop.index) }}
+        {% endfor %}
+      {% endif %}
+    </div>
+
+    <footer class="evt__footer">
+      <div class="evt__footerLeft">
+        <label class="evt__perPageLabel" for="evt-per-page-{{ name }}">{{ module.per_page_label|escape_html }}</label>
+        <div class="evt__perPageWrap">
+          <select class="evt__perPage" id="evt-per-page-{{ name }}" data-evt-per-page>
+            {% for option in module.per_page_options %}
+              <option value="{{ option.option_value }}"{% if option.option_value == module.default_per_page %} selected{% endif %}>
+                {{ option.option_label|escape_html }}
+              </option>
+            {% endfor %}
+          </select>
+          <span class="evt__perPageChevron" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </div>
+        <p class="evt__range" data-evt-range>{{ module.range_template|escape_html }}</p>
+      </div>
+
+      <nav class="evt__pager" aria-label="{{ module.pagination_aria_label|escape_attr }}" data-evt-pager>
+        <button type="button" class="evt__pagerNav" data-evt-prev disabled>
+          <span aria-hidden="true">&lt;</span> {{ module.back_label|escape_html }}
+        </button>
+        <div class="evt__pagerNums" data-evt-page-nums></div>
+        <button type="button" class="evt__pagerNav" data-evt-next>
+          {{ module.next_label|escape_html }} <span aria-hidden="true">&gt;</span>
+        </button>
+      </nav>
+    </footer>
+  </div>
+</section>

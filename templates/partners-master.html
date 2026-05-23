@@ -1,0 +1,51 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Partners - Master Template
+-->
+{% extends "./layouts/base.html" %}
+
+{% block extra_head %}
+  <style>
+    @media (max-width: 768px) {
+      .partners-page h2 {
+        font-size: 36px;
+        line-height: 45px;
+        letter-spacing: -2.4px;
+        font-weight: 500;
+      }
+    }
+  </style>
+{% endblock extra_head %}
+
+{% block body %}
+  <main id="main-content" class="partners-page">
+    {% dnd_area "partners_content", label="Partners Content", class="partners-page__dnd" %}
+      {% dnd_section label="Partners - Hero" %}
+        {% dnd_column offset=0, width=12 %}
+          {% dnd_module path="/Myridius Theme V1/modules/partners-hero.module", label="Partners - Hero" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section label="Partners - Major Platforms" %}
+        {% dnd_column offset=0, width=12 %}
+          {% dnd_module path="/Myridius Theme V1/modules/partners-major-platforms.module", label="Partners - Major Platforms" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section label="Partners - Logo Marquee" %}
+        {% dnd_column offset=0, width=12 %}
+          {% dnd_module path="/Myridius Theme V1/modules/partners-logo-marquee.module", label="Partners - Logo Marquee" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section label="Partners - Featured Resources" %}
+        {% dnd_column offset=0, width=12 %}
+          {% dnd_module path="/Myridius Theme V1/modules/partners-featured-resources.module", label="Partners - Featured Resources" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section label="Partners - CTA" %}
+        {% dnd_column offset=0, width=12 %}
+          {% dnd_module path="/Myridius Theme V1/modules/partners-cta.module", label="Partners - CTA" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+    {% end_dnd_area %}
+  </main>
+{% endblock body %}

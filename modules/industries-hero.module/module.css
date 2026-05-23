@@ -137,6 +137,10 @@
   font-weight: 500;
   margin-bottom: 8px;
 }
+
+.hero__metaTitle:first-child{
+  margin-top: 0;
+}
 .hero__metaTitle{
   color: var(--color-brand-1);
   font-size: 14px;
@@ -147,6 +151,26 @@
   color: var(--color-brand-2);
   font-size: 12px;
   font-weight: 500;
+}
+
+/* No kicker: drop frosted card chrome (empty kicker must not leave white panel) */
+.hero__meta--no-kicker {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.hero__meta--no-kicker .hero__metaTitle {
+  color: #fff;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
+}
+
+.hero__meta--no-kicker .hero__metaSub {
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.4);
 }
 
 /* Scroll reveal */

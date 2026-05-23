@@ -1,0 +1,241 @@
+[ {
+  "id" : "section_id",
+  "name" : "section_id",
+  "label" : "Section ID",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "leadership-our-leaders"
+}, {
+  "id" : "badge_text",
+  "name" : "badge_text",
+  "label" : "Section label",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Our leaders"
+}, {
+  "id" : "heading",
+  "name" : "heading",
+  "label" : "Heading",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Text here"
+}, {
+  "id" : "know_more_text",
+  "name" : "know_more_text",
+  "label" : "Know more button label",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Know more"
+}, {
+  "id" : "mobile_background_image",
+  "name" : "mobile_background_image",
+  "label" : "Mobile background texture",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "display_width" : null,
+  "default" : {
+    "src" : "",
+    "alt" : ""
+  }
+}, {
+  "id" : "mobile_background_filename",
+  "name" : "mobile_background_filename",
+  "label" : "Mobile background filename (theme asset)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "mobile-section-bg.png"
+}, {
+  "id" : "card_background_image",
+  "name" : "card_background_image",
+  "label" : "Card background pattern",
+  "help_text" : "Organic texture behind leader photos and bio panels. Overrides theme filename when set.",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "display_width" : null,
+  "default" : {
+    "src" : "",
+    "alt" : ""
+  }
+}, {
+  "id" : "card_background_filename",
+  "name" : "card_background_filename",
+  "label" : "Card background filename (theme asset)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "card-bg-pattern.png"
+}, {
+  "id" : "people",
+  "name" : "people",
+  "label" : "Leaders",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 12,
+    "sorting_label_field" : "people.person_name",
+    "default" : 7
+  },
+  "children" : [ {
+    "id" : "people.person_name",
+    "name" : "person_name",
+    "label" : "Name",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Leader name"
+  }, {
+    "id" : "people.role",
+    "name" : "role",
+    "label" : "Title / role",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Role title"
+  }, {
+    "id" : "people.photo",
+    "name" : "photo",
+    "label" : "Photo",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "",
+      "alt" : ""
+    }
+  }, {
+    "id" : "people.photo_filename",
+    "name" : "photo_filename",
+    "label" : "Default photo filename (theme asset)",
+    "help_text" : "Used when no image is selected in the Photo field. File must exist in theme images/leadership/.",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "people.bio",
+    "name" : "bio",
+    "label" : "Bio (enables hover preview & modal)",
+    "required" : false,
+    "locked" : false,
+    "type" : "richtext",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "people.linkedin_url",
+    "name" : "linkedin_url",
+    "label" : "LinkedIn URL",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL" ],
+    "type" : "url",
+    "display_width" : null,
+    "default" : {
+      "href" : "",
+      "type" : "EXTERNAL",
+      "content_id" : null
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "person_name" : "Ramesh Ramani",
+    "role" : "Chief Executive Officer",
+    "photo_filename" : "ramesh-ramani.png",
+    "photo" : {
+      "src" : "",
+      "alt" : "Ramesh Ramani"
+    },
+    "bio" : "<p>Ramesh is a global business leader with over 30 years of experience in growing and managing professional services' businesses across operations, consulting, and technology. His strategic vision, growth mindset and collaborative approach has been instrumental in helping clients successfully navigate complex business and technology shifts.</p>",
+    "linkedin_url" : {
+      "href" : "",
+      "type" : "EXTERNAL"
+    }
+  }, {
+    "person_name" : "Gerard Lynch",
+    "role" : "Chief Financial Officer",
+    "photo_filename" : "gerard-lynch.png",
+    "photo" : {
+      "src" : "",
+      "alt" : "Gerard Lynch"
+    }
+  }, {
+    "person_name" : "Girish Pai",
+    "role" : "Chief Operations Officer",
+    "photo_filename" : "girish-pai.png",
+    "photo" : {
+      "src" : "",
+      "alt" : "Girish Pai"
+    }
+  }, {
+    "person_name" : "Mike Fischer",
+    "role" : "Head of Insurance",
+    "photo_filename" : "mike-fischer.png",
+    "photo" : {
+      "src" : "",
+      "alt" : "Mike Fischer"
+    }
+  }, {
+    "person_name" : "Harish Mundakode",
+    "role" : "Head of Banking & Financial Services",
+    "photo_filename" : "harish-mundakode.png",
+    "photo" : {
+      "src" : "",
+      "alt" : "Harish Mundakode"
+    }
+  }, {
+    "person_name" : "Mark Allnock",
+    "role" : "Head of Travel & Hospitality",
+    "photo_filename" : "mark-allnock.png",
+    "photo" : {
+      "src" : "",
+      "alt" : "Mark Allnock"
+    }
+  }, {
+    "person_name" : "Satish Rajarathnam",
+    "role" : "Head of People + Culture, IT, & Administration",
+    "photo_filename" : "satish-rajarathnam.png",
+    "photo" : {
+      "src" : "",
+      "alt" : "Satish Rajarathnam"
+    }
+  } ]
+} ]

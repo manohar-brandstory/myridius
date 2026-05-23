@@ -1,0 +1,45 @@
+{% set bg_src = get_asset_url('/Myridius Theme V1/images/partners/' ~ module.background_filename) %}
+
+<section class="partners-platforms"{% if module.section_id %} id="{{ module.section_id }}"{% endif %}>
+  <div class="partners-platforms__bg" aria-hidden="true"{% if bg_src %} style="background-image: url('{{ bg_src }}');"{% endif %}></div>
+  <div class="partners-platforms__overlay" aria-hidden="true"></div>
+  <div class="partners-platforms__wrap">
+    <div class="partners-platforms__grid">
+      {% for platform in module.platforms %}
+        <article class="partners-platforms__card">
+          <div class="partners-platforms__card-inner">
+            <div class="partners-platforms__card-top">
+              <div class="partners-platforms__logo">
+                {% if platform.logo.src %}
+                  <img src="{{ platform.logo.src }}" alt="{{ platform.logo.alt|default(platform.logo_label) }}" loading="lazy" decoding="async">
+                {% elif platform.logo_label %}
+                  <span class="partners-platforms__logo-text">{{ platform.logo_label }}</span>
+                {% endif %}
+              </div>
+              {% if platform.description %}
+                <p class="partners-platforms__desc">{{ platform.description }}</p>
+              {% endif %}
+            </div>
+            {% if platform.link_url.href %}
+              <a class="partners-platforms__cta partners-platforms__cta--{{ platform.cta_color|default('green') }}" href="{{ platform.link_url.href }}">
+                <span>Know more</span>
+                <svg width="15" height="15" viewBox="0 0 17.49 17.49" fill="none" aria-hidden="true">
+                  <path d="M3.645 8.744H13.847" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.457"/>
+                  <path d="M8.745 3.644L13.846 8.744L8.745 13.845" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.457"/>
+                </svg>
+              </a>
+            {% else %}
+              <span class="partners-platforms__cta partners-platforms__cta--{{ platform.cta_color|default('green') }}">
+                <span>Know more</span>
+                <svg width="15" height="15" viewBox="0 0 17.49 17.49" fill="none" aria-hidden="true">
+                  <path d="M3.645 8.744H13.847" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.457"/>
+                  <path d="M8.745 3.644L13.846 8.744L8.745 13.845" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.457"/>
+                </svg>
+              </span>
+            {% endif %}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

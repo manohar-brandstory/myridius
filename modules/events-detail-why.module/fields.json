@@ -1,0 +1,68 @@
+[
+  {
+    "id": "section_id",
+    "name": "section_id",
+    "label": "Section ID",
+    "type": "text",
+    "default": "event-why-myridius"
+  },
+  {
+    "id": "badge_text",
+    "name": "badge_text",
+    "label": "Badge Text",
+    "type": "text",
+    "default": "Why choose Myridius"
+  },
+  {
+    "id": "title",
+    "name": "title",
+    "label": "Heading",
+    "type": "text",
+    "default": "Ambition to Impact.\nExperience-Led. Intelligence-Driven."
+  },
+  {
+    "id": "event_day",
+    "name": "event_day",
+    "label": "Event Day",
+    "type": "text",
+    "default": "14"
+  },
+  {
+    "id": "event_month_year",
+    "name": "event_month_year",
+    "label": "Event Month & Year",
+    "type": "text",
+    "default": "May, 2025"
+  },
+  {
+    "id": "event_time",
+    "name": "event_time",
+    "label": "Event Time",
+    "type": "text",
+    "default": "12:00 PM"
+  },
+  {
+    "id": "location_line_1",
+    "name": "location_line_1",
+    "label": "Location line 1",
+    "type": "text",
+    "default": "Empress Events"
+  },
+  {
+    "id": "location_line_2",
+    "name": "location_line_2",
+    "label": "Location line 2",
+    "type": "text",
+    "default": "Pier 40"
+  },
+  {
+    "id": "image",
+    "name": "image",
+    "label": "Image",
+    "type": "image",
+    "default": {
+      "src": "https://images.unsplash.com/photo-1511578314322-379afb476865?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "alt": "Myridius at the event"
+    }
+  }
+]

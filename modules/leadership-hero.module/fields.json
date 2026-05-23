@@ -1,0 +1,84 @@
+[ {
+  "id" : "section_id",
+  "name" : "section_id",
+  "label" : "Section ID",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "leadership-hero"
+}, {
+  "id" : "breadcrumb_primary",
+  "name" : "breadcrumb_primary",
+  "label" : "Breadcrumb Primary",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Myridius"
+}, {
+  "id" : "breadcrumb_primary_url",
+  "name" : "breadcrumb_primary_url",
+  "label" : "Breadcrumb Primary URL",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT" ],
+  "type" : "url",
+  "display_width" : null,
+  "default" : {
+    "href" : "/",
+    "type" : "EXTERNAL",
+    "content_id" : null
+  }
+}, {
+  "id" : "breadcrumb_separator",
+  "name" : "breadcrumb_separator",
+  "label" : "Breadcrumb Separator",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "/"
+}, {
+  "id" : "breadcrumb_secondary",
+  "name" : "breadcrumb_secondary",
+  "label" : "Breadcrumb Secondary",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Meet Our Leaders"
+}, {
+  "id" : "heading_before",
+  "name" : "heading_before",
+  "label" : "Heading (before highlight)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Meet the Minds Behind the"
+}, {
+  "id" : "heading_highlight",
+  "name" : "heading_highlight",
+  "label" : "Heading highlight",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Impact"
+}, {
+  "id" : "description",
+  "name" : "description",
+  "label" : "Description",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "display_width" : null,
+  "default" : "<p>Get to know the people shaping our vision, guiding our growth, and turning bold ambition into meaningful results.</p>"
+} ]

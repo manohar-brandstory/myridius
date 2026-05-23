@@ -1,0 +1,128 @@
+{# News Hero — title + breadcrumb + slider (image card with CTA, pause, numbered nav on desktop, arrows on mobile) #}
+{% set slide_count = module.slides|length %}
+
+<section
+  class="news-hero"
+  id="{{ module.section_id }}"
+  data-news-hero
+  data-autoplay="{{ module.autoplay_interval|default(8000) }}"
+  data-slide-count="{{ slide_count }}"
+>
+  <div class="news-hero__container">
+
+    {# ── Breadcrumb ── #}
+    <div class="news-hero__breadcrumb" aria-label="Breadcrumb">
+      <span class="news-hero__crumbPrimary">{{ module.breadcrumb_primary }}</span>
+      <span class="news-hero__crumbSep" aria-hidden="true">{{ module.breadcrumb_separator }}</span>
+      <span class="news-hero__crumbSecondary">{{ module.breadcrumb_secondary }}</span>
+    </div>
+
+    {# ── Heading + Subtitle ── #}
+    <header class="news-hero__header">
+      <h1 class="news-hero__heading">
+        <span class="news-hero__headingLine1">{{ module.heading_line1 }}</span>
+        <span class="news-hero__headingHighlight">{{ module.heading_highlight }}</span>
+      </h1>
+      {% if module.subtitle %}
+        <p class="news-hero__subtitle">{{ module.subtitle }}</p>
+      {% endif %}
+    </header>
+
+    {# ── Slider ── #}
+    {% if slide_count > 0 %}
+    <div class="news-hero__slider" data-news-slider>
+
+      {# Slide stack (each slide is a full-bleed image with overlay + title + CTA) #}
+      <div class="news-hero__slides">
+        {% for slide in module.slides %}
+          {% set href = slide.link.href|default('#', true)|trim %}
+          {% if not href %}{% set href = '#' %}{% endif %}
+          <article
+            class="news-hero__slide{% if loop.first %} is-active{% endif %}"
+            data-news-slide="{{ loop.index0 }}"
+            aria-hidden="{{ 'false' if loop.first else 'true' }}"
+          >
+            <div class="news-hero__slideMedia" aria-hidden="true">
+              {% if slide.image.src %}
+                <img
+                  class="news-hero__slideImg"
+                  src="{{ slide.image.src }}"
+                  alt="{{ slide.image.alt|default('') }}"
+                  loading="{{ 'eager' if loop.first else 'lazy' }}"
+                  decoding="async"
+                />
+              {% endif %}
+              <span class="news-hero__slideOverlay"></span>
+            </div>
+
+            <h2 class="news-hero__slideTitle">{{ slide.title }}</h2>
+
+            <a class="news-hero__slideCta" href="{{ href }}"{% if href == '#' %} aria-disabled="true" tabindex="-1"{% endif %}>
+              <span>{{ module.cta_text|default('Read More', true) }}</span>
+              <svg class="news-hero__slideCtaArrow" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </article>
+        {% endfor %}
+      </div>
+
+      {# ── Desktop controls: pause/play + numbered tabs ── #}
+      <div class="news-hero__controls news-hero__controls--desktop" aria-label="Slide controls">
+        <button
+          class="news-hero__pauseBtn"
+          type="button"
+          aria-label="Pause slideshow"
+          data-news-pause
+        >
+          <svg class="news-hero__iconPause" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="6" y="4" width="4" height="16" fill="currentColor"/>
+            <rect x="14" y="4" width="4" height="16" fill="currentColor"/>
+          </svg>
+          <svg class="news-hero__iconPlay" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M8 5v14l11-7L8 5z" fill="currentColor"/>
+          </svg>
+        </button>
+
+        <div class="news-hero__nums" role="tablist" aria-label="Select a slide">
+          {% for slide in module.slides %}
+            <button
+              class="news-hero__num{% if loop.first %} is-active{% endif %}"
+              type="button"
+              role="tab"
+              aria-selected="{{ 'true' if loop.first else 'false' }}"
+              data-news-go="{{ loop.index0 }}"
+            >
+              {{ "%02d"|format(loop.index) }}
+            </button>
+          {% endfor %}
+        </div>
+      </div>
+
+      {# ── Mobile controls: prev / index / next ── #}
+      <div class="news-hero__controls news-hero__controls--mobile" aria-label="Slide controls">
+        <button class="news-hero__arrow news-hero__arrow--prev" type="button" aria-label="Previous slide" data-news-prev>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="m15 18-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <div class="news-hero__indicator" aria-live="polite">
+          <span class="news-hero__indicatorCurrent" data-news-current>1</span>
+          <span class="news-hero__indicatorSep" aria-hidden="true">/</span>
+          <span class="news-hero__indicatorTotal">{{ slide_count }}</span>
+        </div>
+
+        <button class="news-hero__arrow news-hero__arrow--next" type="button" aria-label="Next slide" data-news-next>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="m9 18 6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+    {% endif %}
+
+  </div>
+</section>

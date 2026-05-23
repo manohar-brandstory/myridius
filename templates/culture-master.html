@@ -1,0 +1,65 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Culture - Master Template
+-->
+{% extends "./layouts/base.html" %}
+
+{% block extra_head %}
+  <style>
+  @media (max-width: 768px) {
+    .culture-page {
+      --gutter: 24px;
+    }
+
+    .culture-page h2 {
+      font-size: 36px;
+      line-height: 45px;
+      letter-spacing: -2.4px;
+      font-weight: 500;
+    }
+
+    /* Let modules own horizontal spacing via --gutter */
+    .culture-page .dnd-section,
+    .culture-page .dnd-column,
+    .culture-page .dnd-row,
+    .culture-page .row-fluid-wrapper,
+    .culture-page .row-fluid {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  </style>
+{% endblock extra_head %}
+
+{% block body %}
+  <main id="main-content" class="culture-page">
+    {% dnd_area "culture_content", label="Culture Content", class="culture-page__dnd" %}
+      {% dnd_section label="Culture - Hero" %}
+        {% dnd_column offset=0, width=12 %}
+          {% dnd_module path="/Myridius Theme V1/modules/industries-hero.module", label="Culture - Hero" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section label="Culture - What Sets Us Apart" %}
+        {% dnd_column offset=0, width=12 %}
+          {% dnd_module path="/Myridius Theme V1/modules/culture-apart.module", label="Culture - What Sets Us Apart" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section label="Culture - Recognition" %}
+        {% dnd_column offset=0, width=12 %}
+          {% dnd_module path="/Myridius Theme V1/modules/culture-recognition.module", label="Culture - Recognition" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section label="Culture - Our Mission" %}
+        {% dnd_column offset=0, width=12 %}
+          {% dnd_module path="/Myridius Theme V1/modules/culture-mission.module", label="Culture - Our Mission" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+      {% dnd_section label="Culture - Values" %}
+        {% dnd_column offset=0, width=12 %}
+          {% dnd_module path="/Myridius Theme V1/modules/culture-values.module", label="Culture - Values Slider" %}{% end_dnd_module %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+    {% end_dnd_area %}
+  </main>
+{% endblock body %}

@@ -1,0 +1,107 @@
+[
+  {
+    "id": "section_id",
+    "name": "section_id",
+    "label": "Section ID",
+    "type": "text",
+    "default": "culture-mission"
+  },
+  {
+    "id": "heading",
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "default": "Our Mission"
+  },
+  {
+    "id": "description",
+    "name": "description",
+    "label": "Description",
+    "type": "richtext",
+    "default": "<p>To empower the most innovative minds to envision, engineer, and execute world-class technology solutions, one client at a time.</p>"
+  },
+  {
+    "id": "media_type",
+    "name": "media_type",
+    "label": "Media type",
+    "help_text": "Choose whether this section shows a video or a still image.",
+    "type": "choice",
+    "display": "radio",
+    "choices": [
+      ["video", "Video"],
+      ["image", "Image"]
+    ],
+    "default": "video"
+  },
+  {
+    "picker": "video",
+    "id": "custom_video_file",
+    "name": "custom_video_file",
+    "label": "Video file",
+    "help_text": "Upload an MP4 from the File Manager.",
+    "type": "file",
+    "visibility": {
+      "controlling_field_path": "media_type",
+      "controlling_value_regex": "video",
+      "operator": "EQUAL"
+    }
+  },
+  {
+    "id": "video_url",
+    "name": "video_url",
+    "label": "Video URL (MP4 fallback)",
+    "help_text": "Use if the video is hosted externally instead of the File Manager.",
+    "type": "text",
+    "default": "",
+    "visibility": {
+      "controlling_field_path": "media_type",
+      "controlling_value_regex": "video",
+      "operator": "EQUAL"
+    }
+  },
+  {
+    "id": "poster_image",
+    "name": "poster_image",
+    "label": "Video poster image",
+    "help_text": "Shown before the video plays. Required for the play-button layout.",
+    "type": "image",
+    "default": {
+      "src": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1400&q=80",
+      "alt": "Mission video"
+    },
+    "visibility": {
+      "controlling_field_path": "media_type",
+      "controlling_value_regex": "video",
+      "operator": "EQUAL"
+    }
+  },
+  {
+    "id": "video_caption",
+    "name": "video_caption",
+    "label": "Video caption (optional)",
+    "help_text": "Only shown on the video play-button layout. Leave blank to hide.",
+    "type": "text",
+    "default": "",
+    "visibility": {
+      "controlling_field_path": "media_type",
+      "controlling_value_regex": "video",
+      "operator": "EQUAL"
+    }
+  },
+  {
+    "id": "section_image",
+    "name": "section_image",
+    "label": "Section image",
+    "help_text": "Displayed when Media type is Image.",
+    "type": "image",
+    "default": {
+      "src": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1400&q=80",
+      "alt": "Our mission"
+    },
+    "visibility": {
+      "controlling_field_path": "media_type",
+      "controlling_value_regex": "image",
+      "operator": "EQUAL"
+    }
+  }
+]

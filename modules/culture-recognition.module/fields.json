@@ -1,0 +1,44 @@
+[
+  {
+    "id": "section_id",
+    "name": "section_id",
+    "label": "Section ID",
+    "type": "text",
+    "default": "culture-recognition"
+  },
+  {
+    "id": "badge_text",
+    "name": "badge_text",
+    "label": "Badge Text",
+    "type": "text",
+    "default": "Recognition"
+  },
+  {
+    "id": "heading",
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "default": "Great Place to Work"
+  },
+  {
+    "id": "description",
+    "name": "description",
+    "label": "Description",
+    "type": "richtext",
+    "default": "<p>Lorem ipsum dolor sit amet consectetur. Cras ultrices pharetra amet fringilla in. Et viverra sed ac eu at. Suspendisse scelerisque nulla ornare turpis sollicitudin scelerisque. Faucibus netus bibendum sed gravida.</p>"
+  },
+  {
+    "id": "badge_image_1",
+    "name": "badge_image_1",
+    "label": "Badge Image 1",
+    "type": "image",
+    "default": { "src": "", "alt": "Great Place to Work certified" }
+  },
+  {
+    "id": "badge_image_2",
+    "name": "badge_image_2",
+    "label": "Badge Image 2",
+    "type": "image",
+    "default": { "src": "", "alt": "Great Place to Work certified" }
+  }
+]

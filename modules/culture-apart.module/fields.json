@@ -1,0 +1,176 @@
+[
+  {
+    "id": "section_id",
+    "name": "section_id",
+    "label": "Section ID",
+    "type": "text",
+    "default": "culture-apart"
+  },
+  {
+    "id": "badge_text",
+    "name": "badge_text",
+    "label": "Badge Text",
+    "type": "text",
+    "default": "What Sets Us Apart"
+  },
+  {
+    "id": "heading",
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "default": "Proof that moves beyond the pitch."
+  },
+  {
+    "id": "capabilities",
+    "name": "capabilities",
+    "label": "Capabilities",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 12,
+      "sorting_label_field": "capabilities.title",
+      "default": 8
+    },
+    "children": [
+      {
+        "id": "capabilities.title",
+        "name": "title",
+        "label": "Title",
+        "type": "text",
+        "default": "Capability"
+      },
+      {
+        "id": "capabilities.description",
+        "name": "description",
+        "label": "Description",
+        "type": "text",
+        "default": "Description"
+      },
+      {
+        "id": "capabilities.icon_preset",
+        "name": "icon_preset",
+        "label": "Icon preset",
+        "type": "choice",
+        "choices": [
+          [
+            "tools",
+            "Tools & Resources"
+          ],
+          [
+            "innovation",
+            "Innovation Culture"
+          ],
+          [
+            "hands_on",
+            "Hands-on Learning"
+          ],
+          [
+            "club_ai",
+            "Club AI"
+          ],
+          [
+            "build",
+            "Build & Experiment"
+          ],
+          [
+            "ai_core",
+            "AI Core"
+          ],
+          [
+            "mentorship",
+            "Mentorship"
+          ],
+          [
+            "industry",
+            "Industry Coverage"
+          ]
+        ],
+        "default": "tools"
+      },
+      {
+        "id": "capabilities.icon_image",
+        "name": "icon_image",
+        "label": "Custom icon (optional)",
+        "type": "image",
+        "default": {
+          "src": "",
+          "alt": ""
+        }
+      }
+    ],
+    "default": [
+      {
+        "icon_preset": "tools",
+        "title": "Tools & Resources",
+        "description": "Access to helpful tools and platforms to support your ideas and growth",
+        "icon_image": {
+          "src": "",
+          "alt": ""
+        }
+      },
+      {
+        "icon_preset": "innovation",
+        "title": "Innovation Culture",
+        "description": "Mindset that encourages curiosity, creativity, & cont. improvement",
+        "icon_image": {
+          "src": "",
+          "alt": ""
+        }
+      },
+      {
+        "icon_preset": "hands_on",
+        "title": "Hands-on Learning",
+        "description": "Interactive sessions, practice spaces, & workshops to learn by doing",
+        "icon_image": {
+          "src": "",
+          "alt": ""
+        }
+      },
+      {
+        "icon_preset": "club_ai",
+        "title": "Club AI",
+        "description": "Collaborative AI forum for innovation, continuous learning, and shared knowledge",
+        "icon_image": {
+          "src": "",
+          "alt": ""
+        }
+      },
+      {
+        "icon_preset": "build",
+        "title": "Build & Experiment",
+        "description": "Safe-to-fail environments to test wild ideas and POCs",
+        "icon_image": {
+          "src": "",
+          "alt": ""
+        }
+      },
+      {
+        "icon_preset": "ai_core",
+        "title": "AI Core",
+        "description": "The heart of our AI journey, bringing people, ideas, and innovation together",
+        "icon_image": {
+          "src": "",
+          "alt": ""
+        }
+      },
+      {
+        "icon_preset": "mentorship",
+        "title": "Mentorship",
+        "description": "Pair with experts, get code reviews, and grow your career",
+        "icon_image": {
+          "src": "",
+          "alt": ""
+        }
+      },
+      {
+        "icon_preset": "industry",
+        "title": "Industry Coverage",
+        "description": "BFS | T&H | Manlog | RCC | Healthcare",
+        "icon_image": {
+          "src": "",
+          "alt": ""
+        }
+      }
+    ]
+  }
+]

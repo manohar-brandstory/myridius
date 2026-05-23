@@ -1,0 +1,96 @@
+[ {
+  "id" : "section_id",
+  "name" : "section_id",
+  "label" : "Section ID",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "partners-cta"
+}, {
+  "id" : "badge_text",
+  "name" : "badge_text",
+  "label" : "Badge text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Let's talk"
+}, {
+  "id" : "heading",
+  "name" : "heading",
+  "label" : "Heading (line 1)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Tell us your ambition."
+}, {
+  "id" : "heading_accent",
+  "name" : "heading_accent",
+  "label" : "Heading (accent line)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "We'll help turn it into impact."
+}, {
+  "id" : "description",
+  "name" : "description",
+  "label" : "Description",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "display_width" : null,
+  "default" : "<p>Whether you are modernizing a core platform, scaling AI across the enterprise, or rethinking customer and employee experiences, Myridius can help you activate the right ecosystem and move with confidence.</p>"
+}, {
+  "id" : "primary_cta_text",
+  "name" : "primary_cta_text",
+  "label" : "Primary CTA text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Start the conversation"
+}, {
+  "id" : "primary_cta_url",
+  "name" : "primary_cta_url",
+  "label" : "Primary CTA URL",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+  "type" : "url",
+  "display_width" : null,
+  "default" : {
+    "href" : "/contact",
+    "type" : "EXTERNAL"
+  }
+}, {
+  "id" : "secondary_cta_text",
+  "name" : "secondary_cta_text",
+  "label" : "Secondary CTA text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Explore solutions"
+}, {
+  "id" : "secondary_cta_url",
+  "name" : "secondary_cta_url",
+  "label" : "Secondary CTA URL",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+  "type" : "url",
+  "display_width" : null,
+  "default" : {
+    "href" : "/services",
+    "type" : "EXTERNAL"
+  }
+} ]

@@ -1,0 +1,56 @@
+{% set bg_src = get_asset_url('/Myridius Theme V1/images/partners/' ~ module.background_filename) %}
+
+<section class="pd-offerings" data-pd-offerings {% if module.section_id %}id="{{ module.section_id }}"{% endif %}>
+  <div class="pd-offerings__bg" aria-hidden="true"{% if bg_src %} style="background-image: url('{{ bg_src }}');"{% endif %}></div>
+  <div class="pd-offerings__overlay" aria-hidden="true"></div>
+
+  <div class="pd-offerings__wrap">
+    <header class="pd-offerings__header" data-sr>
+      <div class="pd-offerings__badge">
+        <span class="pd-offerings__badgeLine" aria-hidden="true"></span>
+        <span class="pd-offerings__badgeText">{{ module.badge_text }}</span>
+      </div>
+      {% if module.title %}
+        <h2 class="pd-offerings__title">{{ module.title }}</h2>
+      {% endif %}
+      {% if module.description %}
+        <div class="pd-offerings__desc">{{ module.description }}</div>
+      {% endif %}
+    </header>
+
+    <div class="pd-offerings__grid">
+      {% for item in module.offerings %}
+        <article class="pd-offerings__card" data-sr style="--pd-card-index: {{ loop.index0 }};">
+          <div class="pd-offerings__card-inner">
+            <div class="pd-offerings__card-top">
+              {% if item.logo.src or item.logo_label %}
+                <div class="pd-offerings__logo">
+                  {% if item.logo.src %}
+                    <img src="{{ item.logo.src }}" alt="{{ item.logo.alt|default(item.logo_label) }}" loading="lazy" decoding="async">
+                  {% else %}
+                    <span class="pd-offerings__logo-text">{{ item.logo_label }}</span>
+                  {% endif %}
+                </div>
+              {% endif %}
+              {% if item.description %}
+                <p class="pd-offerings__card-desc">{{ item.description }}</p>
+              {% endif %}
+            </div>
+            {% set link_href = item.link_url.href|default('')|trim %}
+            {% set link_text = item.link_text|default('')|striptags|trim %}
+            {% set show_link = link_href and link_text and link_href != '#' and '{{' not in link_href %}
+            {% if show_link %}
+              <a class="pd-offerings__cta pd-offerings__cta--{{ item.cta_color|default('green') }}" href="{{ link_href }}">
+                <span>{{ link_text }}</span>
+                <svg width="15" height="15" viewBox="0 0 17.49 17.49" fill="none" aria-hidden="true">
+                  <path d="M3.645 8.744H13.847" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.457"/>
+                  <path d="M8.745 3.644L13.846 8.744L8.745 13.845" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.457"/>
+                </svg>
+              </a>
+            {% endif %}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,90 @@
+[ {
+  "id" : "section_id",
+  "name" : "section_id",
+  "label" : "Section ID",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "partners-value-prop"
+}, {
+  "id" : "intro",
+  "name" : "intro",
+  "label" : "Intro text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "The result is innovation with context, orchestration with intent, and outcomes that scale."
+}, {
+  "id" : "pillars",
+  "name" : "pillars",
+  "label" : "Value pillars",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 6,
+    "sorting_label_field" : null,
+    "default" : 4
+  },
+  "children" : [ {
+    "id" : "pillars.icon",
+    "name" : "icon",
+    "label" : "Icon",
+    "required" : false,
+    "locked" : false,
+    "display" : "select",
+    "choices" : [ [ "innovation", "Innovation" ], [ "context", "Context" ], [ "orchestration", "Orchestration" ], [ "outcomes", "Outcomes" ] ],
+    "multiple" : false,
+    "reordering_enabled" : true,
+    "preset" : null,
+    "type" : "choice",
+    "display_width" : null,
+    "default" : "innovation"
+  }, {
+    "id" : "pillars.title",
+    "name" : "title",
+    "label" : "Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Innovation"
+  }, {
+    "id" : "pillars.description",
+    "name" : "description",
+    "label" : "Description",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Accelerate innovation by connecting leading platforms to real enterprise priorities."
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "icon" : "innovation",
+    "title" : "Innovation",
+    "description" : "Accelerate innovation by connecting leading platforms to real enterprise priorities."
+  }, {
+    "icon" : "context",
+    "title" : "Context",
+    "description" : "Bring industry, operational, and customer context into every solution."
+  }, {
+    "icon" : "orchestration",
+    "title" : "Orchestration",
+    "description" : "Orchestrate partners, platforms, and workflows into one aligned execution model."
+  }, {
+    "icon" : "outcomes",
+    "title" : "Outcomes",
+    "description" : "Turn ecosystem investment into measurable business outcomes and lasting advantage."
+  } ]
+} ]

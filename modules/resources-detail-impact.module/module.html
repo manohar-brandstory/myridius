@@ -1,0 +1,44 @@
+{% macro res_impact_icon(icon) %}
+  {% if icon == 'chart_bar' %}
+    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" aria-hidden="true"><path d="M12 48V24h10v24H12Zm16 0V12h10v36H28Zm16 0V30h10v18H44Z" fill="#337077"/></svg>
+  {% elif icon == 'buildings' %}
+    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" aria-hidden="true"><path d="M10 50V20l16-10 16 10v30H10Zm18 0V28l8-5 8 5v22H28Zm-10-14h8v8h-8v-8Z" fill="#337077"/></svg>
+  {% elif icon == 'user_gear' %}
+    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" aria-hidden="true"><path d="M30 30a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm-14 18c0-5.5 6.3-10 14-10s14 4.5 14 10v2H16v-2Zm24-2 4-2 2 4 4 2-4 2-2 4-2-4-4-2 4-2 2-4Z" fill="#337077"/></svg>
+  {% elif icon == 'plugs' %}
+    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" aria-hidden="true"><path d="M18 18h8v12h8V18h8v12c0 6.6-5.4 12-12 12h-8c-6.6 0-12-5.4-12-12V18Zm10 30v4h4v-4h-4Z" fill="#337077"/></svg>
+  {% elif icon == 'hard_drives' %}
+    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" aria-hidden="true"><path d="M10 16h40v28H10V16Zm4 20h32v4H14v-4Zm0-8h32v4H14v-4Z" fill="#337077"/></svg>
+  {% else %}
+    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" aria-hidden="true"><path d="M10 44V28l8-4 10 8 14-12 10:10v14H10Z" fill="#337077"/></svg>
+  {% endif %}
+{% endmacro %}
+
+<section class="res-detail-impact" data-res-detail-impact>
+  <div class="res-detail-impact__wrap">
+    <div class="res-detail-impact__intro" data-sr>
+      <div class="res-detail-impact__badge">
+        <span class="res-detail-impact__badgeLine" aria-hidden="true"></span>
+        <span class="res-detail-impact__badgeText">{{ module.badge_text }}</span>
+      </div>
+      <h2 class="res-detail-impact__heading">{{ module.heading }}</h2>
+      {% if module.description %}
+        <div class="res-detail-impact__desc">{{ module.description }}</div>
+      {% endif %}
+    </div>
+
+    {% if module.features %}
+      <div class="res-detail-impact__grid">
+        {% for feature in module.features %}
+          <div class="res-detail-impact__item" data-sr>
+            <div class="res-detail-impact__icon">{{ res_impact_icon(feature.icon) }}</div>
+            <div class="res-detail-impact__copy">
+              {% if feature.title %}<h3 class="res-detail-impact__title">{{ feature.title }}</h3>{% endif %}
+              {% if feature.description %}<p class="res-detail-impact__text">{{ feature.description }}</p>{% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>

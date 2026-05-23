@@ -1,0 +1,136 @@
+[
+  {
+    "id": "section_id",
+    "name": "section_id",
+    "label": "Section ID",
+    "type": "text",
+    "default": "resources-listing"
+  },
+  {
+    "id": "hubdb_table_name",
+    "name": "hubdb_table_name",
+    "label": "HubDB table name",
+    "help_text": "Immutable table name in HubDB (e.g. resources or resources_2025). Rows power the grid and filters.",
+    "type": "text",
+    "default": "resources_2026"
+  },
+  {
+    "id": "col_title",
+    "name": "col_title",
+    "label": "Column: title",
+    "type": "text",
+    "default": "resource_title"
+  },
+  {
+    "id": "col_url",
+    "name": "col_url",
+    "label": "Column: URL",
+    "help_text": "External URL column, or use hs_path for dynamic pages.",
+    "type": "text",
+    "default": "link"
+  },
+  {
+    "id": "col_image",
+    "name": "col_image",
+    "label": "Column: featured image",
+    "type": "text",
+    "default": "featured_image"
+  },
+  {
+    "id": "col_resource_type",
+    "name": "col_resource_type",
+    "label": "Column: resource type",
+    "type": "text",
+    "default": "type"
+  },
+  {
+    "id": "col_topic",
+    "name": "col_topic",
+    "label": "Column: topic",
+    "type": "text",
+    "default": "topic"
+  },
+  {
+    "id": "col_industry",
+    "name": "col_industry",
+    "label": "Column: industry",
+    "type": "text",
+    "default": "industry"
+  },
+  {
+    "id": "col_publish_date",
+    "name": "col_publish_date",
+    "label": "Column: publish date (sort)",
+    "type": "text",
+    "default": "order"
+  },
+  {
+    "id": "badge_text",
+    "name": "badge_text",
+    "label": "Badge text",
+    "type": "text",
+    "default": "Start with what matters now"
+  },
+  {
+    "id": "heading",
+    "name": "heading",
+    "label": "Section heading",
+    "type": "text",
+    "default": "Resource Hub"
+  },
+  {
+    "id": "filter_topic_label",
+    "name": "filter_topic_label",
+    "label": "Filter label: topic",
+    "type": "text",
+    "default": "By Topic"
+  },
+  {
+    "id": "filter_industry_label",
+    "name": "filter_industry_label",
+    "label": "Filter label: industry",
+    "type": "text",
+    "default": "By Industry"
+  },
+  {
+    "id": "filter_resource_label",
+    "name": "filter_resource_label",
+    "label": "Filter label: resource type",
+    "type": "text",
+    "default": "By Resource"
+  },
+  {
+    "id": "filter_all_label",
+    "name": "filter_all_label",
+    "label": "Filter option: All",
+    "type": "text",
+    "default": "All"
+  },
+  {
+    "id": "default_per_page",
+    "name": "default_per_page",
+    "label": "Items per page (default)",
+    "type": "choice",
+    "choices": [
+      ["9", "9"],
+      ["6", "6"],
+      ["12", "12"]
+    ],
+    "default": "9"
+  },
+  {
+    "id": "per_page_options",
+    "name": "per_page_options",
+    "label": "Items per page options",
+    "help_text": "Comma-separated values shown in the dropdown (e.g. 6,9,12).",
+    "type": "text",
+    "default": "6,9,12"
+  },
+  {
+    "id": "empty_message",
+    "name": "empty_message",
+    "label": "Empty state message",
+    "type": "text",
+    "default": "No resources match your filters. Try adjusting the filters above."
+  }
+]

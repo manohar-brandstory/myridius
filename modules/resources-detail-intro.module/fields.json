@@ -1,0 +1,72 @@
+[
+  {
+    "id": "intro_body",
+    "name": "intro_body",
+    "label": "Intro Copy",
+    "type": "richtext",
+    "default": "<p>Most organizations assume that scaling AI requires more data infrastructure. In reality, the greatest barrier to enterprise AI is often something less visible. Across large enterprises, data exists across hundreds of systems owned by different teams, governed inconsistently, and described using conflicting terminology.</p><p>When organizations attempt to build advanced analytics or AI on top of these environments, they frequently encounter a structural limitation: teams cannot confidently determine what data exists, what it means, or whether it can be trusted. For highly regulated industries such as pharmaceuticals, this challenge becomes even more significant.</p><p>AI initiatives require not only access to large volumes of data but also clear governance, lineage, and contextual understanding. A global pharmaceutical leader encountered this challenge while scaling AI and machine learning initiatives across its enterprise operations.</p>"
+  },
+  {
+    "id": "background_image",
+    "name": "background_image",
+    "label": "Background Image",
+    "type": "image",
+    "default": { "src": "", "alt": "" }
+  },
+  {
+    "id": "impact_badge",
+    "name": "impact_badge",
+    "label": "Impact Summary Badge",
+    "type": "text",
+    "default": "Impact Summary"
+  },
+  {
+    "id": "impact_stat",
+    "name": "impact_stat",
+    "label": "Impact Stat / Summary",
+    "type": "text",
+    "default": "Unified 10,000+ datasets across 20+ domains and reduced data discovery time by 40–60%, accelerating enterprise AI readiness"
+  },
+  {
+    "id": "metadata_rows",
+    "name": "metadata_rows",
+    "label": "Metadata Rows",
+    "type": "group",
+    "occurrence": { "min": 0, "max": 6, "default": 3 },
+    "children": [
+      {
+        "id": "metadata_rows.icon",
+        "name": "icon",
+        "label": "Icon",
+        "type": "choice",
+        "choices": [
+          ["factory", "Industry"],
+          ["users", "Employee Count"],
+          ["handshake", "Service Offering"],
+          ["chart", "Chart"],
+          ["buildings", "Enterprise"]
+        ],
+        "default": "factory"
+      },
+      {
+        "id": "metadata_rows.meta_label",
+        "name": "meta_label",
+        "label": "Label",
+        "type": "text",
+        "default": "Industry"
+      },
+      {
+        "id": "metadata_rows.value",
+        "name": "value",
+        "label": "Value",
+        "type": "text",
+        "default": "Pharmaceutical"
+      }
+    ],
+    "default": [
+      { "icon": "factory", "meta_label": "Industry", "value": "Pharmaceutical" },
+      { "icon": "users", "meta_label": "Employee Count", "value": "10,000+" },
+      { "icon": "handshake", "meta_label": "Myridius Service Offering", "value": "Data & AI Strategy" }
+    ]
+  }
+]

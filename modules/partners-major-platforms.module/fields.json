@@ -1,0 +1,132 @@
+[ {
+  "id" : "section_id",
+  "name" : "section_id",
+  "label" : "Section ID",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "partners-major-platforms"
+}, {
+  "id" : "background_filename",
+  "name" : "background_filename",
+  "label" : "Background texture filename",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "section-bg.png"
+}, {
+  "id" : "platforms",
+  "name" : "platforms",
+  "label" : "Platform cards",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 12,
+    "sorting_label_field" : null,
+    "default" : 6
+  },
+  "children" : [ {
+    "id" : "platforms.logo",
+    "name" : "logo",
+    "label" : "Logo image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "",
+      "alt" : null,
+      "size_type" : null,
+      "width" : null,
+      "height" : null,
+      "max_width" : null,
+      "max_height" : null,
+      "loading" : "disabled"
+    }
+  }, {
+    "id" : "platforms.logo_label",
+    "name" : "logo_label",
+    "label" : "Logo text (if no image)",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "platforms.description",
+    "name" : "description",
+    "label" : "Description",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "platforms.link_url",
+    "name" : "link_url",
+    "label" : "Know more URL",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+    "type" : "url",
+    "display_width" : null,
+    "default" : {
+      "href" : "",
+      "type" : "EXTERNAL"
+    }
+  }, {
+    "id" : "platforms.cta_color",
+    "name" : "cta_color",
+    "label" : "CTA color",
+    "required" : false,
+    "locked" : false,
+    "display" : "select",
+    "choices" : [ [ "light", "Light" ], [ "green", "Green" ] ],
+    "multiple" : false,
+    "reordering_enabled" : true,
+    "preset" : null,
+    "type" : "choice",
+    "display_width" : null,
+    "default" : "green"
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "logo_label" : "AWS",
+    "description" : "Build AI-ready cloud foundations, modernize responsibly, and accelerate production-scale intelligence.",
+    "cta_color" : "light"
+  }, {
+    "logo_label" : "Microsoft",
+    "description" : "Activate AI across productivity, data, and enterprise operations with control and scale.",
+    "cta_color" : "green"
+  }, {
+    "logo_label" : "Adobe",
+    "description" : "Turn content, journeys, and experience operations into measurable growth.",
+    "cta_color" : "green"
+  }, {
+    "logo_label" : "Salesforce",
+    "description" : "Connect revenue, service, and customer intelligence around real-time decisions.",
+    "cta_color" : "green"
+  }, {
+    "logo_label" : "ServiceNow",
+    "description" : "Redesign workflows and enterprise services for speed, visibility, and resilience.",
+    "cta_color" : "green"
+  }, {
+    "logo_label" : "Databricks",
+    "description" : "Create trusted data foundations that move AI from pilot to production.",
+    "cta_color" : "green"
+  } ]
+} ]

@@ -1,0 +1,169 @@
+[ {
+  "id" : "section_id",
+  "name" : "section_id",
+  "label" : "Section ID",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "leadership-board-members"
+}, {
+  "id" : "badge_text",
+  "name" : "badge_text",
+  "label" : "Section label",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Our board"
+}, {
+  "id" : "heading",
+  "name" : "heading",
+  "label" : "Heading",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Text here"
+}, {
+  "id" : "know_more_text",
+  "name" : "know_more_text",
+  "label" : "Know more label",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Know more"
+}, {
+  "id" : "members",
+  "name" : "members",
+  "label" : "Board members",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 8,
+    "sorting_label_field" : "members.person_name",
+    "default" : 5
+  },
+  "children" : [ {
+    "id" : "members.person_name",
+    "name" : "person_name",
+    "label" : "Name",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Board member"
+  }, {
+    "id" : "members.role",
+    "name" : "role",
+    "label" : "Title / role",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Role title"
+  }, {
+    "id" : "members.photo",
+    "name" : "photo",
+    "label" : "Photo",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "",
+      "alt" : ""
+    }
+  }, {
+    "id" : "members.photo_filename",
+    "name" : "photo_filename",
+    "label" : "Default photo filename (theme asset)",
+    "help_text" : "Used when no image is selected in the Photo field. File must exist in theme images/leadership/.",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "members.bio",
+    "name" : "bio",
+    "label" : "Bio",
+    "required" : false,
+    "locked" : false,
+    "type" : "richtext",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "members.linkedin_url",
+    "name" : "linkedin_url",
+    "label" : "LinkedIn URL",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL" ],
+    "type" : "url",
+    "display_width" : null,
+    "default" : {
+      "href" : "",
+      "type" : "EXTERNAL",
+      "content_id" : null
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "person_name" : "Aziz Virani",
+    "role" : "Chairman",
+    "photo_filename" : "aziz-virani.png",
+    "photo" : {
+      "src" : "",
+      "alt" : "Aziz Virani"
+    }
+  }, {
+    "person_name" : "Ramesh Ramani",
+    "role" : "Chief Financial Officer",
+    "photo_filename" : "board-ramesh.png",
+    "photo" : {
+      "src" : "",
+      "alt" : "Ramesh Ramani"
+    }
+  }, {
+    "person_name" : "Girish Pai",
+    "role" : "Chief Operations Officer",
+    "photo_filename" : "board-girish.png",
+    "photo" : {
+      "src" : "",
+      "alt" : "Girish Pai"
+    }
+  }, {
+    "person_name" : "Harish Mundakode",
+    "role" : "Head of Banking & Financial Services",
+    "photo_filename" : "board-harish.png",
+    "photo" : {
+      "src" : "",
+      "alt" : "Harish Mundakode"
+    }
+  }, {
+    "person_name" : "Mark Allnock",
+    "role" : "Head of Travel & Hospitality",
+    "photo_filename" : "board-mark.png",
+    "photo" : {
+      "src" : "",
+      "alt" : "Mark Allnock"
+    }
+  } ]
+} ]

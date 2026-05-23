@@ -1,0 +1,32 @@
+<section class="partners-cta"{% if module.section_id %} id="{{ module.section_id }}"{% endif %}>
+  <div class="partners-cta__wrap">
+    <div class="partners-cta__badge">
+      <span class="partners-cta__badge-line" aria-hidden="true"></span>
+      <span class="partners-cta__badge-text">{{ module.badge_text }}</span>
+    </div>
+
+    <h2 class="partners-cta__heading">
+      {% if module.heading %}<span class="partners-cta__heading-line">{{ module.heading }}</span>{% endif %}
+      {% if module.heading_accent %}<span class="partners-cta__heading-accent">{{ module.heading_accent }}</span>{% endif %}
+    </h2>
+
+    <div class="partners-cta__description">{{ module.description }}</div>
+
+    <div class="partners-cta__actions">
+      {% if module.primary_cta_url.href %}
+        <a class="partners-cta__btn partners-cta__btn--primary" href="{{ module.primary_cta_url.href }}">
+          <span>{{ module.primary_cta_text }}</span>
+          <svg width="17" height="17" viewBox="0 0 17.49 17.49" fill="none" aria-hidden="true">
+            <path d="M3.645 8.744H13.847" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.457"/>
+            <path d="M8.745 3.644L13.846 8.744L8.745 13.845" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.457"/>
+          </svg>
+        </a>
+      {% endif %}
+      {% if module.secondary_cta_url.href %}
+        <a class="partners-cta__btn partners-cta__btn--secondary" href="{{ module.secondary_cta_url.href }}">
+          <span>{{ module.secondary_cta_text }}</span>
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</section>

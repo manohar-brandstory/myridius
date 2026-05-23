@@ -1,0 +1,49 @@
+{% set bg_src = get_asset_url('/Myridius Theme V1/images/partners/' ~ module.background_filename) %}
+
+<section class="partners-featured" data-partners-featured{% if module.section_id %} id="{{ module.section_id }}"{% endif %}>
+  <div class="partners-featured__bg" aria-hidden="true"{% if bg_src %} style="background-image: url('{{ bg_src }}');"{% endif %}></div>
+  <div class="partners-featured__overlay" aria-hidden="true"></div>
+  <div class="partners-featured__wrap">
+    <header class="partners-featured__header" data-sr>
+      <div class="partners-featured__badge">
+        <span class="partners-featured__badge-line" aria-hidden="true"></span>
+        <span class="partners-featured__badge-text">{{ module.badge_text }}</span>
+      </div>
+      <h2 class="partners-featured__heading">{{ module.heading }}</h2>
+    </header>
+
+    <div class="partners-featured__grid">
+      {% for card in module.cards %}
+        {% set img_src = card.image.src|default('')|trim %}
+        {% if (not img_src) and card.image_filename %}
+          {% set img_src = get_asset_url('/Myridius Theme V1/images/partners/' ~ card.image_filename) %}
+        {% endif %}
+        {% if card.link_url.href %}
+          <a class="partners-featured__card" href="{{ card.link_url.href }}" data-sr>
+        {% else %}
+          <article class="partners-featured__card" data-sr>
+        {% endif %}
+          {% if img_src %}
+            <img class="partners-featured__card-bg" src="{{ img_src }}" alt="{{ card.image.alt|default(card.title) }}" loading="lazy" decoding="async">
+          {% endif %}
+          <div class="partners-featured__card-overlay" aria-hidden="true"></div>
+          <span class="partners-featured__card-arrow" aria-hidden="true">
+            <span class="partners-featured__card-arrow-btn">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 8H13M13 8L8.5 3.5M13 8L8.5 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </span>
+          <div class="partners-featured__card-content">
+            {% if card.tag %}
+              <span class="partners-featured__tag">{{ card.tag }}</span>
+            {% endif %}
+            {% if card.title %}
+              <p class="partners-featured__card-title">{{ card.title }}</p>
+            {% endif %}
+          </div>
+        {% if card.link_url.href %}</a>{% else %}</article>{% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>

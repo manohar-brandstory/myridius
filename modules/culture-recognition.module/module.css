@@ -1,0 +1,155 @@
+.cult-rec {
+  background: #fff;
+  padding: 64px 0 100px;
+}
+
+.cult-rec__wrap {
+  max-width: var(--container-max, 1200px);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 64px;
+}
+
+.cult-rec__copy {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.cult-rec__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.cult-rec__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cult-rec__badge-line {
+  width: 24px;
+  height: 2px;
+  border-radius: 2px;
+  background: #194247;
+  flex-shrink: 0;
+}
+
+.cult-rec__badge-text {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #194247;
+}
+
+.cult-rec__heading {
+  margin: 0;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+  color: #194247;
+}
+
+.cult-rec__body {
+  max-width: 665px;
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.65;
+  color: #337077;
+}
+
+.cult-rec__body p {
+  margin: 0;
+}
+
+.cult-rec__badges {
+  display: flex;
+  gap: 27px;
+  flex-shrink: 0;
+  align-items: flex-start;
+}
+
+.cult-rec__badgeCell {
+  position: relative;
+  width: 197px;
+  height: 278px;
+  flex-shrink: 0;
+}
+
+.cult-rec__badgeImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  pointer-events: none;
+  transition: transform 0.3s ease;
+}
+
+.cult-rec__badgeCell:hover .cult-rec__badgeImg {
+  transform: translateY(-4px) scale(1.04);
+}
+
+.cult-rec [data-sr] {
+  opacity: 1;
+  transform: none;
+}
+
+.cult-rec .is-sr-hidden[data-sr="left"] {
+  opacity: 0;
+  transform: translateX(-24px);
+}
+
+.cult-rec .is-sr-hidden[data-sr="right"] {
+  opacity: 0;
+  transform: translateX(24px);
+}
+
+.cult-rec .is-sr-shown {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.cult-rec .is-sr-shown[data-sr="right"] {
+  transition-delay: 0.12s;
+}
+
+@media (max-width: 1024px) {
+  .cult-rec__wrap {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .cult-rec {
+    padding: 64px 0;
+  }
+
+  .cult-rec__wrap {
+    flex-direction: column;
+    gap: 64px;
+  }
+
+  .cult-rec__badges {
+    width: 100%;
+    gap: 20px;
+    height: 196px;
+  }
+
+  .cult-rec__badgeCell {
+    flex: 1 1 0;
+    min-width: 0;
+    width: auto;
+    height: 100%;
+  }
+}

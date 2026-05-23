@@ -1,0 +1,132 @@
+[
+  {
+    "id": "section_id",
+    "name": "section_id",
+    "label": "Section ID",
+    "type": "text",
+    "default": "event-hero"
+  },
+  {
+    "id": "breadcrumb_items",
+    "name": "breadcrumb_items",
+    "label": "Breadcrumb Items",
+    "type": "group",
+    "occurrence": { "min": 1, "max": 6, "default": 3 },
+    "children": [
+      {
+        "id": "breadcrumb_items.crumb_text",
+        "name": "crumb_text",
+        "label": "Label",
+        "type": "text",
+        "default": "Myridius"
+      },
+      {
+        "id": "breadcrumb_items.link",
+        "name": "link",
+        "label": "Link (optional)",
+        "type": "url",
+        "default": { "href": "", "type": "EXTERNAL" }
+      },
+      {
+        "id": "breadcrumb_items.is_current",
+        "name": "is_current",
+        "label": "Current page",
+        "type": "boolean",
+        "default": false
+      }
+    ],
+    "default": [
+      { "crumb_text": "Myridius", "is_current": false },
+      { "crumb_text": "Events", "is_current": false },
+      { "crumb_text": "Salesforce World Tour NYC", "is_current": true }
+    ]
+  },
+  {
+    "id": "title",
+    "name": "title",
+    "label": "Event Title",
+    "type": "text",
+    "default": "Salesforce World Tour NYC"
+  },
+  {
+    "id": "description",
+    "name": "description",
+    "label": "Description",
+    "type": "richtext",
+    "default": "Join Myridius at the flagship Salesforce event connecting thousands of leaders. Meet our team, explore live demos, and learn how we help enterprises turn Salesforce into a growth engine."
+  },
+  {
+    "id": "event_day",
+    "name": "event_day",
+    "label": "Event Day",
+    "type": "text",
+    "default": "14"
+  },
+  {
+    "id": "event_month_year",
+    "name": "event_month_year",
+    "label": "Event Month & Year",
+    "type": "text",
+    "default": "May, 2025"
+  },
+  {
+    "id": "event_time",
+    "name": "event_time",
+    "label": "Event Time",
+    "type": "text",
+    "default": "12:00 PM"
+  },
+  {
+    "id": "location_line_1",
+    "name": "location_line_1",
+    "label": "Location (venue / address)",
+    "type": "text",
+    "default": "New York, NY · Javits Center"
+  },
+  {
+    "id": "location_line_2",
+    "name": "location_line_2",
+    "label": "Location line 2 (optional)",
+    "type": "text",
+    "default": ""
+  },
+  {
+    "id": "booth_text",
+    "name": "booth_text",
+    "label": "Booth / stand label",
+    "type": "text",
+    "default": "Booth #214"
+  },
+  {
+    "id": "primary_button_url",
+    "name": "primary_button_url",
+    "label": "Primary button link",
+    "type": "url",
+    "default": { "href": "#event-registration-form", "type": "EXTERNAL" },
+    "help_text": "Use #event-registration-form to scroll to the registration form."
+  },
+  {
+    "id": "primary_button_text",
+    "name": "primary_button_text",
+    "label": "Primary button text",
+    "type": "text",
+    "default": "Register to Meet Us"
+  },
+  {
+    "id": "image",
+    "name": "image",
+    "label": "Hero image",
+    "type": "image",
+    "default": {
+      "src": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "alt": "Salesforce World Tour event"
+    }
+  },
+  {
+    "id": "image_alt_fallback",
+    "name": "image_alt_fallback",
+    "label": "Image alt fallback",
+    "type": "text",
+    "default": "Event hero image"
+  }
+]

@@ -1,0 +1,140 @@
+[
+  {
+    "id": "section_id",
+    "name": "section_id",
+    "label": "Section ID",
+    "type": "text",
+    "default": "culture-values"
+  },
+  {
+    "id": "badge_text",
+    "name": "badge_text",
+    "label": "Badge Text",
+    "type": "text",
+    "default": "Our Values"
+  },
+  {
+    "id": "nav_aria_label",
+    "name": "nav_aria_label",
+    "label": "Navigation aria-label",
+    "type": "text",
+    "default": "Values slides"
+  },
+  {
+    "id": "cta_text",
+    "name": "cta_text",
+    "label": "CTA Text",
+    "type": "text",
+    "default": "See more of Life at Myridius on LinkedIn."
+  },
+  {
+    "id": "cta_button_text",
+    "name": "cta_button_text",
+    "label": "CTA Button Text",
+    "type": "text",
+    "default": "Explore Life at Myridius"
+  },
+  {
+    "id": "cta_url",
+    "name": "cta_url",
+    "label": "CTA URL",
+    "type": "url",
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT"
+    ],
+    "default": {
+      "href": "https://www.linkedin.com/company/myridius/",
+      "type": "EXTERNAL",
+      "content_id": null
+    }
+  },
+  {
+    "id": "values",
+    "name": "values",
+    "label": "Values",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 10,
+      "sorting_label_field": "values.title",
+      "default": 6
+    },
+    "children": [
+      {
+        "id": "values.title",
+        "name": "title",
+        "label": "Title",
+        "type": "text",
+        "default": "Value"
+      },
+      {
+        "id": "values.description",
+        "name": "description",
+        "label": "Description",
+        "type": "text",
+        "default": "Description"
+      },
+      {
+        "id": "values.background_image",
+        "name": "background_image",
+        "label": "Background image",
+        "type": "image",
+        "default": {
+          "src": "",
+          "alt": ""
+        }
+      }
+    ],
+    "default": [
+      {
+        "title": "Openness",
+        "description": "Lead with transparency ensuring trust in every interaction, both internally and with clients.",
+        "background_image": {
+          "src": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1400&q=80",
+          "alt": ""
+        }
+      },
+      {
+        "title": "People First",
+        "description": "Technology serves its highest purpose when it empowers people. By putting people at the center of every solution, we create technology that drives real impact for stakeholders.",
+        "background_image": {
+          "src": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1400&q=80",
+          "alt": ""
+        }
+      },
+      {
+        "title": "Belonging",
+        "description": "Foster a respectful and inclusive environment. We believe innovation thrives when everyone has a seat at the table.",
+        "background_image": {
+          "src": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80",
+          "alt": ""
+        }
+      },
+      {
+        "title": "Excellence",
+        "description": "We hold ourselves to the high standards, continuously striving to improve, learn, and exceed expectations.",
+        "background_image": {
+          "src": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1400&q=80",
+          "alt": ""
+        }
+      },
+      {
+        "title": "Collaborative",
+        "description": "Success is built on teamwork–we work better together.",
+        "background_image": {
+          "src": "https://images.unsplash.com/photo-1517245386807-bb43d82ce5f0?auto=format&fit=crop&w=1400&q=80",
+          "alt": ""
+        }
+      },
+      {
+        "title": "Innovation",
+        "description": "Challenge the status quo. We push the boundaries and embrace bold ideas, using technology to drive meaningful change and create better solutions for our customers.",
+        "background_image": {
+          "src": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=80",
+          "alt": ""
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,30 @@
+<section class="evt-overview" data-evt-overview {% if module.section_id %}id="{{ module.section_id }}"{% endif %}>
+  {% if module.background_image.src %}
+    <div class="evt-overview__bg" aria-hidden="true">
+      <img
+        class="evt-overview__bgImg"
+        src="{{ module.background_image.src }}"
+        alt=""
+        loading="lazy"
+        decoding="async"
+      >
+      <div class="evt-overview__bgOverlay"></div>
+    </div>
+  {% endif %}
+
+  <div class="evt-overview__wrap">
+    <header class="evt-overview__header" data-sr>
+      <div class="evt-overview__badge">
+        <span class="evt-overview__badgeLine" aria-hidden="true"></span>
+        <span class="evt-overview__badgeText">{{ module.badge_text }}</span>
+      </div>
+      {% if module.title %}
+        <h2 class="evt-overview__title">{{ module.title }}</h2>
+      {% endif %}
+    </header>
+
+    {% if module.section_content %}
+      <div class="evt-overview__content" data-sr>{{ module.section_content }}</div>
+    {% endif %}
+  </div>
+</section>

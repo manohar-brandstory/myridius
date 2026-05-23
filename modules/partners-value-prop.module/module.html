@@ -1,0 +1,30 @@
+<section class="partners-value"{% if module.section_id %} id="{{ module.section_id }}"{% endif %}>
+  <div class="partners-value__wrap">
+    <div class="partners-value__panel">
+      {% if module.intro %}
+        <p class="partners-value__intro">{{ module.intro }}</p>
+      {% endif %}
+      <div class="partners-value__grid">
+        {% for pillar in module.pillars %}
+          <article class="partners-value__item">
+            <div class="partners-value__icon" aria-hidden="true">
+              {% if pillar.icon == 'context' %}
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="#337077" stroke-width="1.5"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" stroke="#337077" stroke-width="1.5" stroke-linecap="round"/></svg>
+              {% elif pillar.icon == 'orchestration' %}
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none"><circle cx="18" cy="18" r="3" stroke="#337077" stroke-width="1.5"/><circle cx="6" cy="6" r="3" stroke="#337077" stroke-width="1.5"/><path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98" stroke="#337077" stroke-width="1.5"/></svg>
+              {% elif pillar.icon == 'outcomes' %}
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none"><path d="M4.5 16.5c1.5-4 6-7.5 10.5-7.5 1.5 0 3 .5 4.5 1.5M12 3l2 5 5 1-4 3.5 1 5.5-4.5-2.5-4.5 2.5 1-5.5-4-3.5 5-1 2-5z" stroke="#337077" stroke-width="1.5" stroke-linejoin="round"/></svg>
+              {% else %}
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z" stroke="#337077" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              {% endif %}
+            </div>
+            <div class="partners-value__text">
+              <h3 class="partners-value__title">{{ pillar.title }}</h3>
+              <p class="partners-value__desc">{{ pillar.description }}</p>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

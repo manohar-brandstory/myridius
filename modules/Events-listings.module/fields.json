@@ -1,0 +1,1183 @@
+[
+  {
+    "id": "section_id",
+    "name": "section_id",
+    "label": "Section ID",
+    "type": "text",
+    "default": "events",
+    "required": false,
+    "locked": false
+  },
+  {
+    "id": "section_background_image",
+    "name": "section_background_image",
+    "label": "Section background image",
+    "help_text": "Applied to the outer module wrapper on desktop and mobile.",
+    "type": "image",
+    "default": {
+      "src": "../../images/events-listings-bg.png",
+      "alt": ""
+    },
+    "required": false,
+    "locked": false
+  },
+  {
+    "id": "badge",
+    "name": "badge",
+    "label": "Badge",
+    "type": "text",
+    "default": "WHERE TO FIND US",
+    "required": false,
+    "locked": false
+  },
+  {
+    "id": "title",
+    "name": "title",
+    "label": "Title",
+    "type": "text",
+    "default": "Events",
+    "required": false,
+    "locked": false
+  },
+  {
+    "id": "default_partner_logo",
+    "name": "default_partner_logo",
+    "label": "Default partner logo (top-right on cards)",
+    "type": "image",
+    "default": {
+      "src": "../../images/events-partner-logo-salesforce.svg",
+      "alt": "Salesforce"
+    },
+    "required": false,
+    "locked": false
+  },
+  {
+    "id": "icon_online_webinar",
+    "name": "icon_online_webinar",
+    "label": "Icon — Online webinar button",
+    "help_text": "Optional custom icon (16×16 recommended). Used on the collapsed webinar control.",
+    "type": "image",
+    "default": { "src": "", "alt": "" },
+    "required": false,
+    "locked": false
+  },
+  {
+    "id": "icon_location",
+    "name": "icon_location",
+    "label": "Icon — Location (expanded panel)",
+    "type": "image",
+    "default": { "src": "", "alt": "" },
+    "required": false,
+    "locked": false
+  },
+  {
+    "id": "icon_booth",
+    "name": "icon_booth",
+    "label": "Icon — Booth / mark ID (expanded panel)",
+    "type": "image",
+    "default": { "src": "", "alt": "" },
+    "required": false,
+    "locked": false
+  },
+  {
+    "id": "data_source",
+    "name": "data_source",
+    "label": "Event data source",
+    "help_text": "Manual: edit cards in the module (works on all HubSpot plans). HubDB: load rows from a HubDB table (requires a paid HubSpot subscription with HubDB).",
+    "type": "choice",
+    "display": "radio",
+    "choices": [
+      ["manual", "Manual — add events in the module"],
+      ["hubdb", "HubDB — fetch events from a table"]
+    ],
+    "default": "manual",
+    "required": false,
+    "locked": false
+  },
+  {
+    "id": "tabs_aria_label",
+    "name": "tabs_aria_label",
+    "label": "Tabs aria label",
+    "type": "text",
+    "default": "Filter events",
+    "required": false,
+    "locked": false
+  },
+  {
+    "id": "overflow_close_text",
+    "name": "overflow_close_text",
+    "label": "Attendees overflow — close text",
+    "help_text": "Shown on desktop when expanded attendee profiles are open.",
+    "type": "text",
+    "default": "Close",
+    "required": false,
+    "locked": false
+  },
+  {
+    "id": "filter_tabs",
+    "name": "filter_tabs",
+    "label": "Filter tabs",
+    "help_text": "Add, remove, or reorder event filter tabs. Each tab filters cards by event status (or shows all).",
+    "type": "group",
+    "occurrence": { "min": 1, "max": 6, "default": 3, "sorting_label_field": "tab_label" },
+    "children": [
+      {
+        "id": "filter_tabs.tab_label",
+        "name": "tab_label",
+        "label": "Tab label",
+        "type": "text",
+        "default": "All",
+        "required": false,
+        "locked": false
+      },
+      {
+        "id": "filter_tabs.filter_key",
+        "name": "filter_key",
+        "label": "Filter by event status",
+        "help_text": "Matches each event card's Status field. Choose All to show every event.",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          ["all", "All events"],
+          ["upcoming", "Upcoming"],
+          ["past", "Past events"]
+        ],
+        "default": "all",
+        "required": false,
+        "locked": false
+      },
+      {
+        "id": "filter_tabs.tab_icon",
+        "name": "tab_icon",
+        "label": "Tab icon",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          ["chart", "Bar chart"],
+          ["trend", "Trending up"],
+          ["calendar", "Calendar"],
+          ["users", "People / network"],
+          ["gear", "Calendar with gear"],
+          ["custom", "Custom image"]
+        ],
+        "default": "chart",
+        "required": false,
+        "locked": false
+      },
+      {
+        "id": "filter_tabs.tab_icon_image",
+        "name": "tab_icon_image",
+        "label": "Custom icon image (fallback)",
+        "help_text": "Used when default/active icon images below are empty.",
+        "type": "image",
+        "default": { "src": "", "alt": "" },
+        "required": false,
+        "locked": false
+      },
+      {
+        "id": "filter_tabs.tab_icon_default",
+        "name": "tab_icon_default",
+        "label": "Tab icon (default / inactive)",
+        "help_text": "Desktop tabs only. Icon when this tab is not selected.",
+        "type": "image",
+        "default": { "src": "", "alt": "" },
+        "required": false,
+        "locked": false
+      },
+      {
+        "id": "filter_tabs.tab_icon_active",
+        "name": "tab_icon_active",
+        "label": "Tab icon (active)",
+        "help_text": "Desktop tabs only. Icon when this tab is selected (e.g. green #52E081 version).",
+        "type": "image",
+        "default": { "src": "", "alt": "" },
+        "required": false,
+        "locked": false
+      }
+    ],
+    "default": [
+      {
+        "tab_label": "All",
+        "filter_key": "all",
+        "tab_icon": "chart"
+      },
+      {
+        "tab_label": "Upcoming",
+        "filter_key": "upcoming",
+        "tab_icon": "users"
+      },
+      {
+        "tab_label": "Past events",
+        "filter_key": "past",
+        "tab_icon": "gear"
+      }
+    ],
+    "required": false,
+    "locked": false
+  },
+  {
+    "id": "per_page_label",
+    "name": "per_page_label",
+    "label": "Items per page label",
+    "type": "text",
+    "default": "Items per page",
+    "required": false,
+    "locked": false
+  },
+  {
+    "id": "default_per_page",
+    "name": "default_per_page",
+    "label": "Default items per page",
+    "type": "number",
+    "default": 4,
+    "required": false,
+    "locked": false
+  },
+  {
+    "id": "per_page_options",
+    "name": "per_page_options",
+    "label": "Items per page options",
+    "type": "group",
+    "occurrence": { "min": 1, "max": 6, "default": 3 },
+    "children": [
+      {
+        "id": "per_page_options.option_label",
+        "name": "option_label",
+        "label": "Option label",
+        "type": "text",
+        "default": "04",
+        "required": false,
+        "locked": false
+      },
+      {
+        "id": "per_page_options.option_value",
+        "name": "option_value",
+        "label": "Option value",
+        "type": "number",
+        "default": 4,
+        "required": false,
+        "locked": false
+      }
+    ],
+    "default": [
+      { "option_label": "04", "option_value": 4 },
+      { "option_label": "06", "option_value": 6 },
+      { "option_label": "08", "option_value": 8 }
+    ]
+  },
+  {
+    "id": "range_template",
+    "name": "range_template",
+    "label": "Range text (initial; updated by script)",
+    "type": "text",
+    "default": "1-4 of 4 items",
+    "required": false,
+    "locked": false
+  },
+  {
+    "id": "pagination_aria_label",
+    "name": "pagination_aria_label",
+    "label": "Pagination aria label",
+    "type": "text",
+    "default": "Events pagination",
+    "required": false,
+    "locked": false
+  },
+  {
+    "id": "back_label",
+    "name": "back_label",
+    "label": "Back button label",
+    "type": "text",
+    "default": "Back",
+    "required": false,
+    "locked": false
+  },
+  {
+    "id": "next_label",
+    "name": "next_label",
+    "label": "Next button label",
+    "type": "text",
+    "default": "Next",
+    "required": false,
+    "locked": false
+  },
+  {
+    "id": "hubdb_table",
+    "name": "hubdb_table",
+    "label": "HubDB table",
+    "help_text": "Create a table in Marketing → Files and Templates → HubDB. Column names must match the mapping below (defaults work with the included CSV template).",
+    "type": "hubdbtable",
+    "default": { "id": null },
+    "required": false,
+    "locked": false,
+    "visibility": {
+      "controlling_field": null,
+      "controlling_field_path": "data_source",
+      "controlling_value_regex": "hubdb",
+      "property": null,
+      "operator": "EQUAL",
+      "access": null
+    }
+  },
+  {
+    "id": "hubdb_sort_query",
+    "name": "hubdb_sort_query",
+    "label": "HubDB query (optional)",
+    "help_text": "Example: orderBy=date_day&status__eq=upcoming — leave as orderBy=hs_id for default sort.",
+    "type": "text",
+    "default": "orderBy=hs_id",
+    "required": false,
+    "locked": false,
+    "visibility": {
+      "controlling_field": null,
+      "controlling_field_path": "data_source",
+      "controlling_value_regex": "hubdb",
+      "property": null,
+      "operator": "EQUAL",
+      "access": null
+    }
+  },
+  {
+    "id": "hubdb_empty_message",
+    "name": "hubdb_empty_message",
+    "label": "Message when no HubDB table is selected",
+    "type": "text",
+    "default": "Select a HubDB table in the module settings to display events.",
+    "required": false,
+    "locked": false,
+    "visibility": {
+      "controlling_field": null,
+      "controlling_field_path": "data_source",
+      "controlling_value_regex": "hubdb",
+      "property": null,
+      "operator": "EQUAL",
+      "access": null
+    }
+  },
+  {
+    "id": "hubdb_col_status",
+    "name": "hubdb_col_status",
+    "label": "Column: status (upcoming | past)",
+    "type": "text",
+    "default": "status",
+    "required": false,
+    "locked": false,
+    "visibility": {
+      "controlling_field": null,
+      "controlling_field_path": "data_source",
+      "controlling_value_regex": "hubdb",
+      "property": null,
+      "operator": "EQUAL",
+      "access": null
+    }
+  },
+  {
+    "id": "hubdb_col_event_type",
+    "name": "hubdb_col_event_type",
+    "label": "Column: event_type (conference | webinar)",
+    "type": "text",
+    "default": "event_type",
+    "required": false,
+    "locked": false,
+    "visibility": {
+      "controlling_field": null,
+      "controlling_field_path": "data_source",
+      "controlling_value_regex": "hubdb",
+      "property": null,
+      "operator": "EQUAL",
+      "access": null
+    }
+  },
+  {
+    "id": "hubdb_col_tag_label",
+    "name": "hubdb_col_tag_label",
+    "label": "Column: tag_label",
+    "type": "text",
+    "default": "tag_label",
+    "required": false,
+    "locked": false,
+    "visibility": {
+      "controlling_field": null,
+      "controlling_field_path": "data_source",
+      "controlling_value_regex": "hubdb",
+      "property": null,
+      "operator": "EQUAL",
+      "access": null
+    }
+  },
+  {
+    "id": "hubdb_col_title",
+    "name": "hubdb_col_title",
+    "label": "Column: title",
+    "type": "text",
+    "default": "title",
+    "required": false,
+    "locked": false,
+    "visibility": {
+      "controlling_field": null,
+      "controlling_field_path": "data_source",
+      "controlling_value_regex": "hubdb",
+      "property": null,
+      "operator": "EQUAL",
+      "access": null
+    }
+  },
+  {
+    "id": "hubdb_col_description",
+    "name": "hubdb_col_description",
+    "label": "Column: description (HTML)",
+    "type": "text",
+    "default": "description",
+    "required": false,
+    "locked": false,
+    "visibility": {
+      "controlling_field": null,
+      "controlling_field_path": "data_source",
+      "controlling_value_regex": "hubdb",
+      "property": null,
+      "operator": "EQUAL",
+      "access": null
+    }
+  },
+  {
+    "id": "hubdb_col_logo",
+    "name": "hubdb_col_logo",
+    "label": "Column: logo (image)",
+    "type": "text",
+    "default": "logo",
+    "required": false,
+    "locked": false,
+    "visibility": {
+      "controlling_field": null,
+      "controlling_field_path": "data_source",
+      "controlling_value_regex": "hubdb",
+      "property": null,
+      "operator": "EQUAL",
+      "access": null
+    }
+  },
+  {
+    "id": "hubdb_col_attending_label",
+    "name": "hubdb_col_attending_label",
+    "label": "Column: attending_label",
+    "type": "text",
+    "default": "attending_label",
+    "required": false,
+    "locked": false,
+    "visibility": {
+      "controlling_field": null,
+      "controlling_field_path": "data_source",
+      "controlling_value_regex": "hubdb",
+      "property": null,
+      "operator": "EQUAL",
+      "access": null
+    }
+  },
+  {
+    "id": "hubdb_col_attendees_json",
+    "name": "hubdb_col_attendees_json",
+    "label": "Column: attendees_json",
+    "help_text": "Text column with JSON array, e.g. [{\"attendee_name\":\"Jane\",\"role\":\"VP\",\"avatar\":\"https://...\"}]",
+    "type": "text",
+    "default": "attendees_json",
+    "required": false,
+    "locked": false,
+    "visibility": {
+      "controlling_field": null,
+      "controlling_field_path": "data_source",
+      "controlling_value_regex": "hubdb",
+      "property": null,
+      "operator": "EQUAL",
+      "access": null
+    }
+  },
+  {
+    "id": "hubdb_col_show_overflow",
+    "name": "hubdb_col_show_overflow",
+    "label": "Column: show_overflow (true | false)",
+    "type": "text",
+    "default": "show_overflow",
+    "required": false,
+    "locked": false,
+    "visibility": {
+      "controlling_field": null,
+      "controlling_field_path": "data_source",
+      "controlling_value_regex": "hubdb",
+      "property": null,
+      "operator": "EQUAL",
+      "access": null
+    }
+  },
+  {
+    "id": "hubdb_col_overflow_text",
+    "name": "hubdb_col_overflow_text",
+    "label": "Column: overflow_text",
+    "type": "text",
+    "default": "overflow_text",
+    "required": false,
+    "locked": false,
+    "visibility": {
+      "controlling_field": null,
+      "controlling_field_path": "data_source",
+      "controlling_value_regex": "hubdb",
+      "property": null,
+      "operator": "EQUAL",
+      "access": null
+    }
+  },
+  {
+    "id": "hubdb_col_date_day",
+    "name": "hubdb_col_date_day",
+    "label": "Column: date_day",
+    "type": "text",
+    "default": "date_day",
+    "required": false,
+    "locked": false,
+    "visibility": {
+      "controlling_field": null,
+      "controlling_field_path": "data_source",
+      "controlling_value_regex": "hubdb",
+      "property": null,
+      "operator": "EQUAL",
+      "access": null
+    }
+  },
+  {
+    "id": "hubdb_col_date_month",
+    "name": "hubdb_col_date_month",
+    "label": "Column: date_month",
+    "type": "text",
+    "default": "date_month",
+    "required": false,
+    "locked": false,
+    "visibility": {
+      "controlling_field": null,
+      "controlling_field_path": "data_source",
+      "controlling_value_regex": "hubdb",
+      "property": null,
+      "operator": "EQUAL",
+      "access": null
+    }
+  },
+  {
+    "id": "hubdb_col_date_time",
+    "name": "hubdb_col_date_time",
+    "label": "Column: date_time",
+    "type": "text",
+    "default": "date_time",
+    "required": false,
+    "locked": false,
+    "visibility": {
+      "controlling_field": null,
+      "controlling_field_path": "data_source",
+      "controlling_value_regex": "hubdb",
+      "property": null,
+      "operator": "EQUAL",
+      "access": null
+    }
+  },
+  {
+    "id": "hubdb_col_location_text",
+    "name": "hubdb_col_location_text",
+    "label": "Column: location_text",
+    "type": "text",
+    "default": "location_text",
+    "required": false,
+    "locked": false,
+    "visibility": {
+      "controlling_field": null,
+      "controlling_field_path": "data_source",
+      "controlling_value_regex": "hubdb",
+      "property": null,
+      "operator": "EQUAL",
+      "access": null
+    }
+  },
+  {
+    "id": "hubdb_col_location_url",
+    "name": "hubdb_col_location_url",
+    "label": "Column: location_url",
+    "type": "text",
+    "default": "location_url",
+    "required": false,
+    "locked": false,
+    "visibility": {
+      "controlling_field": null,
+      "controlling_field_path": "data_source",
+      "controlling_value_regex": "hubdb",
+      "property": null,
+      "operator": "EQUAL",
+      "access": null
+    }
+  },
+  {
+    "id": "hubdb_col_booth_text",
+    "name": "hubdb_col_booth_text",
+    "label": "Column: booth_text",
+    "type": "text",
+    "default": "booth_text",
+    "required": false,
+    "locked": false,
+    "visibility": {
+      "controlling_field": null,
+      "controlling_field_path": "data_source",
+      "controlling_value_regex": "hubdb",
+      "property": null,
+      "operator": "EQUAL",
+      "access": null
+    }
+  },
+  {
+    "id": "hubdb_col_online_label",
+    "name": "hubdb_col_online_label",
+    "label": "Column: online_label",
+    "type": "text",
+    "default": "online_label",
+    "required": false,
+    "locked": false,
+    "visibility": {
+      "controlling_field": null,
+      "controlling_field_path": "data_source",
+      "controlling_value_regex": "hubdb",
+      "property": null,
+      "operator": "EQUAL",
+      "access": null
+    }
+  },
+  {
+    "id": "hubdb_col_cta_text",
+    "name": "hubdb_col_cta_text",
+    "label": "Column: cta_text",
+    "type": "text",
+    "default": "cta_text",
+    "required": false,
+    "locked": false,
+    "visibility": {
+      "controlling_field": null,
+      "controlling_field_path": "data_source",
+      "controlling_value_regex": "hubdb",
+      "property": null,
+      "operator": "EQUAL",
+      "access": null
+    }
+  },
+  {
+    "id": "hubdb_col_cta_url",
+    "name": "hubdb_col_cta_url",
+    "label": "Column: cta_url",
+    "type": "text",
+    "default": "cta_url",
+    "required": false,
+    "locked": false,
+    "visibility": {
+      "controlling_field": null,
+      "controlling_field_path": "data_source",
+      "controlling_value_regex": "hubdb",
+      "property": null,
+      "operator": "EQUAL",
+      "access": null
+    }
+  },
+  {
+    "id": "events",
+    "name": "events",
+    "label": "Event cards",
+    "type": "group",
+    "visibility": {
+      "controlling_field": null,
+      "controlling_field_path": "data_source",
+      "controlling_value_regex": "manual",
+      "property": null,
+      "operator": "EQUAL",
+      "access": null
+    },
+    "occurrence": { "min": 1, "max": 60, "default": 6 },
+    "children": [
+      {
+        "id": "events.status",
+        "name": "status",
+        "label": "Status (for tabs)",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          ["upcoming", "Upcoming"],
+          ["past", "Past event"]
+        ],
+        "default": "upcoming",
+        "required": false,
+        "locked": false
+      },
+      {
+        "id": "events.event_type",
+        "name": "event_type",
+        "label": "Event type",
+        "type": "choice",
+        "display": "select",
+        "choices": [
+          ["conference", "Conference"],
+          ["webinar", "Webinar"]
+        ],
+        "default": "webinar",
+        "required": false,
+        "locked": false
+      },
+      {
+        "id": "events.tag_label",
+        "name": "tag_label",
+        "label": "Category tag",
+        "type": "text",
+        "default": "WEBINAR",
+        "required": false,
+        "locked": false
+      },
+      {
+        "id": "events.logo",
+        "name": "logo",
+        "label": "Partner logo",
+        "type": "image",
+        "default": { "src": "", "alt": "Partner logo" },
+        "required": false,
+        "locked": false
+      },
+      {
+        "id": "events.title",
+        "name": "title",
+        "label": "Event title",
+        "type": "text",
+        "default": "Salesforce World Tour NYC",
+        "required": false,
+        "locked": false
+      },
+      {
+        "id": "events.description",
+        "name": "description",
+        "label": "Description",
+        "type": "richtext",
+        "default": "<p>Join us at the Salesforce World Tour in New York. Meet our team and explore how Myridius helps enterprises build intelligent, adaptive systems.</p>",
+        "required": false,
+        "locked": false
+      },
+      {
+        "id": "events.attending_label",
+        "name": "attending_label",
+        "label": "Attending label",
+        "type": "text",
+        "default": "ATTENDING FROM MYRIDIUS",
+        "required": false,
+        "locked": false
+      },
+      {
+        "id": "events.attendees",
+        "name": "attendees",
+        "label": "Attendees",
+        "type": "group",
+        "occurrence": { "min": 0, "max": 12, "default": 5 },
+        "children": [
+          {
+            "id": "events.attendees.avatar",
+            "name": "avatar",
+            "label": "Avatar",
+            "type": "image",
+            "default": { "src": "", "alt": "" },
+            "required": false,
+            "locked": false
+          },
+          {
+            "id": "events.attendees.attendee_name",
+            "name": "attendee_name",
+            "label": "Name",
+            "type": "text",
+            "default": "Jane Cooper",
+            "required": false,
+            "locked": false
+          },
+          {
+            "id": "events.attendees.role",
+            "name": "role",
+            "label": "Role / title",
+            "type": "text",
+            "default": "VP, Salesforce",
+            "required": false,
+            "locked": false
+          }
+        ],
+        "default": [
+          {
+            "avatar": {
+              "src": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop",
+              "alt": "Jane Cooper"
+            },
+            "attendee_name": "Jane Cooper",
+            "role": "VP, Salesforce"
+          },
+          {
+            "avatar": {
+              "src": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop",
+              "alt": "Robert Fox"
+            },
+            "attendee_name": "Robert Fox",
+            "role": "Director, Cloud"
+          },
+          {
+            "avatar": {
+              "src": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop",
+              "alt": "Esther Howard"
+            },
+            "attendee_name": "Esther Howard",
+            "role": "Solutions Architect"
+          },
+          {
+            "avatar": {
+              "src": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop",
+              "alt": "Cameron Williamson"
+            },
+            "attendee_name": "Cameron Williamson",
+            "role": "Product Lead"
+          },
+          {
+            "avatar": {
+              "src": "https://images.unsplash.com/photo-1519345182560-3f3007a77c5a?w=80&h=80&fit=crop",
+              "alt": "Brooklyn Simmons"
+            },
+            "attendee_name": "Brooklyn Simmons",
+            "role": "Engineering Manager"
+          }
+        ]
+      },
+      {
+        "id": "events.icon_online",
+        "name": "icon_online",
+        "label": "Custom icon — Online webinar (optional)",
+        "type": "image",
+        "default": { "src": "", "alt": "" },
+        "required": false,
+        "locked": false
+      },
+      {
+        "id": "events.icon_location",
+        "name": "icon_location",
+        "label": "Custom icon — Location (optional)",
+        "type": "image",
+        "default": { "src": "", "alt": "" },
+        "required": false,
+        "locked": false
+      },
+      {
+        "id": "events.icon_booth",
+        "name": "icon_booth",
+        "label": "Custom icon — Booth / mark ID (optional)",
+        "type": "image",
+        "default": { "src": "", "alt": "" },
+        "required": false,
+        "locked": false
+      },
+      {
+        "id": "events.show_overflow",
+        "name": "show_overflow",
+        "label": "Show overflow link (+N more)",
+        "type": "boolean",
+        "default": true,
+        "required": false,
+        "locked": false
+      },
+      {
+        "id": "events.overflow_text",
+        "name": "overflow_text",
+        "label": "Overflow link text",
+        "type": "text",
+        "default": "+3",
+        "required": false,
+        "locked": false
+      },
+      {
+        "id": "events.overflow_close_text",
+        "name": "overflow_close_text",
+        "label": "Overflow close text",
+        "help_text": "Desktop only. Leave blank to use module default.",
+        "type": "text",
+        "default": "",
+        "required": false,
+        "locked": false
+      },
+      {
+        "id": "events.overflow_link",
+        "name": "overflow_link",
+        "label": "Overflow link",
+        "type": "link",
+        "default": {
+          "url": { "href": "#", "type": "EXTERNAL" },
+          "open_in_new_tab": false
+        },
+        "required": false,
+        "locked": false
+      },
+      {
+        "id": "events.date_day",
+        "name": "date_day",
+        "label": "Date – day",
+        "type": "text",
+        "default": "14",
+        "required": false,
+        "locked": false
+      },
+      {
+        "id": "events.date_month",
+        "name": "date_month",
+        "label": "Date – month & year",
+        "type": "text",
+        "default": "MAY, 2025",
+        "required": false,
+        "locked": false
+      },
+      {
+        "id": "events.date_time",
+        "name": "date_time",
+        "label": "Time",
+        "type": "text",
+        "default": "12:00 PM",
+        "required": false,
+        "locked": false
+      },
+      {
+        "id": "events.location_text",
+        "name": "location_text",
+        "label": "Location text",
+        "type": "text",
+        "default": "New York, NY · Javits Center",
+        "required": false,
+        "locked": false
+      },
+      {
+        "id": "events.location_link",
+        "name": "location_link",
+        "label": "Location link",
+        "type": "link",
+        "default": {
+          "url": { "href": "#", "type": "EXTERNAL" },
+          "open_in_new_tab": true
+        },
+        "required": false,
+        "locked": false
+      },
+      {
+        "id": "events.booth_text",
+        "name": "booth_text",
+        "label": "Booth text",
+        "type": "text",
+        "default": "Booth #214",
+        "required": false,
+        "locked": false
+      },
+      {
+        "id": "events.online_label",
+        "name": "online_label",
+        "label": "Online webinar button text",
+        "type": "text",
+        "default": "Online webinar",
+        "required": false,
+        "locked": false
+      },
+      {
+        "id": "events.online_link",
+        "name": "online_link",
+        "label": "Online webinar link",
+        "type": "link",
+        "default": {
+          "url": { "href": "#", "type": "EXTERNAL" },
+          "open_in_new_tab": true
+        },
+        "required": false,
+        "locked": false
+      },
+      {
+        "id": "events.cta_text",
+        "name": "cta_text",
+        "label": "CTA text",
+        "type": "text",
+        "default": "Learn more",
+        "required": false,
+        "locked": false
+      },
+      {
+        "id": "events.cta_link",
+        "name": "cta_link",
+        "label": "CTA link",
+        "type": "link",
+        "default": {
+          "url": { "href": "#", "type": "EXTERNAL" },
+          "open_in_new_tab": false
+        },
+        "required": false,
+        "locked": false
+      }
+    ],
+    "default": [
+      {
+        "status": "upcoming",
+        "event_type": "conference",
+        "tag_label": "CONFERENCE",
+        "title": "Salesforce World Tour NYC",
+        "description": "<p>Join us at the Salesforce World Tour in New York. Meet our team and explore how Myridius helps enterprises build intelligent, adaptive systems.</p>",
+        "date_day": "14",
+        "date_month": "MAY, 2025",
+        "date_time": "12:00 PM",
+        "location_text": "New York, NY · Javits Center",
+        "booth_text": "Booth #214",
+        "show_overflow": true,
+        "overflow_text": "+3 More"
+      },
+      {
+        "status": "upcoming",
+        "event_type": "webinar",
+        "tag_label": "WEBINAR",
+        "title": "Salesforce World Tour NYC",
+        "description": "<p>Join us at the Salesforce World Tour in New York. Meet our team and explore how Myridius helps enterprises build intelligent, adaptive systems.</p>",
+        "date_day": "14",
+        "date_month": "MAY, 2025",
+        "date_time": "12:00 PM",
+        "online_label": "Online webinar",
+        "show_overflow": true,
+        "overflow_text": "+3 More"
+      },
+      {
+        "status": "upcoming",
+        "event_type": "conference",
+        "tag_label": "CONFERENCE",
+        "title": "Salesforce World Tour NYC",
+        "description": "<p>Join us at the Salesforce World Tour in New York. Meet our team and explore how Myridius helps enterprises build intelligent, adaptive systems.</p>",
+        "date_day": "14",
+        "date_month": "MAY, 2025",
+        "date_time": "12:00 PM",
+        "location_text": "New York, NY · Javits Center",
+        "booth_text": "Booth #214",
+        "show_overflow": true,
+        "overflow_text": "+3 More"
+      },
+      {
+        "status": "past",
+        "event_type": "webinar",
+        "tag_label": "WEBINAR",
+        "title": "Salesforce World Tour NYC",
+        "description": "<p>Join us at the Salesforce World Tour in New York. Meet our team and explore how Myridius helps enterprises build intelligent, adaptive systems.</p>",
+        "date_day": "14",
+        "date_month": "MAY, 2025",
+        "date_time": "12:00 PM",
+        "online_label": "Online webinar",
+        "show_overflow": true,
+        "overflow_text": "+3 More",
+        "attendees": [
+          {
+            "avatar": {
+              "src": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop",
+              "alt": "Jane Cooper"
+            },
+            "attendee_name": "Jane Cooper",
+            "role": "VP, Salesforce"
+          },
+          {
+            "avatar": {
+              "src": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop",
+              "alt": "Robert Fox"
+            },
+            "attendee_name": "Robert Fox",
+            "role": "Director, Cloud"
+          },
+          {
+            "avatar": {
+              "src": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop",
+              "alt": "Esther Howard"
+            },
+            "attendee_name": "Esther Howard",
+            "role": "Solutions Architect"
+          },
+          {
+            "avatar": {
+              "src": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop",
+              "alt": "Cameron Williamson"
+            },
+            "attendee_name": "Cameron Williamson",
+            "role": "Product Lead"
+          },
+          {
+            "avatar": {
+              "src": "https://images.unsplash.com/photo-1519345182560-3f3007a77c5a?w=80&h=80&fit=crop",
+              "alt": "Brooklyn Simmons"
+            },
+            "attendee_name": "Brooklyn Simmons",
+            "role": "Engineering Manager"
+          }
+        ]
+      },
+      {
+        "status": "past",
+        "event_type": "conference",
+        "tag_label": "CONFERENCE",
+        "title": "Salesforce World Tour NYC",
+        "description": "<p>Join us at the Salesforce World Tour in New York. Meet our team and explore how Myridius helps enterprises build intelligent, adaptive systems.</p>",
+        "date_day": "14",
+        "date_month": "MAY, 2025",
+        "date_time": "12:00 PM",
+        "location_text": "New York, NY · Javits Center",
+        "booth_text": "Booth #214",
+        "show_overflow": true,
+        "overflow_text": "+3 More",
+        "attendees": [
+          {
+            "avatar": {
+              "src": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop",
+              "alt": "Jane Cooper"
+            },
+            "attendee_name": "Jane Cooper",
+            "role": "VP, Salesforce"
+          },
+          {
+            "avatar": {
+              "src": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop",
+              "alt": "Robert Fox"
+            },
+            "attendee_name": "Robert Fox",
+            "role": "Director, Cloud"
+          },
+          {
+            "avatar": {
+              "src": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop",
+              "alt": "Esther Howard"
+            },
+            "attendee_name": "Esther Howard",
+            "role": "Solutions Architect"
+          },
+          {
+            "avatar": {
+              "src": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop",
+              "alt": "Cameron Williamson"
+            },
+            "attendee_name": "Cameron Williamson",
+            "role": "Product Lead"
+          },
+          {
+            "avatar": {
+              "src": "https://images.unsplash.com/photo-1519345182560-3f3007a77c5a?w=80&h=80&fit=crop",
+              "alt": "Brooklyn Simmons"
+            },
+            "attendee_name": "Brooklyn Simmons",
+            "role": "Engineering Manager"
+          }
+        ]
+      },
+      {
+        "status": "upcoming",
+        "event_type": "conference",
+        "tag_label": "CONFERENCE",
+        "title": "Salesforce World Tour NYC",
+        "description": "<p>Join us at the Salesforce World Tour in New York. Meet our team and explore how Myridius helps enterprises build intelligent, adaptive systems.</p>",
+        "date_day": "14",
+        "date_month": "MAY, 2025",
+        "date_time": "12:00 PM",
+        "location_text": "New York, NY · Javits Center",
+        "booth_text": "Booth #214",
+        "show_overflow": true,
+        "overflow_text": "+3 More"
+      }
+    ]
+  }
+]

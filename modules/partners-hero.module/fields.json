@@ -1,0 +1,288 @@
+[ {
+  "id" : "section_id",
+  "name" : "section_id",
+  "label" : "Section ID",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "partners-hero"
+}, {
+  "id" : "breadcrumb_primary",
+  "name" : "breadcrumb_primary",
+  "label" : "Breadcrumb (primary)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Myridius"
+}, {
+  "id" : "breadcrumb_primary_url",
+  "name" : "breadcrumb_primary_url",
+  "label" : "Breadcrumb primary URL",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+  "type" : "url",
+  "display_width" : null,
+  "default" : {
+    "href" : "/",
+    "type" : "EXTERNAL"
+  }
+}, {
+  "id" : "breadcrumb_secondary",
+  "name" : "breadcrumb_secondary",
+  "label" : "Breadcrumb (current)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Partners"
+}, {
+  "id" : "heading",
+  "name" : "heading",
+  "label" : "Heading (line 1)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Delivering AI-native enterprise systems with the industry's most"
+}, {
+  "id" : "heading_accent",
+  "name" : "heading_accent",
+  "label" : "Heading (accent line)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "trusted technology partners"
+}, {
+  "id" : "description",
+  "name" : "description",
+  "label" : "Description",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "display_width" : null,
+  "default" : "<p>Myridius brings the right providers, platforms, and services to help enterprises move faster and deliver business value.</p>"
+}, {
+  "id" : "hero_image",
+  "name" : "hero_image",
+  "label" : "Hero image",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "display_width" : null,
+  "default" : {
+    "src" : "",
+    "alt" : "Technology partners"
+  }
+}, {
+  "id" : "hero_image_filename",
+  "name" : "hero_image_filename",
+  "label" : "Hero image filename (theme asset)",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "hero.png"
+}, {
+  "id" : "hero_image_width",
+  "name" : "hero_image_width",
+  "label" : "Hero image width (px)",
+  "required" : false,
+  "locked" : false,
+  "display" : "text",
+  "min" : 200,
+  "max" : 900,
+  "step" : 1,
+  "type" : "number",
+  "display_width" : null,
+  "default" : 456
+}, {
+  "id" : "hero_image_height",
+  "name" : "hero_image_height",
+  "label" : "Hero image height (px)",
+  "required" : false,
+  "locked" : false,
+  "display" : "text",
+  "min" : 200,
+  "max" : 900,
+  "step" : 1,
+  "type" : "number",
+  "display_width" : null,
+  "default" : 570
+}, {
+  "id" : "hero_image_width_mobile",
+  "name" : "hero_image_width_mobile",
+  "label" : "Hero image width on mobile (px)",
+  "help_text" : "Set to 0 for full width.",
+  "required" : false,
+  "locked" : false,
+  "display" : "text",
+  "min" : 0,
+  "max" : 900,
+  "step" : 1,
+  "type" : "number",
+  "display_width" : null,
+  "default" : 0
+}, {
+  "id" : "hero_image_height_mobile",
+  "name" : "hero_image_height_mobile",
+  "label" : "Hero image height on mobile (px)",
+  "required" : false,
+  "locked" : false,
+  "display" : "text",
+  "min" : 120,
+  "max" : 700,
+  "step" : 1,
+  "type" : "number",
+  "display_width" : null,
+  "default" : 260
+}, {
+  "id" : "pillar_icon_size",
+  "name" : "pillar_icon_size",
+  "label" : "Pillar icon size (px)",
+  "required" : false,
+  "locked" : false,
+  "display" : "text",
+  "min" : 24,
+  "max" : 120,
+  "step" : 1,
+  "type" : "number",
+  "display_width" : null,
+  "default" : 60
+}, {
+  "id" : "pillar_icon_size_mobile",
+  "name" : "pillar_icon_size_mobile",
+  "label" : "Pillar icon size on mobile (px)",
+  "required" : false,
+  "locked" : false,
+  "display" : "text",
+  "min" : 20,
+  "max" : 80,
+  "step" : 1,
+  "type" : "number",
+  "display_width" : null,
+  "default" : 40
+}, {
+  "id" : "value_intro",
+  "name" : "value_intro",
+  "label" : "Value panel intro",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "The result is innovation with context, orchestration with intent, and outcomes that scale."
+}, {
+  "id" : "pillars",
+  "name" : "pillars",
+  "label" : "Value pillars",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 6,
+    "sorting_label_field" : null,
+    "default" : 4
+  },
+  "children" : [ {
+    "id" : "pillars.icon_image",
+    "name" : "icon_image",
+    "label" : "Icon image (SVG, PNG, JPG, or WebP)",
+    "help_text" : "Upload overrides the preset icon below.",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "",
+      "alt" : ""
+    }
+  }, {
+    "id" : "pillars.icon",
+    "name" : "icon",
+    "label" : "Preset icon (fallback)",
+    "required" : false,
+    "locked" : false,
+    "display" : "select",
+    "choices" : [ [ "innovation", "Innovation" ], [ "context", "Context" ], [ "orchestration", "Orchestration" ], [ "outcomes", "Outcomes" ] ],
+    "multiple" : false,
+    "reordering_enabled" : true,
+    "preset" : null,
+    "type" : "choice",
+    "display_width" : null,
+    "default" : "innovation"
+  }, {
+    "id" : "pillars.title",
+    "name" : "title",
+    "label" : "Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Innovation"
+  }, {
+    "id" : "pillars.description",
+    "name" : "description",
+    "label" : "Description",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "icon_image" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "icon" : "innovation",
+    "title" : "Innovation",
+    "description" : "Accelerate innovation by connecting leading platforms to real enterprise priorities."
+  }, {
+    "icon_image" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "icon" : "context",
+    "title" : "Context",
+    "description" : "Bring industry, operational, and customer context into every solution."
+  }, {
+    "icon_image" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "icon" : "orchestration",
+    "title" : "Orchestration",
+    "description" : "Orchestrate partners, platforms, and workflows into one aligned execution model."
+  }, {
+    "icon_image" : {
+      "src" : "",
+      "alt" : ""
+    },
+    "icon" : "outcomes",
+    "title" : "Outcomes",
+    "description" : "Turn ecosystem investment into measurable business outcomes and lasting advantage."
+  } ]
+} ]

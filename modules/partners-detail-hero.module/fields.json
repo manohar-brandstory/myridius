@@ -1,0 +1,122 @@
+[
+  {
+    "id": "section_id",
+    "name": "section_id",
+    "label": "Section ID",
+    "type": "text",
+    "default": "partner-detail-hero"
+  },
+  {
+    "id": "breadcrumb_items",
+    "name": "breadcrumb_items",
+    "label": "Breadcrumb Items",
+    "type": "group",
+    "occurrence": { "min": 1, "max": 6, "default": 3 },
+    "children": [
+      {
+        "id": "breadcrumb_items.crumb_text",
+        "name": "crumb_text",
+        "label": "Label",
+        "type": "text",
+        "default": "Myridius"
+      },
+      {
+        "id": "breadcrumb_items.link",
+        "name": "link",
+        "label": "Link (optional)",
+        "type": "url",
+        "default": { "href": "", "type": "EXTERNAL" }
+      },
+      {
+        "id": "breadcrumb_items.is_current",
+        "name": "is_current",
+        "label": "Current page",
+        "type": "boolean",
+        "default": false
+      }
+    ],
+    "default": [
+      { "crumb_text": "Myridius", "is_current": false },
+      { "crumb_text": "Partners", "is_current": false },
+      { "crumb_text": "Provar", "is_current": true }
+    ]
+  },
+  {
+    "id": "partner_logo",
+    "name": "partner_logo",
+    "label": "Partner logo",
+    "type": "image",
+    "default": { "src": "", "alt": "Partner logo" }
+  },
+  {
+    "id": "heading",
+    "name": "heading",
+    "label": "Heading (line 1)",
+    "type": "text",
+    "default": "Accelerate Salesforce quality with"
+  },
+  {
+    "id": "heading_accent",
+    "name": "heading_accent",
+    "label": "Heading (accent line)",
+    "type": "text",
+    "default": "intelligent test automation"
+  },
+  {
+    "id": "description",
+    "name": "description",
+    "label": "Description",
+    "type": "richtext",
+    "default": "<p>Myridius and Provar help enterprises deliver faster, safer Salesforce releases through automated testing, data management, and continuous quality at scale.</p>"
+  },
+  {
+    "id": "cta_text",
+    "name": "cta_text",
+    "label": "Primary CTA text",
+    "type": "text",
+    "default": "Talk to our team"
+  },
+  {
+    "id": "cta_url",
+    "name": "cta_url",
+    "label": "Primary CTA link",
+    "type": "url",
+    "default": { "href": "#partner-contact-form", "type": "EXTERNAL" },
+    "help_text": "Use #partner-contact-form to scroll to the form section."
+  },
+  {
+    "id": "hero_image",
+    "name": "hero_image",
+    "label": "Hero image",
+    "type": "image",
+    "default": { "src": "", "alt": "Partner hero" }
+  },
+  {
+    "id": "hero_image_filename",
+    "name": "hero_image_filename",
+    "label": "Hero image filename (theme asset)",
+    "type": "text",
+    "default": "hero.png"
+  },
+  {
+    "id": "hero_image_width",
+    "name": "hero_image_width",
+    "label": "Hero image width (px)",
+    "type": "number",
+    "default": 456
+  },
+  {
+    "id": "hero_image_height",
+    "name": "hero_image_height",
+    "label": "Hero image height desktop (px)",
+    "type": "number",
+    "default": 570
+  },
+  {
+    "id": "hero_image_height_mobile",
+    "name": "hero_image_height_mobile",
+    "label": "Hero image height mobile (px)",
+    "type": "number",
+    "default": 260
+  }
+]

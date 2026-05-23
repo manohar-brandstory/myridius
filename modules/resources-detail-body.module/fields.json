@@ -1,0 +1,196 @@
+[
+  {
+    "id": "content_sections",
+    "name": "content_sections",
+    "label": "Content Sections",
+    "help_text": "Add repeating sections such as Overview, Key Takeaways, Why It Matters.",
+    "type": "group",
+    "occurrence": { "min": 1, "max": 12, "default": 3 },
+    "children": [
+      {
+        "id": "content_sections.badge_text",
+        "name": "badge_text",
+        "label": "Section Badge",
+        "type": "text",
+        "default": "Overview"
+      },
+      {
+        "id": "content_sections.heading",
+        "name": "heading",
+        "label": "Heading",
+        "type": "text",
+        "default": "Section Heading"
+      },
+      {
+        "id": "content_sections.section_content",
+        "name": "section_content",
+        "label": "Body",
+        "type": "richtext",
+        "default": "<p>Section body copy goes here.</p>"
+      },
+      {
+        "id": "content_sections.subsections",
+        "name": "subsections",
+        "label": "Subsections",
+        "type": "group",
+        "occurrence": { "min": 0, "max": 8, "default": 0 },
+        "children": [
+          {
+            "id": "content_sections.subsections.subheading",
+            "name": "subheading",
+            "label": "Subheading",
+            "type": "text",
+            "default": ""
+          },
+          {
+            "id": "content_sections.subsections.sub_content",
+            "name": "sub_content",
+            "label": "Body (optional)",
+            "type": "richtext",
+            "default": ""
+          },
+          {
+            "id": "content_sections.subsections.list_type",
+            "name": "list_type",
+            "label": "List Type",
+            "type": "choice",
+            "choices": [
+              ["none", "None"],
+              ["bullet", "Bulleted"],
+              ["number", "Numbered"]
+            ],
+            "default": "none"
+          },
+          {
+            "id": "content_sections.subsections.list_items",
+            "name": "list_items",
+            "label": "List Items",
+            "type": "group",
+            "occurrence": { "min": 0, "max": 12, "default": 0 },
+            "children": [
+              {
+                "id": "content_sections.subsections.list_items.text",
+                "name": "text",
+                "label": "Item",
+                "type": "text",
+                "default": ""
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "default": [
+      {
+        "badge_text": "Overview",
+        "heading": "Orchestrating the Future: Designing the Human and AI Operating Model",
+        "section_content": "<p>Artificial intelligence is moving from isolated pilots into the core of how enterprises work, compete, and grow. The question is no longer if you should use AI, but how you will orchestrate people, processes, data, and technology so that humans and AI work together in a scalable and trusted way.</p><p>This executive summary distills key insights from the Everest Group report, sponsored by Myridius, on how to design a human and AI operating model and what it takes to become an AI native enterprise.</p>"
+      },
+      {
+        "badge_text": "Key Takeaways",
+        "heading": "What Is a Human and AI Operating Model?",
+        "section_content": "<p>A human and AI operating model defines how people, AI systems, data, and processes interact to deliver business outcomes. It covers who does what, how decisions are made, what is automated, and how value and risk are managed.</p>",
+        "subsections": [
+          {
+            "subheading": "Key Characteristics",
+            "list_type": "bullet",
+            "list_items": [
+              { "text": "Humans and AI are explicitly assigned roles and responsibilities" },
+              { "text": "Workflows are redesigned so that AI is embedded into journeys and processes, not bolted on" },
+              { "text": "Governance and risk management account for AI-driven decisions and outcomes" },
+              { "text": "Data, platforms, and integration patterns support repeatable AI use at scale" }
+            ]
+          }
+        ]
+      },
+      {
+        "badge_text": "Why It Matters",
+        "heading": "Why Enterprises Need a Human and AI Operating Model",
+        "section_content": "",
+        "subsections": [
+          {
+            "subheading": "Common Challenges",
+            "list_type": "number",
+            "list_items": [
+              { "text": "Fragmented pilots that never scale beyond a single team" },
+              { "text": "Limited trust and adoption from business users" },
+              { "text": "Inconsistent governance and unclear ownership" },
+              { "text": "Data silos and technical debt" },
+              { "text": "Talent gaps in AI literacy, engineering, and change management" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "author_image",
+    "name": "author_image",
+    "label": "Author Image",
+    "type": "image",
+    "default": { "src": "", "alt": "Author photo" }
+  },
+  {
+    "id": "author_name",
+    "name": "author_name",
+    "label": "Author Name",
+    "type": "text",
+    "default": "Girish Pai"
+  },
+  {
+    "id": "author_title",
+    "name": "author_title",
+    "label": "Author Title",
+    "type": "text",
+    "default": "COO, Myridius"
+  },
+  {
+    "id": "author_linkedin",
+    "name": "author_linkedin",
+    "label": "Author LinkedIn URL",
+    "type": "url",
+    "default": { "href": "", "type": "EXTERNAL" }
+  },
+  {
+    "id": "download_card_text",
+    "name": "download_card_text",
+    "label": "Download Card Text",
+    "type": "text",
+    "default": "Download the whitepaper to accelerate your efforts to transform your AI initiatives."
+  },
+  {
+    "id": "download_btn_text",
+    "name": "download_btn_text",
+    "label": "Download Button Text",
+    "type": "text",
+    "default": "Download Whitepaper"
+  },
+  {
+    "id": "download_btn_url",
+    "name": "download_btn_url",
+    "label": "Download Button Link",
+    "type": "url",
+    "default": { "href": "#resource-download-form", "type": "EXTERNAL" }
+  },
+  {
+    "id": "share_label",
+    "name": "share_label",
+    "label": "Share Label",
+    "type": "text",
+    "default": "Share this article"
+  },
+  {
+    "id": "linkedin_share_url",
+    "name": "linkedin_share_url",
+    "label": "LinkedIn Share URL",
+    "type": "url",
+    "default": { "href": "", "type": "EXTERNAL" }
+  },
+  {
+    "id": "facebook_share_url",
+    "name": "facebook_share_url",
+    "label": "Facebook Share URL",
+    "type": "url",
+    "default": { "href": "", "type": "EXTERNAL" }
+  }
+]

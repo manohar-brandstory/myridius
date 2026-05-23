@@ -1,0 +1,85 @@
+{% set hero_src = module.hero_image.src|default('')|trim %}
+{% if (not hero_src) or ('{{' in hero_src) or ('get_asset_url' in hero_src) %}
+  {% if module.hero_image_filename %}
+    {% set hero_src = get_asset_url('/Myridius Theme V1/images/partners/' ~ module.hero_image_filename) %}
+  {% endif %}
+{% endif %}
+{% set hero_w = module.hero_image_width|default(456)|int %}
+{% set hero_h = module.hero_image_height|default(570)|int %}
+{% set hero_w_mobile = module.hero_image_width_mobile|default(0)|int %}
+{% set hero_h_mobile = module.hero_image_height_mobile|default(260)|int %}
+{% set icon_size = module.pillar_icon_size|default(60)|int %}
+{% set icon_size_mobile = module.pillar_icon_size_mobile|default(40)|int %}
+
+<section
+  class="partners-hero"
+  style="--ph-media-w: {{ hero_w }}px; --ph-media-h: {{ hero_h }}px; --ph-media-w-mobile: {% if hero_w_mobile > 0 %}{{ hero_w_mobile }}px{% else %}100%{% endif %}; --ph-media-h-mobile: {{ hero_h_mobile }}px; --ph-icon-size: {{ icon_size }}px; --ph-icon-size-mobile: {{ icon_size_mobile }}px;"
+  {% if module.section_id %} id="{{ module.section_id }}"{% endif %}
+>
+  <div class="partners-hero__wrap">
+    <div class="partners-hero__row">
+      <div class="partners-hero__content">
+        <nav class="partners-hero__breadcrumb" aria-label="Breadcrumb">
+          {% if module.breadcrumb_primary_url.href %}
+            <a class="partners-hero__crumb partners-hero__crumb--muted" href="{{ module.breadcrumb_primary_url.href }}">{{ module.breadcrumb_primary }}</a>
+          {% else %}
+            <span class="partners-hero__crumb partners-hero__crumb--muted">{{ module.breadcrumb_primary }}</span>
+          {% endif %}
+          <span class="partners-hero__crumb-sep" aria-hidden="true">/</span>
+          <span class="partners-hero__crumb partners-hero__crumb--current">{{ module.breadcrumb_secondary }}</span>
+        </nav>
+
+        <div class="partners-hero__copy">
+          <h1 class="partners-hero__heading">
+            <span class="partners-hero__heading-line">{{ module.heading }}</span>
+            {% if module.heading_accent %}
+              <span class="partners-hero__heading-accent">{{ module.heading_accent }}</span>
+            {% endif %}
+          </h1>
+          <div class="partners-hero__description">{{ module.description }}</div>
+        </div>
+      </div>
+
+      {% if hero_src %}
+        <div class="partners-hero__media">
+          <img class="partners-hero__media-img" src="{{ hero_src }}" alt="{{ module.hero_image.alt|default('Partners') }}" loading="eager" decoding="async">
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="partners-hero__value">
+      {% if module.value_intro %}
+        <p class="partners-hero__value-intro">{{ module.value_intro }}</p>
+      {% endif %}
+      <div class="partners-hero__pillars">
+        {% for pillar in module.pillars %}
+          <article class="partners-hero__pillar">
+            <div class="partners-hero__pillar-icon" aria-hidden="true">
+              {% if pillar.icon_image.src %}
+                <img
+                  class="partners-hero__pillar-icon-img"
+                  src="{{ pillar.icon_image.src }}"
+                  alt="{{ pillar.icon_image.alt|default('') }}"
+                  loading="lazy"
+                  decoding="async"
+                >
+              {% elif pillar.icon == 'context' %}
+                <svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="#337077" stroke-width="1.5"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" stroke="#337077" stroke-width="1.5" stroke-linecap="round"/></svg>
+              {% elif pillar.icon == 'orchestration' %}
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="18" cy="18" r="3" stroke="#337077" stroke-width="1.5"/><circle cx="6" cy="6" r="3" stroke="#337077" stroke-width="1.5"/><path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98" stroke="#337077" stroke-width="1.5"/></svg>
+              {% elif pillar.icon == 'outcomes' %}
+                <svg viewBox="0 0 24 24" fill="none"><path d="M4.5 16.5c1.5-4 6-7.5 10.5-7.5 1.5 0 3 .5 4.5 1.5M12 3l2 5 5 1-4 3.5 1 5.5-4.5-2.5-4.5 2.5 1-5.5-4-3.5 5-1 2-5z" stroke="#337077" stroke-width="1.5" stroke-linejoin="round"/></svg>
+              {% else %}
+                <svg viewBox="0 0 24 24" fill="none"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z" stroke="#337077" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              {% endif %}
+            </div>
+            <div class="partners-hero__pillar-text">
+              <h3 class="partners-hero__pillar-title">{{ pillar.title }}</h3>
+              <p class="partners-hero__pillar-desc">{{ pillar.description }}</p>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

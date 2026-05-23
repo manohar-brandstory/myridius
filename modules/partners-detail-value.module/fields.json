@@ -1,0 +1,95 @@
+[
+  {
+    "id": "section_id",
+    "name": "section_id",
+    "label": "Section ID",
+    "type": "text",
+    "default": "partner-value"
+  },
+  {
+    "id": "intro",
+    "name": "intro",
+    "label": "Intro line",
+    "type": "text",
+    "default": "How we deliver value together"
+  },
+  {
+    "id": "pillar_icon_size",
+    "name": "pillar_icon_size",
+    "label": "Icon size desktop (px)",
+    "type": "number",
+    "default": 52
+  },
+  {
+    "id": "pillar_icon_size_mobile",
+    "name": "pillar_icon_size_mobile",
+    "label": "Icon size mobile (px)",
+    "type": "number",
+    "default": 40
+  },
+  {
+    "id": "pillars",
+    "name": "pillars",
+    "label": "Value pillars",
+    "type": "group",
+    "occurrence": { "min": 1, "max": 6, "default": 4 },
+    "children": [
+      {
+        "id": "pillars.icon_image",
+        "name": "icon_image",
+        "label": "Icon image",
+        "type": "image",
+        "default": { "src": "", "alt": "" }
+      },
+      {
+        "id": "pillars.icon",
+        "name": "icon",
+        "label": "Preset icon",
+        "type": "choice",
+        "choices": [
+          ["innovation", "Innovation"],
+          ["context", "Context"],
+          ["orchestration", "Orchestration"],
+          ["outcomes", "Outcomes"]
+        ],
+        "default": "innovation"
+      },
+      {
+        "id": "pillars.title",
+        "name": "title",
+        "label": "Title",
+        "type": "text",
+        "default": "Innovation"
+      },
+      {
+        "id": "pillars.description",
+        "name": "description",
+        "label": "Description",
+        "type": "text",
+        "default": "Accelerate innovation by connecting leading platforms to real enterprise priorities."
+      }
+    ],
+    "default": [
+      {
+        "icon": "innovation",
+        "title": "Innovation",
+        "description": "Bring new capabilities to market faster with proven patterns and accelerators."
+      },
+      {
+        "icon": "context",
+        "title": "Context",
+        "description": "Align technology decisions to industry, data, and operating-model realities."
+      },
+      {
+        "icon": "orchestration",
+        "title": "Orchestration",
+        "description": "Connect people, platforms, and processes into one execution model."
+      },
+      {
+        "icon": "outcomes",
+        "title": "Outcomes",
+        "description": "Measure success by business impact—not activity."
+      }
+    ]
+  }
+]

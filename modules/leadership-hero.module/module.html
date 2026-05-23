@@ -1,0 +1,21 @@
+<section class="leadership-hero"{% if module.section_id %} id="{{ module.section_id }}"{% endif %}>
+  <div class="leadership-hero__wrap">
+    <nav class="leadership-hero__breadcrumb" aria-label="Breadcrumb">
+      {% if module.breadcrumb_primary_url.href %}
+        <a class="leadership-hero__crumb leadership-hero__crumb--primary" href="{{ module.breadcrumb_primary_url.href }}">{{ module.breadcrumb_primary }}</a>
+      {% else %}
+        <span class="leadership-hero__crumb leadership-hero__crumb--primary">{{ module.breadcrumb_primary }}</span>
+      {% endif %}
+      <span class="leadership-hero__crumb-sep" aria-hidden="true">{{ module.breadcrumb_separator }}</span>
+      <span class="leadership-hero__crumb leadership-hero__crumb--current">{{ module.breadcrumb_secondary }}</span>
+    </nav>
+
+    <div class="leadership-hero__content">
+      <h1 class="leadership-hero__heading">
+        {{ module.heading_before }}
+        <span class="leadership-hero__heading-highlight">{{ module.heading_highlight }}</span>
+      </h1>
+      <div class="leadership-hero__description">{{ module.description }}</div>
+    </div>
+  </div>
+</section>

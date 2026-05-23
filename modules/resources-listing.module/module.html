@@ -1,0 +1,425 @@
+{# Resources listing — HubDB + Figma Resource Hub (cards match home-insights) #}
+{% set table_name = module.hubdb_table_name|default('resources_2026')|trim %}
+{% set col_title = module.col_title|default('resource_title')|trim %}
+{% set col_url = module.col_url|default('link') %}
+{% set col_image = module.col_image|default('featured_image')|trim %}
+{% if not col_image %}{% set col_image = 'featured_image' %}{% endif %}
+{% set col_type = module.col_resource_type|default('type') %}
+{% set col_topic = module.col_topic|default('topic') %}
+{% set col_industry = module.col_industry|default('industry') %}
+{% set col_date = module.col_publish_date|default('order') %}
+{% set sort_col = col_date|trim %}
+{% if sort_col == 'publish_date' %}{% set sort_col = 'order' %}{% endif %}
+
+{% set q_topic = request.query_dict.topic|default('', true)|trim %}
+{% set q_industry = request.query_dict.industry|default('', true)|trim %}
+{% set q_type = request.query_dict.resource_type|default('', true)|trim %}
+{% set q_page = request.query_dict.page|default('1', true)|int %}
+{% set q_per = request.query_dict.per_page|default(module.default_per_page|default('9'), true)|int %}
+{% if q_page < 1 %}{% set q_page = 1 %}{% endif %}
+{% if q_per < 1 %}{% set q_per = 9 %}{% endif %}
+
+{# Normalize HubDB Select / Multi-select cells to display strings #}
+{% macro res_cell(row, col_key, alt_key) -%}
+  {%- set v = '' -%}
+  {%- if col_key and row[col_key] is defined and row[col_key] is not none and row[col_key] != '' -%}
+    {%- set v = row[col_key] -%}
+  {%- elif alt_key and row[alt_key] is defined and row[alt_key] is not none and row[alt_key] != '' -%}
+    {%- set v = row[alt_key] -%}
+  {%- endif -%}
+  {%- if v is iterable and v is not string -%}
+    {%- set ns = namespace(labels=[]) -%}
+    {%- for item in v -%}
+      {%- if item.label is defined and item.label -%}
+        {%- set ns.labels = ns.labels + [item.label|string|trim] -%}
+      {%- elif item.name is defined and item.name -%}
+        {%- set ns.labels = ns.labels + [item.name|string|trim] -%}
+      {%- elif item -%}
+        {%- set ns.labels = ns.labels + [item|string|trim] -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {{- ns.labels|join(', ') -}}
+  {%- elif v.label is defined and v.label is not none and v.label != '' -%}
+    {{- v.label|string|trim -}}
+  {%- elif v.name is defined and v.name is not none and v.name != '' -%}
+    {{- v.name|string|trim -}}
+  {%- else -%}
+    {{- v|default('')|string|trim -}}
+  {%- endif -%}
+{%- endmacro %}
+
+{# Resource type badge + filter — bracket access avoids row.type metadata conflicts #}
+{% macro res_type_label(row) -%}
+  {%- set ns = namespace(out='') -%}
+  {%- for key in [col_type, 'type', 'resource_type'] -%}
+    {%- if not ns.out and key and row[key] is defined and row[key] is not none and row[key] != '' -%}
+      {%- set v = row[key] -%}
+      {%- if v.label is defined and v.label -%}
+        {%- set ns.out = v.label|string|trim -%}
+      {%- elif v.name is defined and v.name -%}
+        {%- set ns.out = v.name|string|trim -%}
+      {%- else -%}
+        {%- set ns.out = v|string|trim -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {{- ns.out -}}
+{%- endmacro %}
+
+{% set resource_type_options = [
+  'Ebook',
+  'Featured Guide',
+  'Infographic',
+  'Innovations',
+  'Success Stories',
+  'Video',
+  'Webinar',
+  'White Paper'
+] %}
+
+{% set industry_options_default = [
+  'Banking & Financial Services',
+  'Travel & Hospitality',
+  'Healthcare & Life Sciences',
+  'Insurance',
+  'Manufacturing & Logistics',
+  'Consumer & Retail',
+  'Hi-tech & Startups'
+] %}
+
+{% set per_page_choices = module.per_page_options|default('6,9,12')|replace(' ', '')|split(',') %}
+
+{% set facet_rows = hubdb_table_rows(table_name, 'orderBy=-' ~ sort_col ~ '&limit=1000') %}
+
+{% set ns = namespace(items=[]) %}
+{% for row in facet_rows %}
+  {% set include_row = true %}
+  {% set row_industry = res_cell(row, col_industry, '') %}
+  {% set row_type = res_type_label(row) %}
+
+  {% if q_topic %}
+    {% set topic_ns = namespace(match=false) %}
+    {% set topics = row[col_topic] if row[col_topic] is defined else [] %}
+    {% if topics is iterable and topics is not string %}
+      {% for item in topics %}
+        {% set lbl = item.label|default(item.name, true)|default('')|string|trim|lower %}
+        {% if lbl == q_topic|lower %}{% set topic_ns.match = true %}{% endif %}
+      {% endfor %}
+    {% elif res_cell(row, col_topic, '')|lower == q_topic|lower %}
+      {% set topic_ns.match = true %}
+    {% endif %}
+    {% if not topic_ns.match %}{% set include_row = false %}{% endif %}
+  {% endif %}
+
+  {% if q_industry %}
+    {% set industry_ns = namespace(match=false) %}
+    {% set industries = row[col_industry] if row[col_industry] is defined else [] %}
+    {% if industries is iterable and industries is not string %}
+      {% for item in industries %}
+        {% set lbl = item.label|default(item.name, true)|default('')|string|trim|lower %}
+        {% if lbl == q_industry|lower %}{% set industry_ns.match = true %}{% endif %}
+      {% endfor %}
+    {% elif row_industry|lower == q_industry|lower %}
+      {% set industry_ns.match = true %}
+    {% endif %}
+    {% if not industry_ns.match %}{% set include_row = false %}{% endif %}
+  {% endif %}
+  {% if q_type %}
+    {% set want_type = q_type|string|lower %}
+    {% if want_type not in row_type|lower %}
+      {% set include_row = false %}
+    {% endif %}
+  {% endif %}
+  {% if include_row %}
+    {% set ns.items = ns.items + [row] %}
+  {% endif %}
+{% endfor %}
+
+{% set all_rows = ns.items %}
+{% set total = all_rows|length %}
+{% set total_pages = (total / q_per)|round(0, 'ceil')|int if total > 0 else 1 %}
+{% if q_page > total_pages %}{% set q_page = total_pages %}{% endif %}
+{% set offset = (q_page - 1) * q_per %}
+{% set page_rows = all_rows[offset:offset + q_per] %}
+
+{# Unique filter options from table (topic is multi-select) #}
+{% set topic_ns = namespace(values=[]) %}
+{% set industry_ns = namespace(values=[]) %}
+{% for row in facet_rows %}
+  {% set topics = row[col_topic] if row[col_topic] is defined else [] %}
+  {% if topics is iterable and topics is not string %}
+    {% for item in topics %}
+      {% set lbl = item.label|default(item.name, true)|default('')|string|trim %}
+      {% if lbl and lbl not in topic_ns.values %}
+        {% set topic_ns.values = topic_ns.values + [lbl] %}
+      {% endif %}
+    {% endfor %}
+  {% else %}
+    {% set lbl = res_cell(row, col_topic, '') %}
+    {% if lbl and lbl not in topic_ns.values %}
+      {% set topic_ns.values = topic_ns.values + [lbl] %}
+    {% endif %}
+  {% endif %}
+  {% set industries = row[col_industry] if row[col_industry] is defined else [] %}
+  {% if industries is iterable and industries is not string %}
+    {% for item in industries %}
+      {% set lbl = item.label|default(item.name, true)|default('')|string|trim %}
+      {% if lbl and lbl not in industry_ns.values %}
+        {% set industry_ns.values = industry_ns.values + [lbl] %}
+      {% endif %}
+    {% endfor %}
+  {% else %}
+    {% set lbl = res_cell(row, col_industry, '') %}
+    {% if lbl and lbl not in industry_ns.values %}
+      {% set industry_ns.values = industry_ns.values + [lbl] %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+{% set topic_options = topic_ns.values|sort %}
+{% set industry_options = (industry_ns.values + industry_options_default)|unique|sort %}
+{% set type_options = resource_type_options %}
+
+{% macro query_url(page_num, per_num) -%}
+  ?topic={{ q_topic|urlencode }}&industry={{ q_industry|urlencode }}&resource_type={{ q_type|urlencode }}&page={{ page_num }}&per_page={{ per_num }}
+{%- endmacro %}
+
+{% macro row_image_src(row) -%}
+  {%- set img = none -%}
+  {%- if col_image and row[col_image] is defined and row[col_image] -%}
+    {%- set img = row[col_image] -%}
+  {%- elif row['featured_image'] is defined and row['featured_image'] -%}
+    {%- set img = row['featured_image'] -%}
+  {%- endif -%}
+  {%- if img is string and img|trim -%}
+    {{- img|trim -}}
+  {%- elif img and img['url'] is defined and img['url'] -%}
+    {{- img['url']|string|trim -}}
+  {%- elif img and img.url is defined and img.url -%}
+    {{- img.url|string|trim -}}
+  {%- elif img and img['src'] is defined and img['src'] -%}
+    {{- img['src']|string|trim -}}
+  {%- elif img and img.src is defined and img.src -%}
+    {{- img.src|string|trim -}}
+  {%- endif -%}
+{%- endmacro %}
+
+{% macro row_image_alt(row) -%}
+  {%- set img = none -%}
+  {%- if col_image and row[col_image] is defined and row[col_image] -%}
+    {%- set img = row[col_image] -%}
+  {%- elif row['featured_image'] is defined and row['featured_image'] -%}
+    {%- set img = row['featured_image'] -%}
+  {%- endif -%}
+  {%- if img and img['altText'] is defined and img['altText'] -%}
+    {{- img['altText']|string|trim -}}
+  {%- elif img and img.altText is defined and img.altText -%}
+    {{- img.altText|string|trim -}}
+  {%- elif img and img['alt'] is defined and img['alt'] -%}
+    {{- img['alt']|string|trim -}}
+  {%- elif img and img.alt is defined and img.alt -%}
+    {{- img.alt|string|trim -}}
+  {%- endif -%}
+{%- endmacro %}
+
+{% macro row_href(row) -%}
+  {%- set raw = row[col_url] -%}
+  {%- if raw and raw != '#' -%}
+    {{ raw }}
+  {%- elif row.hs_path -%}/{{ row.hs_path }}{%- else -%}#{%- endif -%}
+{%- endmacro %}
+
+<section class="res-list" id="{{ module.section_id }}" data-res-list aria-label="{{ module.heading }}">
+  <div class="res-list__bg" aria-hidden="true"></div>
+
+  <div class="res-list__container">
+    <header class="res-list__header" data-res-sr>
+      <div class="res-list__badge">
+        <span class="res-list__badge-line" aria-hidden="true"></span>
+        <p class="res-list__badge-text">{{ module.badge_text }}</p>
+      </div>
+      <h2 class="res-list__heading">{{ module.heading }}</h2>
+    </header>
+
+    <form class="res-list__filters" method="get" data-res-filters data-res-sr>
+      <input type="hidden" name="page" value="1">
+      <input type="hidden" name="per_page" value="{{ q_per }}">
+
+      <div class="res-list__filter">
+        <div class="res-list__filter-control">
+          <label class="res-list__filter-label" for="res-filter-topic">{{ module.filter_topic_label }}</label>
+          <select id="res-filter-topic" name="topic" class="res-list__select" aria-label="{{ module.filter_topic_label }}">
+            <option value="">{{ module.filter_all_label }}</option>
+            {% for opt in topic_options %}
+              <option value="{{ opt }}"{% if q_topic|lower == opt|lower %} selected{% endif %}>{{ opt }}</option>
+            {% endfor %}
+          </select>
+          <span class="res-list__select-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </div>
+
+      <div class="res-list__filter">
+        <div class="res-list__filter-control">
+          <label class="res-list__filter-label" for="res-filter-industry">{{ module.filter_industry_label }}</label>
+          <select id="res-filter-industry" name="industry" class="res-list__select" aria-label="{{ module.filter_industry_label }}">
+            <option value="">{{ module.filter_all_label }}</option>
+            {% for opt in industry_options %}
+              <option value="{{ opt }}"{% if q_industry|lower == opt|lower %} selected{% endif %}>{{ opt }}</option>
+            {% endfor %}
+          </select>
+          <span class="res-list__select-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </div>
+
+      <div class="res-list__filter">
+        <div class="res-list__filter-control">
+          <label class="res-list__filter-label" for="res-filter-type">{{ module.filter_resource_label }}</label>
+          <select id="res-filter-type" name="resource_type" class="res-list__select" aria-label="{{ module.filter_resource_label }}">
+            <option value="">{{ module.filter_all_label }}</option>
+            {% for opt in type_options %}
+              <option value="{{ opt }}"{% if q_type|lower == opt|lower %} selected{% endif %}>{{ opt }}</option>
+            {% endfor %}
+          </select>
+          <span class="res-list__select-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </div>
+    </form>
+
+    {% if page_rows|length %}
+      <div class="res-list__grid" data-res-grid>
+        {% for row in page_rows %}
+          {% set title = res_cell(row, col_title, 'name') %}
+          {% set type_label = res_type_label(row) %}
+          {% set img_src = row_image_src(row)|trim %}
+          {% set img_alt = row_image_alt(row)|trim %}
+          {% set href = row_href(row)|trim %}
+          {% set has_link = href and href != '#' %}
+
+          {% if has_link %}
+          <a class="res-list__card{% if img_src %} res-list__card--has-bg{% endif %}"
+             href="{{ href }}"
+             data-res-card
+             data-res-sr>
+          {% else %}
+          <article class="res-list__card res-list__card--no-link{% if img_src %} res-list__card--has-bg{% endif %}"
+                   data-res-card
+                   data-res-sr>
+          {% endif %}
+
+            {% if img_src %}
+              <img class="res-list__card-media"
+                   src="{{ img_src }}"
+                   alt="{{ img_alt or title }}"
+                   loading="lazy"
+                   decoding="async"
+                   aria-hidden="true">
+            {% else %}
+              <span class="res-list__card-media res-list__card-media--placeholder" aria-hidden="true"></span>
+            {% endif %}
+
+            <div class="res-list__card-overlay" aria-hidden="true"></div>
+
+            {% if type_label %}
+            <span class="res-list__card-category">{{ type_label }}</span>
+            {% endif %}
+
+            {% if has_link %}
+            <span class="res-list__card-arrow" aria-hidden="true">
+              <span class="res-list__card-arrow-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </span>
+            {% endif %}
+
+            <h3 class="res-list__card-title">{{ title }}</h3>
+
+          {% if has_link %}</a>{% else %}</article>{% endif %}
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="res-list__empty" data-res-sr>{{ module.empty_message }}</p>
+    {% endif %}
+
+    {% if total > 0 %}
+      {% set range_start = offset + 1 %}
+      {% set range_end = offset + page_rows|length %}
+      <nav class="res-list__pagination" aria-label="Resources pagination" data-res-sr>
+        <div class="res-list__per">
+          <span class="res-list__per-label">Items per page</span>
+          <form class="res-list__per-form" method="get" data-res-per-form>
+            <input type="hidden" name="topic" value="{{ q_topic }}">
+            <input type="hidden" name="industry" value="{{ q_industry }}">
+            <input type="hidden" name="resource_type" value="{{ q_type }}">
+            <input type="hidden" name="page" value="1">
+            <div class="res-list__per-select-wrap">
+              <select name="per_page" class="res-list__per-select" data-res-per-page aria-label="Items per page">
+                {% for n in per_page_choices %}
+                  {% set n_int = n|int %}
+                  {% if n_int > 0 %}
+                    <option value="{{ n_int }}"{% if q_per == n_int %} selected{% endif %}>{{ '%02d'|format(n_int) if n_int < 10 else n_int }}</option>
+                  {% endif %}
+                {% endfor %}
+              </select>
+              <span class="res-list__select-icon res-list__select-icon--per" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </div>
+          </form>
+          <span class="res-list__per-count">{{ range_start }}-{{ range_end }} of {{ total }} items</span>
+        </div>
+
+        <div class="res-list__pages">
+          {% if q_page > 1 %}
+            <a class="res-list__page-btn" href="{{ query_url(q_page - 1, q_per) }}" data-res-page-link data-res-page="{{ q_page - 1 }}">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m15 18-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Back</span>
+            </a>
+          {% else %}
+            <span class="res-list__page-btn res-list__page-btn--disabled" aria-disabled="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m15 18-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Back</span>
+            </span>
+          {% endif %}
+
+          <div class="res-list__page-nums" role="list">
+            {% set window = 4 %}
+            {% set start_p = q_page - 1 %}
+            {% if start_p < 1 %}{% set start_p = 1 %}{% endif %}
+            {% if start_p + window - 1 > total_pages %}{% set start_p = total_pages - window + 1 %}{% endif %}
+            {% if start_p < 1 %}{% set start_p = 1 %}{% endif %}
+            {% for p in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20] %}
+              {% if p >= start_p and p < start_p + window and p <= total_pages %}
+                <a class="res-list__page-num{% if p == q_page %} is-active{% endif %}"
+                   href="{{ query_url(p, q_per) }}"
+                   data-res-page-link
+                   data-res-page="{{ p }}"
+                   role="listitem"
+                   {% if p == q_page %}aria-current="page"{% endif %}>{{ p }}</a>
+              {% endif %}
+            {% endfor %}
+          </div>
+
+          {% if q_page < total_pages %}
+            <a class="res-list__page-btn res-list__page-btn--next" href="{{ query_url(q_page + 1, q_per) }}" data-res-page-link data-res-page="{{ q_page + 1 }}">
+              <span>Next</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 18 6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          {% else %}
+            <span class="res-list__page-btn res-list__page-btn--next res-list__page-btn--disabled" aria-disabled="true">
+              <span>Next</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 18 6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          {% endif %}
+        </div>
+      </nav>
+    {% endif %}
+  </div>
+</section>

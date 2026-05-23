@@ -1,0 +1,68 @@
+<section class="cult-values"{% if module.section_id %} id="{{ module.section_id }}"{% endif %} data-culture-values>
+  <div class="cult-values__bgStack" aria-hidden="true">
+    {% for item in module.values %}
+      {% if item.background_image.src %}
+        <div class="cult-values__bg{% if loop.first %} is-active{% endif %}" data-cult-values-bg="{{ loop.index0 }}">
+          <img src="{{ item.background_image.src }}" alt="" loading="lazy" decoding="async">
+          <div class="cult-values__bgOverlay"></div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <div class="cult-values__wrap">
+    <div class="cult-values__badge" data-sr>
+      <span class="cult-values__badge-line" aria-hidden="true"></span>
+      <span class="cult-values__badge-text">{{ module.badge_text }}</span>
+    </div>
+
+    <div class="cult-values__slides">
+      {% for item in module.values %}
+        <div class="cult-values__slide{% if loop.first %} is-active{% endif %}" data-cult-values-slide="{{ loop.index0 }}">
+          <h2 class="cult-values__title">{{ item.title }}</h2>
+          <p class="cult-values__desc">{{ item.description }}</p>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="cult-values__nav" data-sr>
+      <button type="button" class="cult-values__pause" data-cult-values-pause aria-label="Pause autoplay">
+        <span class="cult-values__pauseIcon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <rect x="9.33" y="2.67" width="2.67" height="10.67" rx="1" fill="rgba(255,255,255,0.7)"/>
+            <rect x="4" y="2.67" width="2.67" height="10.67" rx="1" fill="rgba(255,255,255,0.7)"/>
+          </svg>
+        </span>
+        <span class="cult-values__playIcon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 2.5l10 5.5-10 5.5V2.5z" fill="rgba(255,255,255,0.7)"/>
+          </svg>
+        </span>
+      </button>
+      <div class="cult-values__nums" role="tablist" aria-label="{{ module.nav_aria_label|default('Values slides') }}">
+        {% for item in module.values %}
+          <button
+            type="button"
+            class="cult-values__num{% if loop.first %} is-active{% endif %}"
+            data-cult-values-go="{{ loop.index0 }}"
+            role="tab"
+            aria-selected="{{ 'true' if loop.first else 'false' }}"
+          >{% if loop.index < 10 %}0{% endif %}{{ loop.index }}</button>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="cult-values__cta" data-sr>
+      <p class="cult-values__ctaText">{{ module.cta_text }}</p>
+      {% if module.cta_url.href %}
+        <a class="cult-values__ctaBtn" href="{{ module.cta_url.href }}"{% if module.cta_url.open_in_new_tab %} target="_blank" rel="noopener noreferrer"{% endif %}>
+          <span>{{ module.cta_button_text }}</span>
+          <svg width="18" height="18" viewBox="0 0 17.4893 17.4893" fill="none" aria-hidden="true">
+            <path d="M3.64453 8.74414H13.8466" stroke="#194247" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.45744"/>
+            <path d="M8.74512 3.64347L13.8462 8.74453L8.74512 13.8456" stroke="#194247" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.45744"/>
+          </svg>
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</section>

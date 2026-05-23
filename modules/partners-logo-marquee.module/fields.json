@@ -1,0 +1,217 @@
+[ {
+  "id" : "section_id",
+  "name" : "section_id",
+  "label" : "Section ID",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "partners-logo-marquee"
+}, {
+  "id" : "background_filename",
+  "name" : "background_filename",
+  "label" : "Background texture filename",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "section-bg.png"
+}, {
+  "id" : "row_1_logos",
+  "name" : "row_1_logos",
+  "label" : "Row 1 logos (scrolls left)",
+  "help_text" : "First marquee row. Logos repeat automatically for a seamless loop.",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 0,
+    "max" : 24,
+    "sorting_label_field" : "row_1_logos.image",
+    "default" : 0
+  },
+  "children" : [ {
+    "id" : "row_1_logos.image",
+    "name" : "image",
+    "label" : "Logo image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "",
+      "alt" : ""
+    }
+  }, {
+    "id" : "row_1_logos.image_filename",
+    "name" : "image_filename",
+    "label" : "Logo filename (theme asset)",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null
+}, {
+  "id" : "row_2_logos",
+  "name" : "row_2_logos",
+  "label" : "Row 2 logos (scrolls right)",
+  "help_text" : "Second marquee row.",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 0,
+    "max" : 24,
+    "sorting_label_field" : "row_2_logos.image",
+    "default" : 0
+  },
+  "children" : [ {
+    "id" : "row_2_logos.image",
+    "name" : "image",
+    "label" : "Logo image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "",
+      "alt" : ""
+    }
+  }, {
+    "id" : "row_2_logos.image_filename",
+    "name" : "image_filename",
+    "label" : "Logo filename (theme asset)",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null
+}, {
+  "id" : "row_3_logos",
+  "name" : "row_3_logos",
+  "label" : "Row 3 logos (scrolls left)",
+  "help_text" : "Third marquee row (slightly narrower tiles).",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 0,
+    "max" : 24,
+    "sorting_label_field" : "row_3_logos.image",
+    "default" : 0
+  },
+  "children" : [ {
+    "id" : "row_3_logos.image",
+    "name" : "image",
+    "label" : "Logo image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "",
+      "alt" : ""
+    }
+  }, {
+    "id" : "row_3_logos.image_filename",
+    "name" : "image_filename",
+    "label" : "Logo filename (theme asset)",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null
+}, {
+  "id" : "logos",
+  "name" : "logos",
+  "label" : "All logos (legacy — auto-split across 3 rows)",
+  "help_text" : "Deprecated: use Row 1/2/3 logo groups instead. If filled, logos are split evenly: 1st→row 1, 2nd→row 2, 3rd→row 3, 4th→row 1, etc.",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 0,
+    "max" : 40,
+    "sorting_label_field" : null,
+    "default" : 0
+  },
+  "children" : [ {
+    "id" : "logos.image",
+    "name" : "image",
+    "label" : "Logo image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "",
+      "alt" : null,
+      "size_type" : null,
+      "width" : null,
+      "height" : null,
+      "max_width" : null,
+      "max_height" : null,
+      "loading" : "disabled"
+    }
+  }, {
+    "id" : "logos.image_filename",
+    "name" : "image_filename",
+    "label" : "Logo filename (theme asset)",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "logos.row",
+    "name" : "row",
+    "label" : "Marquee row (optional override)",
+    "required" : false,
+    "locked" : false,
+    "display" : "select",
+    "choices" : [ [ "auto", "Auto (split by order)" ], [ "1", "Row 1" ], [ "2", "Row 2" ], [ "3", "Row 3" ] ],
+    "multiple" : false,
+    "reordering_enabled" : true,
+    "preset" : null,
+    "type" : "choice",
+    "display_width" : null,
+    "default" : "auto"
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null
+} ]

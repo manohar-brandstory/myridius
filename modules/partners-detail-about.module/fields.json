@@ -1,0 +1,37 @@
+[
+  {
+    "id": "section_id",
+    "name": "section_id",
+    "label": "Section ID",
+    "type": "text",
+    "default": "partner-about"
+  },
+  {
+    "id": "badge_text",
+    "name": "badge_text",
+    "label": "Badge text",
+    "type": "text",
+    "default": "Partnership overview"
+  },
+  {
+    "id": "title",
+    "name": "title",
+    "label": "Heading",
+    "type": "text",
+    "default": "Built for enterprises that need Salesforce quality at speed"
+  },
+  {
+    "id": "section_content",
+    "name": "section_content",
+    "label": "Body content",
+    "type": "richtext",
+    "default": "<p>Together, Myridius and our partners help organizations modernize platforms, activate data, and scale AI-native execution with confidence.</p><p>We combine deep delivery expertise with best-in-class technology to reduce risk, accelerate releases, and improve outcomes across the enterprise.</p>"
+  },
+  {
+    "id": "side_image",
+    "name": "side_image",
+    "label": "Side image (optional)",
+    "type": "image",
+    "default": { "src": "", "alt": "" }
+  }
+]

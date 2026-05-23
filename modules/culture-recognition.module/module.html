@@ -1,0 +1,27 @@
+<section class="cult-rec"{% if module.section_id %} id="{{ module.section_id }}"{% endif %} data-culture-recognition>
+  <div class="cult-rec__wrap">
+    <div class="cult-rec__copy" data-sr="left">
+      <div class="cult-rec__intro">
+        <div class="cult-rec__badge">
+          <span class="cult-rec__badge-line" aria-hidden="true"></span>
+          <span class="cult-rec__badge-text">{{ module.badge_text }}</span>
+        </div>
+        <h2 class="cult-rec__heading">{{ module.heading }}</h2>
+      </div>
+      <div class="cult-rec__body">{{ module.description }}</div>
+    </div>
+
+    <div class="cult-rec__badges" data-sr="right">
+      {% if module.badge_image_1.src %}
+        <div class="cult-rec__badgeCell">
+          <img class="cult-rec__badgeImg" src="{{ module.badge_image_1.src }}" alt="{{ module.badge_image_1.alt|default('Great Place to Work certified') }}" loading="lazy" decoding="async">
+        </div>
+      {% endif %}
+      {% if module.badge_image_2.src %}
+        <div class="cult-rec__badgeCell">
+          <img class="cult-rec__badgeImg" src="{{ module.badge_image_2.src }}" alt="{{ module.badge_image_2.alt|default('Great Place to Work certified') }}" loading="lazy" decoding="async">
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "section_id",
+    "name": "section_id",
+    "label": "Section ID",
+    "type": "text",
+    "default": "event-overview"
+  },
+  {
+    "id": "badge_text",
+    "name": "badge_text",
+    "label": "Badge Text",
+    "type": "text",
+    "default": "MYRIDIUS"
+  },
+  {
+    "id": "title",
+    "name": "title",
+    "label": "Heading",
+    "type": "text",
+    "default": "The flagship Salesforce event connecting thousands of innovators"
+  },
+  {
+    "id": "section_content",
+    "name": "section_content",
+    "label": "Body Content",
+    "type": "richtext",
+    "default": "<p>The flagship Salesforce event connecting thousands of leaders, builders, and partners. Experience keynotes, product roadmaps, and hands-on sessions designed to help you scale with confidence.</p><p>Myridius will be on-site with live demos, executive briefings, and practical guidance on how to turn your Salesforce investment into measurable business outcomes.</p>"
+  },
+  {
+    "id": "background_image",
+    "name": "background_image",
+    "label": "Full-bleed Background Image (optional)",
+    "type": "image",
+    "default": { "src": "", "alt": "" },
+    "help_text": "When set, the section uses a tall visual frame (~968px) with content over the image."
+  }
+]

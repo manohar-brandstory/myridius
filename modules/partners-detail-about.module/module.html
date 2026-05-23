@@ -1,0 +1,29 @@
+<section class="pd-about" data-pd-about {% if module.section_id %}id="{{ module.section_id }}"{% endif %}>
+  <div class="pd-about__wrap">
+    <header class="pd-about__header" data-sr>
+      <div class="pd-about__badge">
+        <span class="pd-about__badgeLine" aria-hidden="true"></span>
+        <span class="pd-about__badgeText">{{ module.badge_text }}</span>
+      </div>
+      {% if module.title %}
+        <h2 class="pd-about__title">{{ module.title }}</h2>
+      {% endif %}
+    </header>
+
+    <div class="pd-about__grid">
+      {% if module.section_content %}
+        <div class="pd-about__content" data-sr>{{ module.section_content }}</div>
+      {% endif %}
+      {% if module.side_image.src %}
+        <div class="pd-about__media" data-sr>
+          <img
+            src="{{ module.side_image.src }}"
+            alt="{{ module.side_image.alt|default('') }}"
+            loading="lazy"
+            decoding="async"
+          >
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,80 @@
+[
+  {
+    "id": "breadcrumb_items",
+    "name": "breadcrumb_items",
+    "label": "Breadcrumb Items",
+    "type": "group",
+    "occurrence": { "min": 1, "max": 6, "default": 3 },
+    "children": [
+      {
+        "id": "breadcrumb_items.crumb_text",
+        "name": "crumb_text",
+        "label": "Label",
+        "type": "text",
+        "default": "Myridius"
+      },
+      {
+        "id": "breadcrumb_items.link",
+        "name": "link",
+        "label": "Link (optional)",
+        "type": "url",
+        "default": { "href": "", "type": "EXTERNAL" }
+      },
+      {
+        "id": "breadcrumb_items.is_current",
+        "name": "is_current",
+        "label": "Current page",
+        "type": "boolean",
+        "default": false
+      }
+    ],
+    "default": [
+      { "crumb_text": "Myridius", "is_current": false },
+      { "crumb_text": "Resource", "is_current": false },
+      { "crumb_text": "Whitepaper", "is_current": true }
+    ]
+  },
+  {
+    "id": "title",
+    "name": "title",
+    "label": "Title",
+    "type": "text",
+    "default": "Orchestrating the Future: Designing a Human + AI Operating Model for the Age of Agentic Intelligence"
+  },
+  {
+    "id": "cta_text",
+    "name": "cta_text",
+    "label": "Primary CTA Text",
+    "type": "text",
+    "default": "Download Whitepaper"
+  },
+  {
+    "id": "cta_url",
+    "name": "cta_url",
+    "label": "Primary CTA Link",
+    "type": "url",
+    "default": { "href": "#resource-download-form", "type": "EXTERNAL" },
+    "help_text": "Use #resource-download-form to scroll to the gated form section."
+  },
+  {
+    "id": "presented_by",
+    "name": "presented_by",
+    "label": "Presented By Label",
+    "type": "text",
+    "default": "Presented by Myridius"
+  },
+  {
+    "id": "collaboration_text",
+    "name": "collaboration_text",
+    "label": "Collaboration Text",
+    "type": "text",
+    "default": "in Collaboration with Everest Group"
+  },
+  {
+    "id": "hero_image",
+    "name": "hero_image",
+    "label": "Hero Image",
+    "type": "image",
+    "default": { "src": "", "alt": "Resource cover image" }
+  }
+]

@@ -1,0 +1,57 @@
+[
+  {
+    "id": "section_id",
+    "name": "section_id",
+    "label": "Section ID (anchor)",
+    "type": "text",
+    "default": "partner-contact-form"
+  },
+  {
+    "id": "badge_text",
+    "name": "badge_text",
+    "label": "Badge Text",
+    "type": "text",
+    "default": "Let's talk"
+  },
+  {
+    "id": "heading_line",
+    "name": "heading_line",
+    "label": "Heading (line 1)",
+    "type": "text",
+    "default": "Tell us your ambition."
+  },
+  {
+    "id": "heading_accent",
+    "name": "heading_accent",
+    "label": "Heading (accent line)",
+    "type": "text",
+    "default": "We'll help turn it into impact."
+  },
+  {
+    "id": "description",
+    "name": "description",
+    "label": "Description",
+    "type": "richtext",
+    "default": "<p>Connect with Myridius to explore how this partnership can support your platform, quality, and AI-native execution goals.</p>"
+  },
+  {
+    "id": "background_image",
+    "name": "background_image",
+    "label": "Background Image (optional)",
+    "type": "image",
+    "default": { "src": "", "alt": "" }
+  },
+  {
+    "id": "form_field",
+    "name": "form_field",
+    "label": "HubSpot Form",
+    "type": "form",
+    "embed_versions": ["v2", "v4"],
+    "default": {
+      "form_id": "",
+      "response_type": "inline_message",
+      "message": "Thanks for reaching out. Our team will be in touch shortly.",
+      "form_type": "HUBSPOT"
+    }
+  }
+]

@@ -1,0 +1,243 @@
+{# News listing — same dark Resource Hub chrome (image cards + paginator).
+   Pulls rows from a configurable HubDB table; falls back to demo placeholders
+   when the table isn't configured yet so the layout can be designed in advance. #}
+
+{% set table_name = module.hubdb_table_name|default('', true)|trim %}
+{% set col_title = module.col_title|default('news_title') %}
+{% set col_url = module.col_url|default('news_link') %}
+{% set col_image = module.col_image|default('news_featured_image') %}
+{% set col_category = module.col_category|default('news_type') %}
+{% set col_date = module.col_publish_date|default('news_order') %}
+{% set sort_dir = module.sort_direction|default('asc') %}
+{% set sort_prefix = '-' if sort_dir == 'desc' else '' %}
+
+{# ── Read query string (pagination only) ── #}
+{% set q_page = request.query_dict.page|default('1', true)|int %}
+{% set q_per = request.query_dict.per_page|default(module.default_per_page|default('9'), true)|int %}
+{% if q_page < 1 %}{% set q_page = 1 %}{% endif %}
+{% if q_per < 1 %}{% set q_per = 9 %}{% endif %}
+
+{% set per_page_choices = module.per_page_options|default('6,9,12')|replace(' ', '')|split(',') %}
+
+{# ── Fetch rows from HubDB (e.g. table "news_2026" with columns:
+      news_title, news_featured_image, news_link, news_type, news_order).
+      Falls back to placeholder demo cards when the table isn't configured yet. #}
+{% set ns = namespace(rows=[]) %}
+
+{% if table_name %}
+  {% set fetched = hubdb_table_rows(table_name, 'orderBy=' ~ sort_prefix ~ col_date ~ '&limit=1000') %}
+  {% if fetched %}
+    {% set ns.rows = fetched %}
+  {% endif %}
+{% endif %}
+
+{% if not ns.rows %}
+  {% set ns.rows = [
+    { 'news_title': 'Myridius Expands Manila Operations With New AI-Focused Delivery Center',
+      'news_link': '#', 'news_featured_image': { 'url': 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080' },
+      'news_type': 'Press Release', 'news_order': 1 },
+    { 'news_title': 'Myridius Wins Best Workplace Award Third Consecutive Year',
+      'news_link': '#', 'news_featured_image': { 'url': 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080' },
+      'news_type': 'Award', 'news_order': 2 },
+    { 'news_title': 'Strategic Partnership Announced With Leading Cloud Provider',
+      'news_link': '#', 'news_featured_image': { 'url': 'https://images.unsplash.com/photo-1497366216548-37526070297c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080' },
+      'news_type': 'Partnership', 'news_order': 3 },
+    { 'news_title': 'Launching Evoq 2.0 — The Next Generation Innovation Fabric',
+      'news_link': '#', 'news_featured_image': { 'url': 'https://images.unsplash.com/photo-1531482615713-2afd69097998?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080' },
+      'news_type': 'Product', 'news_order': 4 },
+    { 'news_title': 'Myridius Featured in Industry Analyst Report on Agentic AI',
+      'news_link': '#', 'news_featured_image': { 'url': 'https://images.unsplash.com/photo-1551434678-e076c223a692?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080' },
+      'news_type': 'In The Press', 'news_order': 5 },
+    { 'news_title': 'New Center of Excellence Opens in Bengaluru',
+      'news_link': '#', 'news_featured_image': { 'url': 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080' },
+      'news_type': 'Press Release', 'news_order': 6 },
+    { 'news_title': 'Myridius Joins Global Sustainability Coalition',
+      'news_link': '#', 'news_featured_image': { 'url': 'https://images.unsplash.com/photo-1518770660439-4636190af475?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080' },
+      'news_type': 'Sustainability', 'news_order': 7 },
+    { 'news_title': 'Annual Innovation Summit Highlights Customer Outcomes',
+      'news_link': '#', 'news_featured_image': { 'url': 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080' },
+      'news_type': 'Event', 'news_order': 8 },
+    { 'news_title': 'Myridius Wins Multiple Categories at Tech Excellence Awards',
+      'news_link': '#', 'news_featured_image': { 'url': 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080' },
+      'news_type': 'Award', 'news_order': 9 }
+  ] %}
+{% endif %}
+
+{% set all_rows = ns.rows %}
+{% set total = all_rows|length %}
+{% set total_pages = (total / q_per)|round(0, 'ceil')|int if total > 0 else 1 %}
+{% if q_page > total_pages %}{% set q_page = total_pages %}{% endif %}
+{% set offset = (q_page - 1) * q_per %}
+{% set page_rows = all_rows[offset:offset + q_per] %}
+
+{% macro row_image_src(row, col) -%}
+  {%- set img = row[col] -%}
+  {%- if img and img.url -%}{{ img.url }}{%- elif img -%}{{ img }}{%- endif -%}
+{%- endmacro %}
+
+{# Safely extract a label from a HubDB cell that may be a string, a Select
+   object (label/name/id), or a list of Select objects (multi-select).
+   HubSpot Select cells aren't Python dicts, so we avoid `is mapping` and
+   just try attribute access — undefined attrs evaluate as falsy. #}
+{% macro row_label(row, col, fallback) -%}
+  {%- set raw = row[col] -%}
+  {%- if raw is iterable and raw is not string and raw is not mapping -%}
+    {%- set first = raw|first -%}
+    {%- if first.label -%}{{ first.label }}
+    {%- elif first.name -%}{{ first.name }}
+    {%- elif first -%}{{ first }}
+    {%- else -%}{{ fallback }}{%- endif -%}
+  {%- elif raw.label -%}
+    {{ raw.label }}
+  {%- elif raw.name -%}
+    {{ raw.name }}
+  {%- elif raw -%}
+    {{ raw }}
+  {%- else -%}
+    {{ fallback }}
+  {%- endif -%}
+{%- endmacro %}
+
+{% macro row_href(row, col) -%}
+  {%- set raw = row[col] -%}
+  {%- if raw and raw != '#' -%}{{ raw }}
+  {%- elif row.hs_path -%}/{{ row.hs_path }}
+  {%- else -%}#{%- endif -%}
+{%- endmacro %}
+
+{% macro query_url(page_num, per_num) -%}
+  {{ request.path }}?page={{ page_num }}&per_page={{ per_num }}
+{%- endmacro %}
+
+<section class="news-list" id="{{ module.section_id }}" data-news-list aria-label="{{ module.heading }}">
+  <div class="news-list__bg" aria-hidden="true"></div>
+
+  <div class="news-list__container">
+    <header class="news-list__header" data-news-sr>
+      <div class="news-list__badge">
+        <span class="news-list__badge-line" aria-hidden="true"></span>
+        <p class="news-list__badge-text">{{ module.badge_text }}</p>
+      </div>
+      <h2 class="news-list__heading">{{ module.heading }}</h2>
+    </header>
+
+    {% if page_rows|length %}
+      <div class="news-list__grid" data-news-grid>
+        {% for row in page_rows %}
+          {% set title = row[col_title]|default('') %}
+          {% set category = row_label(row, col_category, 'News')|trim %}
+          {% set img_src = row_image_src(row, col_image)|trim %}
+          {% set href = row_href(row, col_url)|trim %}
+          {% set has_link = href and href != '#' %}
+
+          {% if has_link %}
+          <a class="news-list__card{% if img_src %} news-list__card--has-bg{% endif %}"
+             href="{{ href }}"
+             data-news-card
+             data-news-sr>
+          {% else %}
+          <article class="news-list__card news-list__card--no-link{% if img_src %} news-list__card--has-bg{% endif %}"
+                   data-news-card
+                   data-news-sr>
+          {% endif %}
+
+            {% if img_src %}
+              <span class="news-list__card-media" style="background-image: url('{{ img_src }}');" aria-hidden="true"></span>
+            {% else %}
+              <span class="news-list__card-media news-list__card-media--placeholder" aria-hidden="true"></span>
+            {% endif %}
+
+            <div class="news-list__card-overlay" aria-hidden="true"></div>
+
+            <span class="news-list__card-category">{{ category }}</span>
+
+            {% if has_link %}
+            <span class="news-list__card-arrow" aria-hidden="true">
+              <span class="news-list__card-arrow-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </span>
+            {% endif %}
+
+            <h3 class="news-list__card-title">{{ title }}</h3>
+
+          {% if has_link %}</a>{% else %}</article>{% endif %}
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="news-list__empty" data-news-sr>{{ module.empty_message }}</p>
+    {% endif %}
+
+    {% if total > 0 %}
+      {% set range_start = offset + 1 %}
+      {% set range_end = offset + page_rows|length %}
+      <nav class="news-list__pagination" aria-label="News pagination" data-news-sr>
+        <div class="news-list__per">
+          <span class="news-list__per-label">Items per page</span>
+          <form class="news-list__per-form" method="get" action="{{ request.path }}">
+            <input type="hidden" name="page" value="1">
+            <div class="news-list__per-select-wrap">
+              <select name="per_page" class="news-list__per-select" data-news-per-page aria-label="Items per page">
+                {% for n in per_page_choices %}
+                  {% set n_int = n|int %}
+                  {% if n_int > 0 %}
+                    <option value="{{ n_int }}"{% if q_per == n_int %} selected{% endif %}>{{ '%02d'|format(n_int) if n_int < 10 else n_int }}</option>
+                  {% endif %}
+                {% endfor %}
+              </select>
+              <span class="news-list__select-icon news-list__select-icon--per" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </div>
+          </form>
+          <span class="news-list__per-count">{{ range_start }}-{{ range_end }} of {{ total }} items</span>
+        </div>
+
+        <div class="news-list__pages">
+          {% if q_page > 1 %}
+            <a class="news-list__page-btn" href="{{ query_url(q_page - 1, q_per) }}">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m15 18-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Back</span>
+            </a>
+          {% else %}
+            <span class="news-list__page-btn news-list__page-btn--disabled" aria-disabled="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m15 18-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Back</span>
+            </span>
+          {% endif %}
+
+          <div class="news-list__page-nums" role="list">
+            {% set window = 4 %}
+            {% set start_p = q_page - 1 %}
+            {% if start_p < 1 %}{% set start_p = 1 %}{% endif %}
+            {% if start_p + window - 1 > total_pages %}{% set start_p = total_pages - window + 1 %}{% endif %}
+            {% if start_p < 1 %}{% set start_p = 1 %}{% endif %}
+            {% for p in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20] %}
+              {% if p >= start_p and p < start_p + window and p <= total_pages %}
+                <a class="news-list__page-num{% if p == q_page %} is-active{% endif %}"
+                   href="{{ query_url(p, q_per) }}"
+                   role="listitem"
+                   {% if p == q_page %}aria-current="page"{% endif %}>{{ p }}</a>
+              {% endif %}
+            {% endfor %}
+          </div>
+
+          {% if q_page < total_pages %}
+            <a class="news-list__page-btn news-list__page-btn--next" href="{{ query_url(q_page + 1, q_per) }}">
+              <span>Next</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 18 6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          {% else %}
+            <span class="news-list__page-btn news-list__page-btn--next news-list__page-btn--disabled" aria-disabled="true">
+              <span>Next</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 18 6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          {% endif %}
+        </div>
+      </nav>
+    {% endif %}
+  </div>
+</section>

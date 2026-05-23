@@ -1,0 +1,210 @@
+[ {
+  "id" : "section_id",
+  "name" : "section_id",
+  "label" : "Section ID",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "news-hero"
+}, {
+  "id" : "breadcrumb_primary",
+  "name" : "breadcrumb_primary",
+  "label" : "Breadcrumb primary",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Myridius"
+}, {
+  "id" : "breadcrumb_separator",
+  "name" : "breadcrumb_separator",
+  "label" : "Breadcrumb separator",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "/"
+}, {
+  "id" : "breadcrumb_secondary",
+  "name" : "breadcrumb_secondary",
+  "label" : "Breadcrumb secondary",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "News"
+}, {
+  "id" : "heading_line1",
+  "name" : "heading_line1",
+  "label" : "Heading - leading text",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "We're in the"
+}, {
+  "id" : "heading_highlight",
+  "name" : "heading_highlight",
+  "label" : "Heading - highlighted word",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "news!"
+}, {
+  "id" : "subtitle",
+  "name" : "subtitle",
+  "label" : "Subtitle",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Explore how we're making an impact"
+}, {
+  "id" : "cta_text",
+  "name" : "cta_text",
+  "label" : "Slide CTA text",
+  "help_text" : "Label shown for each slide's read-more link.",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Read More"
+}, {
+  "id" : "autoplay_interval",
+  "name" : "autoplay_interval",
+  "label" : "Autoplay interval (ms)",
+  "help_text" : "Time between automatic slide changes. Set 0 to disable autoplay.",
+  "required" : false,
+  "locked" : false,
+  "display" : "text",
+  "min" : 0,
+  "max" : 60000,
+  "step" : 500,
+  "type" : "number",
+  "display_width" : null,
+  "default" : 8000
+}, {
+  "id" : "slides",
+  "name" : "slides",
+  "label" : "News slides",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 10,
+    "sorting_label_field" : null,
+    "default" : 5
+  },
+  "children" : [ {
+    "id" : "slides.title",
+    "name" : "title",
+    "label" : "Title",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : true,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "News headline goes here"
+  }, {
+    "id" : "slides.image",
+    "name" : "image",
+    "label" : "Background image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : true,
+    "show_loading" : false,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "",
+      "alt" : "",
+      "loading" : "disabled"
+    }
+  }, {
+    "id" : "slides.link",
+    "name" : "link",
+    "label" : "Article link",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+    "type" : "url",
+    "display_width" : null,
+    "default" : {
+      "content_id" : null,
+      "href" : "#",
+      "type" : "EXTERNAL"
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "title" : "Myridius Expands Manila Operations With New AI-Focused Delivery Center",
+    "image" : {
+      "src" : "https://images.unsplash.com/photo-1540575467063-178a50c2df87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1600",
+      "alt" : "Conference"
+    },
+    "link" : {
+      "href" : "#",
+      "type" : "EXTERNAL",
+      "content_id" : null
+    }
+  }, {
+    "title" : "Myridius Wins Best Workplace Award for the Third Consecutive Year",
+    "image" : {
+      "src" : "https://images.unsplash.com/photo-1521737711867-e3b97375f902?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1600",
+      "alt" : "Team"
+    },
+    "link" : {
+      "href" : "#",
+      "type" : "EXTERNAL",
+      "content_id" : null
+    }
+  }, {
+    "title" : "Strategic Partnership Announced with Leading Cloud Provider",
+    "image" : {
+      "src" : "https://images.unsplash.com/photo-1497366216548-37526070297c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1600",
+      "alt" : "Office"
+    },
+    "link" : {
+      "href" : "#",
+      "type" : "EXTERNAL",
+      "content_id" : null
+    }
+  }, {
+    "title" : "Launching Evoq 2.0 - The Next Generation Innovation Fabric",
+    "image" : {
+      "src" : "https://images.unsplash.com/photo-1531482615713-2afd69097998?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1600",
+      "alt" : "Innovation"
+    },
+    "link" : {
+      "href" : "#",
+      "type" : "EXTERNAL",
+      "content_id" : null
+    }
+  }, {
+    "title" : "Myridius Featured in Industry Analyst Report on Agentic AI",
+    "image" : {
+      "src" : "https://images.unsplash.com/photo-1551434678-e076c223a692?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1600",
+      "alt" : "Analytics"
+    },
+    "link" : {
+      "href" : "#",
+      "type" : "EXTERNAL",
+      "content_id" : null
+    }
+  } ]
+} ]

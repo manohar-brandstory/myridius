@@ -1,0 +1,89 @@
+{% set hero_src = module.hero_image.src|default('')|trim %}
+{% if (not hero_src) or ('{{' in hero_src) or ('get_asset_url' in hero_src) %}
+  {% if module.hero_image_filename %}
+    {% set hero_src = get_asset_url('/Myridius Theme V1/images/partners/' ~ module.hero_image_filename) %}
+  {% endif %}
+{% endif %}
+{% set hero_w = module.hero_image_width|default(456)|int %}
+{% set hero_h = module.hero_image_height|default(570)|int %}
+{% set hero_h_mobile = module.hero_image_height_mobile|default(260)|int %}
+
+<section
+  class="pd-hero"
+  data-pd-hero
+  style="--pd-media-w: {{ hero_w }}px; --pd-media-h: {{ hero_h }}px; --pd-media-h-mobile: {{ hero_h_mobile }}px;"
+  {% if module.section_id %}id="{{ module.section_id }}"{% endif %}
+>
+  <div class="pd-hero__wrap">
+    <div class="pd-hero__row">
+      <div class="pd-hero__content">
+        {% if module.breadcrumb_items %}
+          <nav class="pd-hero__crumb" aria-label="Breadcrumb" data-sr>
+            {% for item in module.breadcrumb_items %}
+              {% if not loop.first %}
+                <span class="pd-hero__crumbSep" aria-hidden="true">/</span>
+              {% endif %}
+              {% if item.link.href and not item.is_current %}
+                <a class="pd-hero__crumbLink" href="{{ item.link.href }}">{{ item.crumb_text }}</a>
+              {% else %}
+                <span class="pd-hero__crumbLink{% if item.is_current %} is-current{% endif %}">{{ item.crumb_text }}</span>
+              {% endif %}
+            {% endfor %}
+          </nav>
+        {% endif %}
+
+        {% if module.partner_logo.src %}
+          <div class="pd-hero__logo" data-sr>
+            <img
+              src="{{ module.partner_logo.src }}"
+              alt="{{ module.partner_logo.alt|default(module.heading) }}"
+              loading="eager"
+              decoding="async"
+            >
+          </div>
+        {% endif %}
+
+        <div class="pd-hero__copy" data-sr>
+          <h1 class="pd-hero__heading">
+            {% if module.heading %}
+              <span class="pd-hero__heading-line">{{ module.heading }}</span>
+            {% endif %}
+            {% if module.heading_accent %}
+              <span class="pd-hero__heading-accent">{{ module.heading_accent }}</span>
+            {% endif %}
+          </h1>
+          {% if module.description %}
+            <div class="pd-hero__description">{{ module.description }}</div>
+          {% endif %}
+        </div>
+
+        {% set cta_text = module.cta_text|default('')|striptags|trim %}
+        {% set cta_href = module.cta_url.href|default('')|trim %}
+        {% set show_cta = cta_text and cta_href and cta_href != '#' and '{{' not in cta_href %}
+        {% if show_cta %}
+          <div class="pd-hero__actions" data-sr>
+            <a class="pd-hero__btn" href="{{ cta_href }}" data-scroll>
+              <span>{{ cta_text }}</span>
+              <svg width="17" height="17" viewBox="0 0 17.49 17.49" fill="none" aria-hidden="true">
+                <path d="M3.645 8.744H13.847" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.457"/>
+                <path d="M8.745 3.644L13.846 8.744L8.745 13.845" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.457"/>
+              </svg>
+            </a>
+          </div>
+        {% endif %}
+      </div>
+
+      {% if hero_src %}
+        <div class="pd-hero__media" data-sr>
+          <img
+            class="pd-hero__media-img"
+            src="{{ hero_src }}"
+            alt="{{ module.hero_image.alt|default(module.heading) }}"
+            loading="eager"
+            decoding="async"
+          >
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>

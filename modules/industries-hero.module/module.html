@@ -9,10 +9,19 @@
           {{ module.description }}
         </div>
 
+        {% set primary_text = module.primary_button_text|default('')|striptags|trim %}
+        {% set primary_href = module.primary_button_url.href|default('')|trim %}
+        {% set show_primary = primary_text and primary_href and primary_href != '#' and '{{' not in primary_href %}
+
+        {% set secondary_text = module.secondary_button_text|default('')|striptags|trim %}
+        {% set secondary_href = module.secondary_button_url.href|default('')|trim %}
+        {% set show_secondary = secondary_text and secondary_href and secondary_href != '#' and '{{' not in secondary_href %}
+
+        {% if show_primary or show_secondary %}
         <div class="hero__actions">
-          {% if module.primary_button_text %}
-            <a class="hero__btn hero__btn--primary" href="{{ module.primary_button_url.href }}" data-scroll>
-              <span class="hero__btnText">{{ module.primary_button_text }}</span>
+          {% if show_primary %}
+            <a class="hero__btn hero__btn--primary" href="{{ primary_href }}" data-scroll>
+              <span class="hero__btnText">{{ primary_text }}</span>
               <span class="hero__btnIcon" aria-hidden="true">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                   <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -22,12 +31,13 @@
             </a>
           {% endif %}
 
-          {% if module.secondary_button_text %}
-            <a class="hero__btn hero__btn--secondary" href="{{ module.secondary_button_url.href }}" data-scroll>
-              {{ module.secondary_button_text }}
+          {% if show_secondary %}
+            <a class="hero__btn hero__btn--secondary" href="{{ secondary_href }}" data-scroll>
+              {{ secondary_text }}
             </a>
           {% endif %}
         </div>
+        {% endif %}
       </div>
 
       <div class="hero__media" data-sr>
@@ -42,11 +52,27 @@
             >
           {% endif %}
 
-          <div class="hero__meta">
-            <div class="hero__metaKicker">{{ module.meta_kicker }}</div>
-            <div class="hero__metaTitle">{{ module.meta_title }}</div>
-            <div class="hero__metaSub">{{ module.meta_subtitle }}</div>
+          {% set meta_kicker = module.meta_kicker|default('')|striptags|trim %}
+          {% set meta_title = module.meta_title|default('')|striptags|trim %}
+          {% set meta_subtitle = module.meta_subtitle|default('')|striptags|trim %}
+          {% set show_meta_kicker = meta_kicker and '{{' not in meta_kicker %}
+          {% set show_meta_title = meta_title and '{{' not in meta_title %}
+          {% set show_meta_subtitle = meta_subtitle and '{{' not in meta_subtitle %}
+          {% set show_meta = show_meta_kicker or show_meta_title or show_meta_subtitle %}
+
+          {% if show_meta %}
+          <div class="hero__meta{% if not show_meta_kicker %} hero__meta--no-kicker{% endif %}">
+            {% if show_meta_kicker %}
+              <div class="hero__metaKicker">{{ meta_kicker }}</div>
+            {% endif %}
+            {% if show_meta_title %}
+              <div class="hero__metaTitle">{{ meta_title }}</div>
+            {% endif %}
+            {% if show_meta_subtitle %}
+              <div class="hero__metaSub">{{ meta_subtitle }}</div>
+            {% endif %}
           </div>
+          {% endif %}
         </div>
       </div>
     </div>

@@ -1,0 +1,36 @@
+[
+  {
+    "id": "section_id",
+    "name": "section_id",
+    "label": "Section ID (anchor)",
+    "type": "text",
+    "default": "event-registration-form"
+  },
+  {
+    "id": "title",
+    "name": "title",
+    "label": "Heading",
+    "type": "text",
+    "default": "Meet with Myridius, a Salesforce Summit Partner"
+  },
+  {
+    "id": "description",
+    "name": "description",
+    "label": "Description",
+    "type": "richtext",
+    "default": "<p>Turn strategic priorities into measurable outcomes. Schedule time with our team at the event to discuss your Salesforce roadmap, agentic AI initiatives, and execution plans.</p>"
+  },
+  {
+    "id": "form_field",
+    "name": "form_field",
+    "label": "HubSpot Form",
+    "type": "form",
+    "embed_versions": ["v2", "v4"],
+    "default": {
+      "form_id": "",
+      "response_type": "inline_message",
+      "message": "Thanks for registering. We look forward to meeting you at the event.",
+      "form_type": "HUBSPOT"
+    }
+  }
+]

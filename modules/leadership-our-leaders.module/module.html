@@ -1,0 +1,213 @@
+{% macro leadership_know_more_icon() %}
+  <svg class="leadership-card__know-more-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <path d="m12 5 7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+{% endmacro %}
+
+{% macro leader_card(person, index) %}
+  {% set has_bio = person.bio and person.bio|striptags|trim %}
+  {% set photo_ns = namespace(src='') %}
+  {% set raw_photo_src = person.photo.src|default('')|trim %}
+  {% if raw_photo_src and '{{' not in raw_photo_src and 'get_asset_url' not in raw_photo_src %}
+    {% set photo_ns.src = raw_photo_src %}
+  {% elif person.photo_filename %}
+    {% set photo_ns.src = get_asset_url('/Myridius Theme V1/images/leadership/' ~ person.photo_filename) %}
+  {% endif %}
+  {% if not photo_ns.src %}
+    {% set leader_photo_files = ['ramesh-ramani.png', 'gerard-lynch.png', 'girish-pai.png', 'mike-fischer.png', 'harish-mundakode.png', 'mark-allnock.png', 'satish-rajarathnam.png'] %}
+    {% if leader_photo_files[index] is defined %}
+      {% set photo_ns.src = get_asset_url('/Myridius Theme V1/images/leadership/' ~ leader_photo_files[index]) %}
+    {% endif %}
+  {% endif %}
+  {% set photo_src = photo_ns.src %}
+  <article
+    class="leadership-card leadership-card--leader{% if has_bio %} leadership-card--has-bio{% endif %}"
+    data-leadership-card="{{ index }}"
+    {% if has_bio %}data-leadership-bio-id="{{ index }}"{% endif %}
+  >
+    <div class="leadership-card__face">
+      <div class="leadership-card__photo-wrap">
+        <div class="leadership-card__watermark" aria-hidden="true">
+          <svg viewBox="0 0 506 328" fill="none" preserveAspectRatio="none">
+            <path d="M493.564 159.379C496.113 157.809 499.138 157.472 501.702 158.425C505.204 159.729 506.831 162.997 505.582 166.195V166.224C474.513 244.65 423.867 328 391.205 328C385.763 328 381.029 325.869 377.546 321.815C362.553 304.424 370.065 246.277 396.678 173.698C398.29 169.281 397.633 165.353 394.902 163.166C389.955 159.211 381.654 154.498 366.547 154.498C351.439 154.498 337.962 159.562 329.314 163.825C323.364 166.769 318.514 171.609 316.363 176.798C285.163 251.943 237.328 328 206.259 328C200.818 328 196.083 325.869 192.598 321.815C177.624 304.424 185.136 246.277 211.748 173.698C213.359 169.281 212.703 165.353 209.973 163.166C205.026 159.211 196.708 154.498 181.618 154.498C166.528 154.498 153.048 159.575 144.386 163.838C138.419 166.769 133.57 171.622 131.416 176.812C100.233 251.943 52.3978 328 21.3296 328C15.8228 328 11.0723 325.826 7.57096 321.702C-10.4453 300.469 6.25589 226.728 30.798 163.081C31.7516 160.781 33.8555 159.028 36.4692 158.271C39.8226 157.303 43.3403 158.229 45.2144 160.6C48.3374 164.456 57.7894 173.502 77.8769 173.502C92.9837 173.502 106.463 168.44 115.109 164.175C121.076 161.231 125.926 156.391 128.079 151.203C159.263 76.057 207.097 0 238.165 0C243.607 0 248.341 2.13178 251.824 6.18497C266.818 23.5757 259.306 81.7232 232.693 154.302C231.08 158.72 231.738 162.647 234.466 164.835C239.414 168.79 247.716 173.502 262.822 173.502C277.928 173.502 291.408 168.44 300.055 164.175C306.006 161.231 310.854 156.391 313.007 151.203C344.191 76.057 392.026 0 423.095 0C428.535 0 433.269 2.13178 436.754 6.18497C451.746 23.5757 444.234 81.7232 417.621 154.302C416.008 158.72 416.667 162.647 419.394 164.835C424.344 168.79 433.269 173.502 447.752 173.502C468.923 173.502 486.843 163.628 493.564 159.379Z" fill="#52E081" fill-opacity="0.06"/>
+          </svg>
+        </div>
+        {% if photo_src %}
+          <img class="leadership-card__photo" src="{{ photo_src }}" alt="{{ person.photo.alt|default(person.person_name) }}" loading="lazy" decoding="async">
+        {% endif %}
+      </div>
+      <div class="leadership-card__bar">
+        <div class="leadership-card__meta">
+          <p class="leadership-card__name">{{ person.person_name }}</p>
+          <p class="leadership-card__role">{{ person.role }}</p>
+        </div>
+        {% if person.linkedin_url.href %}
+          <a class="leadership-card__linkedin" href="{{ person.linkedin_url.href }}" target="_blank" rel="noopener noreferrer" aria-label="{{ person.person_name }} on LinkedIn">
+        {% else %}
+          <span class="leadership-card__linkedin" aria-hidden="true">
+        {% endif %}
+          <svg viewBox="0 0 29.25 29.25" fill="none" aria-hidden="true">
+            <path d="M27 0H2.25C1.65326 0 1.08097 0.237053 0.65901 0.65901C0.237053 1.08097 0 1.65326 0 2.25V27C0 27.5967 0.237053 28.169 0.65901 28.591C1.08097 29.0129 1.65326 29.25 2.25 29.25H27C27.5967 29.25 28.169 29.0129 28.591 28.591C29.0129 28.169 29.25 27.5967 29.25 27V2.25C29.25 1.65326 29.0129 1.08097 28.591 0.65901C28.169 0.237053 27.5967 0 27 0ZM10.125 21.375C10.125 21.6734 10.0065 21.9595 9.79549 22.1705C9.58452 22.3815 9.29837 22.5 9 22.5C8.70163 22.5 8.41548 22.3815 8.20451 22.1705C7.99353 21.9595 7.875 21.6734 7.875 21.375V12.375C7.875 12.0766 7.99353 11.7905 8.20451 11.5795C8.41548 11.3685 8.70163 11.25 9 11.25C9.29837 11.25 9.58452 11.3685 9.79549 11.5795C10.0065 11.7905 10.125 12.0766 10.125 12.375V21.375ZM9 10.125C8.66624 10.125 8.33998 10.026 8.06248 9.84061C7.78497 9.65518 7.56868 9.39163 7.44095 9.08328C7.31323 8.77493 7.27981 8.43563 7.34492 8.10828C7.41004 7.78094 7.57076 7.48026 7.80676 7.24426C8.04276 7.00826 8.34344 6.84754 8.67078 6.78242C8.99813 6.71731 9.33743 6.75073 9.64578 6.87845C9.95413 7.00618 10.2177 7.22247 10.4031 7.49998C10.5885 7.77748 10.6875 8.10374 10.6875 8.4375C10.6875 8.88505 10.5097 9.31428 10.1932 9.63074C9.87678 9.94721 9.44755 10.125 9 10.125ZM22.5 21.375C22.5 21.6734 22.3815 21.9595 22.1705 22.1705C21.9595 22.3815 21.6734 22.5 21.375 22.5C21.0766 22.5 20.7905 22.3815 20.5795 22.1705C20.3685 21.9595 20.25 21.6734 20.25 21.375V16.3125C20.25 15.5666 19.9537 14.8512 19.4262 14.3238C18.8988 13.7963 18.1834 13.5 17.4375 13.5C16.6916 13.5 15.9762 13.7963 15.4488 14.3238C14.9213 14.8512 14.625 15.5666 14.625 16.3125V21.375C14.625 21.6734 14.5065 21.9595 14.2955 22.1705C14.0845 22.3815 13.7984 22.5 13.5 22.5C13.2016 22.5 12.9155 22.3815 12.7045 22.1705C12.4935 21.9595 12.375 21.6734 12.375 21.375V12.375C12.3764 12.0994 12.4789 11.834 12.663 11.629C12.8472 11.4239 13.1001 11.2936 13.374 11.2628C13.6478 11.2319 13.9234 11.3026 14.1486 11.4615C14.3737 11.6204 14.5328 11.8564 14.5955 12.1247C15.3565 11.6084 16.2438 11.3092 17.1621 11.2592C18.0804 11.2091 18.9949 11.4102 19.8075 11.8407C20.6202 12.2712 21.3002 12.915 21.7745 13.7028C22.2489 14.4907 22.4997 15.3929 22.5 16.3125V21.375Z" fill="#337077"/>
+          </svg>
+        {% if person.linkedin_url.href %}</a>{% else %}</span>{% endif %}
+      </div>
+    </div>
+
+    {% if has_bio %}
+      <div class="leadership-card__know-more-footer">
+        <button
+          type="button"
+          class="leadership-card__know-more leadership-card__know-more--mobile"
+          data-leadership-know-more="{{ index }}"
+          aria-label="Know more about {{ person.person_name }}"
+        >
+          <span class="leadership-card__know-more-label">{{ module.know_more_text|default('Know more') }}</span>
+          {{ leadership_know_more_icon() }}
+        </button>
+      </div>
+
+      <div class="leadership-card__bio-panel">
+        <div class="leadership-card__bio-head">
+          <div class="leadership-card__meta">
+            <p class="leadership-card__name">{{ person.person_name }}</p>
+            <p class="leadership-card__role leadership-card__role--sm">{{ person.role }}</p>
+          </div>
+          {% if person.linkedin_url.href %}
+            <a class="leadership-card__linkedin" href="{{ person.linkedin_url.href }}" target="_blank" rel="noopener noreferrer" aria-label="{{ person.person_name }} on LinkedIn">
+          {% else %}
+            <span class="leadership-card__linkedin" aria-hidden="true">
+          {% endif %}
+            <svg viewBox="0 0 29.25 29.25" fill="none" aria-hidden="true">
+              <path d="M27 0H2.25C1.65326 0 1.08097 0.237053 0.65901 0.65901C0.237053 1.08097 0 1.65326 0 2.25V27C0 27.5967 0.237053 28.169 0.65901 28.591C1.08097 29.0129 1.65326 29.25 2.25 29.25H27C27.5967 29.25 28.169 29.0129 28.591 28.591C29.0129 28.169 29.25 27.5967 29.25 27V2.25C29.25 1.65326 29.0129 1.08097 28.591 0.65901C28.169 0.237053 27.5967 0 27 0ZM10.125 21.375C10.125 21.6734 10.0065 21.9595 9.79549 22.1705C9.58452 22.3815 9.29837 22.5 9 22.5C8.70163 22.5 8.41548 22.3815 8.20451 22.1705C7.99353 21.9595 7.875 21.6734 7.875 21.375V12.375C7.875 12.0766 7.99353 11.7905 8.20451 11.5795C8.41548 11.3685 8.70163 11.25 9 11.25C9.29837 11.25 9.58452 11.3685 9.79549 11.5795C10.0065 11.7905 10.125 12.0766 10.125 12.375V21.375ZM9 10.125C8.66624 10.125 8.33998 10.026 8.06248 9.84061C7.78497 9.65518 7.56868 9.39163 7.44095 9.08328C7.31323 8.77493 7.27981 8.43563 7.34492 8.10828C7.41004 7.78094 7.57076 7.48026 7.80676 7.24426C8.04276 7.00826 8.34344 6.84754 8.67078 6.78242C8.99813 6.71731 9.33743 6.75073 9.64578 6.87845C9.95413 7.00618 10.2177 7.22247 10.4031 7.49998C10.5885 7.77748 10.6875 8.10374 10.6875 8.4375C10.6875 8.88505 10.5097 9.31428 10.1932 9.63074C9.87678 9.94721 9.44755 10.125 9 10.125ZM22.5 21.375C22.5 21.6734 22.3815 21.9595 22.1705 22.1705C21.9595 22.3815 21.6734 22.5 21.375 22.5C21.0766 22.5 20.7905 22.3815 20.5795 22.1705C20.3685 21.9595 20.25 21.6734 20.25 21.375V16.3125C20.25 15.5666 19.9537 14.8512 19.4262 14.3238C18.8988 13.7963 18.1834 13.5 17.4375 13.5C16.6916 13.5 15.9762 13.7963 15.4488 14.3238C14.9213 14.8512 14.625 15.5666 14.625 16.3125V21.375C14.625 21.6734 14.5065 21.9595 14.2955 22.1705C14.0845 22.3815 13.7984 22.5 13.5 22.5C13.2016 22.5 12.9155 22.3815 12.7045 22.1705C12.4935 21.9595 12.375 21.6734 12.375 21.375V12.375C12.3764 12.0994 12.4789 11.834 12.663 11.629C12.8472 11.4239 13.1001 11.2936 13.374 11.2628C13.6478 11.2319 13.9234 11.3026 14.1486 11.4615C14.3737 11.6204 14.5328 11.8564 14.5955 12.1247C15.3565 11.6084 16.2438 11.3092 17.1621 11.2592C18.0804 11.2091 18.9949 11.4102 19.8075 11.8407C20.6202 12.2712 21.3002 12.915 21.7745 13.7028C22.2489 14.4907 22.4997 15.3929 22.5 16.3125V21.375Z" fill="#337077"/>
+            </svg>
+          {% if person.linkedin_url.href %}</a>{% else %}</span>{% endif %}
+        </div>
+        <div class="leadership-card__bio-excerpt">{{ person.bio }}</div>
+        <button type="button" class="leadership-card__know-more leadership-card__know-more--desktop" data-leadership-know-more="{{ index }}">
+          <span class="leadership-card__know-more-label">{{ module.know_more_text|default('Know more') }}</span>
+          {{ leadership_know_more_icon() }}
+        </button>
+      </div>
+      <template class="leadership-card__modal-template" data-leadership-modal-template="{{ index }}">
+        <div class="leadership-modal__photo-wrap">
+          {% if photo_src %}
+            <img src="{{ photo_src }}" alt="{{ person.photo.alt|default(person.person_name) }}" loading="lazy" decoding="async">
+          {% endif %}
+        </div>
+        <div class="leadership-modal__content">
+          <div class="leadership-modal__head">
+            <div>
+              <p class="leadership-modal__name">{{ person.person_name }}</p>
+              <p class="leadership-modal__role">{{ person.role }}</p>
+            </div>
+            {% if person.linkedin_url.href %}
+              <a class="leadership-card__linkedin" href="{{ person.linkedin_url.href }}" target="_blank" rel="noopener noreferrer" aria-label="{{ person.person_name }} on LinkedIn">
+                <svg viewBox="0 0 29.25 29.25" fill="none" aria-hidden="true">
+                  <path d="M27 0H2.25C1.65326 0 1.08097 0.237053 0.65901 0.65901C0.237053 1.08097 0 1.65326 0 2.25V27C0 27.5967 0.237053 28.169 0.65901 28.591C1.08097 29.0129 1.65326 29.25 2.25 29.25H27C27.5967 29.25 28.169 29.0129 28.591 28.591C29.0129 28.169 29.25 27.5967 29.25 27V2.25C29.25 1.65326 29.0129 1.08097 28.591 0.65901C28.169 0.237053 27.5967 0 27 0ZM10.125 21.375C10.125 21.6734 10.0065 21.9595 9.79549 22.1705C9.58452 22.3815 9.29837 22.5 9 22.5C8.70163 22.5 8.41548 22.3815 8.20451 22.1705C7.99353 21.9595 7.875 21.6734 7.875 21.375V12.375C7.875 12.0766 7.99353 11.7905 8.20451 11.5795C8.41548 11.3685 8.70163 11.25 9 11.25C9.29837 11.25 9.58452 11.3685 9.79549 11.5795C10.0065 11.7905 10.125 12.0766 10.125 12.375V21.375ZM9 10.125C8.66624 10.125 8.33998 10.026 8.06248 9.84061C7.78497 9.65518 7.56868 9.39163 7.44095 9.08328C7.31323 8.77493 7.27981 8.43563 7.34492 8.10828C7.41004 7.78094 7.57076 7.48026 7.80676 7.24426C8.04276 7.00826 8.34344 6.84754 8.67078 6.78242C8.99813 6.71731 9.33743 6.75073 9.64578 6.87845C9.95413 7.00618 10.2177 7.22247 10.4031 7.49998C10.5885 7.77748 10.6875 8.10374 10.6875 8.4375C10.6875 8.88505 10.5097 9.31428 10.1932 9.63074C9.87678 9.94721 9.44755 10.125 9 10.125ZM22.5 21.375C22.5 21.6734 22.3815 21.9595 22.1705 22.1705C21.9595 22.3815 21.6734 22.5 21.375 22.5C21.0766 22.5 20.7905 22.3815 20.5795 22.1705C20.3685 21.9595 20.25 21.6734 20.25 21.375V16.3125C20.25 15.5666 19.9537 14.8512 19.4262 14.3238C18.8988 13.7963 18.1834 13.5 17.4375 13.5C16.6916 13.5 15.9762 13.7963 15.4488 14.3238C14.9213 14.8512 14.625 15.5666 14.625 16.3125V21.375C14.625 21.6734 14.5065 21.9595 14.2955 22.1705C14.0845 22.3815 13.7984 22.5 13.5 22.5C13.2016 22.5 12.9155 22.3815 12.7045 22.1705C12.4935 21.9595 12.375 21.6734 12.375 21.375V12.375C12.3764 12.0994 12.4789 11.834 12.663 11.629C12.8472 11.4239 13.1001 11.2936 13.374 11.2628C13.6478 11.2319 13.9234 11.3026 14.1486 11.4615C14.3737 11.6204 14.5328 11.8564 14.5955 12.1247C15.3565 11.6084 16.2438 11.3092 17.1621 11.2592C18.0804 11.2091 18.9949 11.4102 19.8075 11.8407C20.6202 12.2712 21.3002 12.915 21.7745 13.7028C22.2489 14.4907 22.4997 15.3929 22.5 16.3125V21.375Z" fill="#337077"/>
+                </svg>
+              </a>
+            {% endif %}
+          </div>
+          <div class="leadership-modal__bio">{{ person.bio }}</div>
+        </div>
+      </template>
+    {% endif %}
+  </article>
+{% endmacro %}
+
+{% set card_bg_ns = namespace(src=module.card_background_image.src|default('')|trim) %}
+{% if (not card_bg_ns.src) or ('get_asset_url' in card_bg_ns.src) or ('{{' in card_bg_ns.src) %}
+  {% if module.card_background_filename %}
+    {% set card_bg_ns.src = get_asset_url('/Myridius Theme V1/images/leadership/' ~ module.card_background_filename) %}
+  {% endif %}
+{% endif %}
+{% set card_bg_src = card_bg_ns.src %}
+
+<section
+  class="leadership-our-leaders{% if card_bg_src %} leadership-our-leaders--has-card-bg{% endif %}"
+  {% if module.section_id %}id="{{ module.section_id }}"{% endif %}
+  {% if card_bg_src %}style="--leadership-card-bg: url('{{ card_bg_src }}');"{% endif %}
+  data-leadership-our-leaders
+>
+  {% set mobile_bg_ns = namespace(src=module.mobile_background_image.src|default('')|trim) %}
+  {% if (not mobile_bg_ns.src) or ('get_asset_url' in mobile_bg_ns.src) or ('{{' in mobile_bg_ns.src) %}
+    {% if module.mobile_background_filename %}
+      {% set mobile_bg_ns.src = get_asset_url('/Myridius Theme V1/images/leadership/' ~ module.mobile_background_filename) %}
+    {% endif %}
+  {% endif %}
+  {% set mobile_bg_src = mobile_bg_ns.src %}
+  {% if mobile_bg_src %}
+    <div class="leadership-our-leaders__mobile-bg" aria-hidden="true">
+      <img src="{{ mobile_bg_src }}" alt="" loading="lazy" decoding="async">
+    </div>
+  {% endif %}
+  <div class="leadership-our-leaders__overlay" aria-hidden="true"></div>
+
+  <div class="leadership-our-leaders__wrap">
+    <header class="leadership-our-leaders__header">
+      <div class="leadership-section-tag leadership-section-tag--green">
+        <span class="leadership-section-tag__line" aria-hidden="true"></span>
+        <span class="leadership-section-tag__text">{{ module.badge_text }}</span>
+      </div>
+      <h2 class="leadership-our-leaders__heading">{{ module.heading }}</h2>
+    </header>
+
+    <div class="leadership-our-leaders__desktop" aria-label="{{ module.heading }}">
+      <div class="leadership-our-leaders__row leadership-our-leaders__row--4">
+        {% for person in module.people %}
+          {% if loop.index <= 4 %}
+            {{ leader_card(person, loop.index0) }}
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div class="leadership-our-leaders__row leadership-our-leaders__row--3">
+        {% for person in module.people %}
+          {% if loop.index > 4 %}
+            {{ leader_card(person, loop.index0) }}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="leadership-our-leaders__mobile" data-leadership-carousel>
+      <div class="leadership-our-leaders__track" data-leadership-track>
+        {% for person in module.people %}
+          <div class="leadership-our-leaders__slide{% if loop.first %} is-active{% endif %}" data-leadership-slide="{{ loop.index0 }}">
+            {{ leader_card(person, loop.index0) }}
+          </div>
+        {% endfor %}
+      </div>
+
+      {% if module.people|length > 1 %}
+        <div class="leadership-our-leaders__nav" aria-label="Leaders carousel">
+          <button type="button" class="leadership-our-leaders__nav-btn" data-leadership-prev aria-label="Previous leader">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M15 6.343 9.343 12 15 17.657" stroke="#8CA1A3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="leadership-our-leaders__count" aria-live="polite">
+            <span data-leadership-cur>1</span>
+            <span class="leadership-our-leaders__count-sep">/</span>
+            <span data-leadership-total>{{ module.people|length }}</span>
+          </div>
+          <button type="button" class="leadership-our-leaders__nav-btn" data-leadership-next aria-label="Next leader">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M9 6.343 14.657 12 9 17.657" stroke="#8CA1A3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="leadership-modal leadership-modal--closed" data-leadership-modal aria-hidden="true" role="presentation">
+    <div class="leadership-modal__backdrop" data-leadership-modal-close tabindex="-1"></div>
+    <div class="leadership-modal__dialog" role="dialog" aria-modal="true" tabindex="-1">
+      <button type="button" class="leadership-modal__close" data-leadership-modal-close aria-label="Close dialog">
+        <span class="leadership-modal__close-icon" aria-hidden="true"></span>
+      </button>
+      <div class="leadership-modal__body" data-leadership-modal-body></div>
+    </div>
+  </div>
+</section>

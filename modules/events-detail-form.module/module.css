@@ -1,0 +1,220 @@
+.evt-form {
+  background: #f6f8f9;
+  padding: 100px 0;
+}
+
+.evt-form__wrap {
+  max-width: var(--container-max, 1200px);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  gap: 64px;
+}
+
+.evt-form__copy {
+  width: min(100%, 554px);
+  flex-shrink: 0;
+}
+
+.evt-form__title {
+  margin: 0 0 16px;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #194247;
+}
+
+.evt-form__desc {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #556467;
+}
+
+.evt-form__desc p {
+  margin: 0 0 1em;
+}
+
+.evt-form__desc p:last-child {
+  margin-bottom: 0;
+}
+
+.evt-form__panel {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+}
+
+.evt-form__card {
+  background: #fff;
+  border: 1px solid rgba(140, 161, 163, 0.2);
+  border-radius: 12px;
+  padding: 32px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.evt-form__embed {
+  width: 100%;
+}
+
+.evt-form__placeholder {
+  margin: 0;
+  color: #556467;
+  font-size: 16px;
+}
+
+.evt-form__embed form,
+.evt-form__embed .hs-form,
+.evt-form__embed .hbspt-form {
+  width: 100%;
+  max-width: 100%;
+}
+
+.evt-form__embed .hs-form fieldset {
+  max-width: none;
+  width: 100%;
+}
+
+.evt-form__embed .hs-form .hs-form-field {
+  margin-bottom: 24px;
+}
+
+.evt-form__embed .hs-form .hs-form-field > label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #0c2226;
+}
+
+.evt-form__embed .hs-form .hs-form-field > label .hs-form-required {
+  color: #e83a25;
+}
+
+.evt-form__embed .hs-form input[type="text"],
+.evt-form__embed .hs-form input[type="email"],
+.evt-form__embed .hs-form input[type="tel"],
+.evt-form__embed .hs-form select,
+.evt-form__embed .hs-form textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 1px solid rgba(140, 161, 163, 0.4);
+  border-radius: 4px;
+  background: #fff;
+  font-family: var(--font-family);
+  font-size: 14px;
+  color: #0c2226;
+  box-sizing: border-box;
+}
+
+.evt-form__embed .hs-form .hs-submit .hs-button,
+.evt-form__embed .hs-form input[type="submit"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 56px;
+  padding: 20px 40px;
+  border: 0;
+  border-radius: 9999px;
+  background: #194247;
+  color: #fff;
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.evt-form__embed .hs-form .hs-submit .hs-button:hover,
+.evt-form__embed .hs-form input[type="submit"]:hover {
+  transform: scale(1.02);
+  background: #337077;
+}
+
+.evt-form__embed .hs-form .form-columns-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.evt-form__embed .hs-form .form-columns-2 .hs-form-field,
+.evt-form__embed .hs-form .form-columns-1 .hs-form-field,
+.evt-form__embed .hs-form .hs-form-field {
+  width: 100%;
+  max-width: 100%;
+  float: none;
+}
+
+.evt-form__embed .hs-form .hs-input,
+.evt-form__embed .hs-form .input {
+  width: 100% !important;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.evt-form [data-sr] {
+  opacity: 1;
+  transform: none;
+}
+
+.evt-form .is-sr-hidden[data-sr="left"] {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.evt-form .is-sr-hidden[data-sr="right"] {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.evt-form .is-sr-shown {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+@media (max-width: 1024px) {
+  .evt-form__wrap {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .evt-form__copy,
+  .evt-form__panel,
+  .evt-form__card,
+  .evt-form__embed {
+    width: 100%;
+  }
+
+  .evt-form__embed .hs-form .form-columns-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .evt-form {
+    padding: 68px 0;
+  }
+
+  .evt-form__card {
+    padding: 24px 20px;
+  }
+
+  .evt-form__embed .hs-form .form-columns-2 {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    grid-template-columns: 1fr;
+  }
+}
